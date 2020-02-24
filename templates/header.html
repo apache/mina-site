@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html>
+<head>
+	<title>{% block title %}{{ headers.title }}{% endblock %} &mdash; Apache MINA</title>
+	{% block css %}
+	<link href="{{base}}css/common.css" rel="stylesheet" type="text/css"/>
+	<link href="{{base}}css/mina.css" rel="stylesheet" type="text/css"/>
+  {% endblock %}
+  {% block favicon %}
+  <link rel="shortcut icon" href="{{base}}staticresources/images/mina-icon_16x16.png"/>
+	{% endblock %}
+</head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <div id="subProjectsNavBar">
+          <a href="{{base}}">
+            {% if isSite %}
+              <strong>Apache MINA Project</strong>
+            {% else %}
+              Apache MINA Project
+            {% endif %}
+          </a>
+          &nbsp;|&nbsp;
+          <a href="{{base}}mina-project/index.html">
+            {% if isMina %}
+              <strong>MINA</strong>
+            {% else %}
+              MINA
+            {% endif %}
+          </a>
+          &nbsp;|&nbsp;
+          <a href="{{base}}asyncweb-project/index.html">
+            {% if isAsyncWeb %}
+              <strong>AsyncWeb</strong>
+            {% else %}
+              AsyncWeb
+            {% endif %}
+          </a>
+          &nbsp;|&nbsp;
+          <a href="{{base}}ftpserver-project/index.html">
+            {% if isFtpServer %}
+              <strong>FtpServer</strong>
+            {% else %}
+              FtpServer
+            {% endif %}
+          </a>
+          &nbsp;|&nbsp;
+          <a href="{{base}}sshd-project/index.html">
+            {% if isSshd %}
+              <strong>SSHD</strong>
+            {% else %}
+              SSHD
+            {% endif %}
+          </a>
+          &nbsp;|&nbsp;
+          <a href="{{base}}vysper-project/index.html">
+            {% if isVysper %}
+              <strong>Vysper</strong>
+            {% else %}
+              Vysper
+            {% endif %}
+          </a>
+        </div><!-- subProjectsNavBar -->
+      </div><!-- header -->
+      <div id="content">
+        <div id="leftColumn">
+          {% if isVysper %}
+            {% filter markdown %}{% include "vysper-project/navigation.html" %}{% endfilter %} 
+          {% endif %}                    
+          {% if isSshd %}
+            {% filter markdown %}{% include "sshd-project/navigation.html" %}{% endfilter %}
+          {% endif %}
+          {% if isFtpServer %}
+            {% filter markdown %}{% include "ftpserver-project/navigation.html" %}{% endfilter %}
+          {% endif %}
+          {% if isAsyncweb %}
+            {% filter markdown %}{% include "asyncweb-project/navigation.html" %}{% endfilter %}
+          {% endif %}
+          {% if isMina %}
+            {% filter markdown %}{% include "mina-project/navigation.html" %}{% endfilter %}
+          {% endif %}
+          {% if isSite %}
+            {% include "navigation.html" %}
+          {% endif %}
+        </div><!-- leftColumn -->
+      <div id="rightColumn">

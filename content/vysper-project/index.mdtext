@@ -1,0 +1,33 @@
+Title: Apache Vysper
+Notice:    Licensed to the Apache Software Foundation (ASF) under one
+           or more contributor license agreements.  See the NOTICE file
+           distributed with this work for additional information
+           regarding copyright ownership.  The ASF licenses this file
+           to you under the Apache License, Version 2.0 (the
+           "License"); you may not use this file except in compliance
+           with the License.  You may obtain a copy of the License at
+           .
+             http://www.apache.org/licenses/LICENSE-2.0
+           .
+           Unless required by applicable law or agreed to in writing,
+           software distributed under the License is distributed on an
+           "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+           KIND, either express or implied.  See the License for the
+           specific language governing permissions and limitations
+           under the License.
+
+
+# Apache Vysper
+
+Apache Vysper aims to be a modular, full featured XMPP (Jabber) server.
+
+More details on Vysper in our [documentation](documentation.html).
+
+There are already some larger XEPs as modules available, most notably
+
+* Multi User Chat ([XEP0045](http://xmpp.org/extensions/xep-0045.html)) and
+* Publish/Subscribe ([XEP0060](http://xmpp.org/extensions/xep-0060.html))
+* BOSH ([XEP0124](http://xmpp.org/extensions/xep-0124.html), [XEP0206](http://xmpp.org/extensions/xep-0206.html))
+
+To start using and/or developing extensions for Vysper, don't miss the [User Guide](user_guide.html)!
+

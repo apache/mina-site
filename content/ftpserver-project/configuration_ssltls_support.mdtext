@@ -1,0 +1,64 @@
+Title: FtpServer TLS-SSL Support
+Notice:    Licensed to the Apache Software Foundation (ASF) under one
+           or more contributor license agreements.  See the NOTICE file
+           distributed with this work for additional information
+           regarding copyright ownership.  The ASF licenses this file
+           to you under the Apache License, Version 2.0 (the
+           "License"); you may not use this file except in compliance
+           with the License.  You may obtain a copy of the License at
+           .
+             http://www.apache.org/licenses/LICENSE-2.0
+           .
+           Unless required by applicable law or agreed to in writing,
+           software distributed under the License is distributed on an
+           "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+           KIND, either express or implied.  See the License for the
+           specific language governing permissions and limitations
+           under the License.
+
+
+# TLS-SSL Support
+
+This document explains how to enable Apache FTP Server to use Transport Layer Security (TLS) for encrypted client-server communication.
+
+FtpServer uses the Java Secure Sockets Extension (JSSE) infrastructure to provide TLS/SSL sockets. JSSE comes packaged with several vendor Java distributions (i.e. Sun Java 1.4.x, IBM Java 1.3.x). For these distributions, please follow the vendor provided instructions for configuring the JVM to use JSSE services.
+
+## Security mode
+
+### Explicit Security (default)
+
+In this mode server supports both secure and non-secure connection. Upon request from client (AUTH SSL) the server switches to the SSL/TLS mode.
+
+In this case, the listener should not use implicit SSL (the default value):
+
+	:::XML
+ 	<nio-listener name="default" implicit-ssl="false">
+
+### Implicit Security
+
+If you want to use implicit SSL connection, that is, SSL is always enabled on the control socket. The first thing you need to do is to tell the listener to use implicit SSL mode:
+
+	:::XML
+	<nio-listener name="default" implicit-ssl="true">
+
+If you set the listener to use implicit security, enabling implicit security for the data connection should be conside
+
+### Data connection security
+
+Implicit secure listener does not ensure encrypted data transfer. To use SSL/TLS in data connection, client either has to send "PROT P" command or implicit security must be enabled for the data connection.
+
+	:::XML
+	<data-connection implicit-ssl="true">
+
+If no explicit configuration for SSL keystores and truststores is provided for the data connection, it will be inherited from the listener. This is the normal configuration.
+
+Different FTP clients behave different with regards to implicit security on the data connection, some assume an SSL enabled socket, while some will always send a "PROT P" command. The following table shows the characteristics of some clients, please report others.
+
+| FTP client | Behavior |
+|---|---|
+| FileZilla | Sends "PROT P" command automatically in implicit security mode |
+| DartFTP/PowerTCP | Assumes an SSL enabled data connection, does not send "PROT P" |
+
+### Detailed configuration
+
+Full documentation on all provided configuration is available on the [Listeners](configuration_listeners.html) page

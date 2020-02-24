@@ -1,0 +1,42 @@
+Title: FtpServer Building
+Notice:    Licensed to the Apache Software Foundation (ASF) under one
+           or more contributor license agreements.  See the NOTICE file
+           distributed with this work for additional information
+           regarding copyright ownership.  The ASF licenses this file
+           to you under the Apache License, Version 2.0 (the
+           "License"); you may not use this file except in compliance
+           with the License.  You may obtain a copy of the License at
+           .
+             http://www.apache.org/licenses/LICENSE-2.0
+           .
+           Unless required by applicable law or agreed to in writing,
+           software distributed under the License is distributed on an
+           "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+           KIND, either express or implied.  See the License for the
+           specific language governing permissions and limitations
+           under the License.
+
+
+# Building
+
+You need [Subversion](http://svnbook.red-bean.com/) to [check out the source code](http://apache.org/dev/version-control.html) from [our source code repository](getting_source.html), and [Maven 2](http://maven.apache.org/download.html) to build the source code. Currently, Maven 2.0.5 or 2.0.7 or newer is required for the build.
+
+The following example shows how to build the trunk.
+
+	$ svn co http://svn.apache.org/repos/asf/mina/ftpserver/trunk/ ftpserver
+	$ cd ftpserver
+	$ mvn install
+
+If you run into any problems running these steps, please report on the [mailing lists](mailing_list.html)
+
+If you want to generate Eclipse project files, run:
+
+	$ mvn eclipse:eclipse   # Generate Eclipse project files if you want
+
+To generate to distribution packages, including shell scripts and example configuration, run:
+
+	cd distribution
+	$ mvn package
+
+The build requires a minimum Java 1.5 JDK to compile.
+

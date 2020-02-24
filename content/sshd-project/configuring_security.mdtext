@@ -1,0 +1,48 @@
+Title: SSHD Configuring Security
+Notice:    Licensed to the Apache Software Foundation (ASF) under one
+           or more contributor license agreements.  See the NOTICE file
+           distributed with this work for additional information
+           regarding copyright ownership.  The ASF licenses this file
+           to you under the Apache License, Version 2.0 (the
+           "License"); you may not use this file except in compliance
+           with the License.  You may obtain a copy of the License at
+           .
+             http://www.apache.org/licenses/LICENSE-2.0
+           .
+           Unless required by applicable law or agreed to in writing,
+           software distributed under the License is distributed on an
+           "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+           KIND, either express or implied.  See the License for the
+           specific language governing permissions and limitations
+           under the License.
+
+## Configuring Security
+
+The SSHD server needs to be integrated and the security layer has to be customized to suit your needs.
+This layer is pluggable and use the following interfaces:
+
+* [PasswordAuthenticator](http://svn.apache.org/repos/asf/mina/sshd/trunk/sshd-core/src/main/java/org/apache/sshd/server/PasswordAuthenticator.java) for password based authentication
+* [PublickeyAuthenticator](http://svn.apache.org/repos/asf/mina/sshd/trunk/sshd-core/src/main/java/org/apache/sshd/server/PublickeyAuthenticator.java) for key based authentication
+
+Those custom classes can be configured on the SSHD server using the following code:
+
+	:::java
+	SshServer sshd = SshServer.setUpDefaultServer();
+	sshd.setPasswordAuthenticator(new MyPasswordAuthenticator());
+	sshd.setPublickeyAuthenticator(new MyPublickeyAuthenticator());
+
+If only one of those class is implemented, only the related authentication mechanism will be enabled.
+
+## JAAS integration
+
+SSHD provides a password based authentication that delegates to JAAS.
+This can be configured in the following way:
+
+	:::java
+	SshServer sshd = SshServer.setUpDefaultServer();
+	JaasPasswordAuthenticator pswdAuth = new JaasPasswordAuthenticator();
+	pswdAuth.setDomain("myJaasDomain");
+	sshd.setPasswordAuthenticator(pswdAuth);
+
+
+The domain name must be set to the JAAS domain that will be used for authentication.
