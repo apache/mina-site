@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Licensed to the Apache Software Foundation (ASF) under one<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  or more contributor license agreements.  See the NOTICE file<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  distributed with this work for additional information<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  regarding copyright ownership.  The ASF licenses this file<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  to you under the Apache License, Version 2.0 (the<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  "License"); you may not use this file except in compliance<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *  with the License.  You may obtain a copy of the License at<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *    http://www.apache.org/licenses/LICENSE-2.0<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  Unless required by applicable law or agreed to in writing,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  software distributed under the License is distributed on an<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  KIND, either express or implied.  See the License for the<a name="line.15"></a>
+<span class="sourceLineNo">016</span> *  specific language governing permissions and limitations<a name="line.16"></a>
+<span class="sourceLineNo">017</span> *  under the License.<a name="line.17"></a>
+<span class="sourceLineNo">018</span> *<a name="line.18"></a>
+<span class="sourceLineNo">019</span> */<a name="line.19"></a>
+<span class="sourceLineNo">020</span>package org.apache.mina.proxy;<a name="line.20"></a>
+<span class="sourceLineNo">021</span><a name="line.21"></a>
+<span class="sourceLineNo">022</span>import static org.apache.mina.proxy.utils.ByteUtilities.asHex;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import static org.junit.Assert.assertEquals;<a name="line.23"></a>
+<span class="sourceLineNo">024</span><a name="line.24"></a>
+<span class="sourceLineNo">025</span>import java.io.PrintWriter;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import java.io.UnsupportedEncodingException;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>import java.security.MessageDigest;<a name="line.27"></a>
+<span class="sourceLineNo">028</span>import java.security.NoSuchAlgorithmException;<a name="line.28"></a>
+<span class="sourceLineNo">029</span><a name="line.29"></a>
+<span class="sourceLineNo">030</span>import org.apache.mina.proxy.handlers.http.ntlm.NTLMResponses;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>import org.apache.mina.proxy.handlers.http.ntlm.NTLMUtilities;<a name="line.31"></a>
+<span class="sourceLineNo">032</span>import org.apache.mina.proxy.utils.ByteUtilities;<a name="line.32"></a>
+<span class="sourceLineNo">033</span>import org.junit.Test;<a name="line.33"></a>
+<span class="sourceLineNo">034</span>import org.slf4j.Logger;<a name="line.34"></a>
+<span class="sourceLineNo">035</span>import org.slf4j.LoggerFactory;<a name="line.35"></a>
+<span class="sourceLineNo">036</span><a name="line.36"></a>
+<span class="sourceLineNo">037</span>/**<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * NTLMTest.java - JUNIT tests of the NTLM authentication mechanism.<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * <a name="line.39"></a>
+<span class="sourceLineNo">040</span> * @author &lt;a href="http://mina.apache.org"&gt;Apache MINA Project&lt;/a&gt;<a name="line.40"></a>
+<span class="sourceLineNo">041</span> * @since MINA 2.0.0-M3<a name="line.41"></a>
+<span class="sourceLineNo">042</span> */<a name="line.42"></a>
+<span class="sourceLineNo">043</span>public class NTLMTest {<a name="line.43"></a>
+<span class="sourceLineNo">044</span>    private final static Logger logger = LoggerFactory.getLogger(NTLMTest.class);<a name="line.44"></a>
+<span class="sourceLineNo">045</span><a name="line.45"></a>
+<span class="sourceLineNo">046</span>    /**<a name="line.46"></a>
+<span class="sourceLineNo">047</span>     * Tests bytes manipulations.<a name="line.47"></a>
+<span class="sourceLineNo">048</span>     */<a name="line.48"></a>
+<span class="sourceLineNo">049</span>    @Test<a name="line.49"></a>
+<span class="sourceLineNo">050</span>    public void testEncoding() throws UnsupportedEncodingException {<a name="line.50"></a>
+<span class="sourceLineNo">051</span>        assertEquals("d204", asHex(ByteUtilities.writeShort((short) 1234)));<a name="line.51"></a>
+<span class="sourceLineNo">052</span>        assertEquals("d2040000", asHex(ByteUtilities.writeInt(1234)));<a name="line.52"></a>
+<span class="sourceLineNo">053</span>        assertEquals("01000000", asHex(ByteUtilities.writeInt((short) 1)));<a name="line.53"></a>
+<span class="sourceLineNo">054</span>        assertEquals("4e544c4d53535000", asHex(NTLMUtilities.NTLM_SIGNATURE));<a name="line.54"></a>
+<span class="sourceLineNo">055</span><a name="line.55"></a>
+<span class="sourceLineNo">056</span>        assertEquals("680065006c006c006f00", asHex(ByteUtilities.getUTFStringAsByteArray("hello")));<a name="line.56"></a>
+<span class="sourceLineNo">057</span>        assertEquals("48454c4c4f", asHex(ByteUtilities.getOEMStringAsByteArray("HELLO")));<a name="line.57"></a>
+<span class="sourceLineNo">058</span>    }<a name="line.58"></a>
+<span class="sourceLineNo">059</span><a name="line.59"></a>
+<span class="sourceLineNo">060</span>    /**<a name="line.60"></a>
+<span class="sourceLineNo">061</span>     * Tests conversions to and from network byte order.<a name="line.61"></a>
+<span class="sourceLineNo">062</span>     */<a name="line.62"></a>
+<span class="sourceLineNo">063</span>    @Test<a name="line.63"></a>
+<span class="sourceLineNo">064</span>    public void testMethods() {<a name="line.64"></a>
+<span class="sourceLineNo">065</span>        byte[] buf = new byte[4];<a name="line.65"></a>
+<span class="sourceLineNo">066</span>        ByteUtilities.intToNetworkByteOrder(1234, buf, 0, 4);<a name="line.66"></a>
+<span class="sourceLineNo">067</span>        assertEquals("000004d2", asHex(buf));<a name="line.67"></a>
+<span class="sourceLineNo">068</span>        assertEquals(1234, ByteUtilities.networkByteOrderToInt(buf, 0, 4));<a name="line.68"></a>
+<span class="sourceLineNo">069</span>    }<a name="line.69"></a>
+<span class="sourceLineNo">070</span><a name="line.70"></a>
+<span class="sourceLineNo">071</span>    /**<a name="line.71"></a>
+<span class="sourceLineNo">072</span>     * Tests security buffers.<a name="line.72"></a>
+<span class="sourceLineNo">073</span>     */<a name="line.73"></a>
+<span class="sourceLineNo">074</span>    @Test<a name="line.74"></a>
+<span class="sourceLineNo">075</span>    public void testSecurityBuffer() {<a name="line.75"></a>
+<span class="sourceLineNo">076</span>        byte[] secBuf = new byte[8];<a name="line.76"></a>
+<span class="sourceLineNo">077</span>        NTLMUtilities.writeSecurityBuffer((short) 1234, (short) 1234, 4321, secBuf, 0);<a name="line.77"></a>
+<span class="sourceLineNo">078</span>        assertEquals("d204d204e1100000", asHex(secBuf));<a name="line.78"></a>
+<span class="sourceLineNo">079</span>    }<a name="line.79"></a>
+<span class="sourceLineNo">080</span><a name="line.80"></a>
+<span class="sourceLineNo">081</span>    /**<a name="line.81"></a>
+<span class="sourceLineNo">082</span>     * Tests creating a type 1 message.<a name="line.82"></a>
+<span class="sourceLineNo">083</span>     */<a name="line.83"></a>
+<span class="sourceLineNo">084</span>    @Test<a name="line.84"></a>
+<span class="sourceLineNo">085</span>    public void testType1Message() {<a name="line.85"></a>
+<span class="sourceLineNo">086</span>        int customFlags = NTLMUtilities.FLAG_NEGOTIATE_UNICODE | NTLMUtilities.FLAG_NEGOTIATE_OEM<a name="line.86"></a>
+<span class="sourceLineNo">087</span>                | NTLMUtilities.FLAG_NEGOTIATE_NTLM | NTLMUtilities.FLAG_REQUEST_SERVER_AUTH_REALM<a name="line.87"></a>
+<span class="sourceLineNo">088</span>                | NTLMUtilities.FLAG_NEGOTIATE_DOMAIN_SUPPLIED | NTLMUtilities.FLAG_NEGOTIATE_WORKSTATION_SUPPLIED;<a name="line.88"></a>
+<span class="sourceLineNo">089</span><a name="line.89"></a>
+<span class="sourceLineNo">090</span>        byte[] osVer = new byte[8];<a name="line.90"></a>
+<span class="sourceLineNo">091</span>        NTLMUtilities.writeOSVersion((byte) 5, (byte) 0, (short) 2195, osVer, 0);<a name="line.91"></a>
+<span class="sourceLineNo">092</span><a name="line.92"></a>
+<span class="sourceLineNo">093</span>        String msgType1 = asHex(NTLMUtilities.createType1Message("WORKSTATION", "DOMAIN", customFlags, osVer));<a name="line.93"></a>
+<span class="sourceLineNo">094</span>        assertEquals("4e544c4d53535000010000000732000006000600330000000b000b0028000000"<a name="line.94"></a>
+<span class="sourceLineNo">095</span>                + "050093080000000f574f524b53544154494f4e444f4d41494e", msgType1);<a name="line.95"></a>
+<span class="sourceLineNo">096</span><a name="line.96"></a>
+<span class="sourceLineNo">097</span>        assertEquals("050093080000000f", asHex(osVer));<a name="line.97"></a>
+<span class="sourceLineNo">098</span><a name="line.98"></a>
+<span class="sourceLineNo">099</span>        //Microsoft Windows XP [version 5.1.2600]<a name="line.99"></a>
+<span class="sourceLineNo">100</span>        String os = System.getProperty("os.name");<a name="line.100"></a>
+<span class="sourceLineNo">101</span>        if (os != null &amp;&amp; os.toUpperCase().contains("WINDOWS") &amp;&amp; "5.1".equals(System.getProperty("os.version"))) {<a name="line.101"></a>
+<span class="sourceLineNo">102</span>            String hex = asHex(NTLMUtilities.getOsVersion());<a name="line.102"></a>
+<span class="sourceLineNo">103</span>            assertEquals("0501", hex.substring(0, 4));<a name="line.103"></a>
+<span class="sourceLineNo">104</span>            assertEquals(16, hex.length());<a name="line.104"></a>
+<span class="sourceLineNo">105</span>        }<a name="line.105"></a>
+<span class="sourceLineNo">106</span>    }<a name="line.106"></a>
+<span class="sourceLineNo">107</span><a name="line.107"></a>
+<span class="sourceLineNo">108</span>    /**<a name="line.108"></a>
+<span class="sourceLineNo">109</span>     * Tests creating a type 3 message.<a name="line.109"></a>
+<span class="sourceLineNo">110</span>     * WARNING: Will silently fail if no MD4 digest provider is available.<a name="line.110"></a>
+<span class="sourceLineNo">111</span>     */<a name="line.111"></a>
+<span class="sourceLineNo">112</span>    @Test<a name="line.112"></a>
+<span class="sourceLineNo">113</span>    public void testType3Message() throws Exception {<a name="line.113"></a>
+<span class="sourceLineNo">114</span>        try {<a name="line.114"></a>
+<span class="sourceLineNo">115</span>            MessageDigest.getInstance("MD4");<a name="line.115"></a>
+<span class="sourceLineNo">116</span>        } catch (NoSuchAlgorithmException ex) {<a name="line.116"></a>
+<span class="sourceLineNo">117</span>            logger.warn("No MD4 digest provider found !");<a name="line.117"></a>
+<span class="sourceLineNo">118</span>            return;<a name="line.118"></a>
+<span class="sourceLineNo">119</span>        }<a name="line.119"></a>
+<span class="sourceLineNo">120</span><a name="line.120"></a>
+<span class="sourceLineNo">121</span>        int flags = 0x00000001 | 0x00000200 | 0x00010000 | 0x00800000;<a name="line.121"></a>
+<span class="sourceLineNo">122</span>        String msg = "4e544c4d53535000020000000c000c003000000001028100"<a name="line.122"></a>
+<span class="sourceLineNo">123</span>                + "0123456789abcdef0000000000000000620062003c000000"<a name="line.123"></a>
+<span class="sourceLineNo">124</span>                + "44004f004d00410049004e0002000c0044004f004d004100"<a name="line.124"></a>
+<span class="sourceLineNo">125</span>                + "49004e0001000c0053004500520056004500520004001400"<a name="line.125"></a>
+<span class="sourceLineNo">126</span>                + "64006f006d00610069006e002e0063006f006d0003002200"<a name="line.126"></a>
+<span class="sourceLineNo">127</span>                + "7300650072007600650072002e0064006f006d0061006900" + "6e002e0063006f006d0000000000";<a name="line.127"></a>
+<span class="sourceLineNo">128</span><a name="line.128"></a>
+<span class="sourceLineNo">129</span>        byte[] challengePacket = ByteUtilities.asByteArray(msg);<a name="line.129"></a>
+<span class="sourceLineNo">130</span>        int serverFlags = NTLMUtilities.extractFlagsFromType2Message(challengePacket);<a name="line.130"></a>
+<span class="sourceLineNo">131</span>        assertEquals(flags, serverFlags);<a name="line.131"></a>
+<span class="sourceLineNo">132</span><a name="line.132"></a>
+<span class="sourceLineNo">133</span>        NTLMUtilities.printTargetInformationBlockFromType2Message(challengePacket, serverFlags, new PrintWriter(<a name="line.133"></a>
+<span class="sourceLineNo">134</span>                System.out, true));<a name="line.134"></a>
+<span class="sourceLineNo">135</span><a name="line.135"></a>
+<span class="sourceLineNo">136</span>        byte[] osVer = new byte[8];<a name="line.136"></a>
+<span class="sourceLineNo">137</span>        NTLMUtilities.writeOSVersion((byte) 5, (byte) 0, (short) 2195, osVer, 0);<a name="line.137"></a>
+<span class="sourceLineNo">138</span><a name="line.138"></a>
+<span class="sourceLineNo">139</span>        byte[] challenge = NTLMUtilities.extractChallengeFromType2Message(challengePacket);<a name="line.139"></a>
+<span class="sourceLineNo">140</span>        assertEquals("0123456789abcdef", asHex(challenge));<a name="line.140"></a>
+<span class="sourceLineNo">141</span><a name="line.141"></a>
+<span class="sourceLineNo">142</span>        String expectedTargetInfoBlock = "02000c0044004f004d00410049004e00" + "01000c00530045005200560045005200"<a name="line.142"></a>
+<span class="sourceLineNo">143</span>                + "0400140064006f006d00610069006e00" + "2e0063006f006d000300220073006500"<a name="line.143"></a>
+<span class="sourceLineNo">144</span>                + "72007600650072002e0064006f006d00" + "610069006e002e0063006f006d000000" + "0000";<a name="line.144"></a>
+<span class="sourceLineNo">145</span><a name="line.145"></a>
+<span class="sourceLineNo">146</span>        byte[] targetInfo = NTLMUtilities.extractTargetInfoFromType2Message(challengePacket, null);<a name="line.146"></a>
+<span class="sourceLineNo">147</span>        assertEquals(expectedTargetInfoBlock, asHex(targetInfo));<a name="line.147"></a>
+<span class="sourceLineNo">148</span><a name="line.148"></a>
+<span class="sourceLineNo">149</span>        assertEquals("DOMAIN",<a name="line.149"></a>
+<span class="sourceLineNo">150</span>                NTLMUtilities.extractTargetNameFromType2Message(challengePacket, new Integer(serverFlags)));<a name="line.150"></a>
+<span class="sourceLineNo">151</span><a name="line.151"></a>
+<span class="sourceLineNo">152</span>        serverFlags = 0x00000001 | 0x00000200;<a name="line.152"></a>
+<span class="sourceLineNo">153</span>        String msgType3 = asHex(NTLMUtilities.createType3Message("user", "SecREt01", challenge, "DOMAIN",<a name="line.153"></a>
+<span class="sourceLineNo">154</span>                "WORKSTATION", serverFlags, null));<a name="line.154"></a>
+<span class="sourceLineNo">155</span><a name="line.155"></a>
+<span class="sourceLineNo">156</span>        String expected = "4e544c4d5353500003000000180018006a00000018001800"<a name="line.156"></a>
+<span class="sourceLineNo">157</span>                + "820000000c000c0040000000080008004c00000016001600"<a name="line.157"></a>
+<span class="sourceLineNo">158</span>                + "54000000000000009a0000000102000044004f004d004100"<a name="line.158"></a>
+<span class="sourceLineNo">159</span>                + "49004e00750073006500720057004f0052004b0053005400"<a name="line.159"></a>
+<span class="sourceLineNo">160</span>                + "4100540049004f004e00c337cd5cbd44fc9782a667af6d42"<a name="line.160"></a>
+<span class="sourceLineNo">161</span>                + "7c6de67c20c2d3e77c5625a98c1c31e81847466b29b2df46" + "80f39958fb8c213a9cc6";<a name="line.161"></a>
+<span class="sourceLineNo">162</span>        assertEquals(expected, msgType3);<a name="line.162"></a>
+<span class="sourceLineNo">163</span>    }<a name="line.163"></a>
+<span class="sourceLineNo">164</span><a name="line.164"></a>
+<span class="sourceLineNo">165</span>    /**<a name="line.165"></a>
+<span class="sourceLineNo">166</span>     * Tests flags manipulations.<a name="line.166"></a>
+<span class="sourceLineNo">167</span>     */<a name="line.167"></a>
+<span class="sourceLineNo">168</span>    @Test<a name="line.168"></a>
+<span class="sourceLineNo">169</span>    public void testFlags() {<a name="line.169"></a>
+<span class="sourceLineNo">170</span>        int flags = NTLMUtilities.FLAG_NEGOTIATE_UNICODE | NTLMUtilities.FLAG_REQUEST_SERVER_AUTH_REALM<a name="line.170"></a>
+<span class="sourceLineNo">171</span>                | NTLMUtilities.FLAG_NEGOTIATE_NTLM | NTLMUtilities.FLAG_NEGOTIATE_ALWAYS_SIGN;<a name="line.171"></a>
+<span class="sourceLineNo">172</span><a name="line.172"></a>
+<span class="sourceLineNo">173</span>        int flags2 = NTLMUtilities.FLAG_NEGOTIATE_UNICODE | NTLMUtilities.FLAG_REQUEST_SERVER_AUTH_REALM<a name="line.173"></a>
+<span class="sourceLineNo">174</span>                | NTLMUtilities.FLAG_NEGOTIATE_NTLM;<a name="line.174"></a>
+<span class="sourceLineNo">175</span><a name="line.175"></a>
+<span class="sourceLineNo">176</span>        assertEquals(flags2, flags &amp; (~NTLMUtilities.FLAG_NEGOTIATE_ALWAYS_SIGN));<a name="line.176"></a>
+<span class="sourceLineNo">177</span>        assertEquals(flags2, flags2 &amp; (~NTLMUtilities.FLAG_NEGOTIATE_ALWAYS_SIGN));<a name="line.177"></a>
+<span class="sourceLineNo">178</span>        assertEquals("05820000", asHex(ByteUtilities.writeInt(flags)));<a name="line.178"></a>
+<span class="sourceLineNo">179</span><a name="line.179"></a>
+<span class="sourceLineNo">180</span>        byte[] testFlags = ByteUtilities.asByteArray("7F808182");<a name="line.180"></a>
+<span class="sourceLineNo">181</span>        assertEquals("7f808182", asHex(testFlags));<a name="line.181"></a>
+<span class="sourceLineNo">182</span>        ByteUtilities.changeByteEndianess(testFlags, 0, 4);<a name="line.182"></a>
+<span class="sourceLineNo">183</span>        assertEquals("807f8281", asHex(testFlags));<a name="line.183"></a>
+<span class="sourceLineNo">184</span>        ByteUtilities.changeByteEndianess(testFlags, 0, 4);<a name="line.184"></a>
+<span class="sourceLineNo">185</span>        ByteUtilities.changeWordEndianess(testFlags, 0, 4);<a name="line.185"></a>
+<span class="sourceLineNo">186</span>        assertEquals("8281807f", asHex(testFlags));<a name="line.186"></a>
+<span class="sourceLineNo">187</span>    }<a name="line.187"></a>
+<span class="sourceLineNo">188</span><a name="line.188"></a>
+<span class="sourceLineNo">189</span>    /**<a name="line.189"></a>
+<span class="sourceLineNo">190</span>     * Tests response computing.<a name="line.190"></a>
+<span class="sourceLineNo">191</span>     * WARNING: Will silently fail if no MD4 digest provider is available.<a name="line.191"></a>
+<span class="sourceLineNo">192</span>     */<a name="line.192"></a>
+<span class="sourceLineNo">193</span>    @Test<a name="line.193"></a>
+<span class="sourceLineNo">194</span>    public void testResponses() throws Exception {<a name="line.194"></a>
+<span class="sourceLineNo">195</span>        try {<a name="line.195"></a>
+<span class="sourceLineNo">196</span>            MessageDigest.getInstance("MD4");<a name="line.196"></a>
+<span class="sourceLineNo">197</span>        } catch (NoSuchAlgorithmException ex) {<a name="line.197"></a>
+<span class="sourceLineNo">198</span>            logger.warn("No MD4 digest provider found !");<a name="line.198"></a>
+<span class="sourceLineNo">199</span>            return;<a name="line.199"></a>
+<span class="sourceLineNo">200</span>        }<a name="line.200"></a>
+<span class="sourceLineNo">201</span><a name="line.201"></a>
+<span class="sourceLineNo">202</span>        String LMResponse = "c337cd5cbd44fc9782a667af6d427c6de67c20c2d3e77c56";<a name="line.202"></a>
+<span class="sourceLineNo">203</span><a name="line.203"></a>
+<span class="sourceLineNo">204</span>        assertEquals(LMResponse,<a name="line.204"></a>
+<span class="sourceLineNo">205</span>                asHex(NTLMResponses.getLMResponse("SecREt01", ByteUtilities.asByteArray("0123456789abcdef"))));<a name="line.205"></a>
+<span class="sourceLineNo">206</span><a name="line.206"></a>
+<span class="sourceLineNo">207</span>        String NTLMResponse = "25a98c1c31e81847466b29b2df4680f39958fb8c213a9cc6";<a name="line.207"></a>
+<span class="sourceLineNo">208</span><a name="line.208"></a>
+<span class="sourceLineNo">209</span>        assertEquals(NTLMResponse,<a name="line.209"></a>
+<span class="sourceLineNo">210</span>                asHex(NTLMResponses.getNTLMResponse("SecREt01", ByteUtilities.asByteArray("0123456789abcdef"))));<a name="line.210"></a>
+<span class="sourceLineNo">211</span><a name="line.211"></a>
+<span class="sourceLineNo">212</span>        String LMv2Response = "d6e6152ea25d03b7c6ba6629c2d6aaf0ffffff0011223344";<a name="line.212"></a>
+<span class="sourceLineNo">213</span><a name="line.213"></a>
+<span class="sourceLineNo">214</span>        assertEquals(<a name="line.214"></a>
+<span class="sourceLineNo">215</span>                LMv2Response,<a name="line.215"></a>
+<span class="sourceLineNo">216</span>                asHex(NTLMResponses.getLMv2Response("DOMAIN", "user", "SecREt01",<a name="line.216"></a>
+<span class="sourceLineNo">217</span>                        ByteUtilities.asByteArray("0123456789abcdef"), ByteUtilities.asByteArray("ffffff0011223344"))));<a name="line.217"></a>
+<span class="sourceLineNo">218</span><a name="line.218"></a>
+<span class="sourceLineNo">219</span>        String NTLM2Response = "10d550832d12b2ccb79d5ad1f4eed3df82aca4c3681dd455";<a name="line.219"></a>
+<span class="sourceLineNo">220</span><a name="line.220"></a>
+<span class="sourceLineNo">221</span>        assertEquals(NTLM2Response, asHex(NTLMResponses.getNTLM2SessionResponse("SecREt01",<a name="line.221"></a>
+<span class="sourceLineNo">222</span>                ByteUtilities.asByteArray("0123456789abcdef"), ByteUtilities.asByteArray("ffffff0011223344"))));<a name="line.222"></a>
+<span class="sourceLineNo">223</span><a name="line.223"></a>
+<span class="sourceLineNo">224</span>        String NTLMv2Response = "cbabbca713eb795d04c97abc01ee4983" + "01010000000000000090d336b734c301"<a name="line.224"></a>
+<span class="sourceLineNo">225</span>                + "ffffff00112233440000000002000c00" + "44004f004d00410049004e0001000c00"<a name="line.225"></a>
+<span class="sourceLineNo">226</span>                + "53004500520056004500520004001400" + "64006f006d00610069006e002e006300"<a name="line.226"></a>
+<span class="sourceLineNo">227</span>                + "6f006d00030022007300650072007600" + "650072002e0064006f006d0061006900"<a name="line.227"></a>
+<span class="sourceLineNo">228</span>                + "6e002e0063006f006d00000000000000" + "0000";<a name="line.228"></a>
+<span class="sourceLineNo">229</span><a name="line.229"></a>
+<span class="sourceLineNo">230</span>        String targetInformation = "02000c0044004f004d00410049004e00" + "01000c00530045005200560045005200"<a name="line.230"></a>
+<span class="sourceLineNo">231</span>                + "0400140064006f006d00610069006e00" + "2e0063006f006d000300220073006500"<a name="line.231"></a>
+<span class="sourceLineNo">232</span>                + "72007600650072002e0064006f006d00" + "610069006e002e0063006f006d000000" + "0000";<a name="line.232"></a>
+<span class="sourceLineNo">233</span><a name="line.233"></a>
+<span class="sourceLineNo">234</span>        assertEquals(NTLMv2Response, asHex(NTLMResponses.getNTLMv2Response("DOMAIN", "user", "SecREt01",<a name="line.234"></a>
+<span class="sourceLineNo">235</span>                ByteUtilities.asByteArray(targetInformation), ByteUtilities.asByteArray("0123456789abcdef"),<a name="line.235"></a>
+<span class="sourceLineNo">236</span>                ByteUtilities.asByteArray("ffffff0011223344"), 1055844000000L)));<a name="line.236"></a>
+<span class="sourceLineNo">237</span>    }<a name="line.237"></a>
+<span class="sourceLineNo">238</span>}<a name="line.238"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

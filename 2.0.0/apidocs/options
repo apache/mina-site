@@ -1,0 +1,33 @@
+-locale
+'en_US'
+-breakiterator
+-classpath
+'/Users/elecharny/mina/mina2.1/t/mina-2.0.0/target/classes:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-legal/target/classes:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-core/target/classes:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-transport-apr/target/classes:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-filter-compression/target/classes:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-statemachine/target/classes:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-integration-beans/target/classes:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-integration-xbean/target/classes:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-integration-ognl/target/classes:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-integration-jmx/target/classes:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-example/target/classes:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-transport-serial/target/classes:/Users/elecharny/.m2/repository/org/apache/maven/maven-plugin-registry/2.2.1/maven-plugin-registry-2.2.1.jar:/Users/elecharny/.m2/repository/org/apache/mina/mina-core/2.0.0/mina-core-2.0.0.jar:/Users/elecharny/.m2/repository/jboss/javassist/3.7.ga/javassist-3.7.ga.jar:/Users/elecharny/.m2/repository/ognl/ognl/2.7.3/ognl-2.7.3.jar:/Users/elecharny/.m2/repository/xml-apis/xml-apis/1.3.02/xml-apis-1.3.02.jar:/Users/elecharny/.m2/repository/org/apache/maven/maven-project/2.2.1/maven-project-2.2.1.jar:/Users/elecharny/.m2/repository/org/apache/xbean/xbean-spring/3.6/xbean-spring-3.6.jar:/Users/elecharny/.m2/repository/org/apache/maven/maven-repository-metadata/2.2.1/maven-repository-metadata-2.2.1.jar:/Users/elecharny/.m2/repository/asm/asm-tree/3.2/asm-tree-3.2.jar:/Users/elecharny/.m2/repository/org/apache/maven/wagon/wagon-provider-api/1.0-beta-6/wagon-provider-api-1.0-beta-6.jar:/Users/elecharny/.m2/repository/org/apache/mina/mina-integration-ognl/2.0.0/mina-integration-ognl-2.0.0.jar:/Users/elecharny/.m2/repository/org/apache/maven/plugins/maven-shade-plugin/1.3/maven-shade-plugin-1.3.jar:/Users/elecharny/.m2/repository/org/rxtx/rxtx/2.1.7/rxtx-2.1.7.jar:/Users/elecharny/.m2/repository/tomcat/tomcat-apr/5.5.23/tomcat-apr-5.5.23.jar:/Users/elecharny/.m2/repository/org/apache/mina/mina-statemachine/2.0.0/mina-statemachine-2.0.0.jar:/Users/elecharny/.m2/repository/ant/ant/1.6/ant-1.6.jar:/Users/elecharny/.m2/repository/org/apache/maven/maven-profile/2.2.1/maven-profile-2.2.1.jar:/Users/elecharny/.m2/repository/org/apache/mina/mina-integration-jmx/2.0.0/mina-integration-jmx-2.0.0.jar:/Users/elecharny/.m2/repository/xerces/xmlParserAPIs/2.6.2/xmlParserAPIs-2.6.2.jar:/Users/elecharny/.m2/repository/com/jcraft/jzlib/1.0.7/jzlib-1.0.7.jar:/Users/elecharny/.m2/repository/org/slf4j/slf4j-api/1.5.11/slf4j-api-1.5.11.jar:/Users/elecharny/.m2/repository/jdom/jdom/1.0/jdom-1.0.jar:/Users/elecharny/.m2/repository/org/springframework/spring/2.5.6/spring-2.5.6.jar:/Users/elecharny/.m2/repository/xalan/xalan/2.6.0/xalan-2.6.0.jar:/Users/elecharny/.m2/repository/pmd/pmd/4.2.5/pmd-4.2.5.jar:/Users/elecharny/.m2/repository/jaxen/jaxen/1.1.1/jaxen-1.1.1.jar:/Users/elecharny/.m2/repository/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.jar:/Users/elecharny/.m2/repository/commons-logging/commons-logging/1.0.3/commons-logging-1.0.3.jar:/Users/elecharny/.m2/repository/org/apache/mina/mina-integration-beans/2.0.0/mina-integration-beans-2.0.0.jar:/Users/elecharny/.m2/repository/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar:/Users/elecharny/.m2/repository/org/apache/maven/maven-settings/2.2.1/maven-settings-2.2.1.jar:/Users/elecharny/.m2/repository/com/ibm/icu/icu4j/2.6.1/icu4j-2.6.1.jar:/Users/elecharny/.m2/repository/org/apache/maven/shared/maven-dependency-tree/1.1/maven-dependency-tree-1.1.jar:/Users/elecharny/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/Users/elecharny/.m2/repository/org/codehaus/plexus/plexus-utils/1.4.4/plexus-utils-1.4.4.jar:/Users/elecharny/.m2/repository/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar:/Users/elecharny/.m2/repository/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.jar:/Users/elecharny/.m2/repository/org/apache/maven/maven-artifact-manager/2.2.1/maven-artifact-manager-2.2.1.jar:/Users/elecharny/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.11/plexus-interpolation-1.11.jar:/Users/elecharny/.m2/repository/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.jar:/Users/elecharny/.m2/repository/org/slf4j/jcl-over-slf4j/1.5.11/jcl-over-slf4j-1.5.11.jar:/Users/elecharny/.m2/repository/xom/xom/1.0/xom-1.0.jar:/Users/elecharny/.m2/repository/org/apache/maven/maven-artifact/2.2.1/maven-artifact-2.2.1.jar:/Users/elecharny/.m2/repository/org/apache/mina/mina-core/2.0.0/mina-core-2.0.0-sources.jar:/Users/elecharny/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar:/Users/elecharny/.m2/repository/asm/asm-commons/3.2/asm-commons-3.2.jar:/Users/elecharny/.m2/repository/commons-lang/commons-lang/2.5/commons-lang-2.5.jar:/Users/elecharny/.m2/repository/asm/asm/3.2/asm-3.2.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-core/src/main/java:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-transport-apr/src/main/java:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-filter-compression/src/main/java:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-statemachine/src/main/java:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-integration-beans/src/main/java:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-integration-xbean/src/main/java:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-integration-ognl/src/main/java:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-integration-jmx/src/main/java:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-example/src/main/java:/Users/elecharny/mina/mina2.1/t/mina-2.0.0/mina-transport-serial/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2004-2019 <a href="http://mina.apache.org/">Apache MINA Project</a>. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/elecharny/mina/mina2.1/t/mina-2.0.0/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Apache MINA 2.0.0 API Documentation'
+-link
+'http://java.sun.com/j2se/1.5.0/docs/api'
+-link
+'http://www.slf4j.org/api'
+-link
+'http://static.springframework.org/spring/docs/2.0.x/api'
+-link
+'http://java.sun.com/j2se/1.5.0/docs/api'
+-use
+-version
+-windowtitle
+'Apache MINA 2.0.0 API Documentation'

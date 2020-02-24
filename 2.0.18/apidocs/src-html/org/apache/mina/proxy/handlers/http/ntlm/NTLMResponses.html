@@ -1,0 +1,471 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Licensed to the Apache Software Foundation (ASF) under one<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  or more contributor license agreements.  See the NOTICE file<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  distributed with this work for additional information<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  regarding copyright ownership.  The ASF licenses this file<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  to you under the Apache License, Version 2.0 (the<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  "License"); you may not use this file except in compliance<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *  with the License.  You may obtain a copy of the License at<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *    http://www.apache.org/licenses/LICENSE-2.0<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  Unless required by applicable law or agreed to in writing,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  software distributed under the License is distributed on an<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  KIND, either express or implied.  See the License for the<a name="line.15"></a>
+<span class="sourceLineNo">016</span> *  specific language governing permissions and limitations<a name="line.16"></a>
+<span class="sourceLineNo">017</span> *  under the License.<a name="line.17"></a>
+<span class="sourceLineNo">018</span> *<a name="line.18"></a>
+<span class="sourceLineNo">019</span> */<a name="line.19"></a>
+<span class="sourceLineNo">020</span>package org.apache.mina.proxy.handlers.http.ntlm;<a name="line.20"></a>
+<span class="sourceLineNo">021</span><a name="line.21"></a>
+<span class="sourceLineNo">022</span>import java.security.Key;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import java.security.MessageDigest;<a name="line.23"></a>
+<span class="sourceLineNo">024</span><a name="line.24"></a>
+<span class="sourceLineNo">025</span>import javax.crypto.Cipher;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import javax.crypto.spec.SecretKeySpec;<a name="line.26"></a>
+<span class="sourceLineNo">027</span><a name="line.27"></a>
+<span class="sourceLineNo">028</span>/**<a name="line.28"></a>
+<span class="sourceLineNo">029</span> * NTLMResponses.java - Calculates the various Type 3 responses. Needs an MD4,<a name="line.29"></a>
+<span class="sourceLineNo">030</span> * MD5 and DES crypto provider (Please note that default provider doesn't<a name="line.30"></a>
+<span class="sourceLineNo">031</span> * provide MD4).<a name="line.31"></a>
+<span class="sourceLineNo">032</span> * <a name="line.32"></a>
+<span class="sourceLineNo">033</span> * Copyright (c) 2003 Eric Glass Permission to use, copy, modify, and distribute<a name="line.33"></a>
+<span class="sourceLineNo">034</span> * this document for any purpose and without any fee is hereby granted, provided<a name="line.34"></a>
+<span class="sourceLineNo">035</span> * that the above copyright notice and this list of conditions appear in all<a name="line.35"></a>
+<span class="sourceLineNo">036</span> * copies.<a name="line.36"></a>
+<span class="sourceLineNo">037</span> * <a name="line.37"></a>
+<span class="sourceLineNo">038</span> * @see &lt;a href="http://curl.haxx.se/rfc/ntlm.html"&gt;NTLM RFC&lt;/a&gt;<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * <a name="line.39"></a>
+<span class="sourceLineNo">040</span> * @author &lt;a href="http://mina.apache.org"&gt;Apache MINA Project&lt;/a&gt;<a name="line.40"></a>
+<span class="sourceLineNo">041</span> * @since MINA 2.0.0-M3<a name="line.41"></a>
+<span class="sourceLineNo">042</span> */<a name="line.42"></a>
+<span class="sourceLineNo">043</span>public class NTLMResponses {<a name="line.43"></a>
+<span class="sourceLineNo">044</span><a name="line.44"></a>
+<span class="sourceLineNo">045</span>    // LAN Manager magic constant used in LM Response calculation<a name="line.45"></a>
+<span class="sourceLineNo">046</span>    public static final byte[] LM_HASH_MAGIC_CONSTANT =<a name="line.46"></a>
+<span class="sourceLineNo">047</span>            new byte[]{ 'K', 'G', 'S', '!', '@', '#', '$', '%' };<a name="line.47"></a>
+<span class="sourceLineNo">048</span><a name="line.48"></a>
+<span class="sourceLineNo">049</span>    /**<a name="line.49"></a>
+<span class="sourceLineNo">050</span>     * Calculates the LM Response for the given challenge, using the specified<a name="line.50"></a>
+<span class="sourceLineNo">051</span>     * password.<a name="line.51"></a>
+<span class="sourceLineNo">052</span>     *<a name="line.52"></a>
+<span class="sourceLineNo">053</span>     * @param password The user's password.<a name="line.53"></a>
+<span class="sourceLineNo">054</span>     * @param challenge The Type 2 challenge from the server.<a name="line.54"></a>
+<span class="sourceLineNo">055</span>     *<a name="line.55"></a>
+<span class="sourceLineNo">056</span>     * @return The LM Response.<a name="line.56"></a>
+<span class="sourceLineNo">057</span>     * @throws Exception If something went wrong<a name="line.57"></a>
+<span class="sourceLineNo">058</span>     */<a name="line.58"></a>
+<span class="sourceLineNo">059</span>    public static byte[] getLMResponse(String password, byte[] challenge) throws Exception {<a name="line.59"></a>
+<span class="sourceLineNo">060</span>        byte[] lmHash = lmHash(password);<a name="line.60"></a>
+<span class="sourceLineNo">061</span>        return lmResponse(lmHash, challenge);<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    }<a name="line.62"></a>
+<span class="sourceLineNo">063</span><a name="line.63"></a>
+<span class="sourceLineNo">064</span>    /**<a name="line.64"></a>
+<span class="sourceLineNo">065</span>     * Calculates the NTLM Response for the given challenge, using the<a name="line.65"></a>
+<span class="sourceLineNo">066</span>     * specified password.<a name="line.66"></a>
+<span class="sourceLineNo">067</span>     *<a name="line.67"></a>
+<span class="sourceLineNo">068</span>     * @param password The user's password.<a name="line.68"></a>
+<span class="sourceLineNo">069</span>     * @param challenge The Type 2 challenge from the server.<a name="line.69"></a>
+<span class="sourceLineNo">070</span>     *<a name="line.70"></a>
+<span class="sourceLineNo">071</span>     * @return The NTLM Response.<a name="line.71"></a>
+<span class="sourceLineNo">072</span>     * @throws Exception If something went wrong<a name="line.72"></a>
+<span class="sourceLineNo">073</span>     */<a name="line.73"></a>
+<span class="sourceLineNo">074</span>    public static byte[] getNTLMResponse(String password, byte[] challenge) throws Exception {<a name="line.74"></a>
+<span class="sourceLineNo">075</span>        byte[] ntlmHash = ntlmHash(password);<a name="line.75"></a>
+<span class="sourceLineNo">076</span>        return lmResponse(ntlmHash, challenge);<a name="line.76"></a>
+<span class="sourceLineNo">077</span>    }<a name="line.77"></a>
+<span class="sourceLineNo">078</span><a name="line.78"></a>
+<span class="sourceLineNo">079</span>    /**<a name="line.79"></a>
+<span class="sourceLineNo">080</span>     * Calculates the NTLMv2 Response for the given challenge, using the<a name="line.80"></a>
+<span class="sourceLineNo">081</span>     * specified authentication target, username, password, target information<a name="line.81"></a>
+<span class="sourceLineNo">082</span>     * block, and client nonce.<a name="line.82"></a>
+<span class="sourceLineNo">083</span>     *<a name="line.83"></a>
+<span class="sourceLineNo">084</span>     * @param target The authentication target (i.e., domain).<a name="line.84"></a>
+<span class="sourceLineNo">085</span>     * @param user The username.<a name="line.85"></a>
+<span class="sourceLineNo">086</span>     * @param password The user's password.<a name="line.86"></a>
+<span class="sourceLineNo">087</span>     * @param targetInformation The target information block from the Type 2<a name="line.87"></a>
+<span class="sourceLineNo">088</span>     * message.<a name="line.88"></a>
+<span class="sourceLineNo">089</span>     * @param challenge The Type 2 challenge from the server.<a name="line.89"></a>
+<span class="sourceLineNo">090</span>     * @param clientNonce The random 8-byte client nonce.<a name="line.90"></a>
+<span class="sourceLineNo">091</span>     *<a name="line.91"></a>
+<span class="sourceLineNo">092</span>     * @return The NTLMv2 Response.<a name="line.92"></a>
+<span class="sourceLineNo">093</span>     * @throws Exception If something went wrong<a name="line.93"></a>
+<span class="sourceLineNo">094</span>     */<a name="line.94"></a>
+<span class="sourceLineNo">095</span>    public static byte[] getNTLMv2Response(String target, String user, String password, byte[] targetInformation,<a name="line.95"></a>
+<span class="sourceLineNo">096</span>            byte[] challenge, byte[] clientNonce) throws Exception {<a name="line.96"></a>
+<span class="sourceLineNo">097</span><a name="line.97"></a>
+<span class="sourceLineNo">098</span>        return getNTLMv2Response(target, user, password, targetInformation, challenge, clientNonce,<a name="line.98"></a>
+<span class="sourceLineNo">099</span>                System.currentTimeMillis());<a name="line.99"></a>
+<span class="sourceLineNo">100</span>    }<a name="line.100"></a>
+<span class="sourceLineNo">101</span><a name="line.101"></a>
+<span class="sourceLineNo">102</span>    /**<a name="line.102"></a>
+<span class="sourceLineNo">103</span>     * Calculates the NTLMv2 Response for the given challenge, using the<a name="line.103"></a>
+<span class="sourceLineNo">104</span>     * specified authentication target, username, password, target information<a name="line.104"></a>
+<span class="sourceLineNo">105</span>     * block, and client nonce.<a name="line.105"></a>
+<span class="sourceLineNo">106</span>     *<a name="line.106"></a>
+<span class="sourceLineNo">107</span>     * @param target The authentication target (i.e., domain).<a name="line.107"></a>
+<span class="sourceLineNo">108</span>     * @param user The username.<a name="line.108"></a>
+<span class="sourceLineNo">109</span>     * @param password The user's password.<a name="line.109"></a>
+<span class="sourceLineNo">110</span>     * @param targetInformation The target information block from the Type 2<a name="line.110"></a>
+<span class="sourceLineNo">111</span>     * message.<a name="line.111"></a>
+<span class="sourceLineNo">112</span>     * @param challenge The Type 2 challenge from the server.<a name="line.112"></a>
+<span class="sourceLineNo">113</span>     * @param clientNonce The random 8-byte client nonce.<a name="line.113"></a>
+<span class="sourceLineNo">114</span>     * @param time The time stamp.<a name="line.114"></a>
+<span class="sourceLineNo">115</span>     *<a name="line.115"></a>
+<span class="sourceLineNo">116</span>     * @return The NTLMv2 Response.<a name="line.116"></a>
+<span class="sourceLineNo">117</span>     * @throws Exception If something went wrong<a name="line.117"></a>
+<span class="sourceLineNo">118</span>     */<a name="line.118"></a>
+<span class="sourceLineNo">119</span>    public static byte[] getNTLMv2Response(String target, String user, String password, byte[] targetInformation,<a name="line.119"></a>
+<span class="sourceLineNo">120</span>            byte[] challenge, byte[] clientNonce, long time) throws Exception {<a name="line.120"></a>
+<span class="sourceLineNo">121</span>        byte[] ntlmv2Hash = ntlmv2Hash(target, user, password);<a name="line.121"></a>
+<span class="sourceLineNo">122</span>        byte[] blob = createBlob(targetInformation, clientNonce, time);<a name="line.122"></a>
+<span class="sourceLineNo">123</span>        return lmv2Response(ntlmv2Hash, blob, challenge);<a name="line.123"></a>
+<span class="sourceLineNo">124</span>    }<a name="line.124"></a>
+<span class="sourceLineNo">125</span><a name="line.125"></a>
+<span class="sourceLineNo">126</span>    /**<a name="line.126"></a>
+<span class="sourceLineNo">127</span>     * Calculates the LMv2 Response for the given challenge, using the<a name="line.127"></a>
+<span class="sourceLineNo">128</span>     * specified authentication target, username, password, and client<a name="line.128"></a>
+<span class="sourceLineNo">129</span>     * challenge.<a name="line.129"></a>
+<span class="sourceLineNo">130</span>     *<a name="line.130"></a>
+<span class="sourceLineNo">131</span>     * @param target The authentication target (i.e., domain).<a name="line.131"></a>
+<span class="sourceLineNo">132</span>     * @param user The username.<a name="line.132"></a>
+<span class="sourceLineNo">133</span>     * @param password The user's password.<a name="line.133"></a>
+<span class="sourceLineNo">134</span>     * @param challenge The Type 2 challenge from the server.<a name="line.134"></a>
+<span class="sourceLineNo">135</span>     * @param clientNonce The random 8-byte client nonce.<a name="line.135"></a>
+<span class="sourceLineNo">136</span>     *<a name="line.136"></a>
+<span class="sourceLineNo">137</span>     * @return The LMv2 Response.<a name="line.137"></a>
+<span class="sourceLineNo">138</span>     * @throws Exception If something went wrong<a name="line.138"></a>
+<span class="sourceLineNo">139</span>     */<a name="line.139"></a>
+<span class="sourceLineNo">140</span>    public static byte[] getLMv2Response(String target, String user, String password, byte[] challenge,<a name="line.140"></a>
+<span class="sourceLineNo">141</span>            byte[] clientNonce) throws Exception {<a name="line.141"></a>
+<span class="sourceLineNo">142</span>        byte[] ntlmv2Hash = ntlmv2Hash(target, user, password);<a name="line.142"></a>
+<span class="sourceLineNo">143</span>        return lmv2Response(ntlmv2Hash, clientNonce, challenge);<a name="line.143"></a>
+<span class="sourceLineNo">144</span>    }<a name="line.144"></a>
+<span class="sourceLineNo">145</span><a name="line.145"></a>
+<span class="sourceLineNo">146</span>    /**<a name="line.146"></a>
+<span class="sourceLineNo">147</span>     * Calculates the NTLM2 Session Response for the given challenge, using the<a name="line.147"></a>
+<span class="sourceLineNo">148</span>     * specified password and client nonce.<a name="line.148"></a>
+<span class="sourceLineNo">149</span>     *<a name="line.149"></a>
+<span class="sourceLineNo">150</span>     * @param password The user's password.<a name="line.150"></a>
+<span class="sourceLineNo">151</span>     * @param challenge The Type 2 challenge from the server.<a name="line.151"></a>
+<span class="sourceLineNo">152</span>     * @param clientNonce The random 8-byte client nonce.<a name="line.152"></a>
+<span class="sourceLineNo">153</span>     *<a name="line.153"></a>
+<span class="sourceLineNo">154</span>     * @return The NTLM2 Session Response.  This is placed in the NTLM<a name="line.154"></a>
+<span class="sourceLineNo">155</span>     * response field of the Type 3 message; the LM response field contains<a name="line.155"></a>
+<span class="sourceLineNo">156</span>     * the client nonce, null-padded to 24 bytes.<a name="line.156"></a>
+<span class="sourceLineNo">157</span>     * @throws Exception If something went wrong<a name="line.157"></a>
+<span class="sourceLineNo">158</span>     */<a name="line.158"></a>
+<span class="sourceLineNo">159</span>    public static byte[] getNTLM2SessionResponse(String password, byte[] challenge, byte[] clientNonce)<a name="line.159"></a>
+<span class="sourceLineNo">160</span>            throws Exception {<a name="line.160"></a>
+<span class="sourceLineNo">161</span>        byte[] ntlmHash = ntlmHash(password);<a name="line.161"></a>
+<span class="sourceLineNo">162</span>        MessageDigest md5 = MessageDigest.getInstance("MD5");<a name="line.162"></a>
+<span class="sourceLineNo">163</span>        md5.update(challenge);<a name="line.163"></a>
+<span class="sourceLineNo">164</span>        md5.update(clientNonce);<a name="line.164"></a>
+<span class="sourceLineNo">165</span>        byte[] sessionHash = new byte[8];<a name="line.165"></a>
+<span class="sourceLineNo">166</span>        System.arraycopy(md5.digest(), 0, sessionHash, 0, 8);<a name="line.166"></a>
+<span class="sourceLineNo">167</span>        return lmResponse(ntlmHash, sessionHash);<a name="line.167"></a>
+<span class="sourceLineNo">168</span>    }<a name="line.168"></a>
+<span class="sourceLineNo">169</span><a name="line.169"></a>
+<span class="sourceLineNo">170</span>    /**<a name="line.170"></a>
+<span class="sourceLineNo">171</span>     * Creates the LM Hash of the user's password.<a name="line.171"></a>
+<span class="sourceLineNo">172</span>     *<a name="line.172"></a>
+<span class="sourceLineNo">173</span>     * @param password The password.<a name="line.173"></a>
+<span class="sourceLineNo">174</span>     *<a name="line.174"></a>
+<span class="sourceLineNo">175</span>     * @return The LM Hash of the given password, used in the calculation<a name="line.175"></a>
+<span class="sourceLineNo">176</span>     * of the LM Response.<a name="line.176"></a>
+<span class="sourceLineNo">177</span>     */<a name="line.177"></a>
+<span class="sourceLineNo">178</span>    private static byte[] lmHash(String password) throws Exception {<a name="line.178"></a>
+<span class="sourceLineNo">179</span>        byte[] oemPassword = password.toUpperCase().getBytes("US-ASCII");<a name="line.179"></a>
+<span class="sourceLineNo">180</span>        int length = Math.min(oemPassword.length, 14);<a name="line.180"></a>
+<span class="sourceLineNo">181</span>        byte[] keyBytes = new byte[14];<a name="line.181"></a>
+<span class="sourceLineNo">182</span>        System.arraycopy(oemPassword, 0, keyBytes, 0, length);<a name="line.182"></a>
+<span class="sourceLineNo">183</span>        Key lowKey = createDESKey(keyBytes, 0);<a name="line.183"></a>
+<span class="sourceLineNo">184</span>        Key highKey = createDESKey(keyBytes, 7);<a name="line.184"></a>
+<span class="sourceLineNo">185</span>        Cipher des = Cipher.getInstance("DES/ECB/NoPadding");<a name="line.185"></a>
+<span class="sourceLineNo">186</span>        des.init(Cipher.ENCRYPT_MODE, lowKey);<a name="line.186"></a>
+<span class="sourceLineNo">187</span>        byte[] lowHash = des.doFinal(LM_HASH_MAGIC_CONSTANT);<a name="line.187"></a>
+<span class="sourceLineNo">188</span>        des.init(Cipher.ENCRYPT_MODE, highKey);<a name="line.188"></a>
+<span class="sourceLineNo">189</span>        byte[] highHash = des.doFinal(LM_HASH_MAGIC_CONSTANT);<a name="line.189"></a>
+<span class="sourceLineNo">190</span>        byte[] lmHash = new byte[16];<a name="line.190"></a>
+<span class="sourceLineNo">191</span>        System.arraycopy(lowHash, 0, lmHash, 0, 8);<a name="line.191"></a>
+<span class="sourceLineNo">192</span>        System.arraycopy(highHash, 0, lmHash, 8, 8);<a name="line.192"></a>
+<span class="sourceLineNo">193</span>        return lmHash;<a name="line.193"></a>
+<span class="sourceLineNo">194</span>    }<a name="line.194"></a>
+<span class="sourceLineNo">195</span><a name="line.195"></a>
+<span class="sourceLineNo">196</span>    /**<a name="line.196"></a>
+<span class="sourceLineNo">197</span>     * Creates the NTLM Hash of the user's password.<a name="line.197"></a>
+<span class="sourceLineNo">198</span>     *<a name="line.198"></a>
+<span class="sourceLineNo">199</span>     * @param password The password.<a name="line.199"></a>
+<span class="sourceLineNo">200</span>     *<a name="line.200"></a>
+<span class="sourceLineNo">201</span>     * @return The NTLM Hash of the given password, used in the calculation<a name="line.201"></a>
+<span class="sourceLineNo">202</span>     * of the NTLM Response and the NTLMv2 and LMv2 Hashes.<a name="line.202"></a>
+<span class="sourceLineNo">203</span>     */<a name="line.203"></a>
+<span class="sourceLineNo">204</span>    private static byte[] ntlmHash(String password) throws Exception {<a name="line.204"></a>
+<span class="sourceLineNo">205</span>        byte[] unicodePassword = password.getBytes("UnicodeLittleUnmarked");<a name="line.205"></a>
+<span class="sourceLineNo">206</span>        MessageDigest md4 = MessageDigest.getInstance("MD4");<a name="line.206"></a>
+<span class="sourceLineNo">207</span>        return md4.digest(unicodePassword);<a name="line.207"></a>
+<span class="sourceLineNo">208</span>    }<a name="line.208"></a>
+<span class="sourceLineNo">209</span><a name="line.209"></a>
+<span class="sourceLineNo">210</span>    /**<a name="line.210"></a>
+<span class="sourceLineNo">211</span>     * Creates the NTLMv2 Hash of the user's password.<a name="line.211"></a>
+<span class="sourceLineNo">212</span>     *<a name="line.212"></a>
+<span class="sourceLineNo">213</span>     * @param target The authentication target (i.e., domain).<a name="line.213"></a>
+<span class="sourceLineNo">214</span>     * @param user The username.<a name="line.214"></a>
+<span class="sourceLineNo">215</span>     * @param password The password.<a name="line.215"></a>
+<span class="sourceLineNo">216</span>     *<a name="line.216"></a>
+<span class="sourceLineNo">217</span>     * @return The NTLMv2 Hash, used in the calculation of the NTLMv2<a name="line.217"></a>
+<span class="sourceLineNo">218</span>     * and LMv2 Responses.<a name="line.218"></a>
+<span class="sourceLineNo">219</span>     */<a name="line.219"></a>
+<span class="sourceLineNo">220</span>    private static byte[] ntlmv2Hash(String target, String user, String password) throws Exception {<a name="line.220"></a>
+<span class="sourceLineNo">221</span>        byte[] ntlmHash = ntlmHash(password);<a name="line.221"></a>
+<span class="sourceLineNo">222</span>        String identity = user.toUpperCase() + target;<a name="line.222"></a>
+<span class="sourceLineNo">223</span>        return hmacMD5(identity.getBytes("UnicodeLittleUnmarked"), ntlmHash);<a name="line.223"></a>
+<span class="sourceLineNo">224</span>    }<a name="line.224"></a>
+<span class="sourceLineNo">225</span><a name="line.225"></a>
+<span class="sourceLineNo">226</span>    /**<a name="line.226"></a>
+<span class="sourceLineNo">227</span>     * Creates the LM Response from the given hash and Type 2 challenge.<a name="line.227"></a>
+<span class="sourceLineNo">228</span>     *<a name="line.228"></a>
+<span class="sourceLineNo">229</span>     * @param hash The LM or NTLM Hash.<a name="line.229"></a>
+<span class="sourceLineNo">230</span>     * @param challenge The server challenge from the Type 2 message.<a name="line.230"></a>
+<span class="sourceLineNo">231</span>     *<a name="line.231"></a>
+<span class="sourceLineNo">232</span>     * @return The response (either LM or NTLM, depending on the provided<a name="line.232"></a>
+<span class="sourceLineNo">233</span>     * hash).<a name="line.233"></a>
+<span class="sourceLineNo">234</span>     */<a name="line.234"></a>
+<span class="sourceLineNo">235</span>    private static byte[] lmResponse(byte[] hash, byte[] challenge) throws Exception {<a name="line.235"></a>
+<span class="sourceLineNo">236</span>        byte[] keyBytes = new byte[21];<a name="line.236"></a>
+<span class="sourceLineNo">237</span>        System.arraycopy(hash, 0, keyBytes, 0, 16);<a name="line.237"></a>
+<span class="sourceLineNo">238</span>        Key lowKey = createDESKey(keyBytes, 0);<a name="line.238"></a>
+<span class="sourceLineNo">239</span>        Key middleKey = createDESKey(keyBytes, 7);<a name="line.239"></a>
+<span class="sourceLineNo">240</span>        Key highKey = createDESKey(keyBytes, 14);<a name="line.240"></a>
+<span class="sourceLineNo">241</span>        Cipher des = Cipher.getInstance("DES/ECB/NoPadding");<a name="line.241"></a>
+<span class="sourceLineNo">242</span>        des.init(Cipher.ENCRYPT_MODE, lowKey);<a name="line.242"></a>
+<span class="sourceLineNo">243</span>        byte[] lowResponse = des.doFinal(challenge);<a name="line.243"></a>
+<span class="sourceLineNo">244</span>        des.init(Cipher.ENCRYPT_MODE, middleKey);<a name="line.244"></a>
+<span class="sourceLineNo">245</span>        byte[] middleResponse = des.doFinal(challenge);<a name="line.245"></a>
+<span class="sourceLineNo">246</span>        des.init(Cipher.ENCRYPT_MODE, highKey);<a name="line.246"></a>
+<span class="sourceLineNo">247</span>        byte[] highResponse = des.doFinal(challenge);<a name="line.247"></a>
+<span class="sourceLineNo">248</span>        byte[] lmResponse = new byte[24];<a name="line.248"></a>
+<span class="sourceLineNo">249</span>        System.arraycopy(lowResponse, 0, lmResponse, 0, 8);<a name="line.249"></a>
+<span class="sourceLineNo">250</span>        System.arraycopy(middleResponse, 0, lmResponse, 8, 8);<a name="line.250"></a>
+<span class="sourceLineNo">251</span>        System.arraycopy(highResponse, 0, lmResponse, 16, 8);<a name="line.251"></a>
+<span class="sourceLineNo">252</span>        return lmResponse;<a name="line.252"></a>
+<span class="sourceLineNo">253</span>    }<a name="line.253"></a>
+<span class="sourceLineNo">254</span><a name="line.254"></a>
+<span class="sourceLineNo">255</span>    /**<a name="line.255"></a>
+<span class="sourceLineNo">256</span>     * Creates the LMv2 Response from the given hash, client data, and<a name="line.256"></a>
+<span class="sourceLineNo">257</span>     * Type 2 challenge.<a name="line.257"></a>
+<span class="sourceLineNo">258</span>     *<a name="line.258"></a>
+<span class="sourceLineNo">259</span>     * @param hash The NTLMv2 Hash.<a name="line.259"></a>
+<span class="sourceLineNo">260</span>     * @param clientData The client data (blob or client nonce).<a name="line.260"></a>
+<span class="sourceLineNo">261</span>     * @param challenge The server challenge from the Type 2 message.<a name="line.261"></a>
+<span class="sourceLineNo">262</span>     *<a name="line.262"></a>
+<span class="sourceLineNo">263</span>     * @return The response (either NTLMv2 or LMv2, depending on the<a name="line.263"></a>
+<span class="sourceLineNo">264</span>     * client data).<a name="line.264"></a>
+<span class="sourceLineNo">265</span>     */<a name="line.265"></a>
+<span class="sourceLineNo">266</span>    private static byte[] lmv2Response(byte[] hash, byte[] clientData, byte[] challenge) throws Exception {<a name="line.266"></a>
+<span class="sourceLineNo">267</span>        byte[] data = new byte[challenge.length + clientData.length];<a name="line.267"></a>
+<span class="sourceLineNo">268</span>        System.arraycopy(challenge, 0, data, 0, challenge.length);<a name="line.268"></a>
+<span class="sourceLineNo">269</span>        System.arraycopy(clientData, 0, data, challenge.length, clientData.length);<a name="line.269"></a>
+<span class="sourceLineNo">270</span>        byte[] mac = hmacMD5(data, hash);<a name="line.270"></a>
+<span class="sourceLineNo">271</span>        byte[] lmv2Response = new byte[mac.length + clientData.length];<a name="line.271"></a>
+<span class="sourceLineNo">272</span>        System.arraycopy(mac, 0, lmv2Response, 0, mac.length);<a name="line.272"></a>
+<span class="sourceLineNo">273</span>        System.arraycopy(clientData, 0, lmv2Response, mac.length, clientData.length);<a name="line.273"></a>
+<span class="sourceLineNo">274</span>        return lmv2Response;<a name="line.274"></a>
+<span class="sourceLineNo">275</span>    }<a name="line.275"></a>
+<span class="sourceLineNo">276</span><a name="line.276"></a>
+<span class="sourceLineNo">277</span>    /**<a name="line.277"></a>
+<span class="sourceLineNo">278</span>     * Creates the NTLMv2 blob from the given target information block and<a name="line.278"></a>
+<span class="sourceLineNo">279</span>     * client nonce.<a name="line.279"></a>
+<span class="sourceLineNo">280</span>     *<a name="line.280"></a>
+<span class="sourceLineNo">281</span>     * @param targetInformation The target information block from the Type 2<a name="line.281"></a>
+<span class="sourceLineNo">282</span>     * message.<a name="line.282"></a>
+<span class="sourceLineNo">283</span>     * @param clientNonce The random 8-byte client nonce.<a name="line.283"></a>
+<span class="sourceLineNo">284</span>     * @param time the time stamp.<a name="line.284"></a>
+<span class="sourceLineNo">285</span>     *<a name="line.285"></a>
+<span class="sourceLineNo">286</span>     * @return The blob, used in the calculation of the NTLMv2 Response.<a name="line.286"></a>
+<span class="sourceLineNo">287</span>     */<a name="line.287"></a>
+<span class="sourceLineNo">288</span>    private static byte[] createBlob(byte[] targetInformation, byte[] clientNonce, long time) {<a name="line.288"></a>
+<span class="sourceLineNo">289</span>        byte[] blobSignature = new byte[] { (byte) 0x01, (byte) 0x01, (byte) 0x00, (byte) 0x00 };<a name="line.289"></a>
+<span class="sourceLineNo">290</span>        byte[] reserved = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };<a name="line.290"></a>
+<span class="sourceLineNo">291</span>        byte[] unknown1 = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };<a name="line.291"></a>
+<span class="sourceLineNo">292</span>        byte[] unknown2 = new byte[] { (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00 };<a name="line.292"></a>
+<span class="sourceLineNo">293</span>        time += 11644473600000l; // milliseconds from January 1, 1601 -&gt; epoch.<a name="line.293"></a>
+<span class="sourceLineNo">294</span>        time *= 10000; // tenths of a microsecond.<a name="line.294"></a>
+<span class="sourceLineNo">295</span>        // convert to little-endian byte array.<a name="line.295"></a>
+<span class="sourceLineNo">296</span>        byte[] timestamp = new byte[8];<a name="line.296"></a>
+<span class="sourceLineNo">297</span>        for (int i = 0; i &lt; 8; i++) {<a name="line.297"></a>
+<span class="sourceLineNo">298</span>            timestamp[i] = (byte) time;<a name="line.298"></a>
+<span class="sourceLineNo">299</span>            time &gt;&gt;&gt;= 8;<a name="line.299"></a>
+<span class="sourceLineNo">300</span>        }<a name="line.300"></a>
+<span class="sourceLineNo">301</span>        byte[] blob = new byte[blobSignature.length + reserved.length + timestamp.length + clientNonce.length<a name="line.301"></a>
+<span class="sourceLineNo">302</span>                               + unknown1.length + targetInformation.length + unknown2.length];<a name="line.302"></a>
+<span class="sourceLineNo">303</span>        int offset = 0;<a name="line.303"></a>
+<span class="sourceLineNo">304</span>        System.arraycopy(blobSignature, 0, blob, offset, blobSignature.length);<a name="line.304"></a>
+<span class="sourceLineNo">305</span>        offset += blobSignature.length;<a name="line.305"></a>
+<span class="sourceLineNo">306</span>        System.arraycopy(reserved, 0, blob, offset, reserved.length);<a name="line.306"></a>
+<span class="sourceLineNo">307</span>        offset += reserved.length;<a name="line.307"></a>
+<span class="sourceLineNo">308</span>        System.arraycopy(timestamp, 0, blob, offset, timestamp.length);<a name="line.308"></a>
+<span class="sourceLineNo">309</span>        offset += timestamp.length;<a name="line.309"></a>
+<span class="sourceLineNo">310</span>        System.arraycopy(clientNonce, 0, blob, offset, clientNonce.length);<a name="line.310"></a>
+<span class="sourceLineNo">311</span>        offset += clientNonce.length;<a name="line.311"></a>
+<span class="sourceLineNo">312</span>        System.arraycopy(unknown1, 0, blob, offset, unknown1.length);<a name="line.312"></a>
+<span class="sourceLineNo">313</span>        offset += unknown1.length;<a name="line.313"></a>
+<span class="sourceLineNo">314</span>        System.arraycopy(targetInformation, 0, blob, offset, targetInformation.length);<a name="line.314"></a>
+<span class="sourceLineNo">315</span>        offset += targetInformation.length;<a name="line.315"></a>
+<span class="sourceLineNo">316</span>        System.arraycopy(unknown2, 0, blob, offset, unknown2.length);<a name="line.316"></a>
+<span class="sourceLineNo">317</span>        return blob;<a name="line.317"></a>
+<span class="sourceLineNo">318</span>    }<a name="line.318"></a>
+<span class="sourceLineNo">319</span><a name="line.319"></a>
+<span class="sourceLineNo">320</span>    /**<a name="line.320"></a>
+<span class="sourceLineNo">321</span>     * Calculates the HMAC-MD5 hash of the given data using the specified<a name="line.321"></a>
+<span class="sourceLineNo">322</span>     * hashing key.<a name="line.322"></a>
+<span class="sourceLineNo">323</span>     *<a name="line.323"></a>
+<span class="sourceLineNo">324</span>     * @param data The data for which the hash will be calculated.<a name="line.324"></a>
+<span class="sourceLineNo">325</span>     * @param key The hashing key.<a name="line.325"></a>
+<span class="sourceLineNo">326</span>     *<a name="line.326"></a>
+<span class="sourceLineNo">327</span>     * @return The HMAC-MD5 hash of the given data.<a name="line.327"></a>
+<span class="sourceLineNo">328</span>     * @throws Exception If something went wrong<a name="line.328"></a>
+<span class="sourceLineNo">329</span>     */<a name="line.329"></a>
+<span class="sourceLineNo">330</span>    public static byte[] hmacMD5(byte[] data, byte[] key) throws Exception {<a name="line.330"></a>
+<span class="sourceLineNo">331</span>        byte[] ipad = new byte[64];<a name="line.331"></a>
+<span class="sourceLineNo">332</span>        byte[] opad = new byte[64];<a name="line.332"></a>
+<span class="sourceLineNo">333</span><a name="line.333"></a>
+<span class="sourceLineNo">334</span>        // Stores key in pads and XOR it with ipad and opad values<a name="line.334"></a>
+<span class="sourceLineNo">335</span>        for (int i = 0; i &lt; 64; i++) {<a name="line.335"></a>
+<span class="sourceLineNo">336</span>            if (i &lt; key.length) {<a name="line.336"></a>
+<span class="sourceLineNo">337</span>                ipad[i] = (byte) (key[i] ^ 0x36);<a name="line.337"></a>
+<span class="sourceLineNo">338</span>                opad[i] = (byte) (key[i] ^ 0x5c);<a name="line.338"></a>
+<span class="sourceLineNo">339</span>            } else {<a name="line.339"></a>
+<span class="sourceLineNo">340</span>                ipad[i] = 0x36;<a name="line.340"></a>
+<span class="sourceLineNo">341</span>                opad[i] = 0x5c;<a name="line.341"></a>
+<span class="sourceLineNo">342</span>            }<a name="line.342"></a>
+<span class="sourceLineNo">343</span>        }<a name="line.343"></a>
+<span class="sourceLineNo">344</span><a name="line.344"></a>
+<span class="sourceLineNo">345</span>        byte[] content = new byte[data.length + 64];<a name="line.345"></a>
+<span class="sourceLineNo">346</span>        System.arraycopy(ipad, 0, content, 0, 64);<a name="line.346"></a>
+<span class="sourceLineNo">347</span>        System.arraycopy(data, 0, content, 64, data.length);<a name="line.347"></a>
+<span class="sourceLineNo">348</span>        MessageDigest md5 = MessageDigest.getInstance("MD5");<a name="line.348"></a>
+<span class="sourceLineNo">349</span>        data = md5.digest(content);<a name="line.349"></a>
+<span class="sourceLineNo">350</span>        content = new byte[data.length + 64];<a name="line.350"></a>
+<span class="sourceLineNo">351</span>        System.arraycopy(opad, 0, content, 0, 64);<a name="line.351"></a>
+<span class="sourceLineNo">352</span>        System.arraycopy(data, 0, content, 64, data.length);<a name="line.352"></a>
+<span class="sourceLineNo">353</span>        return md5.digest(content);<a name="line.353"></a>
+<span class="sourceLineNo">354</span>    }<a name="line.354"></a>
+<span class="sourceLineNo">355</span><a name="line.355"></a>
+<span class="sourceLineNo">356</span>    /**<a name="line.356"></a>
+<span class="sourceLineNo">357</span>     * Creates a DES encryption key from the given key material.<a name="line.357"></a>
+<span class="sourceLineNo">358</span>     *<a name="line.358"></a>
+<span class="sourceLineNo">359</span>     * @param bytes A byte array containing the DES key material.<a name="line.359"></a>
+<span class="sourceLineNo">360</span>     * @param offset The offset in the given byte array at which<a name="line.360"></a>
+<span class="sourceLineNo">361</span>     * the 7-byte key material starts.<a name="line.361"></a>
+<span class="sourceLineNo">362</span>     *<a name="line.362"></a>
+<span class="sourceLineNo">363</span>     * @return A DES encryption key created from the key material<a name="line.363"></a>
+<span class="sourceLineNo">364</span>     * starting at the specified offset in the given byte array.<a name="line.364"></a>
+<span class="sourceLineNo">365</span>     */<a name="line.365"></a>
+<span class="sourceLineNo">366</span>    private static Key createDESKey(byte[] bytes, int offset) {<a name="line.366"></a>
+<span class="sourceLineNo">367</span>        byte[] keyBytes = new byte[7];<a name="line.367"></a>
+<span class="sourceLineNo">368</span>        System.arraycopy(bytes, offset, keyBytes, 0, 7);<a name="line.368"></a>
+<span class="sourceLineNo">369</span>        byte[] material = new byte[8];<a name="line.369"></a>
+<span class="sourceLineNo">370</span>        material[0] = keyBytes[0];<a name="line.370"></a>
+<span class="sourceLineNo">371</span>        material[1] = (byte) (keyBytes[0] &lt;&lt; 7 | (keyBytes[1] &amp; 0xff) &gt;&gt;&gt; 1);<a name="line.371"></a>
+<span class="sourceLineNo">372</span>        material[2] = (byte) (keyBytes[1] &lt;&lt; 6 | (keyBytes[2] &amp; 0xff) &gt;&gt;&gt; 2);<a name="line.372"></a>
+<span class="sourceLineNo">373</span>        material[3] = (byte) (keyBytes[2] &lt;&lt; 5 | (keyBytes[3] &amp; 0xff) &gt;&gt;&gt; 3);<a name="line.373"></a>
+<span class="sourceLineNo">374</span>        material[4] = (byte) (keyBytes[3] &lt;&lt; 4 | (keyBytes[4] &amp; 0xff) &gt;&gt;&gt; 4);<a name="line.374"></a>
+<span class="sourceLineNo">375</span>        material[5] = (byte) (keyBytes[4] &lt;&lt; 3 | (keyBytes[5] &amp; 0xff) &gt;&gt;&gt; 5);<a name="line.375"></a>
+<span class="sourceLineNo">376</span>        material[6] = (byte) (keyBytes[5] &lt;&lt; 2 | (keyBytes[6] &amp; 0xff) &gt;&gt;&gt; 6);<a name="line.376"></a>
+<span class="sourceLineNo">377</span>        material[7] = (byte) (keyBytes[6] &lt;&lt; 1);<a name="line.377"></a>
+<span class="sourceLineNo">378</span>        oddParity(material);<a name="line.378"></a>
+<span class="sourceLineNo">379</span>        return new SecretKeySpec(material, "DES");<a name="line.379"></a>
+<span class="sourceLineNo">380</span>    }<a name="line.380"></a>
+<span class="sourceLineNo">381</span><a name="line.381"></a>
+<span class="sourceLineNo">382</span>    /**<a name="line.382"></a>
+<span class="sourceLineNo">383</span>     * Applies odd parity to the given byte array.<a name="line.383"></a>
+<span class="sourceLineNo">384</span>     *<a name="line.384"></a>
+<span class="sourceLineNo">385</span>     * @param bytes The data whose parity bits are to be adjusted for<a name="line.385"></a>
+<span class="sourceLineNo">386</span>     * odd parity.<a name="line.386"></a>
+<span class="sourceLineNo">387</span>     */<a name="line.387"></a>
+<span class="sourceLineNo">388</span>    private static void oddParity(byte[] bytes) {<a name="line.388"></a>
+<span class="sourceLineNo">389</span>        for (int i = 0; i &lt; bytes.length; i++) {<a name="line.389"></a>
+<span class="sourceLineNo">390</span>            byte b = bytes[i];<a name="line.390"></a>
+<span class="sourceLineNo">391</span>            boolean needsParity = (((b &gt;&gt;&gt; 7) ^ (b &gt;&gt;&gt; 6) ^ (b &gt;&gt;&gt; 5) ^ (b &gt;&gt;&gt; 4) ^ (b &gt;&gt;&gt; 3) ^ (b &gt;&gt;&gt; 2) ^ (b &gt;&gt;&gt; 1)) &amp; 0x01) == 0;<a name="line.391"></a>
+<span class="sourceLineNo">392</span>            if (needsParity) {<a name="line.392"></a>
+<span class="sourceLineNo">393</span>                bytes[i] |= (byte) 0x01;<a name="line.393"></a>
+<span class="sourceLineNo">394</span>            } else {<a name="line.394"></a>
+<span class="sourceLineNo">395</span>                bytes[i] &amp;= (byte) 0xfe;<a name="line.395"></a>
+<span class="sourceLineNo">396</span>            }<a name="line.396"></a>
+<span class="sourceLineNo">397</span>        }<a name="line.397"></a>
+<span class="sourceLineNo">398</span>    }<a name="line.398"></a>
+<span class="sourceLineNo">399</span>}<a name="line.399"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

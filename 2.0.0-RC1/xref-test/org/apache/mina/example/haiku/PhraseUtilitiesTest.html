@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>PhraseUtilitiesTest xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+
+<a name="1" href="#1">1</a>   <em class="jxr_comment">/*</em>
+<a name="2" href="#2">2</a>   <em class="jxr_comment"> * Licensed to the Apache Software Foundation (ASF) under one</em>
+<a name="3" href="#3">3</a>   <em class="jxr_comment"> * or more contributor license agreements.  See the NOTICE file</em>
+<a name="4" href="#4">4</a>   <em class="jxr_comment"> * distributed with this work for additional information</em>
+<a name="5" href="#5">5</a>   <em class="jxr_comment"> * regarding copyright ownership.  The ASF licenses this file</em>
+<a name="6" href="#6">6</a>   <em class="jxr_comment"> * to you under the Apache License, Version 2.0 (the</em>
+<a name="7" href="#7">7</a>   <em class="jxr_comment"> * "License"); you may not use this file except in compliance</em>
+<a name="8" href="#8">8</a>   <em class="jxr_comment"> * with the License.  You may obtain a copy of the License at</em>
+<a name="9" href="#9">9</a>   <em class="jxr_comment"> *</em>
+<a name="10" href="#10">10</a>  <em class="jxr_comment"> *   <a href="http://www.apache.org/licenses/LICENSE-2.0" target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.0</a></em>
+<a name="11" href="#11">11</a>  <em class="jxr_comment"> *</em>
+<a name="12" href="#12">12</a>  <em class="jxr_comment"> * Unless required by applicable law or agreed to in writing,</em>
+<a name="13" href="#13">13</a>  <em class="jxr_comment"> * software distributed under the License is distributed on an</em>
+<a name="14" href="#14">14</a>  <em class="jxr_comment"> * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</em>
+<a name="15" href="#15">15</a>  <em class="jxr_comment"> * KIND, either express or implied.  See the License for the</em>
+<a name="16" href="#16">16</a>  <em class="jxr_comment"> * specific language governing permissions and limitations</em>
+<a name="17" href="#17">17</a>  <em class="jxr_comment"> * under the License.</em>
+<a name="18" href="#18">18</a>  <em class="jxr_comment"> */</em>
+<a name="19" href="#19">19</a>  <strong class="jxr_keyword">package</strong> org.apache.mina.example.haiku;
+<a name="20" href="#20">20</a>  
+<a name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> junit.framework.TestCase;
+<a name="22" href="#22">22</a>  
+<a name="23" href="#23">23</a>  <em class="jxr_javadoccomment">/**</em>
+<a name="24" href="#24">24</a>  <em class="jxr_javadoccomment"> * @author &lt;a href="<a href="http://mina.apache.org" target="alexandria_uri">http://mina.apache.org</a>"&gt;Apache MINA Project&lt;/a&gt;</em>
+<a name="25" href="#25">25</a>  <em class="jxr_javadoccomment"> */</em>
+<a name="26" href="#26">26</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../org/apache/mina/example/haiku/PhraseUtilitiesTest.html">PhraseUtilitiesTest</a> <strong class="jxr_keyword">extends</strong> TestCase {
+<a name="27" href="#27">27</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCountSyllablesInWord() <strong class="jxr_keyword">throws</strong> Exception {
+<a name="28" href="#28">28</a>          assertSyllableCount(1, <span class="jxr_string">"one"</span>);
+<a name="29" href="#29">29</a>          assertSyllableCount(1, <span class="jxr_string">"I"</span>);
+<a name="30" href="#30">30</a>          assertSyllableCount(1, <span class="jxr_string">"too"</span>);
+<a name="31" href="#31">31</a>          assertSyllableCount(1, <span class="jxr_string">"why"</span>);
+<a name="32" href="#32">32</a>          assertSyllableCount(1, <span class="jxr_string">"oh"</span>);
+<a name="33" href="#33">33</a>          assertSyllableCount(1, <span class="jxr_string">"did"</span>);
+<a name="34" href="#34">34</a>          assertSyllableCount(1, <span class="jxr_string">"sign"</span>);
+<a name="35" href="#35">35</a>          assertSyllableCount(1, <span class="jxr_string">"up"</span>);
+<a name="36" href="#36">36</a>          assertSyllableCount(1, <span class="jxr_string">"watch"</span>);
+<a name="37" href="#37">37</a>          assertSyllableCount(1, <span class="jxr_string">"my"</span>);
+<a name="38" href="#38">38</a>          assertSyllableCount(1, <span class="jxr_string">"what"</span>);
+<a name="39" href="#39">39</a>          assertSyllableCount(1, <span class="jxr_string">"is"</span>);
+<a name="40" href="#40">40</a>          assertSyllableCount(1, <span class="jxr_string">"wrong"</span>);
+<a name="41" href="#41">41</a>          assertSyllableCount(1, <span class="jxr_string">"with"</span>);
+<a name="42" href="#42">42</a>          assertSyllableCount(1, <span class="jxr_string">"me"</span>);
+<a name="43" href="#43">43</a>          assertSyllableCount(1, <span class="jxr_string">"don't"</span>);
+<a name="44" href="#44">44</a>          assertSyllableCount(1, <span class="jxr_string">"you"</span>);
+<a name="45" href="#45">45</a>          assertSyllableCount(1, <span class="jxr_string">"love"</span>);
+<a name="46" href="#46">46</a>          assertSyllableCount(2, <span class="jxr_string">"hassle"</span>);
+<a name="47" href="#47">47</a>          assertSyllableCount(2, <span class="jxr_string">"oiling"</span>);
+<a name="48" href="#48">48</a>          assertSyllableCount(2, <span class="jxr_string">"decide"</span>);
+<a name="49" href="#49">49</a>          assertSyllableCount(2, <span class="jxr_string">"Michael"</span>);
+<a name="50" href="#50">50</a>          assertSyllableCount(1, <span class="jxr_string">"I'm"</span>);
+<a name="51" href="#51">51</a>          assertSyllableCount(1, <span class="jxr_string">"check"</span>);
+<a name="52" href="#52">52</a>          assertSyllableCount(1, <span class="jxr_string">"out"</span>);
+<a name="53" href="#53">53</a>          assertSyllableCount(1, <span class="jxr_string">"shirt"</span>);
+<a name="54" href="#54">54</a>          assertSyllableCount(1, <span class="jxr_string">"bitch"</span>);
+<a name="55" href="#55">55</a>          assertSyllableCount(1, <span class="jxr_string">"sucks"</span>);
+<a name="56" href="#56">56</a>          assertSyllableCount(1, <span class="jxr_string">"James"</span>);
+<a name="57" href="#57">57</a>          assertSyllableCount(2, <span class="jxr_string">"ex-wife"</span>);
+<a name="58" href="#58">58</a>          assertSyllableCount(2, <span class="jxr_string">"airlines"</span>);
+<a name="59" href="#59">59</a>          assertSyllableCount(3, <span class="jxr_string">"video"</span>);
+<a name="60" href="#60">60</a>          assertSyllableCount(3, <span class="jxr_string">"fee-ee-ling"</span>);
+<a name="61" href="#61">61</a>          assertSyllableCount(3, <span class="jxr_string">"unbuttoned"</span>);
+<a name="62" href="#62">62</a>      }
+<a name="63" href="#63">63</a>  
+<a name="64" href="#64">64</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> assertSyllableCount(<strong class="jxr_keyword">int</strong> count, String word) {
+<a name="65" href="#65">65</a>          assertEquals(<span class="jxr_string">"syllables in "</span> + word, count, PhraseUtilities
+<a name="66" href="#66">66</a>                  .countSyllablesInWord(word.toLowerCase()));
+<a name="67" href="#67">67</a>      }
+<a name="68" href="#68">68</a>  }
+</pre>
+<hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
+</html>
+

@@ -1,0 +1,404 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Licensed to the Apache Software Foundation (ASF) under one<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  or more contributor license agreements.  See the NOTICE file<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  distributed with this work for additional information<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  regarding copyright ownership.  The ASF licenses this file<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  to you under the Apache License, Version 2.0 (the<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  "License"); you may not use this file except in compliance<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *  with the License.  You may obtain a copy of the License at<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *    http://www.apache.org/licenses/LICENSE-2.0<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  Unless required by applicable law or agreed to in writing,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  software distributed under the License is distributed on an<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  KIND, either express or implied.  See the License for the<a name="line.15"></a>
+<span class="sourceLineNo">016</span> *  specific language governing permissions and limitations<a name="line.16"></a>
+<span class="sourceLineNo">017</span> *  under the License.<a name="line.17"></a>
+<span class="sourceLineNo">018</span> *<a name="line.18"></a>
+<span class="sourceLineNo">019</span> */<a name="line.19"></a>
+<span class="sourceLineNo">020</span>package org.apache.mina.proxy.utils;<a name="line.20"></a>
+<span class="sourceLineNo">021</span><a name="line.21"></a>
+<span class="sourceLineNo">022</span>import java.io.UnsupportedEncodingException;<a name="line.22"></a>
+<span class="sourceLineNo">023</span><a name="line.23"></a>
+<span class="sourceLineNo">024</span>/**<a name="line.24"></a>
+<span class="sourceLineNo">025</span> * ByteUtilities.java - Byte manipulation functions.<a name="line.25"></a>
+<span class="sourceLineNo">026</span> * <a name="line.26"></a>
+<span class="sourceLineNo">027</span> * @author &lt;a href="http://mina.apache.org"&gt;Apache MINA Project&lt;/a&gt;<a name="line.27"></a>
+<span class="sourceLineNo">028</span> * @since MINA 2.0.0-M3<a name="line.28"></a>
+<span class="sourceLineNo">029</span> */<a name="line.29"></a>
+<span class="sourceLineNo">030</span>public class ByteUtilities {<a name="line.30"></a>
+<span class="sourceLineNo">031</span><a name="line.31"></a>
+<span class="sourceLineNo">032</span>    /**<a name="line.32"></a>
+<span class="sourceLineNo">033</span>     * Returns the integer represented by up to 4 bytes in network byte order.<a name="line.33"></a>
+<span class="sourceLineNo">034</span>     * <a name="line.34"></a>
+<span class="sourceLineNo">035</span>     * @param buf the buffer to read the bytes from<a name="line.35"></a>
+<span class="sourceLineNo">036</span>     * @param start The starting position<a name="line.36"></a>
+<span class="sourceLineNo">037</span>     * @param count The number of bytes to in the buffer<a name="line.37"></a>
+<span class="sourceLineNo">038</span>     * @return the integer value<a name="line.38"></a>
+<span class="sourceLineNo">039</span>     */<a name="line.39"></a>
+<span class="sourceLineNo">040</span>    public static int networkByteOrderToInt(byte[] buf, int start, int count) {<a name="line.40"></a>
+<span class="sourceLineNo">041</span>        if (count &gt; 4) {<a name="line.41"></a>
+<span class="sourceLineNo">042</span>            throw new IllegalArgumentException("Cannot handle more than 4 bytes");<a name="line.42"></a>
+<span class="sourceLineNo">043</span>        }<a name="line.43"></a>
+<span class="sourceLineNo">044</span><a name="line.44"></a>
+<span class="sourceLineNo">045</span>        int result = 0;<a name="line.45"></a>
+<span class="sourceLineNo">046</span><a name="line.46"></a>
+<span class="sourceLineNo">047</span>        for (int i = 0; i &lt; count; i++) {<a name="line.47"></a>
+<span class="sourceLineNo">048</span>            result &lt;&lt;= 8;<a name="line.48"></a>
+<span class="sourceLineNo">049</span>            result |= (buf[start + i] &amp; 0xff);<a name="line.49"></a>
+<span class="sourceLineNo">050</span>        }<a name="line.50"></a>
+<span class="sourceLineNo">051</span><a name="line.51"></a>
+<span class="sourceLineNo">052</span>        return result;<a name="line.52"></a>
+<span class="sourceLineNo">053</span>    }<a name="line.53"></a>
+<span class="sourceLineNo">054</span><a name="line.54"></a>
+<span class="sourceLineNo">055</span>    /**<a name="line.55"></a>
+<span class="sourceLineNo">056</span>     * Encodes an integer into up to 4 bytes in network byte order.<a name="line.56"></a>
+<span class="sourceLineNo">057</span>     * <a name="line.57"></a>
+<span class="sourceLineNo">058</span>     * @param num the int to convert to a byte array<a name="line.58"></a>
+<span class="sourceLineNo">059</span>     * @param count the number of reserved bytes for the write operation<a name="line.59"></a>
+<span class="sourceLineNo">060</span>     * @return the resulting byte array<a name="line.60"></a>
+<span class="sourceLineNo">061</span>     */<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    public static byte[] intToNetworkByteOrder(int num, int count) {<a name="line.62"></a>
+<span class="sourceLineNo">063</span>        byte[] buf = new byte[count];<a name="line.63"></a>
+<span class="sourceLineNo">064</span>        intToNetworkByteOrder(num, buf, 0, count);<a name="line.64"></a>
+<span class="sourceLineNo">065</span><a name="line.65"></a>
+<span class="sourceLineNo">066</span>        return buf;<a name="line.66"></a>
+<span class="sourceLineNo">067</span>    }<a name="line.67"></a>
+<span class="sourceLineNo">068</span><a name="line.68"></a>
+<span class="sourceLineNo">069</span>    /**<a name="line.69"></a>
+<span class="sourceLineNo">070</span>     * Encodes an integer into up to 4 bytes in network byte order in the <a name="line.70"></a>
+<span class="sourceLineNo">071</span>     * supplied buffer starting at &lt;code&gt;start&lt;/code&gt; offset and writing<a name="line.71"></a>
+<span class="sourceLineNo">072</span>     * &lt;code&gt;count&lt;/code&gt; bytes.<a name="line.72"></a>
+<span class="sourceLineNo">073</span>     * <a name="line.73"></a>
+<span class="sourceLineNo">074</span>     * @param num the int to convert to a byte array<a name="line.74"></a>
+<span class="sourceLineNo">075</span>     * @param buf the buffer to write the bytes to<a name="line.75"></a>
+<span class="sourceLineNo">076</span>     * @param start the offset from beginning for the write operation<a name="line.76"></a>
+<span class="sourceLineNo">077</span>     * @param count the number of reserved bytes for the write operation<a name="line.77"></a>
+<span class="sourceLineNo">078</span>     */<a name="line.78"></a>
+<span class="sourceLineNo">079</span>    public static void intToNetworkByteOrder(int num, byte[] buf, int start, int count) {<a name="line.79"></a>
+<span class="sourceLineNo">080</span>        if (count &gt; 4) {<a name="line.80"></a>
+<span class="sourceLineNo">081</span>            throw new IllegalArgumentException("Cannot handle more than 4 bytes");<a name="line.81"></a>
+<span class="sourceLineNo">082</span>        }<a name="line.82"></a>
+<span class="sourceLineNo">083</span><a name="line.83"></a>
+<span class="sourceLineNo">084</span>        for (int i = count - 1; i &gt;= 0; i--) {<a name="line.84"></a>
+<span class="sourceLineNo">085</span>            buf[start + i] = (byte) (num &amp; 0xff);<a name="line.85"></a>
+<span class="sourceLineNo">086</span>            num &gt;&gt;&gt;= 8;<a name="line.86"></a>
+<span class="sourceLineNo">087</span>        }<a name="line.87"></a>
+<span class="sourceLineNo">088</span>    }<a name="line.88"></a>
+<span class="sourceLineNo">089</span><a name="line.89"></a>
+<span class="sourceLineNo">090</span>    /**<a name="line.90"></a>
+<span class="sourceLineNo">091</span>     * Write a 16 bit short as LITTLE_ENDIAN.<a name="line.91"></a>
+<span class="sourceLineNo">092</span>     * <a name="line.92"></a>
+<span class="sourceLineNo">093</span>     * @param v the short to write<a name="line.93"></a>
+<span class="sourceLineNo">094</span>     * @return the Short in a byte[]<a name="line.94"></a>
+<span class="sourceLineNo">095</span>     */<a name="line.95"></a>
+<span class="sourceLineNo">096</span>    public final static byte[] writeShort(short v) {<a name="line.96"></a>
+<span class="sourceLineNo">097</span>        return writeShort(v, new byte[2], 0);<a name="line.97"></a>
+<span class="sourceLineNo">098</span>    }<a name="line.98"></a>
+<span class="sourceLineNo">099</span><a name="line.99"></a>
+<span class="sourceLineNo">100</span>    /**<a name="line.100"></a>
+<span class="sourceLineNo">101</span>     * Write a 16 bit short as LITTLE_ENDIAN to<a name="line.101"></a>
+<span class="sourceLineNo">102</span>     * the given array &lt;code&gt;b&lt;/code&gt; at offset &lt;code&gt;offset&lt;/code&gt;.<a name="line.102"></a>
+<span class="sourceLineNo">103</span>     * <a name="line.103"></a>
+<span class="sourceLineNo">104</span>     * @param v the short to write<a name="line.104"></a>
+<span class="sourceLineNo">105</span>     * @param b the byte array to write to<a name="line.105"></a>
+<span class="sourceLineNo">106</span>     * @param offset the offset at which to start writing in the array<a name="line.106"></a>
+<span class="sourceLineNo">107</span>     * @return the Short in a byte[]<a name="line.107"></a>
+<span class="sourceLineNo">108</span>     */<a name="line.108"></a>
+<span class="sourceLineNo">109</span>    public final static byte[] writeShort(short v, byte[] b, int offset) {<a name="line.109"></a>
+<span class="sourceLineNo">110</span>        b[offset] = (byte) v;<a name="line.110"></a>
+<span class="sourceLineNo">111</span>        b[offset + 1] = (byte) (v &gt;&gt; 8);<a name="line.111"></a>
+<span class="sourceLineNo">112</span><a name="line.112"></a>
+<span class="sourceLineNo">113</span>        return b;<a name="line.113"></a>
+<span class="sourceLineNo">114</span>    }<a name="line.114"></a>
+<span class="sourceLineNo">115</span><a name="line.115"></a>
+<span class="sourceLineNo">116</span>    /**<a name="line.116"></a>
+<span class="sourceLineNo">117</span>     * Write a 32 bit int as LITTLE_ENDIAN.<a name="line.117"></a>
+<span class="sourceLineNo">118</span>     * <a name="line.118"></a>
+<span class="sourceLineNo">119</span>     * @param v the int to write<a name="line.119"></a>
+<span class="sourceLineNo">120</span>     * @return the Int in a byte[]<a name="line.120"></a>
+<span class="sourceLineNo">121</span>     */<a name="line.121"></a>
+<span class="sourceLineNo">122</span>    public final static byte[] writeInt(int v) {<a name="line.122"></a>
+<span class="sourceLineNo">123</span>        return writeInt(v, new byte[4], 0);<a name="line.123"></a>
+<span class="sourceLineNo">124</span>    }<a name="line.124"></a>
+<span class="sourceLineNo">125</span><a name="line.125"></a>
+<span class="sourceLineNo">126</span>    /**<a name="line.126"></a>
+<span class="sourceLineNo">127</span>     * Write a 32 bit int as LITTLE_ENDIAN to<a name="line.127"></a>
+<span class="sourceLineNo">128</span>     * the given array &lt;code&gt;b&lt;/code&gt; at offset &lt;code&gt;offset&lt;/code&gt;.<a name="line.128"></a>
+<span class="sourceLineNo">129</span>     * <a name="line.129"></a>
+<span class="sourceLineNo">130</span>     * @param v the int to write<a name="line.130"></a>
+<span class="sourceLineNo">131</span>     * @param b the byte array to write to<a name="line.131"></a>
+<span class="sourceLineNo">132</span>     * @param offset the offset at which to start writing in the array<a name="line.132"></a>
+<span class="sourceLineNo">133</span>     * @return the Int in a byte[]<a name="line.133"></a>
+<span class="sourceLineNo">134</span>     */<a name="line.134"></a>
+<span class="sourceLineNo">135</span>    public final static byte[] writeInt(int v, byte[] b, int offset) {<a name="line.135"></a>
+<span class="sourceLineNo">136</span>        b[offset] = (byte) v;<a name="line.136"></a>
+<span class="sourceLineNo">137</span>        b[offset + 1] = (byte) (v &gt;&gt; 8);<a name="line.137"></a>
+<span class="sourceLineNo">138</span>        b[offset + 2] = (byte) (v &gt;&gt; 16);<a name="line.138"></a>
+<span class="sourceLineNo">139</span>        b[offset + 3] = (byte) (v &gt;&gt; 24);<a name="line.139"></a>
+<span class="sourceLineNo">140</span><a name="line.140"></a>
+<span class="sourceLineNo">141</span>        return b;<a name="line.141"></a>
+<span class="sourceLineNo">142</span>    }<a name="line.142"></a>
+<span class="sourceLineNo">143</span><a name="line.143"></a>
+<span class="sourceLineNo">144</span>    /**<a name="line.144"></a>
+<span class="sourceLineNo">145</span>     * Invert the endianness of words (4 bytes) in the given byte array <a name="line.145"></a>
+<span class="sourceLineNo">146</span>     * starting at the given offset and repeating length/4 times.<a name="line.146"></a>
+<span class="sourceLineNo">147</span>     * eg: b0b1b2b3 -&amp;gt; b3b2b1b0 <a name="line.147"></a>
+<span class="sourceLineNo">148</span>     * <a name="line.148"></a>
+<span class="sourceLineNo">149</span>     * @param b the byte array <a name="line.149"></a>
+<span class="sourceLineNo">150</span>     * @param offset the offset at which to change word start<a name="line.150"></a>
+<span class="sourceLineNo">151</span>     * @param length the number of bytes on which to operate <a name="line.151"></a>
+<span class="sourceLineNo">152</span>     * (should be a multiple of 4)<a name="line.152"></a>
+<span class="sourceLineNo">153</span>     */<a name="line.153"></a>
+<span class="sourceLineNo">154</span>    public final static void changeWordEndianess(byte[] b, int offset, int length) {<a name="line.154"></a>
+<span class="sourceLineNo">155</span>        byte tmp;<a name="line.155"></a>
+<span class="sourceLineNo">156</span><a name="line.156"></a>
+<span class="sourceLineNo">157</span>        for (int i = offset; i &lt; offset + length; i += 4) {<a name="line.157"></a>
+<span class="sourceLineNo">158</span>            tmp = b[i];<a name="line.158"></a>
+<span class="sourceLineNo">159</span>            b[i] = b[i + 3];<a name="line.159"></a>
+<span class="sourceLineNo">160</span>            b[i + 3] = tmp;<a name="line.160"></a>
+<span class="sourceLineNo">161</span>            tmp = b[i + 1];<a name="line.161"></a>
+<span class="sourceLineNo">162</span>            b[i + 1] = b[i + 2];<a name="line.162"></a>
+<span class="sourceLineNo">163</span>            b[i + 2] = tmp;<a name="line.163"></a>
+<span class="sourceLineNo">164</span>        }<a name="line.164"></a>
+<span class="sourceLineNo">165</span>    }<a name="line.165"></a>
+<span class="sourceLineNo">166</span><a name="line.166"></a>
+<span class="sourceLineNo">167</span>    /**<a name="line.167"></a>
+<span class="sourceLineNo">168</span>     * Invert two bytes in the given byte array starting at the given <a name="line.168"></a>
+<span class="sourceLineNo">169</span>     * offset and repeating the inversion length/2 times.<a name="line.169"></a>
+<span class="sourceLineNo">170</span>     * eg: b0b1 -@gt; b1b0<a name="line.170"></a>
+<span class="sourceLineNo">171</span>     * <a name="line.171"></a>
+<span class="sourceLineNo">172</span>     * @param b the byte array <a name="line.172"></a>
+<span class="sourceLineNo">173</span>     * @param offset the offset at which to change word start<a name="line.173"></a>
+<span class="sourceLineNo">174</span>     * @param length the number of bytes on which to operate <a name="line.174"></a>
+<span class="sourceLineNo">175</span>     * (should be a multiple of 2)<a name="line.175"></a>
+<span class="sourceLineNo">176</span>     */<a name="line.176"></a>
+<span class="sourceLineNo">177</span>    public final static void changeByteEndianess(byte[] b, int offset, int length) {<a name="line.177"></a>
+<span class="sourceLineNo">178</span>        byte tmp;<a name="line.178"></a>
+<span class="sourceLineNo">179</span><a name="line.179"></a>
+<span class="sourceLineNo">180</span>        for (int i = offset; i &lt; offset + length; i += 2) {<a name="line.180"></a>
+<span class="sourceLineNo">181</span>            tmp = b[i];<a name="line.181"></a>
+<span class="sourceLineNo">182</span>            b[i] = b[i + 1];<a name="line.182"></a>
+<span class="sourceLineNo">183</span>            b[i + 1] = tmp;<a name="line.183"></a>
+<span class="sourceLineNo">184</span>        }<a name="line.184"></a>
+<span class="sourceLineNo">185</span>    }<a name="line.185"></a>
+<span class="sourceLineNo">186</span><a name="line.186"></a>
+<span class="sourceLineNo">187</span>    /**<a name="line.187"></a>
+<span class="sourceLineNo">188</span>     * Converts an OEM string as defined in NTLM protocol (eg ASCII charset)<a name="line.188"></a>
+<span class="sourceLineNo">189</span>     * to a byte array.<a name="line.189"></a>
+<span class="sourceLineNo">190</span>     * <a name="line.190"></a>
+<span class="sourceLineNo">191</span>     * @param s the string to convert<a name="line.191"></a>
+<span class="sourceLineNo">192</span>     * @return the result byte array<a name="line.192"></a>
+<span class="sourceLineNo">193</span>     * @throws UnsupportedEncodingException if the string is not an OEM string<a name="line.193"></a>
+<span class="sourceLineNo">194</span>     */<a name="line.194"></a>
+<span class="sourceLineNo">195</span>    public final static byte[] getOEMStringAsByteArray(String s) throws UnsupportedEncodingException {<a name="line.195"></a>
+<span class="sourceLineNo">196</span>        return s.getBytes("ASCII");<a name="line.196"></a>
+<span class="sourceLineNo">197</span>    }<a name="line.197"></a>
+<span class="sourceLineNo">198</span><a name="line.198"></a>
+<span class="sourceLineNo">199</span>    /**<a name="line.199"></a>
+<span class="sourceLineNo">200</span>     * Converts an UTF-16LE string as defined in NTLM protocol to a byte array.<a name="line.200"></a>
+<span class="sourceLineNo">201</span>     * <a name="line.201"></a>
+<span class="sourceLineNo">202</span>     * @param s the string to convert<a name="line.202"></a>
+<span class="sourceLineNo">203</span>     * @return the result byte array<a name="line.203"></a>
+<span class="sourceLineNo">204</span>     * @throws UnsupportedEncodingException if the string is not an UTF-16LE string<a name="line.204"></a>
+<span class="sourceLineNo">205</span>     */<a name="line.205"></a>
+<span class="sourceLineNo">206</span>    public final static byte[] getUTFStringAsByteArray(String s) throws UnsupportedEncodingException {<a name="line.206"></a>
+<span class="sourceLineNo">207</span>        return s.getBytes("UTF-16LE");<a name="line.207"></a>
+<span class="sourceLineNo">208</span>    }<a name="line.208"></a>
+<span class="sourceLineNo">209</span><a name="line.209"></a>
+<span class="sourceLineNo">210</span>    /**<a name="line.210"></a>
+<span class="sourceLineNo">211</span>     * Encodes the string to a byte array using UTF-16LE or the ASCII charset<a name="line.211"></a>
+<span class="sourceLineNo">212</span>     * in function of the &lt;code&gt;useUnicode&lt;/code&gt; argument.<a name="line.212"></a>
+<span class="sourceLineNo">213</span>     * <a name="line.213"></a>
+<span class="sourceLineNo">214</span>     * @param s the string to encode<a name="line.214"></a>
+<span class="sourceLineNo">215</span>     * @param useUnicode if true then string is encoded to UTF-16LE <a name="line.215"></a>
+<span class="sourceLineNo">216</span>     * otherwise to ASCII<a name="line.216"></a>
+<span class="sourceLineNo">217</span>     * @return the encoded string as a byte array<a name="line.217"></a>
+<span class="sourceLineNo">218</span>     * @throws UnsupportedEncodingException if encoding fails<a name="line.218"></a>
+<span class="sourceLineNo">219</span>     */<a name="line.219"></a>
+<span class="sourceLineNo">220</span>    public final static byte[] encodeString(String s, boolean useUnicode) throws UnsupportedEncodingException {<a name="line.220"></a>
+<span class="sourceLineNo">221</span>        if (useUnicode) {<a name="line.221"></a>
+<span class="sourceLineNo">222</span>            return getUTFStringAsByteArray(s);<a name="line.222"></a>
+<span class="sourceLineNo">223</span>        }<a name="line.223"></a>
+<span class="sourceLineNo">224</span><a name="line.224"></a>
+<span class="sourceLineNo">225</span>        return getOEMStringAsByteArray(s);<a name="line.225"></a>
+<span class="sourceLineNo">226</span>    }<a name="line.226"></a>
+<span class="sourceLineNo">227</span><a name="line.227"></a>
+<span class="sourceLineNo">228</span>    /**<a name="line.228"></a>
+<span class="sourceLineNo">229</span>     * Returns a hexadecimal representation of the given byte array.<a name="line.229"></a>
+<span class="sourceLineNo">230</span>     * <a name="line.230"></a>
+<span class="sourceLineNo">231</span>     * @param bytes the array to output to an hex string<a name="line.231"></a>
+<span class="sourceLineNo">232</span>     * @return the hex representation as a string<a name="line.232"></a>
+<span class="sourceLineNo">233</span>     */<a name="line.233"></a>
+<span class="sourceLineNo">234</span>    public static String asHex(byte[] bytes) {<a name="line.234"></a>
+<span class="sourceLineNo">235</span>        return asHex(bytes, null);<a name="line.235"></a>
+<span class="sourceLineNo">236</span>    }<a name="line.236"></a>
+<span class="sourceLineNo">237</span><a name="line.237"></a>
+<span class="sourceLineNo">238</span>    /**<a name="line.238"></a>
+<span class="sourceLineNo">239</span>     * Returns a hexadecimal representation of the given byte array.<a name="line.239"></a>
+<span class="sourceLineNo">240</span>     * <a name="line.240"></a>
+<span class="sourceLineNo">241</span>     * @param bytes the array to output to an hex string<a name="line.241"></a>
+<span class="sourceLineNo">242</span>     * @param separator the separator to use between each byte in the output<a name="line.242"></a>
+<span class="sourceLineNo">243</span>     * string. If null no char is inserted between each byte value. <a name="line.243"></a>
+<span class="sourceLineNo">244</span>     * @return the hex representation as a string<a name="line.244"></a>
+<span class="sourceLineNo">245</span>     */<a name="line.245"></a>
+<span class="sourceLineNo">246</span>    public static String asHex(byte[] bytes, String separator) {<a name="line.246"></a>
+<span class="sourceLineNo">247</span>        StringBuilder sb = new StringBuilder();<a name="line.247"></a>
+<span class="sourceLineNo">248</span>        for (int i = 0; i &lt; bytes.length; i++) {<a name="line.248"></a>
+<span class="sourceLineNo">249</span>            String code = Integer.toHexString(bytes[i] &amp; 0xFF);<a name="line.249"></a>
+<span class="sourceLineNo">250</span>            if ((bytes[i] &amp; 0xFF) &lt; 16) {<a name="line.250"></a>
+<span class="sourceLineNo">251</span>                sb.append('0');<a name="line.251"></a>
+<span class="sourceLineNo">252</span>            }<a name="line.252"></a>
+<span class="sourceLineNo">253</span><a name="line.253"></a>
+<span class="sourceLineNo">254</span>            sb.append(code);<a name="line.254"></a>
+<span class="sourceLineNo">255</span><a name="line.255"></a>
+<span class="sourceLineNo">256</span>            if (separator != null &amp;&amp; i &lt; bytes.length - 1) {<a name="line.256"></a>
+<span class="sourceLineNo">257</span>                sb.append(separator);<a name="line.257"></a>
+<span class="sourceLineNo">258</span>            }<a name="line.258"></a>
+<span class="sourceLineNo">259</span>        }<a name="line.259"></a>
+<span class="sourceLineNo">260</span><a name="line.260"></a>
+<span class="sourceLineNo">261</span>        return sb.toString();<a name="line.261"></a>
+<span class="sourceLineNo">262</span>    }<a name="line.262"></a>
+<span class="sourceLineNo">263</span><a name="line.263"></a>
+<span class="sourceLineNo">264</span>    /**<a name="line.264"></a>
+<span class="sourceLineNo">265</span>     * Converts a hex string representation to a byte array.<a name="line.265"></a>
+<span class="sourceLineNo">266</span>     * <a name="line.266"></a>
+<span class="sourceLineNo">267</span>     * @param hex the string holding the hex values<a name="line.267"></a>
+<span class="sourceLineNo">268</span>     * @return the resulting byte array<a name="line.268"></a>
+<span class="sourceLineNo">269</span>     */<a name="line.269"></a>
+<span class="sourceLineNo">270</span>    public static byte[] asByteArray(String hex) {<a name="line.270"></a>
+<span class="sourceLineNo">271</span>        byte[] bts = new byte[hex.length() / 2];<a name="line.271"></a>
+<span class="sourceLineNo">272</span>        for (int i = 0; i &lt; bts.length; i++) {<a name="line.272"></a>
+<span class="sourceLineNo">273</span>            bts[i] = (byte) Integer.parseInt(hex.substring(2 * i, 2 * i + 2), 16);<a name="line.273"></a>
+<span class="sourceLineNo">274</span>        }<a name="line.274"></a>
+<span class="sourceLineNo">275</span><a name="line.275"></a>
+<span class="sourceLineNo">276</span>        return bts;<a name="line.276"></a>
+<span class="sourceLineNo">277</span>    }<a name="line.277"></a>
+<span class="sourceLineNo">278</span><a name="line.278"></a>
+<span class="sourceLineNo">279</span>    /**<a name="line.279"></a>
+<span class="sourceLineNo">280</span>     * Reads an int from 4 bytes of the given array at offset 0.<a name="line.280"></a>
+<span class="sourceLineNo">281</span>     * <a name="line.281"></a>
+<span class="sourceLineNo">282</span>     * @param b the byte array to read<a name="line.282"></a>
+<span class="sourceLineNo">283</span>     * @return the integer value<a name="line.283"></a>
+<span class="sourceLineNo">284</span>     */<a name="line.284"></a>
+<span class="sourceLineNo">285</span>    public static final int makeIntFromByte4(byte[] b) {<a name="line.285"></a>
+<span class="sourceLineNo">286</span>        return makeIntFromByte4(b, 0);<a name="line.286"></a>
+<span class="sourceLineNo">287</span>    }<a name="line.287"></a>
+<span class="sourceLineNo">288</span><a name="line.288"></a>
+<span class="sourceLineNo">289</span>    /**<a name="line.289"></a>
+<span class="sourceLineNo">290</span>     * Reads an int from 4 bytes of the given array at the given offset.<a name="line.290"></a>
+<span class="sourceLineNo">291</span>     * <a name="line.291"></a>
+<span class="sourceLineNo">292</span>     * @param b the byte array to read<a name="line.292"></a>
+<span class="sourceLineNo">293</span>     * @param offset the offset at which to start<a name="line.293"></a>
+<span class="sourceLineNo">294</span>     * @return the int value<a name="line.294"></a>
+<span class="sourceLineNo">295</span>     */<a name="line.295"></a>
+<span class="sourceLineNo">296</span>    public static final int makeIntFromByte4(byte[] b, int offset) {<a name="line.296"></a>
+<span class="sourceLineNo">297</span>        return b[offset] &lt;&lt; 24 | (b[offset + 1] &amp; 0xff) &lt;&lt; 16 | (b[offset + 2] &amp; 0xff) &lt;&lt; 8 | (b[offset + 3] &amp; 0xff);<a name="line.297"></a>
+<span class="sourceLineNo">298</span>    }<a name="line.298"></a>
+<span class="sourceLineNo">299</span><a name="line.299"></a>
+<span class="sourceLineNo">300</span>    /**<a name="line.300"></a>
+<span class="sourceLineNo">301</span>     * Reads an int from 2 bytes of the given array at offset 0.<a name="line.301"></a>
+<span class="sourceLineNo">302</span>     * <a name="line.302"></a>
+<span class="sourceLineNo">303</span>     * @param b the byte array to read<a name="line.303"></a>
+<span class="sourceLineNo">304</span>     * @return the int value     <a name="line.304"></a>
+<span class="sourceLineNo">305</span>     */<a name="line.305"></a>
+<span class="sourceLineNo">306</span>    public static final int makeIntFromByte2(byte[] b) {<a name="line.306"></a>
+<span class="sourceLineNo">307</span>        return makeIntFromByte2(b, 0);<a name="line.307"></a>
+<span class="sourceLineNo">308</span>    }<a name="line.308"></a>
+<span class="sourceLineNo">309</span><a name="line.309"></a>
+<span class="sourceLineNo">310</span>    /**<a name="line.310"></a>
+<span class="sourceLineNo">311</span>     * Reads an int from 2 bytes of the given array at the given offset.<a name="line.311"></a>
+<span class="sourceLineNo">312</span>     * <a name="line.312"></a>
+<span class="sourceLineNo">313</span>     * @param b the byte array to read<a name="line.313"></a>
+<span class="sourceLineNo">314</span>     * @param offset the offset at which to start<a name="line.314"></a>
+<span class="sourceLineNo">315</span>     * @return the int value<a name="line.315"></a>
+<span class="sourceLineNo">316</span>     */<a name="line.316"></a>
+<span class="sourceLineNo">317</span>    public static final int makeIntFromByte2(byte[] b, int offset) {<a name="line.317"></a>
+<span class="sourceLineNo">318</span>        return (b[offset] &amp; 0xff) &lt;&lt; 8 | (b[offset + 1] &amp; 0xff);<a name="line.318"></a>
+<span class="sourceLineNo">319</span>    }<a name="line.319"></a>
+<span class="sourceLineNo">320</span><a name="line.320"></a>
+<span class="sourceLineNo">321</span>    /**<a name="line.321"></a>
+<span class="sourceLineNo">322</span>     * Returns true if the flag &lt;code&gt;testFlag&lt;/code&gt; is set in the<a name="line.322"></a>
+<span class="sourceLineNo">323</span>     * &lt;code&gt;flags&lt;/code&gt; flagset.<a name="line.323"></a>
+<span class="sourceLineNo">324</span>     * <a name="line.324"></a>
+<span class="sourceLineNo">325</span>     * @param flagSet the flagset to test<a name="line.325"></a>
+<span class="sourceLineNo">326</span>     * @param testFlag the flag we search the presence of<a name="line.326"></a>
+<span class="sourceLineNo">327</span>     * @return true if testFlag is present in the flagset, false otherwise.<a name="line.327"></a>
+<span class="sourceLineNo">328</span>     */<a name="line.328"></a>
+<span class="sourceLineNo">329</span>    public final static boolean isFlagSet(int flagSet, int testFlag) {<a name="line.329"></a>
+<span class="sourceLineNo">330</span>        return (flagSet &amp; testFlag) &gt; 0;<a name="line.330"></a>
+<span class="sourceLineNo">331</span>    }<a name="line.331"></a>
+<span class="sourceLineNo">332</span>}<a name="line.332"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

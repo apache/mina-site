@@ -1,0 +1,10 @@
+RewriteEngine on
+  
+RewriteBase /mina-project/gen-docs
+
+RewriteRule ^latest-2.0$ 2.0.21/
+RewriteRule ^latest-2.0/(.*)$ 2.0.21/$1
+
+RewriteRule ^latest-2.1$ 2.1.2/
+RewriteRule ^latest-2.1/(.*)$ 2.1.2/$1
+

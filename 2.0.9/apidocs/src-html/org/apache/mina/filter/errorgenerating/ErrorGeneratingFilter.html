@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Licensed to the Apache Software Foundation (ASF) under one<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  or more contributor license agreements.  See the NOTICE file<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  distributed with this work for additional information<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  regarding copyright ownership.  The ASF licenses this file<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  to you under the Apache License, Version 2.0 (the<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  "License"); you may not use this file except in compliance<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *  with the License.  You may obtain a copy of the License at<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *    http://www.apache.org/licenses/LICENSE-2.0<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  Unless required by applicable law or agreed to in writing,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  software distributed under the License is distributed on an<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  KIND, either express or implied.  See the License for the<a name="line.15"></a>
+<span class="sourceLineNo">016</span> *  specific language governing permissions and limitations<a name="line.16"></a>
+<span class="sourceLineNo">017</span> *  under the License.<a name="line.17"></a>
+<span class="sourceLineNo">018</span> *<a name="line.18"></a>
+<span class="sourceLineNo">019</span> */<a name="line.19"></a>
+<span class="sourceLineNo">020</span><a name="line.20"></a>
+<span class="sourceLineNo">021</span>package org.apache.mina.filter.errorgenerating;<a name="line.21"></a>
+<span class="sourceLineNo">022</span><a name="line.22"></a>
+<span class="sourceLineNo">023</span>import java.util.Random;<a name="line.23"></a>
+<span class="sourceLineNo">024</span><a name="line.24"></a>
+<span class="sourceLineNo">025</span>import org.apache.mina.core.buffer.IoBuffer;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import org.apache.mina.core.filterchain.IoFilter;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>import org.apache.mina.core.filterchain.IoFilterAdapter;<a name="line.27"></a>
+<span class="sourceLineNo">028</span>import org.apache.mina.core.session.IoSession;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>import org.apache.mina.core.write.DefaultWriteRequest;<a name="line.29"></a>
+<span class="sourceLineNo">030</span>import org.apache.mina.core.write.WriteRequest;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>import org.slf4j.Logger;<a name="line.31"></a>
+<span class="sourceLineNo">032</span>import org.slf4j.LoggerFactory;<a name="line.32"></a>
+<span class="sourceLineNo">033</span><a name="line.33"></a>
+<span class="sourceLineNo">034</span>/**<a name="line.34"></a>
+<span class="sourceLineNo">035</span> * An {@link IoFilter} implementation generating random bytes and PDU modification in<a name="line.35"></a>
+<span class="sourceLineNo">036</span> * your communication streams.<a name="line.36"></a>
+<span class="sourceLineNo">037</span> * It's quite simple to use :<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * &lt;code&gt;ErrorGeneratingFilter egf = new ErrorGeneratingFilter();&lt;/code&gt;<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * For activate the change of some bytes in your {@link IoBuffer}, for a probability of 200 out<a name="line.39"></a>
+<span class="sourceLineNo">040</span> * of 1000 {@link IoBuffer} processed :<a name="line.40"></a>
+<span class="sourceLineNo">041</span> * &lt;code&gt;egf.setChangeByteProbability(200);&lt;/code&gt;<a name="line.41"></a>
+<span class="sourceLineNo">042</span> * For activate the insertion of some bytes in your {@link IoBuffer}, for a<a name="line.42"></a>
+<span class="sourceLineNo">043</span> * probability of 200 out of 1000 :<a name="line.43"></a>
+<span class="sourceLineNo">044</span> * &lt;code&gt;egf.setInsertByteProbability(200);&lt;/code&gt;<a name="line.44"></a>
+<span class="sourceLineNo">045</span> * And for the removing of some bytes :<a name="line.45"></a>
+<span class="sourceLineNo">046</span> * &lt;code&gt;egf.setRemoveByteProbability(200);&lt;/code&gt;<a name="line.46"></a>
+<span class="sourceLineNo">047</span> * You can activate the error generation for write or read with the<a name="line.47"></a>
+<span class="sourceLineNo">048</span> * following methods :<a name="line.48"></a>
+<span class="sourceLineNo">049</span> * &lt;code&gt;egf.setManipulateReads(true);<a name="line.49"></a>
+<span class="sourceLineNo">050</span> * egf.setManipulateWrites(true); &lt;/code&gt;<a name="line.50"></a>
+<span class="sourceLineNo">051</span> * <a name="line.51"></a>
+<span class="sourceLineNo">052</span> * @author &lt;a href="http://mina.apache.org"&gt;Apache MINA Project&lt;/a&gt;<a name="line.52"></a>
+<span class="sourceLineNo">053</span> * @org.apache.xbean.XBean<a name="line.53"></a>
+<span class="sourceLineNo">054</span> */<a name="line.54"></a>
+<span class="sourceLineNo">055</span>public class ErrorGeneratingFilter extends IoFilterAdapter {<a name="line.55"></a>
+<span class="sourceLineNo">056</span>    private int removeByteProbability = 0;<a name="line.56"></a>
+<span class="sourceLineNo">057</span><a name="line.57"></a>
+<span class="sourceLineNo">058</span>    private int insertByteProbability = 0;<a name="line.58"></a>
+<span class="sourceLineNo">059</span><a name="line.59"></a>
+<span class="sourceLineNo">060</span>    private int changeByteProbability = 0;<a name="line.60"></a>
+<span class="sourceLineNo">061</span><a name="line.61"></a>
+<span class="sourceLineNo">062</span>    private int removePduProbability = 0;<a name="line.62"></a>
+<span class="sourceLineNo">063</span><a name="line.63"></a>
+<span class="sourceLineNo">064</span>    private int duplicatePduProbability = 0;<a name="line.64"></a>
+<span class="sourceLineNo">065</span><a name="line.65"></a>
+<span class="sourceLineNo">066</span>    private int resendPduLasterProbability = 0;<a name="line.66"></a>
+<span class="sourceLineNo">067</span><a name="line.67"></a>
+<span class="sourceLineNo">068</span>    private int maxInsertByte = 10;<a name="line.68"></a>
+<span class="sourceLineNo">069</span><a name="line.69"></a>
+<span class="sourceLineNo">070</span>    private boolean manipulateWrites = false;<a name="line.70"></a>
+<span class="sourceLineNo">071</span><a name="line.71"></a>
+<span class="sourceLineNo">072</span>    private boolean manipulateReads = false;<a name="line.72"></a>
+<span class="sourceLineNo">073</span><a name="line.73"></a>
+<span class="sourceLineNo">074</span>    private Random rng = new Random();<a name="line.74"></a>
+<span class="sourceLineNo">075</span><a name="line.75"></a>
+<span class="sourceLineNo">076</span>    final private Logger logger = LoggerFactory.getLogger(ErrorGeneratingFilter.class);<a name="line.76"></a>
+<span class="sourceLineNo">077</span><a name="line.77"></a>
+<span class="sourceLineNo">078</span>    @Override<a name="line.78"></a>
+<span class="sourceLineNo">079</span>    public void filterWrite(NextFilter nextFilter, IoSession session, WriteRequest writeRequest) throws Exception {<a name="line.79"></a>
+<span class="sourceLineNo">080</span>        if (manipulateWrites) {<a name="line.80"></a>
+<span class="sourceLineNo">081</span>            // manipulate bytes<a name="line.81"></a>
+<span class="sourceLineNo">082</span>            if (writeRequest.getMessage() instanceof IoBuffer) {<a name="line.82"></a>
+<span class="sourceLineNo">083</span>                manipulateIoBuffer(session, (IoBuffer) writeRequest.getMessage());<a name="line.83"></a>
+<span class="sourceLineNo">084</span>                IoBuffer buffer = insertBytesToNewIoBuffer(session, (IoBuffer) writeRequest.getMessage());<a name="line.84"></a>
+<span class="sourceLineNo">085</span>                if (buffer != null) {<a name="line.85"></a>
+<span class="sourceLineNo">086</span>                    writeRequest = new DefaultWriteRequest(buffer, writeRequest.getFuture(),<a name="line.86"></a>
+<span class="sourceLineNo">087</span>                            writeRequest.getDestination());<a name="line.87"></a>
+<span class="sourceLineNo">088</span>                }<a name="line.88"></a>
+<span class="sourceLineNo">089</span>                // manipulate PDU<a name="line.89"></a>
+<span class="sourceLineNo">090</span>            } else {<a name="line.90"></a>
+<span class="sourceLineNo">091</span>                if (duplicatePduProbability &gt; rng.nextInt()) {<a name="line.91"></a>
+<span class="sourceLineNo">092</span>                    nextFilter.filterWrite(session, writeRequest);<a name="line.92"></a>
+<span class="sourceLineNo">093</span>                }<a name="line.93"></a>
+<span class="sourceLineNo">094</span><a name="line.94"></a>
+<span class="sourceLineNo">095</span>                if (resendPduLasterProbability &gt; rng.nextInt()) {<a name="line.95"></a>
+<span class="sourceLineNo">096</span>                    // store it somewhere and trigger a write execution for<a name="line.96"></a>
+<span class="sourceLineNo">097</span>                    // later<a name="line.97"></a>
+<span class="sourceLineNo">098</span>                    // TODO<a name="line.98"></a>
+<span class="sourceLineNo">099</span>                }<a name="line.99"></a>
+<span class="sourceLineNo">100</span>                if (removePduProbability &gt; rng.nextInt()) {<a name="line.100"></a>
+<span class="sourceLineNo">101</span>                    return;<a name="line.101"></a>
+<span class="sourceLineNo">102</span>                }<a name="line.102"></a>
+<span class="sourceLineNo">103</span>            }<a name="line.103"></a>
+<span class="sourceLineNo">104</span>        }<a name="line.104"></a>
+<span class="sourceLineNo">105</span>        nextFilter.filterWrite(session, writeRequest);<a name="line.105"></a>
+<span class="sourceLineNo">106</span>    }<a name="line.106"></a>
+<span class="sourceLineNo">107</span><a name="line.107"></a>
+<span class="sourceLineNo">108</span>    @Override<a name="line.108"></a>
+<span class="sourceLineNo">109</span>    public void messageReceived(NextFilter nextFilter, IoSession session, Object message) throws Exception {<a name="line.109"></a>
+<span class="sourceLineNo">110</span>        if (manipulateReads) {<a name="line.110"></a>
+<span class="sourceLineNo">111</span>            if (message instanceof IoBuffer) {<a name="line.111"></a>
+<span class="sourceLineNo">112</span>                // manipulate bytes<a name="line.112"></a>
+<span class="sourceLineNo">113</span>                manipulateIoBuffer(session, (IoBuffer) message);<a name="line.113"></a>
+<span class="sourceLineNo">114</span>                IoBuffer buffer = insertBytesToNewIoBuffer(session, (IoBuffer) message);<a name="line.114"></a>
+<span class="sourceLineNo">115</span>                if (buffer != null) {<a name="line.115"></a>
+<span class="sourceLineNo">116</span>                    message = buffer;<a name="line.116"></a>
+<span class="sourceLineNo">117</span>                }<a name="line.117"></a>
+<span class="sourceLineNo">118</span>            } else {<a name="line.118"></a>
+<span class="sourceLineNo">119</span>                // manipulate PDU<a name="line.119"></a>
+<span class="sourceLineNo">120</span>                // TODO<a name="line.120"></a>
+<span class="sourceLineNo">121</span>            }<a name="line.121"></a>
+<span class="sourceLineNo">122</span>        }<a name="line.122"></a>
+<span class="sourceLineNo">123</span>        nextFilter.messageReceived(session, message);<a name="line.123"></a>
+<span class="sourceLineNo">124</span>    }<a name="line.124"></a>
+<span class="sourceLineNo">125</span><a name="line.125"></a>
+<span class="sourceLineNo">126</span>    private IoBuffer insertBytesToNewIoBuffer(IoSession session, IoBuffer buffer) {<a name="line.126"></a>
+<span class="sourceLineNo">127</span>        if (insertByteProbability &gt; rng.nextInt(1000)) {<a name="line.127"></a>
+<span class="sourceLineNo">128</span>            logger.info(buffer.getHexDump());<a name="line.128"></a>
+<span class="sourceLineNo">129</span>            // where to insert bytes ?<a name="line.129"></a>
+<span class="sourceLineNo">130</span>            int pos = rng.nextInt(buffer.remaining()) - 1;<a name="line.130"></a>
+<span class="sourceLineNo">131</span><a name="line.131"></a>
+<span class="sourceLineNo">132</span>            // how many byte to insert ?<a name="line.132"></a>
+<span class="sourceLineNo">133</span>            int count = rng.nextInt(maxInsertByte - 1) + 1;<a name="line.133"></a>
+<span class="sourceLineNo">134</span><a name="line.134"></a>
+<span class="sourceLineNo">135</span>            IoBuffer newBuff = IoBuffer.allocate(buffer.remaining() + count);<a name="line.135"></a>
+<span class="sourceLineNo">136</span>            for (int i = 0; i &lt; pos; i++)<a name="line.136"></a>
+<span class="sourceLineNo">137</span>                newBuff.put(buffer.get());<a name="line.137"></a>
+<span class="sourceLineNo">138</span>            for (int i = 0; i &lt; count; i++) {<a name="line.138"></a>
+<span class="sourceLineNo">139</span>                newBuff.put((byte) (rng.nextInt(256)));<a name="line.139"></a>
+<span class="sourceLineNo">140</span>            }<a name="line.140"></a>
+<span class="sourceLineNo">141</span>            while (buffer.remaining() &gt; 0) {<a name="line.141"></a>
+<span class="sourceLineNo">142</span>                newBuff.put(buffer.get());<a name="line.142"></a>
+<span class="sourceLineNo">143</span>            }<a name="line.143"></a>
+<span class="sourceLineNo">144</span>            newBuff.flip();<a name="line.144"></a>
+<span class="sourceLineNo">145</span><a name="line.145"></a>
+<span class="sourceLineNo">146</span>            logger.info("Inserted " + count + " bytes.");<a name="line.146"></a>
+<span class="sourceLineNo">147</span>            logger.info(newBuff.getHexDump());<a name="line.147"></a>
+<span class="sourceLineNo">148</span>            return newBuff;<a name="line.148"></a>
+<span class="sourceLineNo">149</span>        }<a name="line.149"></a>
+<span class="sourceLineNo">150</span>        return null;<a name="line.150"></a>
+<span class="sourceLineNo">151</span>    }<a name="line.151"></a>
+<span class="sourceLineNo">152</span><a name="line.152"></a>
+<span class="sourceLineNo">153</span>    private void manipulateIoBuffer(IoSession session, IoBuffer buffer) {<a name="line.153"></a>
+<span class="sourceLineNo">154</span>        if ((buffer.remaining() &gt; 0) &amp;&amp; (removeByteProbability &gt; rng.nextInt(1000))) {<a name="line.154"></a>
+<span class="sourceLineNo">155</span>            logger.info(buffer.getHexDump());<a name="line.155"></a>
+<span class="sourceLineNo">156</span>            // where to remove bytes ?<a name="line.156"></a>
+<span class="sourceLineNo">157</span>            int pos = rng.nextInt(buffer.remaining());<a name="line.157"></a>
+<span class="sourceLineNo">158</span>            // how many byte to remove ?<a name="line.158"></a>
+<span class="sourceLineNo">159</span>            int count = rng.nextInt(buffer.remaining() - pos) + 1;<a name="line.159"></a>
+<span class="sourceLineNo">160</span>            if (count == buffer.remaining())<a name="line.160"></a>
+<span class="sourceLineNo">161</span>                count = buffer.remaining() - 1;<a name="line.161"></a>
+<span class="sourceLineNo">162</span><a name="line.162"></a>
+<span class="sourceLineNo">163</span>            IoBuffer newBuff = IoBuffer.allocate(buffer.remaining() - count);<a name="line.163"></a>
+<span class="sourceLineNo">164</span>            for (int i = 0; i &lt; pos; i++)<a name="line.164"></a>
+<span class="sourceLineNo">165</span>                newBuff.put(buffer.get());<a name="line.165"></a>
+<span class="sourceLineNo">166</span><a name="line.166"></a>
+<span class="sourceLineNo">167</span>            buffer.skip(count); // hole<a name="line.167"></a>
+<span class="sourceLineNo">168</span>            while (newBuff.remaining() &gt; 0)<a name="line.168"></a>
+<span class="sourceLineNo">169</span>                newBuff.put(buffer.get());<a name="line.169"></a>
+<span class="sourceLineNo">170</span>            newBuff.flip();<a name="line.170"></a>
+<span class="sourceLineNo">171</span>            // copy the new buffer in the old one<a name="line.171"></a>
+<span class="sourceLineNo">172</span>            buffer.rewind();<a name="line.172"></a>
+<span class="sourceLineNo">173</span>            buffer.put(newBuff);<a name="line.173"></a>
+<span class="sourceLineNo">174</span>            buffer.flip();<a name="line.174"></a>
+<span class="sourceLineNo">175</span>            logger.info("Removed " + count + " bytes at position " + pos + ".");<a name="line.175"></a>
+<span class="sourceLineNo">176</span>            logger.info(buffer.getHexDump());<a name="line.176"></a>
+<span class="sourceLineNo">177</span>        }<a name="line.177"></a>
+<span class="sourceLineNo">178</span>        if ((buffer.remaining() &gt; 0) &amp;&amp; (changeByteProbability &gt; rng.nextInt(1000))) {<a name="line.178"></a>
+<span class="sourceLineNo">179</span>            logger.info(buffer.getHexDump());<a name="line.179"></a>
+<span class="sourceLineNo">180</span>            // how many byte to change ?<a name="line.180"></a>
+<span class="sourceLineNo">181</span>            int count = rng.nextInt(buffer.remaining() - 1) + 1;<a name="line.181"></a>
+<span class="sourceLineNo">182</span><a name="line.182"></a>
+<span class="sourceLineNo">183</span>            byte[] values = new byte[count];<a name="line.183"></a>
+<span class="sourceLineNo">184</span>            rng.nextBytes(values);<a name="line.184"></a>
+<span class="sourceLineNo">185</span>            for (int i = 0; i &lt; values.length; i++) {<a name="line.185"></a>
+<span class="sourceLineNo">186</span>                int pos = rng.nextInt(buffer.remaining());<a name="line.186"></a>
+<span class="sourceLineNo">187</span>                buffer.put(pos, values[i]);<a name="line.187"></a>
+<span class="sourceLineNo">188</span>            }<a name="line.188"></a>
+<span class="sourceLineNo">189</span>            logger.info("Modified " + count + " bytes.");<a name="line.189"></a>
+<span class="sourceLineNo">190</span>            logger.info(buffer.getHexDump());<a name="line.190"></a>
+<span class="sourceLineNo">191</span>        }<a name="line.191"></a>
+<span class="sourceLineNo">192</span>    }<a name="line.192"></a>
+<span class="sourceLineNo">193</span><a name="line.193"></a>
+<span class="sourceLineNo">194</span>    public int getChangeByteProbability() {<a name="line.194"></a>
+<span class="sourceLineNo">195</span>        return changeByteProbability;<a name="line.195"></a>
+<span class="sourceLineNo">196</span>    }<a name="line.196"></a>
+<span class="sourceLineNo">197</span><a name="line.197"></a>
+<span class="sourceLineNo">198</span>    /**<a name="line.198"></a>
+<span class="sourceLineNo">199</span>     * Set the probability for the change byte error.<a name="line.199"></a>
+<span class="sourceLineNo">200</span>     * If this probability is &gt; 0 the filter will modify a random number of byte<a name="line.200"></a>
+<span class="sourceLineNo">201</span>     * of the processed {@link IoBuffer}.<a name="line.201"></a>
+<span class="sourceLineNo">202</span>     * @param changeByteProbability probability of modifying an IoBuffer out of 1000 processed {@link IoBuffer} <a name="line.202"></a>
+<span class="sourceLineNo">203</span>     */<a name="line.203"></a>
+<span class="sourceLineNo">204</span>    public void setChangeByteProbability(int changeByteProbability) {<a name="line.204"></a>
+<span class="sourceLineNo">205</span>        this.changeByteProbability = changeByteProbability;<a name="line.205"></a>
+<span class="sourceLineNo">206</span>    }<a name="line.206"></a>
+<span class="sourceLineNo">207</span><a name="line.207"></a>
+<span class="sourceLineNo">208</span>    public int getDuplicatePduProbability() {<a name="line.208"></a>
+<span class="sourceLineNo">209</span>        return duplicatePduProbability;<a name="line.209"></a>
+<span class="sourceLineNo">210</span>    }<a name="line.210"></a>
+<span class="sourceLineNo">211</span><a name="line.211"></a>
+<span class="sourceLineNo">212</span>    /**<a name="line.212"></a>
+<span class="sourceLineNo">213</span>     * not functional ATM<a name="line.213"></a>
+<span class="sourceLineNo">214</span>     * @param duplicatePduProbability<a name="line.214"></a>
+<span class="sourceLineNo">215</span>     */<a name="line.215"></a>
+<span class="sourceLineNo">216</span>    public void setDuplicatePduProbability(int duplicatePduProbability) {<a name="line.216"></a>
+<span class="sourceLineNo">217</span>        this.duplicatePduProbability = duplicatePduProbability;<a name="line.217"></a>
+<span class="sourceLineNo">218</span>    }<a name="line.218"></a>
+<span class="sourceLineNo">219</span><a name="line.219"></a>
+<span class="sourceLineNo">220</span>    public int getInsertByteProbability() {<a name="line.220"></a>
+<span class="sourceLineNo">221</span>        return insertByteProbability;<a name="line.221"></a>
+<span class="sourceLineNo">222</span>    }<a name="line.222"></a>
+<span class="sourceLineNo">223</span><a name="line.223"></a>
+<span class="sourceLineNo">224</span>    /**<a name="line.224"></a>
+<span class="sourceLineNo">225</span>     * Set the probability for the insert byte error.<a name="line.225"></a>
+<span class="sourceLineNo">226</span>     * If this probability is &gt; 0 the filter will insert a random number of byte<a name="line.226"></a>
+<span class="sourceLineNo">227</span>     * in the processed {@link IoBuffer}.<a name="line.227"></a>
+<span class="sourceLineNo">228</span>     * @param insertByteProbability probability of inserting in IoBuffer out of 1000 processed {@link IoBuffer} <a name="line.228"></a>
+<span class="sourceLineNo">229</span>     */<a name="line.229"></a>
+<span class="sourceLineNo">230</span>    public void setInsertByteProbability(int insertByteProbability) {<a name="line.230"></a>
+<span class="sourceLineNo">231</span>        this.insertByteProbability = insertByteProbability;<a name="line.231"></a>
+<span class="sourceLineNo">232</span>    }<a name="line.232"></a>
+<span class="sourceLineNo">233</span><a name="line.233"></a>
+<span class="sourceLineNo">234</span>    public boolean isManipulateReads() {<a name="line.234"></a>
+<span class="sourceLineNo">235</span>        return manipulateReads;<a name="line.235"></a>
+<span class="sourceLineNo">236</span>    }<a name="line.236"></a>
+<span class="sourceLineNo">237</span><a name="line.237"></a>
+<span class="sourceLineNo">238</span>    /**<a name="line.238"></a>
+<span class="sourceLineNo">239</span>     * Set to true if you want to apply error to the read {@link IoBuffer}<a name="line.239"></a>
+<span class="sourceLineNo">240</span>     * @param manipulateReads<a name="line.240"></a>
+<span class="sourceLineNo">241</span>     */<a name="line.241"></a>
+<span class="sourceLineNo">242</span>    public void setManipulateReads(boolean manipulateReads) {<a name="line.242"></a>
+<span class="sourceLineNo">243</span>        this.manipulateReads = manipulateReads;<a name="line.243"></a>
+<span class="sourceLineNo">244</span>    }<a name="line.244"></a>
+<span class="sourceLineNo">245</span><a name="line.245"></a>
+<span class="sourceLineNo">246</span>    public boolean isManipulateWrites() {<a name="line.246"></a>
+<span class="sourceLineNo">247</span>        return manipulateWrites;<a name="line.247"></a>
+<span class="sourceLineNo">248</span>    }<a name="line.248"></a>
+<span class="sourceLineNo">249</span><a name="line.249"></a>
+<span class="sourceLineNo">250</span>    /**<a name="line.250"></a>
+<span class="sourceLineNo">251</span>     * Set to true if you want to apply error to the written {@link IoBuffer}<a name="line.251"></a>
+<span class="sourceLineNo">252</span>     * @param manipulateWrites<a name="line.252"></a>
+<span class="sourceLineNo">253</span>     */<a name="line.253"></a>
+<span class="sourceLineNo">254</span>    public void setManipulateWrites(boolean manipulateWrites) {<a name="line.254"></a>
+<span class="sourceLineNo">255</span>        this.manipulateWrites = manipulateWrites;<a name="line.255"></a>
+<span class="sourceLineNo">256</span>    }<a name="line.256"></a>
+<span class="sourceLineNo">257</span><a name="line.257"></a>
+<span class="sourceLineNo">258</span>    public int getRemoveByteProbability() {<a name="line.258"></a>
+<span class="sourceLineNo">259</span>        return removeByteProbability;<a name="line.259"></a>
+<span class="sourceLineNo">260</span>    }<a name="line.260"></a>
+<span class="sourceLineNo">261</span><a name="line.261"></a>
+<span class="sourceLineNo">262</span>    /**<a name="line.262"></a>
+<span class="sourceLineNo">263</span>     * Set the probability for the remove byte error.<a name="line.263"></a>
+<span class="sourceLineNo">264</span>     * If this probability is &gt; 0 the filter will remove a random number of byte<a name="line.264"></a>
+<span class="sourceLineNo">265</span>     * in the processed {@link IoBuffer}.<a name="line.265"></a>
+<span class="sourceLineNo">266</span>     * @param removeByteProbability probability of modifying an {@link IoBuffer} out of 1000 processed IoBuffer <a name="line.266"></a>
+<span class="sourceLineNo">267</span>     */<a name="line.267"></a>
+<span class="sourceLineNo">268</span>    public void setRemoveByteProbability(int removeByteProbability) {<a name="line.268"></a>
+<span class="sourceLineNo">269</span>        this.removeByteProbability = removeByteProbability;<a name="line.269"></a>
+<span class="sourceLineNo">270</span>    }<a name="line.270"></a>
+<span class="sourceLineNo">271</span><a name="line.271"></a>
+<span class="sourceLineNo">272</span>    public int getRemovePduProbability() {<a name="line.272"></a>
+<span class="sourceLineNo">273</span>        return removePduProbability;<a name="line.273"></a>
+<span class="sourceLineNo">274</span>    }<a name="line.274"></a>
+<span class="sourceLineNo">275</span><a name="line.275"></a>
+<span class="sourceLineNo">276</span>    /**<a name="line.276"></a>
+<span class="sourceLineNo">277</span>     * not functional ATM<a name="line.277"></a>
+<span class="sourceLineNo">278</span>     * @param removePduProbability<a name="line.278"></a>
+<span class="sourceLineNo">279</span>     */<a name="line.279"></a>
+<span class="sourceLineNo">280</span>    public void setRemovePduProbability(int removePduProbability) {<a name="line.280"></a>
+<span class="sourceLineNo">281</span>        this.removePduProbability = removePduProbability;<a name="line.281"></a>
+<span class="sourceLineNo">282</span>    }<a name="line.282"></a>
+<span class="sourceLineNo">283</span><a name="line.283"></a>
+<span class="sourceLineNo">284</span>    public int getResendPduLasterProbability() {<a name="line.284"></a>
+<span class="sourceLineNo">285</span>        return resendPduLasterProbability;<a name="line.285"></a>
+<span class="sourceLineNo">286</span>    }<a name="line.286"></a>
+<span class="sourceLineNo">287</span><a name="line.287"></a>
+<span class="sourceLineNo">288</span>    /**<a name="line.288"></a>
+<span class="sourceLineNo">289</span>     * not functional ATM<a name="line.289"></a>
+<span class="sourceLineNo">290</span>     * @param resendPduLasterProbability<a name="line.290"></a>
+<span class="sourceLineNo">291</span>     */<a name="line.291"></a>
+<span class="sourceLineNo">292</span>    public void setResendPduLasterProbability(int resendPduLasterProbability) {<a name="line.292"></a>
+<span class="sourceLineNo">293</span>        this.resendPduLasterProbability = resendPduLasterProbability;<a name="line.293"></a>
+<span class="sourceLineNo">294</span>    }<a name="line.294"></a>
+<span class="sourceLineNo">295</span><a name="line.295"></a>
+<span class="sourceLineNo">296</span>    public int getMaxInsertByte() {<a name="line.296"></a>
+<span class="sourceLineNo">297</span>        return maxInsertByte;<a name="line.297"></a>
+<span class="sourceLineNo">298</span>    }<a name="line.298"></a>
+<span class="sourceLineNo">299</span><a name="line.299"></a>
+<span class="sourceLineNo">300</span>    /**<a name="line.300"></a>
+<span class="sourceLineNo">301</span>     * Set the maximum number of byte the filter can insert in a {@link IoBuffer}.<a name="line.301"></a>
+<span class="sourceLineNo">302</span>     * The default value is 10.<a name="line.302"></a>
+<span class="sourceLineNo">303</span>     * @param maxInsertByte maximum bytes inserted in a {@link IoBuffer} <a name="line.303"></a>
+<span class="sourceLineNo">304</span>     */<a name="line.304"></a>
+<span class="sourceLineNo">305</span>    public void setMaxInsertByte(int maxInsertByte) {<a name="line.305"></a>
+<span class="sourceLineNo">306</span>        this.maxInsertByte = maxInsertByte;<a name="line.306"></a>
+<span class="sourceLineNo">307</span>    }<a name="line.307"></a>
+<span class="sourceLineNo">308</span>}<a name="line.308"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

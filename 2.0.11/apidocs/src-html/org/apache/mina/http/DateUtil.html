@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Licensed to the Apache Software Foundation (ASF) under one<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  or more contributor license agreements.  See the NOTICE file<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  distributed with this work for additional information<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  regarding copyright ownership.  The ASF licenses this file<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  to you under the Apache License, Version 2.0 (the<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  "License"); you may not use this file except in compliance<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *  with the License.  You may obtain a copy of the License at<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *  <a name="line.9"></a>
+<span class="sourceLineNo">010</span> *    http://www.apache.org/licenses/LICENSE-2.0<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *  <a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  Unless required by applicable law or agreed to in writing,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  software distributed under the License is distributed on an<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  KIND, either express or implied.  See the License for the<a name="line.15"></a>
+<span class="sourceLineNo">016</span> *  specific language governing permissions and limitations<a name="line.16"></a>
+<span class="sourceLineNo">017</span> *  under the License. <a name="line.17"></a>
+<span class="sourceLineNo">018</span> *  <a name="line.18"></a>
+<span class="sourceLineNo">019</span> */<a name="line.19"></a>
+<span class="sourceLineNo">020</span>package org.apache.mina.http;<a name="line.20"></a>
+<span class="sourceLineNo">021</span><a name="line.21"></a>
+<span class="sourceLineNo">022</span>import java.text.DateFormat;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import java.text.ParseException;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import java.text.SimpleDateFormat;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import java.util.Calendar;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import java.util.Date;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>import java.util.Locale;<a name="line.27"></a>
+<span class="sourceLineNo">028</span>import java.util.TimeZone;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>import java.util.regex.Pattern;<a name="line.29"></a>
+<span class="sourceLineNo">030</span><a name="line.30"></a>
+<span class="sourceLineNo">031</span>public class DateUtil {<a name="line.31"></a>
+<span class="sourceLineNo">032</span><a name="line.32"></a>
+<span class="sourceLineNo">033</span>    private final static Locale LOCALE = Locale.US;<a name="line.33"></a>
+<span class="sourceLineNo">034</span>    private final static TimeZone GMT_ZONE;<a name="line.34"></a>
+<span class="sourceLineNo">035</span>    private final static String RFC_1123_PATTERN = "EEE, dd MMM yyyy HH:mm:ss zzz";<a name="line.35"></a>
+<span class="sourceLineNo">036</span>    private final static DateFormat RFC_1123_FORMAT;<a name="line.36"></a>
+<span class="sourceLineNo">037</span><a name="line.37"></a>
+<span class="sourceLineNo">038</span>    /** Pattern to find digits only. */<a name="line.38"></a>
+<span class="sourceLineNo">039</span>    private final static Pattern DIGIT_PATTERN = Pattern.compile("^\\d+$");<a name="line.39"></a>
+<span class="sourceLineNo">040</span><a name="line.40"></a>
+<span class="sourceLineNo">041</span>    static {<a name="line.41"></a>
+<span class="sourceLineNo">042</span>        RFC_1123_FORMAT = new SimpleDateFormat(DateUtil.RFC_1123_PATTERN, DateUtil.LOCALE);<a name="line.42"></a>
+<span class="sourceLineNo">043</span>        GMT_ZONE = TimeZone.getTimeZone("GMT");<a name="line.43"></a>
+<span class="sourceLineNo">044</span>        DateUtil.RFC_1123_FORMAT.setTimeZone(DateUtil.GMT_ZONE);<a name="line.44"></a>
+<span class="sourceLineNo">045</span>    }<a name="line.45"></a>
+<span class="sourceLineNo">046</span><a name="line.46"></a>
+<span class="sourceLineNo">047</span>    public static String getCurrentAsString() {<a name="line.47"></a>
+<span class="sourceLineNo">048</span>        synchronized(DateUtil.RFC_1123_FORMAT) {<a name="line.48"></a>
+<span class="sourceLineNo">049</span>            return DateUtil.RFC_1123_FORMAT.format(new Date()); //NOPMD<a name="line.49"></a>
+<span class="sourceLineNo">050</span>        }<a name="line.50"></a>
+<span class="sourceLineNo">051</span>    }<a name="line.51"></a>
+<span class="sourceLineNo">052</span><a name="line.52"></a>
+<span class="sourceLineNo">053</span>    /**<a name="line.53"></a>
+<span class="sourceLineNo">054</span>     * Translate a given date &lt;code&gt;String&lt;/code&gt; in the &lt;em&gt;RFC 1123&lt;/em&gt;<a name="line.54"></a>
+<span class="sourceLineNo">055</span>     * format to a &lt;code&gt;long&lt;/code&gt; representing the number of milliseconds<a name="line.55"></a>
+<span class="sourceLineNo">056</span>     * since epoch.<a name="line.56"></a>
+<span class="sourceLineNo">057</span>     * <a name="line.57"></a>
+<span class="sourceLineNo">058</span>     * @param dateString a date &lt;code&gt;String&lt;/code&gt; in the &lt;em&gt;RFC 1123&lt;/em&gt;<a name="line.58"></a>
+<span class="sourceLineNo">059</span>     *            format.<a name="line.59"></a>
+<span class="sourceLineNo">060</span>     * @return the parsed &lt;code&gt;Date&lt;/code&gt; in milliseconds.<a name="line.60"></a>
+<span class="sourceLineNo">061</span>     */<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    private static long parseDateStringToMilliseconds(final String dateString) {<a name="line.62"></a>
+<span class="sourceLineNo">063</span><a name="line.63"></a>
+<span class="sourceLineNo">064</span>        try {<a name="line.64"></a>
+<span class="sourceLineNo">065</span>            synchronized (DateUtil.RFC_1123_FORMAT) {<a name="line.65"></a>
+<span class="sourceLineNo">066</span>                return DateUtil.RFC_1123_FORMAT.parse(dateString).getTime(); //NOPMD<a name="line.66"></a>
+<span class="sourceLineNo">067</span>            }<a name="line.67"></a>
+<span class="sourceLineNo">068</span>        } catch (final ParseException e) {<a name="line.68"></a>
+<span class="sourceLineNo">069</span>            return 0;<a name="line.69"></a>
+<span class="sourceLineNo">070</span>        }<a name="line.70"></a>
+<span class="sourceLineNo">071</span>    }<a name="line.71"></a>
+<span class="sourceLineNo">072</span><a name="line.72"></a>
+<span class="sourceLineNo">073</span>    /**<a name="line.73"></a>
+<span class="sourceLineNo">074</span>     * Parse a given date &lt;code&gt;String&lt;/code&gt; to a &lt;code&gt;long&lt;/code&gt;<a name="line.74"></a>
+<span class="sourceLineNo">075</span>     * representation of the time. Where the provided value is all digits the<a name="line.75"></a>
+<span class="sourceLineNo">076</span>     * value is returned as a &lt;code&gt;long&lt;/code&gt;, otherwise attempt is made to<a name="line.76"></a>
+<span class="sourceLineNo">077</span>     * parse the &lt;code&gt;String&lt;/code&gt; as a &lt;em&gt;RFC 1123&lt;/em&gt; date.<a name="line.77"></a>
+<span class="sourceLineNo">078</span>     * <a name="line.78"></a>
+<span class="sourceLineNo">079</span>     * @param dateValue the value to parse.<a name="line.79"></a>
+<span class="sourceLineNo">080</span>     * @return the &lt;code&gt;long&lt;/code&gt; value following parse, or zero where not<a name="line.80"></a>
+<span class="sourceLineNo">081</span>     *         successful.<a name="line.81"></a>
+<span class="sourceLineNo">082</span>     */<a name="line.82"></a>
+<span class="sourceLineNo">083</span>    public static long parseToMilliseconds(final String dateValue) {<a name="line.83"></a>
+<span class="sourceLineNo">084</span><a name="line.84"></a>
+<span class="sourceLineNo">085</span>        long ms = 0;<a name="line.85"></a>
+<span class="sourceLineNo">086</span><a name="line.86"></a>
+<span class="sourceLineNo">087</span>        if (DateUtil.DIGIT_PATTERN.matcher(dateValue).matches()) {<a name="line.87"></a>
+<span class="sourceLineNo">088</span>            ms = Long.parseLong(dateValue);<a name="line.88"></a>
+<span class="sourceLineNo">089</span>        } else {<a name="line.89"></a>
+<span class="sourceLineNo">090</span>            ms = parseDateStringToMilliseconds(dateValue);<a name="line.90"></a>
+<span class="sourceLineNo">091</span>        }<a name="line.91"></a>
+<span class="sourceLineNo">092</span><a name="line.92"></a>
+<span class="sourceLineNo">093</span>        return ms;<a name="line.93"></a>
+<span class="sourceLineNo">094</span>    }<a name="line.94"></a>
+<span class="sourceLineNo">095</span><a name="line.95"></a>
+<span class="sourceLineNo">096</span>    /**<a name="line.96"></a>
+<span class="sourceLineNo">097</span>     * Converts a millisecond representation of a date to a<a name="line.97"></a>
+<span class="sourceLineNo">098</span>     * &lt;code&gt;RFC 1123&lt;/code&gt; formatted &lt;code&gt;String&lt;/code&gt;.<a name="line.98"></a>
+<span class="sourceLineNo">099</span>     * <a name="line.99"></a>
+<span class="sourceLineNo">100</span>     * @param dateValue the &lt;code&gt;Date&lt;/code&gt; represented as milliseconds.<a name="line.100"></a>
+<span class="sourceLineNo">101</span>     * @return a &lt;code&gt;String&lt;/code&gt; representation of the date.<a name="line.101"></a>
+<span class="sourceLineNo">102</span>     */<a name="line.102"></a>
+<span class="sourceLineNo">103</span>    public static String parseToRFC1123(final long dateValue) {<a name="line.103"></a>
+<span class="sourceLineNo">104</span><a name="line.104"></a>
+<span class="sourceLineNo">105</span>        final Calendar calendar = Calendar.getInstance();<a name="line.105"></a>
+<span class="sourceLineNo">106</span>        calendar.setTimeInMillis(dateValue);<a name="line.106"></a>
+<span class="sourceLineNo">107</span><a name="line.107"></a>
+<span class="sourceLineNo">108</span>        synchronized (DateUtil.RFC_1123_FORMAT) {<a name="line.108"></a>
+<span class="sourceLineNo">109</span>            return DateUtil.RFC_1123_FORMAT.format(calendar.getTime()); //NOPMD<a name="line.109"></a>
+<span class="sourceLineNo">110</span>        }<a name="line.110"></a>
+<span class="sourceLineNo">111</span>    }<a name="line.111"></a>
+<span class="sourceLineNo">112</span><a name="line.112"></a>
+<span class="sourceLineNo">113</span>    /**<a name="line.113"></a>
+<span class="sourceLineNo">114</span>     * Convert a given &lt;code&gt;Date&lt;/code&gt; object to a &lt;code&gt;RFC 1123&lt;/code&gt;<a name="line.114"></a>
+<span class="sourceLineNo">115</span>     * formatted &lt;code&gt;String&lt;/code&gt;.<a name="line.115"></a>
+<span class="sourceLineNo">116</span>     * <a name="line.116"></a>
+<span class="sourceLineNo">117</span>     * @param date the &lt;code&gt;Date&lt;/code&gt; object to convert<a name="line.117"></a>
+<span class="sourceLineNo">118</span>     * @return a &lt;code&gt;String&lt;/code&gt; representation of the date.<a name="line.118"></a>
+<span class="sourceLineNo">119</span>     */<a name="line.119"></a>
+<span class="sourceLineNo">120</span>    public static String getDateAsString(Date date) {<a name="line.120"></a>
+<span class="sourceLineNo">121</span>        synchronized (DateUtil.RFC_1123_FORMAT) {<a name="line.121"></a>
+<span class="sourceLineNo">122</span>            return RFC_1123_FORMAT.format(date); //NOPMD<a name="line.122"></a>
+<span class="sourceLineNo">123</span>        }<a name="line.123"></a>
+<span class="sourceLineNo">124</span>    }<a name="line.124"></a>
+<span class="sourceLineNo">125</span><a name="line.125"></a>
+<span class="sourceLineNo">126</span>}<a name="line.126"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

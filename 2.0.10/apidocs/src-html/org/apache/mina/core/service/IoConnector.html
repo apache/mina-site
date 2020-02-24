@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Licensed to the Apache Software Foundation (ASF) under one<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  or more contributor license agreements.  See the NOTICE file<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  distributed with this work for additional information<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  regarding copyright ownership.  The ASF licenses this file<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  to you under the Apache License, Version 2.0 (the<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  "License"); you may not use this file except in compliance<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *  with the License.  You may obtain a copy of the License at<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *    http://www.apache.org/licenses/LICENSE-2.0<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  Unless required by applicable law or agreed to in writing,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  software distributed under the License is distributed on an<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  KIND, either express or implied.  See the License for the<a name="line.15"></a>
+<span class="sourceLineNo">016</span> *  specific language governing permissions and limitations<a name="line.16"></a>
+<span class="sourceLineNo">017</span> *  under the License.<a name="line.17"></a>
+<span class="sourceLineNo">018</span> *<a name="line.18"></a>
+<span class="sourceLineNo">019</span> */<a name="line.19"></a>
+<span class="sourceLineNo">020</span>package org.apache.mina.core.service;<a name="line.20"></a>
+<span class="sourceLineNo">021</span><a name="line.21"></a>
+<span class="sourceLineNo">022</span>import java.net.SocketAddress;<a name="line.22"></a>
+<span class="sourceLineNo">023</span><a name="line.23"></a>
+<span class="sourceLineNo">024</span>import org.apache.mina.core.future.ConnectFuture;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import org.apache.mina.core.session.IoSession;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import org.apache.mina.core.session.IoSessionInitializer;<a name="line.26"></a>
+<span class="sourceLineNo">027</span><a name="line.27"></a>
+<span class="sourceLineNo">028</span>/**<a name="line.28"></a>
+<span class="sourceLineNo">029</span> * Connects to endpoint, communicates with the server, and fires events to<a name="line.29"></a>
+<span class="sourceLineNo">030</span> * {@link IoHandler}s.<a name="line.30"></a>
+<span class="sourceLineNo">031</span> * &lt;p&gt;<a name="line.31"></a>
+<span class="sourceLineNo">032</span> * Please refer to<a name="line.32"></a>
+<span class="sourceLineNo">033</span> * &lt;a href="../../../../../xref-examples/org/apache/mina/examples/netcat/Main.html"&gt;NetCat&lt;/a&gt;<a name="line.33"></a>
+<span class="sourceLineNo">034</span> * example.<a name="line.34"></a>
+<span class="sourceLineNo">035</span> * &lt;p&gt;<a name="line.35"></a>
+<span class="sourceLineNo">036</span> * You should connect to the desired socket address to start communication,<a name="line.36"></a>
+<span class="sourceLineNo">037</span> * and then events for incoming connections will be sent to the specified<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * default {@link IoHandler}.<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * &lt;p&gt;<a name="line.39"></a>
+<span class="sourceLineNo">040</span> * Threads connect to endpoint start automatically when<a name="line.40"></a>
+<span class="sourceLineNo">041</span> * {@link #connect(SocketAddress)} is invoked, and stop when all<a name="line.41"></a>
+<span class="sourceLineNo">042</span> * connection attempts are finished.<a name="line.42"></a>
+<span class="sourceLineNo">043</span> *<a name="line.43"></a>
+<span class="sourceLineNo">044</span> * @author &lt;a href="http://mina.apache.org"&gt;Apache MINA Project&lt;/a&gt;<a name="line.44"></a>
+<span class="sourceLineNo">045</span> */<a name="line.45"></a>
+<span class="sourceLineNo">046</span>public interface IoConnector extends IoService {<a name="line.46"></a>
+<span class="sourceLineNo">047</span>    /**<a name="line.47"></a>
+<span class="sourceLineNo">048</span>     * Returns the connect timeout in seconds.  The default value is 1 minute.<a name="line.48"></a>
+<span class="sourceLineNo">049</span>     * <a name="line.49"></a>
+<span class="sourceLineNo">050</span>     * @deprecated<a name="line.50"></a>
+<span class="sourceLineNo">051</span>     */<a name="line.51"></a>
+<span class="sourceLineNo">052</span>    int getConnectTimeout();<a name="line.52"></a>
+<span class="sourceLineNo">053</span><a name="line.53"></a>
+<span class="sourceLineNo">054</span>    /**<a name="line.54"></a>
+<span class="sourceLineNo">055</span>     * Returns the connect timeout in milliseconds.  The default value is 1 minute.<a name="line.55"></a>
+<span class="sourceLineNo">056</span>     */<a name="line.56"></a>
+<span class="sourceLineNo">057</span>    long getConnectTimeoutMillis();<a name="line.57"></a>
+<span class="sourceLineNo">058</span><a name="line.58"></a>
+<span class="sourceLineNo">059</span>    /**<a name="line.59"></a>
+<span class="sourceLineNo">060</span>     * Sets the connect timeout in seconds.  The default value is 1 minute.<a name="line.60"></a>
+<span class="sourceLineNo">061</span>     * <a name="line.61"></a>
+<span class="sourceLineNo">062</span>     * @deprecated<a name="line.62"></a>
+<span class="sourceLineNo">063</span>     */<a name="line.63"></a>
+<span class="sourceLineNo">064</span>    void setConnectTimeout(int connectTimeout);<a name="line.64"></a>
+<span class="sourceLineNo">065</span><a name="line.65"></a>
+<span class="sourceLineNo">066</span>    /**<a name="line.66"></a>
+<span class="sourceLineNo">067</span>     * Sets the connect timeout in milliseconds.  The default value is 1 minute.<a name="line.67"></a>
+<span class="sourceLineNo">068</span>     */<a name="line.68"></a>
+<span class="sourceLineNo">069</span>    void setConnectTimeoutMillis(long connectTimeoutInMillis);<a name="line.69"></a>
+<span class="sourceLineNo">070</span><a name="line.70"></a>
+<span class="sourceLineNo">071</span>    /**<a name="line.71"></a>
+<span class="sourceLineNo">072</span>     * Returns the default remote address to connect to when no argument<a name="line.72"></a>
+<span class="sourceLineNo">073</span>     * is specified in {@link #connect()} method.<a name="line.73"></a>
+<span class="sourceLineNo">074</span>     */<a name="line.74"></a>
+<span class="sourceLineNo">075</span>    SocketAddress getDefaultRemoteAddress();<a name="line.75"></a>
+<span class="sourceLineNo">076</span><a name="line.76"></a>
+<span class="sourceLineNo">077</span>    /**<a name="line.77"></a>
+<span class="sourceLineNo">078</span>     * Sets the default remote address to connect to when no argument is<a name="line.78"></a>
+<span class="sourceLineNo">079</span>     * specified in {@link #connect()} method.<a name="line.79"></a>
+<span class="sourceLineNo">080</span>     */<a name="line.80"></a>
+<span class="sourceLineNo">081</span>    void setDefaultRemoteAddress(SocketAddress defaultRemoteAddress);<a name="line.81"></a>
+<span class="sourceLineNo">082</span><a name="line.82"></a>
+<span class="sourceLineNo">083</span>    /**<a name="line.83"></a>
+<span class="sourceLineNo">084</span>     * Returns the default local address<a name="line.84"></a>
+<span class="sourceLineNo">085</span>     */<a name="line.85"></a>
+<span class="sourceLineNo">086</span>    SocketAddress getDefaultLocalAddress();<a name="line.86"></a>
+<span class="sourceLineNo">087</span><a name="line.87"></a>
+<span class="sourceLineNo">088</span>    /**<a name="line.88"></a>
+<span class="sourceLineNo">089</span>     * Sets the default local address<a name="line.89"></a>
+<span class="sourceLineNo">090</span>     */<a name="line.90"></a>
+<span class="sourceLineNo">091</span>    void setDefaultLocalAddress(SocketAddress defaultLocalAddress);<a name="line.91"></a>
+<span class="sourceLineNo">092</span><a name="line.92"></a>
+<span class="sourceLineNo">093</span>    /**<a name="line.93"></a>
+<span class="sourceLineNo">094</span>     * Connects to the {@link #setDefaultRemoteAddress(SocketAddress) default<a name="line.94"></a>
+<span class="sourceLineNo">095</span>     * remote address}.<a name="line.95"></a>
+<span class="sourceLineNo">096</span>     * <a name="line.96"></a>
+<span class="sourceLineNo">097</span>     * @throws IllegalStateException<a name="line.97"></a>
+<span class="sourceLineNo">098</span>     *             if no default remoted address is set.<a name="line.98"></a>
+<span class="sourceLineNo">099</span>     */<a name="line.99"></a>
+<span class="sourceLineNo">100</span>    ConnectFuture connect();<a name="line.100"></a>
+<span class="sourceLineNo">101</span><a name="line.101"></a>
+<span class="sourceLineNo">102</span>    /**<a name="line.102"></a>
+<span class="sourceLineNo">103</span>     * Connects to the {@link #setDefaultRemoteAddress(SocketAddress) default<a name="line.103"></a>
+<span class="sourceLineNo">104</span>     * remote address} and invokes the &lt;code&gt;ioSessionInitializer&lt;/code&gt; when<a name="line.104"></a>
+<span class="sourceLineNo">105</span>     * the IoSession is created but before {@link IoHandler#sessionCreated(IoSession)}<a name="line.105"></a>
+<span class="sourceLineNo">106</span>     * is invoked.  There is &lt;em&gt;no&lt;/em&gt; guarantee that the &lt;code&gt;ioSessionInitializer&lt;/code&gt;<a name="line.106"></a>
+<span class="sourceLineNo">107</span>     * will be invoked before this method returns.<a name="line.107"></a>
+<span class="sourceLineNo">108</span>     * <a name="line.108"></a>
+<span class="sourceLineNo">109</span>     * @param sessionInitializer  the callback to invoke when the {@link IoSession} object is created<a name="line.109"></a>
+<span class="sourceLineNo">110</span>     * <a name="line.110"></a>
+<span class="sourceLineNo">111</span>     * @throws IllegalStateException if no default remote address is set.<a name="line.111"></a>
+<span class="sourceLineNo">112</span>     */<a name="line.112"></a>
+<span class="sourceLineNo">113</span>    ConnectFuture connect(IoSessionInitializer&lt;? extends ConnectFuture&gt; sessionInitializer);<a name="line.113"></a>
+<span class="sourceLineNo">114</span><a name="line.114"></a>
+<span class="sourceLineNo">115</span>    /**<a name="line.115"></a>
+<span class="sourceLineNo">116</span>     * Connects to the specified remote address.<a name="line.116"></a>
+<span class="sourceLineNo">117</span>     *<a name="line.117"></a>
+<span class="sourceLineNo">118</span>     * @return the {@link ConnectFuture} instance which is completed when the<a name="line.118"></a>
+<span class="sourceLineNo">119</span>     *         connection attempt initiated by this call succeeds or fails.<a name="line.119"></a>
+<span class="sourceLineNo">120</span>     */<a name="line.120"></a>
+<span class="sourceLineNo">121</span>    ConnectFuture connect(SocketAddress remoteAddress);<a name="line.121"></a>
+<span class="sourceLineNo">122</span><a name="line.122"></a>
+<span class="sourceLineNo">123</span>    /**<a name="line.123"></a>
+<span class="sourceLineNo">124</span>     * Connects to the specified remote address and invokes<a name="line.124"></a>
+<span class="sourceLineNo">125</span>     * the &lt;code&gt;ioSessionInitializer&lt;/code&gt; when the IoSession is created but before<a name="line.125"></a>
+<span class="sourceLineNo">126</span>     * {@link IoHandler#sessionCreated(IoSession)} is invoked.  There is &lt;em&gt;no&lt;/em&gt;<a name="line.126"></a>
+<span class="sourceLineNo">127</span>     * guarantee that the &lt;code&gt;ioSessionInitializer&lt;/code&gt; will be invoked before<a name="line.127"></a>
+<span class="sourceLineNo">128</span>     * this method returns.<a name="line.128"></a>
+<span class="sourceLineNo">129</span>     * <a name="line.129"></a>
+<span class="sourceLineNo">130</span>     * @param remoteAddress  the remote address to connect to<a name="line.130"></a>
+<span class="sourceLineNo">131</span>     * @param sessionInitializer  the callback to invoke when the {@link IoSession} object is created<a name="line.131"></a>
+<span class="sourceLineNo">132</span>     * <a name="line.132"></a>
+<span class="sourceLineNo">133</span>     * @return the {@link ConnectFuture} instance which is completed when the<a name="line.133"></a>
+<span class="sourceLineNo">134</span>     *         connection attempt initiated by this call succeeds or fails.<a name="line.134"></a>
+<span class="sourceLineNo">135</span>     */<a name="line.135"></a>
+<span class="sourceLineNo">136</span>    ConnectFuture connect(SocketAddress remoteAddress, IoSessionInitializer&lt;? extends ConnectFuture&gt; sessionInitializer);<a name="line.136"></a>
+<span class="sourceLineNo">137</span><a name="line.137"></a>
+<span class="sourceLineNo">138</span>    /**<a name="line.138"></a>
+<span class="sourceLineNo">139</span>     * Connects to the specified remote address binding to the specified local address.<a name="line.139"></a>
+<span class="sourceLineNo">140</span>     *<a name="line.140"></a>
+<span class="sourceLineNo">141</span>     * @return the {@link ConnectFuture} instance which is completed when the<a name="line.141"></a>
+<span class="sourceLineNo">142</span>     *         connection attempt initiated by this call succeeds or fails.<a name="line.142"></a>
+<span class="sourceLineNo">143</span>     */<a name="line.143"></a>
+<span class="sourceLineNo">144</span>    ConnectFuture connect(SocketAddress remoteAddress, SocketAddress localAddress);<a name="line.144"></a>
+<span class="sourceLineNo">145</span><a name="line.145"></a>
+<span class="sourceLineNo">146</span>    /**<a name="line.146"></a>
+<span class="sourceLineNo">147</span>     * Connects to the specified remote address binding to the specified local<a name="line.147"></a>
+<span class="sourceLineNo">148</span>     * address and and invokes the &lt;code&gt;ioSessionInitializer&lt;/code&gt; when the<a name="line.148"></a>
+<span class="sourceLineNo">149</span>     * IoSession is created but before {@link IoHandler#sessionCreated(IoSession)}<a name="line.149"></a>
+<span class="sourceLineNo">150</span>     * is invoked.  There is &lt;em&gt;no&lt;/em&gt; guarantee that the &lt;code&gt;ioSessionInitializer&lt;/code&gt;<a name="line.150"></a>
+<span class="sourceLineNo">151</span>     * will be invoked before this method returns.<a name="line.151"></a>
+<span class="sourceLineNo">152</span>     * <a name="line.152"></a>
+<span class="sourceLineNo">153</span>     * @param remoteAddress  the remote address to connect to<a name="line.153"></a>
+<span class="sourceLineNo">154</span>     * @param localAddress  the local interface to bind to<a name="line.154"></a>
+<span class="sourceLineNo">155</span>     * @param sessionInitializer  the callback to invoke when the {@link IoSession} object is created<a name="line.155"></a>
+<span class="sourceLineNo">156</span>     *<a name="line.156"></a>
+<span class="sourceLineNo">157</span>     * @return the {@link ConnectFuture} instance which is completed when the<a name="line.157"></a>
+<span class="sourceLineNo">158</span>     *         connection attempt initiated by this call succeeds or fails.<a name="line.158"></a>
+<span class="sourceLineNo">159</span>     */<a name="line.159"></a>
+<span class="sourceLineNo">160</span>    ConnectFuture connect(SocketAddress remoteAddress, SocketAddress localAddress,<a name="line.160"></a>
+<span class="sourceLineNo">161</span>            IoSessionInitializer&lt;? extends ConnectFuture&gt; sessionInitializer);<a name="line.161"></a>
+<span class="sourceLineNo">162</span>}<a name="line.162"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

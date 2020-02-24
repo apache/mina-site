@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * Licensed to the Apache Software Foundation (ASF) under one<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * or more contributor license agreements.  See the NOTICE file<a name="line.3"></a>
+<span class="sourceLineNo">004</span> * distributed with this work for additional information<a name="line.4"></a>
+<span class="sourceLineNo">005</span> * regarding copyright ownership.  The ASF licenses this file<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * to you under the Apache License, Version 2.0 (the<a name="line.6"></a>
+<span class="sourceLineNo">007</span> * "License"); you may not use this file except in compliance<a name="line.7"></a>
+<span class="sourceLineNo">008</span> * with the License.  You may obtain a copy of the License at<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *  http://www.apache.org/licenses/LICENSE-2.0<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * Unless required by applicable law or agreed to in writing,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> * software distributed under the License is distributed on an<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * KIND, either express or implied.  See the License for the<a name="line.15"></a>
+<span class="sourceLineNo">016</span> * specific language governing permissions and limitations<a name="line.16"></a>
+<span class="sourceLineNo">017</span> * under the License.<a name="line.17"></a>
+<span class="sourceLineNo">018</span> */<a name="line.18"></a>
+<span class="sourceLineNo">019</span>package org.apache.mina.integration.xbean;<a name="line.19"></a>
+<span class="sourceLineNo">020</span><a name="line.20"></a>
+<span class="sourceLineNo">021</span>import static org.junit.Assert.assertEquals;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import static org.junit.Assert.assertFalse;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import static org.junit.Assert.assertNotNull;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import static org.junit.Assert.assertTrue;<a name="line.24"></a>
+<span class="sourceLineNo">025</span><a name="line.25"></a>
+<span class="sourceLineNo">026</span>import org.apache.mina.transport.socket.nio.NioDatagramAcceptor;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>import org.apache.xbean.spring.context.FileSystemXmlApplicationContext;<a name="line.27"></a>
+<span class="sourceLineNo">028</span>import org.junit.Test;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>import org.springframework.context.ApplicationContext;<a name="line.29"></a>
+<span class="sourceLineNo">030</span><a name="line.30"></a>
+<span class="sourceLineNo">031</span>import java.io.File;<a name="line.31"></a>
+<span class="sourceLineNo">032</span>import java.net.InetSocketAddress;<a name="line.32"></a>
+<span class="sourceLineNo">033</span>import java.net.URL;<a name="line.33"></a>
+<span class="sourceLineNo">034</span><a name="line.34"></a>
+<span class="sourceLineNo">035</span>/**<a name="line.35"></a>
+<span class="sourceLineNo">036</span> * TODO : Add documentation<a name="line.36"></a>
+<span class="sourceLineNo">037</span> * @author &lt;a href="http://mina.apache.org"&gt;Apache MINA Project&lt;/a&gt;<a name="line.37"></a>
+<span class="sourceLineNo">038</span> */<a name="line.38"></a>
+<span class="sourceLineNo">039</span>public class SpringXBeanTest {<a name="line.39"></a>
+<span class="sourceLineNo">040</span>    /**<a name="line.40"></a>
+<span class="sourceLineNo">041</span>     * Checks to see we can easily configure a NIO based DatagramAcceptor <a name="line.41"></a>
+<span class="sourceLineNo">042</span>     * using XBean-Spring.  Tests various configuration settings for the <a name="line.42"></a>
+<span class="sourceLineNo">043</span>     * NIO based DatagramAcceptor.<a name="line.43"></a>
+<span class="sourceLineNo">044</span>     */<a name="line.44"></a>
+<span class="sourceLineNo">045</span>    @Test<a name="line.45"></a>
+<span class="sourceLineNo">046</span>    public void testNioDatagramAcceptor() throws Exception {<a name="line.46"></a>
+<span class="sourceLineNo">047</span>        ClassLoader classLoader = this.getClass().getClassLoader();<a name="line.47"></a>
+<span class="sourceLineNo">048</span>        URL configURL = classLoader.getResource("org/apache/mina/integration/xbean/datagramAcceptor.xml");<a name="line.48"></a>
+<span class="sourceLineNo">049</span><a name="line.49"></a>
+<span class="sourceLineNo">050</span>        File configF = new File(configURL.toURI());<a name="line.50"></a>
+<span class="sourceLineNo">051</span>        ApplicationContext factory = new FileSystemXmlApplicationContext(configF.toURI().toURL().toString());<a name="line.51"></a>
+<span class="sourceLineNo">052</span><a name="line.52"></a>
+<span class="sourceLineNo">053</span>        // test default without any properties<a name="line.53"></a>
+<span class="sourceLineNo">054</span>        NioDatagramAcceptor acceptor0 = (NioDatagramAcceptor) factory.getBean("datagramAcceptor0");<a name="line.54"></a>
+<span class="sourceLineNo">055</span>        assertNotNull("acceptor0 should not be null", acceptor0);<a name="line.55"></a>
+<span class="sourceLineNo">056</span>        assertTrue(<a name="line.56"></a>
+<span class="sourceLineNo">057</span>                "Default constructor for NioDatagramAcceptor should have true value for closeOnDeactivation property",<a name="line.57"></a>
+<span class="sourceLineNo">058</span>                acceptor0.isCloseOnDeactivation());<a name="line.58"></a>
+<span class="sourceLineNo">059</span><a name="line.59"></a>
+<span class="sourceLineNo">060</span>        // test setting the port and IP for the acceptor<a name="line.60"></a>
+<span class="sourceLineNo">061</span>        NioDatagramAcceptor acceptor1 = (NioDatagramAcceptor) factory.getBean("datagramAcceptor1");<a name="line.61"></a>
+<span class="sourceLineNo">062</span>        assertNotNull("acceptor1 should not be null", acceptor1);<a name="line.62"></a>
+<span class="sourceLineNo">063</span>        assertEquals("192.168.0.1", acceptor1.getDefaultLocalAddress().getAddress().getHostAddress());<a name="line.63"></a>
+<span class="sourceLineNo">064</span>        assertEquals(110, acceptor1.getDefaultLocalAddress().getPort());<a name="line.64"></a>
+<span class="sourceLineNo">065</span><a name="line.65"></a>
+<span class="sourceLineNo">066</span>        // test creating with executor and some primitive properties<a name="line.66"></a>
+<span class="sourceLineNo">067</span>        NioDatagramAcceptor acceptor2 = (NioDatagramAcceptor) factory.getBean("datagramAcceptor2");<a name="line.67"></a>
+<span class="sourceLineNo">068</span>        assertNotNull(acceptor2);<a name="line.68"></a>
+<span class="sourceLineNo">069</span>        assertFalse(acceptor2.isCloseOnDeactivation());<a name="line.69"></a>
+<span class="sourceLineNo">070</span>        assertFalse("NioDatagramAcceptor should have false value for closeOnDeactivation property",<a name="line.70"></a>
+<span class="sourceLineNo">071</span>                acceptor2.isCloseOnDeactivation());<a name="line.71"></a>
+<span class="sourceLineNo">072</span><a name="line.72"></a>
+<span class="sourceLineNo">073</span>        // test creating with multiple addresses<a name="line.73"></a>
+<span class="sourceLineNo">074</span>        NioDatagramAcceptor acceptor3 = (NioDatagramAcceptor) factory.getBean("datagramAcceptor3");<a name="line.74"></a>
+<span class="sourceLineNo">075</span>        assertNotNull(acceptor3);<a name="line.75"></a>
+<span class="sourceLineNo">076</span>        assertEquals(3, acceptor3.getDefaultLocalAddresses().size());<a name="line.76"></a>
+<span class="sourceLineNo">077</span><a name="line.77"></a>
+<span class="sourceLineNo">078</span>        InetSocketAddress address1 = (InetSocketAddress) acceptor3.getDefaultLocalAddresses().get(0);<a name="line.78"></a>
+<span class="sourceLineNo">079</span>        assertEquals("192.168.0.1", address1.getAddress().getHostAddress());<a name="line.79"></a>
+<span class="sourceLineNo">080</span>        assertEquals(10001, address1.getPort());<a name="line.80"></a>
+<span class="sourceLineNo">081</span><a name="line.81"></a>
+<span class="sourceLineNo">082</span>        InetSocketAddress address2 = (InetSocketAddress) acceptor3.getDefaultLocalAddresses().get(1);<a name="line.82"></a>
+<span class="sourceLineNo">083</span>        assertEquals("192.168.0.2", address2.getAddress().getHostAddress());<a name="line.83"></a>
+<span class="sourceLineNo">084</span>        assertEquals(10002, address2.getPort());<a name="line.84"></a>
+<span class="sourceLineNo">085</span><a name="line.85"></a>
+<span class="sourceLineNo">086</span>        InetSocketAddress address3 = (InetSocketAddress) acceptor3.getDefaultLocalAddresses().get(2);<a name="line.86"></a>
+<span class="sourceLineNo">087</span>        assertEquals("192.168.0.3", address3.getAddress().getHostAddress());<a name="line.87"></a>
+<span class="sourceLineNo">088</span>        assertEquals(10003, address3.getPort());<a name="line.88"></a>
+<span class="sourceLineNo">089</span><a name="line.89"></a>
+<span class="sourceLineNo">090</span>        // test with multiple default addresses <a name="line.90"></a>
+<span class="sourceLineNo">091</span>        //        NioDatagramAcceptor acceptor3 = ( NioDatagramAcceptor ) factory.getBean( "datagramAcceptor3" );<a name="line.91"></a>
+<span class="sourceLineNo">092</span>        //        assertNotNull( acceptor3 );<a name="line.92"></a>
+<span class="sourceLineNo">093</span>        //        assertEquals( 3, acceptor3.getDefaultLocalAddresses().size() );<a name="line.93"></a>
+<span class="sourceLineNo">094</span>        //<a name="line.94"></a>
+<span class="sourceLineNo">095</span>        //        SocketAddress address0 = acceptor3.getDefaultLocalAddresses().get( 0 );<a name="line.95"></a>
+<span class="sourceLineNo">096</span>        //        assertNotNull( address0 );<a name="line.96"></a>
+<span class="sourceLineNo">097</span>        //        <a name="line.97"></a>
+<span class="sourceLineNo">098</span>        //        SocketAddress address1 = acceptor3.getDefaultLocalAddresses().get( 1 );<a name="line.98"></a>
+<span class="sourceLineNo">099</span>        //        assertNotNull( address1 );<a name="line.99"></a>
+<span class="sourceLineNo">100</span>        //<a name="line.100"></a>
+<span class="sourceLineNo">101</span>        //        SocketAddress address2 = acceptor3.getDefaultLocalAddresses().get( 2 );<a name="line.101"></a>
+<span class="sourceLineNo">102</span>        //        assertNotNull( address2 );<a name="line.102"></a>
+<span class="sourceLineNo">103</span>    }<a name="line.103"></a>
+<span class="sourceLineNo">104</span>}<a name="line.104"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

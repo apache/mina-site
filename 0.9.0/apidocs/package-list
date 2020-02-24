@@ -1,0 +1,15 @@
+org.apache.mina.common
+org.apache.mina.filter
+org.apache.mina.filter.codec
+org.apache.mina.filter.codec.demux
+org.apache.mina.filter.codec.serialization
+org.apache.mina.filter.codec.textline
+org.apache.mina.handler
+org.apache.mina.handler.chain
+org.apache.mina.handler.demux
+org.apache.mina.integration.spring
+org.apache.mina.integration.spring.ssl
+org.apache.mina.registry
+org.apache.mina.transport.socket.nio
+org.apache.mina.transport.vmpipe
+org.apache.mina.util

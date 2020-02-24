@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Licensed to the Apache Software Foundation (ASF) under one<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  or more contributor license agreements.  See the NOTICE file<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *  distributed with this work for additional information<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  regarding copyright ownership.  The ASF licenses this file<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  to you under the Apache License, Version 2.0 (the<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  "License"); you may not use this file except in compliance<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *  with the License.  You may obtain a copy of the License at<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *    http://www.apache.org/licenses/LICENSE-2.0<a name="line.10"></a>
+<span class="sourceLineNo">011</span> *<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *  Unless required by applicable law or agreed to in writing,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *  software distributed under the License is distributed on an<a name="line.13"></a>
+<span class="sourceLineNo">014</span> *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *  KIND, either express or implied.  See the License for the<a name="line.15"></a>
+<span class="sourceLineNo">016</span> *  specific language governing permissions and limitations<a name="line.16"></a>
+<span class="sourceLineNo">017</span> *  under the License.<a name="line.17"></a>
+<span class="sourceLineNo">018</span> *<a name="line.18"></a>
+<span class="sourceLineNo">019</span> */<a name="line.19"></a>
+<span class="sourceLineNo">020</span>package org.apache.mina.example.proxy;<a name="line.20"></a>
+<span class="sourceLineNo">021</span><a name="line.21"></a>
+<span class="sourceLineNo">022</span>import java.io.DataInputStream;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import java.io.DataOutputStream;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import java.io.IOException;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import java.net.ServerSocket;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import java.net.Socket;<a name="line.26"></a>
+<span class="sourceLineNo">027</span><a name="line.27"></a>
+<span class="sourceLineNo">028</span>import org.apache.mina.proxy.handlers.socks.SocksProxyConstants;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>import org.apache.mina.proxy.utils.ByteUtilities;<a name="line.29"></a>
+<span class="sourceLineNo">030</span>import org.ietf.jgss.GSSContext;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>import org.ietf.jgss.GSSCredential;<a name="line.31"></a>
+<span class="sourceLineNo">032</span>import org.ietf.jgss.GSSException;<a name="line.32"></a>
+<span class="sourceLineNo">033</span>import org.ietf.jgss.GSSManager;<a name="line.33"></a>
+<span class="sourceLineNo">034</span>import org.ietf.jgss.Oid;<a name="line.34"></a>
+<span class="sourceLineNo">035</span>import org.slf4j.Logger;<a name="line.35"></a>
+<span class="sourceLineNo">036</span>import org.slf4j.LoggerFactory;<a name="line.36"></a>
+<span class="sourceLineNo">037</span><a name="line.37"></a>
+<span class="sourceLineNo">038</span>/**<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * Socks5GSSAPITestServer.java - Basic test server for SOCKS5 GSSAPI authentication.<a name="line.39"></a>
+<span class="sourceLineNo">040</span> * <a name="line.40"></a>
+<span class="sourceLineNo">041</span> * NOTE: Launch this program with the following params in a pre-configured Kerberos V env.<a name="line.41"></a>
+<span class="sourceLineNo">042</span> * Do not forget to replace &lt; ... &gt; vars with your own values.<a name="line.42"></a>
+<span class="sourceLineNo">043</span> * <a name="line.43"></a>
+<span class="sourceLineNo">044</span> * -Djava.security.krb5.realm=&lt;your_krb_realm&gt; <a name="line.44"></a>
+<span class="sourceLineNo">045</span> * -Djavax.security.auth.useSubjectCredsOnly=false <a name="line.45"></a>
+<span class="sourceLineNo">046</span> * -Djava.security.krb5.kdc=&lt;your_kdc_hostname&gt;<a name="line.46"></a>
+<span class="sourceLineNo">047</span> * -Djava.security.auth.login.config=${workspace_loc}\Mina2Proxy\src\bcsLogin.conf<a name="line.47"></a>
+<span class="sourceLineNo">048</span> * -Dsun.security.krb5.debug=true <a name="line.48"></a>
+<span class="sourceLineNo">049</span> * <a name="line.49"></a>
+<span class="sourceLineNo">050</span> * @author &lt;a href="http://mina.apache.org"&gt;Apache MINA Project&lt;/a&gt;<a name="line.50"></a>
+<span class="sourceLineNo">051</span> * @since MINA 2.0.0-M3<a name="line.51"></a>
+<span class="sourceLineNo">052</span> */<a name="line.52"></a>
+<span class="sourceLineNo">053</span>public class Socks5GSSAPITestServer {<a name="line.53"></a>
+<span class="sourceLineNo">054</span><a name="line.54"></a>
+<span class="sourceLineNo">055</span>    private final static Logger logger = LoggerFactory<a name="line.55"></a>
+<span class="sourceLineNo">056</span>            .getLogger(Socks5GSSAPITestServer.class);<a name="line.56"></a>
+<span class="sourceLineNo">057</span><a name="line.57"></a>
+<span class="sourceLineNo">058</span>    /**<a name="line.58"></a>
+<span class="sourceLineNo">059</span>     * NOTE : change this to comply with your Kerberos environment.<a name="line.59"></a>
+<span class="sourceLineNo">060</span>     */<a name="line.60"></a>
+<span class="sourceLineNo">061</span>    protected final static String SERVICE_NAME = "host/myworkstation.local.network";<a name="line.61"></a>
+<span class="sourceLineNo">062</span><a name="line.62"></a>
+<span class="sourceLineNo">063</span>    /**<a name="line.63"></a>
+<span class="sourceLineNo">064</span>     * Selected mechanism message: advertises client to use SocksV5 protocol with<a name="line.64"></a>
+<span class="sourceLineNo">065</span>     * GSSAPI authentication.<a name="line.65"></a>
+<span class="sourceLineNo">066</span>     */<a name="line.66"></a>
+<span class="sourceLineNo">067</span>    public final static byte[] SELECT_GSSAPI_AUTH_MSG = new byte[] {<a name="line.67"></a>
+<span class="sourceLineNo">068</span>            SocksProxyConstants.SOCKS_VERSION_5,<a name="line.68"></a>
+<span class="sourceLineNo">069</span>            SocksProxyConstants.GSSAPI_AUTH };<a name="line.69"></a>
+<span class="sourceLineNo">070</span><a name="line.70"></a>
+<span class="sourceLineNo">071</span>    /**<a name="line.71"></a>
+<span class="sourceLineNo">072</span>     * Simulates a Socks v5 server using only Kerberos V authentication.<a name="line.72"></a>
+<span class="sourceLineNo">073</span>     * <a name="line.73"></a>
+<span class="sourceLineNo">074</span>     * @param localPort the local port used to bind the server<a name="line.74"></a>
+<span class="sourceLineNo">075</span>     * @throws IOException<a name="line.75"></a>
+<span class="sourceLineNo">076</span>     * @throws GSSException<a name="line.76"></a>
+<span class="sourceLineNo">077</span>     */<a name="line.77"></a>
+<span class="sourceLineNo">078</span>    private static void doHandShake(int localPort) throws IOException,<a name="line.78"></a>
+<span class="sourceLineNo">079</span>            GSSException {<a name="line.79"></a>
+<span class="sourceLineNo">080</span>        ServerSocket ss = new ServerSocket(localPort);<a name="line.80"></a>
+<span class="sourceLineNo">081</span>        GSSManager manager = GSSManager.getInstance();<a name="line.81"></a>
+<span class="sourceLineNo">082</span><a name="line.82"></a>
+<span class="sourceLineNo">083</span>        /*<a name="line.83"></a>
+<span class="sourceLineNo">084</span>         * Create a GSSContext to receive the incoming request from the client. <a name="line.84"></a>
+<span class="sourceLineNo">085</span>         * Use null for the server credentials passed in to tell the underlying <a name="line.85"></a>
+<span class="sourceLineNo">086</span>         * mechanism to use whatever credentials it has available that can be <a name="line.86"></a>
+<span class="sourceLineNo">087</span>         * used to accept this connection.<a name="line.87"></a>
+<span class="sourceLineNo">088</span>         */<a name="line.88"></a>
+<span class="sourceLineNo">089</span>        GSSCredential serverCreds = manager.createCredential(manager<a name="line.89"></a>
+<span class="sourceLineNo">090</span>                .createName(SERVICE_NAME, null),<a name="line.90"></a>
+<span class="sourceLineNo">091</span>                GSSCredential.DEFAULT_LIFETIME, new Oid(<a name="line.91"></a>
+<span class="sourceLineNo">092</span>                        SocksProxyConstants.KERBEROS_V5_OID),<a name="line.92"></a>
+<span class="sourceLineNo">093</span>                GSSCredential.ACCEPT_ONLY);<a name="line.93"></a>
+<span class="sourceLineNo">094</span><a name="line.94"></a>
+<span class="sourceLineNo">095</span>        while (true) {<a name="line.95"></a>
+<span class="sourceLineNo">096</span>            logger.debug("Waiting for incoming connection on port {} ...",<a name="line.96"></a>
+<span class="sourceLineNo">097</span>                    localPort);<a name="line.97"></a>
+<span class="sourceLineNo">098</span>            GSSContext context = manager.createContext(serverCreds);<a name="line.98"></a>
+<span class="sourceLineNo">099</span>            Socket socket = ss.accept();<a name="line.99"></a>
+<span class="sourceLineNo">100</span><a name="line.100"></a>
+<span class="sourceLineNo">101</span>            try {<a name="line.101"></a>
+<span class="sourceLineNo">102</span>                DataInputStream inStream = new DataInputStream(socket<a name="line.102"></a>
+<span class="sourceLineNo">103</span>                        .getInputStream());<a name="line.103"></a>
+<span class="sourceLineNo">104</span>                DataOutputStream outStream = new DataOutputStream(socket<a name="line.104"></a>
+<span class="sourceLineNo">105</span>                        .getOutputStream());<a name="line.105"></a>
+<span class="sourceLineNo">106</span><a name="line.106"></a>
+<span class="sourceLineNo">107</span>                logger.debug("Got connection from client @ {}", socket<a name="line.107"></a>
+<span class="sourceLineNo">108</span>                        .getInetAddress());<a name="line.108"></a>
+<span class="sourceLineNo">109</span><a name="line.109"></a>
+<span class="sourceLineNo">110</span>                // Read SOCKS5 greeting packet<a name="line.110"></a>
+<span class="sourceLineNo">111</span>                byte ver = (byte) inStream.read();<a name="line.111"></a>
+<span class="sourceLineNo">112</span>                if (ver != 0x05) {<a name="line.112"></a>
+<span class="sourceLineNo">113</span>                    throw new IllegalStateException(<a name="line.113"></a>
+<span class="sourceLineNo">114</span>                            "Wrong socks version received - " + ver);<a name="line.114"></a>
+<span class="sourceLineNo">115</span>                }<a name="line.115"></a>
+<span class="sourceLineNo">116</span>                byte nbAuthMethods = (byte) inStream.read();<a name="line.116"></a>
+<span class="sourceLineNo">117</span>                byte[] methods = new byte[nbAuthMethods];<a name="line.117"></a>
+<span class="sourceLineNo">118</span>                inStream.readFully(methods);<a name="line.118"></a>
+<span class="sourceLineNo">119</span><a name="line.119"></a>
+<span class="sourceLineNo">120</span>                boolean found = false;<a name="line.120"></a>
+<span class="sourceLineNo">121</span>                for (byte b : methods) {<a name="line.121"></a>
+<span class="sourceLineNo">122</span>                    if (b == SocksProxyConstants.GSSAPI_AUTH) {<a name="line.122"></a>
+<span class="sourceLineNo">123</span>                        found = true;<a name="line.123"></a>
+<span class="sourceLineNo">124</span>                        break;<a name="line.124"></a>
+<span class="sourceLineNo">125</span>                    }<a name="line.125"></a>
+<span class="sourceLineNo">126</span>                }<a name="line.126"></a>
+<span class="sourceLineNo">127</span><a name="line.127"></a>
+<span class="sourceLineNo">128</span>                if (!found) {<a name="line.128"></a>
+<span class="sourceLineNo">129</span>                    throw new IllegalStateException(<a name="line.129"></a>
+<span class="sourceLineNo">130</span>                            "Client does not support GSSAPI authentication");<a name="line.130"></a>
+<span class="sourceLineNo">131</span>                }<a name="line.131"></a>
+<span class="sourceLineNo">132</span><a name="line.132"></a>
+<span class="sourceLineNo">133</span>                // Send selected mechanism message<a name="line.133"></a>
+<span class="sourceLineNo">134</span>                outStream.write(SELECT_GSSAPI_AUTH_MSG);<a name="line.134"></a>
+<span class="sourceLineNo">135</span>                outStream.flush();<a name="line.135"></a>
+<span class="sourceLineNo">136</span><a name="line.136"></a>
+<span class="sourceLineNo">137</span>                // Do the context establishment loop<a name="line.137"></a>
+<span class="sourceLineNo">138</span>                byte[] token = null;<a name="line.138"></a>
+<span class="sourceLineNo">139</span><a name="line.139"></a>
+<span class="sourceLineNo">140</span>                while (!context.isEstablished()) {<a name="line.140"></a>
+<span class="sourceLineNo">141</span>                    byte authVersion = (byte) inStream.read();<a name="line.141"></a>
+<span class="sourceLineNo">142</span><a name="line.142"></a>
+<span class="sourceLineNo">143</span>                    if (authVersion != 0x01) {<a name="line.143"></a>
+<span class="sourceLineNo">144</span>                        throw new IllegalStateException(<a name="line.144"></a>
+<span class="sourceLineNo">145</span>                                "Wrong socks GSSAPI auth version received: "<a name="line.145"></a>
+<span class="sourceLineNo">146</span>                                        + authVersion);<a name="line.146"></a>
+<span class="sourceLineNo">147</span>                    }<a name="line.147"></a>
+<span class="sourceLineNo">148</span><a name="line.148"></a>
+<span class="sourceLineNo">149</span>                    byte mtyp = (byte) inStream.read();<a name="line.149"></a>
+<span class="sourceLineNo">150</span>                    if (mtyp != 0x01) {<a name="line.150"></a>
+<span class="sourceLineNo">151</span>                        throw new IllegalArgumentException(<a name="line.151"></a>
+<span class="sourceLineNo">152</span>                                "Message type should be equal to 1.");<a name="line.152"></a>
+<span class="sourceLineNo">153</span>                    }<a name="line.153"></a>
+<span class="sourceLineNo">154</span><a name="line.154"></a>
+<span class="sourceLineNo">155</span>                    int len = inStream.readShort();<a name="line.155"></a>
+<span class="sourceLineNo">156</span>                    token = new byte[len];<a name="line.156"></a>
+<span class="sourceLineNo">157</span>                    inStream.readFully(token);<a name="line.157"></a>
+<span class="sourceLineNo">158</span>                    logger.debug("  Received Token[{}] = {}", len,<a name="line.158"></a>
+<span class="sourceLineNo">159</span>                            ByteUtilities.asHex(token));<a name="line.159"></a>
+<span class="sourceLineNo">160</span><a name="line.160"></a>
+<span class="sourceLineNo">161</span>                    token = context.acceptSecContext(token, 0, token.length);<a name="line.161"></a>
+<span class="sourceLineNo">162</span><a name="line.162"></a>
+<span class="sourceLineNo">163</span>                    // Send a token to the peer if one was generated by acceptSecContext<a name="line.163"></a>
+<span class="sourceLineNo">164</span>                    if (token != null) {<a name="line.164"></a>
+<span class="sourceLineNo">165</span>                        logger.debug("    Sending Token[{}] = {}", token.length,<a name="line.165"></a>
+<span class="sourceLineNo">166</span>                                ByteUtilities.asHex(token));<a name="line.166"></a>
+<span class="sourceLineNo">167</span>                        outStream.writeByte(authVersion);<a name="line.167"></a>
+<span class="sourceLineNo">168</span>                        outStream.writeByte(mtyp);<a name="line.168"></a>
+<span class="sourceLineNo">169</span>                        outStream.writeShort(token.length);<a name="line.169"></a>
+<span class="sourceLineNo">170</span>                        outStream.write(token);<a name="line.170"></a>
+<span class="sourceLineNo">171</span>                        outStream.flush();<a name="line.171"></a>
+<span class="sourceLineNo">172</span>                    }<a name="line.172"></a>
+<span class="sourceLineNo">173</span>                }<a name="line.173"></a>
+<span class="sourceLineNo">174</span><a name="line.174"></a>
+<span class="sourceLineNo">175</span>                logger.debug("Context Established !");<a name="line.175"></a>
+<span class="sourceLineNo">176</span>                logger.debug("Client is {}", context.getSrcName());<a name="line.176"></a>
+<span class="sourceLineNo">177</span>                logger.debug("Server is {}", context.getTargName());<a name="line.177"></a>
+<span class="sourceLineNo">178</span><a name="line.178"></a>
+<span class="sourceLineNo">179</span>                /*<a name="line.179"></a>
+<span class="sourceLineNo">180</span>                 * If mutual authentication did not take place, then<a name="line.180"></a>
+<span class="sourceLineNo">181</span>                 * only the client was authenticated to the<a name="line.181"></a>
+<span class="sourceLineNo">182</span>                 * server. Otherwise, both client and server were<a name="line.182"></a>
+<span class="sourceLineNo">183</span>                 * authenticated to each other. <a name="line.183"></a>
+<span class="sourceLineNo">184</span>                 */<a name="line.184"></a>
+<span class="sourceLineNo">185</span>                if (context.getMutualAuthState()) {<a name="line.185"></a>
+<span class="sourceLineNo">186</span>                    logger.debug("Mutual authentication took place !");<a name="line.186"></a>
+<span class="sourceLineNo">187</span>                }<a name="line.187"></a>
+<span class="sourceLineNo">188</span><a name="line.188"></a>
+<span class="sourceLineNo">189</span>                // We can now abort the process after a short time as auth is OK<a name="line.189"></a>
+<span class="sourceLineNo">190</span>                // and finally block will close session<a name="line.190"></a>
+<span class="sourceLineNo">191</span>                Thread.sleep(500);<a name="line.191"></a>
+<span class="sourceLineNo">192</span>            } catch (Exception ex) {<a name="line.192"></a>
+<span class="sourceLineNo">193</span>                //ex.printStackTrace();<a name="line.193"></a>
+<span class="sourceLineNo">194</span>            } finally {<a name="line.194"></a>
+<span class="sourceLineNo">195</span>                context.dispose();<a name="line.195"></a>
+<span class="sourceLineNo">196</span>                socket.close();<a name="line.196"></a>
+<span class="sourceLineNo">197</span>            }<a name="line.197"></a>
+<span class="sourceLineNo">198</span>        }<a name="line.198"></a>
+<span class="sourceLineNo">199</span>    }<a name="line.199"></a>
+<span class="sourceLineNo">200</span><a name="line.200"></a>
+<span class="sourceLineNo">201</span>    /**<a name="line.201"></a>
+<span class="sourceLineNo">202</span>     * {@inheritDoc}<a name="line.202"></a>
+<span class="sourceLineNo">203</span>     */<a name="line.203"></a>
+<span class="sourceLineNo">204</span>    public static void main(String[] args) throws Exception {<a name="line.204"></a>
+<span class="sourceLineNo">205</span>        // Obtain the command-line arguments and parse the port number<a name="line.205"></a>
+<span class="sourceLineNo">206</span>        if (args.length != 1) {<a name="line.206"></a>
+<span class="sourceLineNo">207</span>            System.err<a name="line.207"></a>
+<span class="sourceLineNo">208</span>                    .println("Usage: java &lt;options&gt; Socks5GSSAPITestServer &lt;localPort&gt;");<a name="line.208"></a>
+<span class="sourceLineNo">209</span>            System.exit(-1);<a name="line.209"></a>
+<span class="sourceLineNo">210</span>        }<a name="line.210"></a>
+<span class="sourceLineNo">211</span><a name="line.211"></a>
+<span class="sourceLineNo">212</span>        doHandShake(Integer.parseInt(args[0]));<a name="line.212"></a>
+<span class="sourceLineNo">213</span>        System.exit(0);<a name="line.213"></a>
+<span class="sourceLineNo">214</span>    }<a name="line.214"></a>
+<span class="sourceLineNo">215</span>}<a name="line.215"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

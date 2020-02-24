@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>MyRequestDecoder xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+
+<a name="1" href="#1">1</a>   <strong class="jxr_keyword">package</strong> testcase;
+<a name="2" href="#2">2</a>   
+<a name="3" href="#3">3</a>   <strong class="jxr_keyword">import</strong> org.apache.mina.core.buffer.IoBuffer;
+<a name="4" href="#4">4</a>   <strong class="jxr_keyword">import</strong> org.apache.mina.core.session.IoSession;
+<a name="5" href="#5">5</a>   <strong class="jxr_keyword">import</strong> org.apache.mina.filter.codec.CumulativeProtocolDecoder;
+<a name="6" href="#6">6</a>   <strong class="jxr_keyword">import</strong> org.apache.mina.filter.codec.ProtocolDecoderOutput;
+<a name="7" href="#7">7</a>   <strong class="jxr_keyword">import</strong> org.slf4j.Logger;
+<a name="8" href="#8">8</a>   <strong class="jxr_keyword">import</strong> org.slf4j.LoggerFactory;
+<a name="9" href="#9">9</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> testcase.MinaRegressionTest.MSG_SIZE;
+<a name="10" href="#10">10</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> testcase.MinaRegressionTest.OPEN;
+<a name="11" href="#11">11</a>  
+<a name="12" href="#12">12</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../testcase/MyRequestDecoder.html">MyRequestDecoder</a> <strong class="jxr_keyword">extends</strong> CumulativeProtocolDecoder {
+<a name="13" href="#13">13</a>    <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Logger logger = LoggerFactory.getLogger(MyRequestDecoder.<strong class="jxr_keyword">class</strong>);
+<a name="14" href="#14">14</a>  
+<a name="15" href="#15">15</a>    @Override
+<a name="16" href="#16">16</a>    <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> doDecode(<strong class="jxr_keyword">final</strong> IoSession session, IoBuffer in, ProtocolDecoderOutput out) <strong class="jxr_keyword">throws</strong> Exception {
+<a name="17" href="#17">17</a>      <strong class="jxr_keyword">if</strong> (!session.containsAttribute(OPEN)) {
+<a name="18" href="#18">18</a>        logger.error(<span class="jxr_string">"!decoding for closed session {}"</span>, session.getId());
+<a name="19" href="#19">19</a>      }
+<a name="20" href="#20">20</a>  
+<a name="21" href="#21">21</a>      <strong class="jxr_keyword">new</strong> Thread(<strong class="jxr_keyword">new</strong> Runnable() {
+<a name="22" href="#22">22</a>        <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
+<a name="23" href="#23">23</a>          <strong class="jxr_keyword">try</strong> {
+<a name="24" href="#24">24</a>              logger.debug( <span class="jxr_string">"Sleep for 500 ms for session {}"</span>, session.getId() );
+<a name="25" href="#25">25</a>              Thread.sleep(500);
+<a name="26" href="#26">26</a>              logger.debug( <span class="jxr_string">"Wake up now from a 500 ms sleep for session {}"</span>, session.getId() );
+<a name="27" href="#27">27</a>          } <strong class="jxr_keyword">catch</strong> (InterruptedException ignore) {}
+<a name="28" href="#28">28</a>          session.close(<strong class="jxr_keyword">true</strong>);
+<a name="29" href="#29">29</a>        }
+<a name="30" href="#30">30</a>      }).start();
+<a name="31" href="#31">31</a>  
+<a name="32" href="#32">32</a>      <em class="jxr_comment">// sleep so that session.close(true) is already called when decoding continues</em>
+<a name="33" href="#33">33</a>      logger.debug( <span class="jxr_string">"Sleep for 1000 ms for session {}"</span>, session.getId() );
+<a name="34" href="#34">34</a>      Thread.sleep(1000);
+<a name="35" href="#35">35</a>      logger.debug( <span class="jxr_string">"Wake up now from a 1000 ms sleep for session {}"</span>, session.getId() );
+<a name="36" href="#36">36</a>  
+<a name="37" href="#37">37</a>      <strong class="jxr_keyword">if</strong> (!session.containsAttribute(OPEN)) {
+<a name="38" href="#38">38</a>        logger.error(<span class="jxr_string">"!session {} closed before decoding completes!"</span>, session.getId());
+<a name="39" href="#39">39</a>        <strong class="jxr_keyword">int</strong> i = 0;
+<a name="40" href="#40">40</a>        
+<a name="41" href="#41">41</a>        <strong class="jxr_keyword">try</strong>
+<a name="42" href="#42">42</a>        {
+<a name="43" href="#43">43</a>            <strong class="jxr_keyword">int</strong> j = 2 / i;
+<a name="44" href="#44">44</a>        } 
+<a name="45" href="#45">45</a>        <strong class="jxr_keyword">catch</strong> ( Exception e )
+<a name="46" href="#46">46</a>        {
+<a name="47" href="#47">47</a>            <em class="jxr_comment">//e.printStackTrace();</em>
+<a name="48" href="#48">48</a>        }
+<a name="49" href="#49">49</a>      }
+<a name="50" href="#50">50</a>  
+<a name="51" href="#51">51</a>      <em class="jxr_comment">// no full message</em>
+<a name="52" href="#52">52</a>      <strong class="jxr_keyword">if</strong> (in.remaining() &lt; MSG_SIZE) <strong class="jxr_keyword">return</strong> false;
+<a name="53" href="#53">53</a>  
+<a name="54" href="#54">54</a>      logger.info(<span class="jxr_string">"Done decoding for session {}"</span>, session.getId());
+<a name="55" href="#55">55</a>  
+<a name="56" href="#56">56</a>      <strong class="jxr_keyword">if</strong> (in.hasRemaining() &amp;&amp; !session.isClosing() &amp;&amp; session.isConnected()) {
+<a name="57" href="#57">57</a>        IoBuffer tmp = IoBuffer.allocate(in.remaining());
+<a name="58" href="#58">58</a>        tmp.put(in);
+<a name="59" href="#59">59</a>        tmp.flip();
+<a name="60" href="#60">60</a>        out.write(tmp);
+<a name="61" href="#61">61</a>        <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a name="62" href="#62">62</a>      }
+<a name="63" href="#63">63</a>  
+<a name="64" href="#64">64</a>      <strong class="jxr_keyword">return</strong> false;
+<a name="65" href="#65">65</a>    }
+<a name="66" href="#66">66</a>  }
+</pre>
+<hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
+</html>
+
