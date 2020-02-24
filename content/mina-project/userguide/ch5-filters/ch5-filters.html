@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Chapter 5 - Filters &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                <strong>MINA</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Latest Downloads</h5>
+                <ul>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.21</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.3</a></li>
+                    <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
+                </ul>
+                <h5>Documentation</h5>
+                <ul>
+                    <li><a href="/mina-project/documentation.html" class="external-link" rel="nofollow">Base documentation</a></li>
+                    <li><a href="/mina-project/userguide/user-guide-toc.html" class="external-link" rel="nofollow">User guide</a></li>
+                    <li><a href="/mina-project/2.1-vs-2.0.html" class="external-link" rel="nofollow">2.1 vs 2.0</a></li>
+                    <li><a href="/mina-project/features.html" class="external-link" rel="nofollow">Features</a></li>
+                    <li><a href="/mina-project/road-map.html" class="external-link" rel="nofollow">Road Map</a></li>
+                    <li><a href="/mina-project/quick-start-guide.html" class="external-link" rel="nofollow">Quick Start Guide</a></li>
+                    <li><a href="/mina-project/faq.html" class="external-link" rel="nofollow">FAQ</a></li>
+                </ul>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
+                    <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
+                    <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.3</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.3</a></li>
+                    <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
+                    <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
+                    <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
+                    <li><a href="/mina-project/developer-guide.html" class="external-link" rel="nofollow">Developers Guide</a></li>
+                    <li><a href="/mina-project/related-projects.html" class="external-link" rel="nofollow">Related Projects</a></li>
+                    <li><a href="https://people.apache.org/~vgritsenko/stats/projects/mina.html" class="external-link" rel="nofollow">Statistics</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/contributing.html" class="external-link" rel="nofollow">Contributing</a></li>
+                    <li><a href="/contributors.html" class="external-link" rel="nofollow">Team</a></li>
+                    <li><a href="/special-thanks.html" class="external-link" rel="nofollow">Special Thanks</a></li>
+                    <li><a href="https://www.apache.org/security/" class="external-link" rel="nofollow">Security</a></li>
+                </ul>
+
+                <h5>About Apache</h5>
+                <ul>
+                    <li><a href="https://www.apache.org" class="external-link" rel="nofollow">Apache main site</a></li>
+                    <li><a href="https://www.apache.org/licenses/" class="external-link" rel="nofollow">License</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html" title="The ASF sponsorship program" class="external-link" rel="nofollow">Sponsorship program</a></li>
+                    <li><a href="https://www.apache.org/foundation/thanks.html" class="external-link" rel="nofollow">Thanks</a></li>
+                </ul>
+
+                <h3><a name="Navigation-Upcoming"></a>Upcoming</h3>
+                <ul>
+                    <li>No event</li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+    <div class="nav">
+        <div class="nav_prev">
+            
+                
+                <a href="../ch4-session/ch4-session.html">Chapter 4 - Session</a>
+            
+        </div>
+        <div class="nav_up">
+            
+                
+                <a href="../user-guide-toc.html">User Guide</a>
+            
+        </div>
+        <div class="nav_next">
+            
+                
+                <a href="../ch6-transports/ch6-transports.html">Chapter 6 - Transports</a>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+            
+	<h1 id="chapter-5---filters">Chapter 5 - Filters</h1>
+<ul>
+<li><a href="ch5.1-blacklist-filter.html">5.1 - Blacklist Filter</a></li>
+<li><a href="ch5.2-buffered-write-filter.html">5.2 - Buffered Write Filter</a></li>
+<li><a href="ch5.3-compression-filter.html">5.3 - Compression Filter</a></li>
+<li><a href="ch5.4-connection-throttle-filter.html">5.4 - Connection Throttle Filter</a></li>
+<li><a href="ch5.5-error-generating-filter.html">5.5 - Error Generating Filter</a></li>
+<li><a href="ch5.6-executor-filter.html">5.6 - Executor Filter</a></li>
+<li><a href="ch5.7-file-region-write-filter.html">5.7 - FileRegion Write Filter</a></li>
+<li><a href="ch5.8-keep-alive-filter.html">5.8 - KeepAlive Filter</a></li>
+<li><a href="ch5.9-logging-filter.html">5.9 - Logging Filter</a></li>
+<li><a href="ch5.10-mdc-injection-filter.html">5.10 - MDC Injection Filter</a></li>
+<li><a href="ch5.11-noop-filter.html">5.11 - NOOP Filter</a></li>
+<li><a href="ch5.12-profiler-filter.html">5.12 - Profiler Filter</a></li>
+<li><a href="ch5.13-protocol-codec-filter.html">5.13 - Protocol Codec Filter</a></li>
+<li><a href="ch5.14-proxy-filter.html">5.14 - Proxy Filter</a></li>
+<li><a href="ch5.15-reference-counting-filter.html">5.15 - Reference Counting Filter</a></li>
+<li><a href="ch5.16-request-response-filter.html">5.16 - Request/Response Filter</a></li>
+<li><a href="ch5.17-session-attribute-initializing-filter.html">5.17 - Session Attribute Initializing Filter</a></li>
+<li><a href="ch5.18-stream-write-filter.html">5.18 - Stream Write Filter</a></li>
+<li><a href="ch5.19-ssl-filter.html">5.19 - SSL/TLS Filter</a></li>
+<li><a href="ch5.20-write-request-filter.html">5.20 - Write Request Filter</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>IoFilter is one of the MINA core constructs that serves a very important role. It filters all I/O events and requests between IoService and IoHandler. If you have an experience with web application programming, you can safely think that it&rsquo;s a cousin of Servlet filter. Many out-of-the-box filters are provided to accelerate network application development pace by simplifying typical cross-cutting concerns using the out-of-the-box filters such as:</p>
+<ul>
+<li>LoggingFilter logs all events and requests.</li>
+<li>ProtocolCodecFilter converts an incoming ByteBuffer into message POJO and vice versa.</li>
+<li>CompressionFilter compresses all data.</li>
+<li>SSLFilter adds SSL - TLS - StartTLS support.</li>
+<li>and many more!</li>
+</ul>
+<p>In this tutorial, we will walk through how to implement an IoFilter for a real world use case. It&rsquo;s easy to implement an IoFilter in general, but you might also need to know specifics of MINA internals. Any related internal properties will be explained here.</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#filters-already-present">Filters already present</a></li>
+    <li><a href="#overriding-events-selectively">Overriding Events Selectively</a></li>
+    <li><a href="#transforming-a-write-request">Transforming a Write Request</a></li>
+    <li><a href="#be-careful-when-filtering-sessioncreated-event">Be Careful When Filtering sessionCreated Event</a></li>
+    <li><a href="#watch-out-the-empty-buffers">Watch out the Empty Buffers!</a></li>
+  </ul>
+</nav>
+<h2 id="filters-already-present">Filters already present</h2>
+<p>We have many filters already written. The following table list all the existing filters, with a short description of their usage.</p>
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blacklist</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/firewall/BlacklistFilter.html">BlacklistFilter</a></td>
+<td>Blocks connections from blacklisted remote addresses<br class="atl-forced-newline"></td>
+</tr>
+<tr>
+<td>Buffered Write</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/buffer/BufferedWriteFilter.html">BufferedWriteFilter</a></td>
+<td>Buffers outgoing requests like the BufferedOutputStream does</td>
+</tr>
+<tr>
+<td>Compression</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/compression/CompressionFilter.html">CompressionFilter</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>ConnectionThrottle</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/firewall/ConnectionThrottleFilter.html">ConnectionThrottleFilter</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>ErrorGenerating</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/errorgenerating/ErrorGeneratingFilter.html">ErrorGeneratingFilter</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>Executor</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/executor/ExecutorFilter.html">ExecutorFilter</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>FileRegionWrite</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/stream/FileRegionWriteFilter.html">FileRegionWriteFilter</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>KeepAlive</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/keepalive/KeepAliveFilter.html">KeepAliveFilter</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>Logging</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/logging/LoggingFilter.html">LoggingFilter</a></td>
+<td>Logs event messages, like MessageReceived, MessageSent, SessionOpened, &hellip;</td>
+</tr>
+<tr>
+<td>MDC Injection</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/logging/MdcInjectionFilter.html">MdcInjectionFilter</a></td>
+<td>Inject key IoSession properties into the MDC</td>
+</tr>
+<tr>
+<td>Noop</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/util/NoopFilter.html">NoopFilter</a></td>
+<td>A filter that does nothing. Useful for tests.</td>
+</tr>
+<tr>
+<td>Profiler</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/statistic/ProfilerTimerFilter.html">ProfilerTimerFilter</a></td>
+<td>Profile event messages, like MessageReceived, MessageSent, SessionOpened, &hellip;</td>
+</tr>
+<tr>
+<td>ProtocolCodec</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/codec/ProtocolCodecFilter.html">ProtocolCodecFilter</a></td>
+<td>A filter in charge of encoding and decoding messages</td>
+</tr>
+<tr>
+<td>Proxy</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/proxy/filter/ProxyFilter.html">ProxyFilter</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>Reference counting</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/util/ReferenceCountingFilter.html">ReferenceCountingFilter</a></td>
+<td>Keeps track of the number of usages of this filter</td>
+</tr>
+<tr>
+<td>RequestResponse</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/reqres/RequestResponseFilter.html">RequestResponseFilter</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>SessionAttributeInitializing</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/util/SessionAttributeInitializingFilter.html">SessionAttributeInitializingFilter</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>StreamWrite</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/stream/StreamWriteFilter.html">StreamWriteFilter</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>SslFilter</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/ssl/SslFilter.html">SslFilter</a></td>
+<td> </td>
+</tr>
+<tr>
+<td>WriteRequest</td>
+<td><a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/util/WriteRequestFilter.html">WriteRequestFilter</a></td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+<h2 id="overriding-events-selectively">Overriding Events Selectively</h2>
+<p>You can extend IoAdapter instead of implementing IoFilter directly. Unless overridden, any received events will be forward to the next filter immediately:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">MyFilter</span> <span style="color:#a2f;font-weight:bold">extends</span> IoFilterAdapter <span style="color:#666">{</span>
+    <span style="color:#a2f">@Override</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">sessionOpened</span><span style="color:#666">(</span>NextFilter nextFilter<span style="color:#666">,</span> IoSession session<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception <span style="color:#666">{</span>
+        <span style="color:#080;font-style:italic">// Some logic here...
+</span><span style="color:#080;font-style:italic"></span>        nextFilter<span style="color:#666">.</span><span style="color:#b44">sessionOpened</span><span style="color:#666">(</span>session<span style="color:#666">)</span><span style="color:#666">;</span>
+        <span style="color:#080;font-style:italic">// Some other logic here...
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><h2 id="transforming-a-write-request">Transforming a Write Request</h2>
+<p>If you are going to transform an incoming write request via IoSession.write(), things can get pretty tricky. For example, let&rsquo;s assume your filter transforms HighLevelMessage to LowLevelMessage when IoSession.write() is invoked with a HighLevelMessage object. You could insert appropriate transformation code to your filter&rsquo;s filterWrite() method and think that&rsquo;s all. However, you have to note that you also need to take care of messageSent event because an IoHandler or any filters next to yours will expect messageSent() method is called with HighLevelMessage as a parameter, because it&rsquo;s irrational for the caller to get notified that LowLevelMessage is sent when the caller actually wrote HighLevelMessage. Consequently, you have to implement both filterWrite() and messageSent() if your filter performs transformation.</p>
+<p>Please also note that you still need to implement similar mechanism even if the types of the input object and the output object are identical (e.g. CompressionFilter) because the caller of IoSession.write() will expect exactly what he wrote in his or her messageSent() handler method.</p>
+<p>Let&rsquo;s assume that you are implementing a filter that transforms a String into a char[]. Your filter&rsquo;s filterWrite() will look like the following:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">filterWrite</span><span style="color:#666">(</span>NextFilter nextFilter<span style="color:#666">,</span> IoSession session<span style="color:#666">,</span> WriteRequest request<span style="color:#666">)</span> <span style="color:#666">{</span>
+    nextFilter<span style="color:#666">.</span><span style="color:#b44">filterWrite</span><span style="color:#666">(</span>
+        session<span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> DefaultWriteRequest<span style="color:#666">(</span>
+                <span style="color:#666">(</span><span style="color:#666">(</span>String<span style="color:#666">)</span> request<span style="color:#666">.</span><span style="color:#b44">getMessage</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">toCharArray</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">,</span> request<span style="color:#666">.</span><span style="color:#b44">getFuture</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">,</span> request<span style="color:#666">.</span><span style="color:#b44">getDestination</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>Now, we need to do the reverse in messageSent():</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageSent</span><span style="color:#666">(</span>NextFilter nextFilter<span style="color:#666">,</span> IoSession session<span style="color:#666">,</span> Object message<span style="color:#666">)</span> <span style="color:#666">{</span>
+    nextFilter<span style="color:#666">.</span><span style="color:#b44">messageSent</span><span style="color:#666">(</span>session<span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> String<span style="color:#666">(</span><span style="color:#666">(</span><span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">[</span><span style="color:#666">]</span><span style="color:#666">)</span> message<span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>What about String-to-ByteBuffer transformation? We can be a little bit more efficient because we don&rsquo;t need to reconstruct the original message (String). However, it&rsquo;s somewhat more complex than the previous example:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">filterWrite</span><span style="color:#666">(</span>NextFilter nextFilter<span style="color:#666">,</span> IoSession session<span style="color:#666">,</span> WriteRequest request<span style="color:#666">)</span> <span style="color:#666">{</span>
+    String m <span style="color:#666">=</span> <span style="color:#666">(</span>String<span style="color:#666">)</span> request<span style="color:#666">.</span><span style="color:#b44">getMessage</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    ByteBuffer newBuffer <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> MyByteBuffer<span style="color:#666">(</span>m<span style="color:#666">,</span> ByteBuffer<span style="color:#666">.</span><span style="color:#b44">wrap</span><span style="color:#666">(</span>m<span style="color:#666">.</span><span style="color:#b44">getBytes</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    
+    nextFilter<span style="color:#666">.</span><span style="color:#b44">filterWrite</span><span style="color:#666">(</span>
+            session<span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> WriteRequest<span style="color:#666">(</span>newBuffer<span style="color:#666">,</span> request<span style="color:#666">.</span><span style="color:#b44">getFuture</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">,</span> request<span style="color:#666">.</span><span style="color:#b44">getDestination</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+        
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageSent</span><span style="color:#666">(</span>NextFilter nextFilter<span style="color:#666">,</span> IoSession session<span style="color:#666">,</span> Object message<span style="color:#666">)</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>message <span style="color:#a2f;font-weight:bold">instanceof</span> MyByteBuffer<span style="color:#666">)</span> <span style="color:#666">{</span>
+        nextFilter<span style="color:#666">.</span><span style="color:#b44">messageSent</span><span style="color:#666">(</span>session<span style="color:#666">,</span> <span style="color:#666">(</span><span style="color:#666">(</span>MyByteBuffer<span style="color:#666">)</span> message<span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">originalValue</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span> <span style="color:#a2f;font-weight:bold">else</span> <span style="color:#666">{</span>
+        nextFilter<span style="color:#666">.</span><span style="color:#b44">messageSent</span><span style="color:#666">(</span>session<span style="color:#666">,</span> message<span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+
+<span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">MyByteBuffer</span> <span style="color:#a2f;font-weight:bold">extends</span> ByteBufferProxy <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">final</span> Object originalValue<span style="color:#666">;</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#00a000">MyByteBuffer</span><span style="color:#666">(</span>Object originalValue<span style="color:#666">,</span> ByteBuffer encodedValue<span style="color:#666">)</span> <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">super</span><span style="color:#666">(</span>encodedValue<span style="color:#666">)</span><span style="color:#666">;</span>
+        <span style="color:#a2f;font-weight:bold">this</span><span style="color:#666">.</span><span style="color:#b44">originalValue</span> <span style="color:#666">=</span> originalValue<span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>If you are using MINA 2.0, it will be somewhat different from 1.0 and 1.1. Please refer to <a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/compression/CompressionFilter.html">CompressionFilter</a> and <a href="http://mina.apache.org/mina-project/xref/org/apache/mina/filter/reqres/RequestResponseFilter.html">RequestResponseFilter</a> meanwhile.</p>
+<h2 id="be-careful-when-filtering-sessioncreated-event">Be Careful When Filtering sessionCreated Event</h2>
+<p>sessionCreated is a special event that must be executed in the I/O processor thread (see Configuring Thread Model). Never forward sessionCreated event to the other thread.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">sessionCreated</span><span style="color:#666">(</span>NextFilter nextFilter<span style="color:#666">,</span> IoSession session<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception <span style="color:#666">{</span>
+    <span style="color:#080;font-style:italic">// ...
+</span><span style="color:#080;font-style:italic"></span>    nextFilter<span style="color:#666">.</span><span style="color:#b44">sessionCreated</span><span style="color:#666">(</span>session<span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+
+<span style="color:#080;font-style:italic">// DON&#39;T DO THIS!
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">sessionCreated</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">final</span> NextFilter nextFilter<span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">final</span> IoSession session<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception <span style="color:#666">{</span>
+    Executor executor <span style="color:#666">=</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">;</span>
+    executor<span style="color:#666">.</span><span style="color:#b44">execute</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> Runnable<span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+        nextFilter<span style="color:#666">.</span><span style="color:#b44">sessionCreated</span><span style="color:#666">(</span>session<span style="color:#666">)</span><span style="color:#666">;</span>
+        <span style="color:#666">}</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+</code></pre></div><h2 id="watch-out-the-empty-buffers">Watch out the Empty Buffers!</h2>
+<p>MINA uses an empty buffer as an internal signal at a couple of cases. Empty buffers sometimes become a problem because it&rsquo;s a cause of various exceptions such as IndexOutOfBoundsException. This section explains how to avoid such a unexpected situation.</p>
+<p>ProtocolCodecFilter uses an empty buffer (i.e. buf.hasRemaining() = 0) to mark the end of the message. If your filter is placed before the ProtocolCodecFilter, please make sure your filter forward the empty buffer to the next filter if your filter implementation can throw a unexpected exception if the buffer is empty:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageSent</span><span style="color:#666">(</span>NextFilter nextFilter<span style="color:#666">,</span> IoSession session<span style="color:#666">,</span> Object message<span style="color:#666">)</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>message <span style="color:#a2f;font-weight:bold">instanceof</span> ByteBuffer <span style="color:#666">&amp;</span><span style="color:#666">&amp;</span> <span style="color:#666">!</span><span style="color:#666">(</span><span style="color:#666">(</span>ByteBuffer<span style="color:#666">)</span> message<span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">hasRemaining</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+        nextFilter<span style="color:#666">.</span><span style="color:#b44">messageSent</span><span style="color:#666">(</span>nextFilter<span style="color:#666">,</span> session<span style="color:#666">,</span> message<span style="color:#666">)</span><span style="color:#666">;</span>
+        <span style="color:#a2f;font-weight:bold">return</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+    <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
+<span style="color:#666">}</span>
+
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">filterWrite</span><span style="color:#666">(</span>NextFilter nextFilter<span style="color:#666">,</span> IoSession session<span style="color:#666">,</span> WriteRequest request<span style="color:#666">)</span> <span style="color:#666">{</span>
+    Object message <span style="color:#666">=</span> request<span style="color:#666">.</span><span style="color:#b44">getMessage</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>message <span style="color:#a2f;font-weight:bold">instanceof</span> ByteBuffer <span style="color:#666">&amp;</span><span style="color:#666">&amp;</span> <span style="color:#666">!</span><span style="color:#666">(</span><span style="color:#666">(</span>ByteBuffer<span style="color:#666">)</span> message<span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">hasRemaining</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+        nextFilter<span style="color:#666">.</span><span style="color:#b44">filterWrite</span><span style="color:#666">(</span>nextFilter<span style="color:#666">,</span> session<span style="color:#666">,</span> request<span style="color:#666">)</span><span style="color:#666">;</span>
+        <span style="color:#a2f;font-weight:bold">return</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+    <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>Do we always have to insert the if block for every filters? Fortunately, you don&rsquo;t have to. Here&rsquo;s the golden rule of handling empty buffers:</p>
+<ul>
+<li>If your filter works without any problem even if the buffer is empty, you don&rsquo;t need to add the if blocks at all.</li>
+<li>If your filter is placed after ProtocolCodecFilter, you don&rsquo;t need to add the if blocks at all.</li>
+<li>Otherwise, you need the if blocks.</li>
+</ul>
+<p>If you need the if blocks, please remember you don&rsquo;t always need to follow the example above. You can check if the buffer is empty wherever you want as long as your filter doesn&rsquo;t throw a unexpected exception.</p>
+
+
+            
+    <div class="nav">
+        <div class="nav_prev">
+            
+                
+                <a href="../ch4-session/ch4-session.html">Chapter 4 - Session</a>
+            
+        </div>
+        <div class="nav_up">
+            
+                
+                <a href="../user-guide-toc.html">User Guide</a>
+            
+        </div>
+        <div class="nav_next">
+            
+                
+                <a href="../ch6-transports/ch6-transports.html">Chapter 6 - Transports</a>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

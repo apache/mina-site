@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Vysper Server-to-server &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/vysper.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                <strong>Vysper</strong>
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/vysper-project/index.html">Home</a> </li>
+                    <li><a href="/vysper-project/documentation.html">Documentation</a></li>
+                    <li><a href="/vysper-project/downloads.html">Downloads</a></li>
+                    <li><a href="/vysper-project/sources.html">Source</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/vysper-project/mailing_lists.html">Mailing Lists</a></li>
+                    <li><a href="/vysper-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/vysper-project/issue_tracking.html">Issue Tracking</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="server-to-server">Server-to-server</h1>
+<div class="info" markdown="1">
+    Available since version 0.7.
+</div>
+<p>XMPP servers like Apache Vysper work in federated networks much like SMTP servers. Users connect to their own server, and when communicating with users on a different domain, the two servers will connect to each other and exchange XMPP stanzas. Server-to-server (S2S) connections differ from client-to-server (C2) connections in that stanzas for multiple users might be sent over the same connection. S2S connections are similar to C2S connections from the point that one of the servers serves as an initiator, like a client. To exchanges stanzas in both directions between servers, two connections are established.</p>
+<p>To set up server-to-server functionality in Vysper, two configurations are needed:</p>
+<h2 id="allow-server-to-server-federation">Allow server-to-server federation</h2>
+<p>Server-to-server federation is by default disabled in Vysper. To enable sending stanzas to other servers, federations must be enabled:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">XMPPServer server <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMPPServer<span style="color:#666">(</span><span style="color:#b44">&#34;vysper.org&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+<span style="color:#080;font-style:italic">// other initialization
+</span><span style="color:#080;font-style:italic"></span>server<span style="color:#666">.</span><span style="color:#b44">start</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+<span style="color:#080;font-style:italic">// must be done after the server has been started
+</span><span style="color:#080;font-style:italic"></span>server<span style="color:#666">.</span><span style="color:#b44">getServerRuntimeContext</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">getServerFeatures</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">setRelayingToFederationServers</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">true</span><span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><h2 id="server-to-server-endpoint">Server-to-server endpoint</h2>
+<p>Next, an endpoint for incoming S2S connections must be added:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">XMPPServer server <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMPPServer<span style="color:#666">(</span><span style="color:#b44">&#34;vysper.org&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+server<span style="color:#666">.</span><span style="color:#b44">addEndpoint</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> S2SEndpoint<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+<span style="color:#080;font-style:italic">// other initialization
+</span><span style="color:#080;font-style:italic"></span>server<span style="color:#666">.</span><span style="color:#b44">start</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+<span style="color:#080;font-style:italic">// must be done after the server has been started
+</span><span style="color:#080;font-style:italic"></span>server<span style="color:#666">.</span><span style="color:#b44">getServerRuntimeContext</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">getServerFeatures</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">setRelayingToFederationServers</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">true</span><span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>That’s all that needs to be done. If SSL/TLS should be enabled between servers (will be negotiated during the S2S connection handshake), a keystore and keystore password must be configured:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">server<span style="color:#666">.</span><span style="color:#b44">setTLSCertificateInfo</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> File<span style="color:#666">(</span><span style="color:#b44">&#34;keystore.jks&#34;</span><span style="color:#666">)</span><span style="color:#666">,</span> <span style="color:#b44">&#34;sekrit&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div>
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

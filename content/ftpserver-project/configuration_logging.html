@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>FtpServer Logging &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/ftpserver.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                <strong>FtpServer</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/index.html">Home</a> </li>
+                    <li><a href="/ftpserver-project/features.html">Features</a> </li>
+                    <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
+                    <li><a href="/ftpserver-project/downloads.html">Downloads</a></li>
+                    <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
+                    <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
+                    <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/mailing_list.html">Mailing Lists</a></li>
+                    <li><a href="/ftpserver-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/ftpserver-project/reporting_bug.html">Reporting a Bug</a></li>
+                    <li><a href="/ftpserver-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="logging">Logging</h1>
+<h2 id="ftpserver-logging">FtpServer Logging</h2>
+<p>FtpServer uses <a href="http://slf4j.org/">SLF4J</a> throughout its internal code allowing the developer to choose a logging configuration that suits their needs, e.g java.util.logging or Log4J. SLF4J provides FtpServer the ability to log hierarchically across various log levels without needing to rely on a particular logging implementation.</p>
+<h2 id="mdc-logging">MDC logging</h2>
+<p>FtpServer supports <a href="http://www.slf4j.org/manual.html#mdc">MDC logging</a>. Basically, it provides session based information for the logger. Of primary interest in the case of FtpServer are the user name and remote IP address for each session. The log4j example below shows how to enable these to be logged.</p>
+<p>The following properties are made available for MDC logging</p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>session</td>
+<td>A unique session ID, the same available from FtpSession.getSessionId()</td>
+</tr>
+<tr>
+<td>userName</td>
+<td>The user name of the user, only available after the USER command has been issued</td>
+</tr>
+<tr>
+<td>remoteAddress</td>
+<td>The IP and local port of the client</td>
+</tr>
+<tr>
+<td>remoteIp</td>
+<td>The IP of the client</td>
+</tr>
+<tr>
+<td>remotePort</td>
+<td>The port used for the socket at the client</td>
+</tr>
+<tr>
+<td>localAddress</td>
+<td>The local IP and port of the server for this session</td>
+</tr>
+<tr>
+<td>localIp</td>
+<td>The local IP of the server for this session</td>
+</tr>
+<tr>
+<td>localPort</td>
+<td>The local port of the server for this session</td>
+</tr>
+</tbody>
+</table>
+<h2 id="log4j">log4j</h2>
+<p>If you need to setup detailed logging from within FtpServer&rsquo;s code, then you can use a simple log4j configuration. Note that this logging can be very verbose depending on the log level you chose to use. The log4j jar is bundled with the binary distribution. This is an optional jar file.</p>
+<p>The log4j configuration file location is &lt;INSTALL_DIR&gt;/common/classes/log4j.properties. You can modify this file to configure log4j.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">log4j.rootLogger=DEBUG, R
+log4j.appender.R=org.apache.log4j.RollingFileAppender
+log4j.appender.R.File=./res/log/log.gen
+log4j.appender.R.MaxFileSize=10MB
+log4j.appender.R.MaxBackupIndex=10
+log4j.appender.R.layout=org.apache.log4j.PatternLayout
+log4j.appender.R.layout.ConversionPattern=[%5p] %d [%X{userName}] [%X{remoteIp}] %m%n
+</code></pre></div><p>This log4j configuration sets up a file called log.gen in your FTP Server ./res/log folder with a maximum file size of 10MB and up to 10 backups. DEBUG log level is specified.</p>
+<p>You should consult the log4j documentation for more options.</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

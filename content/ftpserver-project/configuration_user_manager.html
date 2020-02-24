@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>FtpServer User Manager &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/ftpserver.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                <strong>FtpServer</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/index.html">Home</a> </li>
+                    <li><a href="/ftpserver-project/features.html">Features</a> </li>
+                    <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
+                    <li><a href="/ftpserver-project/downloads.html">Downloads</a></li>
+                    <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
+                    <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
+                    <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/mailing_list.html">Mailing Lists</a></li>
+                    <li><a href="/ftpserver-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/ftpserver-project/reporting_bug.html">Reporting a Bug</a></li>
+                    <li><a href="/ftpserver-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="user-manager">User Manager</h1>
+<h2 id="built-in-user-managers">Built in user managers</h2>
+<p>FtpServer comes with two different user managers:</p>
+<ul>
+<li><a href="configuration_user_manager_file.html">File based user manager</a></li>
+<li><a href="configuration_user_manager_db.html">Database user manager</a></li>
+</ul>
+<h2 id="custom-user-manager">Custom User Manager</h2>
+<p>You can write your own user manager to integrate it with your existing applications. Your custom user manager should implement org.apache.ftpserver.ftplet.UserManager interface. In your configuration file, you will have to use the Spring bean element to configure your custom user manager. This gives you all the power of Spring, for example integrating with your other beans. You can also provide a custom XML format by using the Spring XML extension mechanisms.</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

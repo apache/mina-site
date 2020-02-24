@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>FtpServer &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/ftpserver.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                <strong>FtpServer</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/index.html">Home</a> </li>
+                    <li><a href="/ftpserver-project/features.html">Features</a> </li>
+                    <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
+                    <li><a href="/ftpserver-project/downloads.html">Downloads</a></li>
+                    <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
+                    <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
+                    <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/mailing_list.html">Mailing Lists</a></li>
+                    <li><a href="/ftpserver-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/ftpserver-project/reporting_bug.html">Reporting a Bug</a></li>
+                    <li><a href="/ftpserver-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="running-ftpserver-stand-alone-in-5-minutes">Running FtpServer stand-alone in 5 minutes</h1>
+<p>To get FtpServer up and running in stand-alone mode, you need to have a full distribution. Check out to build the source code and make sure you include the build for the distribution module</p>
+<h2 id="installing">Installing</h2>
+<p>Now you should have a ZIP or TARed file with the entire distribution. Let&rsquo;s go.</p>
+<p>First of all, unpack it. If you&rsquo;re on Linux/Unix, you can use:</p>
+<pre><code>tar -xzvf ftpserver-1.0.0.tar.gz
+</code></pre>
+<p>On Windows and Linux/Unix, you can use any ZIP tool, like <a href="http://www.7-zip.org/">7-zip</a> or <a href="http://fileroller.sourceforge.net/">Gnome File Roller</a> to unzip the file at a location of your liking.</p>
+<h2 id="running-a-basic-server">Running a basic server</h2>
+<p>Now, open a shell/command prompt where you unpacked the files. On Linux/Unix, run:</p>
+<pre><code>bin/ftpd.sh
+</code></pre>
+<p>On Windows, the same command is:</p>
+<pre><code>bin/ftpd.bat
+</code></pre>
+<p>FtpServer should now start as expected and you should be able to use a FTP client to access the server at localhost on port 21. The default .</p>
+<p>Note that on Linux this command will require root privileges as it tried to listen on port 21, something only root can do. If you&rsquo;re not root, you will get an exception saying &ldquo;java.net.SocketException: Permission denied&rdquo;. Let&rsquo;s have a look at how to solve this without running as root.</p>
+<h2 id="configuring">Configuring</h2>
+<p>In the res/conf directory in the unpackaged directory you will find some example configuration files. For this tutorial, we will use the ftpd-typical.xml configuration file. It will set the listener port to 2121, thus fixing the issue with not being able to run the server as non-root on Linux. It will also use a provided user database, allowing logging in as admin (password admin) or anonymous. To run, on Linux/Unix:</p>
+<pre><code>bin/ftpd.sh res/conf/ftpd-typical.xml
+</code></pre>
+<p>On Windows:</p>
+<pre><code>bin/ftpd.bat res/conf/ftpd-typical.xml
+</code></pre>
+<p>That&rsquo;s it. Now you can configure the server to your likings. Have a look at either the ftpd-full.xml example or the configuration documentation. You can also set up FtpServer to run as a service on Windows or daemon on Linux/Unix.</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

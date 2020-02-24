@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Apache SSHD 0.7.0 Release &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/sshd.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                <strong>SSHD</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/sshd-project/index.html">Home</a> </li>
+                    <li><a href="/sshd-project/features.html">Features</a> </li>
+                    <li><a href="/sshd-project/documentation.html">Documentation</a></li>
+                    <li><a href="/sshd-project/downloads.html">Downloads</a></li>
+                    <li><a href="/sshd-project/sources.html">Sources</a></li>
+                    <li><a href="/sshd-project/faq.html">FAQ</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/sshd-project/mailing_lists.html">Mailing Lists</a></li>
+                    <li><a href="/sshd-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/sshd-project/issue_tracking.html">Issue Tracking</a></li>
+                    <li><a href="/sshd-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="overview">Overview</h1>
+<p>Apache Mina SSHD 0.7.0 contains a few enhancements and bug-fixes.</p>
+<h1 id="getting-the-distributions">Getting the Distributions</h1>
+<ul>
+<li>Source distributions:
+<ul>
+<li><a href="https://archive.apache.org/dist/mina/sshd/0.7.0/apache-sshd-0.7.0-src.tar.gz">Apache Mina SSHD 0.7.0 Sources (.tar.gz)</a> <a href="https://archive.apache.org/dist/mina/sshd/0.7.0/apache-sshd-0.7.0-src.tar.gz.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/0.7.0/apache-sshd-0.7.0-src.tar.gz.sha1">SHA</a></li>
+<li><a href="https://archive.apache.org/dist/mina/sshd/0.7.0/apache-sshd-0.7.0-src.zip">Apache Mina SSHD 0.7.0 Sources (.zip)</a> <a href="https://archive.apache.org/dist/mina/sshd/0.7.0/apache-sshd-0.7.0-src.zip.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/0.7.0/apache-sshd-0.7.0-src.zip.sha1">SHA</a></li>
+</ul>
+</li>
+<li>Binary distributions:
+<ul>
+<li><a href="https://archive.apache.org/dist/mina/sshd/0.7.0/apache-sshd-0.7.0.tar.gz">Apache Mina SSHD 0.7.0 Binary (.tar.gz)</a> <a href="https://archive.apache.org/dist/mina/sshd/0.7.0/apache-sshd-0.7.0.tar.gz.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/0.7.0/apache-sshd-0.7.0.tar.gz.sha1">SHA</a></li>
+<li><a href="https://archive.apache.org/dist/mina/sshd/0.7.0/apache-sshd-0.7.0.zip">Apache Mina SSHD 0.7.0 Binary (.zip)</a> <a href="https://archive.apache.org/dist/mina/sshd/0.7.0/apache-sshd-0.7.0.zip.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/0.7.0/apache-sshd-0.7.0.zip.sha1">SHA</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="release-notes">Release Notes</h1>
+<p>Apache Mina SSHD 0.7.0 contains a few enhancements and bug-fixes.
+Please report any feedback to <a href="mailto:users@mina.apache.org">users@mina.apache.org</a>.</p>
+<ul>
+<li>Bug
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-120">SSHD-120</a> - list 1500 files in one directory not working for mindterm sftp client</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-123">SSHD-123</a> - TcpipForward race condition &amp; deadlock on client disconnect.</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-126">SSHD-126</a> - Reduce overall logging</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-129">SSHD-129</a> - TCP connection through Port Forward can take up to 5 seconds due to DNS lookup</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-132">SSHD-132</a> - NativeSshFile does not close RandomAccessFile on IOException</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-143">SSHD-143</a> - Missing SVN EOL properties</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-145">SSHD-145</a> - InvertedShellWrapper may not send process output back if process exits too fast</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-146">SSHD-146</a> - SSH Server : EOF from command not propagating to Process (InvertedShell)</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-148">SSHD-148</a> - Support for protoversion 1.99 - Section 5.1, &ldquo;Old Client, New Server&rdquo;, RFC 4253</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-151">SSHD-151</a> - Direct TCP/IP Port Forward sends EOF to client after closing channel</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-157">SSHD-157</a> - SshServer.stop should be idempotent</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-160">SSHD-160</a> - Standard ScpCommand does not work with pscp</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-168">SSHD-168</a> - SFTP returns wrong ownership information</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-170">SSHD-170</a> - Change the BundleSymbolic-Name to include the groupId</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-171">SSHD-171</a> - ScpCommand block indefinitely when using the &ldquo;-p&rdquo; flag</li>
+</ul>
+</li>
+<li>Improvement
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-121">SSHD-121</a> - Add Factories to create IoAcceptors for TcpipForwardSupport &amp; X11ForwardSupport</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-147">SSHD-147</a> - Allow idle timeout to be disabled.</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-153">SSHD-153</a> - Improve handling of SSH_MSG_CHANNEL_WINDOW_ADJUST message</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-158">SSHD-158</a> - Latest HEAD does not build on Windows</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-162">SSHD-162</a> - Allow the configuration of InvertedShellWrapper&rsquo;s thread pool</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-163">SSHD-163</a> - Allow InvertedShellWrapper to implement SessionAware</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-164">SSHD-164</a> - Allow the buffer size for the IO pumps to be configurable in InvertedShellWrapper</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-166">SSHD-166</a> - Upgrade to mina 2.0.4</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-167">SSHD-167</a> - Allow the ClientChannel#waitFor to wait for the channel to be opened</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-172">SSHD-172</a> - Provide a way to access the list of active sessions from the server</li>
+</ul>
+</li>
+<li>New Feature
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-165">SSHD-165</a> - Improved support for SSH agents, including a local proxy without the needs for native libraries (for unix sockets or windows pipes)</li>
+</ul>
+</li>
+</ul>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

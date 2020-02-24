@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Chapter 14 - State Machine &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                <strong>MINA</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Latest Downloads</h5>
+                <ul>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.21</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.3</a></li>
+                    <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
+                </ul>
+                <h5>Documentation</h5>
+                <ul>
+                    <li><a href="/mina-project/documentation.html" class="external-link" rel="nofollow">Base documentation</a></li>
+                    <li><a href="/mina-project/userguide/user-guide-toc.html" class="external-link" rel="nofollow">User guide</a></li>
+                    <li><a href="/mina-project/2.1-vs-2.0.html" class="external-link" rel="nofollow">2.1 vs 2.0</a></li>
+                    <li><a href="/mina-project/features.html" class="external-link" rel="nofollow">Features</a></li>
+                    <li><a href="/mina-project/road-map.html" class="external-link" rel="nofollow">Road Map</a></li>
+                    <li><a href="/mina-project/quick-start-guide.html" class="external-link" rel="nofollow">Quick Start Guide</a></li>
+                    <li><a href="/mina-project/faq.html" class="external-link" rel="nofollow">FAQ</a></li>
+                </ul>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
+                    <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
+                    <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.3</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.3</a></li>
+                    <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
+                    <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
+                    <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
+                    <li><a href="/mina-project/developer-guide.html" class="external-link" rel="nofollow">Developers Guide</a></li>
+                    <li><a href="/mina-project/related-projects.html" class="external-link" rel="nofollow">Related Projects</a></li>
+                    <li><a href="https://people.apache.org/~vgritsenko/stats/projects/mina.html" class="external-link" rel="nofollow">Statistics</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/contributing.html" class="external-link" rel="nofollow">Contributing</a></li>
+                    <li><a href="/contributors.html" class="external-link" rel="nofollow">Team</a></li>
+                    <li><a href="/special-thanks.html" class="external-link" rel="nofollow">Special Thanks</a></li>
+                    <li><a href="https://www.apache.org/security/" class="external-link" rel="nofollow">Security</a></li>
+                </ul>
+
+                <h5>About Apache</h5>
+                <ul>
+                    <li><a href="https://www.apache.org" class="external-link" rel="nofollow">Apache main site</a></li>
+                    <li><a href="https://www.apache.org/licenses/" class="external-link" rel="nofollow">License</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html" title="The ASF sponsorship program" class="external-link" rel="nofollow">Sponsorship program</a></li>
+                    <li><a href="https://www.apache.org/foundation/thanks.html" class="external-link" rel="nofollow">Thanks</a></li>
+                </ul>
+
+                <h3><a name="Navigation-Upcoming"></a>Upcoming</h3>
+                <ul>
+                    <li>No event</li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+    <div class="nav">
+        <div class="nav_prev">
+            
+                
+                <a href="../ch13-debugging/ch13-debugging.html">Chapter 13 - Debugging</a>
+            
+        </div>
+        <div class="nav_up">
+            
+                
+                <a href="../user-guide-toc.html">User Guide</a>
+            
+        </div>
+        <div class="nav_next">
+            
+                
+                <a href="../ch15-proxy/ch15-proxy.html">Chapter 15 - Proxy</a>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+            
+	<h1 id="chapter-14---state-machine">Chapter 14 - State Machine</h1>
+<p>If you are using MINA to develop an application with complex network interactions you may at some point find yourself reaching for the good old <a href="http://home.earthlink.net/~huston2/dp/state.html">State pattern</a> to try to sort out some of that complexity. However, before you do that you might want to checkout mina-statemachine which tries to address some of the shortcomings of the State pattern.</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#a-simple-example">A simple example</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#lookup-a-statecontext-object">Lookup a StateContext object</a></li>
+    <li><a href="#convert-the-method-invocation-into-an-event-object">Convert the method invocation into an Event object</a></li>
+    <li><a href="#invoke-the-statemachine">Invoke the StateMachine</a></li>
+    <li><a href="#execute-the-transition">Execute the Transition</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#state-inheritance">State inheritance</a></li>
+    <li><a href="#error-handling-using-state-inheritance">Error handling using state inheritance</a></li>
+    <li><a href="#mina-statemachine-with-iohandler">mina-statemachine with IoHandler</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#changing-state-programmatically">Changing state programmatically</a></li>
+    <li><a href="#calling-the-state-machine-recursively">Calling the state machine recursively</a></li>
+  </ul>
+</nav>
+<h2 id="a-simple-example">A simple example</h2>
+<p>Let&rsquo;s demonstrate how mina-statemachine works with a simple example. The picture below shows a state machine for a typical tape deck. The ellipsis are the states while the arrows are the transitions. Each transition is labeled with an event name which triggers that transition.</p>
+<p><img src="/assets/img/mina/state-diagram.png" alt=""></p>
+<p>Initially, the tape deck is in the <strong>Empty</strong> state. When a tape is inserted the <strong>load</strong> event is fired and the tape deck moves to the <strong>Loaded</strong> state. In <strong>Loaded</strong> the <strong>eject</strong> event will trigger a move back to <strong>Empty</strong> while the <strong>play</strong> event will trigger a move to the <strong>Playing</strong> state. And so on&hellip; I think you can work out the rest on your own.</p>
+<p>Now let&rsquo;s write some code. The outside world (the code interfacing with the tape deck) will only see the TapeDeck interface:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">interface</span> <span style="color:#00f">TapeDeck</span> <span style="color:#666">{</span>
+    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">load</span><span style="color:#666">(</span>String nameOfTape<span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">eject</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">start</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">pause</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">stop</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>Next we will write the class which contains the actual code executed when a transition occurs in the state machine. First we will define the states. The states are all defined as constant String objects and are annotated using the @State annotation:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">TapeDeckHandler</span> <span style="color:#666">{</span>
+    <span style="color:#a2f">@State</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String EMPTY   <span style="color:#666">=</span> <span style="color:#b44">&#34;Empty&#34;</span><span style="color:#666">;</span>
+    <span style="color:#a2f">@State</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String LOADED  <span style="color:#666">=</span> <span style="color:#b44">&#34;Loaded&#34;</span><span style="color:#666">;</span>
+    <span style="color:#a2f">@State</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String PLAYING <span style="color:#666">=</span> <span style="color:#b44">&#34;Playing&#34;</span><span style="color:#666">;</span>
+    <span style="color:#a2f">@State</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String PAUSED  <span style="color:#666">=</span> <span style="color:#b44">&#34;Paused&#34;</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>Now when we have the states defined we can set up the code corresponding to each transition. Each transition will correspond to a method in TapeDeckHandler. Each transition method is annotated using the @Transition annotation which defines the event id which triggers the transition (on), the start state of the transition (in) and the end state of the transition (next):</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">TapeDeckHandler</span> <span style="color:#666">{</span>
+    <span style="color:#a2f">@State</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String EMPTY <span style="color:#666">=</span> <span style="color:#b44">&#34;Empty&#34;</span><span style="color:#666">;</span>
+    <span style="color:#a2f">@State</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String LOADED <span style="color:#666">=</span> <span style="color:#b44">&#34;Loaded&#34;</span><span style="color:#666">;</span>
+    <span style="color:#a2f">@State</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String PLAYING <span style="color:#666">=</span> <span style="color:#b44">&#34;Playing&#34;</span><span style="color:#666">;</span>
+    <span style="color:#a2f">@State</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String PAUSED <span style="color:#666">=</span> <span style="color:#b44">&#34;Paused&#34;</span><span style="color:#666">;</span>
+
+    <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;load&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> EMPTY<span style="color:#666">,</span> next <span style="color:#666">=</span> LOADED<span style="color:#666">)</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">loadTape</span><span style="color:#666">(</span>String nameOfTape<span style="color:#666">)</span> <span style="color:#666">{</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Tape &#39;&#34;</span> <span style="color:#666">+</span> nameOfTape <span style="color:#666">+</span> <span style="color:#b44">&#34;&#39; loaded&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+
+    <span style="color:#a2f">@Transitions</span><span style="color:#666">(</span><span style="color:#666">{</span>
+        <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;play&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> LOADED<span style="color:#666">,</span> next <span style="color:#666">=</span> PLAYING<span style="color:#666">)</span><span style="color:#666">,</span>
+        <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;play&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> PAUSED<span style="color:#666">,</span> next <span style="color:#666">=</span> PLAYING<span style="color:#666">)</span>
+    <span style="color:#666">}</span><span style="color:#666">)</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">playTape</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Playing tape&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+
+    <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;pause&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> PLAYING<span style="color:#666">,</span> next <span style="color:#666">=</span> PAUSED<span style="color:#666">)</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">pauseTape</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Tape paused&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+
+    <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;stop&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> PLAYING<span style="color:#666">,</span> next <span style="color:#666">=</span> LOADED<span style="color:#666">)</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">stopTape</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Tape stopped&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+
+    <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;eject&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> LOADED<span style="color:#666">,</span> next <span style="color:#666">=</span> EMPTY<span style="color:#666">)</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">ejectTape</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Tape ejected&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>Please note that the TapeDeckHandler class does not implement the TapeDeck interface. That&rsquo;s intentional.</p>
+<p>Now, let&rsquo;s have a closer look at some of this code. The @Transition annotation on the loadTape method</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;load&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> EMPTY<span style="color:#666">,</span> next <span style="color:#666">=</span> LOADED<span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">loadTape</span><span style="color:#666">(</span>String nameOfTape<span style="color:#666">)</span> <span style="color:#666">{</span>
+</code></pre></div><p>specifies that when the tape deck is in the EMPTY state and the load event occurs the loadTape method will be invoked and then the tape deck will move on to the LOADED state. The @Transition annotations on the pauseTape, stopTape and ejectTape methods should not require any further explanation. The annotation on the playTape method looks slightly different though. As can be seen in the diagram above, when the tape deck is in either the LOADED or in the PAUSED state the play event will play the tape. To have the same method called for multiple transitions the @Transitions annotation has to be used:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@Transitions</span><span style="color:#666">(</span><span style="color:#666">{</span>
+    <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;play&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> LOADED<span style="color:#666">,</span> next <span style="color:#666">=</span> PLAYING<span style="color:#666">)</span><span style="color:#666">,</span>
+       <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;play&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> PAUSED<span style="color:#666">,</span> next <span style="color:#666">=</span> PLAYING<span style="color:#666">)</span>
+<span style="color:#666">}</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">playTape</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+</code></pre></div><p>The @Transitions annotation simply lists multiple transitions for which the annotated method will be called.</p>
+<div class="info" markdown="1">
+    <strong>More about the @Transition parameters</strong><br>
+    <ul>
+        <li>If you omit the <tt>on</tt> parameter it will default to &quot;&#42;&quot; which will match any event.</li>
+        <li>If you omit the <tt>next</tt> parameter it will default to &quot;_<em>self</em>_&quot; which is an alias for the current state. To create a loop transition in your state machine all you have to do is to omit the <tt>next</tt> parameter.</li>
+        <li>The <tt>weight</tt> parameter can be used to define in what order transitions will be searched. Transitions for a particular state will be ordered in ascending order according to their <tt>weight</tt> value. <tt>weight</tt> is 0 by default.</li>
+    </ul>
+</div>
+<p>Now the final step is to create a StateMachine object from the annotated class and use it to create a proxy object which implements TapeDeck:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[</span><span style="color:#666">]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+    TapeDeckHandler handler <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> TapeDeckHandler<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    StateMachine sm <span style="color:#666">=</span> StateMachineFactory<span style="color:#666">.</span><span style="color:#b44">getInstance</span><span style="color:#666">(</span>Transition<span style="color:#666">.</span><span style="color:#b44">class</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">create</span><span style="color:#666">(</span>TapeDeckHandler<span style="color:#666">.</span><span style="color:#b44">EMPTY</span><span style="color:#666">,</span> handler<span style="color:#666">)</span><span style="color:#666">;</span>
+    TapeDeck deck <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> StateMachineProxyBuilder<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">create</span><span style="color:#666">(</span>TapeDeck<span style="color:#666">.</span><span style="color:#b44">class</span><span style="color:#666">,</span> sm<span style="color:#666">)</span><span style="color:#666">;</span>
+
+    deck<span style="color:#666">.</span><span style="color:#b44">load</span><span style="color:#666">(</span><span style="color:#b44">&#34;The Knife - Silent Shout&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    deck<span style="color:#666">.</span><span style="color:#b44">play</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    deck<span style="color:#666">.</span><span style="color:#b44">pause</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    deck<span style="color:#666">.</span><span style="color:#b44">play</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    deck<span style="color:#666">.</span><span style="color:#b44">stop</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    deck<span style="color:#666">.</span><span style="color:#b44">eject</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>The lines</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">TapeDeckHandler handler <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> TapeDeckHandler<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+StateMachine sm <span style="color:#666">=</span> StateMachineFactory<span style="color:#666">.</span><span style="color:#b44">getInstance</span><span style="color:#666">(</span>Transition<span style="color:#666">.</span><span style="color:#b44">class</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">create</span><span style="color:#666">(</span>TapeDeckHandler<span style="color:#666">.</span><span style="color:#b44">EMPTY</span><span style="color:#666">,</span> handler<span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>creates the StateMachine instance from an instance of TapeDeckHandler. The Transition.class in the call to StateMachineFactory.getInstance(&hellip;) tells the factory that we&rsquo;ve used the @Transition annotation to build the state machine. We specify EMPTY as the start state. A StateMachine is basically a directed graph. State objects correspond to nodes in the graph while Transition objects correspond to edges. Each @Transition annotation we used in the TapeDeckHandler will correspond to a Transition instance.</p>
+<div class="info" markdown="1">
+    <strong>Uhhm, what's the difference between @Transition and Transition?</strong><br>
+    <tt>@Transition</tt> is the annotation you use to mark a method which should be used when a transition between states occur. Behind the scenes <tt>mina-statemachine</tt> will create instances of the <tt>MethodTransition</tt> class for each <tt>@Transition</tt> annotated method. <tt>MethodTransition</tt> implements the <tt>Transition</tt> interface. As a <tt>mina-statemachine</tt> user you will never use the <tt>Transition</tt> or <tt>MethodTransition</tt> types directly.
+</div>
+<p>The TapeDeck instance is created by calling StateMachineProxyBuilder:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">TapeDeck deck <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> StateMachineProxyBuilder<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">create</span><span style="color:#666">(</span>TapeDeck<span style="color:#666">.</span><span style="color:#b44">class</span><span style="color:#666">,</span> sm<span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>The StateMachineProxyBuilder.create() method takes the interfaces the returned proxy object should implement and the StateMachine instance which will receive the events generated by the method calls on the proxy.</p>
+<p>When the code is executed the output should be:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Tape &#39;The Knife - Silent Shout&#39; loaded
+Playing tape
+Tape paused
+Playing tape
+Tape stopped
+Tape ejected
+</code></pre></div><div class="info" markdown="1">
+    <strong>What does all this have to do with MINA?</strong><br>
+    As you might have noticed there's nothing MINA specific about this example. But don't be alarmed. Later on we will see how to create state machines for MINA's <tt>IoHandler</tt> interface.
+</div>
+<h1 id="how-does-it-work">How does it work?</h1>
+<p>Let&rsquo;s walk through what happens when a method is called on the proxy.</p>
+<h2 id="lookup-a-statecontext-object">Lookup a StateContext object</h2>
+<p>The StateContext object is important because it holds the current State. When a method is called on the proxy it will ask a StateContextLookup instance to get the StateContext from the method&rsquo;s arguments. Normally, the StateContextLookup implementation will loop through the method arguments and look for a particular type of object and use it to retrieve a StateContext object. If no StateContext has been assigned yet the StateContextLookup will create one and store it in the object.</p>
+<p>When proxying MINA&rsquo;s IoHandler we will use a IoSessionStateContextLookup instance which looks for an IoSession in the method arguments. It will use the IoSession&rsquo;s attributes to store a separate instance of StateContext for each MINA session. That way the same state machine can be used for all MINA sessions without them interfering with each other.</p>
+<div class="note" markdown="1">
+    In the example above we never specified what <tt>StateContextLookup</tt> implementation to use when we created the proxy using <tt>StateMachineProxyBuilder</tt>. If not specified a <tt>SingletonStateContextLookup</tt> will be used. <tt>SingletonStateContextLookup</tt> totally disregards the method arguments passed to it &ndash; it'll always return the same <tt>StateContext</tt> object. Obviously this won't be very useful when the same state machine is used concurrently by many clients as will be the case when we proxy <tt>IoHandler</tt> later on.
+</div>
+<h2 id="convert-the-method-invocation-into-an-event-object">Convert the method invocation into an Event object</h2>
+<p>All method invocations on the proxy object will be translated into Event objects by the proxy. An Event has an id and zero or more arguments. The id corresponds to the name of the method and the event arguments correspond to the method arguments. The method call deck.load(&ldquo;The Knife - Silent Shout&rdquo;) corresponds to the event {id = &ldquo;load&rdquo;, arguments = [&ldquo;The Knife - Silent Shout&rdquo;]}. The Event object also contains a reference to the StateContext object looked up previously.</p>
+<h2 id="invoke-the-statemachine">Invoke the StateMachine</h2>
+<p>Once the Event object has been created the proxy will call StateMachine.handle(Event). StateMachine.handle(Event) loops through the Transition objects of the current State in search for a Transition instance which accepts the current Event. This process will stop after a Transition has been found. The Transition objects will be searched in order of weight (typically specified by the @Transition annotation).</p>
+<h2 id="execute-the-transition">Execute the Transition</h2>
+<p>The final step is to call Transition.execute(Event) on the Transition which matched the Event. After the Transition has been executed the StateMachine will update the current State with the end state defined by the Transition.</p>
+<div class="info" markdown="1">
+    <tt>Transition</tt> is an interface. Every time you use the <tt>@Transition</tt> annotation a <tt>MethodTransition</tt> object will be created.
+</div>
+<h1 id="methodtransition">MethodTransition</h1>
+<p>MethodTransition is very important and requires some further explanation. MethodTransition matches an Event if the event&rsquo;s id matches the on parameter of the @Transition annotation and the annotated method&rsquo;s arguments are assignment compatible with a subset of the event&rsquo;s arguments.</p>
+<p>So, if the Event looks like {id = &ldquo;foo&rdquo;, arguments = [a, b, c]} the method</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;foo&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">someMethod</span><span style="color:#666">(</span>One one<span style="color:#666">,</span> Two two<span style="color:#666">,</span> Three three<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+</code></pre></div><p>matches if and only if ((a instanceof One &amp;&amp; b instanceof Two &amp;&amp; c instanceof Three) == true). On match the method will be called with the matching event arguments bound to the method&rsquo;s arguments:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">someMethod<span style="color:#666">(</span>a<span style="color:#666">,</span> b<span style="color:#666">,</span> c<span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><div class="info" markdown="1">
+    <tt>Integer</tt>, <tt>Double</tt>, <tt>Float</tt>, etc also match their primitive counterparts <tt>int</tt>, <tt>double</tt>, <tt>float</tt>, etc.
+</div>
+<p>As stated above also a subset would match:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;foo&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">someMethod</span><span style="color:#666">(</span>Two two<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+</code></pre></div><p>matches if ((a instanceof Two || b instanceof Two || c instanceof Two) == true). In this case the first matching event argument will be bound to the method argument named two when someMethod is called.</p>
+<p>A method which takes no arguments always matches if the event id matches:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;foo&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">someMethod</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+</code></pre></div><p>To make things even more complicated the first two method arguments also matches against the Event class and the StateContext interface. This means that</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;foo&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">someMethod</span><span style="color:#666">(</span>Event event<span style="color:#666">,</span> StateContext context<span style="color:#666">,</span> One one<span style="color:#666">,</span> Two two<span style="color:#666">,</span> Three three<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+<span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;foo&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">someMethod</span><span style="color:#666">(</span>Event event<span style="color:#666">,</span> One one<span style="color:#666">,</span> Two two<span style="color:#666">,</span> Three three<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+<span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;foo&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">someMethod</span><span style="color:#666">(</span>StateContext context<span style="color:#666">,</span> One one<span style="color:#666">,</span> Two two<span style="color:#666">,</span> Three three<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+</code></pre></div><p>also matches the Event {id = &ldquo;foo&rdquo;, arguments = [a, b, c]} if ((a instanceof One &amp;&amp; b instanceof Two &amp;&amp; c instanceof Three) == true). The current Event object will be bound to the event method argument and the current StateContext will be bound to context when someMethod is invoked.</p>
+<p>As before a subset of the event arguments can be used. Also, a specific StateContext implementation may be specified instead of using the generic interface:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;foo&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">someMethod</span><span style="color:#666">(</span>MyStateContext context<span style="color:#666">,</span> Two two<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+</code></pre></div><div class="note" markdown="1">
+    The order of the method arguments is important. If the method needs access to the current <tt>Event</tt> it must be specified as the first method argument. <tt>StateContext</tt> has to be the either the second arguments if the first is <tt>Event</tt> or the first argument. The event arguments also have to match in the correct order. <tt>MethodTransition</tt> will not try to reorder the event's arguments in search for a match.
+</div>
+<p>If you&rsquo;ve made it this far, congratulations! I realize that the section above might be a little hard to digest. Hopefully some examples could make things clearer:</p>
+<p>Consider the Event {id = &ldquo;messageReceived&rdquo;, arguments = [ArrayList a = [&hellip;], Integer b = 1024]}. The following methods match this Event:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// All method arguments matches all event arguments directly
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;messageReceived&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span>ArrayList l<span style="color:#666">,</span> Integer i<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+
+<span style="color:#080;font-style:italic">// Matches since ((a instanceof List &amp;&amp; b instanceof Number) == true)
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;messageReceived&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span>List l<span style="color:#666">,</span> Number n<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+
+<span style="color:#080;font-style:italic">// Matches since ((b instanceof Number) == true)
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;messageReceived&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span>Number n<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+
+<span style="color:#080;font-style:italic">// Methods with no arguments always matches
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;messageReceived&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+
+<span style="color:#080;font-style:italic">// Methods only interested in the current Event or StateContext always matches
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;messageReceived&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span>StateContext context<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+
+<span style="color:#080;font-style:italic">// Matches since ((a instanceof Collection) == true)
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;messageReceived&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span>Event event<span style="color:#666">,</span> Collection c<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+</code></pre></div><p>The following would not match:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// Incorrect ordering
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;messageReceived&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span>Integer i<span style="color:#666">,</span> List l<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+
+<span style="color:#080;font-style:italic">// ((a instanceof LinkedList) == false)
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;messageReceived&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span>LinkedList l<span style="color:#666">,</span> Number n<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+
+<span style="color:#080;font-style:italic">// Event must be first argument
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;messageReceived&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span>ArrayList l<span style="color:#666">,</span> Event event<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+
+<span style="color:#080;font-style:italic">// StateContext must be second argument if Event is used
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;messageReceived&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span>Event event<span style="color:#666">,</span> ArrayList l<span style="color:#666">,</span> StateContext context<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+
+<span style="color:#080;font-style:italic">// Event must come before StateContext
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;messageReceived&#34;</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span>StateContext context<span style="color:#666">,</span> Event event<span style="color:#666">)</span> <span style="color:#666">{</span> <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span> <span style="color:#666">}</span>
+</code></pre></div><h2 id="state-inheritance">State inheritance</h2>
+<p>State instances may have a parent State. If StateMachine.handle(Event) cannot find a Transition matching the current Event in the current State it will search the parent State. If no match is found there either the parent&rsquo;s parent will be searched and so on.</p>
+<p>This feature is useful when you want to add some generic code to all states without having to specify @Transition annotations for each state. Here&rsquo;s how you create a hierarchy of states using the @State annotation:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@State</span>    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String A <span style="color:#666">=</span> <span style="color:#b44">&#34;A&#34;</span><span style="color:#666">;</span>
+<span style="color:#a2f">@State</span><span style="color:#666">(</span>A<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String B <span style="color:#666">=</span> <span style="color:#b44">&#34;A-&gt;B&#34;</span><span style="color:#666">;</span>
+<span style="color:#a2f">@State</span><span style="color:#666">(</span>A<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String C <span style="color:#666">=</span> <span style="color:#b44">&#34;A-&gt;C&#34;</span><span style="color:#666">;</span>
+<span style="color:#a2f">@State</span><span style="color:#666">(</span>B<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String D <span style="color:#666">=</span> <span style="color:#b44">&#34;A-&gt;B-&gt;D&#34;</span><span style="color:#666">;</span>
+<span style="color:#a2f">@State</span><span style="color:#666">(</span>C<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String E <span style="color:#666">=</span> <span style="color:#b44">&#34;A-&gt;C-&gt;E&#34;</span><span style="color:#666">;</span>
+</code></pre></div><h2 id="error-handling-using-state-inheritance">Error handling using state inheritance</h2>
+<p>Let&rsquo;s go back to the TapeDeck example. What happens if you call deck.play() when there&rsquo;s no tape in the deck? Let&rsquo;s try:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[</span><span style="color:#666">]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+    <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
+    deck<span style="color:#666">.</span><span style="color:#b44">load</span><span style="color:#666">(</span><span style="color:#b44">&#34;The Knife - Silent Shout&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    deck<span style="color:#666">.</span><span style="color:#b44">play</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    deck<span style="color:#666">.</span><span style="color:#b44">pause</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    deck<span style="color:#666">.</span><span style="color:#b44">play</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    deck<span style="color:#666">.</span><span style="color:#b44">stop</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    deck<span style="color:#666">.</span><span style="color:#b44">eject</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    deck<span style="color:#666">.</span><span style="color:#b44">play</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+
+<span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
+Tape stopped
+Tape ejected
+Exception in thread <span style="color:#b44">&#34;main&#34;</span> o<span style="color:#666">.</span><span style="color:#b44">a</span><span style="color:#666">.</span><span style="color:#b44">m</span><span style="color:#666">.</span><span style="color:#b44">sm</span><span style="color:#666">.</span><span style="color:#b44">event</span><span style="color:#666">.</span><span style="color:#b44">UnhandledEventException</span><span style="color:#666">:</span> 
+Unhandled event<span style="color:#666">:</span> org<span style="color:#666">.</span><span style="color:#b44">apache</span><span style="color:#666">.</span><span style="color:#b44">mina</span><span style="color:#666">.</span><span style="color:#b44">statemachine</span><span style="color:#666">.</span><span style="color:#b44">event</span><span style="color:#666">.</span><span style="color:#b44">Event</span><span style="color:#a2f">@15eb0a9</span><span style="color:#666">[</span>id<span style="color:#666">=</span>play<span style="color:#666">,</span><span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">]</span>
+    at org<span style="color:#666">.</span><span style="color:#b44">apache</span><span style="color:#666">.</span><span style="color:#b44">mina</span><span style="color:#666">.</span><span style="color:#b44">statemachine</span><span style="color:#666">.</span><span style="color:#b44">StateMachine</span><span style="color:#666">.</span><span style="color:#b44">handle</span><span style="color:#666">(</span>StateMachine<span style="color:#666">.</span><span style="color:#b44">java</span><span style="color:#666">:</span>285<span style="color:#666">)</span>
+    at org<span style="color:#666">.</span><span style="color:#b44">apache</span><span style="color:#666">.</span><span style="color:#b44">mina</span><span style="color:#666">.</span><span style="color:#b44">statemachine</span><span style="color:#666">.</span><span style="color:#b44">StateMachine</span><span style="color:#666">.</span><span style="color:#b44">processEvents</span><span style="color:#666">(</span>StateMachine<span style="color:#666">.</span><span style="color:#b44">java</span><span style="color:#666">:</span>142<span style="color:#666">)</span>
+    <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
+</code></pre></div><p>Oops! We get an UnhandledEventException because when we&rsquo;re in the Empty state there&rsquo;s no transition which handles the play event. We could add a special transition to all states which handles unmatched Event objects:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@Transitions</span><span style="color:#666">(</span><span style="color:#666">{</span>
+    <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;*&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> EMPTY<span style="color:#666">,</span> weight <span style="color:#666">=</span> 100<span style="color:#666">)</span><span style="color:#666">,</span>
+    <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;*&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> LOADED<span style="color:#666">,</span> weight <span style="color:#666">=</span> 100<span style="color:#666">)</span><span style="color:#666">,</span>
+    <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;*&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> PLAYING<span style="color:#666">,</span> weight <span style="color:#666">=</span> 100<span style="color:#666">)</span><span style="color:#666">,</span>
+    <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;*&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> PAUSED<span style="color:#666">,</span> weight <span style="color:#666">=</span> 100<span style="color:#666">)</span>
+<span style="color:#666">}</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">error</span><span style="color:#666">(</span>Event event<span style="color:#666">)</span> <span style="color:#666">{</span>
+    System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Cannot &#39;&#34;</span> <span style="color:#666">+</span> event<span style="color:#666">.</span><span style="color:#b44">getId</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">+</span> <span style="color:#b44">&#34;&#39; at this time&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>Now when you run the main() method above you won&rsquo;t get an exception. The output should be:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">    ...
+    Tape stopped
+    Tape ejected
+    Cannot &#39;play&#39; at this time.
+</code></pre></div><p>Now this seems to work very well, right? But what if we had 30 states instead of only 4? Then we would need 30 @Transition annotations on the error() method. Not good. Let&rsquo;s use state inheritance instead:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">TapeDeckHandler</span> <span style="color:#666">{</span>
+    <span style="color:#a2f">@State</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String ROOT <span style="color:#666">=</span> <span style="color:#b44">&#34;Root&#34;</span><span style="color:#666">;</span>
+    <span style="color:#a2f">@State</span><span style="color:#666">(</span>ROOT<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String EMPTY <span style="color:#666">=</span> <span style="color:#b44">&#34;Empty&#34;</span><span style="color:#666">;</span>
+    <span style="color:#a2f">@State</span><span style="color:#666">(</span>ROOT<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String LOADED <span style="color:#666">=</span> <span style="color:#b44">&#34;Loaded&#34;</span><span style="color:#666">;</span>
+    <span style="color:#a2f">@State</span><span style="color:#666">(</span>ROOT<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String PLAYING <span style="color:#666">=</span> <span style="color:#b44">&#34;Playing&#34;</span><span style="color:#666">;</span>
+    <span style="color:#a2f">@State</span><span style="color:#666">(</span>ROOT<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String PAUSED <span style="color:#666">=</span> <span style="color:#b44">&#34;Paused&#34;</span><span style="color:#666">;</span>
+    
+    <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
+    
+    <span style="color:#a2f">@Transition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> <span style="color:#b44">&#34;*&#34;</span><span style="color:#666">,</span> in <span style="color:#666">=</span> ROOT<span style="color:#666">)</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">error</span><span style="color:#666">(</span>Event event<span style="color:#666">)</span> <span style="color:#666">{</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Cannot &#39;&#34;</span> <span style="color:#666">+</span> event<span style="color:#666">.</span><span style="color:#b44">getId</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">+</span> <span style="color:#b44">&#34;&#39; at this time&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>The result will be the same but things will be much easier to maintain with this last approach.</p>
+<h2 id="mina-statemachine-with-iohandler">mina-statemachine with IoHandler</h2>
+<p>Now we&rsquo;re going to convert our tape deck into a TCP server and extend it with some more functionality. The server will receive commands like load <tape>, play, stop, etc. The responses will either be positive + <message> or negative - <message>. The protocol is text based, all commands and responses are lines of UTF-8 text terminated by CRLF (i.e. \r\n in Java). Here&rsquo;s an example session:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">telnet localhost 12345
+S: + Greetings from your tape deck!
+C: list
+S: + (1: &#34;The Knife - Silent Shout&#34;, 2: &#34;Kings of convenience - Riot on an empty street&#34;)
+C: load 1
+S: + &#34;The Knife - Silent Shout&#34; loaded
+C: play
+S: + Playing &#34;The Knife - Silent Shout&#34;
+C: pause
+S: + &#34;The Knife - Silent Shout&#34; paused
+C: play
+S: + Playing &#34;The Knife - Silent Shout&#34;
+C: info
+S: + Tape deck is playing. Current tape: &#34;The Knife - Silent Shout&#34;
+C: eject
+S: - Cannot eject while playing
+C: stop
+S: + &#34;The Knife - Silent Shout&#34; stopped
+C: eject
+S: + &#34;The Knife - Silent Shout&#34; ejected
+C: quit
+S: + Bye! Please come back!
+</code></pre></div><p>The complete code for the TapeDeckServer described in this section is available in the org.apache.mina.example.tapedeck package in the mina-example module in the Subversion repository. The code uses a MINA ProtocolCodecFilter to convert bytes from/to Command objects. There is one Command implementation for each type of request the server recognizes. We will not describe the codec implementation here in any detail.</p>
+<p>Now, let&rsquo;s have a look at how this server works. The important class which implements the state machine is the TapeDeckServer class. The first thing we do is to define the states:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@State</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String ROOT <span style="color:#666">=</span> <span style="color:#b44">&#34;Root&#34;</span><span style="color:#666">;</span>
+<span style="color:#a2f">@State</span><span style="color:#666">(</span>ROOT<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String EMPTY <span style="color:#666">=</span> <span style="color:#b44">&#34;Empty&#34;</span><span style="color:#666">;</span>
+<span style="color:#a2f">@State</span><span style="color:#666">(</span>ROOT<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String LOADED <span style="color:#666">=</span> <span style="color:#b44">&#34;Loaded&#34;</span><span style="color:#666">;</span>
+<span style="color:#a2f">@State</span><span style="color:#666">(</span>ROOT<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String PLAYING <span style="color:#666">=</span> <span style="color:#b44">&#34;Playing&#34;</span><span style="color:#666">;</span>
+<span style="color:#a2f">@State</span><span style="color:#666">(</span>ROOT<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> String PAUSED <span style="color:#666">=</span> <span style="color:#b44">&#34;Paused&#34;</span><span style="color:#666">;</span>
+</code></pre></div><p>Nothing new there. However, the methods which handle the events now look different. Let&rsquo;s look at the playTape method:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@IoHandlerTransitions</span><span style="color:#666">(</span><span style="color:#666">{</span>
+    <span style="color:#a2f">@IoHandlerTransition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> MESSAGE_RECEIVED<span style="color:#666">,</span> in <span style="color:#666">=</span> LOADED<span style="color:#666">,</span> next <span style="color:#666">=</span> PLAYING<span style="color:#666">)</span><span style="color:#666">,</span>
+    <span style="color:#a2f">@IoHandlerTransition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> MESSAGE_RECEIVED<span style="color:#666">,</span> in <span style="color:#666">=</span> PAUSED<span style="color:#666">,</span> next <span style="color:#666">=</span> PLAYING<span style="color:#666">)</span>
+<span style="color:#666">}</span><span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">playTape</span><span style="color:#666">(</span>TapeDeckContext context<span style="color:#666">,</span> IoSession session<span style="color:#666">,</span> PlayCommand cmd<span style="color:#666">)</span> <span style="color:#666">{</span>
+    session<span style="color:#666">.</span><span style="color:#b44">write</span><span style="color:#666">(</span><span style="color:#b44">&#34;+ Playing \&#34;&#34;</span> <span style="color:#666">+</span> context<span style="color:#666">.</span><span style="color:#b44">tapeName</span> <span style="color:#666">+</span> <span style="color:#b44">&#34;\&#34;&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>This code doesn&rsquo;t use the general @Transition and @Transitions annotations used previously but rather the MINA specific @IoHandlerTransition and @IoHandlerTransitions annotations. This are preferred when creating state machines for MINA&rsquo;s IoHandler interface as they let you use a Java enum for the event ids instead of strings as we used before. There are also corresponding annotations for MINA&rsquo;s IoFilter interface.</p>
+<p>We&rsquo;re now using MESSAGE_RECEIVED instead of &ldquo;play&rdquo; for the event name (the on attribute in @IoHandlerTransition). This constant is defined in org.apache.mina.statemachine.event.IoHandlerEvents and has the value &ldquo;messageReceived&rdquo; which of course corresponds to the messageReceived() method in MINA&rsquo;s IoHandler interface. Thanks to Java5&rsquo;s static imports we don&rsquo;t have to write out the name of the class holding the constant. We just need to put the</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">import static</span> <span style="color:#00f;font-weight:bold">org.apache.mina.statemachine.event.IoHandlerEvents.*</span><span style="color:#666">;</span>
+</code></pre></div><p>statement in the imports section.</p>
+<p>Another thing that has changed is that we&rsquo;re using a custom StateContext implementation, TapeDeckContext. This class is used to keep track of the name of the current tape:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">TapeDeckContext</span> <span style="color:#a2f;font-weight:bold">extends</span> AbstractStateContext <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">public</span> String tapeName<span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><div class="info" markdown="1">
+    <strong>Why not store tape name in IoSession?</strong><br>
+    We could have stored the name of the tape as an attribute in the <tt>IoSession</tt> but using a custom <tt>StateContext</tt> is recommended since it provides type safety.
+</div>
+<p>The last thing to note about the playTape() method is that it takes a PlayCommand as its last argument. The last argument corresponds to the message argument of IoHandler&rsquo;s messageReceived(IoSession session, Object message) method. This means that playTape() method will only be called if the bytes sent by the client can be decoded as a PlayCommand.</p>
+<p>Before the tape deck can play anything a tape has to be loaded. When a LoadCommand is received from the client the supplied tape number will be used to get the name of the tape to load from the tapes array of available tapes:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@IoHandlerTransition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> MESSAGE_RECEIVED<span style="color:#666">,</span> in <span style="color:#666">=</span> EMPTY<span style="color:#666">,</span> next <span style="color:#666">=</span> LOADED<span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">loadTape</span><span style="color:#666">(</span>TapeDeckContext context<span style="color:#666">,</span> IoSession session<span style="color:#666">,</span> LoadCommand cmd<span style="color:#666">)</span> <span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>cmd<span style="color:#666">.</span><span style="color:#b44">getTapeNumber</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">&lt;</span> 1 <span style="color:#666">|</span><span style="color:#666">|</span> cmd<span style="color:#666">.</span><span style="color:#b44">getTapeNumber</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">&gt;</span> tapes<span style="color:#666">.</span><span style="color:#b44">length</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+        session<span style="color:#666">.</span><span style="color:#b44">write</span><span style="color:#666">(</span><span style="color:#b44">&#34;- Unknown tape number: &#34;</span> <span style="color:#666">+</span> cmd<span style="color:#666">.</span><span style="color:#b44">getTapeNumber</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+        StateControl<span style="color:#666">.</span><span style="color:#b44">breakAndGotoNext</span><span style="color:#666">(</span>EMPTY<span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span> <span style="color:#a2f;font-weight:bold">else</span> <span style="color:#666">{</span>
+        context<span style="color:#666">.</span><span style="color:#b44">tapeName</span> <span style="color:#666">=</span> tapes<span style="color:#666">[</span>cmd<span style="color:#666">.</span><span style="color:#b44">getTapeNumber</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">-</span> 1<span style="color:#666">]</span><span style="color:#666">;</span>
+        session<span style="color:#666">.</span><span style="color:#b44">write</span><span style="color:#666">(</span><span style="color:#b44">&#34;+ \&#34;&#34;</span> <span style="color:#666">+</span> context<span style="color:#666">.</span><span style="color:#b44">tapeName</span> <span style="color:#666">+</span> <span style="color:#b44">&#34;\&#34; loaded&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>This code uses the StateControl class to override the next state. If the user specify an unknown tape number we shouldn&rsquo;t move to the LOADED state but instead remain in EMPTY which is what the</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">StateControl<span style="color:#666">.</span><span style="color:#b44">breakAndGotoNext</span><span style="color:#666">(</span>EMPTY<span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>line does. The StateControl class is described more in a later section.</p>
+<p>The connect() method will always be called at the start of a session when MINA calls sessionOpened() on the IoHandler:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@IoHandlerTransition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> SESSION_OPENED<span style="color:#666">,</span> in <span style="color:#666">=</span> EMPTY<span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">connect</span><span style="color:#666">(</span>IoSession session<span style="color:#666">)</span> <span style="color:#666">{</span>
+    session<span style="color:#666">.</span><span style="color:#b44">write</span><span style="color:#666">(</span><span style="color:#b44">&#34;+ Greetings from your tape deck!&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>All it does is to write the greeting to the client. The state machine will remain in the EMPTY state.</p>
+<p>The pauseTape(), stopTape() and ejectTape() methods are very similar to playTape() and won&rsquo;t be described in any detail. The listTapes(), info() and quit() methods should be simple enough to understand by now, too. Please note how these last three methods are used for the ROOT state. This means that the list, info and quit commands can be issued in any state.</p>
+<p>Now let&rsquo;s have a look at error handling. The error() method will be called when the client sends a Command which isn&rsquo;t legal in the current state:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f">@IoHandlerTransition</span><span style="color:#666">(</span>on <span style="color:#666">=</span> MESSAGE_RECEIVED<span style="color:#666">,</span> in <span style="color:#666">=</span> ROOT<span style="color:#666">,</span> weight <span style="color:#666">=</span> 10<span style="color:#666">)</span>
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">error</span><span style="color:#666">(</span>Event event<span style="color:#666">,</span> StateContext context<span style="color:#666">,</span> IoSession session<span style="color:#666">,</span> Command cmd<span style="color:#666">)</span> <span style="color:#666">{</span>
+    session<span style="color:#666">.</span><span style="color:#b44">write</span><span style="color:#666">(</span><span style="color:#b44">&#34;- Cannot &#34;</span> <span style="color:#666">+</span> cmd<span style="color:#666">.</span><span style="color:#b44">getName</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">+</span> <span style="color:#b44">&#34; while &#34;</span> 
+           <span style="color:#666">+</span> context<span style="color:#666">.</span><span style="color:#b44">getCurrentState</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">getId</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">toLowerCase</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>error() has been given a higher weight than listTapes(), info() and quit() to prevent it to be called for any of those commands. Notice how error() uses the StateContext object to get hold of the id of the current state. The values of the String constants which are annotated with the @State annotation (Empty, Loaded etc) will be used by mina-statemachine as state id.</p>
+<p>The commandSyntaxError() method will be called when a CommandSyntaxException has been thrown by our ProtocolDecoder. It simply prints out that the line sent by the client couldn&rsquo;t be converted into a Command.</p>
+<p>The exceptionCaught() will be called for any thrown exception except CommandSyntaxException (it has a higher weight than the commandSyntaxError() method). It closes the session immediately.</p>
+<p>The last @IoHandlerTransition method is unhandledEvent() which will be called if none of the other @IoHandlerTransition methods match the Event. We need this since we don&rsquo;t have @IoHandlerTransition annotations for all possible types of events in all states (e.g., we never handle messageSent events). Without this mina-statemachine throws an exception if an Event is handled by the state machine.</p>
+<p>The last piece of code we&rsquo;re going to have a look at is the code which creates the IoHandler proxy and the main() method:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> IoHandler <span style="color:#00a000">createIoHandler</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+    StateMachine sm <span style="color:#666">=</span> StateMachineFactory<span style="color:#666">.</span><span style="color:#b44">getInstance</span><span style="color:#666">(</span>IoHandlerTransition<span style="color:#666">.</span><span style="color:#b44">class</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">create</span><span style="color:#666">(</span>EMPTY<span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> TapeDeckServer<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+        
+    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#a2f;font-weight:bold">new</span> StateMachineProxyBuilder<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">setStateContextLookup</span><span style="color:#666">(</span>
+            <span style="color:#a2f;font-weight:bold">new</span> IoSessionStateContextLookup<span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> StateContextFactory<span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+                <span style="color:#a2f;font-weight:bold">public</span> StateContext <span style="color:#00a000">create</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+                    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#a2f;font-weight:bold">new</span> TapeDeckContext<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+                <span style="color:#666">}</span>
+            <span style="color:#666">}</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">create</span><span style="color:#666">(</span>IoHandler<span style="color:#666">.</span><span style="color:#b44">class</span><span style="color:#666">,</span> sm<span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+
+<span style="color:#080;font-style:italic">// This code will work with MINA 1.0/1.1:
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[</span><span style="color:#666">]</span> args<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception <span style="color:#666">{</span>
+    SocketAcceptor acceptor <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> SocketAcceptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    SocketAcceptorConfig config <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> SocketAcceptorConfig<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    config<span style="color:#666">.</span><span style="color:#b44">setReuseAddress</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">true</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    ProtocolCodecFilter pcf <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> ProtocolCodecFilter<span style="color:#666">(</span>
+            <span style="color:#a2f;font-weight:bold">new</span> TextLineEncoder<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> CommandDecoder<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    config<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span><span style="color:#b44">&#34;codec&#34;</span><span style="color:#666">,</span> pcf<span style="color:#666">)</span><span style="color:#666">;</span>
+    acceptor<span style="color:#666">.</span><span style="color:#b44">bind</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> InetSocketAddress<span style="color:#666">(</span>12345<span style="color:#666">)</span><span style="color:#666">,</span> createIoHandler<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">,</span> config<span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+
+<span style="color:#080;font-style:italic">// This code will work with MINA trunk:
+</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[</span><span style="color:#666">]</span> args<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception <span style="color:#666">{</span>
+    SocketAcceptor acceptor <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NioSocketAcceptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    acceptor<span style="color:#666">.</span><span style="color:#b44">setReuseAddress</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">true</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    ProtocolCodecFilter pcf <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> ProtocolCodecFilter<span style="color:#666">(</span>
+            <span style="color:#a2f;font-weight:bold">new</span> TextLineEncoder<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> CommandDecoder<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span><span style="color:#b44">&#34;codec&#34;</span><span style="color:#666">,</span> pcf<span style="color:#666">)</span><span style="color:#666">;</span>
+    acceptor<span style="color:#666">.</span><span style="color:#b44">setHandler</span><span style="color:#666">(</span>createIoHandler<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    acceptor<span style="color:#666">.</span><span style="color:#b44">setLocalAddress</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> InetSocketAddress<span style="color:#666">(</span>PORT<span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    acceptor<span style="color:#666">.</span><span style="color:#b44">bind</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>createIoHandler() creates a StateMachine just like we did before except that we specify IoHandlerTransition.class instead of Transition.class in the call to StateMachineFactory.getInstance(&hellip;). This is necessary since we&rsquo;re now using the @IoHandlerTransition annotation. Also, this time we use IoSessionStateContextLookup and a custom StateContextFactory when we create the IoHandler proxy. If we didn&rsquo;t use IoSessionStateContextLookup all clients would share the same state machine which isn&rsquo;t desirable.</p>
+<p>The main() method creates the SocketAcceptor and attaches a ProtocolCodecFilter which decodes/encodes Command objects to its filter chain. Finally, it binds to port 12345 using an IoHandler instance created by the createIoHandler() method.</p>
+<h1 id="advanced-topics">Advanced topics</h1>
+<h2 id="changing-state-programmatically">Changing state programmatically</h2>
+<p>To be written&hellip;</p>
+<h2 id="calling-the-state-machine-recursively">Calling the state machine recursively</h2>
+<p>To be written&hellip;</p>
+
+
+            
+    <div class="nav">
+        <div class="nav_prev">
+            
+                
+                <a href="../ch13-debugging/ch13-debugging.html">Chapter 13 - Debugging</a>
+            
+        </div>
+        <div class="nav_up">
+            
+                
+                <a href="../user-guide-toc.html">User Guide</a>
+            
+        </div>
+        <div class="nav_next">
+            
+                
+                <a href="../ch15-proxy/ch15-proxy.html">Chapter 15 - Proxy</a>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

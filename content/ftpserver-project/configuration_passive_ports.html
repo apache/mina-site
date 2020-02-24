@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>FtpServer Configure passive ports &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/ftpserver.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                <strong>FtpServer</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/index.html">Home</a> </li>
+                    <li><a href="/ftpserver-project/features.html">Features</a> </li>
+                    <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
+                    <li><a href="/ftpserver-project/downloads.html">Downloads</a></li>
+                    <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
+                    <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
+                    <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/mailing_list.html">Mailing Lists</a></li>
+                    <li><a href="/ftpserver-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/ftpserver-project/reporting_bug.html">Reporting a Bug</a></li>
+                    <li><a href="/ftpserver-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="configure-passive-ports">Configure passive ports</h1>
+<p>When the client wants to use a passive data connection, the server should provide the port to use. By default, FtpServer will choose any available port. However this can be overridden using the configuration for the <a href="configuration_listeners.html">passive data connection</a>. The allowed passive ports can then be specified as a single port (e.g. 20020), multiple ports (e.g. 20020, 20030, 20040) or a range of ports (e.g. 20020-20030). Ranges can be closed (e.g. 20020-20030) or open ended (e.g. 60000-). Open ended ranges start at 1 and end at 65535, that is, the range 60000- will allow all ports between 60000 and 65535. Any combination of specified values or ranges can be used.</p>
+<p>When the server has used up all passive ports (one per client doing passive data transfer), the next clients will have to wait for an available port. It is therefore advised to provide multiple passive ports.</p>
+<p>If a value (specific port or start or end of an range) is outside of the allowed values of 0 and 65535, an error will be thrown at startup.</p>
+<h2 id="examples">Examples:</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Any available port is used as the passive port</td>
+</tr>
+<tr>
+<td>123</td>
+<td>Port 123 will be used as the passive port</td>
+</tr>
+<tr>
+<td>123,133</td>
+<td>Port 123 and 133 will be used as the passive port</td>
+</tr>
+<tr>
+<td>123-125</td>
+<td>Any port in a range from 123 to 125 will be used as the passive port</td>
+</tr>
+<tr>
+<td>123-125, 127, 129-130</td>
+<td>Any port in a range from 123 to 125, port 127 or in the range from 129 to 130 will be used as the passive port</td>
+</tr>
+</tbody>
+</table>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

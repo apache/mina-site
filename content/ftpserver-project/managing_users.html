@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>FtpServer Managing users &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/ftpserver.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                <strong>FtpServer</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/index.html">Home</a> </li>
+                    <li><a href="/ftpserver-project/features.html">Features</a> </li>
+                    <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
+                    <li><a href="/ftpserver-project/downloads.html">Downloads</a></li>
+                    <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
+                    <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
+                    <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/mailing_list.html">Mailing Lists</a></li>
+                    <li><a href="/ftpserver-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/ftpserver-project/reporting_bug.html">Reporting a Bug</a></li>
+                    <li><a href="/ftpserver-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="managing-users">Managing users</h1>
+<p>Since FtpServer user manager might encrypt user passwords before saving them, manually administering the user database can be hard. There is basically three ways:</p>
+<h2 id="manually">Manually</h2>
+<p>Using either the PropertiesUserManager or DbUserManager you can access the data store (file or database) directly to edit users. For clear text passwords you can simply edit them. For MD5 hashed passwords, you can you use any of the available MD5 tools, for example <a href="http://www.iwebtool.com/md5">http://www.iwebtool.com/md5</a>, to hash the password before editing it. For salted passwords, use one of the methods described below.</p>
+<h2 id="using-the-api">Using the API</h2>
+<p>Using the FtpServer API, you can create a user manager, configure it as your real user manager and use that to edit users. This is a simple example:</p>
+<pre><code>PropertiesUserManagerFactory userManagerFactory = new PropertiesUserManagerFactory();
+userManagerFactory.setFile(new File(&amp;quot;myusers.properties&amp;quot;));
+userManagerFactory.setPasswordEncryptor(new SaltedPasswordEncryptor());
+UserManager um = userManagerFactory.createUserManager();
+BaseUser user = new BaseUser();
+user.setName(&amp;quot;myNewUser&amp;quot;);
+user.setPassword(&amp;quot;secret&amp;quot;);
+user.setHomeDirectory(&amp;quot;ftproot&amp;quot;);
+um.save(user);
+</code></pre>
+<h2 id="using-command-line-tool">Using command line tool</h2>
+<p>If you&rsquo;re using the XML configuration, there is a command line tool available for adding new users to your user manager.</p>
+<p>In the examples below, make sure you update the versions to reflect the correct versions for your release</p>
+<p>Windows:</p>
+<pre><code>java -cp ftpserver-core-1.0.0-M4.jar;ftplet-api-1.0.0-M4.jar;mina-core-2.0.0-M3.jar; 
+    [slf4j-api-1.5.2.jar;&lt;br&gt;slf4j-simple-1.5.2.jar 
+    [ org.apache.ftpserver.main.AddUser path/to/your/config.xml
+</code></pre>
+<p>MacOS/Linux/Unix</p>
+<pre><code>java -cp ftpserver-core-1.0.0-M4.jar:ftplet-api-1.0.0-M4.jar:mina-core-2.0.0-M3.jar:\
+    slf4j-api-1.5.2.jar:&lt;br&gt;slf4j-simple-1.5.2.jar \
+    org.apache.ftpserver.main.AddUser path/to/your/config.xml
+</code></pre>
+<p>The program will ask you for the required data.</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

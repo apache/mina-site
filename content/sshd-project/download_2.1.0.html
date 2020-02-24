@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Apache SSHD 2.1.0 Release &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/sshd.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                <strong>SSHD</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/sshd-project/index.html">Home</a> </li>
+                    <li><a href="/sshd-project/features.html">Features</a> </li>
+                    <li><a href="/sshd-project/documentation.html">Documentation</a></li>
+                    <li><a href="/sshd-project/downloads.html">Downloads</a></li>
+                    <li><a href="/sshd-project/sources.html">Sources</a></li>
+                    <li><a href="/sshd-project/faq.html">FAQ</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/sshd-project/mailing_lists.html">Mailing Lists</a></li>
+                    <li><a href="/sshd-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/sshd-project/issue_tracking.html">Issue Tracking</a></li>
+                    <li><a href="/sshd-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="overview">Overview</h1>
+<p>Apache Mina SSHD 2.1.0 contains a number of <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310849&amp;version=12342654">enhancements and bug-fixes</a>.</p>
+<h1 id="getting-the-distributions">Getting the Distributions</h1>
+<ul>
+<li>Source distributions:
+<ul>
+<li><a href="https://archive.apache.org/dist/mina/sshd/2.1.0/apache-sshd-2.1.0-src.tar.gz">Apache Mina SSHD 2.1.0 Sources (.tar.gz)</a> <a href="https://archive.apache.org/dist/mina/sshd/2.1.0/apache-sshd-2.1.0-src.tar.gz.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/2.1.0/apache-sshd-2.1.0-src.tar.gz.sha1">SHA</a></li>
+<li><a href="https://archive.apache.org/dist/mina/sshd/2.1.0/apache-sshd-2.1.0-src.zip">Apache Mina SSHD 2.1.0 Sources (.zip)</a> <a href="https://archive.apache.org/dist/mina/sshd/2.1.0/apache-sshd-2.1.0-src.zip.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/2.1.0/apache-sshd-2.1.0-src.zip.sha1">SHA</a></li>
+</ul>
+</li>
+<li>Binary distributions:
+<ul>
+<li><a href="https://archive.apache.org/dist/mina/sshd/2.1.0/apache-sshd-2.1.0.tar.gz">Apache Mina SSHD 2.1.0 Binary (.tar.gz)</a> <a href="https://archive.apache.org/dist/mina/sshd/2.1.0/apache-sshd-2.1.0.tar.gz.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/2.1.0/apache-sshd-2.1.0.tar.gz.sha1">SHA</a></li>
+<li><a href="https://archive.apache.org/dist/mina/sshd/2.1.0/apache-sshd-2.1.0.zip">Apache Mina SSHD 2.1.0 Binary (.zip)</a> <a href="https://archive.apache.org/dist/mina/sshd/2.1.0/apache-sshd-2.1.0.zip.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/2.1.0/apache-sshd-2.1.0.zip.sha1">SHA</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="release-notes">Release Notes</h1>
+<p>A few backward incompatible changes have been made since the previous release, thus the version has been named 2.1 accordingly, in order to emphasize this fact. The major issues addressed in this release are:</p>
+<ul>
+<li>In accordance with the policy of making the SSHD code less monolithic in nature, 2 new artifacts have been established:
+<ul>
+<li>sshd-common - contains common code that is used throughout the other artifacts - mainly SSH related definitions and support code that deals with keys, ciphers, fingerprints, etc.. - but no client or server code. The Maven dependencies have been updated accordingly, so users who declare a dependency on &ldquo;sshd-core&rdquo; (and other previous version artifacts) will automatically include the &ldquo;sshd-common&rdquo; artifact as well.</li>
+<li>sshd-putty - (&ldquo;spin off&rdquo; from sshd-contrib) - contains the code necessary to use Putty key files for authentication. Users who previously used &ldquo;sshd-contrib&rdquo; Maven dependency for this purpose should replace it with &ldquo;sshd-putty&rdquo;.</li>
+</ul>
+</li>
+<li>Fixed some issues related to port forwarding - mainly correctly un-binding the locally bound ports used for tunnels.</li>
+<li>Fixed the ability to disable registering security providers using system property configuration.</li>
+<li>Use Nio2ServiceFactoryFactory as the hardwired default if no other found or explicitly set.</li>
+</ul>
+<p>Users are encouraged to read the documentation available at <a href="https://github.com/apache/mina-sshd/">https://github.com/apache/mina-sshd/</a> which has been updated to reflect the necessary code changes.</p>
+<h2 id="advisory-notice-regarding-building-the-code-from-the-released-ziptargz-sources-distribution">Advisory notice regarding building the code from the released (ZIP/TAR.GZ) sources distribution:</h2>
+<p>A minor issue has been discovered in this context for users who wish to build the artifacts from these distributions instead of the GIT repository. There are 2 &ldquo;hostkey.ser&rdquo; files that have been included by mistake - one in the &ldquo;sshd-core&rdquo; folder and the other in the&quot;sshd-netty&rdquo; one. These files are actually products of previous builds, and they interfere with the unit tests causing them to fail. Users who wish to build the project from the ZIP/TAR.GZ source distributions should delete the 2 aforementioned files before proceeding with the build.</p>
+<p>In this context it is important to emphasize:</p>
+<ul>
+<li>The said problem affects the build process only when it is attempting to run the unit tests - the released production artifacts on Maven Central or the ones generated locally as a result of the build process are not affected in any way.</li>
+<li>This issue does not affect in any way users who wish to build the artifacts from the GIT repository sources.</li>
+<li>The &ldquo;offending&rdquo; files have been correctly excluded in the latest development master branch - so future releases should no longer suffer from this problem.</li>
+</ul>
+<p>We recommend all users to upgrade to this release - we consider this a stable and production ready release.</p>
+<p>Please report any feedback to <a href="mailto:users@mina.apache.org">users@mina.apache.org</a>.</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

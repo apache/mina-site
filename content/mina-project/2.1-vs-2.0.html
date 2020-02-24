@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>MINA 2.1.x vs MINA 2.0.x &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                <strong>MINA</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Latest Downloads</h5>
+                <ul>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.21</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.3</a></li>
+                    <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
+                </ul>
+                <h5>Documentation</h5>
+                <ul>
+                    <li><a href="/mina-project/documentation.html" class="external-link" rel="nofollow">Base documentation</a></li>
+                    <li><a href="/mina-project/userguide/user-guide-toc.html" class="external-link" rel="nofollow">User guide</a></li>
+                    <li><a href="/mina-project/2.1-vs-2.0.html" class="external-link" rel="nofollow">2.1 vs 2.0</a></li>
+                    <li><a href="/mina-project/features.html" class="external-link" rel="nofollow">Features</a></li>
+                    <li><a href="/mina-project/road-map.html" class="external-link" rel="nofollow">Road Map</a></li>
+                    <li><a href="/mina-project/quick-start-guide.html" class="external-link" rel="nofollow">Quick Start Guide</a></li>
+                    <li><a href="/mina-project/faq.html" class="external-link" rel="nofollow">FAQ</a></li>
+                </ul>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
+                    <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
+                    <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.3</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.3</a></li>
+                    <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
+                    <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
+                    <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
+                    <li><a href="/mina-project/developer-guide.html" class="external-link" rel="nofollow">Developers Guide</a></li>
+                    <li><a href="/mina-project/related-projects.html" class="external-link" rel="nofollow">Related Projects</a></li>
+                    <li><a href="https://people.apache.org/~vgritsenko/stats/projects/mina.html" class="external-link" rel="nofollow">Statistics</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/contributing.html" class="external-link" rel="nofollow">Contributing</a></li>
+                    <li><a href="/contributors.html" class="external-link" rel="nofollow">Team</a></li>
+                    <li><a href="/special-thanks.html" class="external-link" rel="nofollow">Special Thanks</a></li>
+                    <li><a href="https://www.apache.org/security/" class="external-link" rel="nofollow">Security</a></li>
+                </ul>
+
+                <h5>About Apache</h5>
+                <ul>
+                    <li><a href="https://www.apache.org" class="external-link" rel="nofollow">Apache main site</a></li>
+                    <li><a href="https://www.apache.org/licenses/" class="external-link" rel="nofollow">License</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html" title="The ASF sponsorship program" class="external-link" rel="nofollow">Sponsorship program</a></li>
+                    <li><a href="https://www.apache.org/foundation/thanks.html" class="external-link" rel="nofollow">Thanks</a></li>
+                </ul>
+
+                <h3><a name="Navigation-Upcoming"></a>Upcoming</h3>
+                <ul>
+                    <li>No event</li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="21x-vs-20x-differences">2.1.x vs 2.0.x differences</h1>
+<p>The way an application is informed that a session has been secured (ie, the SSL/TLS handshake has been successfully completed) was to use a notification system. A specific message was pushed for that purpose, up to the client application to check that message. It forced the application implementer to inject a special session attribute (<em>SslFilter.USE_NOTIFICATION</em>), which is a bit heavy.</p>
+<p>It was decided to change that and make it easier for the application to get this information. The idea was to add a new event being propagated to the <em>IoHandler</em> interface, up to the application to react to such an event or not.</p>
+<h2 id="secure-session-detection-in-apache-mina-20x">Secure session detection in Apache MINA 2.0.x</h2>
+<p>The following application code is to be used if the application needs to know if the session has been secured or not:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">connector<span style="color:#666">.</span><span style="color:#b44">setHandler</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> IoHandlerAdapter<span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+    <span style="color:#a2f">@Override</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">sessionCreated</span><span style="color:#666">(</span>IoSession session<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception <span style="color:#666">{</span>
+        <span style="color:#080;font-style:italic">// Add the SSL notification in the session&#39;s attribute liste
+</span><span style="color:#080;font-style:italic"></span>        session<span style="color:#666">.</span><span style="color:#b44">setAttribute</span><span style="color:#666">(</span>SslFilter<span style="color:#666">.</span><span style="color:#b44">USE_NOTIFICATION</span><span style="color:#666">,</span> Boolean<span style="color:#666">.</span><span style="color:#b44">TRUE</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+    <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
+    <span style="color:#a2f">@Override</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span>IoSession session<span style="color:#666">,</span> Object message<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception <span style="color:#666">{</span>
+        <span style="color:#080;font-style:italic">// Check if the &#39;fake&#39; session secured message notification has been received
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>message <span style="color:#666">=</span><span style="color:#666">=</span> SslFilter<span style="color:#666">.</span><span style="color:#b44">SESSION_SECURED</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+            counter<span style="color:#666">.</span><span style="color:#b44">countDown</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+        <span style="color:#666">}</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span> 
+</code></pre></div><p>As we can see in this piece of code, this is a two step process:</p>
+<ul>
+<li>first we have to inform our session that we want to be informed about the secured status</li>
+<li>second we have to check for every received message if the session has been secured</li>
+</ul>
+<p>This is a bit clumsy, as the check has to be done in the <em>messageReceived</em> event, which is clearly mixing concepts (the remote peer never sends such a message)</p>
+<h2 id="secure-session-detection-in-apache-mina-21x">Secure session detection in Apache MINA 2.1.x</h2>
+<p>The idea was to extend the <em>IoHandler</em> interface with a generic <em>event</em> method that can be used to be informed about whatever type of event the session is subject to, beside the already processed events (session created, closed, etc).</p>
+<p>The <em>SslHandler</em> code has been modified to fire this event when the session has been secured, using a dedicated event, <em>SslEvent.SECURED</em>.
+We also have modified the <em>SslFilter</em> code to generate a event when the session is not anymore secured, sending the <em>SslEvent.UNSECURED</em> event.</p>
+<p>The following code show the difference with the previous code :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">connector<span style="color:#666">.</span><span style="color:#b44">setHandler</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> IoHandlerAdapter<span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+    <span style="color:#a2f">@Override</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">event</span><span style="color:#666">(</span>IoSession session<span style="color:#666">,</span> FilterEvent event<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>event <span style="color:#666">=</span><span style="color:#666">=</span> SslEvent<span style="color:#666">.</span><span style="color:#b44">SECURED</span> <span style="color:#666">)</span> <span style="color:#666">{</span>
+            <span style="color:#080;font-style:italic">// DO whatever the application needs to do when the session is secured
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#666">}</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>As we can see, we don&rsquo;t need to initialize the session telling it to inform the application through a notification: this will be done no matter what.</p>
+<h2 id="why-is-it-api-incompatible-">Why is it API incompatible ?</h2>
+<p>The <em>event</em> addition in the <em>IoHandler</em> interface does not break your code: we always have an abstract implementation that will handle the events if your application does not.</p>
+<p>The real issue is that if your application was using the Notification mechanism for that purpose, the new version will not send you this specific message(<em>SslFilter.SESSION_SECURED</em>).</p>
+<h2 id="migration">Migration</h2>
+<p>This is pretty straightforward :</p>
+<ul>
+<li>get rid of the notification declaration by removing the <em>session.setAttribute(SslFilter.USE_NOTIFICATION, Boolean.TRUE)</em> code.</li>
+<li>implement the <em>event(IoSession session, FilterEvent event)</em> method in your application handler, checking for the <em>SslEvent.SECURED</em>/<em>SslEvent.UNSECURED</em> specific events.</li>
+</ul>
+<p>and that&rsquo;s it !</p>
+<h2 id="future-evolution">Future evolution</h2>
+<p>The added event mechanism could be used to other purposes, and that includes user specific needs. It&rsquo;s possible to write a specific filter that will send a dedicated <em>FilterEvent</em> instance, for the application to process it.</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

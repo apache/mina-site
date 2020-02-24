@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>FtpServer Messages &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/ftpserver.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                <strong>FtpServer</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/index.html">Home</a> </li>
+                    <li><a href="/ftpserver-project/features.html">Features</a> </li>
+                    <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
+                    <li><a href="/ftpserver-project/downloads.html">Downloads</a></li>
+                    <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
+                    <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
+                    <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/mailing_list.html">Mailing Lists</a></li>
+                    <li><a href="/ftpserver-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/ftpserver-project/reporting_bug.html">Reporting a Bug</a></li>
+                    <li><a href="/ftpserver-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="messages">Messages</h1>
+<p>This document explains how to customize all the Apache FtpServer reply messages.</p>
+<p>All the server messages are customizable. The default reply messages are bundled with the server. The user defined custom messages will be stored separately. This custom message file is configurable.</p>
+<p>The FtpServer project is interested in localized message bundles, please <a href="mailing_list.html">contact the project</a> if you would like to donate.</p>
+<h2 id="example">Example</h2>
+<pre><code>&lt;messages languages=&quot;se, no ,da&quot;&gt;
+</code></pre>
+<h2 id="messages-element">messages element</h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>directory</td>
+<td>The directory in which message bundles can be located</td>
+<td>No</td>
+<td> </td>
+</tr>
+<tr>
+<td>languages</td>
+<td>A comma separated list of the languages that the server will provide messages in</td>
+<td>No</td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+<h2 id="creating-a-customized-message-bundle">Creating a customized message bundle</h2>
+<h3 id="dynamic-values">Dynamic Values</h3>
+<p>Dynamic values can be embedded in the server message replies. User can specify different variables in message strings. Variables are represented by {variable} in the string.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Variable Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>server.ip</td>
+<td>Server IP address.</td>
+</tr>
+<tr>
+<td>server.port</td>
+<td>Server port.</td>
+</tr>
+<tr>
+<td>client.ip</td>
+<td>Client IP address.</td>
+</tr>
+<tr>
+<td>client.con.time</td>
+<td>Client connection time. The date format is yyyy-MM-dd&rsquo;T&rsquo;HH:mm:ss (ISO8601).</td>
+</tr>
+<tr>
+<td>client.login.time</td>
+<td>Client login time. The date format is yyyy-MM-dd&rsquo;T&rsquo;HH:mm:ss (ISO8601).</td>
+</tr>
+<tr>
+<td>client.login.name</td>
+<td>User login name. If the user has not passed the login name, it will be null.</td>
+</tr>
+<tr>
+<td>client.access.time</td>
+<td>Client last access time. The date format is yyyy-MM-ddTHH:mm:ss (ISO8601).</td>
+</tr>
+<tr>
+<td>client.home</td>
+<td>User home directory.</td>
+</tr>
+<tr>
+<td>client.dir</td>
+<td>User current directory.</td>
+</tr>
+<tr>
+<td>request.line</td>
+<td>User request line.</td>
+</tr>
+<tr>
+<td>request.cmd</td>
+<td>User FTP command.</td>
+</tr>
+<tr>
+<td>request.arg</td>
+<td>User request argument. If there is no argument it will be null.</td>
+</tr>
+<tr>
+<td>stat.start.time</td>
+<td>Server start time. The date format is yyyy-MM-ddTHH:mm:ss (ISO8601).</td>
+</tr>
+<tr>
+<td>stat.con.total</td>
+<td>Total number of connections after server startup.</td>
+</tr>
+<tr>
+<td>stat.con.curr</td>
+<td>Current connection number.</td>
+</tr>
+<tr>
+<td>stat.login.total</td>
+<td>Total number of logins after server startup.</td>
+</tr>
+<tr>
+<td>stat.login.curr</td>
+<td>Current login number.</td>
+</tr>
+<tr>
+<td>stat.login.anon.total</td>
+<td>Total number of anonymous logins after server startup.</td>
+</tr>
+<tr>
+<td>stat.login.anon.curr</td>
+<td>Current anonymous login number.</td>
+</tr>
+<tr>
+<td>stat.file.upload.count</td>
+<td>Total number of files uploaded.</td>
+</tr>
+<tr>
+<td>stat.file.upload.bytes</td>
+<td>Total number of bytes uploaded.</td>
+</tr>
+<tr>
+<td>stat.file.download.count</td>
+<td>Total number of files downloaded</td>
+</tr>
+<tr>
+<td>stat.file.download.bytes</td>
+<td>Total number of bytes downloaded</td>
+</tr>
+<tr>
+<td>stat.file.delete.count</td>
+<td>Total number of files deleted.</td>
+</tr>
+<tr>
+<td>stat.dir.create.count</td>
+<td>Total number of directories created.</td>
+</tr>
+<tr>
+<td>stat.dir.delete.count</td>
+<td>Total number of directories removed.</td>
+</tr>
+<tr>
+<td>output.code</td>
+<td>FTP Server 3 digit reply code.</td>
+</tr>
+<tr>
+<td>output.msg</td>
+<td>Basic core message which has to be available in the message.</td>
+</tr>
+</tbody>
+</table>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

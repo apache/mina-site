@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>FtpServer Listeners &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/ftpserver.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                <strong>FtpServer</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/index.html">Home</a> </li>
+                    <li><a href="/ftpserver-project/features.html">Features</a> </li>
+                    <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
+                    <li><a href="/ftpserver-project/downloads.html">Downloads</a></li>
+                    <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
+                    <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
+                    <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/mailing_list.html">Mailing Lists</a></li>
+                    <li><a href="/ftpserver-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/ftpserver-project/reporting_bug.html">Reporting a Bug</a></li>
+                    <li><a href="/ftpserver-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="listeners">Listeners</h1>
+<p>Listeners are the component in FtpServer which is responsible for listening on the network socket and when clients connect create the user session, execute commands and so on. An FtpServer can have multiple listeners at the same time, some examples include:</p>
+<ul>
+<li>one listener on port 21 (the default option)</li>
+<li>one cleartext listener on port 21 and one for implicit SSL on port 22</li>
+<li>one cleartext listener in an internal IP address only and one for implicit SSL for the external IP address</li>
+</ul>
+<p>Listeners are identified by a name, the default listener is identified by &ldquo;default&rdquo;.</p>
+<p>The main network configuration is performed on the listeners, for example the port to listen on and SSL configuration.</p>
+<p>Within the XML configuration format, all listeners are configured in the &ldquo;listeners&rdquo; element. A XML configuration example can therefore look like:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;listeners</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;nio-listener</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;default&#34;</span> <span style="color:#b44">port=</span><span style="color:#b44">&#34;2222&#34;</span> <span style="color:#b44">implicit-ssl=</span><span style="color:#b44">&#34;true&#34;</span> <span style="color:#b44">idle-timeout=</span><span style="color:#b44">&#34;60&#34;</span> <span style="color:#b44">local-address=</span><span style="color:#b44">&#34;1.2.3.4&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;ssl</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;keystore</span> <span style="color:#b44">file=</span><span style="color:#b44">&#34;mykeystore.jks&#34;</span> <span style="color:#b44">password=</span><span style="color:#b44">&#34;secret&#34;</span> <span style="color:#b44">key-password=</span><span style="color:#b44">&#34;otherSecret&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;truststore</span> <span style="color:#b44">file=</span><span style="color:#b44">&#34;mytruststore.jks&#34;</span> <span style="color:#b44">password=</span><span style="color:#b44">&#34;secret&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/ssl&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;data-connection</span> <span style="color:#b44">idle-timeout=</span><span style="color:#b44">&#34;60&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;active</span> <span style="color:#b44">enabled=</span><span style="color:#b44">&#34;true&#34;</span> <span style="color:#b44">local-address=</span><span style="color:#b44">&#34;1.2.3.4&#34;</span> <span style="color:#b44">local-port=</span><span style="color:#b44">&#34;2323&#34;</span> <span style="color:#b44">ip-check=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;passive</span> <span style="color:#b44">ports=</span><span style="color:#b44">&#34;123-12&#34;</span> <span style="color:#b44">address=</span><span style="color:#b44">&#34;1.2.3.4&#34;</span> <span style="color:#b44">external-address=</span><span style="color:#b44">&#34;1.2.3.4&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/data-connection&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;blacklist</span><span style="color:#008000;font-weight:bold">&gt;</span>1.2.3.0/16, 1.2.4.0/16, 1.2.3.4<span style="color:#008000;font-weight:bold">&lt;/blacklist&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/nio-listener&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/listeners&gt;</span>
+</code></pre></div><h2 id="nio-listener-element">nio-listener element</h2>
+<p>The listener shipped with FtpServer is called &ldquo;nio-listener&rdquo; since it is based Java NIO for performance and scalability.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>The listener name, if &ldquo;default&rdquo; it will override the settings on the default listener</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+<tr>
+<td>port</td>
+<td>The port on which the listener will accept connections</td>
+<td>No</td>
+<td>21</td>
+</tr>
+<tr>
+<td>local-address</td>
+<td>Server address the listener will bind to</td>
+<td>No</td>
+<td>All available</td>
+</tr>
+<tr>
+<td>implicit-ssl</td>
+<td>True if the listener should use implicit SSL</td>
+<td>No</td>
+<td>false</td>
+</tr>
+<tr>
+<td>idle-timeout</td>
+<td>The number of seconds before an inactive client is disconnected. If this value is set to 0, the idle time is disabled (a client can idle forever without getting disconnected by the server). If a lower maximum idle time is configured on a user (e.g. using the PropertiesUserManager idletime configuration), it will override the listener value. Thus, the listener value enforce the upper threshold, but lower values can be provided per user.</td>
+<td>No</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ssl-element">ssl element</h2>
+<p>Required for listeners that should provide FTPS support.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>protocol</td>
+<td>The SSL protocol to use. Supported values are &ldquo;SSL&rdquo; and &ldquo;TLS&rdquo;</td>
+<td>No</td>
+<td>TLS</td>
+</tr>
+<tr>
+<td>client-authentication</td>
+<td>Should client authentication be performed? Supported values are &ldquo;NEED&rdquo;, &ldquo;WANT&rdquo; and &ldquo;NONE&rdquo;</td>
+<td>No</td>
+<td>NONE</td>
+</tr>
+<tr>
+<td>enabled-ciphersuites</td>
+<td>A space-separated list of cipher suites to enable for this connection. The exact cipher suites that can be used depends on the Java version used, <a href="http://java.sun.com/j2se/1.5.0/docs/guide/security/jsse/JSSERefGuide.html#AppA">here</a> are the names for Sun&rsquo;s JSSE provider.</td>
+<td>No</td>
+<td>All cipher suites are enabled</td>
+</tr>
+</tbody>
+</table>
+<h2 id="keystore-element">keystore element</h2>
+<p>This element is required if the ssl element is provided. It provides configuration for the key store used for finding the private key and server certificate for the FTP server.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file</td>
+<td>Path to the key store file</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+<tr>
+<td>password</td>
+<td>The password for the key store</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+<tr>
+<td>key-password</td>
+<td>Password for the key within the key store</td>
+<td>No</td>
+<td>Key store password</td>
+</tr>
+<tr>
+<td>key-alias</td>
+<td>Alias of the key to use within the key store</td>
+<td>No &lt;</td>
+<td>Uses first key found</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Key store type</td>
+<td>No</td>
+<td>JRE key store default type, normally JKS</td>
+</tr>
+<tr>
+<td>algorithm</td>
+<td>Key store algorithm</td>
+<td>No</td>
+<td>SunX509</td>
+</tr>
+</tbody>
+</table>
+<h2 id="truststore-element">truststore element</h2>
+<p>This element provides configuration for the trust store used for locating trusted certificates.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file</td>
+<td>Path to the trust store file</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+<tr>
+<td>password</td>
+<td>The password for the trust store</td>
+<td>No</td>
+<td>Certificates can be read without password</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Trust store type</td>
+<td>No</td>
+<td>JRE key store default type, normally JKS</td>
+</tr>
+<tr>
+<td>algorithm</td>
+<td>Trust store algorithm</td>
+<td>No</td>
+<td>SunX509</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-connection-element">data-connection element</h2>
+<p>This element provides configuration for the data connection.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>idle-timeout</td>
+<td>Number of seconds before an idle data connection is closed</td>
+<td>No</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+<h2 id="active-element">active element</h2>
+<p>This element provides configuration for active data connections.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enabled</td>
+<td>False if active data connections should not be allowed</td>
+<td>No</td>
+<td>true</td>
+</tr>
+<tr>
+<td>local-address</td>
+<td>The local address the server will use when creating a data connection</td>
+<td>No</td>
+<td>Any available</td>
+</tr>
+<tr>
+<td>local-port</td>
+<td>The local prt the server will use when creating a data connection</td>
+<td>No</td>
+<td>Any available</td>
+</tr>
+<tr>
+<td>ip-check</td>
+<td>Should the server check that the IP address for the data connection is the same as for the control socket?</td>
+<td>No</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h2 id="passive-element">passive element</h2>
+<p>This element provides configuration for passive data connections.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ports</td>
+<td>The ports on which the server is allowed to accept passive data connections, see <a href="configuration_passive_ports.html">Configure passive ports</a> for details</td>
+<td>No</td>
+<td>Any available port</td>
+</tr>
+<tr>
+<td>address</td>
+<td>The address on which the server will listen to passive data connections</td>
+<td>No</td>
+<td>The same address as the control socket for the session</td>
+</tr>
+<tr>
+<td>external-address</td>
+<td>The address the server will claim to be listening on in the PASV reply. Useful when the server is behind a NAT firewall and the client sees a different address than the server is using</td>
+<td>No</td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+<h2 id="blacklist-element">blacklist element</h2>
+<p>This element provides a list of black listed IP addresses and networks in <a href="http://en.wikipedia.org/wiki/CIDR">CIDR notation</a>.</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

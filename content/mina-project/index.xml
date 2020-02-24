@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mina-projects on Apache Mina</title>
+    <link>https://mina.apache.org/mina-project.html</link>
+    <description>Recent content in Mina-projects on Apache Mina</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="https://mina.apache.org/mina-project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1.1 - NIO Overview</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.1-nio-overview.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.1-nio-overview.html</guid>
+      <description>NIO Overview The NIO API was introduced in Java 1.4 and had since been used for wide number of applications. The NIO API covers IO non-blocking operations.
+First of all, it&#39;s good to know that MINA is written on top of NIO 1. A new version has been designed in Java 7, NIO-2, we don&#39;t yet benefit from the added features this version is carrying.  It&#39;s also important to know that the N in NIO means New, but we will use the Non-Blocking term in many places.</description>
+    </item>
+    
+    <item>
+      <title>1.2 - Why MINA</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.2-why-mina.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.2-why-mina.html</guid>
+      <description>Why MINA ? Writing network applications are generally seen as a burden and perceived as low level development. It is an area which is not frequently studied or known by developers, either because it has been studied in school a long time ago and everything has been forgotten, or because the complexity of the network layer is frequently hidden by higher level layers, so you never get deep into it.</description>
+    </item>
+    
+    <item>
+      <title>1.3 Features</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.3-features.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.3-features.html</guid>
+      <description>Features MINA is a simple yet full-featured network application framework which provides:
+ Unified API for various transport types:  TCP/IP &amp;amp; UDP/IP via Java NIO Serial communication (RS232) via RXTX In-VM pipe communication You can implement your own!   Filter interface as an extension point; similar to Servlet filters Low-level and high-level API:  Low-level: uses ByteBuffers High-level: uses user-defined message objects and codecs   Highly customizable thread model:  Single thread One thread pool More than one thread pools (i.</description>
+    </item>
+    
+    <item>
+      <title>1.4 - First Steps</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.4-first-steps.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.4-first-steps.html</guid>
+      <description>First Steps We will show you how easy it is to use MINA, running a very simple example provided with the MINA package.
+The first thing you have to do is to setup your environment when you want to use MINA in your application. We will describe what you need to install and how to run a MINA program. Nothing fancy, just a first taste of MINA&amp;hellip;
+Download First, you have to download the latest MINA release from MINA 2.</description>
+    </item>
+    
+    <item>
+      <title>1.5 - Summary</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.5-summary.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.5-summary.html</guid>
+      <description>Summary In this chapter, we looked at MINA based Application Architecture, for Client as well as Server. We also touched upon the implementation of Sample TCP Server/Client, and UDP Server and Client.
+In the chapters to come we shall discuss about MINA Core constructs and advanced topics</description>
+    </item>
+    
+    <item>
+      <title>2.1 - Application Architecture</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1-application-architecture.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1-application-architecture.html</guid>
+      <description>2.1.1 - Server Architecture 2.1.2 - Client Architecture  2.1 - MINA based Application Architecture It&amp;rsquo;s the question most asked : &amp;lsquo;How does a MINA based application look like&amp;rsquo;? In this article lets see what&amp;rsquo;s the architecture of MINA based application. Have tried to gather the information from presentations based on MINA.
+A Bird&amp;rsquo;s Eye View :
+Here, we can see that MINA is the glue between your application (be it a client or a server) and the underlying network layer, which can be based on TCP, UDP, in-VM communication or even a RS-232C serial protocol for a client.</description>
+    </item>
+    
+    <item>
+      <title>2.1.1 - Server Architecture</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1.1-server-architecture.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1.1-server-architecture.html</guid>
+      <description>2.1.1 - Server Architecture We have exposed the MINA Application Architecture in the previous section. Let&amp;rsquo;s now focus on the Server Architecture. Basically, a Server listens on a port for incoming requests, process them and send replies. It also creates and handles a session for each client (whenever we have a TCP or UDP based protocol), this will be explain more extensively in the chapter 4.
+ IOAcceptor listens on the network for incoming connections/packets For a new connection, a new session is created and all subsequent request from IP Address/Port combination are handled in that Session All packets received for a Session, traverses the Filter Chain as specified in the diagram.</description>
+    </item>
+    
+    <item>
+      <title>2.1.2 - Client Architecture</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1.2-client-architecture.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1.2-client-architecture.html</guid>
+      <description>2.1.2 - Client Architecture We had a brief look at MINA based Server Architecture, lets see how Client looks like. Clients need to connect to a Server, send message and process the responses.
+ Client first creates an IOConnector (MINA Construct for connecting to Socket), initiates a bind with Server Upon Connection creation, a Session is created and is associated with Connection Application/Client writes to the Session, resulting in data being sent to Server, after traversing the Filter Chain All the responses/messages received from Server are traverses the Filter Chain and lands at IOHandler, for processing  </description>
+    </item>
+    
+    <item>
+      <title>2.2 - Sample TCP Server</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.2-sample-tcp-server.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.2-sample-tcp-server.html</guid>
+      <description>2.2 - Sample TCP Server This tutorial will walk you through the process of building a MINA based program. This tutorial will walk through building a time server. The following prerequisites are required for this tutorial:
+ MINA 2.x Core JDK 1.5 or greater SLF4J 1.3.0 or greater  Log4J 1.2 users: slf4j-api.jar, slf4j-log4j12.jar, and Log4J 1.2.x Log4J 1.3 users: slf4j-api.jar, slf4j-log4j13.jar, and Log4J 1.3.x java.util.logging users: slf4j-api.jar and slf4j-jdk14.jar IMPORTANT: Please make sure you are using the right slf4j-*.</description>
+    </item>
+    
+    <item>
+      <title>2.3 - Sample TCP Client</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.3-sample-tcp-client.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.3-sample-tcp-client.html</guid>
+      <description>2.3 - Sample TCP Client We have seen the Client Architecture. Lets explore a sample Client implementation.
+We shall use Sumup Client as a reference implementation.
+We will remove boiler plate code and concentrate on the important constructs. Below the code for the Client :
+public static void main(String[] args) throws Throwable { NioSocketConnector connector = new NioSocketConnector(); connector.setConnectTimeoutMillis(CONNECT_TIMEOUT); if (USE_CUSTOM_CODEC) { connector.getFilterChain().addLast(&amp;#34;codec&amp;#34;, new ProtocolCodecFilter(new SumUpProtocolCodecFactory(false))); } else { connector.getFilterChain().addLast(&amp;#34;codec&amp;#34;, new ProtocolCodecFilter(new ObjectSerializationCodecFactory())); } connector.</description>
+    </item>
+    
+    <item>
+      <title>2.4 - Sample UDP Server</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.4-sample-udp-server.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.4-sample-udp-server.html</guid>
+      <description>2.4 - Sample UDP Server We will begin by looking at the code found in the org.apache.mina.example.udp package. To keep life simple, we shall concentrate on MINA related constructs only.
+To construct the server, we shall have to do the following:
+ Create a Datagram Socket to listen for incoming Client requests (See MemoryMonitor.java) Create an IoHandler to handle the MINA framework generated events (See MemoryMonitorHandler.java)  Here is the first snippet that addresses Point# 1:</description>
+    </item>
+    
+    <item>
+      <title>2.5 - Sample UDP Client</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.5-sample-udp-client.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.5-sample-udp-client.html</guid>
+      <description>2.5 -Sample UDP Client Lets look at the client code for the UDP Server from previous section.
+To implement the Client we need to do following:
+ Create Socket and Connect to Server Set the IoHandler Collect free memory Send the Data to the Server  We will begin by looking at the file MemMonClient.java, found in the org.apache.mina.example.udp.client java package. The first few lines of the code are simple and straightforward.</description>
+    </item>
+    
+    <item>
+      <title>2.6 - Summary</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.6-summary.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.6-summary.html</guid>
+      <description>2.6 - Summary In this chapter, we looked at MINA based Application Architecture, for Client as well as Server. We also touched upon the implementation of Sample TCP Server/Client, and UDP Server and Client.
+In the chapters to come we shall discuss about MINA Core constructs and advanced topics</description>
+    </item>
+    
+    <item>
+      <title>3.1 - IO Service Introduction</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.1-io-service.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.1-io-service.html</guid>
+      <description>3.1 - IoService Introduction IoService provides basic I/O Service and manages I/O Sessions within MINA. Its one of the most crucial part of MINA Architecture. The implementing classes of IoService and child interface, are where most of the low level I/O operations are handled.
+IoService Mind Map Let&amp;rsquo;s try to see what are the responsibilities of the IoService and it implementing class AbstractIoService. Let&amp;rsquo;s take a slightly different approach of first using a Mind Map and then jump into the inner working.</description>
+    </item>
+    
+    <item>
+      <title>3.2 - IoService Details</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.2-io-service-details.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.2-io-service-details.html</guid>
+      <description>3.2 - IoService Details IoService is an interface that is implemented by the two most important classes in MINA :
+ IoAcceptor IoConnector  In order to build a server, you need to select an implementation of the IoAcceptor interface. For client applications, you need to implement an implementation of the IoConnector interface.
+IoAcceptor Basically, this interface is named because of the accept() method, responsible for the creation of new connections between a client and the server.</description>
+    </item>
+    
+    <item>
+      <title>3.3 - Acceptor</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.3-acceptor.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.3-acceptor.html</guid>
+      <description>3.3 - Acceptor In order to build a server, you need to select an implementation of the IoAcceptor interface.
+IoAcceptor Basically, this interface is named because of the accept() method, responsible for the creation of new connection between a client and the server. The server accepts incoming connection request.
+At some point, we could have named this interface &amp;lsquo;Server&amp;rsquo;.
+As we may deal with more than one kind of transport (TCP/UDP/&amp;hellip;), we have more than one implementation for this interface.</description>
+    </item>
+    
+    <item>
+      <title>3.4 - Connector</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.4-connector.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.4-connector.html</guid>
+      <description>3.4 - Connector For client applications, you need to implement an implementation of the IoConnector interface.
+IoConnector As we have to use an IoAcceptor for servers, you have to implement the IoConnector. Again, we have many implementation classes :
+ NioSocketConnector : the non-blocking Socket transport Connector NioDatagramConnector : the non-blocking UDP transport * Connector* AprSocketConnector : the blocking Socket transport * Connector*, based on APR ProxyConnector : a Connector providing proxy support SerialConnector : a Connector for a serial transport VmPipeConnector : the in-VM * Connector*  Just pick the one that fit your need.</description>
+    </item>
+    
+    <item>
+      <title>4.1 - Session Configuration</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch4-session/ch4.1-session-configuration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch4-session/ch4.1-session-configuration.html</guid>
+      <description>4.1 - Session Configuration Depending on the Session&amp;rsquo;s type, we can configure various elements. Some of those elements are shared across all the session&amp;rsquo;s type, some other are specific.
+We currently support 4 session flavors :
+ Socket : support for the TCP transport Datagram : support for the UDP transport Serial : support for the RS232 transport VmPipe : support for the IPC transport  General parameters Here is the list of all the global parameters (they can be set fo any of the Session flavors) :</description>
+    </item>
+    
+    <item>
+      <title>4.2 - Session Statistics</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch4-session/ch4.2-session-statistics.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch4-session/ch4.2-session-statistics.html</guid>
+      <description>4.2 - Session Statistics We keep some statistics in each sessions about what&amp;rsquo;s going on. Not all those statistics are computed fr every message though : some of them are computed on demand.
+   Parameter type Description automatic     readBytes long The total number of bytes read since the session was created yes   readBytesThroughput double The number of bytes read per second in the last interval no   readMessages long The total number of messages read since the session was created yes   readMessagesThroughput double The number of messages read per second in the last interval no   scheduledWriteBytes AtomicInteger The number of bytes waiting to be written yes   scheduledWriteMessages AtomicInteger The number of messages waiting to be written yes   writtenBytes long The total number of bytes written since the session was created yes   writtenBytesThroughput double The number of bytes written per second in the last interval no   writtenMessages long The total number of messages written since the session was created yes   writtenMessagesThroughput double The number of messages written per second in the last interval no    All those parameters can be read using getters.</description>
+    </item>
+    
+    <item>
+      <title>5.1 - Blacklist Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.1-blacklist-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.1-blacklist-filter.html</guid>
+      <description>5.1 - Blacklist Filter This filter blocks connections from blacklisted remote addresses. One can block Addresses or Subnets. In any case, when an event happens on a blocked session, the session will simply be closed. Here are the events this filter handles :
+ event (MINA 2.1) messageReceived messageSent sessionCreated sessionIdle sessionOpened  There is no need to handle any other event.
+Blocking an address Any address or subnet can be blocked live, ie it does not matter if a session is already active or not, this dynamically activated.</description>
+    </item>
+    
+    <item>
+      <title>5.10 - MDC Injection Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.10-mdc-injection-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.10-mdc-injection-filter.html</guid>
+      <description>5.10 - MDC Injection Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.11 - NOOP Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.11-noop-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.11-noop-filter.html</guid>
+      <description>5.11 - NOOP Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.12 - Profiler Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.12-profiler-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.12-profiler-filter.html</guid>
+      <description>5.12 - Profiler Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.13 - Protocol Codec Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.13-protocol-codec-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.13-protocol-codec-filter.html</guid>
+      <description>5.13 - Protocol Codec Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.14 - Proxy Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.14-proxy-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.14-proxy-filter.html</guid>
+      <description>5.14 - Proxy Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.15 - Reference Counting Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.15-reference-counting-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.15-reference-counting-filter.html</guid>
+      <description>5.15 - Reference Counting Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.16 - Request/Response Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.16-request-response-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.16-request-response-filter.html</guid>
+      <description>5.16 - Request/Response Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.17 - Session Attribute Initializing Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.17-session-attribute-initializing-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.17-session-attribute-initializing-filter.html</guid>
+      <description>5.17 - Session Attribute Initializing Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.18 - Stream Write Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.18-stream-write-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.18-stream-write-filter.html</guid>
+      <description>5.18 - Stream Write Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.19 - SSL/TLS Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.19-ssl-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.19-ssl-filter.html</guid>
+      <description>5.19 - SSL/TLS Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.2 - Buffered Write Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.2-buffered-write-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.2-buffered-write-filter.html</guid>
+      <description>5.2 - Buffered Write Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.20 - Write Request Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.20-write-request-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.20-write-request-filter.html</guid>
+      <description>5.20 - Write Request Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.3 - Compression Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.3-compression-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.3-compression-filter.html</guid>
+      <description>5.3 - Compression Filter The CompressionFilter class is used to compress data before it gets sent and decompress it when it&amp;rsquo;s received. It uses the JZLIB library.
+It only handles two events :
+ messageReceived: The received message will be decompressed, if it&amp;rsquo;s contained in a IoBuffer. filterWrite: The message to write will be compressed, assuming it&amp;rsquo;s stored in a IoBuffer (otherwise an exception will be generated).  Configuration It&amp;rsquo;s possible to configure the CompressionFilter, with the listed parameters :</description>
+    </item>
+    
+    <item>
+      <title>5.4 - Connection Throttle Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.4-connection-throttle-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.4-connection-throttle-filter.html</guid>
+      <description>5.4 - Connection Throttle Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.5 - Error Generating Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.5-error-generating-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.5-error-generating-filter.html</guid>
+      <description>5.5 - Error Generating Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.6 - Executor Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.6-executor-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.6-executor-filter.html</guid>
+      <description>5.6 - Executor Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.7 - FileRegion Write Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.7-file-region-write-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.7-file-region-write-filter.html</guid>
+      <description>5.7 - FileRegion Write Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.8 - KeepAlive Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.8-keep-alive-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.8-keep-alive-filter.html</guid>
+      <description>5.8 - KeepAlive Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.9 - Logging Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.9-logging-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.9-logging-filter.html</guid>
+      <description>5.9 - Logging Filter The Logging filter allows an application to logs MINA protocol events while they are transiting on the filters chain. It can be added dynamically (ie, a session may add a filter whenever it wants).
+The tracked events are :
+ exceptionCaught messageReceived messageSent sessionClosed sessionCreated sessionIdle sessionOpened  The event, filterClose, filterWrite and inputClosed events are not tracked.
+Adding the filter This can be done once and for each session, while creating the IoFilterChainBuilder instance :</description>
+    </item>
+    
+    <item>
+      <title>6.1 - APR Transport</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6.1-apr-transport.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6.1-apr-transport.html</guid>
+      <description>6.1 - APR Transport Introduction APR (Apache Portable Runtime) provide superior scalability, performance, and better integration with native server technologies. APR transport is supported by MINA. In this section, we shall touch base upon how to use APR transport with MINA. We shall the Time Server example for this.
+Pre-requisite APR transport depends following components
+APR library - Download/install appropriate library for the platform from https://www.apache.org/dist/tomcat/tomcat-connectors/native/
+JNI wrapper (tomcat-apr-5.5.23.jar) The jar is shipped with release Put the native library in PATH</description>
+    </item>
+    
+    <item>
+      <title>6.2 - Serial Transport</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6.2-serial-transport.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6.2-serial-transport.html</guid>
+      <description>6.2 - Serial Transport With the MINA 2.0 you are able to connect to serial port like you use to connect to a TCP/IP port with MINA.
+Getting MINA 2.0 You you can download the latest built version (2.0.2).
+If you prefer to build the code from the trunk, and need assistance to do so, please consult the Developer Guide.
+Prerequisite Useful Information
+Before accessing serial port from a Java program you need a native library (.</description>
+    </item>
+    
+    <item>
+      <title>Apache MINA Mailing Lists</title>
+      <link>https://mina.apache.org/mina-project/mailing-lists.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/mailing-lists.html</guid>
+      <description>The Apache MINA team interacts with MINA developers and users via mailing lists. If you have any questions or something to say to us, please subscribe to our user mailing list and post a message. If you would like to contribute to the development of MINA, please subscribe to the developer mailing list.
+Do NOT cross post (ie mail to users and dev). Pick the right list
+Take a few minutes to read this page :Asking Smart Questions</description>
+    </item>
+    
+    <item>
+      <title>Chapter 1 - Getting Started</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1-getting-started.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1-getting-started.html</guid>
+      <description>Chapter 1 - Getting Started In this chapter, we will give you first sense of what is MINA, what is NIO, why we developed a framework on top of NIO and what you will find inside. We will also show you how to run a very simple example of a server run with MINA
+ 1.1 - NIO Overview 1.2 - Why MINA ? 1.3 - Features 1.4 - First Steps 1.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 10 - Executor Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch10-executor-filter/ch10-executor-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch10-executor-filter/ch10-executor-filter.html</guid>
+      <description>Chapter 10 - Executor Filter MINA 1.X version let the user define the Thread Model at the Acceptor level. It was part of the Acceptor configuration. This led to complexity, and the MINA team decided to remove this option, replacing it with a much more versatile system, based on a filter : the ExecutorFilter.
+The ExecutorFilter class This class is implementing the IoFilter interface, and basically, it contains an Executor to spread the incoming events to a pool of threads.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 11 - SSL Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch11-ssl-filter/ch11-ssl-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch11-ssl-filter/ch11-ssl-filter.html</guid>
+      <description>Chapter 11 - SSL Filter The SslFilter is the filter in charge of managing the encryption and decryption of data sent through a secured connection. Whenever you need to establish a secured connection, or to transform an existing connection to make it secure, you have to add the SslFilter in your filter chain.
+As any session can modify it&amp;rsquo;s message filter chain at will, it allows for protocols like startTLS to be used on an opened connection.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 12 - Logging Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch12-logging-filter/ch12-logging-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch12-logging-filter/ch12-logging-filter.html</guid>
+      <description>Chapter 12 - Logging Filter  SLF4J  Choosing the Right JARs Overriding Jakarta Commons Logging   log4j example   Background The Apache MINA uses a system that allows for the developer of the MINA-base application to use their own logging system.
+SLF4J MINA employs the Simple Logging Facade for Java (SLF4J). You can find information on SLF4J here. This logging utility allows for the implementation of any number of logging systems.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 13 - Debugging</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch13-debugging/ch13-debugging.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch13-debugging/ch13-debugging.html</guid>
+      <description>Chapter 13 - Debugging To be completed&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Chapter 14 - State Machine</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch14-state-machine/ch14-state-machine.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch14-state-machine/ch14-state-machine.html</guid>
+      <description>Chapter 14 - State Machine If you are using MINA to develop an application with complex network interactions you may at some point find yourself reaching for the good old State pattern to try to sort out some of that complexity. However, before you do that you might want to checkout mina-statemachine which tries to address some of the shortcomings of the State pattern.
+ A simple example   Lookup a StateContext object Convert the method invocation into an Event object Invoke the StateMachine Execute the Transition   State inheritance Error handling using state inheritance mina-statemachine with IoHandler   Changing state programmatically Calling the state machine recursively   A simple example Let&amp;rsquo;s demonstrate how mina-statemachine works with a simple example.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 15 - Proxy</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch15-proxy/ch15-proxy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch15-proxy/ch15-proxy.html</guid>
+      <description>Chapter 15 - Proxy To be completed&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Chapter 16 - JMX Support</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch16-jmx-support/ch16-jmx-support.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch16-jmx-support/ch16-jmx-support.html</guid>
+      <description>Chapter 16 - JMX Support Java Management Extensions (JMX) is used for managing and monitoring java applications. This tutorial will provide you with an example as to how you can JMX-enable your MINA based application.
+This tutorial is designed to help you get the JMX technology integrated in to your MINA-based application. In this tutorial, we will integrate the MINA-JMX classes into the imagine server example program.
+Adding JMX Support To JMX enable MINA application we have to perform following</description>
+    </item>
+    
+    <item>
+      <title>Chapter 17 - Spring Integration</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch17-spring-integration/ch17-spring-integration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch17-spring-integration/ch17-spring-integration.html</guid>
+      <description>Chapter 17 - Spring Integration This article demonstrates integrating MINA application with Spring. I wrote this article on my blog, and though to put it here, where this information actually belongs to. Can find the original copy at Integrating Apache MINA with Spring.
+Application Structure We shall take a standard MINA application which has following construct
+ One Handler Two Filter - Logging Filter and a ProtocolCodec Filter NioDatagram Socket  Initialization Code Lets see the code first.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 2 - Basics</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2-basics.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2-basics.html</guid>
+      <description>Chapter 2 - Basics In Chapter 1, we had a brief glimpse of Apache MINA. In this chapter we shall have a look at Client/Server Architecture and details on working out a MINA based Server and Client.
+We will also expose some very simple Servers and Clients, based on TCP and UDP.
+ 2.1 - Application Architecture  2.1.1 - Server Architecture 2.1.2 - Client Architecture   2.3 - Sample TCP Client 2.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 3 - Service</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch3-service/ch3-service.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch3-service/ch3-service.html</guid>
+      <description>Chapter 3 - IoService A MINA IoService - as seen in the application architecture chapter, is the base class supporting all the IO services, either from the server side or the client side.
+It will handle all the interaction with your application, and with the remote peer, send and receive messages, manage sessions, connections, etc.
+It&amp;rsquo;s an interface, which is implemented as an IoAcceptor for the server side, and IoConnector for the client side.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 4 - Session</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch4-session/ch4-session.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch4-session/ch4-session.html</guid>
+      <description>Chapter 4 - Session  4.1 - Session Configuration 4.2 - Session Statistics  Introduction The Session is at the heart of MINA : every time a client connects to the server, a new session is created on the server, and will be kept in memory until the client is disconnected. If you are using MINA on the client side, every time you connect to a server, a session will be created on the client too.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 5 - Filters</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5-filters.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5-filters.html</guid>
+      <description>Chapter 5 - Filters  5.1 - Blacklist Filter 5.2 - Buffered Write Filter 5.3 - Compression Filter 5.4 - Connection Throttle Filter 5.5 - Error Generating Filter 5.6 - Executor Filter 5.7 - FileRegion Write Filter 5.8 - KeepAlive Filter 5.9 - Logging Filter 5.10 - MDC Injection Filter 5.11 - NOOP Filter 5.12 - Profiler Filter 5.13 - Protocol Codec Filter 5.14 - Proxy Filter 5.15 - Reference Counting Filter 5.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 6 - Transports</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6-transports.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6-transports.html</guid>
+      <description>Chapter 6 - Transports  6.1 - APR Transport 6.2 - Serial Transport  </description>
+    </item>
+    
+    <item>
+      <title>Chapter 7 - Handler</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch7-handler/ch7-handler.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch7-handler/ch7-handler.html</guid>
+      <description>Chapter 7 - Handler Handles all I/O events fired by MINA. The interface is hub of all activities done at the end of the Filter Chain.
+IoHandler has following functions
+ sessionCreated sessionOpened sessionClosed sessionIdle exceptionCaught messageReceived messageSent  sessionCreated Event Session Created event is fired when a new connection is created. For TCP its the result of connection accept, and for UDP this is generated when a UDP packet is received.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 8 - IoBuffer</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch8-iobuffer/ch8-iobuffer.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch8-iobuffer/ch8-iobuffer.html</guid>
+      <description>Chapter 8 - IoBuffer A byte buffer used by MINA applications.
+This is a replacement for ByteBuffer. MINA does not use NIO ByteBuffer directly for two reasons:
+ It doesn&amp;rsquo;t provide useful getters and putters such as fill, get/putString, and get/putAsciiInt() . It is difficult to write variable-length data due to its fixed capacity  This will change in MINA 3. The main reason why MINA has its own wrapper on top of nio ByteBuffer is to have extensible buffers.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 9 - Codec Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch9-codec-filter/ch9-codec-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch9-codec-filter/ch9-codec-filter.html</guid>
+      <description>Chapter 9 - Codec Filter This tutorial tries to explain why and how to use a ProtocolCodecFilter.
+Why use a ProtocolCodecFilter?  TCP guarantees delivery of all packets in the correct order. But there is no guarantee that one write operation on the sender-side will result in one read event on the receiving side. see http://en.wikipedia.org/wiki/IPv4#Fragmentation_and_reassembly and http://en.wikipedia.org/wiki/Nagle%27s_algorithm In MINA terminology: without a ProtocolCodecFilter one call of IoSession.write(Object message) by the sender can result in multiple messageReceived(IoSession session, Object message) events on the receiver; and multiple calls of IoSession.</description>
+    </item>
+    
+    <item>
+      <title>Developer Guide</title>
+      <link>https://mina.apache.org/mina-project/developer-guide.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/developer-guide.html</guid>
+      <description>Building MINA Please read the Developer Infrastructure Information if you haven&#39;t yet before you proceed.   Preparing the release for the vote  Step 0: Building MINA Step 1: Tagging and Deploying step 2 : Processing with a dry run Step 3 : Processing with the real release Step 4 : perform the release Step 5 : closing the staging release on nexus Step 6 : Build the Site Step 7 : Sign the packages Step 8 : Publish Source and Binary Distribution Packages Step 9 : Test the New Version with FtpServer, Sshd and Vysper   Step 10 : Voting a release  Step 11 : Close the vote Step 12: Deploy Web Reports (JavaDoc and JXR) Step 13: Wait 24 hours Step 14: Update the Links in Web Site Step 15: Wait another 24 hours Step 16: Announce the New Release     Checking out the code You need Git to check out the source code from our source code repository, and [Maven(http://maven.</description>
+    </item>
+    
+    <item>
+      <title>Documentation</title>
+      <link>https://mina.apache.org/mina-project/documentation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/documentation.html</guid>
+      <description>Documentation The MINA 2.0 User Guide can be found here : [User Guide](userguide/user-guide-toc.html)   Presentation Materials Versions &amp; References Tutorials  For Developers   Examples Older Presentation Materials   Presentation Materials These presentation materials will help you understand the overall architecture and core constructs of MINA
+ MINA in real life (ApacheCon EU 2009) by Emmanuel Lécharny Rapid Network Application Development with Apache MINA (JavaOne 2008) by Trustin Lee Apache MINA - The High Performance Protocol Construction Toolkit (ApacheCon US 2007) by Peter Royal Introduction to MINA (ApacheCon Asia 2006) by Trustin Lee  Versions &amp;amp; References There are currently three branches in MINA:</description>
+    </item>
+    
+    <item>
+      <title>FAQ</title>
+      <link>https://mina.apache.org/mina-project/faq.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/faq.html</guid>
+      <description>MINA FAQ  General What does MINA mean?  What transport does MINA support? How does MINA perform? Which version of MINA should I use? What is required to build/run MINA? How can I get help? How / What can I contribute?   Can MINA&amp;hellip;?  Can I use MINA to create client (or server) applications? Can MINA handle text protocols such as HTTP? Can MINA handle complex binary protocols such as LDAP?</description>
+    </item>
+    
+    <item>
+      <title>Features</title>
+      <link>https://mina.apache.org/mina-project/features.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/features.html</guid>
+      <description>Features MINA is a simple yet full-featured network application framework which provides:
+ Unified API for various transport types:  TCP/IP &amp;amp; UDP/IP via Java NIO Serial communication (RS232) via RXTX In-VM pipe communication You can implement your own!   Filter interface as an extension point; similar to Servlet filters Low-level and high-level API:  Low-level: uses ByteBuffers High-level: uses user-defined message objects and codecs   Highly customizable thread model:  Single thread One thread pool More than one thread pools (i.</description>
+    </item>
+    
+    <item>
+      <title>Issue Tracking</title>
+      <link>https://mina.apache.org/mina-project/issue-tracking.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/issue-tracking.html</guid>
+      <description>Our project uses JIRA, a Java EE based issue tracking and project management application.
+General guidance First, this is the best place to submit bugs (or what you think is a bug). The mailing list is a short term memory place, don&amp;rsquo;t expect your problem to be answered if it&amp;rsquo;s not in the next couple of days you posted on it.
+What are the important information you need to put when filing a JIRA ?</description>
+    </item>
+    
+    <item>
+      <title>Message flow</title>
+      <link>https://mina.apache.org/mina-project/technical-documentation/message-flow.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/technical-documentation/message-flow.html</guid>
+      <description>Message flow When a selector receives some OP_READ event, the associated IoProcessor is awaken and starts to process this event. It all starts with reading the channel, then pushing the read data through the filter chain down to the IoHandler (aka, the application). If the application decides to write back a response, it goes through the chain again, andultimately the data to be pushed into the channel is pushed into a queue (_writeRequestQueue), then the stack is unfolled, down to the IoProcessor, which pops the data from the queue and writes it into the channel.</description>
+    </item>
+    
+    <item>
+      <title>MINA 2.0.x Downloads</title>
+      <link>https://mina.apache.org/mina-project/downloads_2_0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/downloads_2_0.html</guid>
+      <description>Latest MINA Releases Apache MINA 2.0.21 stable (Java 7+) Binaries  .tar.gz archive mina-2.0.21 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.0.21 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.0.21 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.0.21 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.0.21 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.0.21 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+    </item>
+    
+    <item>
+      <title>MINA 2.1.x Downloads</title>
+      <link>https://mina.apache.org/mina-project/downloads_2_1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/downloads_2_1.html</guid>
+      <description>Latest MINA Releases Apache MINA 2.1.3 stable (Java 8+) Binaries  .tar.gz archive mina-2.1.3 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.1.3 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.1.3 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.1.3 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.1.3 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.1.3 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+    </item>
+    
+    <item>
+      <title>MINA 2.1.x vs MINA 2.0.x</title>
+      <link>https://mina.apache.org/mina-project/2.1-vs-2.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/2.1-vs-2.0.html</guid>
+      <description>2.1.x vs 2.0.x differences The way an application is informed that a session has been secured (ie, the SSL/TLS handshake has been successfully completed) was to use a notification system. A specific message was pushed for that purpose, up to the client application to check that message. It forced the application implementer to inject a special session attribute (SslFilter.USE_NOTIFICATION), which is a bit heavy.
+It was decided to change that and make it easier for the application to get this information.</description>
+    </item>
+    
+    <item>
+      <title>MINA Codec Repository</title>
+      <link>https://mina.apache.org/mina-project/codec-repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/codec-repo.html</guid>
+      <description>Overview This page captures known MINA Codecs available. These codecs may not be part of Apache MINA project. The Codecs are for reference purpose only.
+The Codecs listed here may not be part of Apache MINA project. The information is for MINA Users for reference implementation available over the web  Protocol Codecs The table below summarizes some of the known codecs
+   Protocol Project Description     Prefixed String Apache MINA Encodes/Decodes a a String with fixed length prefix   Object Serializer Apache MINA Serializes and deserializes Java objects   Text Line Apache MINA Encoding/Decoding between a text line data and a Java string object   Ftp Apache FtpServer FTP codecs   LDAP Apache Directory LDAP protocol Codecs   DNS Apache Directory DNS protocol Codecs   Kerberos Apache Directory Kerberos protocol Codecs   NTP Apache Directory NTP protocol Codecs   DHCP Apache Directory DHCP protocol Codecs   MRTMP Red5 Codecs for Multiplexing RTMP   RTMP Red5 Codecs for RTMP   RTSP Red5 Codecs for RTSP   SMTP MailsterSMTP SMTP Codecs   AMQP Apache Qpid AMQP Codecs   XMPP Jive Software Openfire XMPP Codecs   XMPP Vysper XMPP/XML Codecs.</description>
+    </item>
+    
+    <item>
+      <title>MINA Home</title>
+      <link>https://mina.apache.org/mina-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/</guid>
+      <description>Welcome to Apache MINA Overview Apache MINA is a network application framework which helps users develop high performance and high scalability network applications easily. It provides an abstract ·event-driven · asynchronous API over various transports such as TCP/IP and UDP/IP via Java NIO.
+Apache MINA is often called:
+ NIO framework · library, client · server framework · library, or a networking · socket library.  However, it&amp;rsquo;s much more than that.</description>
+    </item>
+    
+    <item>
+      <title>MINA Older Downloads</title>
+      <link>https://mina.apache.org/mina-project/downloads_old.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/downloads_old.html</guid>
+      <description>Older MINA Releases For people wanting to use the serial package, we don&#39;t include the rxtx.jar library in the releases, as it&#39;s under a LGPL license. Please download it from http://rxtx.qbang.org/wiki/index.php/Download or add the associated dependency in your maven pom.xml :  &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.rxtx&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxtx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.1.7&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;scope&amp;gt; &amp;lt;/dependency&amp;gt;   MINA 2.1.x     Version Download Links Date     ApacheDS MINA 2.1.2 Download, Javadoc, Test javadoc, Xref, Xref test 20/Apr/2019   ApacheDS MINA 2.</description>
+    </item>
+    
+    <item>
+      <title>MINA Presentation Materials</title>
+      <link>https://mina.apache.org/mina-project/conferences.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/conferences.html</guid>
+      <description>Presentation Materials These presentation materials will help you understand the overall architecture and core constructs of MINA.
+ MINA in real life (ApacheCon EU 2009) by Emmanuel Lécharny Rapid Network Application Development with Apache MINA (JavaOne 2008) by Trustin Lee Apache MINA - The High Performance Protocol Construction Toolkit (ApacheCon US 2007) by Peter Royal Introduction to MINA (ApacheCon Asia 2006) by Trustin Lee  Other Presentation Materials  Building TCP/IP Servers with Apache MINA (ApacheCon EU 2007) by Peter Royal Building TCP/IP Servers with Apache MINA (ApacheCon EU 2006) by Peter Royal Introduction to MINA (ApacheCon US 2005) by Trustin Lee Demo movie  </description>
+    </item>
+    
+    <item>
+      <title>News</title>
+      <link>https://mina.apache.org/mina-project/news.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/news.html</guid>
+      <description>News MINA 2.1.3 released posted on June, 2, 2019 The MINA project is pleased to announce a new release, MINA 2.1.3. This is a bug fix release: it fixes a 100% CPU usage in some corner case. Here are the fixed issues :
+ DIRMINA-1095 Seems like the management f UDP sessions is really unneficient DIRMINA-1107 SslHandler flushScheduledEvents race condition, redux DIRMINA-1111 100% CPU (epoll bug) on 2.1.x, Linux only DIRMINA-1104 IoBufferHexDumper.</description>
+    </item>
+    
+    <item>
+      <title>Performance Test Reports</title>
+      <link>https://mina.apache.org/mina-project/performances.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/performances.html</guid>
+      <description>Before You Read the Performance Test Reports&amp;hellip; This page exhibits the performance test results under various conditions (e.g. various protocols and system environments). Please [contact us|Mailing Lists] if you have any specific performance test results to publish for your MINA-based application.
+The following performance test results may have critical flaws in test design or contain wrong values. Please regard these reports as just a hint for understanding general performance characteristics of Apache MINA.</description>
+    </item>
+    
+    <item>
+      <title>Quick Start Guide</title>
+      <link>https://mina.apache.org/mina-project/quick-start-guide.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/quick-start-guide.html</guid>
+      <description>Quick Start Guide This tutorial will walk you through the process of building a MINA based program. This tutorial will walk through building a time server. The following prerequisites are required for this tutorial:
+ MINA 2.0.7 Core JDK 1.5 or greater [SLF4J|http://www.slf4j.org/] 1.3.0 or greater  Log4J 1.2 users: slf4j-api.jar, slf4j-log4j12.jar, and Log4J 1.2.x Log4J 1.3 users: slf4j-api.jar, slf4j-log4j13.jar, and Log4J 1.3.x java.util.logging users: slf4j-api.jar and slf4j-jdk14.jar IMPORTANT : Please make sure you are using the right slf4j-*.</description>
+    </item>
+    
+    <item>
+      <title>Related Projects</title>
+      <link>https://mina.apache.org/mina-project/related-projects.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/related-projects.html</guid>
+      <description>Related Projects This page lists the projects which use Apache MINA as its networking layer. Please contact us if you are using MINA and you want to add a link to this page. You could also read the users&amp;rsquo; testimonials. To compare MINA to other network application frameworks, please refer to the &amp;lsquo;Other network application frameworks&amp;rsquo; section below.
+ Other network application frameworks  Grizzly Netty 3 NIO Framework QuickServer xSocket   Messaging  Apache Camel Apache Qpid (incubating) Avis MailsterSMTP   Instant Messaging  Jive Software Openfire   Media Storage &amp; Streaming  OpenLSD Red5   Miscellaneous  Apache Directory Project Beep4j VFS FTPServer Bridge HDFS over FTP     Other network application frameworks The projects referred in this section &#39;Other network application frameworks&#39; are not based on MINA but are their own network application frameworks.</description>
+    </item>
+    
+    <item>
+      <title>Road map</title>
+      <link>https://mina.apache.org/mina-project/road-map.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/road-map.html</guid>
+      <description>Please click the following links to find out what issues have been resolved and what issues will be resolved.
+ Road map for the future releases Change log for the past releases  Genesis of MINA by Trustin Lee
+In June 2004, I released a network application framework, &amp;lsquo;Netty2&amp;rsquo;. It was the first network application framework that provides event-based architecture in Java community. It attracted network application programmers because of its simplicity and ease of use.</description>
+    </item>
+    
+    <item>
+      <title>Setting SVN Properties in Tortoise SVN</title>
+      <link>https://mina.apache.org/mina-project/set-svnprops-tortoisesvn.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/set-svnprops-tortoisesvn.html</guid>
+      <description>Setting SVN Properties in Tortoise SVN This article is for configuring SVN properties for TortoiseSVN Client
+To maintain header&amp;rsquo;s with revision tags like, we need to set SVN properties.
+/** * @version $Rev: 529576 $, $Date: 2007-04-17 14:25:07 +0200 (mar., 17 avr. 2007) $ */ Lets see how to set these properties in Tortoise SVN Client
+Open Tortoise SVN Client setting, (Right Click-&amp;gt; Tortoise SVN -&amp;gt; Settings)
+Click Edit button (as shown in figure)</description>
+    </item>
+    
+    <item>
+      <title>Sources</title>
+      <link>https://mina.apache.org/mina-project/sources.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/sources.html</guid>
+      <description>Overview Sources for the Apache MINA projects are currently managed through GIT. Instructions on GIT use can be found at http://git-scm.com/book/.
+For each project you can find a detailed description how to checkout and build the source on the project documentation. This page is just a short overview.
+Normal Git Access Anyone can check code out of Git. You only need to specify a username and password in order to update the Git repository, and only MINA committers have the permissions to do that.</description>
+    </item>
+    
+    <item>
+      <title>SSL/TLS internals</title>
+      <link>https://mina.apache.org/mina-project/technical-documentation/ssl-tls-internal.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/technical-documentation/ssl-tls-internal.html</guid>
+      <description>SSL/TLS internals This is a technical description of how SSL/TLS are handled in MINA. You don&amp;rsquo;t need to read this to have it working, better have a look at the SslFilter user guide page. However, if you want to get a deeper understanding on how it&amp;rsquo;s built, this is the place !
+Components The SslFilter is the filter that command everything related to SSL/TLS. It works hands in hands with the SSLHandler class, which handles the logic.</description>
+    </item>
+    
+    <item>
+      <title>Testimonials</title>
+      <link>https://mina.apache.org/mina-project/testimonials.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/testimonials.html</guid>
+      <description>Marko Asplund says:
+ I found that Apache MINA really did fulfill its promise and implementing a high-performance, scalable and extensible network server was easy using it. MINA also helps very cleanly separate network communication and application level message processing logic. Supporting multiple different protocols in in the same server is well supported in MINA. As a downside the documentation for v2.0 is a bit lacking, but fortunately there are quite a few code samples that you can check out.</description>
+    </item>
+    
+    <item>
+      <title>User Guide</title>
+      <link>https://mina.apache.org/mina-project/userguide/user-guide-toc.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/user-guide-toc.html</guid>
+      <description>MINA 2.0 User Guide Part I - Basics
+ Chapter 1 - Getting Started  1.1 - NIO Overview 1.2 - Why MINA ? 1.3 - Features 1.4 - First Steps 1.5 - Summary   Chapter 2 - Basics  2.1 - Application Architecture  2.1.1 - Server Architecture 2.1.2 - Client Architecture   2.2 - Sample TCP Server 2.3 - Sample TCP Client 2.4 - Sample UDP Server 2.</description>
+    </item>
+    
+  </channel>
+</rss>

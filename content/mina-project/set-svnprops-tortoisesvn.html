@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Setting SVN Properties in Tortoise SVN &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                <strong>MINA</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Latest Downloads</h5>
+                <ul>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.21</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.3</a></li>
+                    <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
+                </ul>
+                <h5>Documentation</h5>
+                <ul>
+                    <li><a href="/mina-project/documentation.html" class="external-link" rel="nofollow">Base documentation</a></li>
+                    <li><a href="/mina-project/userguide/user-guide-toc.html" class="external-link" rel="nofollow">User guide</a></li>
+                    <li><a href="/mina-project/2.1-vs-2.0.html" class="external-link" rel="nofollow">2.1 vs 2.0</a></li>
+                    <li><a href="/mina-project/features.html" class="external-link" rel="nofollow">Features</a></li>
+                    <li><a href="/mina-project/road-map.html" class="external-link" rel="nofollow">Road Map</a></li>
+                    <li><a href="/mina-project/quick-start-guide.html" class="external-link" rel="nofollow">Quick Start Guide</a></li>
+                    <li><a href="/mina-project/faq.html" class="external-link" rel="nofollow">FAQ</a></li>
+                </ul>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
+                    <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
+                    <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.3</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.3</a></li>
+                    <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
+                    <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
+                    <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
+                    <li><a href="/mina-project/developer-guide.html" class="external-link" rel="nofollow">Developers Guide</a></li>
+                    <li><a href="/mina-project/related-projects.html" class="external-link" rel="nofollow">Related Projects</a></li>
+                    <li><a href="https://people.apache.org/~vgritsenko/stats/projects/mina.html" class="external-link" rel="nofollow">Statistics</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/contributing.html" class="external-link" rel="nofollow">Contributing</a></li>
+                    <li><a href="/contributors.html" class="external-link" rel="nofollow">Team</a></li>
+                    <li><a href="/special-thanks.html" class="external-link" rel="nofollow">Special Thanks</a></li>
+                    <li><a href="https://www.apache.org/security/" class="external-link" rel="nofollow">Security</a></li>
+                </ul>
+
+                <h5>About Apache</h5>
+                <ul>
+                    <li><a href="https://www.apache.org" class="external-link" rel="nofollow">Apache main site</a></li>
+                    <li><a href="https://www.apache.org/licenses/" class="external-link" rel="nofollow">License</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html" title="The ASF sponsorship program" class="external-link" rel="nofollow">Sponsorship program</a></li>
+                    <li><a href="https://www.apache.org/foundation/thanks.html" class="external-link" rel="nofollow">Thanks</a></li>
+                </ul>
+
+                <h3><a name="Navigation-Upcoming"></a>Upcoming</h3>
+                <ul>
+                    <li>No event</li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="setting-svn-properties-in-tortoise-svn">Setting SVN Properties in Tortoise SVN</h1>
+<p>This article is for configuring SVN properties for TortoiseSVN Client</p>
+<p>To maintain header&rsquo;s with revision tags like, we need to set SVN properties.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/**
+ * @version $Rev: 529576 $, $Date: 2007-04-17 14:25:07 +0200 (mar., 17 avr. 2007) $
+*/
+</code></pre></div><p>Lets see how to set these properties in Tortoise SVN Client</p>
+<p>Open Tortoise SVN Client setting, (Right Click-&gt; Tortoise SVN -&gt; Settings)</p>
+<p><img src="/assets/img/mina/tortoisesvn_setting.png" alt="TortoiseSVN"></p>
+<p>Click Edit button (as shown in figure)</p>
+<p><img src="/assets/img/mina/tortoisesvn_settingdialog.png" alt="TortoiseSVN setting"></p>
+<p>The svn properties config file shall open up.</p>
+<p>Search for enable-auto-props = yes and uncomment, if not already done. The attribute is under miscellany</p>
+<p>Configure the properties auto-props section</p>
+<p>Please note that I have taken these properties from <a href="http://wiki.apache.org/incubator-yoko/SetUpAutoProps">http://wiki.apache.org/incubator-yoko/SetUpAutoProps</a>. Feel free to
+update as per your needs.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">*.java = svn:eol-style=native;svn:keywords=Rev Date
+*.xml = svn:mime-type=text/xml;svn:eol-style=native;svn:keywords=Rev Date
+*.xsl = svn:mime-type=text/xml;svn:eol-style=native;svn:keywords=Rev Date
+*.xsd = svn:mime-type=text/xml;svn:eol-style=native;svn:keywords=Rev Date
+*.wsdl = svn:mime-type=text/xml;svn:eol-style=native;svn:keywords=Rev Date
+*.properties = svn:mime-type=text/plain;svn:eol-style=native;svn:keywords=Rev Date
+*.c = svn:eol-style=native
+*.cpp = svn:eol-style=native
+*.h = svn:eol-style=native
+*.dsp = svn:eol-style=CRLF
+*.dsw = svn:eol-style=CRLF
+*.sh = svn:eol-style=native;svn:executable
+*.bat = svn:eol-style=native
+*.pl = svn:eol-style=native
+*.py = svn:eol-style=native
+*.cmd = svn:eol-style=native
+*.txt = svn:eol-style=native;svn:mime-type=text/plain
+*.htm* = svn:eol-style=native;svn:mime-type=text/html;svn:keywords=Rev Date
+ChangeLog = svn:eol-style=native;svn:mime-type=text/plain
+README* = svn:eol-style=native;svn:mime-type=text/plain
+LICENSE* = svn:eol-style=native;svn:mime-type=text/plain
+NOTICE* = svn:eol-style=native;svn:mime-type=text/plain
+TODO* = svn:eol-style=native;svn:mime-type=text/plain
+KEYS* = svn:eol-style=native;svn:mime-type=text/plain
+INSTALL* = svn:eol-style=native;svn:mime-type=text/plain
+WHATSNEW* = svn:eol-style=native;svn:mime-type=text/plain
+*.png = svn:mime-type=image/png
+*.jpg = svn:mime-type=image/jpeg
+*.gif = svn:mime-type=image/gif
+Makefile = svn:eol-style=native
+*.css = svn:eol-style=native
+*.js = svn:eol-style=native
+</code></pre></div>
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

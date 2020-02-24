@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Vysper SOCKS5 bytestream module &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/vysper.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                <strong>Vysper</strong>
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/vysper-project/index.html">Home</a> </li>
+                    <li><a href="/vysper-project/documentation.html">Documentation</a></li>
+                    <li><a href="/vysper-project/downloads.html">Downloads</a></li>
+                    <li><a href="/vysper-project/sources.html">Source</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/vysper-project/mailing_lists.html">Mailing Lists</a></li>
+                    <li><a href="/vysper-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/vysper-project/issue_tracking.html">Issue Tracking</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="socks5-bytestream-module">SOCKS5 bytestream module</h1>
+<div class="info" markdown="1">
+    Available since version 0.7.
+</div>
+<p>The Vysper SOCKS5 Bytestream module implements mediated connections from XEP-0065 SOCKS5 Bytestream. Direct connections requires no support from the server and thus works without this module. For mediated connections, this module will supply a SOCKS5 proxy that transfers data between the requester and target clients. The module also provides all the required service discovery support used to negotiate the address of the SOCKS5 proxy.</p>
+<p>The example below shows how to add the module using the API:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">XMPPServer server <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMPPServer<span style="color:#666">(</span><span style="color:#666">&amp;</span>ldquo<span style="color:#666">;</span>vysper<span style="color:#666">.</span><span style="color:#b44">org</span><span style="color:#666">&amp;</span>rdquo<span style="color:#666">;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+server<span style="color:#666">.</span><span style="color:#b44">addEndpoint</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> TCPEndpoint<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+<span style="color:#080;font-style:italic">// other initialization
+</span><span style="color:#080;font-style:italic"></span>server<span style="color:#666">.</span><span style="color:#b44">addModule</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> Socks5Module<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+server<span style="color:#666">.</span><span style="color:#b44">start</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>This will enable the SOCKS5 component on socks.vysper.org and start a proxy on port 5777. Make sure socks.vysper.org resolves to the server running Vysper.</p>
+<p>To configure the subdomain name, provide the subdomain in the constructor:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">server<span style="color:#666">.</span><span style="color:#b44">addModule</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> Socks5Module<span style="color:#666">(</span><span style="color:#b44">&#34;proxy&#34;</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>In this case, the SOCKS5 component would be available on proxy.vysper.org.</p>
+<p>It is also possible to supply a socket address on which the proxy will be listening. This can be used to configure the port for the proxy, or the local address to bind the proxy to. For example:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">server<span style="color:#666">.</span><span style="color:#b44">addModule</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> Socks5Module<span style="color:#666">(</span><span style="color:#b44">&#34;proxy&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> InetSocketAddress<span style="color:#666">(</span><span style="color:#b44">&#34;foo.vysper.org&#34;</span><span style="color:#666">,</span> 18100<span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>With this code, the proxy will use the JID proxy.vysper.org, the hostname foo.vysper.org and the port 18100. It will only listen on the network interface for foo.vysper.org.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">server<span style="color:#666">.</span><span style="color:#b44">addModule</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> Socks5Module<span style="color:#666">(</span><span style="color:#b44">&#34;proxy&#34;</span><span style="color:#666">;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span><span style="color:#666">&gt;</span> InetSocketAddress<span style="color:#666">(</span>18100<span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>In this case, the proxy will use the JID and hostname proxy.vysper.org and the port 18100. It will listen on all network interfaces.</p>
+<h2 id="limitations">Limitations</h2>
+<p>The module currently only supports unauthenticated SOCKS5 connections (support for username/password connections is tracked in <a href="https://issues.apache.org/jira/browse/VYSPER-280">VYSPER-280</a>).</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

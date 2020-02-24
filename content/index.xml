@@ -1,0 +1,2242 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apache MINA on Apache Mina</title>
+    <link>https://mina.apache.org/</link>
+    <description>Recent content in Apache MINA on Apache Mina</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="https://mina.apache.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1.1 - NIO Overview</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.1-nio-overview.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.1-nio-overview.html</guid>
+      <description>NIO Overview The NIO API was introduced in Java 1.4 and had since been used for wide number of applications. The NIO API covers IO non-blocking operations.
+First of all, it&#39;s good to know that MINA is written on top of NIO 1. A new version has been designed in Java 7, NIO-2, we don&#39;t yet benefit from the added features this version is carrying.  It&#39;s also important to know that the N in NIO means New, but we will use the Non-Blocking term in many places.</description>
+    </item>
+    
+    <item>
+      <title>1.2 - Why MINA</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.2-why-mina.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.2-why-mina.html</guid>
+      <description>Why MINA ? Writing network applications are generally seen as a burden and perceived as low level development. It is an area which is not frequently studied or known by developers, either because it has been studied in school a long time ago and everything has been forgotten, or because the complexity of the network layer is frequently hidden by higher level layers, so you never get deep into it.</description>
+    </item>
+    
+    <item>
+      <title>1.3 Features</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.3-features.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.3-features.html</guid>
+      <description>Features MINA is a simple yet full-featured network application framework which provides:
+ Unified API for various transport types:  TCP/IP &amp;amp; UDP/IP via Java NIO Serial communication (RS232) via RXTX In-VM pipe communication You can implement your own!   Filter interface as an extension point; similar to Servlet filters Low-level and high-level API:  Low-level: uses ByteBuffers High-level: uses user-defined message objects and codecs   Highly customizable thread model:  Single thread One thread pool More than one thread pools (i.</description>
+    </item>
+    
+    <item>
+      <title>1.4 - First Steps</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.4-first-steps.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.4-first-steps.html</guid>
+      <description>First Steps We will show you how easy it is to use MINA, running a very simple example provided with the MINA package.
+The first thing you have to do is to setup your environment when you want to use MINA in your application. We will describe what you need to install and how to run a MINA program. Nothing fancy, just a first taste of MINA&amp;hellip;
+Download First, you have to download the latest MINA release from MINA 2.</description>
+    </item>
+    
+    <item>
+      <title>1.5 - Summary</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.5-summary.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.5-summary.html</guid>
+      <description>Summary In this chapter, we looked at MINA based Application Architecture, for Client as well as Server. We also touched upon the implementation of Sample TCP Server/Client, and UDP Server and Client.
+In the chapters to come we shall discuss about MINA Core constructs and advanced topics</description>
+    </item>
+    
+    <item>
+      <title>2.1 - Application Architecture</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1-application-architecture.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1-application-architecture.html</guid>
+      <description>2.1.1 - Server Architecture 2.1.2 - Client Architecture  2.1 - MINA based Application Architecture It&amp;rsquo;s the question most asked : &amp;lsquo;How does a MINA based application look like&amp;rsquo;? In this article lets see what&amp;rsquo;s the architecture of MINA based application. Have tried to gather the information from presentations based on MINA.
+A Bird&amp;rsquo;s Eye View :
+Here, we can see that MINA is the glue between your application (be it a client or a server) and the underlying network layer, which can be based on TCP, UDP, in-VM communication or even a RS-232C serial protocol for a client.</description>
+    </item>
+    
+    <item>
+      <title>2.1.1 - Server Architecture</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1.1-server-architecture.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1.1-server-architecture.html</guid>
+      <description>2.1.1 - Server Architecture We have exposed the MINA Application Architecture in the previous section. Let&amp;rsquo;s now focus on the Server Architecture. Basically, a Server listens on a port for incoming requests, process them and send replies. It also creates and handles a session for each client (whenever we have a TCP or UDP based protocol), this will be explain more extensively in the chapter 4.
+ IOAcceptor listens on the network for incoming connections/packets For a new connection, a new session is created and all subsequent request from IP Address/Port combination are handled in that Session All packets received for a Session, traverses the Filter Chain as specified in the diagram.</description>
+    </item>
+    
+    <item>
+      <title>2.1.2 - Client Architecture</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1.2-client-architecture.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1.2-client-architecture.html</guid>
+      <description>2.1.2 - Client Architecture We had a brief look at MINA based Server Architecture, lets see how Client looks like. Clients need to connect to a Server, send message and process the responses.
+ Client first creates an IOConnector (MINA Construct for connecting to Socket), initiates a bind with Server Upon Connection creation, a Session is created and is associated with Connection Application/Client writes to the Session, resulting in data being sent to Server, after traversing the Filter Chain All the responses/messages received from Server are traverses the Filter Chain and lands at IOHandler, for processing  </description>
+    </item>
+    
+    <item>
+      <title>2.2 - Sample TCP Server</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.2-sample-tcp-server.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.2-sample-tcp-server.html</guid>
+      <description>2.2 - Sample TCP Server This tutorial will walk you through the process of building a MINA based program. This tutorial will walk through building a time server. The following prerequisites are required for this tutorial:
+ MINA 2.x Core JDK 1.5 or greater SLF4J 1.3.0 or greater  Log4J 1.2 users: slf4j-api.jar, slf4j-log4j12.jar, and Log4J 1.2.x Log4J 1.3 users: slf4j-api.jar, slf4j-log4j13.jar, and Log4J 1.3.x java.util.logging users: slf4j-api.jar and slf4j-jdk14.jar IMPORTANT: Please make sure you are using the right slf4j-*.</description>
+    </item>
+    
+    <item>
+      <title>2.3 - Sample TCP Client</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.3-sample-tcp-client.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.3-sample-tcp-client.html</guid>
+      <description>2.3 - Sample TCP Client We have seen the Client Architecture. Lets explore a sample Client implementation.
+We shall use Sumup Client as a reference implementation.
+We will remove boiler plate code and concentrate on the important constructs. Below the code for the Client :
+public static void main(String[] args) throws Throwable { NioSocketConnector connector = new NioSocketConnector(); connector.setConnectTimeoutMillis(CONNECT_TIMEOUT); if (USE_CUSTOM_CODEC) { connector.getFilterChain().addLast(&amp;#34;codec&amp;#34;, new ProtocolCodecFilter(new SumUpProtocolCodecFactory(false))); } else { connector.getFilterChain().addLast(&amp;#34;codec&amp;#34;, new ProtocolCodecFilter(new ObjectSerializationCodecFactory())); } connector.</description>
+    </item>
+    
+    <item>
+      <title>2.4 - Sample UDP Server</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.4-sample-udp-server.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.4-sample-udp-server.html</guid>
+      <description>2.4 - Sample UDP Server We will begin by looking at the code found in the org.apache.mina.example.udp package. To keep life simple, we shall concentrate on MINA related constructs only.
+To construct the server, we shall have to do the following:
+ Create a Datagram Socket to listen for incoming Client requests (See MemoryMonitor.java) Create an IoHandler to handle the MINA framework generated events (See MemoryMonitorHandler.java)  Here is the first snippet that addresses Point# 1:</description>
+    </item>
+    
+    <item>
+      <title>2.5 - Sample UDP Client</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.5-sample-udp-client.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.5-sample-udp-client.html</guid>
+      <description>2.5 -Sample UDP Client Lets look at the client code for the UDP Server from previous section.
+To implement the Client we need to do following:
+ Create Socket and Connect to Server Set the IoHandler Collect free memory Send the Data to the Server  We will begin by looking at the file MemMonClient.java, found in the org.apache.mina.example.udp.client java package. The first few lines of the code are simple and straightforward.</description>
+    </item>
+    
+    <item>
+      <title>2.6 - Summary</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.6-summary.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.6-summary.html</guid>
+      <description>2.6 - Summary In this chapter, we looked at MINA based Application Architecture, for Client as well as Server. We also touched upon the implementation of Sample TCP Server/Client, and UDP Server and Client.
+In the chapters to come we shall discuss about MINA Core constructs and advanced topics</description>
+    </item>
+    
+    <item>
+      <title>3.1 - IO Service Introduction</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.1-io-service.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.1-io-service.html</guid>
+      <description>3.1 - IoService Introduction IoService provides basic I/O Service and manages I/O Sessions within MINA. Its one of the most crucial part of MINA Architecture. The implementing classes of IoService and child interface, are where most of the low level I/O operations are handled.
+IoService Mind Map Let&amp;rsquo;s try to see what are the responsibilities of the IoService and it implementing class AbstractIoService. Let&amp;rsquo;s take a slightly different approach of first using a Mind Map and then jump into the inner working.</description>
+    </item>
+    
+    <item>
+      <title>3.2 - IoService Details</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.2-io-service-details.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.2-io-service-details.html</guid>
+      <description>3.2 - IoService Details IoService is an interface that is implemented by the two most important classes in MINA :
+ IoAcceptor IoConnector  In order to build a server, you need to select an implementation of the IoAcceptor interface. For client applications, you need to implement an implementation of the IoConnector interface.
+IoAcceptor Basically, this interface is named because of the accept() method, responsible for the creation of new connections between a client and the server.</description>
+    </item>
+    
+    <item>
+      <title>3.3 - Acceptor</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.3-acceptor.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.3-acceptor.html</guid>
+      <description>3.3 - Acceptor In order to build a server, you need to select an implementation of the IoAcceptor interface.
+IoAcceptor Basically, this interface is named because of the accept() method, responsible for the creation of new connection between a client and the server. The server accepts incoming connection request.
+At some point, we could have named this interface &amp;lsquo;Server&amp;rsquo;.
+As we may deal with more than one kind of transport (TCP/UDP/&amp;hellip;), we have more than one implementation for this interface.</description>
+    </item>
+    
+    <item>
+      <title>3.4 - Connector</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.4-connector.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.4-connector.html</guid>
+      <description>3.4 - Connector For client applications, you need to implement an implementation of the IoConnector interface.
+IoConnector As we have to use an IoAcceptor for servers, you have to implement the IoConnector. Again, we have many implementation classes :
+ NioSocketConnector : the non-blocking Socket transport Connector NioDatagramConnector : the non-blocking UDP transport * Connector* AprSocketConnector : the blocking Socket transport * Connector*, based on APR ProxyConnector : a Connector providing proxy support SerialConnector : a Connector for a serial transport VmPipeConnector : the in-VM * Connector*  Just pick the one that fit your need.</description>
+    </item>
+    
+    <item>
+      <title>4.1 - Session Configuration</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch4-session/ch4.1-session-configuration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch4-session/ch4.1-session-configuration.html</guid>
+      <description>4.1 - Session Configuration Depending on the Session&amp;rsquo;s type, we can configure various elements. Some of those elements are shared across all the session&amp;rsquo;s type, some other are specific.
+We currently support 4 session flavors :
+ Socket : support for the TCP transport Datagram : support for the UDP transport Serial : support for the RS232 transport VmPipe : support for the IPC transport  General parameters Here is the list of all the global parameters (they can be set fo any of the Session flavors) :</description>
+    </item>
+    
+    <item>
+      <title>4.2 - Session Statistics</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch4-session/ch4.2-session-statistics.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch4-session/ch4.2-session-statistics.html</guid>
+      <description>4.2 - Session Statistics We keep some statistics in each sessions about what&amp;rsquo;s going on. Not all those statistics are computed fr every message though : some of them are computed on demand.
+   Parameter type Description automatic     readBytes long The total number of bytes read since the session was created yes   readBytesThroughput double The number of bytes read per second in the last interval no   readMessages long The total number of messages read since the session was created yes   readMessagesThroughput double The number of messages read per second in the last interval no   scheduledWriteBytes AtomicInteger The number of bytes waiting to be written yes   scheduledWriteMessages AtomicInteger The number of messages waiting to be written yes   writtenBytes long The total number of bytes written since the session was created yes   writtenBytesThroughput double The number of bytes written per second in the last interval no   writtenMessages long The total number of messages written since the session was created yes   writtenMessagesThroughput double The number of messages written per second in the last interval no    All those parameters can be read using getters.</description>
+    </item>
+    
+    <item>
+      <title>5.1 - Blacklist Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.1-blacklist-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.1-blacklist-filter.html</guid>
+      <description>5.1 - Blacklist Filter This filter blocks connections from blacklisted remote addresses. One can block Addresses or Subnets. In any case, when an event happens on a blocked session, the session will simply be closed. Here are the events this filter handles :
+ event (MINA 2.1) messageReceived messageSent sessionCreated sessionIdle sessionOpened  There is no need to handle any other event.
+Blocking an address Any address or subnet can be blocked live, ie it does not matter if a session is already active or not, this dynamically activated.</description>
+    </item>
+    
+    <item>
+      <title>5.10 - MDC Injection Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.10-mdc-injection-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.10-mdc-injection-filter.html</guid>
+      <description>5.10 - MDC Injection Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.11 - NOOP Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.11-noop-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.11-noop-filter.html</guid>
+      <description>5.11 - NOOP Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.12 - Profiler Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.12-profiler-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.12-profiler-filter.html</guid>
+      <description>5.12 - Profiler Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.13 - Protocol Codec Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.13-protocol-codec-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.13-protocol-codec-filter.html</guid>
+      <description>5.13 - Protocol Codec Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.14 - Proxy Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.14-proxy-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.14-proxy-filter.html</guid>
+      <description>5.14 - Proxy Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.15 - Reference Counting Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.15-reference-counting-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.15-reference-counting-filter.html</guid>
+      <description>5.15 - Reference Counting Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.16 - Request/Response Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.16-request-response-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.16-request-response-filter.html</guid>
+      <description>5.16 - Request/Response Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.17 - Session Attribute Initializing Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.17-session-attribute-initializing-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.17-session-attribute-initializing-filter.html</guid>
+      <description>5.17 - Session Attribute Initializing Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.18 - Stream Write Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.18-stream-write-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.18-stream-write-filter.html</guid>
+      <description>5.18 - Stream Write Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.19 - SSL/TLS Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.19-ssl-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.19-ssl-filter.html</guid>
+      <description>5.19 - SSL/TLS Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.2 - Buffered Write Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.2-buffered-write-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.2-buffered-write-filter.html</guid>
+      <description>5.2 - Buffered Write Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.20 - Write Request Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.20-write-request-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.20-write-request-filter.html</guid>
+      <description>5.20 - Write Request Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.3 - Compression Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.3-compression-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.3-compression-filter.html</guid>
+      <description>5.3 - Compression Filter The CompressionFilter class is used to compress data before it gets sent and decompress it when it&amp;rsquo;s received. It uses the JZLIB library.
+It only handles two events :
+ messageReceived: The received message will be decompressed, if it&amp;rsquo;s contained in a IoBuffer. filterWrite: The message to write will be compressed, assuming it&amp;rsquo;s stored in a IoBuffer (otherwise an exception will be generated).  Configuration It&amp;rsquo;s possible to configure the CompressionFilter, with the listed parameters :</description>
+    </item>
+    
+    <item>
+      <title>5.4 - Connection Throttle Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.4-connection-throttle-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.4-connection-throttle-filter.html</guid>
+      <description>5.4 - Connection Throttle Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.5 - Error Generating Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.5-error-generating-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.5-error-generating-filter.html</guid>
+      <description>5.5 - Error Generating Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.6 - Executor Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.6-executor-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.6-executor-filter.html</guid>
+      <description>5.6 - Executor Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.7 - FileRegion Write Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.7-file-region-write-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.7-file-region-write-filter.html</guid>
+      <description>5.7 - FileRegion Write Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.8 - KeepAlive Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.8-keep-alive-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.8-keep-alive-filter.html</guid>
+      <description>5.8 - KeepAlive Filter TBD&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>5.9 - Logging Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.9-logging-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.9-logging-filter.html</guid>
+      <description>5.9 - Logging Filter The Logging filter allows an application to logs MINA protocol events while they are transiting on the filters chain. It can be added dynamically (ie, a session may add a filter whenever it wants).
+The tracked events are :
+ exceptionCaught messageReceived messageSent sessionClosed sessionCreated sessionIdle sessionOpened  The event, filterClose, filterWrite and inputClosed events are not tracked.
+Adding the filter This can be done once and for each session, while creating the IoFilterChainBuilder instance :</description>
+    </item>
+    
+    <item>
+      <title>6.1 - APR Transport</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6.1-apr-transport.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6.1-apr-transport.html</guid>
+      <description>6.1 - APR Transport Introduction APR (Apache Portable Runtime) provide superior scalability, performance, and better integration with native server technologies. APR transport is supported by MINA. In this section, we shall touch base upon how to use APR transport with MINA. We shall the Time Server example for this.
+Pre-requisite APR transport depends following components
+APR library - Download/install appropriate library for the platform from https://www.apache.org/dist/tomcat/tomcat-connectors/native/
+JNI wrapper (tomcat-apr-5.5.23.jar) The jar is shipped with release Put the native library in PATH</description>
+    </item>
+    
+    <item>
+      <title>6.2 - Serial Transport</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6.2-serial-transport.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6.2-serial-transport.html</guid>
+      <description>6.2 - Serial Transport With the MINA 2.0 you are able to connect to serial port like you use to connect to a TCP/IP port with MINA.
+Getting MINA 2.0 You you can download the latest built version (2.0.2).
+If you prefer to build the code from the trunk, and need assistance to do so, please consult the Developer Guide.
+Prerequisite Useful Information
+Before accessing serial port from a Java program you need a native library (.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.0 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.0.html</guid>
+      <description>Apache FtpServer 1.0.0 Release New Features in 1.0.0 This is the first production ready release of FtpServer. In this, we have fixed all known bugs and have a stable API.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.0.zip N/A ftpserver-1.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.0-M2 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.0-M2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.0-M2.html</guid>
+      <description>Apache FtpServer 1.0.0-M2 Release New Features in 1.0.0-M2 This is the first release of Apache FtpServer, you can find the major features here.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.0-M2.zip SHA1 ftpserver-1.0.0-M2.zip.asc   tar.gz distribution ftpserver-1.0.0-M2.tar.gz SHA1 ftpserver-1.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.0-M3 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.0-M3.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.0-M3.html</guid>
+      <description>Apache FtpServer 1.0.0-M3 Release New Features in 1.0.0-M3 This is a bug fix release that fixes issues found in 1.0.3.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.0-M3.zip SHA1 ftpserver-1.0.0-M3.zip.asc   tar.gz distribution ftpserver-1.0.0-M3.tar.gz SHA1 ftpserver-1.0.0-M3.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.0-M4 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.0-M4.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.0-M4.html</guid>
+      <description>Apache FtpServer 1.0.0-M4 Release New Features in 1.0.0-M4 This release mainly contains bug fixes and minor enhancements from the previous release.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.0-M4.zip SHA1 ftpserver-1.0.0-M4.zip.asc   tar.gz distribution ftpserver-1.0.0-M4.tar.gz SHA1 ftpserver-1.0.0-M4.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.0-RC1 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.0-RC1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.0-RC1.html</guid>
+      <description>Apache FtpServer 1.0.0-RC1 Release New Features in 1.0.0-RC1 This release mainly contains bug fixes and minor enhancements from the previous release.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.0-RC1.zip SHA1 ftpserver-1.0.0-RC1.zip.asc   tar.gz distribution ftpserver-1.0.0-RC1.tar.gz SHA1 ftpserver-1.0.0-RC1.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.0-RC2 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.0-RC2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.0-RC2.html</guid>
+      <description>Apache FtpServer 1.0.0-RC2 Release New Features in 1.0.0-RC2 This is the second release candidate for FtpServer 1.0.0. This release contains some last minute fixes for bugs that was found in RC1.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.1 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.1.html</guid>
+      <description>Apache FtpServer 1.0.1 Release New Features in 1.0.1 This is a bug fix release that fixes issues found in 1.0.0.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.1.zip SHA1 ftpserver-1.0.1.zip.asc   tar.gz distribution ftpserver-1.0.1.tar.gz SHA1 ftpserver-1.0.1.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.2 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.2.html</guid>
+      <description>Apache FtpServer 1.0.2 Release New Features in 1.0.2 This is a bug fix release that fixes issues found in 1.0.1.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.2.zip SHA1 ftpserver-1.0.2.zip.asc   tar.gz distribution ftpserver-1.0.2.tar.gz SHA1 ftpserver-1.0.2.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.3 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.3.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.3.html</guid>
+      <description>Apache FtpServer 1.0.3 Release New Features in 1.0.3 This is a bug fix release that fixes issues found in 1.0.2.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.3.zip SHA1 ftpserver-1.0.3.zip.asc   tar.gz distribution ftpserver-1.0.3.tar.gz SHA1 ftpserver-1.0.3.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.4 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.4.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.4.html</guid>
+      <description>Apache FtpServer 1.0.4 Release New Features in 1.0.4 This is a bug fix release that fixes issues found in 1.0.3.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.4.zip SHA1 ftpserver-1.0.4.zip.asc   tar.gz distribution ftpserver-1.0.4.tar.gz SHA1 ftpserver-1.0.4.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.5 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.5.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.5.html</guid>
+      <description>Apache FtpServer 1.0.5 Release New Features in 1.0.5 This is a bug fix release that fixes issues found in 1.0.4.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.5.zip SHA1 ftpserver-1.0.5.zip.asc   tar.gz distribution ftpserver-1.0.5.tar.gz SHA1 ftpserver-1.0.5.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.6 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.6.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.6.html</guid>
+      <description>Apache FtpServer 1.0.6 Release New Features in 1.0.6 This release fixes a bunch of issues found since the release of 1.0.5, including a major improvement in how FtpServer handles assignment of passive ports.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.1.0 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.1.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.1.0.html</guid>
+      <description>Apache FtpServer 1.1.0 Release New Features in 1.1.0 This release fixes a few issues found since the release of 1.1.0, mainly making it using MINA 2.0.16, the latest MINA build.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution apache-ftpserver-1.1.0.zip SHA1 ASC   tar.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.1.1 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.1.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.1.1.html</guid>
+      <description>Apache FtpServer 1.1.1 Release New Features in 1.1.1 This release fixes a few issues found since the release of 1.1.0.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution apache-ftpserver-1.1.1.zip SHA1 ASC   tar.gz distribution apache-ftpserver-1.1.1.tar.gz SHA1 ASC   tar.</description>
+    </item>
+    
+    <item>
+      <title>Apache MINA - Contributors</title>
+      <link>https://mina.apache.org/contributors.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/contributors.html</guid>
+      <description>Project Management Committee  Alex Karasulu (akarasulu) Ashish Paliwal (apaliwal) Emmanuel Lécharny (elecharny) Guillaume Nodet (gnodet) Jean-François Maury (chairman) (jeffmaury) Jeff Genender (jgenender) Jonathan Valliere (johnnyv) Julien Vermillard (jvermillard) Maarten Bosteels (maarten) Mark Webb (mwebb) Niklas Gustavsson (ngn)  Committers  Alan Cabrera (adc) Bobby Powers (bpowers) Bogdan Pistol (bogdan) David Latorre (dlat) Edouard De Oliveira (edeoliveira) Lyor Goldstein (lgoldstein) Michael Jakl (mjakl) Mike Mahonay (foodmike) Raphaël P. Barazzutti (rbarazzutti) Richard McGuire (rickmcguire) Sai Pullabhotla (sai) Sangjin Lee (sjlee) Sebastien Baszley (sebb) Serguey Vladimirov (sergey) Shawn Pearce (spearce)  Code Contributors  Jan Andersson - SSL Vinod Panicker - Zlib compression  Emeritus Committers and PMC  Bernd Fondermann (PMC) Dan Diephouse (PMC) Dave Irving (PMC) Enrique Rodriguez (PMC) Ersin Er (PMC) Mike Heath (PMC) Niklas Therning (PMC) Peter Royal (PMC) Timothy Bennett (PMC) John Conlon (Committer) Rich Dougherty (Committer) Trustin Lee (Committer)  &amp;hellip; and everyone who gave us feed back including you!</description>
+    </item>
+    
+    <item>
+      <title>Apache MINA - Special Thanks</title>
+      <link>https://mina.apache.org/special-thanks.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/special-thanks.html</guid>
+      <description>Special Thanks General Apache sponsors Without those sponsors, the ASF would simply not exist or sustain its activities :
+ https://www.apache.org/foundation/thanks.html  For those who want to know more about the Apache Sponsorship Program, please check :
+ https://www.apache.org/foundation/sponsorship.html  Thanks !
+Organizations who helped our project &amp;hellip; We would also like to thank the organizations who provided some tools and images for free :
+   Company/Organization Donation type Organization contact Apache contact      Licenses for YourKit Vladimir Kondratyev (sales at yourkit.</description>
+    </item>
+    
+    <item>
+      <title>Apache MINA Mailing Lists</title>
+      <link>https://mina.apache.org/mailing-lists.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mailing-lists.html</guid>
+      <description>The Apache MINA team interacts with MINA developers and users via mailing lists. If you have any questions or something to say to us, please subscribe to our user mailing list and post a message. If you would like to contribute to the development of MINA, please subscribe to the developer mailing list.
+Do NOT cross post (ie mail to users and dev). Pick the right list
+Take a few minutes to read this page :Asking Smart Questions</description>
+    </item>
+    
+    <item>
+      <title>Apache MINA Mailing Lists</title>
+      <link>https://mina.apache.org/mina-project/mailing-lists.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/mailing-lists.html</guid>
+      <description>The Apache MINA team interacts with MINA developers and users via mailing lists. If you have any questions or something to say to us, please subscribe to our user mailing list and post a message. If you would like to contribute to the development of MINA, please subscribe to the developer mailing list.
+Do NOT cross post (ie mail to users and dev). Pick the right list
+Take a few minutes to read this page :Asking Smart Questions</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.1.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.1.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.1.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.1.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.1.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.1.0 Sources (.zip) PGP SHA Apache Mina SSHD 0.1.0 Sources (.bz2) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.1.0 (.jar) PGP SHA    Release Notes While the SSHD server side is maturing, the client side will certainly see some major changes in the future, so that the APIs are not considered stable yet.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.10.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.10.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.10.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.10.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.10.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.10.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.10.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.10.0 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.10.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.10.1 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.10.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.10.1.html</guid>
+      <description>Overview Apache Mina SSHD 0.10.1 contains 2 minor packaging fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.10.1 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.10.1 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.10.1 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.10.1 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.10.1 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.11.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.11.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.11.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.11.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.11.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.11.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.11.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.11.0 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.11.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.12.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.12.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.12.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.12.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.12.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.12.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.12.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.12.0 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.12.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.13.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.13.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.13.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.13.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.13.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.13.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.13.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.13.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 0.13.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.14.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.14.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.14.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.14.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.14.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.14.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.14.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.14.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 0.14.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.2.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.2.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.2.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.2.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.2.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.2.0 Sources (.zip) PGP SHA Apache Mina SSHD 0.2.0 Sources (.bz2) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.2.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.2.0 contains a few enhancements and bug-fixes. Please report any feedback to users@mina.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.3.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.3.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.3.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.3.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.3.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.3.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.3.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.3.0 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.3.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.4.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.4.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.4.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.4.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.4.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.4.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.4.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.4.0 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.4.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.5.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.5.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.5.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.5.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.5.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.5.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.5.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.5.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 0.5.0 contains a few enhancements and bug-fixes. Please report any feedback to users@mina.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.6.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.6.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.6.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.6.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.6.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.6.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.6.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.6.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 0.6.0 contains a few enhancements and bug-fixes. Please report any feedback to users@mina.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.7.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.7.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.7.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.7.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.7.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.7.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.7.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.7.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 0.7.0 contains a few enhancements and bug-fixes. Please report any feedback to users@mina.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.8.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.8.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.8.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.8.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.8.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.8.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.8.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.8.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 0.8.0 contains a few enhancements and bug-fixes. Please report any feedback to users@mina.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.9.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.9.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.9.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.9.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.9.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.9.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.9.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.9.0 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.9.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.0.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.0.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.0.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.0.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 1.0.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 1.0.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 1.0.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 1.0.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 1.0.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.1.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.1.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.1.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.1.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 1.1.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 1.1.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 1.1.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 1.1.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 1.1.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.1.1 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.1.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.1.1.html</guid>
+      <description>Overview Apache Mina SSHD 1.1.1 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 1.1.1 Sources (.tar.gz) PGP SHA Apache Mina SSHD 1.1.1 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 1.1.1 Binary (.tar.gz) PGP SHA Apache Mina SSHD 1.1.1 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 1.1.1 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.2.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.2.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.2.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.2.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 1.2.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 1.2.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 1.2.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 1.2.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 1.2.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.3.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.3.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.3.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.3.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions N/A</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.4.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.4.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.4.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.4.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions N/A&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.6.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.6.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.6.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.6.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 1.6.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 1.6.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 1.6.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 1.6.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 1.6.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.7.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.7.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.7.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.7.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 1.7.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 1.7.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 1.7.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 1.7.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 1.7.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 2.0.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.0.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.0.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.0.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.0.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.0.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.0.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.0.0 Binary (.zip) PGP SHA    Release Notes There have been many bug fixes and improvements since last released version 1.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 2.1.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.1.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.1.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.1.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.1.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.1.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.1.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.1.0 Binary (.zip) PGP SHA    Release Notes A few backward incompatible changes have been made since the previous release, thus the version has been named 2.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 2.2.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.2.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.2.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.2.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.2.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.2.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.2.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.2.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 2.2.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 2.3.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.3.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.3.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.3.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.3.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.3.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.3.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.3.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 2.3.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache Vysper</title>
+      <link>https://mina.apache.org/vysper-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/</guid>
+      <description>Apache Vysper Apache Vysper aims to be a modular, full featured XMPP (Jabber) server.
+More details on Vysper in our documentation.
+There are already some larger XEPs as modules available, most notably
+ Multi User Chat (XEP0045) and Publish/Subscribe (XEP0060) BOSH (XEP0124, XEP0206)  To start using and/or developing extensions for Vysper, don&amp;rsquo;t miss the User Guide!</description>
+    </item>
+    
+    <item>
+      <title>Apache Vysper 0.5 Release</title>
+      <link>https://mina.apache.org/vysper-project/download_0.5.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/download_0.5.html</guid>
+      <description>New Features in 0.5 This is the first release of Apache Vysper. The release contains partial implementations of the following specifications:
+ RFC 3920 XMPP Core RFC 3921 XMPP IM XEP-0045 Multi-user chat XEP-0060 Publish-subscribe  Getting the Binary Distributions    Description Download Link PGP Signature file of download     Windows Distribution vysper-0.5-bin.zip vysper-0.5-bin.zip.asc   Unix/Linux/Cygwin Distribution vysper-0.5-bin.tar.gz vysper-0.5-bin.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache Vysper 0.6 Release</title>
+      <link>https://mina.apache.org/vysper-project/download_0.6.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/download_0.6.html</guid>
+      <description>New Features in 0.6 This is the second release of Apache Vysper. Updates since the last release includes a full implementation of BOSH, improvements to the MUC implementation and many smaller changes.
+This release contains partial implementations of the following specifications:
+ RFC 3920 XMPP Core RFC 3921 XMPP IM XEP-0045 Multi-user chat XEP-0060 Publish-subscribe XEP-0124 Bidirectional-streams Over Synchronous HTTP (BOSH) XEP-0206 XMPP Over BOSH  Change log For a detailed view of new features and bug fixes, see the release notes</description>
+    </item>
+    
+    <item>
+      <title>Apache Vysper 0.7 Release</title>
+      <link>https://mina.apache.org/vysper-project/download_0.7.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/download_0.7.html</guid>
+      <description>New Features in 0.7 This release adds some major features to Apache Vysper, including support for server to server connections, Ad-hoc commands, a partial implementation of service administration and experimental websockets support. The release also contains many minor improvements and bug fixes. A list of the supported specifications is available.
+Change log For a detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link PGP Signature file of download     Windows Distribution vysper-0.</description>
+    </item>
+    
+    <item>
+      <title>AsyncWeb</title>
+      <link>https://mina.apache.org/asyncweb-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/</guid>
+      <description>Apache AsyncWeb The **AsyncWeb** project is currently dormant. We don&#39;t have committers for it, so if you feel like you can give an hand, please do contact us !  Apache AsyncWeb (built on top of the Apache MINA network framework) employs non-blocking selector driven IO at the transport level, and is asynchronous throughout - from the initial parsing of requests, right through to and including the services implemented by users.</description>
+    </item>
+    
+    <item>
+      <title>AsyncWeb Contributors</title>
+      <link>https://mina.apache.org/asyncweb-project/contributors.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/contributors.html</guid>
+      <description>Contributors Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
+ Jeff Genender Mike Heath Alex Karasulu Emmanuel Lécharny Sangjin Lee Trustin Lee Rick McGuire Julien Vermillard  </description>
+    </item>
+    
+    <item>
+      <title>AsyncWeb Getting Involved</title>
+      <link>https://mina.apache.org/asyncweb-project/getting_involved.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/getting_involved.html</guid>
+      <description>Getting Involved Apache AsyncWeb communicates using our Mailing Lists. If you have any questions, feedback or suggestions, you&amp;rsquo;re very welcome to join the list and send an email. We are also happy to receive bug reports and feature requests in our JIRA.
+Patches The best chance of getting your bug or feature fixed is to provide a patch, if they fit our goals we will usually have them committed within a few days.</description>
+    </item>
+    
+    <item>
+      <title>AsyncWeb Reporting Bugs</title>
+      <link>https://mina.apache.org/asyncweb-project/reporting_bug.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/reporting_bug.html</guid>
+      <description>Reporting a Bug We are using JIRA to track all AsyncWeb issues including bugs. Please visit our issue tracker page to report a bug.
+How to report a bug Writing a bug report with detailed information will help us to fix your problem sooner.
+ Make sure if the bug you are going to report doesn&amp;rsquo;t exist yet. Attaching JUnit test case which reproduces the problem will put your report in our highest priority.</description>
+    </item>
+    
+    <item>
+      <title>AsyncWeb Sources</title>
+      <link>https://mina.apache.org/asyncweb-project/sources.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/sources.html</guid>
+      <description>Sources for the Apache AsyncWeb projects are currently managed through Subversion (SVN). Instructions on Subversion use can be found at http://svnbook.red-bean.com/. If you are on Windows, the excellent TortoiseSVN client is highly recommended.
+For each project you can find a detailed description how to checkout and build the source on the project documentation. This page is just a short overview.
+Web Access to Subversion If you just want to browse the source code, you can use the web interface to Subversion.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 1 - Getting Started</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1-getting-started.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1-getting-started.html</guid>
+      <description>Chapter 1 - Getting Started In this chapter, we will give you first sense of what is MINA, what is NIO, why we developed a framework on top of NIO and what you will find inside. We will also show you how to run a very simple example of a server run with MINA
+ 1.1 - NIO Overview 1.2 - Why MINA ? 1.3 - Features 1.4 - First Steps 1.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 10 - Executor Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch10-executor-filter/ch10-executor-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch10-executor-filter/ch10-executor-filter.html</guid>
+      <description>Chapter 10 - Executor Filter MINA 1.X version let the user define the Thread Model at the Acceptor level. It was part of the Acceptor configuration. This led to complexity, and the MINA team decided to remove this option, replacing it with a much more versatile system, based on a filter : the ExecutorFilter.
+The ExecutorFilter class This class is implementing the IoFilter interface, and basically, it contains an Executor to spread the incoming events to a pool of threads.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 11 - SSL Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch11-ssl-filter/ch11-ssl-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch11-ssl-filter/ch11-ssl-filter.html</guid>
+      <description>Chapter 11 - SSL Filter The SslFilter is the filter in charge of managing the encryption and decryption of data sent through a secured connection. Whenever you need to establish a secured connection, or to transform an existing connection to make it secure, you have to add the SslFilter in your filter chain.
+As any session can modify it&amp;rsquo;s message filter chain at will, it allows for protocols like startTLS to be used on an opened connection.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 12 - Logging Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch12-logging-filter/ch12-logging-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch12-logging-filter/ch12-logging-filter.html</guid>
+      <description>Chapter 12 - Logging Filter  SLF4J  Choosing the Right JARs Overriding Jakarta Commons Logging   log4j example   Background The Apache MINA uses a system that allows for the developer of the MINA-base application to use their own logging system.
+SLF4J MINA employs the Simple Logging Facade for Java (SLF4J). You can find information on SLF4J here. This logging utility allows for the implementation of any number of logging systems.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 13 - Debugging</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch13-debugging/ch13-debugging.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch13-debugging/ch13-debugging.html</guid>
+      <description>Chapter 13 - Debugging To be completed&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Chapter 14 - State Machine</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch14-state-machine/ch14-state-machine.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch14-state-machine/ch14-state-machine.html</guid>
+      <description>Chapter 14 - State Machine If you are using MINA to develop an application with complex network interactions you may at some point find yourself reaching for the good old State pattern to try to sort out some of that complexity. However, before you do that you might want to checkout mina-statemachine which tries to address some of the shortcomings of the State pattern.
+ A simple example   Lookup a StateContext object Convert the method invocation into an Event object Invoke the StateMachine Execute the Transition   State inheritance Error handling using state inheritance mina-statemachine with IoHandler   Changing state programmatically Calling the state machine recursively   A simple example Let&amp;rsquo;s demonstrate how mina-statemachine works with a simple example.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 15 - Proxy</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch15-proxy/ch15-proxy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch15-proxy/ch15-proxy.html</guid>
+      <description>Chapter 15 - Proxy To be completed&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Chapter 16 - JMX Support</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch16-jmx-support/ch16-jmx-support.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch16-jmx-support/ch16-jmx-support.html</guid>
+      <description>Chapter 16 - JMX Support Java Management Extensions (JMX) is used for managing and monitoring java applications. This tutorial will provide you with an example as to how you can JMX-enable your MINA based application.
+This tutorial is designed to help you get the JMX technology integrated in to your MINA-based application. In this tutorial, we will integrate the MINA-JMX classes into the imagine server example program.
+Adding JMX Support To JMX enable MINA application we have to perform following</description>
+    </item>
+    
+    <item>
+      <title>Chapter 17 - Spring Integration</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch17-spring-integration/ch17-spring-integration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch17-spring-integration/ch17-spring-integration.html</guid>
+      <description>Chapter 17 - Spring Integration This article demonstrates integrating MINA application with Spring. I wrote this article on my blog, and though to put it here, where this information actually belongs to. Can find the original copy at Integrating Apache MINA with Spring.
+Application Structure We shall take a standard MINA application which has following construct
+ One Handler Two Filter - Logging Filter and a ProtocolCodec Filter NioDatagram Socket  Initialization Code Lets see the code first.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 2 - Basics</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2-basics.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2-basics.html</guid>
+      <description>Chapter 2 - Basics In Chapter 1, we had a brief glimpse of Apache MINA. In this chapter we shall have a look at Client/Server Architecture and details on working out a MINA based Server and Client.
+We will also expose some very simple Servers and Clients, based on TCP and UDP.
+ 2.1 - Application Architecture  2.1.1 - Server Architecture 2.1.2 - Client Architecture   2.3 - Sample TCP Client 2.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 3 - Service</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch3-service/ch3-service.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch3-service/ch3-service.html</guid>
+      <description>Chapter 3 - IoService A MINA IoService - as seen in the application architecture chapter, is the base class supporting all the IO services, either from the server side or the client side.
+It will handle all the interaction with your application, and with the remote peer, send and receive messages, manage sessions, connections, etc.
+It&amp;rsquo;s an interface, which is implemented as an IoAcceptor for the server side, and IoConnector for the client side.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 4 - Session</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch4-session/ch4-session.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch4-session/ch4-session.html</guid>
+      <description>Chapter 4 - Session  4.1 - Session Configuration 4.2 - Session Statistics  Introduction The Session is at the heart of MINA : every time a client connects to the server, a new session is created on the server, and will be kept in memory until the client is disconnected. If you are using MINA on the client side, every time you connect to a server, a session will be created on the client too.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 5 - Filters</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5-filters.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5-filters.html</guid>
+      <description>Chapter 5 - Filters  5.1 - Blacklist Filter 5.2 - Buffered Write Filter 5.3 - Compression Filter 5.4 - Connection Throttle Filter 5.5 - Error Generating Filter 5.6 - Executor Filter 5.7 - FileRegion Write Filter 5.8 - KeepAlive Filter 5.9 - Logging Filter 5.10 - MDC Injection Filter 5.11 - NOOP Filter 5.12 - Profiler Filter 5.13 - Protocol Codec Filter 5.14 - Proxy Filter 5.15 - Reference Counting Filter 5.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 6 - Transports</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6-transports.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6-transports.html</guid>
+      <description>Chapter 6 - Transports  6.1 - APR Transport 6.2 - Serial Transport  </description>
+    </item>
+    
+    <item>
+      <title>Chapter 7 - Handler</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch7-handler/ch7-handler.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch7-handler/ch7-handler.html</guid>
+      <description>Chapter 7 - Handler Handles all I/O events fired by MINA. The interface is hub of all activities done at the end of the Filter Chain.
+IoHandler has following functions
+ sessionCreated sessionOpened sessionClosed sessionIdle exceptionCaught messageReceived messageSent  sessionCreated Event Session Created event is fired when a new connection is created. For TCP its the result of connection accept, and for UDP this is generated when a UDP packet is received.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 8 - IoBuffer</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch8-iobuffer/ch8-iobuffer.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch8-iobuffer/ch8-iobuffer.html</guid>
+      <description>Chapter 8 - IoBuffer A byte buffer used by MINA applications.
+This is a replacement for ByteBuffer. MINA does not use NIO ByteBuffer directly for two reasons:
+ It doesn&amp;rsquo;t provide useful getters and putters such as fill, get/putString, and get/putAsciiInt() . It is difficult to write variable-length data due to its fixed capacity  This will change in MINA 3. The main reason why MINA has its own wrapper on top of nio ByteBuffer is to have extensible buffers.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 9 - Codec Filter</title>
+      <link>https://mina.apache.org/mina-project/userguide/ch9-codec-filter/ch9-codec-filter.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/ch9-codec-filter/ch9-codec-filter.html</guid>
+      <description>Chapter 9 - Codec Filter This tutorial tries to explain why and how to use a ProtocolCodecFilter.
+Why use a ProtocolCodecFilter?  TCP guarantees delivery of all packets in the correct order. But there is no guarantee that one write operation on the sender-side will result in one read event on the receiving side. see http://en.wikipedia.org/wiki/IPv4#Fragmentation_and_reassembly and http://en.wikipedia.org/wiki/Nagle%27s_algorithm In MINA terminology: without a ProtocolCodecFilter one call of IoSession.write(Object message) by the sender can result in multiple messageReceived(IoSession session, Object message) events on the receiver; and multiple calls of IoSession.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://mina.apache.org/contact.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/contact.html</guid>
+      <description>Table of Contents  Step-by-Step Guide to Problem Reporting Asking for a New Feature   Overview The Apache MINA project has a very active and responsive community. You will get more than you expect from usual open source communities here. Mostly, communication among the team and the users takes place in the following places:
+ Mailing Lists Issue Tracker  People in the community usually:
+ asks questions on the usage of API and how-to, suggests a new feature, points out a problem with general design and API usability, reports a problem (or potentially a bug), posts related information from other projects, and post Testimonials.</description>
+    </item>
+    
+    <item>
+      <title>Developer Guide</title>
+      <link>https://mina.apache.org/mina-project/developer-guide.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/developer-guide.html</guid>
+      <description>Building MINA Please read the Developer Infrastructure Information if you haven&#39;t yet before you proceed.   Preparing the release for the vote  Step 0: Building MINA Step 1: Tagging and Deploying step 2 : Processing with a dry run Step 3 : Processing with the real release Step 4 : perform the release Step 5 : closing the staging release on nexus Step 6 : Build the Site Step 7 : Sign the packages Step 8 : Publish Source and Binary Distribution Packages Step 9 : Test the New Version with FtpServer, Sshd and Vysper   Step 10 : Voting a release  Step 11 : Close the vote Step 12: Deploy Web Reports (JavaDoc and JXR) Step 13: Wait 24 hours Step 14: Update the Links in Web Site Step 15: Wait another 24 hours Step 16: Announce the New Release     Checking out the code You need Git to check out the source code from our source code repository, and [Maven(http://maven.</description>
+    </item>
+    
+    <item>
+      <title>Documentation</title>
+      <link>https://mina.apache.org/asyncweb-project/documentation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/documentation.html</guid>
+      <description>Documentation AsyncWeb project is currently dormant. The documentation we have can be found on AsyncWeb WIKI</description>
+    </item>
+    
+    <item>
+      <title>Documentation</title>
+      <link>https://mina.apache.org/mina-project/documentation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/documentation.html</guid>
+      <description>Documentation The MINA 2.0 User Guide can be found here : [User Guide](userguide/user-guide-toc.html)   Presentation Materials Versions &amp; References Tutorials  For Developers   Examples Older Presentation Materials   Presentation Materials These presentation materials will help you understand the overall architecture and core constructs of MINA
+ MINA in real life (ApacheCon EU 2009) by Emmanuel Lécharny Rapid Network Application Development with Apache MINA (JavaOne 2008) by Trustin Lee Apache MINA - The High Performance Protocol Construction Toolkit (ApacheCon US 2007) by Peter Royal Introduction to MINA (ApacheCon Asia 2006) by Trustin Lee  Versions &amp;amp; References There are currently three branches in MINA:</description>
+    </item>
+    
+    <item>
+      <title>Downloads</title>
+      <link>https://mina.apache.org/downloads-ftpserver.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/downloads-ftpserver.html</guid>
+      <description>Latest FTPServer Releases The latest release is the Apache FtpServer 1.1.1 Release
+All Releases  Apache FtpServer 1.1.1 Release Apache FtpServer 1.1.0 Release Apache FtpServer 1.0.6 Release Apache FtpServer 1.0.5 Release Apache FtpServer 1.0.4 Release Apache FtpServer 1.0.3 Release Apache FtpServer 1.0.2 Release Apache FtpServer 1.0.1 Release Apache FtpServer 1.0.0 Release Apache FtpServer 1.0.0-RC2 Release Apache FtpServer 1.0.0-RC1 release Apache FtpServer 1.0.0-M4 release Apache FtpServer 1.0.0-M3 release Apache FtpServer 1.0.0-M2 release  Maven Repositories All Apache FtpServer releases are available from the Maven central repository</description>
+    </item>
+    
+    <item>
+      <title>Downloads</title>
+      <link>https://mina.apache.org/downloads-sshd.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/downloads-sshd.html</guid>
+      <description>Latest SSHD Releases The latest release is the SSHD 2.4.0 release.
+ Source distributions:  Apache Mina SSHD 2.4.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.4.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.4.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.4.0 Binary (.zip) PGP SHA    Development snapshots You can build the latest version from sources.
+Previous releases  SSHD 0.1.0 SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Embed Vysper into another application</title>
+      <link>https://mina.apache.org/vysper-project/embed.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/embed.html</guid>
+      <description>Embed into another application About logging Embedding software making use of logging into another one making use of logging itself can be cumbersome. Vysper uses slf4j for logging, which foremost is a logging facade. The actual logging worker is then bound at runtime. It can be log4j, as in standalone Vysper, or some other logging framework. If you make use of one of these in your embedding application, just put the proper slf4j adapter lib onto the classpath.</description>
+    </item>
+    
+    <item>
+      <title>Embedding FtpServer in 5 minutes</title>
+      <link>https://mina.apache.org/ftpserver-project/embedding_ftpserver.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/embedding_ftpserver.html</guid>
+      <description>Embedding FtpServer in 5 minutes FtpServer is designed to be easily embedded into your application. Getting a basic server up and running is as simple as
+FtpServerFactory serverFactory = new FtpServerFactory(); FtpServer server = serverFactory.createServer(); // start the server server.start(); To get this running, you need the following JAR files in your classpath:
+ mina-core, 2.0-M3 or later slf4j-api A SLF4J implementation of your choice, for example slf4j-simple-1.5.3.jar ftplet-api ftpserver-core  Now, you will probably like to configure the server for your specific needs.</description>
+    </item>
+    
+    <item>
+      <title>Embedding SSHD in 5 minutes</title>
+      <link>https://mina.apache.org/sshd-project/embedding_ssh.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/embedding_ssh.html</guid>
+      <description>Embedding SSHD in 5 minutes SSHD is designed to be easily embedded in your application as an SSH server. SSH Server needs to be configured before it can be started. Essentially, there are three steps for creating the Server
+ Create an instance of SshServer class Configure the Server Start the Server  Lets look at all these steps. Refer to this class for details SshServer.java
+Creating an instance of SshServer This is as simple as creating a new object</description>
+    </item>
+    
+    <item>
+      <title>FAQ</title>
+      <link>https://mina.apache.org/mina-project/faq.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/faq.html</guid>
+      <description>MINA FAQ  General What does MINA mean?  What transport does MINA support? How does MINA perform? Which version of MINA should I use? What is required to build/run MINA? How can I get help? How / What can I contribute?   Can MINA&amp;hellip;?  Can I use MINA to create client (or server) applications? Can MINA handle text protocols such as HTTP? Can MINA handle complex binary protocols such as LDAP?</description>
+    </item>
+    
+    <item>
+      <title>Features</title>
+      <link>https://mina.apache.org/mina-project/features.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/features.html</guid>
+      <description>Features MINA is a simple yet full-featured network application framework which provides:
+ Unified API for various transport types:  TCP/IP &amp;amp; UDP/IP via Java NIO Serial communication (RS232) via RXTX In-VM pipe communication You can implement your own!   Filter interface as an extension point; similar to Servlet filters Low-level and high-level API:  Low-level: uses ByteBuffers High-level: uses user-defined message objects and codecs   Highly customizable thread model:  Single thread One thread pool More than one thread pools (i.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer</title>
+      <link>https://mina.apache.org/ftpserver-project/running_ftpserver_standalone.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/running_ftpserver_standalone.html</guid>
+      <description>Running FtpServer stand-alone in 5 minutes To get FtpServer up and running in stand-alone mode, you need to have a full distribution. Check out to build the source code and make sure you include the build for the distribution module
+Installing Now you should have a ZIP or TARed file with the entire distribution. Let&amp;rsquo;s go.
+First of all, unpack it. If you&amp;rsquo;re on Linux/Unix, you can use:
+tar -xzvf ftpserver-1.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer and port 21 on Linux</title>
+      <link>https://mina.apache.org/ftpserver-project/ftpserver_port_21.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/ftpserver_port_21.html</guid>
+      <description>FtpServer and port 21 on Linux Under Linux only programs running as root is allowed to bind and listen to ports with port numbers below 1024. However, running a server which communicates with untrusted clients as root is not recommended for security reasons. The standard way to solve this problem in servers such as Apache HTTPD is to start the server as root and bind to the privileged port and then use the setuid C function to change the user ID of the current process.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Building</title>
+      <link>https://mina.apache.org/ftpserver-project/building.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/building.html</guid>
+      <description>Building You need Subversion to check out the source code from our source code repository, and Maven 2 to build the source code. Currently, Maven 2.0.5 or 2.0.7 or newer is required for the build.
+The following example shows how to build the trunk.
+$ svn co http://svn.apache.org/repos/asf/mina/ftpserver/trunk/ ftpserver $ cd ftpserver $ mvn install  If you run into any problems running these steps, please report on the mailing lists</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Configuration</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration.html</guid>
+      <description>Configuration Overview This document explains the Apache FTP Server configuration parameters. All the configuration parameters are grouped depending on the component where it has been used. The configuration format is XML based and comes with a matching XML Schema that can be used in XML editors to simplify configuration.
+The XML document scaffold looks like this:
+&amp;lt;server xmlns=&amp;#34;http://mina.apache.org/ftpserver/spring/v1&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd&amp;#34; id=&amp;#34;myServer&amp;#34;&amp;gt; &amp;lt;/server&amp;gt; The id attribute can be set to any value of your liking, but is required.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Configure passive ports</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_passive_ports.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_passive_ports.html</guid>
+      <description>Configure passive ports When the client wants to use a passive data connection, the server should provide the port to use. By default, FtpServer will choose any available port. However this can be overridden using the configuration for the passive data connection. The allowed passive ports can then be specified as a single port (e.g. 20020), multiple ports (e.g. 20020, 20030, 20040) or a range of ports (e.g. 20020-20030). Ranges can be closed (e.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Contributors</title>
+      <link>https://mina.apache.org/ftpserver-project/contributors.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/contributors.html</guid>
+      <description>Contributors Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
+ Rana Battacharyya Niklas Gustavsson Paul Hammant David Latorre Emmanuel Lécharny Sai Pullabhotla Sergey M Vladimirov  </description>
+    </item>
+    
+    <item>
+      <title>FtpServer Database user manager</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_user_manager_db.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_user_manager_db.html</guid>
+      <description>Database user manager You can store user user information in a database. JDBC is used to access the database. This user manager has been tested using MySQL, HSQLDB and FireBird database. All the user information is stored in FTP_USER table. An example DDL file for the database is provided in &amp;lt;INSTALL_DIR&amp;gt;/res/ftp-db.sql.
+Database JDBC libraries You must include the required JAR files for your database in the classpath of FtpServer. Typically you would do this by placing the JAR files in &amp;lt;INSTALL_DIR&amp;gt;/common/lib.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Documentation</title>
+      <link>https://mina.apache.org/ftpserver-project/documentation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/documentation.html</guid>
+      <description>Documentation Tutorials  Embedding FtpServer in 5 minutes Running FtpServer stand-alone in 5 minutes  Using FtpServer  Installation  Installing FtpServer as a Windows service   Configuration  Server Listeners Configure passive ports TLS/SSL Support User Manager Logging   Messages Managing users FtpServer and port 21 on Linux  Advanced  FTP Commands SITE Commands Ftplet  Supported RFCs  RFC959 RFC2228 RFC2389 RFC2428 RFC2640 draft-twine-ftpmd5-00 draft-somers-ftp-mfxx-00  Developing FtpServer  Getting the source Building Releasing  </description>
+    </item>
+    
+    <item>
+      <title>FtpServer Downloads</title>
+      <link>https://mina.apache.org/ftpserver-project/downloads.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/downloads.html</guid>
+      <description>Latest FTPServer Releases The latest release is the Apache FtpServer 1.1.1 Release
+All Releases  Apache FtpServer 1.1.1 Release Apache FtpServer 1.1.0 Release Apache FtpServer 1.0.6 Release Apache FtpServer 1.0.5 Release Apache FtpServer 1.0.4 Release Apache FtpServer 1.0.3 Release Apache FtpServer 1.0.2 Release Apache FtpServer 1.0.1 Release Apache FtpServer 1.0.0 Release Apache FtpServer 1.0.0-RC2 Release Apache FtpServer 1.0.0-RC1 release Apache FtpServer 1.0.0-M4 release Apache FtpServer 1.0.0-M3 release Apache FtpServer 1.0.0-M2 release  Maven Repositories All Apache FtpServer releases are available from the Maven central repository</description>
+    </item>
+    
+    <item>
+      <title>FtpServer draft-twine-ftpmd5-00</title>
+      <link>https://mina.apache.org/ftpserver-project/draft-twine-ftpmd5-00.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/draft-twine-ftpmd5-00.html</guid>
+      <description>draft-twine-ftpmd5-00 INTERNET-DRAFT JRTwine Software, LLC draft-twine-ftpmd5-00.txt May, 2002 The &amp;#39;MD5&amp;#39; and &amp;#34;MMD5&amp;#34; FTP Command Extensions Status of This Document This document is an Internet-Draft and is subject to all provisions of Section 10 of RFC2026. Internet-Drafts are working documents of the Internet Engineering Task Force (IETF), its areas, and its working groups. Note that other groups may also distribute working documents as Internet-Drafts. Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer FAQ</title>
+      <link>https://mina.apache.org/ftpserver-project/faq.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/faq.html</guid>
+      <description>FAQ General  General  My server fails with java.net.SocketException: Too many files open Change the timeout in Windows Change the timeout in Linux How can I add other language translations? How can I send binary data stored in a database when the FTP Server gets the RETR command? Why I am getting ClassNotFoundException when I am trying to use database based user manager? I am unable to run FtpServer on top of Glassfish although it is running correctly over tomcat.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Features</title>
+      <link>https://mina.apache.org/ftpserver-project/features.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/features.html</guid>
+      <description>Features  100% pure Java, free, open source resumable FTP server Multi platform support and multithreaded design. User virtual directory, write permission, idle time-out and upload/download bandwidth limitation support. Anonymous login support. Both upload and download files are resumable. Handles both ASCII and binary data transfers. IP restriction support to ban IPs. Database and file can be used to store user data. All the FTP messages are customizable. Implicit/explicit SSL/TLS support.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer File based user manager</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_user_manager_file.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_user_manager_file.html</guid>
+      <description>File based user manager This is the default user manager. It uses a properties file to store all the user information.
+Example &amp;lt;file-user-manager file=&amp;#34;users.properties&amp;#34; encrypt-passwords=&amp;#34;true&amp;#34;&amp;gt; file-user-manager element    Attribute Description Required Default value     file Path to the properties file for storing users Yes     encrypt-passwords It indicates how to stored password are encrypted. Possible values are &amp;ldquo;clear&amp;rdquo; for clear text, &amp;ldquo;md5&amp;rdquo; for hashed using MD5 or &amp;ldquo;salted&amp;rdquo; for hashed salted passwords (including multiple hash iterations).</description>
+    </item>
+    
+    <item>
+      <title>FtpServer FTP Commands</title>
+      <link>https://mina.apache.org/ftpserver-project/ftpserver_commands.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/ftpserver_commands.html</guid>
+      <description>FTP Commands This document describes all the FTP commands implemented.
+ABOR Aborts the previous FTP service command and any associated transfer of data.
+Server Replies 226 ABOR command successful.  ACCT Provides the user&amp;rsquo;s account. Not used by FtpServer.
+Server Replies 202 Command ACCT not implemented.  APPE Appends data to the end of a file on the remote host. If the file does not already exist, it is created. This command must be preceded by a PORT or PASV command.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Ftplet</title>
+      <link>https://mina.apache.org/ftpserver-project/ftplet.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/ftplet.html</guid>
+      <description>Ftplet Overview The Ftplet API is a simple API used to handle different FtpServer notifications. Apache FtpServer is a Ftplet container, allowing administrators to deploy Ftplet to carry out a variety of complex FTP event handler tasks.
+Implementing a custom Ftplet is generally a simple task, most of whose complexity lies in coding the actual work to be done by the Ftplet. This is largely due to the simplicity of the Ftplet interface and the fact that a DefaultFtplet class is provided as part of the Ftplet package.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Getting Involved</title>
+      <link>https://mina.apache.org/ftpserver-project/getting_involved.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/getting_involved.html</guid>
+      <description>Getting Involved Apache FtpServer communicates using our Mailing Lists. If you have any questions, feedback or suggestions, you&amp;rsquo;re very welcome to join the list and send an email. We are also happy to receive bug reports and feature requests in our JIRA.
+Patches The best chance of getting your bug or feature fixed is to provide a patch, if they fit our goals we will usually have them committed within a few days.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Getting Source</title>
+      <link>https://mina.apache.org/ftpserver-project/getting_source.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/getting_source.html</guid>
+      <description>Overview Sources for the Apache MINA projects are currently managed through GIT. Instructions on GIT use can be found at http://git-scm.com/book/.
+Normal Git Access Anyone can check code out of Git. You only need to specify a username and password in order to update the Git repository, and only MINA committers have the permissions to do that. We run Git over standard HTTPS, so hopefully you won&amp;rsquo;t have problems with intervening firewalls.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Home</title>
+      <link>https://mina.apache.org/ftpserver-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/</guid>
+      <description>Welcome to Apache FtpServer Overview The Apache FtpServer is a 100% pure Java FTP server. It&amp;rsquo;s designed to be a complete and portable FTP server engine solution based on currently available open protocols. FtpServer can be run standalone as a Windows service or Unix/Linux daemon, or embedded into a Java application. We also provide support for integration within Spring applications and provide our releases as OSGi bundles.
+The default network support is based on Apache MINA, a high performance asynchronous IO library.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Installation</title>
+      <link>https://mina.apache.org/ftpserver-project/installation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/installation.html</guid>
+      <description>Installation Binary Distribution Download the binary distribution and unzip it. The zip file includes sample configuration files
+Typical server set up : &amp;lt;INSTALL_DIR&amp;gt;/res/conf/ftpd-typical.xml
+ Full example configuration file : &amp;lt;INSTALL_DIR&amp;gt;/res/conf/ftpd-full.xml If you want to use your own jar files, you can put those jar files in system CLASSPATH or copy those jar files in the &amp;lt;INSTALL_DIR&amp;gt;/common/lib directory.  To run the server, go to &amp;lt;INSTALL_DIR&amp;gt; directory and execute ftpd.bat (if Windows) or ftpd.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Listeners</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_listeners.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_listeners.html</guid>
+      <description>Listeners Listeners are the component in FtpServer which is responsible for listening on the network socket and when clients connect create the user session, execute commands and so on. An FtpServer can have multiple listeners at the same time, some examples include:
+ one listener on port 21 (the default option) one cleartext listener on port 21 and one for implicit SSL on port 22 one cleartext listener in an internal IP address only and one for implicit SSL for the external IP address  Listeners are identified by a name, the default listener is identified by &amp;ldquo;default&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Logging</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_logging.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_logging.html</guid>
+      <description>Logging FtpServer Logging FtpServer uses SLF4J throughout its internal code allowing the developer to choose a logging configuration that suits their needs, e.g java.util.logging or Log4J. SLF4J provides FtpServer the ability to log hierarchically across various log levels without needing to rely on a particular logging implementation.
+MDC logging FtpServer supports MDC logging. Basically, it provides session based information for the logger. Of primary interest in the case of FtpServer are the user name and remote IP address for each session.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Mailing Lists</title>
+      <link>https://mina.apache.org/ftpserver-project/mailing_list.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/mailing_list.html</guid>
+      <description>Mailing List General information about the FtpServer mailing lists can be found here.
+For Users Please use this list for any questions regarding how to use FtpServer in your application.
+         Subscribe ftpserver-users-subscribe@mina.apache.org   Unsubscribe ftpserver-users-unsubscribe@mina.apache.org   Post ftpserver-users@mina.apache.org   Archive http://www.mail-archive.com/ftpserver-users@mina.apache.org/    For Developers We use the MINA developers list for asking technical questions, discussing feature suggestions or general questions regarding the project.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Managing users</title>
+      <link>https://mina.apache.org/ftpserver-project/managing_users.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/managing_users.html</guid>
+      <description>Managing users Since FtpServer user manager might encrypt user passwords before saving them, manually administering the user database can be hard. There is basically three ways:
+Manually Using either the PropertiesUserManager or DbUserManager you can access the data store (file or database) directly to edit users. For clear text passwords you can simply edit them. For MD5 hashed passwords, you can you use any of the available MD5 tools, for example http://www.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Messages</title>
+      <link>https://mina.apache.org/ftpserver-project/messages.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/messages.html</guid>
+      <description>Messages This document explains how to customize all the Apache FtpServer reply messages.
+All the server messages are customizable. The default reply messages are bundled with the server. The user defined custom messages will be stored separately. This custom message file is configurable.
+The FtpServer project is interested in localized message bundles, please contact the project if you would like to donate.
+Example &amp;lt;messages languages=&amp;quot;se, no ,da&amp;quot;&amp;gt;  messages element    Attribute Description Required Default value     directory The directory in which message bundles can be located No     languages A comma separated list of the languages that the server will provide messages in No      Creating a customized message bundle Dynamic Values Dynamic values can be embedded in the server message replies.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Related Projects</title>
+      <link>https://mina.apache.org/ftpserver-project/related_project.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/related_project.html</guid>
+      <description>Related Projects VFS FTPServer Bridge This project provides an Apache Commons VFS implementation for the Apache FTPServer project. Instead of working only on local files, with this VFS bridge you can connect to any VFS provider. You can still use a local file system, but you can also use a ZIP file, loop through to another FTP server, or use any other available VFS implementation such as DctmVFS.
+HDFS over FTP FTP server which works on a top of HDFS.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Releasing</title>
+      <link>https://mina.apache.org/ftpserver-project/releasing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/releasing.html</guid>
+      <description>Releasing Before calling a vote   Update the README.txt file
+  Copy trunk revision to branch
+ svn copy -m &amp;quot;Branching for release&amp;quot; -r &amp;lt;revision&amp;gt; https://svn.apache.org/repos/asf/mina/ftpserver/trunk/ https://svn.apache.org/repos/asf/mina/ftpserver/branches/&amp;lt;release version&amp;gt; svn co https://svn.apache.org/repos/asf/mina/ftpserver/branches/&amp;lt;release version&amp;gt;    Up version in trunk
+ mvn versions:set -DnewVersion=&amp;lt;next version&amp;gt;-SNAPSHOT -DgenerateBackupPoms=false svn -m &amp;quot;Increasing version for new development in trunk&amp;quot; commit    Update version in branch
+ mvn versions:set -DnewVersion=&amp;lt;release version&amp;gt; -DgenerateBackupPoms=false svn -m &amp;quot;Setting version for release of &amp;lt;release version&amp;gt;&amp;quot; commit    mvn -Papache-release clean deploy</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Reporting Bugs</title>
+      <link>https://mina.apache.org/ftpserver-project/reporting_bug.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/reporting_bug.html</guid>
+      <description>Reporting a Bug We are using JIRA to track all FtpServer issues including bugs. Please visit our issue tracker page to report a bug.
+How to report a bug Writing a bug report with detailed information will help us to fix your problem sooner.
+ Make sure if the bug you are going to report doesn&amp;rsquo;t exist yet. Attaching JUnit test case which reproduces the problem will put your report in our highest priority.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Server</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_server.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_server.html</guid>
+      <description>Server Some configuration is done for the entire server. This affects all listeners, for login limits, the sum of the logins for all listeners are enforced.
+Using the XML configuration, this following examples shows all available configurations for the server
+&amp;lt;server xmlns=&amp;#34;http://mina.apache.org/ftpserver/spring/v1&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd&amp;#34; id=&amp;#34;server&amp;#34; max-logins=&amp;#34;500&amp;#34; anon-enabled=&amp;#34;false&amp;#34; max-anon-logins=&amp;#34;123&amp;#34; max-login-failures=&amp;#34;124&amp;#34; login-failure-delay=&amp;#34;125&amp;#34;&amp;gt; ... &amp;lt;/server&amp;gt; server element    Attribute Description Required Default value     id A unique identifier for this server within this XML configuration Yes     max-threads The maximum number of threads used in the thread pool for handling client connections No max-logins, or 16 if neither value is set   max-logins The maximum number of simultaneous users No 10   max-anon-logins The maximum number of simultaneous anonymous users No 10   anon-enabled Are anonymous logins enabled?</description>
+    </item>
+    
+    <item>
+      <title>FtpServer SITE Commands</title>
+      <link>https://mina.apache.org/ftpserver-project/ftpserver_site_commands.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/ftpserver_site_commands.html</guid>
+      <description>SITE Commands This document describes all the FTP SITE commands implemented.
+SITE DESCUSER It displays the user details.
+Sample Server Replies 200- DESCUSER : display user information. HELP : display this message. STAT : show statistics. WHO : display all connected users. ZONE : display timezone. 200 End of help.  SITE HELP It displays all the available SITE commands.
+Server Replies 200- DESCUSER : display user information. HELP : display this message.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Testimonials</title>
+      <link>https://mina.apache.org/ftpserver-project/testimonials.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/testimonials.html</guid>
+      <description>Testimonials Daniel Frank says:
+ Apache FtpServer has proven to be a stable and reliable platform for our customers. It is easy to customize, and this was an important factor when deciding to use Apache FtpServer as the FTP server for our cloud based file sharing solution, HostedFTP
+ </description>
+    </item>
+    
+    <item>
+      <title>FtpServer TLS-SSL Support</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_ssltls_support.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_ssltls_support.html</guid>
+      <description>TLS-SSL Support This document explains how to enable Apache FTP Server to use Transport Layer Security (TLS) for encrypted client-server communication.
+FtpServer uses the Java Secure Sockets Extension (JSSE) infrastructure to provide TLS/SSL sockets. JSSE comes packaged with several vendor Java distributions (i.e. Sun Java 1.4.x, IBM Java 1.3.x). For these distributions, please follow the vendor provided instructions for configuring the JVM to use JSSE services.
+Security mode Explicit Security (default) In this mode server supports both secure and non-secure connection.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer User Manager</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_user_manager.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_user_manager.html</guid>
+      <description>User Manager Built in user managers FtpServer comes with two different user managers:
+ File based user manager Database user manager  Custom User Manager You can write your own user manager to integrate it with your existing applications. Your custom user manager should implement org.apache.ftpserver.ftplet.UserManager interface. In your configuration file, you will have to use the Spring bean element to configure your custom user manager. This gives you all the power of Spring, for example integrating with your other beans.</description>
+    </item>
+    
+    <item>
+      <title>Installing FtpServer as a Windows service</title>
+      <link>https://mina.apache.org/ftpserver-project/ftpserver_as_windows_service.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/ftpserver_as_windows_service.html</guid>
+      <description>Installing FtpServer as a Windows service Install Apache FtpServer can be installed as a Windows service using the following command:
+&amp;lt;install dir&amp;gt;bin\service install  This will create a service called Apache FtpServer that can be started and stopped as a usual service.
+As a second parameter, the service identifier can be provided. This would normally be used if multiple FtpServer services should be installed, for example:
+&amp;lt;install dir&amp;gt;bin\service install ftpd2  Without any further options, this will use the default configuration.</description>
+    </item>
+    
+    <item>
+      <title>Issue Tracking</title>
+      <link>https://mina.apache.org/mina-project/issue-tracking.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/issue-tracking.html</guid>
+      <description>Our project uses JIRA, a Java EE based issue tracking and project management application.
+General guidance First, this is the best place to submit bugs (or what you think is a bug). The mailing list is a short term memory place, don&amp;rsquo;t expect your problem to be answered if it&amp;rsquo;s not in the next couple of days you posted on it.
+What are the important information you need to put when filing a JIRA ?</description>
+    </item>
+    
+    <item>
+      <title>Loading SSHD in Eclipse or IDEA</title>
+      <link>https://mina.apache.org/sshd-project/load_ssh_editor.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/load_ssh_editor.html</guid>
+      <description>Loading SSHD in Eclipse or IDEA If you want to debug or develop on SSHD, chances are you want to load it in your IDE. Most IDE now have some maven support (either natively or through plugins), but if you don&amp;rsquo;t have those plugins installed, you can create the required project files using one of the following command:
+mvn eclipse:eclipse  or
+mvn idea:idea  If you want to have the source code for the various dependencies available for debugging, you can add the -DdownloadSources=true parameter on the command line.</description>
+    </item>
+    
+    <item>
+      <title>Message flow</title>
+      <link>https://mina.apache.org/mina-project/technical-documentation/message-flow.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/technical-documentation/message-flow.html</guid>
+      <description>Message flow When a selector receives some OP_READ event, the associated IoProcessor is awaken and starts to process this event. It all starts with reading the channel, then pushing the read data through the filter chain down to the IoHandler (aka, the application). If the application decides to write back a response, it goes through the chain again, andultimately the data to be pushed into the channel is pushed into a queue (_writeRequestQueue), then the stack is unfolled, down to the IoProcessor, which pops the data from the queue and writes it into the channel.</description>
+    </item>
+    
+    <item>
+      <title>MINA 2.0.x Downloads</title>
+      <link>https://mina.apache.org/downloads-mina_2_0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/downloads-mina_2_0.html</guid>
+      <description>Latest MINA Releases Apache MINA 2.0.21 stable (Java 7+) Binaries  .tar.gz archive mina-2.0.21 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.0.21 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.0.21 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.0.21 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.0.21 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.0.21 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+    </item>
+    
+    <item>
+      <title>MINA 2.0.x Downloads</title>
+      <link>https://mina.apache.org/mina-project/downloads_2_0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/downloads_2_0.html</guid>
+      <description>Latest MINA Releases Apache MINA 2.0.21 stable (Java 7+) Binaries  .tar.gz archive mina-2.0.21 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.0.21 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.0.21 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.0.21 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.0.21 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.0.21 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+    </item>
+    
+    <item>
+      <title>MINA 2.1.x Downloads</title>
+      <link>https://mina.apache.org/mina-project/downloads_2_1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/downloads_2_1.html</guid>
+      <description>Latest MINA Releases Apache MINA 2.1.3 stable (Java 8+) Binaries  .tar.gz archive mina-2.1.3 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.1.3 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.1.3 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.1.3 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.1.3 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.1.3 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+    </item>
+    
+    <item>
+      <title>MINA 2.1.x vs MINA 2.0.x</title>
+      <link>https://mina.apache.org/mina-project/2.1-vs-2.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/2.1-vs-2.0.html</guid>
+      <description>2.1.x vs 2.0.x differences The way an application is informed that a session has been secured (ie, the SSL/TLS handshake has been successfully completed) was to use a notification system. A specific message was pushed for that purpose, up to the client application to check that message. It forced the application implementer to inject a special session attribute (SslFilter.USE_NOTIFICATION), which is a bit heavy.
+It was decided to change that and make it easier for the application to get this information.</description>
+    </item>
+    
+    <item>
+      <title>MINA Codec Repository</title>
+      <link>https://mina.apache.org/mina-project/codec-repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/codec-repo.html</guid>
+      <description>Overview This page captures known MINA Codecs available. These codecs may not be part of Apache MINA project. The Codecs are for reference purpose only.
+The Codecs listed here may not be part of Apache MINA project. The information is for MINA Users for reference implementation available over the web  Protocol Codecs The table below summarizes some of the known codecs
+   Protocol Project Description     Prefixed String Apache MINA Encodes/Decodes a a String with fixed length prefix   Object Serializer Apache MINA Serializes and deserializes Java objects   Text Line Apache MINA Encoding/Decoding between a text line data and a Java string object   Ftp Apache FtpServer FTP codecs   LDAP Apache Directory LDAP protocol Codecs   DNS Apache Directory DNS protocol Codecs   Kerberos Apache Directory Kerberos protocol Codecs   NTP Apache Directory NTP protocol Codecs   DHCP Apache Directory DHCP protocol Codecs   MRTMP Red5 Codecs for Multiplexing RTMP   RTMP Red5 Codecs for RTMP   RTSP Red5 Codecs for RTSP   SMTP MailsterSMTP SMTP Codecs   AMQP Apache Qpid AMQP Codecs   XMPP Jive Software Openfire XMPP Codecs   XMPP Vysper XMPP/XML Codecs.</description>
+    </item>
+    
+    <item>
+      <title>MINA Downloads</title>
+      <link>https://mina.apache.org/downloads-mina_2_1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/downloads-mina_2_1.html</guid>
+      <description>Latest MINA Releases Apache MINA 2.1.3 stable (Java 8+) Binaries  .tar.gz archive mina-2.1.3 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.1.3 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.1.3 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.1.3 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.1.3 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.1.3 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+    </item>
+    
+    <item>
+      <title>MINA Home</title>
+      <link>https://mina.apache.org/mina-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/</guid>
+      <description>Welcome to Apache MINA Overview Apache MINA is a network application framework which helps users develop high performance and high scalability network applications easily. It provides an abstract ·event-driven · asynchronous API over various transports such as TCP/IP and UDP/IP via Java NIO.
+Apache MINA is often called:
+ NIO framework · library, client · server framework · library, or a networking · socket library.  However, it&amp;rsquo;s much more than that.</description>
+    </item>
+    
+    <item>
+      <title>MINA Older Downloads</title>
+      <link>https://mina.apache.org/mina-project/downloads_old.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/downloads_old.html</guid>
+      <description>Older MINA Releases For people wanting to use the serial package, we don&#39;t include the rxtx.jar library in the releases, as it&#39;s under a LGPL license. Please download it from http://rxtx.qbang.org/wiki/index.php/Download or add the associated dependency in your maven pom.xml :  &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.rxtx&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxtx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.1.7&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;scope&amp;gt; &amp;lt;/dependency&amp;gt;   MINA 2.1.x     Version Download Links Date     ApacheDS MINA 2.1.2 Download, Javadoc, Test javadoc, Xref, Xref test 20/Apr/2019   ApacheDS MINA 2.</description>
+    </item>
+    
+    <item>
+      <title>MINA Presentation Materials</title>
+      <link>https://mina.apache.org/mina-project/conferences.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/conferences.html</guid>
+      <description>Presentation Materials These presentation materials will help you understand the overall architecture and core constructs of MINA.
+ MINA in real life (ApacheCon EU 2009) by Emmanuel Lécharny Rapid Network Application Development with Apache MINA (JavaOne 2008) by Trustin Lee Apache MINA - The High Performance Protocol Construction Toolkit (ApacheCon US 2007) by Peter Royal Introduction to MINA (ApacheCon Asia 2006) by Trustin Lee  Other Presentation Materials  Building TCP/IP Servers with Apache MINA (ApacheCon EU 2007) by Peter Royal Building TCP/IP Servers with Apache MINA (ApacheCon EU 2006) by Peter Royal Introduction to MINA (ApacheCon US 2005) by Trustin Lee Demo movie  </description>
+    </item>
+    
+    <item>
+      <title>News</title>
+      <link>https://mina.apache.org/mina-project/news.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/news.html</guid>
+      <description>News MINA 2.1.3 released posted on June, 2, 2019 The MINA project is pleased to announce a new release, MINA 2.1.3. This is a bug fix release: it fixes a 100% CPU usage in some corner case. Here are the fixed issues :
+ DIRMINA-1095 Seems like the management f UDP sessions is really unneficient DIRMINA-1107 SslHandler flushScheduledEvents race condition, redux DIRMINA-1111 100% CPU (epoll bug) on 2.1.x, Linux only DIRMINA-1104 IoBufferHexDumper.</description>
+    </item>
+    
+    <item>
+      <title>Performance Test Reports</title>
+      <link>https://mina.apache.org/mina-project/performances.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/performances.html</guid>
+      <description>Before You Read the Performance Test Reports&amp;hellip; This page exhibits the performance test results under various conditions (e.g. various protocols and system environments). Please [contact us|Mailing Lists] if you have any specific performance test results to publish for your MINA-based application.
+The following performance test results may have critical flaws in test design or contain wrong values. Please regard these reports as just a hint for understanding general performance characteristics of Apache MINA.</description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://mina.apache.org/privacy-policy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/privacy-policy.html</guid>
+      <description>Privacy Policy Information about your use of this website is collected using server access logs and a tracking cookie. The collected information consists of the following:
+ The IP address from which you access the website; The type of browser and operating system you use to access our site; The date and time you access our site; The pages you visit; and The addresses of pages from where you followed a link to our site.</description>
+    </item>
+    
+    <item>
+      <title>Quick Start Guide</title>
+      <link>https://mina.apache.org/mina-project/quick-start-guide.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/quick-start-guide.html</guid>
+      <description>Quick Start Guide This tutorial will walk you through the process of building a MINA based program. This tutorial will walk through building a time server. The following prerequisites are required for this tutorial:
+ MINA 2.0.7 Core JDK 1.5 or greater [SLF4J|http://www.slf4j.org/] 1.3.0 or greater  Log4J 1.2 users: slf4j-api.jar, slf4j-log4j12.jar, and Log4J 1.2.x Log4J 1.3 users: slf4j-api.jar, slf4j-log4j13.jar, and Log4J 1.3.x java.util.logging users: slf4j-api.jar and slf4j-jdk14.jar IMPORTANT : Please make sure you are using the right slf4j-*.</description>
+    </item>
+    
+    <item>
+      <title>References</title>
+      <link>https://mina.apache.org/asyncweb-project/references.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/references.html</guid>
+      <description>References  Interesting Comet article http://cometdaily.com/2008/04/01/new-technology-new-problems-delayed-pushes-operations/  </description>
+    </item>
+    
+    <item>
+      <title>Related Projects</title>
+      <link>https://mina.apache.org/mina-project/related-projects.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/related-projects.html</guid>
+      <description>Related Projects This page lists the projects which use Apache MINA as its networking layer. Please contact us if you are using MINA and you want to add a link to this page. You could also read the users&amp;rsquo; testimonials. To compare MINA to other network application frameworks, please refer to the &amp;lsquo;Other network application frameworks&amp;rsquo; section below.
+ Other network application frameworks  Grizzly Netty 3 NIO Framework QuickServer xSocket   Messaging  Apache Camel Apache Qpid (incubating) Avis MailsterSMTP   Instant Messaging  Jive Software Openfire   Media Storage &amp; Streaming  OpenLSD Red5   Miscellaneous  Apache Directory Project Beep4j VFS FTPServer Bridge HDFS over FTP     Other network application frameworks The projects referred in this section &#39;Other network application frameworks&#39; are not based on MINA but are their own network application frameworks.</description>
+    </item>
+    
+    <item>
+      <title>Road map</title>
+      <link>https://mina.apache.org/mina-project/road-map.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/road-map.html</guid>
+      <description>Please click the following links to find out what issues have been resolved and what issues will be resolved.
+ Road map for the future releases Change log for the past releases  Genesis of MINA by Trustin Lee
+In June 2004, I released a network application framework, &amp;lsquo;Netty2&amp;rsquo;. It was the first network application framework that provides event-based architecture in Java community. It attracted network application programmers because of its simplicity and ease of use.</description>
+    </item>
+    
+    <item>
+      <title>Setting SVN Properties in Tortoise SVN</title>
+      <link>https://mina.apache.org/mina-project/set-svnprops-tortoisesvn.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/set-svnprops-tortoisesvn.html</guid>
+      <description>Setting SVN Properties in Tortoise SVN This article is for configuring SVN properties for TortoiseSVN Client
+To maintain header&amp;rsquo;s with revision tags like, we need to set SVN properties.
+/** * @version $Rev: 529576 $, $Date: 2007-04-17 14:25:07 +0200 (mar., 17 avr. 2007) $ */ Lets see how to set these properties in Tortoise SVN Client
+Open Tortoise SVN Client setting, (Right Click-&amp;gt; Tortoise SVN -&amp;gt; Settings)
+Click Edit button (as shown in figure)</description>
+    </item>
+    
+    <item>
+      <title>Sources</title>
+      <link>https://mina.apache.org/mina-project/sources.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/sources.html</guid>
+      <description>Overview Sources for the Apache MINA projects are currently managed through GIT. Instructions on GIT use can be found at http://git-scm.com/book/.
+For each project you can find a detailed description how to checkout and build the source on the project documentation. This page is just a short overview.
+Normal Git Access Anyone can check code out of Git. You only need to specify a username and password in order to update the Git repository, and only MINA committers have the permissions to do that.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Building</title>
+      <link>https://mina.apache.org/sshd-project/building.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/building.html</guid>
+      <description>Building SSHD SSHD uses Maven as its build tool. If you don&amp;rsquo;t fancy using Maven you can use your IDE directly or Download a distribution or JAR.
+  Download and install Maven.
+  Get the latest code from Git
+  Build the code with the following command
+ mvn clean install    </description>
+    </item>
+    
+    <item>
+      <title>SSHD Configuring Security</title>
+      <link>https://mina.apache.org/sshd-project/configuring_security.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/configuring_security.html</guid>
+      <description>Configuring Security The SSHD server needs to be integrated and the security layer has to be customized to suit your needs. This layer is pluggable and use the following interfaces:
+ PasswordAuthenticator for password based authentication PublickeyAuthenticator for key based authentication  Those custom classes can be configured on the SSHD server using the following code:
+SshServer sshd = SshServer.setUpDefaultServer(); sshd.setPasswordAuthenticator(new MyPasswordAuthenticator()); sshd.setPublickeyAuthenticator(new MyPublickeyAuthenticator()); If only one of those class is implemented, only the related authentication mechanism will be enabled.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Contributors</title>
+      <link>https://mina.apache.org/sshd-project/contributors.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/contributors.html</guid>
+      <description>Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
+ Emmanuel Lécharny Guillaume Nodet Lyor Goldstein Shawn Pearce  Contributors The following additional people have contributed to this project through the way of suggestions, patches or documentation.
+ Leo Bayer André Bierwolf Shikhar Bhushan Cédric Chantepie Patrick Dessalle Ken Diep Laurent Duchesne Richard Evans Francois Fernandes Otto Frost Will Glass-Husain Andreas Johansson Nick Howes Kohsuke Kawaguchi Leonid Kof Bill Kuker Philippe Laflamme Tien Luong Daniel Micol-Ponce David Overton Simon Paradis Bobby Powers Taras Puchko Matthew Schulze Michael Stevens Liu Tao Pete Torgenrud Denis Tulskiy Frank van der Kleij Jason Van Zyl Tim Vernum  </description>
+    </item>
+    
+    <item>
+      <title>SSHD Documentation</title>
+      <link>https://mina.apache.org/sshd-project/documentation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/documentation.html</guid>
+      <description>Apache SSHD documentation Resources  API JavaDocs  Tutorials  Configuring security Embedding SSHD in 5 minutes Loading SSHD in Eclipse or IDEA Required dependencies Tips  </description>
+    </item>
+    
+    <item>
+      <title>SSHD Downloads</title>
+      <link>https://mina.apache.org/sshd-project/downloads.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/downloads.html</guid>
+      <description>Latest SSHD Releases The latest release is the SSHD 2.4.0 release.
+ Source distributions:  Apache Mina SSHD 2.4.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.4.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.4.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.4.0 Binary (.zip) PGP SHA    Development snapshots You can build the latest version from sources.
+Previous releases  SSHD 0.1.0 SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>SSHD FAQ</title>
+      <link>https://mina.apache.org/sshd-project/faq.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/faq.html</guid>
+      <description>FAQ TODO</description>
+    </item>
+    
+    <item>
+      <title>SSHD Features</title>
+      <link>https://mina.apache.org/sshd-project/features.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/features.html</guid>
+      <description>Features TODO</description>
+    </item>
+    
+    <item>
+      <title>SSHD Getting Involved</title>
+      <link>https://mina.apache.org/sshd-project/getting_involved.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/getting_involved.html</guid>
+      <description>Getting Involved The Apache SSHD developers communicates using our Mailing Lists. If you have any questions, feedback or suggestions, you&amp;rsquo;re very welcome to join the list and send an email. We are also happy to receive bug reports and feature requests in our JIRA.
+Patches The best chance of getting your bug or feature fixed is to provide a patch, if they fit our goals we will usually have them committed within a few days.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Issue Tracking</title>
+      <link>https://mina.apache.org/sshd-project/issue_tracking.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/issue_tracking.html</guid>
+      <description>Issue Tracking We are using JIRA to track all SSHD issues including bugs. Please visit our issue tracker page to report a bug.
+How to report a bug Writing a bug report with detailed information will help us to fix your problem sooner.
+ Make sure if the bug you are going to report doesn&amp;rsquo;t exist yet. Attaching JUnit test case which reproduces the problem will put your report in our highest priority.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Mailing Lists</title>
+      <link>https://mina.apache.org/sshd-project/mailing_lists.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/mailing_lists.html</guid>
+      <description>Mailing List General information about the SSHD mailing lists can be found here.
+For Users Please use this list for any questions regarding how to use SSHD.
+         Subscribe users-subscribe@mina.apache.org   Unsubscribe users-unsubscribe@mina.apache.org   Post users@mina.apache.org   Archive http://www.mail-archive.com/users@mina.apache.org/    For Developers We use the MINA developers list for asking technical questions, discussing feature suggestions or general questions regarding the project.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Overview</title>
+      <link>https://mina.apache.org/sshd-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/</guid>
+      <description>Overview Apache SSHD is a 100% pure java library to support the SSH protocols on both the client and server side. This library is based on Apache MINA, a scalable and high performance asynchronous IO library.
+SSHD does not really aim at being a replacement for the SSH client or SSH server from Unix operating systems, but rather provides support for Java based applications requiring SSH support.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Required dependencies</title>
+      <link>https://mina.apache.org/sshd-project/required_dependencies.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/required_dependencies.html</guid>
+      <description>Required dependencies SSHD has 2 compile-time dependencies:
+ MINA Core 2.0.x : http://repo1.maven.org/maven2/org/apache/mina/mina-core/2.0.7/mina-core-2.0.7.jar SLF4J API 1.6.4 : http://repo2.maven.org/maven2/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar  Note that since SSHD 0.9.0, the Mina Core library is optional when running in JDK 1.7 and SSHD will default to using nio2 if available.
+To be able to run SSHD, you will also need one SLF4J Logger implementation. The simplest one is the one using java.util.logging underneath which can be downloaded at http://repo2.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Sources</title>
+      <link>https://mina.apache.org/sshd-project/sources.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/sources.html</guid>
+      <description>Overview Sources for the Apache MINA projects are currently managed through GIT. Instructions on GIT use can be found at http://git-scm.com/book/.
+Normal Git Access Anyone can check code out of Git. You only need to specify a username and password in order to update the Git repository, and only MINA committers have the permissions to do that. We run Git over standard HTTPS, so hopefully you won&amp;rsquo;t have problems with intervening firewalls.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Tips</title>
+      <link>https://mina.apache.org/sshd-project/tips.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/tips.html</guid>
+      <description>How to execute commands as processes on the server side? If you want the SSH server to support direct command execution, you need to configure it with a Factory which will allow that.
+It can be done using the following code:
+sshd.setCommandFactory(new ScpCommandFactory(new CommandFactory() { public Command createCommand(String command) { return new ProcessShellFactory(command.split(&amp;lt;SPAN class=&amp;#34;code-quote&amp;#34;&amp;gt;&amp;#34; &amp;#34;)).create(); } })); This way, you can use the following:
+ssh -p 8202 localhost ls -l </description>
+    </item>
+    
+    <item>
+      <title>SSL/TLS internals</title>
+      <link>https://mina.apache.org/mina-project/technical-documentation/ssl-tls-internal.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/technical-documentation/ssl-tls-internal.html</guid>
+      <description>SSL/TLS internals This is a technical description of how SSL/TLS are handled in MINA. You don&amp;rsquo;t need to read this to have it working, better have a look at the SslFilter user guide page. However, if you want to get a deeper understanding on how it&amp;rsquo;s built, this is the place !
+Components The SslFilter is the filter that command everything related to SSL/TLS. It works hands in hands with the SSLHandler class, which handles the logic.</description>
+    </item>
+    
+    <item>
+      <title>Testimonials</title>
+      <link>https://mina.apache.org/mina-project/testimonials.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/testimonials.html</guid>
+      <description>Marko Asplund says:
+ I found that Apache MINA really did fulfill its promise and implementing a high-performance, scalable and extensible network server was easy using it. MINA also helps very cleanly separate network communication and application level message processing logic. Supporting multiple different protocols in in the same server is well supported in MINA. As a downside the documentation for v2.0 is a bit lacking, but fortunately there are quite a few code samples that you can check out.</description>
+    </item>
+    
+    <item>
+      <title>User Guide</title>
+      <link>https://mina.apache.org/mina-project/userguide/user-guide-toc.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/userguide/user-guide-toc.html</guid>
+      <description>MINA 2.0 User Guide Part I - Basics
+ Chapter 1 - Getting Started  1.1 - NIO Overview 1.2 - Why MINA ? 1.3 - Features 1.4 - First Steps 1.5 - Summary   Chapter 2 - Basics  2.1 - Application Architecture  2.1.1 - Server Architecture 2.1.2 - Client Architecture   2.2 - Sample TCP Server 2.3 - Sample TCP Client 2.4 - Sample UDP Server 2.</description>
+    </item>
+    
+    <item>
+      <title>Verifying Release</title>
+      <link>https://mina.apache.org/validating-release.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/validating-release.html</guid>
+      <description>Validating Release Down the GPG keys and import them
+wget https://www.apache.org/dist/mina/KEYS gpg --import KEYS Download the release and verify checksums and signatures
+WIP</description>
+    </item>
+    
+    <item>
+      <title>Vysper Dependencies</title>
+      <link>https://mina.apache.org/vysper-project/dependencies.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/dependencies.html</guid>
+      <description>Dependencies Vysper depends on these fine libraries and frameworks:
+MINA - for socket communication.
+Spring Framework (optional) - for component configuration and wiring.
+Bouncy Castle SSL Provider - stream encryption
+JUnit - unit testing
+slf4j - logging framework, currently using log4j, but this is exchangeable
+Jackrabbit - Jackrabbit is used for JCR container persistence.
+More detailed info about dependencies and libraries can be found here.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Documentation</title>
+      <link>https://mina.apache.org/vysper-project/documentation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/documentation.html</guid>
+      <description>What is it? Apache Vysper aims to be a full blown XMPP (=eXtensible Messaging and Presence Protocol) server. The core of XMPP is defined in the standards RFC3920 and RFC3921.
+XMPP is more commonly known as &amp;lsquo;Jabber&amp;rsquo;.
+XMPP Specifications A list of the implementation status of the various specifications are available.
+Architecture  XML Processing Stanza processing User authentication and management  Using the server Apache Vysper can run stand-alone or embedded into another application It should work with any compliant XMPP client.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Downloads</title>
+      <link>https://mina.apache.org/downloads-vysper.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/downloads-vysper.html</guid>
+      <description>Latest Vysper Releases The latest release is the Apache Vysper 0.7 Release
+All Releases  Apache Vysper 0.7 Release Apache Vysper 0.6 Release Apache Vysper 0.5 Release  Maven Repositories All Apache Vysper releases are available from the Maven central repository</description>
+    </item>
+    
+    <item>
+      <title>Vysper Downloads</title>
+      <link>https://mina.apache.org/vysper-project/downloads.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/downloads.html</guid>
+      <description>Latest Vysper Releases The latest release is the Apache Vysper 0.7 Release
+All Releases  Apache Vysper 0.7 Release Apache Vysper 0.6 Release Apache Vysper 0.5 Release  Maven Repositories All Apache Vysper releases are available from the Maven central repository</description>
+    </item>
+    
+    <item>
+      <title>Vysper Extending the Server</title>
+      <link>https://mina.apache.org/vysper-project/extending_server.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/extending_server.html</guid>
+      <description>How to extend the server functionality XMPP support for extensions XMPP provides a bunch of already specified extensions. See http://www.xmpp.org/extensions for a complete list.
+XMPP also allows for custom extensions of the core stanza types &amp;lsquo;message&amp;rsquo;, &amp;lsquo;iq&amp;rsquo; and &amp;lsquo;presence&amp;rsquo;. All XMPP clients and servers should be able to savely ignore them unless they are able to deal with them. See the relevant specification chapter.
+Most XMPP extensions rely on Disco (Service Discovery, XEP-0030).</description>
+    </item>
+    
+    <item>
+      <title>Vysper Extension Roadmap</title>
+      <link>https://mina.apache.org/vysper-project/extension_roadmap.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/extension_roadmap.html</guid>
+      <description>Extension Roadmap Extension Roadmap Change the prios! If there is anything you want to implement, regardless if it is on this lists or not, please don&amp;rsquo;t hesitate to contact us. This is not set in stone! It&amp;rsquo;s just there to give some perspective
+Completed          XEP-0004 Data Forms   XEP-0030 Service Discovery   XEP-0048 Bookmarks   XEP-0049 Private XML Storage   XEP-0054 vcard-temp   XEP-0090 Entity Time (deprecated, see XEP-0202)   XEP-0092 Software Version   XEP-0199 XMPP Ping   XEP-0202 Entity Time    In development          RFC3920 in progress, some features missing   RFC3921 in progress, major features missing   XEP-0060 Publish-Subscribe, fully compliant but not full featured   XEP-0045 Multi-user chat    Upcoming          XEP-0009 RPC   XEP-0077 In-band Registration    </description>
+    </item>
+    
+    <item>
+      <title>Vysper Getting Involved</title>
+      <link>https://mina.apache.org/vysper-project/getting_involved.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/getting_involved.html</guid>
+      <description>Getting Involved The Apache Vysper developers communicates using our Mailing Lists. If you have any questions, feedback or suggestions, you&amp;rsquo;re very welcome to join the list and send an email. We are also happy to receive bug reports and feature requests in our JIRA.
+Patches The best chance of getting your bug or feature fixed is to provide a patch, if they fit our goals we will usually have them committed within a few days.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Issue Tracking</title>
+      <link>https://mina.apache.org/vysper-project/issue_tracking.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/issue_tracking.html</guid>
+      <description>Issue Tracking We are using JIRA to track all Vysper issues including bugs. Please visit our issue tracker page to report a bug.
+How to report a bug Writing a bug report with detailed information will help us to fix your problem sooner.
+ Make sure if the bug you are going to report doesn&amp;rsquo;t exist yet. Attaching JUnit test case which reproduces the problem will put your report in our highest priority.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Mailing Lists</title>
+      <link>https://mina.apache.org/vysper-project/mailing_lists.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/mailing_lists.html</guid>
+      <description>Mailing List General information about the Vysper mailing lists can be found here.
+For Users Please use this list for any questions regarding how to use Vysper.
+         Subscribe users-subscribe@mina.apache.org   Unsubscribe users-unsubscribe@mina.apache.org   Post users@mina.apache.org   Archive http://www.mail-archive.com/users@mina.apache.org/    For Developers We use the MINA developers list for asking technical questions, discussing feature suggestions or general questions regarding the project.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Server-to-server</title>
+      <link>https://mina.apache.org/vysper-project/server_to_server_comm.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/server_to_server_comm.html</guid>
+      <description>Server-to-server Available since version 0.7.  XMPP servers like Apache Vysper work in federated networks much like SMTP servers. Users connect to their own server, and when communicating with users on a different domain, the two servers will connect to each other and exchange XMPP stanzas. Server-to-server (S2S) connections differ from client-to-server (C2) connections in that stanzas for multiple users might be sent over the same connection. S2S connections are similar to C2S connections from the point that one of the servers serves as an initiator, like a client.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Service Discovery</title>
+      <link>https://mina.apache.org/vysper-project/service_discovery.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/service_discovery.html</guid>
+      <description>Using Service Discovery Disco quick start Service Discovery (or &amp;lsquo;disco&amp;rsquo;) is a XMPP extensions specified at (Service Discovery, XEP-0030).
+Disco resembles Directory services like LDAP, or even file systems.
+Disco is a server-side service. It maintains a tree of nodes (branches) and items (leafs). Clients discover child nodes and items of the root node or some other already discovered node by sending info-requests (IQ stanzas). The server replies with a IQ response containing a list of nodes and items.</description>
+    </item>
+    
+    <item>
+      <title>Vysper SOCKS5 bytestream module</title>
+      <link>https://mina.apache.org/vysper-project/socks5.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/socks5.html</guid>
+      <description>SOCKS5 bytestream module Available since version 0.7.  The Vysper SOCKS5 Bytestream module implements mediated connections from XEP-0065 SOCKS5 Bytestream. Direct connections requires no support from the server and thus works without this module. For mediated connections, this module will supply a SOCKS5 proxy that transfers data between the requester and target clients. The module also provides all the required service discovery support used to negotiate the address of the SOCKS5 proxy.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Sources</title>
+      <link>https://mina.apache.org/vysper-project/sources.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/sources.html</guid>
+      <description>Overview Sources for the Apache MINA projects are currently managed through GIT. Instructions on GIT use can be found at http://git-scm.com/book/.
+Normal Git Access Anyone can check code out of Git. You only need to specify a username and password in order to update the Git repository, and only MINA committers have the permissions to do that. We run Git over standard HTTPS, so hopefully you won&amp;rsquo;t have problems with intervening firewalls.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Standalone Server</title>
+      <link>https://mina.apache.org/vysper-project/server_standalone.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/server_standalone.html</guid>
+      <description>run main class if you like to invoke the server from an IDE or the commandline, use the Java class
+org.apache.vysper.spring.ServerMain for example by typing
+java org.apache.vysper.spring.ServerMain be sure to include all jars in lib/ in your classpath plus the spring-config.xml.
+It is also possible to load modules on the command line:
+java org.apache.vysper.spring.ServerMain -Dvysper.add.module=module1,module2... </description>
+    </item>
+    
+    <item>
+      <title>Vysper Standards Supported</title>
+      <link>https://mina.apache.org/vysper-project/standards_supported.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/standards_supported.html</guid>
+      <description>Standards Supported    Specification Status Comment     RFC 3920 XMPP Core Complete     RFC 3921 XMPP Instant Messaging and Presence 80%     XEP-0004 Data Forms Complete     XEP-0030 Service Discovery Complete     XEP-0045 Multi-User Chat 80%     XEP-0049 Private XML Storage Complete     XEP-0050 Ad-Hoc Commands Complete     XEP-0054 vcard-temp Complete     XEP-0060 Publish-Subscribe Complete     XEP-0065 SOCKS5 Bytestreams Complete The optional UDP support not implemented   XEP-0077 In-band registration 80% Canceling existing registration not supported   XEP-0082 XMPP Date and Time Profiles Complete     XEP-0092 Software Version Complete     XEP-0124 Bidirectional-streams Over Synchronous HTTP (BOSH) Complete     XEP-0133 Service Administration 40%     XEP-0185 Dialback Key Generation and Validation Complete     XEP-0199 XMPP Ping Complete     XEP-0202 Entity Time Complete     XEP-0206 XMPP Over BOSH Complete     XEP-0220 Server Dialback Complete     XEP-0220 Server Dialback Complete     An XMPP Sub-protocol for WebSocket Complete      </description>
+    </item>
+    
+    <item>
+      <title>Vysper Stanza Processing</title>
+      <link>https://mina.apache.org/vysper-project/stanza_processing_layer.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/stanza_processing_layer.html</guid>
+      <description>Stanza Processing Commands in the XMPP world are called Stanzas.
+At the transport layer, when going over the net between client and server, they have a textual representation in XML.
+In Vysper, the Stanza processing layer only deals with Stanza java objects. They are created by the transport layer, or using Builder utility classes from within Vysper. That makes this layer independent from any underlying transport layer. Stanzas are directly injectable on this level.</description>
+    </item>
+    
+    <item>
+      <title>Vysper User Guide</title>
+      <link>https://mina.apache.org/vysper-project/user_guide.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/user_guide.html</guid>
+      <description>User Guide  Dependencies Embed into another application Extending the Server Extension Roadmap Run Server Standalone Service Discovery Test client XML Processing  </description>
+    </item>
+    
+    <item>
+      <title>Vysper User Management</title>
+      <link>https://mina.apache.org/vysper-project/user_mgmt.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/user_mgmt.html</guid>
+      <description>User Management Apache Vysper comes with very basic user management support out of the box. But, frequently you would rather want to integrate Vysper with your already existing authentication solution. To enable this, Vysper comes with a simple API to implement your own authentication and user management.
+Authentication UserAuthentication is the interface which will get called when a client authenticates itself using SASL. Vysper currently ships with two implementations, one in-memory and one based on JCR.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Using the test client</title>
+      <link>https://mina.apache.org/vysper-project/test_client.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/test_client.html</guid>
+      <description>Using the test client The test clients builds on the XMPP client library Smack. It takes two parameters:
+ login name for the &amp;lsquo;from&amp;rsquo; user login name for the &amp;lsquo;to&amp;rsquo; user  The domain is assumed to be &amp;lsquo;vysper.org&amp;rsquo;, the password to be &amp;lsquo;password1&amp;rsquo;. This relates to the default users correctly configured in the default spring configuration file.
+The client logs into the server with the &amp;lsquo;from&amp;rsquo; user login and starts to send messages to the &amp;lsquo;to&amp;rsquo; user.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Websocket endpoint</title>
+      <link>https://mina.apache.org/vysper-project/websocket_endpoint.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/websocket_endpoint.html</guid>
+      <description>Websocket endpoint Available since version 0.7.  While websockets are still being specified, a draft specification for XMPP over websockets has been published at http://tools.ietf.org/html/draft-moffitt-xmpp-over-websocket-00. Websockets enables web browsers to establish duplex communications with servers with very little overhead.
+Vysper provides a websocket endpoint. The easiest way to use the endpoint is to simply add it as a regular endpoint:
+XMPPServer server = new XMPPServer(&amp;#34;vysper.org&amp;#34;); server.addEndpoint(new TCPEndpoint()); server.addEndpoint(new WebSocketEndpoint()); server.start(); That’s it.</description>
+    </item>
+    
+    <item>
+      <title>Vysper XM Processing</title>
+      <link>https://mina.apache.org/vysper-project/xml_processing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/xml_processing.html</guid>
+      <description>XML Processing XML data is the payload of the XMPP protocol. More precisely, XMPP only works on a subset of XML. See RFC3920 for details.
+The core handler and protocol code does not deal with xml strings directly. They only deal with java objects representing well-formed XMPP commands, called stanzas.
+To create these objects, the actual XML is processed in stages at the xml processing layer.
+While raw XML continues streaming in, we are faced with arbitrary partitioned stanza and even partial xml.</description>
+    </item>
+    
+  </channel>
+</rss>

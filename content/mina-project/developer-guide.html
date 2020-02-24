@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Developer Guide &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                <strong>MINA</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Latest Downloads</h5>
+                <ul>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.21</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.3</a></li>
+                    <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
+                </ul>
+                <h5>Documentation</h5>
+                <ul>
+                    <li><a href="/mina-project/documentation.html" class="external-link" rel="nofollow">Base documentation</a></li>
+                    <li><a href="/mina-project/userguide/user-guide-toc.html" class="external-link" rel="nofollow">User guide</a></li>
+                    <li><a href="/mina-project/2.1-vs-2.0.html" class="external-link" rel="nofollow">2.1 vs 2.0</a></li>
+                    <li><a href="/mina-project/features.html" class="external-link" rel="nofollow">Features</a></li>
+                    <li><a href="/mina-project/road-map.html" class="external-link" rel="nofollow">Road Map</a></li>
+                    <li><a href="/mina-project/quick-start-guide.html" class="external-link" rel="nofollow">Quick Start Guide</a></li>
+                    <li><a href="/mina-project/faq.html" class="external-link" rel="nofollow">FAQ</a></li>
+                </ul>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
+                    <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
+                    <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.3</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.3</a></li>
+                    <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
+                    <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
+                    <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
+                    <li><a href="/mina-project/developer-guide.html" class="external-link" rel="nofollow">Developers Guide</a></li>
+                    <li><a href="/mina-project/related-projects.html" class="external-link" rel="nofollow">Related Projects</a></li>
+                    <li><a href="https://people.apache.org/~vgritsenko/stats/projects/mina.html" class="external-link" rel="nofollow">Statistics</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/contributing.html" class="external-link" rel="nofollow">Contributing</a></li>
+                    <li><a href="/contributors.html" class="external-link" rel="nofollow">Team</a></li>
+                    <li><a href="/special-thanks.html" class="external-link" rel="nofollow">Special Thanks</a></li>
+                    <li><a href="https://www.apache.org/security/" class="external-link" rel="nofollow">Security</a></li>
+                </ul>
+
+                <h5>About Apache</h5>
+                <ul>
+                    <li><a href="https://www.apache.org" class="external-link" rel="nofollow">Apache main site</a></li>
+                    <li><a href="https://www.apache.org/licenses/" class="external-link" rel="nofollow">License</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html" title="The ASF sponsorship program" class="external-link" rel="nofollow">Sponsorship program</a></li>
+                    <li><a href="https://www.apache.org/foundation/thanks.html" class="external-link" rel="nofollow">Thanks</a></li>
+                </ul>
+
+                <h3><a name="Navigation-Upcoming"></a>Upcoming</h3>
+                <ul>
+                    <li>No event</li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="building-mina">Building MINA</h1>
+<div class="note" markdown="1">
+    Please read <a href="https://www.apache.org/dev/" class="external-link" rel="nofollow">the Developer Infrastructure Information</a> if you haven't yet before you proceed.
+</div>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#preparing-the-release-for-the-vote">Preparing the release for the vote</a>
+      <ul>
+        <li><a href="#step-0-building-mina">Step 0: Building MINA</a></li>
+        <li><a href="#step-1-tagging-and-deploying">Step 1: Tagging and Deploying</a></li>
+        <li><a href="#step-2--processing-with-a-dry-run">step 2 : Processing with a dry run</a></li>
+        <li><a href="#step-3--processing-with-the-real-release">Step 3 : Processing with the real release</a></li>
+        <li><a href="#step-4--perform-the-release">Step 4 : perform the release</a></li>
+        <li><a href="#step-5--closing-the-staging-release-on-nexus">Step 5 : closing the staging release on nexus</a></li>
+        <li><a href="#step-6--build-the-site">Step 6 : Build the Site</a></li>
+        <li><a href="#step-7--sign-the-packages">Step 7 : Sign the packages</a></li>
+        <li><a href="#step-8--publish-source-and-binary-distribution-packages">Step 8 : Publish Source and Binary Distribution Packages</a></li>
+        <li><a href="#step-9--test-the-new-version-with-ftpserver-sshd-and-vysper">Step 9 : Test the New Version with FtpServer, Sshd and Vysper</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-10--voting-a-release">Step 10 : Voting a release</a>
+      <ul>
+        <li><a href="#step-11--close-the-vote">Step 11 : Close the vote</a></li>
+        <li><a href="#step-12-deploy-web-reports-javadoc-and-jxr">Step 12: Deploy Web Reports (JavaDoc and JXR)</a></li>
+        <li><a href="#step-13-wait-24-hours">Step 13: Wait 24 hours</a></li>
+        <li><a href="#step-14-update-the-links-in-web-site">Step 14: Update the Links in Web Site</a></li>
+        <li><a href="#step-15-wait-another-24-hours">Step 15: Wait another 24 hours</a></li>
+        <li><a href="#step-16-announce-the-new-release">Step 16: Announce the New Release</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<h1 id="checking-out-the-code">Checking out the code</h1>
+<p>You need Git to check out the source code from our source code repository, and [Maven(http://maven.apache.org/) 2.2.1 to build the source code (Building with Maven 3.0 will also work).  The following example shows how to build the current stable branch (2.0.9).</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+$ <span style="color:#a2f">cd</span> mina
+$ mvn -Pserial clean install             <span style="color:#080;font-style:italic"># Build packages (JARs) for the core API and other</span> 
+                                         <span style="color:#080;font-style:italic"># extensions and install them to the local Maven repository.</span>
+$ mvn -Pserial site                      <span style="color:#080;font-style:italic"># Generate reports (JavaDoc and JXR)</span>
+$ mvn -Pserial package assembly:assembly <span style="color:#080;font-style:italic"># Generate a tarball (package goal needed to fix an assembly plugin bug)</span>
+$ mvn -Pserial eclipse:eclipse           <span style="color:#080;font-style:italic"># Generate Eclipse project files if you want</span>
+</code></pre></div><p>Eclipse users:
+Don&rsquo;t forget to declare a classpath variable named M2_REPO, pointing to <code>~/.m2/repository</code>, otherwise many links to existing jars will be broken.
+You can declare new variables in Eclipse in Windows -&gt; Preferences&hellip; and selecting Java -&gt; Build Path -&gt; Classpath Variables</p>
+<p>There are also other branches that might interest you:</p>
+<ul>
+<li>trunk: Where big changes take place everyday</li>
+</ul>
+<p>If you want to check out the source code of previous releases, you have to select the branch you want to work on :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+$ git checkout &lt;tag&gt;
+</code></pre></div><p>For instance, to work on the on-going 2.0 version trunk, just do :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+$ git checkout 2.0
+</code></pre></div><h1 id="coding-convention">Coding Convention</h1>
+<p>We follow <a href="https://www.oracle.com/technetwork/java/codeconventions-150003.pdf">Sun&rsquo;s standard Java coding convention</a> except that we always use spaces instead of tabs. Please download <a href="ImprovedJavaConventions.xml">the Eclipse Java formatter settings file</a> before you make any changes to the code.</p>
+<p>This file is also available in the <code>/resources</code> directory.</p>
+<h1 id="class-header">Class header</h1>
+<p>As class header we use :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">/** 
+</span><span style="color:#080;font-style:italic"> * Class desciption here.
+</span><span style="color:#080;font-style:italic"> *
+</span><span style="color:#080;font-style:italic"> * @author &lt;a href=&#34;http://mina.apache.org&#34;&gt;Apache MINA Project&lt;/a&gt;
+</span><span style="color:#080;font-style:italic"> */</span>
+</code></pre></div><p>The headers revisions tags are removed.</p>
+<h1 id="deploying-snapshots-committers-only">Deploying Snapshots (Committers Only)</h1>
+<p>Before running Maven to deploy artifacts, <em>please make sure if your umask is configured correctly</em>.  Unless configured properly, other committers will experience annoying &lsquo;permission denied&rsquo; errors.  If your default shell is <code>bash</code>, please update your umask setting in the <code>~/.bashrc</code> file (create one if it doesn&rsquo;t exist.) by adding the following line:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">umask</span> <span style="color:#666">002</span>
+</code></pre></div><p>Please note that you have to edit the correct <code>shrc</code> file.  If you use <code>csh</code>, then you will have to edit <code>~/.cshrc</code> file.</p>
+<p>Now you are ready to deploy the artifacts if you configured your umask correctly.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+$ <span style="color:#a2f">cd</span> mina
+$ mvn -Pserial clean deploy site site:deploy    <span style="color:#080;font-style:italic"># Make sure to run &#39;clean&#39; goal first to prevent side effects from your IDE.</span>
+</code></pre></div><p>Please double-check the mode (i.e. <code>0664</code> or <code>-rw-rw-r--</code>, a.k.a permission code) of the deployed artifacts, otherwise you can waste other people&rsquo;s time significantly.</p>
+<h1 id="releasing-a-point-release-committers-only">Releasing a Point Release (Committers Only)</h1>
+<h2 id="preparing-the-release-for-the-vote">Preparing the release for the vote</h2>
+<p>Before starting be sure to have the java and mvn command in your PATH.
+On linux you can check with the following commands :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">type</span> mvn
+mvn is hashed <span style="color:#666">(</span>/opt/maven-2.2.1/bin/mvn<span style="color:#666">)</span>
+$ <span style="color:#a2f">type</span> java
+java is hashed <span style="color:#666">(</span>/usr/bin/java<span style="color:#666">)</span>
+</code></pre></div><h3 id="step-0-building-mina">Step 0: Building MINA</h3>
+<p>As weird as it sounds, for some unknown reason (most certainly a misconfiguration in the Maven poms), we can&rsquo;t just run the release without having previously build all the projects. This is done with the following command :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mvn clean install -Pserial
+</code></pre></div><h3 id="step-1-tagging-and-deploying">Step 1: Tagging and Deploying</h3>
+<p>First you need to configure maven for using the good username for scp and operation.</p>
+<p>In the <code>~/.m2/settings.xml</code> you need the following lines :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;settings</span> <span style="color:#b44">xmlns=</span><span style="color:#b44">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+  <span style="color:#b44">xmlns:xsi=</span><span style="color:#b44">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+  <span style="color:#b44">xsi:schemaLocation=</span><span style="color:#b44">&#34;http://maven.apache.org/POM/4.0.0
+</span><span style="color:#b44">                      http://maven.apache.org/xsd/settings-1.0.0.xsd&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+
+  <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> SERVER SETTINGS </span><span style="color:#080;font-style:italic">--&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;servers</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> To publish a snapshot of some part of Maven </span><span style="color:#080;font-style:italic">--&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;server</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;id</span><span style="color:#008000;font-weight:bold">&gt;</span>apache.snapshots.https<span style="color:#008000;font-weight:bold">&lt;/id&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;username</span><span style="color:#008000;font-weight:bold">&gt;</span>elecharny<span style="color:#008000;font-weight:bold">&lt;/username&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;password</span><span style="color:#008000;font-weight:bold">&gt;</span>-----Your password here-----<span style="color:#008000;font-weight:bold">&lt;/password&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+    <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> To publish a website of some part of Maven </span><span style="color:#080;font-style:italic">--&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;server</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;id</span><span style="color:#008000;font-weight:bold">&gt;</span>apache.websites<span style="color:#008000;font-weight:bold">&lt;/id&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;username</span><span style="color:#008000;font-weight:bold">&gt;</span>elecharny<span style="color:#008000;font-weight:bold">&lt;/username&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;filePermissions</span><span style="color:#008000;font-weight:bold">&gt;</span>664<span style="color:#008000;font-weight:bold">&lt;/filePermissions&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;directoryPermissions</span><span style="color:#008000;font-weight:bold">&gt;</span>775<span style="color:#008000;font-weight:bold">&lt;/directoryPermissions&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+    <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> To stage a release of some part of Maven </span><span style="color:#080;font-style:italic">--&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;server</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;id</span><span style="color:#008000;font-weight:bold">&gt;</span>apache.releases.https<span style="color:#008000;font-weight:bold">&lt;/id&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;username</span><span style="color:#008000;font-weight:bold">&gt;</span>elecharny<span style="color:#008000;font-weight:bold">&lt;/username&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;password</span><span style="color:#008000;font-weight:bold">&gt;</span>-----Your password here-----<span style="color:#008000;font-weight:bold">&lt;/password&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+    <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> To stage a website of some part of Maven </span><span style="color:#080;font-style:italic">--&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;server</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;id</span><span style="color:#008000;font-weight:bold">&gt;</span>stagingSite<span style="color:#008000;font-weight:bold">&lt;/id&gt;</span> <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> must match hard</span><span style="color:#080;font-style:italic">-</span><span style="color:#080;font-style:italic">coded repository identifier in site:stage</span><span style="color:#080;font-style:italic">-</span><span style="color:#080;font-style:italic">deploy </span><span style="color:#080;font-style:italic">--&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;username</span><span style="color:#008000;font-weight:bold">&gt;</span>elecharny<span style="color:#008000;font-weight:bold">&lt;/username&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;filePermissions</span><span style="color:#008000;font-weight:bold">&gt;</span>664<span style="color:#008000;font-weight:bold">&lt;/filePermissions&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;directoryPermissions</span><span style="color:#008000;font-weight:bold">&gt;</span>775<span style="color:#008000;font-weight:bold">&lt;/directoryPermissions&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/servers&gt;</span>
+
+  <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> PROFILE SETTINGS </span><span style="color:#080;font-style:italic">--&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;profiles</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;profile</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;id</span><span style="color:#008000;font-weight:bold">&gt;</span>apache-release<span style="color:#008000;font-weight:bold">&lt;/id&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;properties</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> Configuration for artifacts signature </span><span style="color:#080;font-style:italic">--&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;gpg.passphrase</span><span style="color:#008000;font-weight:bold">&gt;</span>-----Your passphrase here-----<span style="color:#008000;font-weight:bold">&lt;/gpg.passphrase&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;/properties&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/profile&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/profiles&gt;</span>
+
+<span style="color:#008000;font-weight:bold">&lt;/settings&gt;</span>
+</code></pre></div><h3 id="step-2--processing-with-a-dry-run">step 2 : Processing with a dry run</h3>
+<p>After having checked out the trunk, and built it (see step 0),</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+$ <span style="color:#a2f">cd</span> mina
+$ mvn clean install -Pserial
+</code></pre></div><p>run the following commands :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mvn -Pserial,apache-release -DdryRun<span style="color:#666">=</span><span style="color:#a2f">true</span> release:prepare    <span style="color:#080;font-style:italic"># Dry-run first.</span>
+</code></pre></div><p>Answer to maven questions :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&#34;What is the release version for &#34;Apache MINA&#34;? (org.apache.mina:mina-parent) 2.0.7-&lt;version&gt;: :&#34; 
+&lt;either use the default version as suggested, or type in the version you@qot;d like to be used&gt;
+[..]
+</code></pre></div><p>Then some other questions will be asked, about the next version to use. The default values should be fine.</p>
+<div class="info" markdown="1">
+    <strong>Be Careful</strong><br>
+<pre><code>Make sure the change made by the release plugin is correct! (pom.xml, tags created)
+</code></pre>
+</div>
+<h3 id="step-3--processing-with-the-real-release">Step 3 : Processing with the real release</h3>
+<p>When the dry run is successful, then you can do in real with the following commands:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mvn -Pserial,apache-release release:clean      <span style="color:#080;font-style:italic"># Clean up the temporary files created by the dry-run.</span>
+$ mvn -Pserial,apache-release release:prepare    <span style="color:#080;font-style:italic"># Copy to tags directory.</span>
+</code></pre></div><p>The first step will clean up the local sources, the second step will release for real. The same questions will be asked as those we had during the dry run step.</p>
+<p>At some point, it will ask for your passphrase (the one you used when you created your PGP key). Type it in.</p>
+<p>Three mails will be generated, and sent to <a href="mailto:commits@mina.apache.org">commits@mina.apache.org</a> :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">git commit: [maven-release-plugin] prepare release 2.0.9
+Git Push Summary
+git commit: [maven-release-plugin] prepare for next development iteration
+</code></pre></div><p>The first mail tells you that the SNAPSHOT has been moved to the release version in trunk, the second mails tells you that this version has been tagged, and the last mail tells you that trunk has moved to the next version.</p>
+<h3 id="step-4--perform-the-release">Step 4 : perform the release</h3>
+<p>The last step before launching a vote is to push the potential release to Nexus so that every user can test the created packages. Perform the following actions (note that we have to run a build first for teh javadoc to be correctly generated&hellip;) :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mvn clean install -Pserial -DskipTests
+...
+$ mvn -Pserial,apache-release release:perform
+...
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Reactor Summary:
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA ........................................... SUCCESS <span style="color:#666">[</span>1:05.896s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA Legal ..................................... SUCCESS <span style="color:#666">[</span>30.708s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA Core ...................................... SUCCESS <span style="color:#666">[</span>4:44.973s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA APR Transport ............................. SUCCESS <span style="color:#666">[</span>46.082s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA Compression Filter ........................ SUCCESS <span style="color:#666">[</span>40.230s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA State Machine ............................. SUCCESS <span style="color:#666">[</span>52.718s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA JavaBeans Integration ..................... SUCCESS <span style="color:#666">[</span>46.358s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA XBean Integration ......................... SUCCESS <span style="color:#666">[</span>1:21.054s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA OGNL Integration .......................... SUCCESS <span style="color:#666">[</span>40.740s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA JMX Integration ........................... SUCCESS <span style="color:#666">[</span>40.482s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA Examples .................................. SUCCESS <span style="color:#666">[</span>1:13.837s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA Serial Communication support .............. SUCCESS <span style="color:#666">[</span>41.684s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache MINA Distribution .............................. SUCCESS <span style="color:#666">[</span>12:39.542s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> BUILD SUCCESSFUL
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Total time: <span style="color:#666">26</span> minutes <span style="color:#666">46</span> seconds
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Finished at: Mon Sep <span style="color:#666">13</span> 16:45:14 CEST <span style="color:#666">2010</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Final Memory: 98M/299M
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Cleaning up after release...
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> BUILD SUCCESSFUL
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Total time: <span style="color:#666">27</span> minutes <span style="color:#666">5</span> seconds
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Finished at: Mon Sep <span style="color:#666">13</span> 16:45:18 CEST <span style="color:#666">2010</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Final Memory: 28M/81M
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+</code></pre></div><p>Done !</p>
+<h3 id="step-5--closing-the-staging-release-on-nexus">Step 5 : closing the staging release on nexus</h3>
+<p>Now, you have to close the staged project on nexus. In order to do that you <strong>must</strong> have exported your PGP key to a PGP public server <a href="https://www.apache.org/dev/openpgp.html">see</a></p>
+<p>Connect to the <a href="https://repository.apache.org">Nexus server</a>, login, and select the MINA staging repository you just created, then click on the &lsquo;close&rsquo; button. You are home&hellip;</p>
+<h3 id="step-6--build-the-site">Step 6 : Build the Site</h3>
+<p>You will need to modify the <strong>pom.xml</strong> file to be able to run the <strong>mvn site</strong> command. Actually, you have to comment the executions part of the maven JXF plugin in the <strong>maven-site-plugin</strong> configuration :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;plugin</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;artifactId</span><span style="color:#008000;font-weight:bold">&gt;</span>maven-jxr-plugin<span style="color:#008000;font-weight:bold">&lt;/artifactId&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;configuration</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;aggregate</span><span style="color:#008000;font-weight:bold">&gt;</span>true<span style="color:#008000;font-weight:bold">&lt;/aggregate&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
+
+  <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic">executions&gt;
+</span><span style="color:#080;font-style:italic">    &lt;execution&gt;
+</span><span style="color:#080;font-style:italic">      &lt;phase&gt;install&lt;/phase&gt;
+</span><span style="color:#080;font-style:italic">      &lt;goals&gt;
+</span><span style="color:#080;font-style:italic">        &lt;goal&gt;jxr&lt;/goal&gt;
+</span><span style="color:#080;font-style:italic">        &lt;goal&gt;test</span><span style="color:#080;font-style:italic">-</span><span style="color:#080;font-style:italic">jxr&lt;/goal&gt;
+</span><span style="color:#080;font-style:italic">      &lt;/goals&gt;
+</span><span style="color:#080;font-style:italic">    &lt;/execution&gt;
+</span><span style="color:#080;font-style:italic">  &lt;/executions </span><span style="color:#080;font-style:italic">--&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/plugin&gt;</span>
+</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">cd</span> target/checkout
+$ mvn -Pserial site
+</code></pre></div><p>This creates the site.</p>
+<h3 id="step-7--sign-the-packages">Step 7 : Sign the packages</h3>
+<p>Now, you have to sign the binary packages which are in target/checkout/distribution/target.</p>
+<div class="note" markdown="1">
+Use your PGP key ID (the pub key, 4096R/[XXXXXXX] where [XXXXXXX] is the key ID)
+</div>
+<p>You can get the keys by typing :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gpg --list-keys
+</code></pre></div><p>You&rsquo;ll get something like :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">localhost:target elecharny$ gpg --list-keys
+/Users/elecharny/.gnupg/pubring.gpg
+-----------------------------------
+pub   dsa2048 2009-12-03 [SCA]
+  C62BFD988278310B5B7A43D16FC4BEA60A8A0BBA
+uid           [ultimate] Emmanuel Lecharny &lt;elecharny@nextury.com&gt;
+sub   elg2048 2009-12-03 [E]
+
+pub   rsa4096 2010-09-13 [SC]
+  4D2DB2916149BAA9D0C92F3731474E5E7C6B7034
+uid           [ultimate] Emmanuel Lecharny (CODE SIGNING KEY) &lt;elecharny@apache.org&gt;
+sub   rsa4096 2010-09-13 [E]
+
+...
+</code></pre></div><p>Take the long hexadecimal tart following the &lsquo;pub&rsquo; part (ie &ldquo;4D2DB2916149BAA9D0C92F3731474E5E7C6B7034&rdquo; for the 4096 bits key)</p>
+<p>Use a shell script to sign the packages which are stored in target/checkout/distribution/target. You will first have to delete the created .asc files :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">localhost:target elecharny$ rm *.asc
+localhost:target elecharny$ ~/sign.sh 
+PGP Key ID: 
+&lt;your PGP key&gt;
+PGP Key Password: 
+&lt;Your PGP passphrase&gt;
+
+-n Signing: ./apache-mina-2.0.9-bin.tar.bz2 ... 
+  - Generated &#39;./apache-mina-2.0.9-bin.tar.bz2.sha1&#39;
+  - Generated &#39;./apache-mina-2.0.9-bin.tar.bz2.asc&#39;
+-n Signing: ./apache-mina-2.0.9-bin.tar.gz ... 
+  - Generated &#39;./apache-mina-2.0.9-bin.tar.gz.sha1&#39;
+  - Generated &#39;./apache-mina-2.0.9-bin.tar.gz.asc&#39;
+...
+</code></pre></div><p>Here is the <code>sign.sh</code> script you can use :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080">#!/bin/sh
+</span><span style="color:#080"></span>
+<span style="color:#a2f">echo</span> <span style="color:#b44">&#34;PGP Key ID: &#34;</span>
+<span style="color:#a2f">read</span> DEFAULT_KEY
+
+<span style="color:#a2f">echo</span> <span style="color:#b44">&#34;PGP Key Password: &#34;</span>
+stty -echo
+<span style="color:#a2f">read</span> PASSWORD
+stty <span style="color:#a2f">echo</span>
+<span style="color:#a2f">echo</span> <span style="color:#b44">&#34;&#34;</span>
+
+<span style="color:#a2f;font-weight:bold">for</span> FILE in <span style="color:#a2f;font-weight:bold">$(</span>find . -maxdepth <span style="color:#666">1</span> -not <span style="color:#b44">&#39;(&#39;</span> -name <span style="color:#b44">&#34;sign.sh&#34;</span> -or -name <span style="color:#b44">&#34;.*&#34;</span> -or -name <span style="color:#b44">&#34;*.sha256&#34;</span> -or -name <span style="color:#b44">&#34;*.sha512&#34;</span> -or -name <span style="color:#b44">&#34;*.asc&#34;</span> <span style="color:#b44">&#39;)&#39;</span> -and -type f<span style="color:#a2f;font-weight:bold">)</span> ; <span style="color:#a2f;font-weight:bold">do</span>
+  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.asc</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>; <span style="color:#a2f;font-weight:bold">then</span>
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">Skipping: </span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span>
+      <span style="color:#a2f;font-weight:bold">continue</span>
+  <span style="color:#a2f;font-weight:bold">fi</span>
+
+  <span style="color:#a2f">echo</span> -n <span style="color:#b44">&#34;</span><span style="color:#b44">Signing: </span><span style="color:#b8860b">$FILE</span><span style="color:#b44"> ... </span><span style="color:#b44">&#34;</span>
+
+  <span style="color:#080;font-style:italic"># SHA-256</span>
+  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha256</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>;
+  <span style="color:#a2f;font-weight:bold">then</span>
+      gpg -v --default-key <span style="color:#b44">&#34;</span><span style="color:#b8860b">$DEFAULT_KEY</span><span style="color:#b44">&#34;</span> --print-md SHA256 <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span> &gt; <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span>.sha256
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Generated &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha256&#39;</span><span style="color:#b44">&#34;</span>
+  <span style="color:#a2f;font-weight:bold">else</span>
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Skipped &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha256&#39; (file already existing)</span><span style="color:#b44">&#34;</span>
+  <span style="color:#a2f;font-weight:bold">fi</span>
+
+  <span style="color:#080;font-style:italic"># SHA-512</span>
+  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.shacw512256</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>;
+  <span style="color:#a2f;font-weight:bold">then</span>
+      gpg -v --default-key <span style="color:#b44">&#34;</span><span style="color:#b8860b">$DEFAULT_KEY</span><span style="color:#b44">&#34;</span> --print-md SHA512 <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span> &gt; <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span>.sha512
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Generated &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha512&#39;</span><span style="color:#b44">&#34;</span>
+  <span style="color:#a2f;font-weight:bold">else</span>
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Skipped &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha512&#39; (file already existing)</span><span style="color:#b44">&#34;</span>
+  <span style="color:#a2f;font-weight:bold">fi</span>
+
+  <span style="color:#080;font-style:italic"># ASC</span>
+  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.asc</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>;
+  <span style="color:#a2f;font-weight:bold">then</span>
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b8860b">$PASSWORD</span><span style="color:#b44">&#34;</span> | gpg --default-key <span style="color:#b44">&#34;</span><span style="color:#b8860b">$DEFAULT_KEY</span><span style="color:#b44">&#34;</span> --detach-sign --armor --no-tty --yes --passphrase-fd <span style="color:#666">0</span> <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span>
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Generated &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.asc&#39;</span><span style="color:#b44">&#34;</span>
+  <span style="color:#a2f;font-weight:bold">else</span>
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Skipped &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.asc&#39; (file already existing)</span><span style="color:#b44">&#34;</span>
+  <span style="color:#a2f;font-weight:bold">fi</span>
+<span style="color:#a2f;font-weight:bold">done</span>
+</code></pre></div><h3 id="step-8--publish-source-and-binary-distribution-packages">Step 8 : Publish Source and Binary Distribution Packages</h3>
+<p>The sources, binaries and their signatures, have to be pushed in a place where they can be downloaded by the other committers, in order to be checked while validating the release. As the ~/people.apache.org server is not anymore available for that purpose, we use the distribution space for that purpose.</p>
+<p>If you haven&rsquo;t checked out this space, do it now :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p ~/mina/dist/dev/mina
+$ svn co https://dist.apache.org/repos/dist/dev/mina ~/mina/dist/dev/mina
+</code></pre></div><p>That will checkout the full project distributions.</p>
+<p>You may want to checkout only the part that you are going to generate, to avoid getting Gb of data :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p ~/mina/dist/dev/mina/mina
+$ svn co https://dist.apache.org/repos/dist/dev/mina/mina ~/mina/dist/dev/mina/mina
+</code></pre></div><p>Now, create a sub-directory for the version you have generated (here, for version 2.0.14) :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir ~/mina/dist/dev/mina/mina/2.0.14
+</code></pre></div><p>Then copy the packages :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">cd</span> target/checkout/distributions/target
+$ cp apache-mina-2.0.14-* ~/mina/dist/dev/mina/mina/2.0.14/
+</code></pre></div><p>Last, not least, commit your changes</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ svn add ~/mina/dist/dev/mina/mina/2.0.14
+$ svn ci ~/mina/dist/dev/mina/mina/2.0.14 -m <span style="color:#b44">&#34;Apache MINA 2.0.14 packages&#34;</span>
+</code></pre></div><h3 id="step-9--test-the-new-version-with-ftpserver-sshd-and-vysper">Step 9 : Test the New Version with FtpServer, Sshd and Vysper</h3>
+<p>In <em>FtpServer/pom.xml</em> change the &lt;org.apache.directory.shared.version&gt; property, build FtpServer. It should build with no error. Do the same thing with Sshd and Vysper.</p>
+<p>It&rsquo;s time to launch a vote !</p>
+<h2 id="step-10--voting-a-release">Step 10 : Voting a release</h2>
+<p>Once the tarballs have been created, and the binaries available in Nexus, a vote can be launched. Simply send a mail on the <a href="mailto:dev@mina.apache.org">dev@mina.apache.org</a> mailing list describing the new release.</p>
+<p>Here is how you  send a [VOTE] mail on the dev mailing list :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Hi,
+
+&lt;blah blah blah&gt;
+
+Here is the list of fixed issues :
+ 
+
+   * [DIRMINA-803 &lt;https://issues.apache.org/jira/browse/DIRMINA-803&gt;]
+     - ProtocolCodecFilter.filterWrite() is no longer thread-safe
+   * ...
+
+
+Here&#39;s the Jira link for this version if you&#39;d like to review issues in more details:
+
+https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=10670&amp;styleName=Html&amp;version=12313702
+
+A temporary tag has been created (it can be removed if the vote is not approved)
+
+The newly approved Nexus has been used for the preparation of this release and all final artifacts are stored 
+in a staging repository:
+https://repository.apache.org/content/repositories/orgapachemina-002/
+
+
+The distributions are available for download on :
+https://repository.apache.org/content/repositories/orgapachemina-004/org/apache/mina/mina-parent/2.0.1/
+
+Let us vote :
+[ ] +1 | Release MINA 2.0.1
+[ ] +/- | Abstain
+[ ] -1 | Do *NOT*  release MINA 2.0.1
+
+Thanks !
+</code></pre></div><p>The vote will be open for 72 hours. Once the delay is over, collect the votes, and count the binding +1/-1. If the vote is positive, then we can release.</p>
+<h3 id="step-11--close-the-vote">Step 11 : Close the vote</h3>
+<p>You can officially close the vote now. There are some more steps to fulfill :</p>
+<ul>
+<li>Release the project on the <a href="https://repository.apache.org">Nexus server</a></li>
+<li>Copy the tarballs and heir signature in <a href="https://dist.apache.org/repos/dist/release/mina/mina">https://dist.apache.org/repos/dist/release/mina/mina</a></li>
+</ul>
+<p>The sources, binaries and their signatures, have to be pushed in a place where they can be downloaded by users. We use the <a href="https://dist.apache.org/repos/dist/release/mina/mina">distribution</a> space for that purpose.</p>
+<p>Move the distribution packages (sources and binaries) to the dist SVN repository: <code>https://dist.apache.org/repos/dist/release/mina/mina/$(version)</code></p>
+<p>If you haven&rsquo;t checked out this space, do it now :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p ~/mina/dist/release/mina
+$ svn co https://dist.apache.org/repos/dist/release/mina/mina ~/mina/dist/release/mina
+</code></pre></div><p>That will checkout the full project distributions.</p>
+<p>Then move the packages from &lsquo;dev&rsquo; to &lsquo;release&rsquo; :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">cd</span> ~/mina/dist/release/mina
+$ cp ~/mina/dist/dev/mina/mina/&lt;version&gt; .
+$ svn add &lt;version&gt;
+$ svn ci &lt;version&gt;
+...
+$ <span style="color:#a2f">exit</span>
+</code></pre></div><p>The packages should now be available on <a href="http://www.us.apache.org/dist/mina/mina/">http://www.us.apache.org/dist/mina/mina/</a><version></p>
+<h3 id="step-12-deploy-web-reports-javadoc-and-jxr">Step 12: Deploy Web Reports (JavaDoc and JXR)</h3>
+<p>The javadoc and xref files have been generated in step 6, it&rsquo;s now time to push them into the production site. They are generated in the following directory :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">target/checkout/target/site
+</code></pre></div><p>We will copy two directories :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">apidocs
+xref
+</code></pre></div><p>Staging or Production?</p>
+<div class="info" markdown="1">
+Those files will be stored on the production server only !!! And some extra caution ust be taken not to delete them when we will publish the staging site too...
+</div>
+<p>First of all, you must checkout the two CMS store for the site : staging and production.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ svn co https://svn.apache.org/repos/infra/websites/staging/mina/trunk staging
+...
+$ svn co https://svn.apache.org/repos/infra/websites/production/mina production
+...
+</code></pre></div><p>Then copy the generated docs :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp -r ~/mina/target/checkout/target/site/apidocs production/content/mina-project/
+$ cp -r ~/mina/target/checkout/target/site/testapidocs production/content/mina-project/
+$ cp -r ~/mina/target/checkout/target/site/xref production/content/mina-project/
+$ cp -r ~/mina/target/checkout/target/site/xref-test production/content/mina-project/
+</code></pre></div><p>You have to check in those directories :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ svn add apidocs
+$ svn add testapidocs
+$ svn add xref
+$ svn add xref-test
+$ svn ci apidocs testapidocs xref xref-test -m <span style="color:#b44">&#34;Injected MINA &lt;version&gt; javadocs&#34;</span>
+</code></pre></div><p>Now, you have to update the staging site <em>extpaths.txt</em></p>
+<p>This file list the file on the production site that will not be overridden by the publication of the staging site. It has to be updated</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">cd</span> ~/mina/staging/content/
+$ vi extpaths.txt
+</code></pre></div><p>The following lines should be present. If not, add them and commit the file :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># MINA
+# 2.1.x
+mina-project/gen-docs/2.1.2
+mina-project/gen-docs/2.1.1
+mina-project/gen-docs/2.1.0
+
+# 2.0.x
+mina-project/gen-docs/2.0.21
+mina-project/gen-docs/2.0.20
+mina-project/gen-docs/2.0.19
+mina-project/apidocs
+mina-project/testapidocs
+mina-project/xref
+mina-project/xref-test
+...
+</code></pre></div><p>Here, we just added the <em>mina-project/gen-docs/2.1.2</em> line at the very top of this list when we released the 2.1.2 version.</p>
+<p>Last, not least, update the <em>.htaccess</em> file on production :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">cd</span> ~/production/content/mina-project/gen-docs
+$ vi .htaccess
+</code></pre></div><p>and change the references so that they point to the latest released version :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">RewriteEngine on
+
+RewriteBase /mina-project/gen-docs
+
+RewriteRule ^latest-2.0$ 2.0.21/
+RewriteRule ^latest-2.0/(.*)$ 2.0.21/$1
+
+RewriteRule ^latest-2.1$ 2.1.2/
+RewriteRule ^latest-2.1/(.*)$ 2.1.2/$1
+</code></pre></div><h3 id="step-13-wait-24-hours">Step 13: Wait 24 hours</h3>
+<p>We have to wait at least 24 hours for all mirrors to retrieve the uploaded files before making any announcement.  I&rsquo;d recommend you to wait for 48 hours because some mirrors might lag due to various issues.</p>
+<h3 id="step-14-update-the-links-in-web-site">Step 14: Update the Links in Web Site</h3>
+<p>Some pages have to be updated. Assuming the MINA site has been checked out in ~/mina/site (this can be done with the command <em>$ svn co https://http://svn.apache.org/viewvc/mina/site/trunk ~/mina/site</em>), here are the pages that need to be changed :</p>
+<ul>
+<li>/lib/path.pm: update the $version_mina variable with the new version.</li>
+<li>/content/mina-project/downloads_2_0.mdtext or /content/mina-project/downloads_2_1.mdtext: change the version all over this page</li>
+<li>/content/downloads-mina_2_0.mdtext or /content/downloads-mina_2_1.mdtext: change the version all over this page</li>
+<li>/content/mina-project/downloads_old.mdtext: Add a line for the latest version which has been replaced by the released one</li>
+<li>/content/mina-project/news.mdtext: add the news on top of this page</li>
+</ul>
+<h3 id="step-15-wait-another-24-hours">Step 15: Wait another 24 hours</h3>
+<p>We need to wait until any changes made in the web site and metadata file(s) go live.</p>
+<h3 id="step-16-announce-the-new-release">Step 16: Announce the New Release</h3>
+<p>An announcement message can be sent to [mailto:announce@apache.org], [mailto:announce@apachenews.org], [mailto:users@mina.apache.org] and [mailto:dev@mina.apache.org].  Please note that announcement messages are rejected unless your from-address ends with <code>@apache.org</code>.  Plus, you shouldn&rsquo;t forget to post a news to the MINA site main page.</p>
+<p>Enjoy !</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

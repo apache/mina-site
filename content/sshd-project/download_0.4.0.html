@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Apache SSHD 0.4.0 Release &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/sshd.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                <strong>SSHD</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/sshd-project/index.html">Home</a> </li>
+                    <li><a href="/sshd-project/features.html">Features</a> </li>
+                    <li><a href="/sshd-project/documentation.html">Documentation</a></li>
+                    <li><a href="/sshd-project/downloads.html">Downloads</a></li>
+                    <li><a href="/sshd-project/sources.html">Sources</a></li>
+                    <li><a href="/sshd-project/faq.html">FAQ</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/sshd-project/mailing_lists.html">Mailing Lists</a></li>
+                    <li><a href="/sshd-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/sshd-project/issue_tracking.html">Issue Tracking</a></li>
+                    <li><a href="/sshd-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="overview">Overview</h1>
+<p>Apache Mina SSHD 0.4.0 contains a few enhancements and bug-fixes.</p>
+<h1 id="getting-the-distributions">Getting the Distributions</h1>
+<ul>
+<li>Source distributions:
+<ul>
+<li><a href="https://archive.apache.org/dist/mina/sshd/0.4.0/apache-sshd-0.4.0-src.tar.gz">Apache Mina SSHD 0.4.0 Sources (.tar.gz)</a> <a href="https://archive.apache.org/dist/mina/sshd/0.4.0/apache-sshd-0.4.0-src.tar.gz.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/0.4.0/apache-sshd-0.4.0-src.tar.gz.sha1">SHA</a></li>
+<li><a href="https://archive.apache.org/dist/mina/sshd/0.4.0/apache-sshd-0.4.0-src.zip">Apache Mina SSHD 0.4.0 Sources (.zip)</a> <a href="https://archive.apache.org/dist/mina/sshd/0.4.0/apache-sshd-0.4.0-src.zip.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/0.4.0/apache-sshd-0.4.0-src.zip.sha1">SHA</a></li>
+</ul>
+</li>
+<li>Binary distributions:
+<ul>
+<li><a href="https://archive.apache.org/dist/mina/sshd/0.4.0/apache-sshd-0.4.0.tar.gz">Apache Mina SSHD 0.4.0 Binary (.tar.gz)</a> <a href="https://archive.apache.org/dist/mina/sshd/0.4.0/apache-sshd-0.4.0.tar.gz.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/0.4.0/apache-sshd-0.4.0.tar.gz.sha1">SHA</a></li>
+<li><a href="https://archive.apache.org/dist/mina/sshd/0.4.0/apache-sshd-0.4.0.zip">Apache Mina SSHD 0.4.0 Binary (.zip)</a> <a href="https://archive.apache.org/dist/mina/sshd/0.4.0/apache-sshd-0.4.0.zip.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/0.4.0/apache-sshd-0.4.0.zip.sha1">SHA</a></li>
+</ul>
+</li>
+<li>Individual jars:
+<ul>
+<li><a href="https://archive.apache.org/dist/mina/sshd/0.4.0/sshd-core-0.4.0.jar">Apache Mina SSHD Core 0.4.0 (.jar)</a> <a href="https://archive.apache.org/dist/mina/sshd/0.4.0/sshd-core-0.4.0.jar.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/0.4.0/sshd-core-0.4.0.jar.sha1">SHA</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="release-notes">Release Notes</h1>
+<p>Apache Mina SSHD 0.4.0 contains a few enhancements and bug-fixes.
+Please report any feedback to <a href="mailto:users@mina.apache.org">users@mina.apache.org</a>.</p>
+<ul>
+<li>Bug
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-54">SSHD-54</a> - Severe performance penalties when transferring data from a remote machine</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-56">SSHD-56</a> - SCPCommand can&rsquo;t handle wildcards</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-61">SSHD-61</a> - ScpTest fails randomly</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-73">SSHD-73</a> - Infinite loop in ChannelOutputStream</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-74">SSHD-74</a> - Even if I do setPublicKeyAuthenticator(null) (or setPasswordAuthenticator(null)) Apache SSHD still reports that it supports that kind of authentication</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-77">SSHD-77</a> - Accept SSH-2 names from Putty</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-78">SSHD-78</a> - PEMGeneratorHostKeyProvider doesn&rsquo;t close PEMWriter</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-79">SSHD-79</a> - ChannelPipedInputStream returns improper negative values for some bytes.</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-80">SSHD-80</a> - Exchange hash calculation problem</li>
+</ul>
+</li>
+<li>Improvement
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-65">SSHD-65</a> - Ability to specify the host name when binding the sshd server socket</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-68">SSHD-68</a> - Support subsystem on the client side</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-71">SSHD-71</a> - Skip tests if native library is not available</li>
+</ul>
+</li>
+<li>New Feature
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-8">SSHD-8</a> - Implement agent forwarding</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-25">SSHD-25</a> - Support key based authentication on the client side</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-55">SSHD-55</a> - Support for SFTP on the server side</li>
+<li><a href="https://issues.apache.org/jira/browse/SSHD-81">SSHD-81</a> - Support for X11 forwarding on the server side</li>
+</ul>
+</li>
+</ul>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

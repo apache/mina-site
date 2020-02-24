@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Vysper XM Processing &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/vysper.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                <strong>Vysper</strong>
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/vysper-project/index.html">Home</a> </li>
+                    <li><a href="/vysper-project/documentation.html">Documentation</a></li>
+                    <li><a href="/vysper-project/downloads.html">Downloads</a></li>
+                    <li><a href="/vysper-project/sources.html">Source</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/vysper-project/mailing_lists.html">Mailing Lists</a></li>
+                    <li><a href="/vysper-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/vysper-project/issue_tracking.html">Issue Tracking</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="xml-processing">XML Processing</h1>
+<p>XML data is the payload of the XMPP protocol. More precisely, XMPP only works on a subset of XML. See RFC3920 for details.</p>
+<p>The core handler and protocol code does not deal with xml strings directly. They only deal with java objects representing well-formed XMPP commands, called stanzas.</p>
+<p>To create these objects, the actual XML is processed in stages at the xml processing layer.</p>
+<p>While raw XML continues streaming in, we are faced with arbitrary partitioned stanza and even partial xml. We have to determine the end of a stanza to process it.
+A stanza can go over multiple lines so the line end is not a useful indicator for command boundaries. We have to check for the stanza&rsquo;s closing element.</p>
+<p>What we do is every time new characters arrive in the character stream, we cut what we got into two kinds of fragments, those starting with &lt; and ending with &gt;, and those containing all the characters in between &gt; and &lt;. These fragments are analyzed if they could result in balanced xml. If not, we wait for more data to come.</p>
+<p>At the next stage, fragments are more extensively parsed and if everything works out fine, a Stanza java object is constructed from it and forwarded to the <a href="stanza_processing_layer.html">stanza processing layer</a>.</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

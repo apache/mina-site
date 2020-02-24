@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Vysper Service Discovery &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/vysper.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                <strong>Vysper</strong>
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/vysper-project/index.html">Home</a> </li>
+                    <li><a href="/vysper-project/documentation.html">Documentation</a></li>
+                    <li><a href="/vysper-project/downloads.html">Downloads</a></li>
+                    <li><a href="/vysper-project/sources.html">Source</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/vysper-project/mailing_lists.html">Mailing Lists</a></li>
+                    <li><a href="/vysper-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/vysper-project/issue_tracking.html">Issue Tracking</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="using-service-discovery">Using Service Discovery</h1>
+<h2 id="disco-quick-start">Disco quick start</h2>
+<p>Service Discovery (or &lsquo;disco&rsquo;) is a XMPP extensions specified at (Service Discovery, XEP-0030).</p>
+<p>Disco resembles Directory services like LDAP, or even file systems.</p>
+<p>Disco is a server-side service. It maintains a tree of nodes (branches) and items (leafs). Clients discover child nodes and items of the root node or some other already discovered node by sending info-requests (IQ stanzas).
+The server replies with a IQ response containing a list of nodes and items.</p>
+<h2 id="using-disco">Using disco</h2>
+<p>In Vysper, Disco is itself implemented as a module (making it easy to swap disco implementations). The disco module must be loaded to link into it.</p>
+<p>Any module can publish its own features, nodes and items through disco to become &lsquo;discoverable&rsquo; by clients and other servers and to expose &lsquo;stuff&rsquo;, whatever makes sense for that module.</p>
+<p>It is highly recommended that modules supporting disco extend DefaultDiscoAwareModule, which provides convenient integration with disco.</p>
+<p>Via DefaultDiscoAwareModule overrides, modules can register listeners for disco requests. If applicable, they simply add their part to the response. So, the disco-aware module has full control over the stuff it exposes.</p>
+<h2 id="the-most-simple-form-of-disco-is-to-advertise-a-feature-clients-knowing-about-that-feature-can-then-use-it-for-example-by-adding-special-payload-to-stanzas-by-interacting-with-the-module-through-dedicated-stanzas-or-by-using-more-disco">The most simple form of disco is to advertise a feature. Clients knowing about that feature can then use it, for example by adding special payload to stanzas, by interacting with the module through dedicated stanzas or by using more disco.</h2>
+<p>This is how a feature is advertised in the XEP-0092 implementation:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">SoftwareVersionModule</span> <span style="color:#a2f;font-weight:bold">extends</span> DefaultDiscoAwareModule <span style="color:#a2f;font-weight:bold">implements</span> ServerInfoRequestListener <span style="color:#666">{</span> 
+    <span style="color:#a2f">@Override</span> 
+    <span style="color:#a2f;font-weight:bold">protected</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">addServerInfoRequestListeners</span><span style="color:#666">(</span>List<span style="color:#666">&amp;</span>lt<span style="color:#666">;</span>ServerInfoRequestListener<span style="color:#666">&amp;</span>gt<span style="color:#666">;</span> serverInfoRequestListeners<span style="color:#666">)</span> <span style="color:#666">{</span> 
+        serverInfoRequestListeners<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">this</span><span style="color:#666">)</span><span style="color:#666">;</span> 
+    <span style="color:#666">}</span> 
+
+    <span style="color:#a2f;font-weight:bold">public</span> List<span style="color:#666">&amp;</span>lt<span style="color:#666">;</span>InfoElement<span style="color:#666">&amp;</span>gt<span style="color:#666">;</span> getServerInfosFor<span style="color:#666">(</span>InfoRequest request<span style="color:#666">)</span> <span style="color:#666">{</span> 
+        List<span style="color:#666">&amp;</span>lt<span style="color:#666">;</span>InfoElement<span style="color:#666">&amp;</span>gt<span style="color:#666">;</span> infoElements <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> ArrayList<span style="color:#666">&amp;</span>lt<span style="color:#666">;</span>InfoElement<span style="color:#666">&amp;</span>gt<span style="color:#666">;</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span> 
+        infoElements<span style="color:#666">.</span><span style="color:#b44">add</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> Feature<span style="color:#666">(</span>NamespaceURIs<span style="color:#666">.</span><span style="color:#b44">JABBER_IQ_VERSION</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span> 
+        <span style="color:#a2f;font-weight:bold">return</span> infoElements<span style="color:#666">;</span> 
+    <span style="color:#666">}</span> 
+<span style="color:#666">}</span>
+</code></pre></div><p>At init time, the listener is registered, which is the module class itself (&ldquo;this&rdquo;).
+On every disco request occurring on server level, disco calls the listener via getServerInfosFor(), and the module advertises its support for XEP-0092. Please note that in an advanced scenario, we can make the module&rsquo;s behavior depending on the properties of the InfoRequest parameter.</p>
+<h2 id="item-and-info-discovery">Item and Info discovery</h2>
+<p>They work similar, with similar listeners and callback.
+TODO: elaborate!</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

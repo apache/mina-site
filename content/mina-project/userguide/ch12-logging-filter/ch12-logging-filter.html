@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Chapter 12 - Logging Filter &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                <strong>MINA</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Latest Downloads</h5>
+                <ul>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.21</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.3</a></li>
+                    <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
+                </ul>
+                <h5>Documentation</h5>
+                <ul>
+                    <li><a href="/mina-project/documentation.html" class="external-link" rel="nofollow">Base documentation</a></li>
+                    <li><a href="/mina-project/userguide/user-guide-toc.html" class="external-link" rel="nofollow">User guide</a></li>
+                    <li><a href="/mina-project/2.1-vs-2.0.html" class="external-link" rel="nofollow">2.1 vs 2.0</a></li>
+                    <li><a href="/mina-project/features.html" class="external-link" rel="nofollow">Features</a></li>
+                    <li><a href="/mina-project/road-map.html" class="external-link" rel="nofollow">Road Map</a></li>
+                    <li><a href="/mina-project/quick-start-guide.html" class="external-link" rel="nofollow">Quick Start Guide</a></li>
+                    <li><a href="/mina-project/faq.html" class="external-link" rel="nofollow">FAQ</a></li>
+                </ul>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
+                    <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
+                    <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.3</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.3</a></li>
+                    <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
+                    <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
+                    <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
+                    <li><a href="/mina-project/developer-guide.html" class="external-link" rel="nofollow">Developers Guide</a></li>
+                    <li><a href="/mina-project/related-projects.html" class="external-link" rel="nofollow">Related Projects</a></li>
+                    <li><a href="https://people.apache.org/~vgritsenko/stats/projects/mina.html" class="external-link" rel="nofollow">Statistics</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/contributing.html" class="external-link" rel="nofollow">Contributing</a></li>
+                    <li><a href="/contributors.html" class="external-link" rel="nofollow">Team</a></li>
+                    <li><a href="/special-thanks.html" class="external-link" rel="nofollow">Special Thanks</a></li>
+                    <li><a href="https://www.apache.org/security/" class="external-link" rel="nofollow">Security</a></li>
+                </ul>
+
+                <h5>About Apache</h5>
+                <ul>
+                    <li><a href="https://www.apache.org" class="external-link" rel="nofollow">Apache main site</a></li>
+                    <li><a href="https://www.apache.org/licenses/" class="external-link" rel="nofollow">License</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html" title="The ASF sponsorship program" class="external-link" rel="nofollow">Sponsorship program</a></li>
+                    <li><a href="https://www.apache.org/foundation/thanks.html" class="external-link" rel="nofollow">Thanks</a></li>
+                </ul>
+
+                <h3><a name="Navigation-Upcoming"></a>Upcoming</h3>
+                <ul>
+                    <li>No event</li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+    <div class="nav">
+        <div class="nav_prev">
+            
+                
+                <a href="../ch11-ssl-filter/ch11-ssl-filter.html">Chapter 11 - SSL Filter</a>
+            
+        </div>
+        <div class="nav_up">
+            
+                
+                <a href="../user-guide-toc.html">User Guide</a>
+            
+        </div>
+        <div class="nav_next">
+            
+                
+                <a href="../ch13-debugging/ch13-debugging.html">Chapter 13 - Debugging</a>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+            
+	<h1 id="chapter-12---logging-filter">Chapter 12 - Logging Filter</h1>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#slf4j">SLF4J</a>
+      <ul>
+        <li><a href="#choosing-the-right-jars">Choosing the Right JARs</a></li>
+        <li><a href="#overriding-jakarta-commons-logging">Overriding Jakarta Commons Logging</a></li>
+      </ul>
+    </li>
+    <li><a href="#log4j-example">log4j example</a></li>
+  </ul>
+</nav>
+<h1 id="background">Background</h1>
+<p>The Apache MINA uses a system that allows for the developer of the MINA-base application to use their own logging system.</p>
+<h2 id="slf4j">SLF4J</h2>
+<p>MINA employs the Simple Logging Facade for Java (SLF4J). You can find information on SLF4J here. This logging utility allows for the implementation of any number of logging systems. You may use log4j, java.util.logging or other logging systems. The nice part about this is that if you want to change from java.util.logging to log4j later on in the development process, you do not need to change your source code at all.</p>
+<h3 id="choosing-the-right-jars">Choosing the Right JARs</h3>
+<p>SLF4J uses a static binding. This means there is one JAR file for each supported logging framework. You can use your favorite logging framework by choosing the JAR file that calls the logging framework you chose statically. The following is the table of required JAR files to use a certain logging framework.</p>
+<table>
+<thead>
+<tr>
+<th>Logging framework</th>
+<th>Required JARs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Log4J 1.2.x</td>
+<td><strong>sl</strong>f4j-api.jar**, **slf4j-log4j12.jar**</td>
+</tr>
+<tr>
+<td>Log4J 1.3.x</td>
+<td><strong>slf4j-api.jar</strong>, <strong>slf4j-log4j13.jar</strong></td>
+</tr>
+<tr>
+<td>java.util.logging</td>
+<td><tt>slf4j-api.jar**, **slf4j-jdk14.jar**</td>
+</tr>
+<tr>
+<td>Commons Logging</td>
+<td><strong>slf4j-api.jar</strong>, <strong>slf4j-jcl.jar</strong></td>
+</tr>
+</tbody>
+</table>
+<p>There are a few things to keep in mind:</p>
+<ul>
+<li>slf4j-api.jar is used commonly across any implementation JARs.</li>
+<li><strong>IMPORTANT</strong> You should not put more than one implementation JAR files in the class path (e.g. slf4j-log4j12.jar and slf4j-jdk14.jar); it might lead your application to a unexpected behavior.</li>
+<li>The version of slf4j-api.jar and slf4j-<impl>.jar should be identical.</li>
+</ul>
+<p>Once configured properly, you can continue to configure the actual logging framework you chose (e.g. modifying log4j.properties).</p>
+<h3 id="overriding-jakarta-commons-logging">Overriding Jakarta Commons Logging</h3>
+<p>SLF4J also provides a way to convert the existing applications that use Jakarta Commons Logging to use SLF4J without changing the application code. Just remove commons-logging JAR file from the class path, and add jcl104-over-slf4j.jar to the class path.</p>
+<h2 id="log4j-example">log4j example</h2>
+<p>For this example we will use the log4j logging system. We set up a project and place the following snippet into a file called log4j.properties:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># Set root logger level to DEBUG and its only appender to A1.
+log4j.rootLogger=DEBUG, A1
+
+# A1 is set to be a ConsoleAppender.
+log4j.appender.A1=org.apache.log4j.ConsoleAppender
+
+# A1 uses PatternLayout.
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%-4r [%t] %-5p %c{1} %x - %m%n
+</code></pre></div><p>This file will be placed in the src directory of our project. If you are using an IDE, you essentially want the configuration file to be in the classpath for the JVM when you are testing your code.</p>
+<div class="note" markdown="1">
+    Although this shows you how to set up an <tt>IoAcceptor</tt> to use logging, understand that the SLF4J API may be used anywhere in your program in order to generate proper logging information suitable to your needs.
+</div>
+<p>Next we will set up a simple example server in order to generate some logs. Here we have taken the EchoServer example project and added logging to the class:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[</span><span style="color:#666">]</span> args<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception <span style="color:#666">{</span>
+    IoAcceptor acceptor <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> SocketAcceptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    DefaultIoFilterChainBuilder chain <span style="color:#666">=</span> acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+    LoggingFilter loggingFilter <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> LoggingFilter<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    chain<span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span><span style="color:#b44">&#34;logging&#34;</span><span style="color:#666">,</span> loggingFilter<span style="color:#666">)</span><span style="color:#666">;</span>                  
+
+    acceptor<span style="color:#666">.</span><span style="color:#b44">setLocalAddress</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> InetSocketAddress<span style="color:#666">(</span>PORT<span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    acceptor<span style="color:#666">.</span><span style="color:#b44">setHandler</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> EchoProtocolHandler<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    acceptor<span style="color:#666">.</span><span style="color:#b44">bind</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+    System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Listening on port &#34;</span> <span style="color:#666">+</span> PORT<span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>As you can see we removed the addLogger method and added in the 2 lines added to the example EchoServer. With a reference to the LoggingFilter, you can set the logging level per event type in your handler that is associated with the IoAcceptor here. In order to specify the IoHandler events that trigger logging and to what levels the logging is performed, there is a method in the LoggingFilter called setLogLevel(IoEventType, LogLevel). Below are the options for this method:</p>
+<table>
+<thead>
+<tr>
+<th>IoEventType</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SESSION_CREATED</td>
+<td>Called when a new session has been created</td>
+</tr>
+<tr>
+<td>SESSION_OPENED</td>
+<td>Called when a new session has been opened</td>
+</tr>
+<tr>
+<td>SESSION_CLOSED</td>
+<td>Called when a session has been closed</td>
+</tr>
+<tr>
+<td>MESSAGE_RECEIVED</td>
+<td>Called when data has been received</td>
+</tr>
+<tr>
+<td>MESSAGE_SENT</td>
+<td>Called when a message has been sent</td>
+</tr>
+<tr>
+<td>SESSION_IDLE</td>
+<td>Called when a session idle time has been reached</td>
+</tr>
+<tr>
+<td>EXCEPTION_CAUGHT</td>
+<td>Called when an exception has been thrown</td>
+</tr>
+</tbody>
+</table>
+<p>Here are the descriptions of the LogLevels:</p>
+<table>
+<thead>
+<tr>
+<th>LogLevel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NONE</td>
+<td>This will result in no log event being created regardless of the configuration</td>
+</tr>
+<tr>
+<td>TRACE</td>
+<td>Creates a TRACE event in the logging system</td>
+</tr>
+<tr>
+<td>DEBUG</td>
+<td>Generates debug messages in the logging system</td>
+</tr>
+<tr>
+<td>INFO</td>
+<td>Generates informational messages in the logging system</td>
+</tr>
+<tr>
+<td>WARN</td>
+<td>Generates warning messages in the logging system</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>Generates error messages in the logging system</td>
+</tr>
+</tbody>
+</table>
+<p>With this information, you should be able to get a basic system up and running and be able to expand upon this simple example in order to be generating log information for your system.</p>
+
+
+            
+    <div class="nav">
+        <div class="nav_prev">
+            
+                
+                <a href="../ch11-ssl-filter/ch11-ssl-filter.html">Chapter 11 - SSL Filter</a>
+            
+        </div>
+        <div class="nav_up">
+            
+                
+                <a href="../user-guide-toc.html">User Guide</a>
+            
+        </div>
+        <div class="nav_next">
+            
+                
+                <a href="../ch13-debugging/ch13-debugging.html">Chapter 13 - Debugging</a>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

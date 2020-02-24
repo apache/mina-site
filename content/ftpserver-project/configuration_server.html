@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>FtpServer Server &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/ftpserver.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                <strong>FtpServer</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/index.html">Home</a> </li>
+                    <li><a href="/ftpserver-project/features.html">Features</a> </li>
+                    <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
+                    <li><a href="/ftpserver-project/downloads.html">Downloads</a></li>
+                    <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
+                    <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
+                    <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/mailing_list.html">Mailing Lists</a></li>
+                    <li><a href="/ftpserver-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/ftpserver-project/reporting_bug.html">Reporting a Bug</a></li>
+                    <li><a href="/ftpserver-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="server">Server</h1>
+<p>Some configuration is done for the entire server. This affects all listeners, for login limits, the sum of the logins for all listeners are enforced.</p>
+<p>Using the XML configuration, this following examples shows all available configurations for the server</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">xmlns=</span><span style="color:#b44">&#34;http://mina.apache.org/ftpserver/spring/v1&#34;</span>
+    <span style="color:#b44">xmlns:xsi=</span><span style="color:#b44">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+    <span style="color:#b44">xsi:schemaLocation=</span><span style="color:#b44">&#34;http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd&#34;</span>
+    <span style="color:#b44">id=</span><span style="color:#b44">&#34;server&#34;</span>     
+    <span style="color:#b44">max-logins=</span><span style="color:#b44">&#34;500&#34;</span>
+    <span style="color:#b44">anon-enabled=</span><span style="color:#b44">&#34;false&#34;</span>
+    <span style="color:#b44">max-anon-logins=</span><span style="color:#b44">&#34;123&#34;</span>
+    <span style="color:#b44">max-login-failures=</span><span style="color:#b44">&#34;124&#34;</span>
+    <span style="color:#b44">login-failure-delay=</span><span style="color:#b44">&#34;125&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+...
+<span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+</code></pre></div><h2 id="server-element">server element</h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>A unique identifier for this server within this XML configuration</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+<tr>
+<td>max-threads</td>
+<td>The maximum number of threads used in the thread pool for handling client connections</td>
+<td>No</td>
+<td>max-logins, or 16 if neither value is set</td>
+</tr>
+<tr>
+<td>max-logins</td>
+<td>The maximum number of simultaneous users</td>
+<td>No</td>
+<td>10</td>
+</tr>
+<tr>
+<td>max-anon-logins</td>
+<td>The maximum number of simultaneous anonymous users</td>
+<td>No</td>
+<td>10</td>
+</tr>
+<tr>
+<td>anon-enabled</td>
+<td>Are anonymous logins enabled?</td>
+<td>No</td>
+<td>true</td>
+</tr>
+<tr>
+<td>max-login-failures</td>
+<td>The number of failed login attempts before the connection is closed</td>
+<td>No</td>
+<td>3</td>
+</tr>
+<tr>
+<td>login-failure-delay</td>
+<td>The number of milliseconds that the connection is delayed after a failed login attempt. Used to limit to possibility of brute force guessing passwords.</td>
+<td>No</td>
+<td>500</td>
+</tr>
+</tbody>
+</table>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

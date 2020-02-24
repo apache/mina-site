@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ftpserver-projects on Apache Mina</title>
+    <link>https://mina.apache.org/ftpserver-project.html</link>
+    <description>Recent content in Ftpserver-projects on Apache Mina</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="https://mina.apache.org/ftpserver-project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Apache FtpServer 1.0.0 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.0.html</guid>
+      <description>Apache FtpServer 1.0.0 Release New Features in 1.0.0 This is the first production ready release of FtpServer. In this, we have fixed all known bugs and have a stable API.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.0.zip N/A ftpserver-1.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.0-M2 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.0-M2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.0-M2.html</guid>
+      <description>Apache FtpServer 1.0.0-M2 Release New Features in 1.0.0-M2 This is the first release of Apache FtpServer, you can find the major features here.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.0-M2.zip SHA1 ftpserver-1.0.0-M2.zip.asc   tar.gz distribution ftpserver-1.0.0-M2.tar.gz SHA1 ftpserver-1.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.0-M3 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.0-M3.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.0-M3.html</guid>
+      <description>Apache FtpServer 1.0.0-M3 Release New Features in 1.0.0-M3 This is a bug fix release that fixes issues found in 1.0.3.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.0-M3.zip SHA1 ftpserver-1.0.0-M3.zip.asc   tar.gz distribution ftpserver-1.0.0-M3.tar.gz SHA1 ftpserver-1.0.0-M3.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.0-M4 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.0-M4.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.0-M4.html</guid>
+      <description>Apache FtpServer 1.0.0-M4 Release New Features in 1.0.0-M4 This release mainly contains bug fixes and minor enhancements from the previous release.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.0-M4.zip SHA1 ftpserver-1.0.0-M4.zip.asc   tar.gz distribution ftpserver-1.0.0-M4.tar.gz SHA1 ftpserver-1.0.0-M4.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.0-RC1 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.0-RC1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.0-RC1.html</guid>
+      <description>Apache FtpServer 1.0.0-RC1 Release New Features in 1.0.0-RC1 This release mainly contains bug fixes and minor enhancements from the previous release.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.0-RC1.zip SHA1 ftpserver-1.0.0-RC1.zip.asc   tar.gz distribution ftpserver-1.0.0-RC1.tar.gz SHA1 ftpserver-1.0.0-RC1.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.0-RC2 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.0-RC2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.0-RC2.html</guid>
+      <description>Apache FtpServer 1.0.0-RC2 Release New Features in 1.0.0-RC2 This is the second release candidate for FtpServer 1.0.0. This release contains some last minute fixes for bugs that was found in RC1.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.1 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.1.html</guid>
+      <description>Apache FtpServer 1.0.1 Release New Features in 1.0.1 This is a bug fix release that fixes issues found in 1.0.0.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.1.zip SHA1 ftpserver-1.0.1.zip.asc   tar.gz distribution ftpserver-1.0.1.tar.gz SHA1 ftpserver-1.0.1.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.2 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.2.html</guid>
+      <description>Apache FtpServer 1.0.2 Release New Features in 1.0.2 This is a bug fix release that fixes issues found in 1.0.1.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.2.zip SHA1 ftpserver-1.0.2.zip.asc   tar.gz distribution ftpserver-1.0.2.tar.gz SHA1 ftpserver-1.0.2.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.3 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.3.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.3.html</guid>
+      <description>Apache FtpServer 1.0.3 Release New Features in 1.0.3 This is a bug fix release that fixes issues found in 1.0.2.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.3.zip SHA1 ftpserver-1.0.3.zip.asc   tar.gz distribution ftpserver-1.0.3.tar.gz SHA1 ftpserver-1.0.3.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.4 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.4.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.4.html</guid>
+      <description>Apache FtpServer 1.0.4 Release New Features in 1.0.4 This is a bug fix release that fixes issues found in 1.0.3.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.4.zip SHA1 ftpserver-1.0.4.zip.asc   tar.gz distribution ftpserver-1.0.4.tar.gz SHA1 ftpserver-1.0.4.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.5 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.5.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.5.html</guid>
+      <description>Apache FtpServer 1.0.5 Release New Features in 1.0.5 This is a bug fix release that fixes issues found in 1.0.4.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.0.5.zip SHA1 ftpserver-1.0.5.zip.asc   tar.gz distribution ftpserver-1.0.5.tar.gz SHA1 ftpserver-1.0.5.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.0.6 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.0.6.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.0.6.html</guid>
+      <description>Apache FtpServer 1.0.6 Release New Features in 1.0.6 This release fixes a bunch of issues found since the release of 1.0.5, including a major improvement in how FtpServer handles assignment of passive ports.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution ftpserver-1.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.1.0 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.1.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.1.0.html</guid>
+      <description>Apache FtpServer 1.1.0 Release New Features in 1.1.0 This release fixes a few issues found since the release of 1.1.0, mainly making it using MINA 2.0.16, the latest MINA build.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution apache-ftpserver-1.1.0.zip SHA1 ASC   tar.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.1.1 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.1.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.1.1.html</guid>
+      <description>Apache FtpServer 1.1.1 Release New Features in 1.1.1 This release fixes a few issues found since the release of 1.1.0.
+Changelog For a more detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution apache-ftpserver-1.1.1.zip SHA1 ASC   tar.gz distribution apache-ftpserver-1.1.1.tar.gz SHA1 ASC   tar.</description>
+    </item>
+    
+    <item>
+      <title>Embedding FtpServer in 5 minutes</title>
+      <link>https://mina.apache.org/ftpserver-project/embedding_ftpserver.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/embedding_ftpserver.html</guid>
+      <description>Embedding FtpServer in 5 minutes FtpServer is designed to be easily embedded into your application. Getting a basic server up and running is as simple as
+FtpServerFactory serverFactory = new FtpServerFactory(); FtpServer server = serverFactory.createServer(); // start the server server.start(); To get this running, you need the following JAR files in your classpath:
+ mina-core, 2.0-M3 or later slf4j-api A SLF4J implementation of your choice, for example slf4j-simple-1.5.3.jar ftplet-api ftpserver-core  Now, you will probably like to configure the server for your specific needs.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer</title>
+      <link>https://mina.apache.org/ftpserver-project/running_ftpserver_standalone.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/running_ftpserver_standalone.html</guid>
+      <description>Running FtpServer stand-alone in 5 minutes To get FtpServer up and running in stand-alone mode, you need to have a full distribution. Check out to build the source code and make sure you include the build for the distribution module
+Installing Now you should have a ZIP or TARed file with the entire distribution. Let&amp;rsquo;s go.
+First of all, unpack it. If you&amp;rsquo;re on Linux/Unix, you can use:
+tar -xzvf ftpserver-1.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer and port 21 on Linux</title>
+      <link>https://mina.apache.org/ftpserver-project/ftpserver_port_21.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/ftpserver_port_21.html</guid>
+      <description>FtpServer and port 21 on Linux Under Linux only programs running as root is allowed to bind and listen to ports with port numbers below 1024. However, running a server which communicates with untrusted clients as root is not recommended for security reasons. The standard way to solve this problem in servers such as Apache HTTPD is to start the server as root and bind to the privileged port and then use the setuid C function to change the user ID of the current process.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Building</title>
+      <link>https://mina.apache.org/ftpserver-project/building.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/building.html</guid>
+      <description>Building You need Subversion to check out the source code from our source code repository, and Maven 2 to build the source code. Currently, Maven 2.0.5 or 2.0.7 or newer is required for the build.
+The following example shows how to build the trunk.
+$ svn co http://svn.apache.org/repos/asf/mina/ftpserver/trunk/ ftpserver $ cd ftpserver $ mvn install  If you run into any problems running these steps, please report on the mailing lists</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Configuration</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration.html</guid>
+      <description>Configuration Overview This document explains the Apache FTP Server configuration parameters. All the configuration parameters are grouped depending on the component where it has been used. The configuration format is XML based and comes with a matching XML Schema that can be used in XML editors to simplify configuration.
+The XML document scaffold looks like this:
+&amp;lt;server xmlns=&amp;#34;http://mina.apache.org/ftpserver/spring/v1&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd&amp;#34; id=&amp;#34;myServer&amp;#34;&amp;gt; &amp;lt;/server&amp;gt; The id attribute can be set to any value of your liking, but is required.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Configure passive ports</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_passive_ports.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_passive_ports.html</guid>
+      <description>Configure passive ports When the client wants to use a passive data connection, the server should provide the port to use. By default, FtpServer will choose any available port. However this can be overridden using the configuration for the passive data connection. The allowed passive ports can then be specified as a single port (e.g. 20020), multiple ports (e.g. 20020, 20030, 20040) or a range of ports (e.g. 20020-20030). Ranges can be closed (e.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Contributors</title>
+      <link>https://mina.apache.org/ftpserver-project/contributors.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/contributors.html</guid>
+      <description>Contributors Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
+ Rana Battacharyya Niklas Gustavsson Paul Hammant David Latorre Emmanuel Lécharny Sai Pullabhotla Sergey M Vladimirov  </description>
+    </item>
+    
+    <item>
+      <title>FtpServer Database user manager</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_user_manager_db.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_user_manager_db.html</guid>
+      <description>Database user manager You can store user user information in a database. JDBC is used to access the database. This user manager has been tested using MySQL, HSQLDB and FireBird database. All the user information is stored in FTP_USER table. An example DDL file for the database is provided in &amp;lt;INSTALL_DIR&amp;gt;/res/ftp-db.sql.
+Database JDBC libraries You must include the required JAR files for your database in the classpath of FtpServer. Typically you would do this by placing the JAR files in &amp;lt;INSTALL_DIR&amp;gt;/common/lib.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Documentation</title>
+      <link>https://mina.apache.org/ftpserver-project/documentation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/documentation.html</guid>
+      <description>Documentation Tutorials  Embedding FtpServer in 5 minutes Running FtpServer stand-alone in 5 minutes  Using FtpServer  Installation  Installing FtpServer as a Windows service   Configuration  Server Listeners Configure passive ports TLS/SSL Support User Manager Logging   Messages Managing users FtpServer and port 21 on Linux  Advanced  FTP Commands SITE Commands Ftplet  Supported RFCs  RFC959 RFC2228 RFC2389 RFC2428 RFC2640 draft-twine-ftpmd5-00 draft-somers-ftp-mfxx-00  Developing FtpServer  Getting the source Building Releasing  </description>
+    </item>
+    
+    <item>
+      <title>FtpServer Downloads</title>
+      <link>https://mina.apache.org/ftpserver-project/downloads.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/downloads.html</guid>
+      <description>Latest FTPServer Releases The latest release is the Apache FtpServer 1.1.1 Release
+All Releases  Apache FtpServer 1.1.1 Release Apache FtpServer 1.1.0 Release Apache FtpServer 1.0.6 Release Apache FtpServer 1.0.5 Release Apache FtpServer 1.0.4 Release Apache FtpServer 1.0.3 Release Apache FtpServer 1.0.2 Release Apache FtpServer 1.0.1 Release Apache FtpServer 1.0.0 Release Apache FtpServer 1.0.0-RC2 Release Apache FtpServer 1.0.0-RC1 release Apache FtpServer 1.0.0-M4 release Apache FtpServer 1.0.0-M3 release Apache FtpServer 1.0.0-M2 release  Maven Repositories All Apache FtpServer releases are available from the Maven central repository</description>
+    </item>
+    
+    <item>
+      <title>FtpServer draft-twine-ftpmd5-00</title>
+      <link>https://mina.apache.org/ftpserver-project/draft-twine-ftpmd5-00.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/draft-twine-ftpmd5-00.html</guid>
+      <description>draft-twine-ftpmd5-00 INTERNET-DRAFT JRTwine Software, LLC draft-twine-ftpmd5-00.txt May, 2002 The &amp;#39;MD5&amp;#39; and &amp;#34;MMD5&amp;#34; FTP Command Extensions Status of This Document This document is an Internet-Draft and is subject to all provisions of Section 10 of RFC2026. Internet-Drafts are working documents of the Internet Engineering Task Force (IETF), its areas, and its working groups. Note that other groups may also distribute working documents as Internet-Drafts. Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer FAQ</title>
+      <link>https://mina.apache.org/ftpserver-project/faq.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/faq.html</guid>
+      <description>FAQ General  General  My server fails with java.net.SocketException: Too many files open Change the timeout in Windows Change the timeout in Linux How can I add other language translations? How can I send binary data stored in a database when the FTP Server gets the RETR command? Why I am getting ClassNotFoundException when I am trying to use database based user manager? I am unable to run FtpServer on top of Glassfish although it is running correctly over tomcat.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Features</title>
+      <link>https://mina.apache.org/ftpserver-project/features.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/features.html</guid>
+      <description>Features  100% pure Java, free, open source resumable FTP server Multi platform support and multithreaded design. User virtual directory, write permission, idle time-out and upload/download bandwidth limitation support. Anonymous login support. Both upload and download files are resumable. Handles both ASCII and binary data transfers. IP restriction support to ban IPs. Database and file can be used to store user data. All the FTP messages are customizable. Implicit/explicit SSL/TLS support.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer File based user manager</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_user_manager_file.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_user_manager_file.html</guid>
+      <description>File based user manager This is the default user manager. It uses a properties file to store all the user information.
+Example &amp;lt;file-user-manager file=&amp;#34;users.properties&amp;#34; encrypt-passwords=&amp;#34;true&amp;#34;&amp;gt; file-user-manager element    Attribute Description Required Default value     file Path to the properties file for storing users Yes     encrypt-passwords It indicates how to stored password are encrypted. Possible values are &amp;ldquo;clear&amp;rdquo; for clear text, &amp;ldquo;md5&amp;rdquo; for hashed using MD5 or &amp;ldquo;salted&amp;rdquo; for hashed salted passwords (including multiple hash iterations).</description>
+    </item>
+    
+    <item>
+      <title>FtpServer FTP Commands</title>
+      <link>https://mina.apache.org/ftpserver-project/ftpserver_commands.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/ftpserver_commands.html</guid>
+      <description>FTP Commands This document describes all the FTP commands implemented.
+ABOR Aborts the previous FTP service command and any associated transfer of data.
+Server Replies 226 ABOR command successful.  ACCT Provides the user&amp;rsquo;s account. Not used by FtpServer.
+Server Replies 202 Command ACCT not implemented.  APPE Appends data to the end of a file on the remote host. If the file does not already exist, it is created. This command must be preceded by a PORT or PASV command.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Ftplet</title>
+      <link>https://mina.apache.org/ftpserver-project/ftplet.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/ftplet.html</guid>
+      <description>Ftplet Overview The Ftplet API is a simple API used to handle different FtpServer notifications. Apache FtpServer is a Ftplet container, allowing administrators to deploy Ftplet to carry out a variety of complex FTP event handler tasks.
+Implementing a custom Ftplet is generally a simple task, most of whose complexity lies in coding the actual work to be done by the Ftplet. This is largely due to the simplicity of the Ftplet interface and the fact that a DefaultFtplet class is provided as part of the Ftplet package.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Getting Involved</title>
+      <link>https://mina.apache.org/ftpserver-project/getting_involved.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/getting_involved.html</guid>
+      <description>Getting Involved Apache FtpServer communicates using our Mailing Lists. If you have any questions, feedback or suggestions, you&amp;rsquo;re very welcome to join the list and send an email. We are also happy to receive bug reports and feature requests in our JIRA.
+Patches The best chance of getting your bug or feature fixed is to provide a patch, if they fit our goals we will usually have them committed within a few days.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Getting Source</title>
+      <link>https://mina.apache.org/ftpserver-project/getting_source.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/getting_source.html</guid>
+      <description>Overview Sources for the Apache MINA projects are currently managed through GIT. Instructions on GIT use can be found at http://git-scm.com/book/.
+Normal Git Access Anyone can check code out of Git. You only need to specify a username and password in order to update the Git repository, and only MINA committers have the permissions to do that. We run Git over standard HTTPS, so hopefully you won&amp;rsquo;t have problems with intervening firewalls.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Home</title>
+      <link>https://mina.apache.org/ftpserver-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/</guid>
+      <description>Welcome to Apache FtpServer Overview The Apache FtpServer is a 100% pure Java FTP server. It&amp;rsquo;s designed to be a complete and portable FTP server engine solution based on currently available open protocols. FtpServer can be run standalone as a Windows service or Unix/Linux daemon, or embedded into a Java application. We also provide support for integration within Spring applications and provide our releases as OSGi bundles.
+The default network support is based on Apache MINA, a high performance asynchronous IO library.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Installation</title>
+      <link>https://mina.apache.org/ftpserver-project/installation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/installation.html</guid>
+      <description>Installation Binary Distribution Download the binary distribution and unzip it. The zip file includes sample configuration files
+Typical server set up : &amp;lt;INSTALL_DIR&amp;gt;/res/conf/ftpd-typical.xml
+ Full example configuration file : &amp;lt;INSTALL_DIR&amp;gt;/res/conf/ftpd-full.xml If you want to use your own jar files, you can put those jar files in system CLASSPATH or copy those jar files in the &amp;lt;INSTALL_DIR&amp;gt;/common/lib directory.  To run the server, go to &amp;lt;INSTALL_DIR&amp;gt; directory and execute ftpd.bat (if Windows) or ftpd.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Listeners</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_listeners.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_listeners.html</guid>
+      <description>Listeners Listeners are the component in FtpServer which is responsible for listening on the network socket and when clients connect create the user session, execute commands and so on. An FtpServer can have multiple listeners at the same time, some examples include:
+ one listener on port 21 (the default option) one cleartext listener on port 21 and one for implicit SSL on port 22 one cleartext listener in an internal IP address only and one for implicit SSL for the external IP address  Listeners are identified by a name, the default listener is identified by &amp;ldquo;default&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Logging</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_logging.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_logging.html</guid>
+      <description>Logging FtpServer Logging FtpServer uses SLF4J throughout its internal code allowing the developer to choose a logging configuration that suits their needs, e.g java.util.logging or Log4J. SLF4J provides FtpServer the ability to log hierarchically across various log levels without needing to rely on a particular logging implementation.
+MDC logging FtpServer supports MDC logging. Basically, it provides session based information for the logger. Of primary interest in the case of FtpServer are the user name and remote IP address for each session.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Mailing Lists</title>
+      <link>https://mina.apache.org/ftpserver-project/mailing_list.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/mailing_list.html</guid>
+      <description>Mailing List General information about the FtpServer mailing lists can be found here.
+For Users Please use this list for any questions regarding how to use FtpServer in your application.
+         Subscribe ftpserver-users-subscribe@mina.apache.org   Unsubscribe ftpserver-users-unsubscribe@mina.apache.org   Post ftpserver-users@mina.apache.org   Archive http://www.mail-archive.com/ftpserver-users@mina.apache.org/    For Developers We use the MINA developers list for asking technical questions, discussing feature suggestions or general questions regarding the project.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Managing users</title>
+      <link>https://mina.apache.org/ftpserver-project/managing_users.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/managing_users.html</guid>
+      <description>Managing users Since FtpServer user manager might encrypt user passwords before saving them, manually administering the user database can be hard. There is basically three ways:
+Manually Using either the PropertiesUserManager or DbUserManager you can access the data store (file or database) directly to edit users. For clear text passwords you can simply edit them. For MD5 hashed passwords, you can you use any of the available MD5 tools, for example http://www.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Messages</title>
+      <link>https://mina.apache.org/ftpserver-project/messages.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/messages.html</guid>
+      <description>Messages This document explains how to customize all the Apache FtpServer reply messages.
+All the server messages are customizable. The default reply messages are bundled with the server. The user defined custom messages will be stored separately. This custom message file is configurable.
+The FtpServer project is interested in localized message bundles, please contact the project if you would like to donate.
+Example &amp;lt;messages languages=&amp;quot;se, no ,da&amp;quot;&amp;gt;  messages element    Attribute Description Required Default value     directory The directory in which message bundles can be located No     languages A comma separated list of the languages that the server will provide messages in No      Creating a customized message bundle Dynamic Values Dynamic values can be embedded in the server message replies.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Related Projects</title>
+      <link>https://mina.apache.org/ftpserver-project/related_project.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/related_project.html</guid>
+      <description>Related Projects VFS FTPServer Bridge This project provides an Apache Commons VFS implementation for the Apache FTPServer project. Instead of working only on local files, with this VFS bridge you can connect to any VFS provider. You can still use a local file system, but you can also use a ZIP file, loop through to another FTP server, or use any other available VFS implementation such as DctmVFS.
+HDFS over FTP FTP server which works on a top of HDFS.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Releasing</title>
+      <link>https://mina.apache.org/ftpserver-project/releasing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/releasing.html</guid>
+      <description>Releasing Before calling a vote   Update the README.txt file
+  Copy trunk revision to branch
+ svn copy -m &amp;quot;Branching for release&amp;quot; -r &amp;lt;revision&amp;gt; https://svn.apache.org/repos/asf/mina/ftpserver/trunk/ https://svn.apache.org/repos/asf/mina/ftpserver/branches/&amp;lt;release version&amp;gt; svn co https://svn.apache.org/repos/asf/mina/ftpserver/branches/&amp;lt;release version&amp;gt;    Up version in trunk
+ mvn versions:set -DnewVersion=&amp;lt;next version&amp;gt;-SNAPSHOT -DgenerateBackupPoms=false svn -m &amp;quot;Increasing version for new development in trunk&amp;quot; commit    Update version in branch
+ mvn versions:set -DnewVersion=&amp;lt;release version&amp;gt; -DgenerateBackupPoms=false svn -m &amp;quot;Setting version for release of &amp;lt;release version&amp;gt;&amp;quot; commit    mvn -Papache-release clean deploy</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Reporting Bugs</title>
+      <link>https://mina.apache.org/ftpserver-project/reporting_bug.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/reporting_bug.html</guid>
+      <description>Reporting a Bug We are using JIRA to track all FtpServer issues including bugs. Please visit our issue tracker page to report a bug.
+How to report a bug Writing a bug report with detailed information will help us to fix your problem sooner.
+ Make sure if the bug you are going to report doesn&amp;rsquo;t exist yet. Attaching JUnit test case which reproduces the problem will put your report in our highest priority.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Server</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_server.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_server.html</guid>
+      <description>Server Some configuration is done for the entire server. This affects all listeners, for login limits, the sum of the logins for all listeners are enforced.
+Using the XML configuration, this following examples shows all available configurations for the server
+&amp;lt;server xmlns=&amp;#34;http://mina.apache.org/ftpserver/spring/v1&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd&amp;#34; id=&amp;#34;server&amp;#34; max-logins=&amp;#34;500&amp;#34; anon-enabled=&amp;#34;false&amp;#34; max-anon-logins=&amp;#34;123&amp;#34; max-login-failures=&amp;#34;124&amp;#34; login-failure-delay=&amp;#34;125&amp;#34;&amp;gt; ... &amp;lt;/server&amp;gt; server element    Attribute Description Required Default value     id A unique identifier for this server within this XML configuration Yes     max-threads The maximum number of threads used in the thread pool for handling client connections No max-logins, or 16 if neither value is set   max-logins The maximum number of simultaneous users No 10   max-anon-logins The maximum number of simultaneous anonymous users No 10   anon-enabled Are anonymous logins enabled?</description>
+    </item>
+    
+    <item>
+      <title>FtpServer SITE Commands</title>
+      <link>https://mina.apache.org/ftpserver-project/ftpserver_site_commands.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/ftpserver_site_commands.html</guid>
+      <description>SITE Commands This document describes all the FTP SITE commands implemented.
+SITE DESCUSER It displays the user details.
+Sample Server Replies 200- DESCUSER : display user information. HELP : display this message. STAT : show statistics. WHO : display all connected users. ZONE : display timezone. 200 End of help.  SITE HELP It displays all the available SITE commands.
+Server Replies 200- DESCUSER : display user information. HELP : display this message.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Testimonials</title>
+      <link>https://mina.apache.org/ftpserver-project/testimonials.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/testimonials.html</guid>
+      <description>Testimonials Daniel Frank says:
+ Apache FtpServer has proven to be a stable and reliable platform for our customers. It is easy to customize, and this was an important factor when deciding to use Apache FtpServer as the FTP server for our cloud based file sharing solution, HostedFTP
+ </description>
+    </item>
+    
+    <item>
+      <title>FtpServer TLS-SSL Support</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_ssltls_support.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_ssltls_support.html</guid>
+      <description>TLS-SSL Support This document explains how to enable Apache FTP Server to use Transport Layer Security (TLS) for encrypted client-server communication.
+FtpServer uses the Java Secure Sockets Extension (JSSE) infrastructure to provide TLS/SSL sockets. JSSE comes packaged with several vendor Java distributions (i.e. Sun Java 1.4.x, IBM Java 1.3.x). For these distributions, please follow the vendor provided instructions for configuring the JVM to use JSSE services.
+Security mode Explicit Security (default) In this mode server supports both secure and non-secure connection.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer User Manager</title>
+      <link>https://mina.apache.org/ftpserver-project/configuration_user_manager.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/configuration_user_manager.html</guid>
+      <description>User Manager Built in user managers FtpServer comes with two different user managers:
+ File based user manager Database user manager  Custom User Manager You can write your own user manager to integrate it with your existing applications. Your custom user manager should implement org.apache.ftpserver.ftplet.UserManager interface. In your configuration file, you will have to use the Spring bean element to configure your custom user manager. This gives you all the power of Spring, for example integrating with your other beans.</description>
+    </item>
+    
+    <item>
+      <title>Installing FtpServer as a Windows service</title>
+      <link>https://mina.apache.org/ftpserver-project/ftpserver_as_windows_service.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/ftpserver_as_windows_service.html</guid>
+      <description>Installing FtpServer as a Windows service Install Apache FtpServer can be installed as a Windows service using the following command:
+&amp;lt;install dir&amp;gt;bin\service install  This will create a service called Apache FtpServer that can be started and stopped as a usual service.
+As a second parameter, the service identifier can be provided. This would normally be used if multiple FtpServer services should be installed, for example:
+&amp;lt;install dir&amp;gt;bin\service install ftpd2  Without any further options, this will use the default configuration.</description>
+    </item>
+    
+  </channel>
+</rss>

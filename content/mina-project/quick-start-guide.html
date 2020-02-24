@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Quick Start Guide &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                <strong>MINA</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Latest Downloads</h5>
+                <ul>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.21</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.3</a></li>
+                    <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
+                </ul>
+                <h5>Documentation</h5>
+                <ul>
+                    <li><a href="/mina-project/documentation.html" class="external-link" rel="nofollow">Base documentation</a></li>
+                    <li><a href="/mina-project/userguide/user-guide-toc.html" class="external-link" rel="nofollow">User guide</a></li>
+                    <li><a href="/mina-project/2.1-vs-2.0.html" class="external-link" rel="nofollow">2.1 vs 2.0</a></li>
+                    <li><a href="/mina-project/features.html" class="external-link" rel="nofollow">Features</a></li>
+                    <li><a href="/mina-project/road-map.html" class="external-link" rel="nofollow">Road Map</a></li>
+                    <li><a href="/mina-project/quick-start-guide.html" class="external-link" rel="nofollow">Quick Start Guide</a></li>
+                    <li><a href="/mina-project/faq.html" class="external-link" rel="nofollow">FAQ</a></li>
+                </ul>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
+                    <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
+                    <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.3</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.3</a></li>
+                    <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
+                    <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
+                    <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
+                    <li><a href="/mina-project/developer-guide.html" class="external-link" rel="nofollow">Developers Guide</a></li>
+                    <li><a href="/mina-project/related-projects.html" class="external-link" rel="nofollow">Related Projects</a></li>
+                    <li><a href="https://people.apache.org/~vgritsenko/stats/projects/mina.html" class="external-link" rel="nofollow">Statistics</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/contributing.html" class="external-link" rel="nofollow">Contributing</a></li>
+                    <li><a href="/contributors.html" class="external-link" rel="nofollow">Team</a></li>
+                    <li><a href="/special-thanks.html" class="external-link" rel="nofollow">Special Thanks</a></li>
+                    <li><a href="https://www.apache.org/security/" class="external-link" rel="nofollow">Security</a></li>
+                </ul>
+
+                <h5>About Apache</h5>
+                <ul>
+                    <li><a href="https://www.apache.org" class="external-link" rel="nofollow">Apache main site</a></li>
+                    <li><a href="https://www.apache.org/licenses/" class="external-link" rel="nofollow">License</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html" title="The ASF sponsorship program" class="external-link" rel="nofollow">Sponsorship program</a></li>
+                    <li><a href="https://www.apache.org/foundation/thanks.html" class="external-link" rel="nofollow">Thanks</a></li>
+                </ul>
+
+                <h3><a name="Navigation-Upcoming"></a>Upcoming</h3>
+                <ul>
+                    <li>No event</li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="quick-start-guide">Quick Start Guide</h1>
+<p>This tutorial will walk you through the process of building a MINA based program. This tutorial will walk through building a time server. The following prerequisites are required for this tutorial:</p>
+<ul>
+<li>MINA 2.0.7 Core</li>
+<li>JDK 1.5 or greater</li>
+<li>[SLF4J|http://www.slf4j.org/] 1.3.0 or greater
+<ul>
+<li><strong>Log4J 1.2</strong> users: <em>slf4j-api.jar</em>, <em>slf4j-log4j12.jar</em>, and <a href="http://logging.apache.org/log4j/1.2/">Log4J</a> 1.2.x</li>
+<li><strong>Log4J 1.3</strong> users: <em>slf4j-api.jar</em>, <em>slf4j-log4j13.jar</em>, and <a href="http://logging.apache.org/log4j/1.2/">Log4J</a> 1.3.x</li>
+<li><strong>java.util.logging</strong> users: <em>slf4j-api.jar</em> and <em>slf4j-jdk14.jar</em></li>
+<li><strong>IMPORTANT</strong> : Please make sure you are using the right <em>slf4j-*.jar</em> that matches to your logging framework.
+For instance, <em>slf4j-log4j12.jar</em> and <em>log4j-1.3.x.jar</em> can not be used together, and will malfunction.</li>
+</ul>
+</li>
+</ul>
+<p>I have tested this program on both Windows© 2000 professional and linux. If you have any problems getting this program to work, please do not hesitate to [contact us|Contact] in order to talk to the MINA developers. Also, this tutorial has tried to remain independent of development environments (IDE, editors..etc). This tutorial will work with any environment that you are comfortable with. Compilation commands and steps to execute the program have been removed for brevity. If you need help learning how to either compile of execute java programs, please consult the <a href="http://java.sun.com/docs/books/tutorial/">Java tutorial</a>.</p>
+<h2 id="writing-the-mina-time-server">Writing the MINA time server</h2>
+<p>We will begin by creating a file called MinaTimeServer.java. The initial code can be found below:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">MinaTimeServer</span> <span style="color:#666">{</span>
+
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[</span><span style="color:#666">]</span> args<span style="color:#666">)</span> <span style="color:#666">{</span>
+        <span style="color:#080;font-style:italic">// code will go here next
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>This code should be straightforward to all. We are simply defining a main method that will be used to kick off the program. At this point, we will begin to add the code that will make up our server. First off, we need an object that will be used to listen for incoming connections. Since this program will be TCP/IP based, we will add a <em>SocketAcceptor</em> to our program.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.core.service.IoAcceptor</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.transport.socket.nio.NioSocketAcceptor</span><span style="color:#666">;</span>
+
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">MinaTimeServer</span>
+<span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span> String<span style="color:#666">[</span><span style="color:#666">]</span> args <span style="color:#666">)</span>
+    <span style="color:#666">{</span>
+        IoAcceptor acceptor <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NioSocketAcceptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>With the <em>NioSocketAcceptor</em> class in place, we can go ahead and define the handler class and bind the NioSocketAcceptor to a port.</p>
+<p>Next we add a filter to the configuration. This filter will log all information such as newly created sessions, messages received, messages sent, session closed. The next filter is a <em>ProtocolCodecFilter</em>. This filter will translate binary or protocol specific data into message object and vice versa. We use an existing TextLine factory because it will handle text base message for you (you don&rsquo;t have to write the codec part)</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.nio.charset.Charset</span><span style="color:#666">;</span>
+
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.core.service.IoAcceptor</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.filter.codec.ProtocolCodecFilter</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.filter.codec.textline.TextLineCodecFactory</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.filter.logging.LoggingFilter</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.transport.socket.nio.NioSocketAcceptor</span><span style="color:#666">;</span>
+
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">MinaTimeServer</span>
+<span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span> String<span style="color:#666">[</span><span style="color:#666">]</span> args <span style="color:#666">)</span>
+    <span style="color:#666">{</span>
+        IoAcceptor acceptor <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NioSocketAcceptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+        acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span> <span style="color:#b44">&#34;logger&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> LoggingFilter<span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">)</span><span style="color:#666">;</span>
+        acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span> <span style="color:#b44">&#34;codec&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> ProtocolCodecFilter<span style="color:#666">(</span> <span style="color:#a2f;font-weight:bold">new</span> TextLineCodecFactory<span style="color:#666">(</span> Charset<span style="color:#666">.</span><span style="color:#b44">forName</span><span style="color:#666">(</span> <span style="color:#b44">&#34;UTF-8&#34;</span> <span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>At this point, we will define the handler that will be used to service client connections and the requests for the current time. The handler class is a class that must implement the interface IoHandler. For almost all programs that use MINA, this becomes the workhorse of the program, as it services all incoming requests from the clients. For this tutorial, we will extend the class IoHandlerAdapter. This is a class that follows the adapter design pattern which simplifies the amount of code that needs to be written in order to satisfy the requirement of passing in a class that implements the IoHandler interface.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.io.IOException</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.nio.charset.Charset</span><span style="color:#666">;</span>
+
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.core.service.IoAcceptor</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.filter.codec.ProtocolCodecFilter</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.filter.codec.textline.TextLineCodecFactory</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.filter.logging.LoggingFilter</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.transport.socket.nio.NioSocketAcceptor</span><span style="color:#666">;</span>
+
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">MinaTimeServer</span>
+<span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span> String<span style="color:#666">[</span><span style="color:#666">]</span> args <span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> IOException
+    <span style="color:#666">{</span>
+        IoAcceptor acceptor <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NioSocketAcceptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+        acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span> <span style="color:#b44">&#34;logger&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> LoggingFilter<span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">)</span><span style="color:#666">;</span>
+        acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span> <span style="color:#b44">&#34;codec&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> ProtocolCodecFilter<span style="color:#666">(</span> <span style="color:#a2f;font-weight:bold">new</span> TextLineCodecFactory<span style="color:#666">(</span> Charset<span style="color:#666">.</span><span style="color:#b44">forName</span><span style="color:#666">(</span> <span style="color:#b44">&#34;UTF-8&#34;</span> <span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+        acceptor<span style="color:#666">.</span><span style="color:#b44">setHandler</span><span style="color:#666">(</span>  <span style="color:#a2f;font-weight:bold">new</span> TimeServerHandler<span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>We will now add in the NioSocketAcceptor configuration. This will allow us to make socket-specific settings for the socket that will be used to accept connections from clients.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.io.IOException</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.nio.charset.Charset</span><span style="color:#666">;</span>
+
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.core.session.IdleStatus</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.core.service.IoAcceptor</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.filter.codec.ProtocolCodecFilter</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.filter.codec.textline.TextLineCodecFactory</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.filter.logging.LoggingFilter</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.transport.socket.nio.NioSocketAcceptor</span><span style="color:#666">;</span>
+
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">MinaTimeServer</span>
+<span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span> String<span style="color:#666">[</span><span style="color:#666">]</span> args <span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> IOException
+    <span style="color:#666">{</span>
+        IoAcceptor acceptor <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NioSocketAcceptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+        acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span> <span style="color:#b44">&#34;logger&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> LoggingFilter<span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">)</span><span style="color:#666">;</span>
+        acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span> <span style="color:#b44">&#34;codec&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> ProtocolCodecFilter<span style="color:#666">(</span> <span style="color:#a2f;font-weight:bold">new</span> TextLineCodecFactory<span style="color:#666">(</span> Charset<span style="color:#666">.</span><span style="color:#b44">forName</span><span style="color:#666">(</span> <span style="color:#b44">&#34;UTF-8&#34;</span> <span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+        acceptor<span style="color:#666">.</span><span style="color:#b44">setHandler</span><span style="color:#666">(</span>  <span style="color:#a2f;font-weight:bold">new</span> TimeServerHandler<span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">)</span><span style="color:#666">;</span>
+
+        acceptor<span style="color:#666">.</span><span style="color:#b44">getSessionConfig</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">setReadBufferSize</span><span style="color:#666">(</span> 2048 <span style="color:#666">)</span><span style="color:#666">;</span>
+        acceptor<span style="color:#666">.</span><span style="color:#b44">getSessionConfig</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">setIdleTime</span><span style="color:#666">(</span> IdleStatus<span style="color:#666">.</span><span style="color:#b44">BOTH_IDLE</span><span style="color:#666">,</span> 10 <span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>There are 2 new lines in the MinaTimeServer class. These methods set the set the IoHandler, input buffer size and the idle property for the sessions. The buffer size will be specified in order to tell the underlying operating system how much room to allocate for incoming data. The second line will specify when to check for idle sessions. In the call to setIdleTime, the first parameter defines what actions to check for when determining if a session is idle, the second parameter defines the length of time in seconds that must occur before a session is deemed to be idle.</p>
+<p>The code for the handler is shown below:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.util.Date</span><span style="color:#666">;</span>
+
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.core.session.IdleStatus</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.core.service.IoHandlerAdapter</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.core.session.IoSession</span><span style="color:#666">;</span>
+
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">TimeServerHandler</span> <span style="color:#a2f;font-weight:bold">extends</span> IoHandlerAdapter
+<span style="color:#666">{</span>
+    <span style="color:#a2f">@Override</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">exceptionCaught</span><span style="color:#666">(</span> IoSession session<span style="color:#666">,</span> Throwable cause <span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception
+    <span style="color:#666">{</span>
+        cause<span style="color:#666">.</span><span style="color:#b44">printStackTrace</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+
+    <span style="color:#a2f">@Override</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">messageReceived</span><span style="color:#666">(</span> IoSession session<span style="color:#666">,</span> Object message <span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception
+    <span style="color:#666">{</span>
+        String str <span style="color:#666">=</span> message<span style="color:#666">.</span><span style="color:#b44">toString</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+        <span style="color:#a2f;font-weight:bold">if</span><span style="color:#666">(</span> str<span style="color:#666">.</span><span style="color:#b44">trim</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">equalsIgnoreCase</span><span style="color:#666">(</span><span style="color:#b44">&#34;quit&#34;</span><span style="color:#666">)</span> <span style="color:#666">)</span> <span style="color:#666">{</span>
+            session<span style="color:#666">.</span><span style="color:#b44">close</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+            <span style="color:#a2f;font-weight:bold">return</span><span style="color:#666">;</span>
+        <span style="color:#666">}</span>
+
+        Date date <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> Date<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+        session<span style="color:#666">.</span><span style="color:#b44">write</span><span style="color:#666">(</span> date<span style="color:#666">.</span><span style="color:#b44">toString</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">)</span><span style="color:#666">;</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Message written...&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+
+    <span style="color:#a2f">@Override</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">sessionIdle</span><span style="color:#666">(</span> IoSession session<span style="color:#666">,</span> IdleStatus status <span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception
+    <span style="color:#666">{</span>
+        System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span> <span style="color:#b44">&#34;IDLE &#34;</span> <span style="color:#666">+</span> session<span style="color:#666">.</span><span style="color:#b44">getIdleCount</span><span style="color:#666">(</span> status <span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><p>The methods used in this class are <em>exceptionCaught</em>, <em>messageReceived</em> and <em>sessionIdle</em>. <em>exceptionCaught</em> should always be defined in a handler to process and exceptions that are raised in the normal course of handling remote connections. If this method is not defined, exceptions may not get properly reported.</p>
+<p>The <em>exceptionCaught</em> method will simply print the stack trace of the error and close the session. For most programs, this will be standard practice unless the handler can recover from the exception condition.</p>
+<p>The <em>messageReceived</em> method will receive the data from the client and write back to the client the current time. If the message received from the client is the word &ldquo;quit&rdquo;, then the session will be closed. This method will also print out the current time to the client. Depending on the protocol codec that you use, the object (second parameter) that gets passed in to this method will be different, as well as the object that you pass in to the session.write(Object) method. If you do not specify a protocol codec, you will most likely receive a IoBuffer object, and be required to write out a IoBuffer object.</p>
+<p>The <em>sessionIdle</em> method will be called once a session has remained idle for the amount of time specified in the call <em>acceptor.getSessionConfig().setIdleTime( IdleStatus.BOTH_IDLE, 10 );</em>.</p>
+<p>All that is left to do is define the socket address that the server will listen on, and actually make the call that will start the server. That code is shown below:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.io.IOException</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.net.InetSocketAddress</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">java.nio.charset.Charset</span><span style="color:#666">;</span>
+
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.core.service.IoAcceptor</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.core.session.IdleStatus</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.filter.codec.ProtocolCodecFilter</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.filter.codec.textline.TextLineCodecFactory</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.filter.logging.LoggingFilter</span><span style="color:#666">;</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">org.apache.mina.transport.socket.nio.NioSocketAcceptor</span><span style="color:#666">;</span>
+
+<span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">MinaTimeServer</span>
+<span style="color:#666">{</span>
+    <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">final</span> <span style="color:#0b0;font-weight:bold">int</span> PORT <span style="color:#666">=</span> 9123<span style="color:#666">;</span>
+
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span> String<span style="color:#666">[</span><span style="color:#666">]</span> args <span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> IOException
+    <span style="color:#666">{</span>
+        IoAcceptor acceptor <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NioSocketAcceptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+        acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span> <span style="color:#b44">&#34;logger&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> LoggingFilter<span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">)</span><span style="color:#666">;</span>
+        acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span> <span style="color:#b44">&#34;codec&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> ProtocolCodecFilter<span style="color:#666">(</span> <span style="color:#a2f;font-weight:bold">new</span> TextLineCodecFactory<span style="color:#666">(</span> Charset<span style="color:#666">.</span><span style="color:#b44">forName</span><span style="color:#666">(</span> <span style="color:#b44">&#34;UTF-8&#34;</span> <span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+        acceptor<span style="color:#666">.</span><span style="color:#b44">setHandler</span><span style="color:#666">(</span> <span style="color:#a2f;font-weight:bold">new</span> TimeServerHandler<span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">)</span><span style="color:#666">;</span>
+    acceptor<span style="color:#666">.</span><span style="color:#b44">getSessionConfig</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">setReadBufferSize</span><span style="color:#666">(</span> 2048 <span style="color:#666">)</span><span style="color:#666">;</span>
+        acceptor<span style="color:#666">.</span><span style="color:#b44">getSessionConfig</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">setIdleTime</span><span style="color:#666">(</span> IdleStatus<span style="color:#666">.</span><span style="color:#b44">BOTH_IDLE</span><span style="color:#666">,</span> 10 <span style="color:#666">)</span><span style="color:#666">;</span>
+        acceptor<span style="color:#666">.</span><span style="color:#b44">bind</span><span style="color:#666">(</span> <span style="color:#a2f;font-weight:bold">new</span> InetSocketAddress<span style="color:#666">(</span>PORT<span style="color:#666">)</span> <span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+</code></pre></div><h2 id="try-out-the-time-server">Try out the Time server</h2>
+<p>At this point, we can go ahead and compile the program. Once you have compiled the program you can run the program in order to test out what happens. The easiest way to test the program is to start the program, and then telnet in to the program:</p>
+<table>
+<thead>
+<tr>
+<th>Client Output</th>
+<th>Server Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user@myhost:~&gt; telnet 127.0.0.1 9123<br/>Trying 127.0.0.1&hellip;<br/>Connected to 127.0.0.1.<br/>Escape character is &lsquo;^]'.<br/>hello<br/>Mon Apr 09 23:42:55 EDT 2007<br/>quit<br/>Connection closed by foreign host.<br/>user@myhost:~&gt;</td>
+<td>MINA Time server started.<br/>Session created&hellip;<br/>Message written&hellip;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="whats-next">What&rsquo;s Next?</h2>
+<p>Please visit our <a href="userguide/user-guide-toc.html">User Guide</a> page to find out more resources.</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

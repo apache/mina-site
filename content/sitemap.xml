@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.1-nio-overview.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.2-why-mina.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.3-features.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.4-first-steps.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.5-summary.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1-application-architecture.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1.1-server-architecture.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1.2-client-architecture.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.2-sample-tcp-server.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.3-sample-tcp-client.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.4-sample-udp-server.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.5-sample-udp-client.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.6-summary.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.1-io-service.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.2-io-service-details.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.3-acceptor.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.4-connector.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch4-session/ch4.1-session-configuration.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch4-session/ch4.2-session-statistics.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.1-blacklist-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.10-mdc-injection-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.11-noop-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.12-profiler-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.13-protocol-codec-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.14-proxy-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.15-reference-counting-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.16-request-response-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.17-session-attribute-initializing-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.18-stream-write-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.19-ssl-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.2-buffered-write-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.20-write-request-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.3-compression-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.4-connection-throttle-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.5-error-generating-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.6-executor-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.7-file-region-write-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.8-keep-alive-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.9-logging-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6.1-apr-transport.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6.2-serial-transport.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.0.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.0.0-M2.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.0.0-M3.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.0.0-M4.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.0.0-RC1.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.0.0-RC2.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.0.1.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.0.2.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.0.3.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.0.4.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.0.5.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.0.6.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.1.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1.1.1.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/contributors.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/special-thanks.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mailing-lists.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/mailing-lists.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.1.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.10.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.10.1.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.11.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.12.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.13.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.14.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.2.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.3.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.4.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.5.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.6.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.7.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.8.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_0.9.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_1.0.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_1.1.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_1.1.1.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_1.2.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_1.3.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_1.4.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_1.6.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_1.7.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_2.0.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_2.1.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_2.2.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_2.3.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/download_0.5.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/download_0.6.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/download_0.7.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/asyncweb-project/</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/asyncweb-project/contributors.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/asyncweb-project/getting_involved.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/asyncweb-project/reporting_bug.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/asyncweb-project/sources.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/asyncweb-project.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1-getting-started.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch10-executor-filter/ch10-executor-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch11-ssl-filter/ch11-ssl-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch12-logging-filter/ch12-logging-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch13-debugging/ch13-debugging.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch14-state-machine/ch14-state-machine.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch15-proxy/ch15-proxy.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch16-jmx-support/ch16-jmx-support.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch17-spring-integration/ch17-spring-integration.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2-basics.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch3-service/ch3-service.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch4-session/ch4-session.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5-filters.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch6-transports/ch6-transports.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch7-handler/ch7-handler.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch8-iobuffer/ch8-iobuffer.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/ch9-codec-filter/ch9-codec-filter.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/contact.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/developer-guide.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/asyncweb-project/documentation.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/documentation.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/downloads-ftpserver.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/downloads-sshd.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/embed.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/embedding_ftpserver.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/embedding_ssh.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/faq.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/features.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/running_ftpserver_standalone.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/ftpserver_port_21.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/building.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/configuration.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/configuration_passive_ports.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/contributors.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/configuration_user_manager_db.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/documentation.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/downloads.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/draft-twine-ftpmd5-00.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/faq.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/features.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/configuration_user_manager_file.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/ftpserver_commands.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/ftplet.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/getting_involved.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/getting_source.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/installation.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/configuration_listeners.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/configuration_logging.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/mailing_list.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/managing_users.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/messages.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/related_project.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/releasing.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/reporting_bug.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/configuration_server.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/ftpserver_site_commands.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/testimonials.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/configuration_ssltls_support.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/configuration_user_manager.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/ftpserver_as_windows_service.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/issue-tracking.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/load_ssh_editor.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/technical-documentation/message-flow.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/downloads-mina_2_0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/downloads_2_0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/downloads_2_1.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/2.1-vs-2.0.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/codec-repo.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/downloads-mina_2_1.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/downloads_old.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/conferences.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/news.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/performances.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/privacy-policy.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/quick-start-guide.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/asyncweb-project/references.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/related-projects.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/road-map.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/set-svnprops-tortoisesvn.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/sources.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/building.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/configuring_security.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/contributors.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/documentation.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/downloads.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/faq.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/features.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/getting_involved.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/issue_tracking.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/mailing_lists.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/required_dependencies.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/sources.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/tips.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/technical-documentation/ssl-tls-internal.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/testimonials.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/mina-project/userguide/user-guide-toc.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/validating-release.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/dependencies.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/documentation.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/downloads-vysper.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/downloads.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/extending_server.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/extension_roadmap.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/getting_involved.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/issue_tracking.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/mailing_lists.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/server_to_server_comm.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/service_discovery.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/socks5.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/sources.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/server_standalone.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/standards_supported.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/stanza_processing_layer.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/user_guide.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/user_mgmt.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/test_client.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/websocket_endpoint.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project/xml_processing.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/vysper-project.html</loc>
+    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+</urlset>

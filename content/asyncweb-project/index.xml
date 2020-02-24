@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asyncweb-projects on Apache Mina</title>
+    <link>https://mina.apache.org/asyncweb-project.html</link>
+    <description>Recent content in Asyncweb-projects on Apache Mina</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="https://mina.apache.org/asyncweb-project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AsyncWeb</title>
+      <link>https://mina.apache.org/asyncweb-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/</guid>
+      <description>Apache AsyncWeb The **AsyncWeb** project is currently dormant. We don&#39;t have committers for it, so if you feel like you can give an hand, please do contact us !  Apache AsyncWeb (built on top of the Apache MINA network framework) employs non-blocking selector driven IO at the transport level, and is asynchronous throughout - from the initial parsing of requests, right through to and including the services implemented by users.</description>
+    </item>
+    
+    <item>
+      <title>AsyncWeb Contributors</title>
+      <link>https://mina.apache.org/asyncweb-project/contributors.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/contributors.html</guid>
+      <description>Contributors Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
+ Jeff Genender Mike Heath Alex Karasulu Emmanuel Lécharny Sangjin Lee Trustin Lee Rick McGuire Julien Vermillard  </description>
+    </item>
+    
+    <item>
+      <title>AsyncWeb Getting Involved</title>
+      <link>https://mina.apache.org/asyncweb-project/getting_involved.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/getting_involved.html</guid>
+      <description>Getting Involved Apache AsyncWeb communicates using our Mailing Lists. If you have any questions, feedback or suggestions, you&amp;rsquo;re very welcome to join the list and send an email. We are also happy to receive bug reports and feature requests in our JIRA.
+Patches The best chance of getting your bug or feature fixed is to provide a patch, if they fit our goals we will usually have them committed within a few days.</description>
+    </item>
+    
+    <item>
+      <title>AsyncWeb Reporting Bugs</title>
+      <link>https://mina.apache.org/asyncweb-project/reporting_bug.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/reporting_bug.html</guid>
+      <description>Reporting a Bug We are using JIRA to track all AsyncWeb issues including bugs. Please visit our issue tracker page to report a bug.
+How to report a bug Writing a bug report with detailed information will help us to fix your problem sooner.
+ Make sure if the bug you are going to report doesn&amp;rsquo;t exist yet. Attaching JUnit test case which reproduces the problem will put your report in our highest priority.</description>
+    </item>
+    
+    <item>
+      <title>AsyncWeb Sources</title>
+      <link>https://mina.apache.org/asyncweb-project/sources.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/sources.html</guid>
+      <description>Sources for the Apache AsyncWeb projects are currently managed through Subversion (SVN). Instructions on Subversion use can be found at http://svnbook.red-bean.com/. If you are on Windows, the excellent TortoiseSVN client is highly recommended.
+For each project you can find a detailed description how to checkout and build the source on the project documentation. This page is just a short overview.
+Web Access to Subversion If you just want to browse the source code, you can use the web interface to Subversion.</description>
+    </item>
+    
+    <item>
+      <title>Documentation</title>
+      <link>https://mina.apache.org/asyncweb-project/documentation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/documentation.html</guid>
+      <description>Documentation AsyncWeb project is currently dormant. The documentation we have can be found on AsyncWeb WIKI</description>
+    </item>
+    
+    <item>
+      <title>References</title>
+      <link>https://mina.apache.org/asyncweb-project/references.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/asyncweb-project/references.html</guid>
+      <description>References  Interesting Comet article http://cometdaily.com/2008/04/01/new-technology-new-problems-delayed-pushes-operations/  </description>
+    </item>
+    
+  </channel>
+</rss>

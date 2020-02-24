@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>FtpServer FAQ &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/ftpserver.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                <strong>FtpServer</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/index.html">Home</a> </li>
+                    <li><a href="/ftpserver-project/features.html">Features</a> </li>
+                    <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
+                    <li><a href="/ftpserver-project/downloads.html">Downloads</a></li>
+                    <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
+                    <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
+                    <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/mailing_list.html">Mailing Lists</a></li>
+                    <li><a href="/ftpserver-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/ftpserver-project/reporting_bug.html">Reporting a Bug</a></li>
+                    <li><a href="/ftpserver-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="faq">FAQ</h1>
+<h2 id="general">General</h2>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#general">General</a>
+      <ul>
+        <li><a href="#my-server-fails-with-javanetsocketexception-too-many-files-open">My server fails with java.net.SocketException: Too many files open</a></li>
+        <li><a href="#change-the-timeout-in-windows">Change the timeout in Windows</a></li>
+        <li><a href="#change-the-timeout-in-linux">Change the timeout in Linux</a></li>
+        <li><a href="#how-can-i-add-other-language-translations">How can I add other language translations?</a></li>
+        <li><a href="#how-can-i-send-binary-data-stored-in-a-database-when-the-ftp-server-gets-the-retr-command">How can I send binary data stored in a database when the FTP Server gets the RETR command?</a></li>
+        <li><a href="#why-i-am-getting-classnotfoundexception-when-i-am-trying-to-use-database-based-user-manager">Why I am getting ClassNotFoundException when I am trying to use database based user manager?</a></li>
+        <li><a href="#i-am-unable-to-run-ftpserver-on-top-of-glassfish-although-it-is-running-correctly-over-tomcat">I am unable to run FtpServer on top of Glassfish although it is running correctly over tomcat.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<h3 id="my-server-fails-with-javanetsocketexception-too-many-files-open">My server fails with java.net.SocketException: Too many files open</h3>
+<p>Network sockets are treated like files and your operating system has a limit to the number of file handles it can manage. Running out of file handles is usually due to a large number of clients connecting and disconnecting frequently. As specified by TCP, after being closed sockets remain in the TIME_WAIT state for some additional time. The reason is to ensure that delayed packets arrive on the correct socket. In Windows, the default TIME_WAIT timeout is 4 minutes, in Linux it is 60 seconds.</p>
+<h3 id="change-the-timeout-in-windows">Change the timeout in Windows</h3>
+<ol>
+<li>Run regedit to start the Registry Editor</li>
+<li>Locate the following key: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\tcpip\Parameters</li>
+<li>Add a new value named TcpTimedWaitDelay asa decimal and set the desired timeout in seconds (30-300)</li>
+<li>Reboot</li>
+</ol>
+<h3 id="change-the-timeout-in-linux">Change the timeout in Linux</h3>
+<ol>
+<li>
+<p>Update the configuration value by running (30 seconds used in the example)</p>
+<p>echo 30 &gt; /proc/sys/net/ipv4/tcp_fin_timeout</p>
+</li>
+<li>
+<p>Restart the networking component, for example by running</p>
+<p>/etc/init.d/networking restart</p>
+</li>
+<li>
+<p>or</p>
+<p>service network restart</p>
+</li>
+</ol>
+<h3 id="how-can-i-add-other-language-translations">How can I add other language translations?</h3>
+<p>First you need to specify your language name in config.message.languages configuration parameter. Then if you start the FTP server UI, you will see your language entry in the message panel. Translate messages and finally save your translated messages.</p>
+<p>We are always interested in adding more translations to the official distribution of FtpServer. If you produce a translation and can contribute it back to the project, please create a new JIRA issue so that we can add it to the core product.</p>
+<h3 id="how-can-i-send-binary-data-stored-in-a-database-when-the-ftp-server-gets-the-retr-command">How can I send binary data stored in a database when the FTP Server gets the RETR command?</h3>
+<p>You can write your own ftplet to do this. The following code will clarify this.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> FtpletEnum <span style="color:#00a000">onDownloadStart</span><span style="color:#666">(</span>FtpSession session<span style="color:#666">,</span> FtpRequest request<span style="color:#666">,</span>
+        FtpReplyOutput response<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> FtpException<span style="color:#666">,</span> IOException <span style="color:#666">{</span>
+
+    String requestedFile <span style="color:#666">=</span> request<span style="color:#666">.</span><span style="color:#b44">getArgument</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+    <span style="color:#080;font-style:italic">// get input stream from database - BLOB data
+</span><span style="color:#080;font-style:italic"></span>    InputStream in <span style="color:#666">=</span> getInputStreamFromDatabase<span style="color:#666">(</span>requestedFile<span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>in <span style="color:#666">=</span><span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">null</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+        response<span style="color:#666">.</span><span style="color:#b44">write</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> DefaultFtpReply<span style="color:#666">(</span>550<span style="color:#666">,</span> <span style="color:#b44">&#34;Cannot find data &#34;</span> <span style="color:#666">+</span> requestedFile<span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+        <span style="color:#a2f;font-weight:bold">return</span> FtpletEnum<span style="color:#666">.</span><span style="color:#b44">RET_SKIP</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+
+    <span style="color:#080;font-style:italic">// open data connection
+</span><span style="color:#080;font-style:italic"></span>    DataConnection out <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">null</span><span style="color:#666">;</span>
+    response<span style="color:#666">.</span><span style="color:#b44">write</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> DefaultFtpReply<span style="color:#666">(</span>150<span style="color:#666">,</span> <span style="color:#b44">&#34;Getting data connection.&#34;</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#a2f;font-weight:bold">try</span> <span style="color:#666">{</span>
+        out <span style="color:#666">=</span> session<span style="color:#666">.</span><span style="color:#b44">getDataConnection</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">openConnection</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span> <span style="color:#a2f;font-weight:bold">catch</span> <span style="color:#666">(</span>Exception ex<span style="color:#666">)</span> <span style="color:#666">{</span>
+    <span style="color:#666">}</span>
+    
+    <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>out <span style="color:#666">=</span><span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">null</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+        response<span style="color:#666">.</span><span style="color:#b44">write</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> DefaultFtpReply<span style="color:#666">(</span>425<span style="color:#666">,</span> <span style="color:#b44">&#34;Cannot open data connection.&#34;</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+        <span style="color:#a2f;font-weight:bold">return</span> FtpletEnum<span style="color:#666">.</span><span style="color:#b44">RET_SKIP</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+
+    <span style="color:#080;font-style:italic">// transfer data
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">try</span> <span style="color:#666">{</span>
+        out<span style="color:#666">.</span><span style="color:#b44">transferToClient</span><span style="color:#666">(</span>in<span style="color:#666">)</span><span style="color:#666">;</span>
+        response<span style="color:#666">.</span><span style="color:#b44">write</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> DefaultFtpReply<span style="color:#666">(</span>226<span style="color:#666">,</span> <span style="color:#b44">&#34;Data transfer okay.&#34;</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span> <span style="color:#a2f;font-weight:bold">catch</span> <span style="color:#666">(</span>Exception ex<span style="color:#666">)</span> <span style="color:#666">{</span>
+        response<span style="color:#666">.</span><span style="color:#b44">write</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> DefaultFtpReply<span style="color:#666">(</span>551<span style="color:#666">,</span> <span style="color:#b44">&#34;Data transfer failed.&#34;</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span> <span style="color:#a2f;font-weight:bold">finally</span> <span style="color:#666">{</span>
+        session<span style="color:#666">.</span><span style="color:#b44">getDataConnection</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">closeDataConnection</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+        in<span style="color:#666">.</span><span style="color:#b44">close</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+    <span style="color:#a2f;font-weight:bold">return</span> FtpletEnum<span style="color:#666">.</span><span style="color:#b44">RET_SKIP</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><h3 id="why-i-am-getting-classnotfoundexception-when-i-am-trying-to-use-database-based-user-manager">Why I am getting ClassNotFoundException when I am trying to use database based user manager?</h3>
+<p>JDBC driver Jar file should be in CLASSPATH or it has to be copied in the INSTALL_DIR/common/lib directory. Did you specify fully qualified JDBC driver class name in config.user-manager.jdbc-driver configuration parameter?</p>
+<h3 id="i-am-unable-to-run-ftpserver-on-top-of-glassfish-although-it-is-running-correctly-over-tomcat">I am unable to run FtpServer on top of Glassfish although it is running correctly over tomcat.</h3>
+<p>This can be caused by Glassfish&rsquo;s QuickStartup mode which was the default one in some versions. In order to disable quick startup, add the following line to your domain.xml file:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">com.sun.enterprise.server.ss.ASQuickStartup=false
+</code></pre></div>
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

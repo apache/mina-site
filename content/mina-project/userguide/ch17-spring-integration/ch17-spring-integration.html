@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Chapter 17 - Spring Integration &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                <strong>MINA</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Latest Downloads</h5>
+                <ul>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.21</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.3</a></li>
+                    <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
+                </ul>
+                <h5>Documentation</h5>
+                <ul>
+                    <li><a href="/mina-project/documentation.html" class="external-link" rel="nofollow">Base documentation</a></li>
+                    <li><a href="/mina-project/userguide/user-guide-toc.html" class="external-link" rel="nofollow">User guide</a></li>
+                    <li><a href="/mina-project/2.1-vs-2.0.html" class="external-link" rel="nofollow">2.1 vs 2.0</a></li>
+                    <li><a href="/mina-project/features.html" class="external-link" rel="nofollow">Features</a></li>
+                    <li><a href="/mina-project/road-map.html" class="external-link" rel="nofollow">Road Map</a></li>
+                    <li><a href="/mina-project/quick-start-guide.html" class="external-link" rel="nofollow">Quick Start Guide</a></li>
+                    <li><a href="/mina-project/faq.html" class="external-link" rel="nofollow">FAQ</a></li>
+                </ul>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
+                    <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
+                    <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.3</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.3</a></li>
+                    <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
+                    <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
+                    <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
+                    <li><a href="/mina-project/developer-guide.html" class="external-link" rel="nofollow">Developers Guide</a></li>
+                    <li><a href="/mina-project/related-projects.html" class="external-link" rel="nofollow">Related Projects</a></li>
+                    <li><a href="https://people.apache.org/~vgritsenko/stats/projects/mina.html" class="external-link" rel="nofollow">Statistics</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/contributing.html" class="external-link" rel="nofollow">Contributing</a></li>
+                    <li><a href="/contributors.html" class="external-link" rel="nofollow">Team</a></li>
+                    <li><a href="/special-thanks.html" class="external-link" rel="nofollow">Special Thanks</a></li>
+                    <li><a href="https://www.apache.org/security/" class="external-link" rel="nofollow">Security</a></li>
+                </ul>
+
+                <h5>About Apache</h5>
+                <ul>
+                    <li><a href="https://www.apache.org" class="external-link" rel="nofollow">Apache main site</a></li>
+                    <li><a href="https://www.apache.org/licenses/" class="external-link" rel="nofollow">License</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html" title="The ASF sponsorship program" class="external-link" rel="nofollow">Sponsorship program</a></li>
+                    <li><a href="https://www.apache.org/foundation/thanks.html" class="external-link" rel="nofollow">Thanks</a></li>
+                </ul>
+
+                <h3><a name="Navigation-Upcoming"></a>Upcoming</h3>
+                <ul>
+                    <li>No event</li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+    <div class="nav">
+        <div class="nav_prev">
+            
+                
+                <a href="../ch16-jmx-support/ch16-jmx-support.html">Chapter 16 - Adding JMX Support</a>
+            
+        </div>
+        <div class="nav_up">
+            
+                
+                <a href="../user-guide-toc.html">User Guide</a>
+            
+        </div>
+        <div class="nav_next">
+            
+                &nbsp;
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+            
+	<h1 id="chapter-17---spring-integration">Chapter 17 - Spring Integration</h1>
+<p>This article demonstrates integrating MINA application with Spring. I wrote this article on my blog, and though to put it here, where this information actually belongs to. Can find the original copy at <a href="http://www.ashishpaliwal.com/blog/2008/11/integrating-apache-mina-with-spring/">Integrating Apache MINA with Spring</a>.</p>
+<h2 id="application-structure">Application Structure</h2>
+<p>We shall take a standard MINA application which has following construct</p>
+<ul>
+<li>One Handler</li>
+<li>Two Filter - Logging Filter and a ProtocolCodec Filter</li>
+<li>NioDatagram Socket</li>
+</ul>
+<h3 id="initialization-code">Initialization Code</h3>
+<p>Lets see the code first. For simplicity we have omitted the glue code.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">initialize</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> IOException <span style="color:#666">{</span>
+
+    <span style="color:#080;font-style:italic">// Create an Acceptor
+</span><span style="color:#080;font-style:italic"></span>    NioDatagramAcceptor acceptor <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NioDatagramAcceptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+    <span style="color:#080;font-style:italic">// Add Handler
+</span><span style="color:#080;font-style:italic"></span>    acceptor<span style="color:#666">.</span><span style="color:#b44">setHandler</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> ServerHandler<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+    acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span><span style="color:#b44">&#34;logging&#34;</span><span style="color:#666">,</span>
+                <span style="color:#a2f;font-weight:bold">new</span> LoggingFilter<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span><span style="color:#b44">&#34;codec&#34;</span><span style="color:#666">,</span>
+                <span style="color:#a2f;font-weight:bold">new</span> ProtocolCodecFilter<span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> SNMPCodecFactory<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+    <span style="color:#080;font-style:italic">// Create Session Configuration
+</span><span style="color:#080;font-style:italic"></span>    DatagramSessionConfig dcfg <span style="color:#666">=</span> acceptor<span style="color:#666">.</span><span style="color:#b44">getSessionConfig</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+        dcfg<span style="color:#666">.</span><span style="color:#b44">setReuseAddress</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">true</span><span style="color:#666">)</span><span style="color:#666">;</span>
+        logger<span style="color:#666">.</span><span style="color:#b44">debug</span><span style="color:#666">(</span><span style="color:#b44">&#34;Starting Server......&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+        <span style="color:#080;font-style:italic">// Bind and be ready to listen
+</span><span style="color:#080;font-style:italic"></span>        acceptor<span style="color:#666">.</span><span style="color:#b44">bind</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> InetSocketAddress<span style="color:#666">(</span>DEFAULT_PORT<span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+        logger<span style="color:#666">.</span><span style="color:#b44">debug</span><span style="color:#666">(</span><span style="color:#b44">&#34;Server listening on &#34;</span><span style="color:#666">+</span>DEFAULT_PORT<span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">}</span>
+</code></pre></div><h2 id="integration-process">Integration Process</h2>
+<p>To integrate with Spring, we need to do following:</p>
+<ul>
+<li>Set the IO handler</li>
+<li>Create the Filters and add to the chain</li>
+<li>Create the Socket and set Socket Parameters</li>
+</ul>
+<p>NOTE: The latest MINA releases doesn&rsquo;t have the package specific to Spring, like its earlier versions. The package is now named Integration Beans, to make the implementation work for all DI frameworks.</p>
+<p>Lets see the Spring xml file. Please see that I have removed generic part from xml and have put only the specific things needed to pull up the implementation.
+This example has been derived from <a href="http://svn.apache.org/viewvc/mina/mina/branches/2.0/mina-example/src/main/java/org/apache/mina/example/chat/">Chat example</a> shipped with MINA release. Please refer the xml shipped with chat example.</p>
+<p>Now lets pull things together</p>
+<p>Lets set the IO Handler in the spring context file</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> The IoHandler implementation </span><span style="color:#080;font-style:italic">--&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;bean</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;trapHandler&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;com.ashishpaliwal.udp.mina.server.ServerHandler&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</code></pre></div><p>Lets create the Filter chain</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#008000;font-weight:bold">&lt;bean</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;snmpCodecFilter&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;org.apache.mina.filter.codec.ProtocolCodecFilter&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;constructor-arg</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;bean</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;com.ashishpaliwal.udp.mina.snmp.SNMPCodecFactory&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;/constructor-arg&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/bean&gt;</span>
+    
+    <span style="color:#008000;font-weight:bold">&lt;bean</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;loggingFilter&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;org.apache.mina.filter.logging.LoggingFilter&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+    
+    <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> The filter chain. </span><span style="color:#080;font-style:italic">--&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;bean</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;filterChainBuilder&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;org.apache.mina.core.filterchain.DefaultIoFilterChainBuilder&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;filters&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;map</span><span style="color:#008000;font-weight:bold">&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;entry</span> <span style="color:#b44">key=</span><span style="color:#b44">&#34;loggingFilter&#34;</span> <span style="color:#b44">value-ref=</span><span style="color:#b44">&#34;loggingFilter&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;entry</span> <span style="color:#b44">key=</span><span style="color:#b44">&#34;codecFilter&#34;</span> <span style="color:#b44">value-ref=</span><span style="color:#b44">&#34;snmpCodecFilter&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/map&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/bean&gt;</span>
+</code></pre></div><p>Here, we create instance of our IoFilter. See that for the ProtocolCodec factory, we have used Constructor injection. Logging Filter creation is straight forward. Once we have defined the beans for the filters to be used, we now create the Filter Chain to be used for the implementation. We define a bean with id &ldquo;FilterChainBuidler&rdquo; and add the defined filters to it. We are almost ready, and we just need to create the Socket and call bind</p>
+<p>Lets complete the last part of creating the Socket and completing the chain</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#008000;font-weight:bold">&lt;bean</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;org.springframework.beans.factory.config.CustomEditorConfigurer&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;customEditors&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;map</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;entry</span> <span style="color:#b44">key=</span><span style="color:#b44">&#34;java.net.SocketAddress&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+              <span style="color:#008000;font-weight:bold">&lt;bean</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;org.apache.mina.integration.beans.InetSocketAddressEditor&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;/entry&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;/map&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/bean&gt;</span>
+          
+    <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> The IoAcceptor which binds to port 161 </span><span style="color:#080;font-style:italic">--&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;bean</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;ioAcceptor&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;org.apache.mina.transport.socket.nio.NioDatagramAcceptor&#34;</span> <span style="color:#b44">init-method=</span><span style="color:#b44">&#34;bind&#34;</span> <span style="color:#b44">destroy-method=</span><span style="color:#b44">&#34;unbind&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;defaultLocalAddress&#34;</span> <span style="color:#b44">value=</span><span style="color:#b44">&#34;:161&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;handler&#34;</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;trapHandler&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;filterChainBuilder&#34;</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;filterChainBuilder&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/bean&gt;</span>    
+</code></pre></div><p>Now we create our ioAcceptor, set IO handler and Filter Chain. Now we have to write a function to read this file using Spring and start our application. Here&rsquo;s the code</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">initializeViaSpring</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">new</span> ClassPathXmlApplicationContext<span style="color:#666">(</span><span style="color:#b44">&#34;trapReceiverContext.xml&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">}</span>
+</code></pre></div>
+
+            
+    <div class="nav">
+        <div class="nav_prev">
+            
+                
+                <a href="../ch16-jmx-support/ch16-jmx-support.html">Chapter 16 - Adding JMX Support</a>
+            
+        </div>
+        <div class="nav_up">
+            
+                
+                <a href="../user-guide-toc.html">User Guide</a>
+            
+        </div>
+        <div class="nav_next">
+            
+                &nbsp;
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

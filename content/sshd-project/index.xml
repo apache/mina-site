@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sshd-projects on Apache Mina</title>
+    <link>https://mina.apache.org/sshd-project.html</link>
+    <description>Recent content in Sshd-projects on Apache Mina</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="https://mina.apache.org/sshd-project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Apache SSHD 0.1.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.1.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.1.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.1.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.1.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.1.0 Sources (.zip) PGP SHA Apache Mina SSHD 0.1.0 Sources (.bz2) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.1.0 (.jar) PGP SHA    Release Notes While the SSHD server side is maturing, the client side will certainly see some major changes in the future, so that the APIs are not considered stable yet.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.10.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.10.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.10.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.10.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.10.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.10.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.10.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.10.0 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.10.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.10.1 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.10.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.10.1.html</guid>
+      <description>Overview Apache Mina SSHD 0.10.1 contains 2 minor packaging fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.10.1 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.10.1 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.10.1 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.10.1 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.10.1 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.11.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.11.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.11.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.11.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.11.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.11.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.11.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.11.0 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.11.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.12.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.12.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.12.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.12.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.12.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.12.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.12.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.12.0 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.12.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.13.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.13.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.13.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.13.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.13.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.13.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.13.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.13.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 0.13.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.14.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.14.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.14.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.14.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.14.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.14.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.14.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.14.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 0.14.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.2.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.2.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.2.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.2.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.2.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.2.0 Sources (.zip) PGP SHA Apache Mina SSHD 0.2.0 Sources (.bz2) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.2.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.2.0 contains a few enhancements and bug-fixes. Please report any feedback to users@mina.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.3.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.3.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.3.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.3.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.3.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.3.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.3.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.3.0 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.3.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.4.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.4.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.4.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.4.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.4.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.4.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.4.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.4.0 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.4.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.5.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.5.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.5.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.5.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.5.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.5.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.5.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.5.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 0.5.0 contains a few enhancements and bug-fixes. Please report any feedback to users@mina.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.6.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.6.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.6.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.6.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.6.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.6.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.6.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.6.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 0.6.0 contains a few enhancements and bug-fixes. Please report any feedback to users@mina.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.7.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.7.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.7.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.7.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.7.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.7.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.7.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.7.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 0.7.0 contains a few enhancements and bug-fixes. Please report any feedback to users@mina.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.8.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.8.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.8.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.8.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.8.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.8.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.8.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.8.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 0.8.0 contains a few enhancements and bug-fixes. Please report any feedback to users@mina.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 0.9.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_0.9.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_0.9.0.html</guid>
+      <description>Overview Apache Mina SSHD 0.9.0 contains a few enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 0.9.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 0.9.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 0.9.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 0.9.0 Binary (.zip) PGP SHA   Individual jars:  Apache Mina SSHD Core 0.9.0 (.jar) PGP SHA    Release Notes Apache Mina SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.0.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.0.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.0.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.0.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 1.0.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 1.0.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 1.0.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 1.0.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 1.0.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.1.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.1.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.1.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.1.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 1.1.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 1.1.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 1.1.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 1.1.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 1.1.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.1.1 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.1.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.1.1.html</guid>
+      <description>Overview Apache Mina SSHD 1.1.1 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 1.1.1 Sources (.tar.gz) PGP SHA Apache Mina SSHD 1.1.1 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 1.1.1 Binary (.tar.gz) PGP SHA Apache Mina SSHD 1.1.1 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 1.1.1 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.2.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.2.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.2.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.2.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 1.2.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 1.2.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 1.2.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 1.2.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 1.2.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.3.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.3.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.3.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.3.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions N/A</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.4.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.4.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.4.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.4.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions N/A&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.6.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.6.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.6.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.6.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 1.6.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 1.6.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 1.6.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 1.6.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 1.6.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 1.7.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_1.7.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_1.7.0.html</guid>
+      <description>Overview Apache Mina SSHD 1.7.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 1.7.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 1.7.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 1.7.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 1.7.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 1.7.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 2.0.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.0.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.0.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.0.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.0.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.0.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.0.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.0.0 Binary (.zip) PGP SHA    Release Notes There have been many bug fixes and improvements since last released version 1.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 2.1.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.1.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.1.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.1.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.1.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.1.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.1.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.1.0 Binary (.zip) PGP SHA    Release Notes A few backward incompatible changes have been made since the previous release, thus the version has been named 2.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 2.2.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.2.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.2.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.2.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.2.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.2.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.2.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.2.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 2.2.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 2.3.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.3.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.3.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.3.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.3.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.3.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.3.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.3.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 2.3.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
+      <title>Embedding SSHD in 5 minutes</title>
+      <link>https://mina.apache.org/sshd-project/embedding_ssh.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/embedding_ssh.html</guid>
+      <description>Embedding SSHD in 5 minutes SSHD is designed to be easily embedded in your application as an SSH server. SSH Server needs to be configured before it can be started. Essentially, there are three steps for creating the Server
+ Create an instance of SshServer class Configure the Server Start the Server  Lets look at all these steps. Refer to this class for details SshServer.java
+Creating an instance of SshServer This is as simple as creating a new object</description>
+    </item>
+    
+    <item>
+      <title>Loading SSHD in Eclipse or IDEA</title>
+      <link>https://mina.apache.org/sshd-project/load_ssh_editor.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/load_ssh_editor.html</guid>
+      <description>Loading SSHD in Eclipse or IDEA If you want to debug or develop on SSHD, chances are you want to load it in your IDE. Most IDE now have some maven support (either natively or through plugins), but if you don&amp;rsquo;t have those plugins installed, you can create the required project files using one of the following command:
+mvn eclipse:eclipse  or
+mvn idea:idea  If you want to have the source code for the various dependencies available for debugging, you can add the -DdownloadSources=true parameter on the command line.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Building</title>
+      <link>https://mina.apache.org/sshd-project/building.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/building.html</guid>
+      <description>Building SSHD SSHD uses Maven as its build tool. If you don&amp;rsquo;t fancy using Maven you can use your IDE directly or Download a distribution or JAR.
+  Download and install Maven.
+  Get the latest code from Git
+  Build the code with the following command
+ mvn clean install    </description>
+    </item>
+    
+    <item>
+      <title>SSHD Configuring Security</title>
+      <link>https://mina.apache.org/sshd-project/configuring_security.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/configuring_security.html</guid>
+      <description>Configuring Security The SSHD server needs to be integrated and the security layer has to be customized to suit your needs. This layer is pluggable and use the following interfaces:
+ PasswordAuthenticator for password based authentication PublickeyAuthenticator for key based authentication  Those custom classes can be configured on the SSHD server using the following code:
+SshServer sshd = SshServer.setUpDefaultServer(); sshd.setPasswordAuthenticator(new MyPasswordAuthenticator()); sshd.setPublickeyAuthenticator(new MyPublickeyAuthenticator()); If only one of those class is implemented, only the related authentication mechanism will be enabled.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Contributors</title>
+      <link>https://mina.apache.org/sshd-project/contributors.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/contributors.html</guid>
+      <description>Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
+ Emmanuel Lécharny Guillaume Nodet Lyor Goldstein Shawn Pearce  Contributors The following additional people have contributed to this project through the way of suggestions, patches or documentation.
+ Leo Bayer André Bierwolf Shikhar Bhushan Cédric Chantepie Patrick Dessalle Ken Diep Laurent Duchesne Richard Evans Francois Fernandes Otto Frost Will Glass-Husain Andreas Johansson Nick Howes Kohsuke Kawaguchi Leonid Kof Bill Kuker Philippe Laflamme Tien Luong Daniel Micol-Ponce David Overton Simon Paradis Bobby Powers Taras Puchko Matthew Schulze Michael Stevens Liu Tao Pete Torgenrud Denis Tulskiy Frank van der Kleij Jason Van Zyl Tim Vernum  </description>
+    </item>
+    
+    <item>
+      <title>SSHD Documentation</title>
+      <link>https://mina.apache.org/sshd-project/documentation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/documentation.html</guid>
+      <description>Apache SSHD documentation Resources  API JavaDocs  Tutorials  Configuring security Embedding SSHD in 5 minutes Loading SSHD in Eclipse or IDEA Required dependencies Tips  </description>
+    </item>
+    
+    <item>
+      <title>SSHD Downloads</title>
+      <link>https://mina.apache.org/sshd-project/downloads.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/downloads.html</guid>
+      <description>Latest SSHD Releases The latest release is the SSHD 2.4.0 release.
+ Source distributions:  Apache Mina SSHD 2.4.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.4.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.4.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.4.0 Binary (.zip) PGP SHA    Development snapshots You can build the latest version from sources.
+Previous releases  SSHD 0.1.0 SSHD 0.</description>
+    </item>
+    
+    <item>
+      <title>SSHD FAQ</title>
+      <link>https://mina.apache.org/sshd-project/faq.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/faq.html</guid>
+      <description>FAQ TODO</description>
+    </item>
+    
+    <item>
+      <title>SSHD Features</title>
+      <link>https://mina.apache.org/sshd-project/features.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/features.html</guid>
+      <description>Features TODO</description>
+    </item>
+    
+    <item>
+      <title>SSHD Getting Involved</title>
+      <link>https://mina.apache.org/sshd-project/getting_involved.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/getting_involved.html</guid>
+      <description>Getting Involved The Apache SSHD developers communicates using our Mailing Lists. If you have any questions, feedback or suggestions, you&amp;rsquo;re very welcome to join the list and send an email. We are also happy to receive bug reports and feature requests in our JIRA.
+Patches The best chance of getting your bug or feature fixed is to provide a patch, if they fit our goals we will usually have them committed within a few days.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Issue Tracking</title>
+      <link>https://mina.apache.org/sshd-project/issue_tracking.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/issue_tracking.html</guid>
+      <description>Issue Tracking We are using JIRA to track all SSHD issues including bugs. Please visit our issue tracker page to report a bug.
+How to report a bug Writing a bug report with detailed information will help us to fix your problem sooner.
+ Make sure if the bug you are going to report doesn&amp;rsquo;t exist yet. Attaching JUnit test case which reproduces the problem will put your report in our highest priority.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Mailing Lists</title>
+      <link>https://mina.apache.org/sshd-project/mailing_lists.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/mailing_lists.html</guid>
+      <description>Mailing List General information about the SSHD mailing lists can be found here.
+For Users Please use this list for any questions regarding how to use SSHD.
+         Subscribe users-subscribe@mina.apache.org   Unsubscribe users-unsubscribe@mina.apache.org   Post users@mina.apache.org   Archive http://www.mail-archive.com/users@mina.apache.org/    For Developers We use the MINA developers list for asking technical questions, discussing feature suggestions or general questions regarding the project.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Overview</title>
+      <link>https://mina.apache.org/sshd-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/</guid>
+      <description>Overview Apache SSHD is a 100% pure java library to support the SSH protocols on both the client and server side. This library is based on Apache MINA, a scalable and high performance asynchronous IO library.
+SSHD does not really aim at being a replacement for the SSH client or SSH server from Unix operating systems, but rather provides support for Java based applications requiring SSH support.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Required dependencies</title>
+      <link>https://mina.apache.org/sshd-project/required_dependencies.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/required_dependencies.html</guid>
+      <description>Required dependencies SSHD has 2 compile-time dependencies:
+ MINA Core 2.0.x : http://repo1.maven.org/maven2/org/apache/mina/mina-core/2.0.7/mina-core-2.0.7.jar SLF4J API 1.6.4 : http://repo2.maven.org/maven2/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar  Note that since SSHD 0.9.0, the Mina Core library is optional when running in JDK 1.7 and SSHD will default to using nio2 if available.
+To be able to run SSHD, you will also need one SLF4J Logger implementation. The simplest one is the one using java.util.logging underneath which can be downloaded at http://repo2.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Sources</title>
+      <link>https://mina.apache.org/sshd-project/sources.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/sources.html</guid>
+      <description>Overview Sources for the Apache MINA projects are currently managed through GIT. Instructions on GIT use can be found at http://git-scm.com/book/.
+Normal Git Access Anyone can check code out of Git. You only need to specify a username and password in order to update the Git repository, and only MINA committers have the permissions to do that. We run Git over standard HTTPS, so hopefully you won&amp;rsquo;t have problems with intervening firewalls.</description>
+    </item>
+    
+    <item>
+      <title>SSHD Tips</title>
+      <link>https://mina.apache.org/sshd-project/tips.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/tips.html</guid>
+      <description>How to execute commands as processes on the server side? If you want the SSH server to support direct command execution, you need to configure it with a Factory which will allow that.
+It can be done using the following code:
+sshd.setCommandFactory(new ScpCommandFactory(new CommandFactory() { public Command createCommand(String command) { return new ProcessShellFactory(command.split(&amp;lt;SPAN class=&amp;#34;code-quote&amp;#34;&amp;gt;&amp;#34; &amp;#34;)).create(); } })); This way, you can use the following:
+ssh -p 8202 localhost ls -l </description>
+    </item>
+    
+  </channel>
+</rss>

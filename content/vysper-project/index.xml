@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vysper-projects on Apache Mina</title>
+    <link>https://mina.apache.org/vysper-project.html</link>
+    <description>Recent content in Vysper-projects on Apache Mina</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="https://mina.apache.org/vysper-project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Apache Vysper</title>
+      <link>https://mina.apache.org/vysper-project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/</guid>
+      <description>Apache Vysper Apache Vysper aims to be a modular, full featured XMPP (Jabber) server.
+More details on Vysper in our documentation.
+There are already some larger XEPs as modules available, most notably
+ Multi User Chat (XEP0045) and Publish/Subscribe (XEP0060) BOSH (XEP0124, XEP0206)  To start using and/or developing extensions for Vysper, don&amp;rsquo;t miss the User Guide!</description>
+    </item>
+    
+    <item>
+      <title>Apache Vysper 0.5 Release</title>
+      <link>https://mina.apache.org/vysper-project/download_0.5.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/download_0.5.html</guid>
+      <description>New Features in 0.5 This is the first release of Apache Vysper. The release contains partial implementations of the following specifications:
+ RFC 3920 XMPP Core RFC 3921 XMPP IM XEP-0045 Multi-user chat XEP-0060 Publish-subscribe  Getting the Binary Distributions    Description Download Link PGP Signature file of download     Windows Distribution vysper-0.5-bin.zip vysper-0.5-bin.zip.asc   Unix/Linux/Cygwin Distribution vysper-0.5-bin.tar.gz vysper-0.5-bin.tar.gz.asc    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
+      <title>Apache Vysper 0.6 Release</title>
+      <link>https://mina.apache.org/vysper-project/download_0.6.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/download_0.6.html</guid>
+      <description>New Features in 0.6 This is the second release of Apache Vysper. Updates since the last release includes a full implementation of BOSH, improvements to the MUC implementation and many smaller changes.
+This release contains partial implementations of the following specifications:
+ RFC 3920 XMPP Core RFC 3921 XMPP IM XEP-0045 Multi-user chat XEP-0060 Publish-subscribe XEP-0124 Bidirectional-streams Over Synchronous HTTP (BOSH) XEP-0206 XMPP Over BOSH  Change log For a detailed view of new features and bug fixes, see the release notes</description>
+    </item>
+    
+    <item>
+      <title>Apache Vysper 0.7 Release</title>
+      <link>https://mina.apache.org/vysper-project/download_0.7.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/download_0.7.html</guid>
+      <description>New Features in 0.7 This release adds some major features to Apache Vysper, including support for server to server connections, Ad-hoc commands, a partial implementation of service administration and experimental websockets support. The release also contains many minor improvements and bug fixes. A list of the supported specifications is available.
+Change log For a detailed view of new features and bug fixes, see the release notes
+Getting the Binary Distributions    Description Download Link PGP Signature file of download     Windows Distribution vysper-0.</description>
+    </item>
+    
+    <item>
+      <title>Embed Vysper into another application</title>
+      <link>https://mina.apache.org/vysper-project/embed.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/embed.html</guid>
+      <description>Embed into another application About logging Embedding software making use of logging into another one making use of logging itself can be cumbersome. Vysper uses slf4j for logging, which foremost is a logging facade. The actual logging worker is then bound at runtime. It can be log4j, as in standalone Vysper, or some other logging framework. If you make use of one of these in your embedding application, just put the proper slf4j adapter lib onto the classpath.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Dependencies</title>
+      <link>https://mina.apache.org/vysper-project/dependencies.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/dependencies.html</guid>
+      <description>Dependencies Vysper depends on these fine libraries and frameworks:
+MINA - for socket communication.
+Spring Framework (optional) - for component configuration and wiring.
+Bouncy Castle SSL Provider - stream encryption
+JUnit - unit testing
+slf4j - logging framework, currently using log4j, but this is exchangeable
+Jackrabbit - Jackrabbit is used for JCR container persistence.
+More detailed info about dependencies and libraries can be found here.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Documentation</title>
+      <link>https://mina.apache.org/vysper-project/documentation.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/documentation.html</guid>
+      <description>What is it? Apache Vysper aims to be a full blown XMPP (=eXtensible Messaging and Presence Protocol) server. The core of XMPP is defined in the standards RFC3920 and RFC3921.
+XMPP is more commonly known as &amp;lsquo;Jabber&amp;rsquo;.
+XMPP Specifications A list of the implementation status of the various specifications are available.
+Architecture  XML Processing Stanza processing User authentication and management  Using the server Apache Vysper can run stand-alone or embedded into another application It should work with any compliant XMPP client.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Downloads</title>
+      <link>https://mina.apache.org/vysper-project/downloads.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/downloads.html</guid>
+      <description>Latest Vysper Releases The latest release is the Apache Vysper 0.7 Release
+All Releases  Apache Vysper 0.7 Release Apache Vysper 0.6 Release Apache Vysper 0.5 Release  Maven Repositories All Apache Vysper releases are available from the Maven central repository</description>
+    </item>
+    
+    <item>
+      <title>Vysper Extending the Server</title>
+      <link>https://mina.apache.org/vysper-project/extending_server.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/extending_server.html</guid>
+      <description>How to extend the server functionality XMPP support for extensions XMPP provides a bunch of already specified extensions. See http://www.xmpp.org/extensions for a complete list.
+XMPP also allows for custom extensions of the core stanza types &amp;lsquo;message&amp;rsquo;, &amp;lsquo;iq&amp;rsquo; and &amp;lsquo;presence&amp;rsquo;. All XMPP clients and servers should be able to savely ignore them unless they are able to deal with them. See the relevant specification chapter.
+Most XMPP extensions rely on Disco (Service Discovery, XEP-0030).</description>
+    </item>
+    
+    <item>
+      <title>Vysper Extension Roadmap</title>
+      <link>https://mina.apache.org/vysper-project/extension_roadmap.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/extension_roadmap.html</guid>
+      <description>Extension Roadmap Extension Roadmap Change the prios! If there is anything you want to implement, regardless if it is on this lists or not, please don&amp;rsquo;t hesitate to contact us. This is not set in stone! It&amp;rsquo;s just there to give some perspective
+Completed          XEP-0004 Data Forms   XEP-0030 Service Discovery   XEP-0048 Bookmarks   XEP-0049 Private XML Storage   XEP-0054 vcard-temp   XEP-0090 Entity Time (deprecated, see XEP-0202)   XEP-0092 Software Version   XEP-0199 XMPP Ping   XEP-0202 Entity Time    In development          RFC3920 in progress, some features missing   RFC3921 in progress, major features missing   XEP-0060 Publish-Subscribe, fully compliant but not full featured   XEP-0045 Multi-user chat    Upcoming          XEP-0009 RPC   XEP-0077 In-band Registration    </description>
+    </item>
+    
+    <item>
+      <title>Vysper Getting Involved</title>
+      <link>https://mina.apache.org/vysper-project/getting_involved.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/getting_involved.html</guid>
+      <description>Getting Involved The Apache Vysper developers communicates using our Mailing Lists. If you have any questions, feedback or suggestions, you&amp;rsquo;re very welcome to join the list and send an email. We are also happy to receive bug reports and feature requests in our JIRA.
+Patches The best chance of getting your bug or feature fixed is to provide a patch, if they fit our goals we will usually have them committed within a few days.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Issue Tracking</title>
+      <link>https://mina.apache.org/vysper-project/issue_tracking.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/issue_tracking.html</guid>
+      <description>Issue Tracking We are using JIRA to track all Vysper issues including bugs. Please visit our issue tracker page to report a bug.
+How to report a bug Writing a bug report with detailed information will help us to fix your problem sooner.
+ Make sure if the bug you are going to report doesn&amp;rsquo;t exist yet. Attaching JUnit test case which reproduces the problem will put your report in our highest priority.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Mailing Lists</title>
+      <link>https://mina.apache.org/vysper-project/mailing_lists.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/mailing_lists.html</guid>
+      <description>Mailing List General information about the Vysper mailing lists can be found here.
+For Users Please use this list for any questions regarding how to use Vysper.
+         Subscribe users-subscribe@mina.apache.org   Unsubscribe users-unsubscribe@mina.apache.org   Post users@mina.apache.org   Archive http://www.mail-archive.com/users@mina.apache.org/    For Developers We use the MINA developers list for asking technical questions, discussing feature suggestions or general questions regarding the project.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Server-to-server</title>
+      <link>https://mina.apache.org/vysper-project/server_to_server_comm.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/server_to_server_comm.html</guid>
+      <description>Server-to-server Available since version 0.7.  XMPP servers like Apache Vysper work in federated networks much like SMTP servers. Users connect to their own server, and when communicating with users on a different domain, the two servers will connect to each other and exchange XMPP stanzas. Server-to-server (S2S) connections differ from client-to-server (C2) connections in that stanzas for multiple users might be sent over the same connection. S2S connections are similar to C2S connections from the point that one of the servers serves as an initiator, like a client.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Service Discovery</title>
+      <link>https://mina.apache.org/vysper-project/service_discovery.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/service_discovery.html</guid>
+      <description>Using Service Discovery Disco quick start Service Discovery (or &amp;lsquo;disco&amp;rsquo;) is a XMPP extensions specified at (Service Discovery, XEP-0030).
+Disco resembles Directory services like LDAP, or even file systems.
+Disco is a server-side service. It maintains a tree of nodes (branches) and items (leafs). Clients discover child nodes and items of the root node or some other already discovered node by sending info-requests (IQ stanzas). The server replies with a IQ response containing a list of nodes and items.</description>
+    </item>
+    
+    <item>
+      <title>Vysper SOCKS5 bytestream module</title>
+      <link>https://mina.apache.org/vysper-project/socks5.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/socks5.html</guid>
+      <description>SOCKS5 bytestream module Available since version 0.7.  The Vysper SOCKS5 Bytestream module implements mediated connections from XEP-0065 SOCKS5 Bytestream. Direct connections requires no support from the server and thus works without this module. For mediated connections, this module will supply a SOCKS5 proxy that transfers data between the requester and target clients. The module also provides all the required service discovery support used to negotiate the address of the SOCKS5 proxy.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Sources</title>
+      <link>https://mina.apache.org/vysper-project/sources.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/sources.html</guid>
+      <description>Overview Sources for the Apache MINA projects are currently managed through GIT. Instructions on GIT use can be found at http://git-scm.com/book/.
+Normal Git Access Anyone can check code out of Git. You only need to specify a username and password in order to update the Git repository, and only MINA committers have the permissions to do that. We run Git over standard HTTPS, so hopefully you won&amp;rsquo;t have problems with intervening firewalls.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Standalone Server</title>
+      <link>https://mina.apache.org/vysper-project/server_standalone.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/server_standalone.html</guid>
+      <description>run main class if you like to invoke the server from an IDE or the commandline, use the Java class
+org.apache.vysper.spring.ServerMain for example by typing
+java org.apache.vysper.spring.ServerMain be sure to include all jars in lib/ in your classpath plus the spring-config.xml.
+It is also possible to load modules on the command line:
+java org.apache.vysper.spring.ServerMain -Dvysper.add.module=module1,module2... </description>
+    </item>
+    
+    <item>
+      <title>Vysper Standards Supported</title>
+      <link>https://mina.apache.org/vysper-project/standards_supported.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/standards_supported.html</guid>
+      <description>Standards Supported    Specification Status Comment     RFC 3920 XMPP Core Complete     RFC 3921 XMPP Instant Messaging and Presence 80%     XEP-0004 Data Forms Complete     XEP-0030 Service Discovery Complete     XEP-0045 Multi-User Chat 80%     XEP-0049 Private XML Storage Complete     XEP-0050 Ad-Hoc Commands Complete     XEP-0054 vcard-temp Complete     XEP-0060 Publish-Subscribe Complete     XEP-0065 SOCKS5 Bytestreams Complete The optional UDP support not implemented   XEP-0077 In-band registration 80% Canceling existing registration not supported   XEP-0082 XMPP Date and Time Profiles Complete     XEP-0092 Software Version Complete     XEP-0124 Bidirectional-streams Over Synchronous HTTP (BOSH) Complete     XEP-0133 Service Administration 40%     XEP-0185 Dialback Key Generation and Validation Complete     XEP-0199 XMPP Ping Complete     XEP-0202 Entity Time Complete     XEP-0206 XMPP Over BOSH Complete     XEP-0220 Server Dialback Complete     XEP-0220 Server Dialback Complete     An XMPP Sub-protocol for WebSocket Complete      </description>
+    </item>
+    
+    <item>
+      <title>Vysper Stanza Processing</title>
+      <link>https://mina.apache.org/vysper-project/stanza_processing_layer.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/stanza_processing_layer.html</guid>
+      <description>Stanza Processing Commands in the XMPP world are called Stanzas.
+At the transport layer, when going over the net between client and server, they have a textual representation in XML.
+In Vysper, the Stanza processing layer only deals with Stanza java objects. They are created by the transport layer, or using Builder utility classes from within Vysper. That makes this layer independent from any underlying transport layer. Stanzas are directly injectable on this level.</description>
+    </item>
+    
+    <item>
+      <title>Vysper User Guide</title>
+      <link>https://mina.apache.org/vysper-project/user_guide.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/user_guide.html</guid>
+      <description>User Guide  Dependencies Embed into another application Extending the Server Extension Roadmap Run Server Standalone Service Discovery Test client XML Processing  </description>
+    </item>
+    
+    <item>
+      <title>Vysper User Management</title>
+      <link>https://mina.apache.org/vysper-project/user_mgmt.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/user_mgmt.html</guid>
+      <description>User Management Apache Vysper comes with very basic user management support out of the box. But, frequently you would rather want to integrate Vysper with your already existing authentication solution. To enable this, Vysper comes with a simple API to implement your own authentication and user management.
+Authentication UserAuthentication is the interface which will get called when a client authenticates itself using SASL. Vysper currently ships with two implementations, one in-memory and one based on JCR.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Using the test client</title>
+      <link>https://mina.apache.org/vysper-project/test_client.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/test_client.html</guid>
+      <description>Using the test client The test clients builds on the XMPP client library Smack. It takes two parameters:
+ login name for the &amp;lsquo;from&amp;rsquo; user login name for the &amp;lsquo;to&amp;rsquo; user  The domain is assumed to be &amp;lsquo;vysper.org&amp;rsquo;, the password to be &amp;lsquo;password1&amp;rsquo;. This relates to the default users correctly configured in the default spring configuration file.
+The client logs into the server with the &amp;lsquo;from&amp;rsquo; user login and starts to send messages to the &amp;lsquo;to&amp;rsquo; user.</description>
+    </item>
+    
+    <item>
+      <title>Vysper Websocket endpoint</title>
+      <link>https://mina.apache.org/vysper-project/websocket_endpoint.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/websocket_endpoint.html</guid>
+      <description>Websocket endpoint Available since version 0.7.  While websockets are still being specified, a draft specification for XMPP over websockets has been published at http://tools.ietf.org/html/draft-moffitt-xmpp-over-websocket-00. Websockets enables web browsers to establish duplex communications with servers with very little overhead.
+Vysper provides a websocket endpoint. The easiest way to use the endpoint is to simply add it as a regular endpoint:
+XMPPServer server = new XMPPServer(&amp;#34;vysper.org&amp;#34;); server.addEndpoint(new TCPEndpoint()); server.addEndpoint(new WebSocketEndpoint()); server.start(); That’s it.</description>
+    </item>
+    
+    <item>
+      <title>Vysper XM Processing</title>
+      <link>https://mina.apache.org/vysper-project/xml_processing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/vysper-project/xml_processing.html</guid>
+      <description>XML Processing XML data is the payload of the XMPP protocol. More precisely, XMPP only works on a subset of XML. See RFC3920 for details.
+The core handler and protocol code does not deal with xml strings directly. They only deal with java objects representing well-formed XMPP commands, called stanzas.
+To create these objects, the actual XML is processed in stages at the xml processing layer.
+While raw XML continues streaming in, we are faced with arbitrary partitioned stanza and even partial xml.</description>
+    </item>
+    
+  </channel>
+</rss>

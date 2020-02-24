@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>FtpServer Database user manager &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/ftpserver.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                <strong>FtpServer</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/index.html">Home</a> </li>
+                    <li><a href="/ftpserver-project/features.html">Features</a> </li>
+                    <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
+                    <li><a href="/ftpserver-project/downloads.html">Downloads</a></li>
+                    <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
+                    <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
+                    <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/mailing_list.html">Mailing Lists</a></li>
+                    <li><a href="/ftpserver-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/ftpserver-project/reporting_bug.html">Reporting a Bug</a></li>
+                    <li><a href="/ftpserver-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="database-user-manager">Database user manager</h1>
+<p>You can store user user information in a database. JDBC is used to access the database. This user manager has been tested using MySQL, HSQLDB and FireBird database. All the user information is stored in FTP_USER table. An example DDL file for the database is provided in &lt;INSTALL_DIR&gt;/res/ftp-db.sql.</p>
+<h2 id="database-jdbc-libraries">Database JDBC libraries</h2>
+<p>You must include the required JAR files for your database in the classpath of FtpServer. Typically you would do this by placing the JAR files in &lt;INSTALL_DIR&gt;/common/lib.</p>
+<h2 id="example">Example</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;db-user-manager</span> <span style="color:#b44">encrypt-passwords=</span><span style="color:#b44">&#34;salted&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;data-source</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;beans:bean</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;some.datasoure.class&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/data-source&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;insert-user</span><span style="color:#008000;font-weight:bold">&gt;</span>INSERT INTO FTP_USER (userid, userpassword,
+        homedirectory, enableflag, writepermission, idletime, uploadrate,
+        downloadrate) VALUES (&#39;{userid}&#39;, &#39;{userpassword}&#39;, &#39;{homedirectory}&#39;,
+        &#39;{enableflag}&#39;, &#39;{writepermission}&#39;, {idletime}, {uploadrate},
+        {downloadrate})<span style="color:#008000;font-weight:bold">&lt;/insert-user&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;update-user</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        UPDATE FTP_USER SET
+            userpassword=&#39;{userpassword}&#39;,
+            homedirectory=&#39;{homedirectory}&#39;,
+            enableflag={enableflag},
+            writepermission={writepermission},
+            idletime={idletime},
+            uploadrate={uploadrate},
+            downloadrate={downloadrate}
+        WHERE userid=&#39;{userid}&#39;
+    <span style="color:#008000;font-weight:bold">&lt;/update-user&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;delete-user</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        DELETE FROM FTP_USER WHERE userid = &#39;{userid}&#39;
+    <span style="color:#008000;font-weight:bold">&lt;/delete-user&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;select-user</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        SELECT userid, userpassword, homedirectory,
+            enableflag, writepermission, idletime, uploadrate, downloadrate 
+        FROM FTP_USER 
+        WHERE userid = &#39;{userid}&#39;
+    <span style="color:#008000;font-weight:bold">&lt;/select-user&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;select-all-users</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        SELECT userid FROM FTP_USER ORDER BY userid
+    <span style="color:#008000;font-weight:bold">&lt;/select-all-users&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;is-admin</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        SELECT userid 
+        FROM FTP_USER 
+        WHERE userid=&#39;{userid}&#39; AND userid=&#39;admin&#39;
+        <span style="color:#008000;font-weight:bold">&lt;/is-admin&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;authenticate</span><span style="color:#008000;font-weight:bold">&gt;</span>SELECT userpassword from FTP_USER WHERE userid=&#39;{userid}&#39;<span style="color:#008000;font-weight:bold">&lt;/authenticate&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/db-user-manager&gt;</span>
+</code></pre></div><h2 id="configuration-parameters">Configuration Parameters</h2>
+<h3 id="db-user-manager-element">db-user-manager element</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>encrypt-passwords</td>
+<td>It indicates how to stored password are encrypted. Possible values are &ldquo;clear&rdquo; for clear text, &ldquo;md5&rdquo; for hashed using MD5 or &ldquo;salted&rdquo; for hashed salted passwords (including multiple hash iterations). &ldquo;salted&rdquo; is encouraged.</td>
+<td>No</td>
+<td>md5</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Child element</th>
+<th>Description</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data-source</td>
+<td>The data source configured using the regular Spring bean element</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+<tr>
+<td>insert-user</td>
+<td>The SQL statement to insert a new user. All the dynamic values will be replaced during runtime.</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+<tr>
+<td>update-user</td>
+<td>The SQL statement to update a user. All the dynamic values will be replaced during runtime.</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+<tr>
+<td>delete-user</td>
+<td>The SQL statement to delete a user. All the dynamic values will be replaced during runtime.</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+<tr>
+<td>select-user</td>
+<td>The SQL statement to select a user. All the dynamic values will be replaced during runtime.</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+<tr>
+<td>select-all-users</td>
+<td>The SQL statement to select all users. All the dynamic values will be replaced during runtime.</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+<tr>
+<td>is-admin</td>
+<td>The SQL statement to find whether an user is admin or not. All the dynamic values will be replaced during runtime.</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+<tr>
+<td>authenticate</td>
+<td>The SQL statement to authenticate a user. All the dynamic values will be replaced during runtime.</td>
+<td>Yes</td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-source-configuration">Data source configuration</h3>
+<p>The data source must be configured as described by the database provider. You can also use the general purpose <a href="http://jakarta.apache.org/commons/dbcp/apidocs/org/apache/commons/dbcp/BasicDataSource.html">BasicDataSource</a> provided by the <a href="http://jakarta.apache.org/commons/dbcp/">Apache Commons DBCP project</a>.</p>
+<h4 id="example-using-the-basicdatasource-to-connect-to-mysql">Example using the BasicDataSource to connect to MySQL</h4>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;data-source</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;beans:bean</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;org.apache.commons.dbcp.BasicDataSource&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;beans:property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;driverClassName&#34;</span> <span style="color:#b44">value=</span><span style="color:#b44">&#34;com.mysql.jdbc.Driver&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;beans:property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;url&#34;</span> <span style="color:#b44">value=</span><span style="color:#b44">&#34;jdbc:mysql://localhost/ftpd&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;beans:property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;username&#34;</span> <span style="color:#b44">value=</span><span style="color:#b44">&#34;myuser&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+              <span style="color:#008000;font-weight:bold">&lt;beans:property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;password&#34;</span> <span style="color:#b44">value=</span><span style="color:#b44">&#34;secret&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/beans:bean&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/data-source&gt;</span>
+</code></pre></div><h4 id="ftp_user-table-structure">FTP_USER Table Structure</h4>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userid</td>
+<td>VARCHAR(64), Primary key</td>
+<td> </td>
+</tr>
+<tr>
+<td>userpassword</td>
+<td>VARCHAR(64)</td>
+<td> </td>
+</tr>
+<tr>
+<td>homedirectory</td>
+<td>VARCHAR(128)</td>
+<td> </td>
+</tr>
+<tr>
+<td>enableflag</td>
+<td>BOOLEAN</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td>writepermission</td>
+<td>BOOLEAN</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>idletime</td>
+<td>INT</td>
+<td>0</td>
+</tr>
+<tr>
+<td>uploadrate</td>
+<td>INT</td>
+<td>0</td>
+</tr>
+<tr>
+<td>downloadrate</td>
+<td>INT</td>
+<td>0</td>
+</tr>
+<tr>
+<td>maxloginnumber</td>
+<td>INT</td>
+<td>0</td>
+</tr>
+<tr>
+<td>maxloginperip</td>
+<td>INT</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

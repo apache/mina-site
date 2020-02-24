@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Message flow &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                <strong>MINA</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Latest Downloads</h5>
+                <ul>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.21</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.3</a></li>
+                    <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
+                </ul>
+                <h5>Documentation</h5>
+                <ul>
+                    <li><a href="/mina-project/documentation.html" class="external-link" rel="nofollow">Base documentation</a></li>
+                    <li><a href="/mina-project/userguide/user-guide-toc.html" class="external-link" rel="nofollow">User guide</a></li>
+                    <li><a href="/mina-project/2.1-vs-2.0.html" class="external-link" rel="nofollow">2.1 vs 2.0</a></li>
+                    <li><a href="/mina-project/features.html" class="external-link" rel="nofollow">Features</a></li>
+                    <li><a href="/mina-project/road-map.html" class="external-link" rel="nofollow">Road Map</a></li>
+                    <li><a href="/mina-project/quick-start-guide.html" class="external-link" rel="nofollow">Quick Start Guide</a></li>
+                    <li><a href="/mina-project/faq.html" class="external-link" rel="nofollow">FAQ</a></li>
+                </ul>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
+                    <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
+                    <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.3</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.3</a></li>
+                    <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
+                    <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
+                    <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
+                    <li><a href="/mina-project/developer-guide.html" class="external-link" rel="nofollow">Developers Guide</a></li>
+                    <li><a href="/mina-project/related-projects.html" class="external-link" rel="nofollow">Related Projects</a></li>
+                    <li><a href="https://people.apache.org/~vgritsenko/stats/projects/mina.html" class="external-link" rel="nofollow">Statistics</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/contributing.html" class="external-link" rel="nofollow">Contributing</a></li>
+                    <li><a href="/contributors.html" class="external-link" rel="nofollow">Team</a></li>
+                    <li><a href="/special-thanks.html" class="external-link" rel="nofollow">Special Thanks</a></li>
+                    <li><a href="https://www.apache.org/security/" class="external-link" rel="nofollow">Security</a></li>
+                </ul>
+
+                <h5>About Apache</h5>
+                <ul>
+                    <li><a href="https://www.apache.org" class="external-link" rel="nofollow">Apache main site</a></li>
+                    <li><a href="https://www.apache.org/licenses/" class="external-link" rel="nofollow">License</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html" title="The ASF sponsorship program" class="external-link" rel="nofollow">Sponsorship program</a></li>
+                    <li><a href="https://www.apache.org/foundation/thanks.html" class="external-link" rel="nofollow">Thanks</a></li>
+                </ul>
+
+                <h3><a name="Navigation-Upcoming"></a>Upcoming</h3>
+                <ul>
+                    <li>No event</li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="message-flow">Message flow</h1>
+<p>When a selector receives some <em>OP_READ</em> event, the associated <em>IoProcessor</em> is awaken and starts to process this event. It all starts with reading the channel, then pushing the read data through the filter chain down to the <em>IoHandler</em> (aka, the application). If the application decides to write back a response, it goes through the chain again, andultimately the data to be pushed into the channel is pushed into a queue (_writeRequestQueue), then the stack is unfolled, down to the <em>IoProcessor</em>, which pops the data from the queue and writes it into the channel.</p>
+<p>Here is the representation of such a flow, where the <em>SslFilter</em> has been included (we will come back to it later)</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">                   +-------------------+
+                   |     IoAcceptor    |
+                   |    +---------+    |
+                   |    | Select  |    |
+                   |    +----+----+    |
+                   |         |         |
+                   +---------+---------+
+                             .                                           flush/
++---------+                  .                  +---------+              wakeup
+| Channel &lt;-----read------+  .  +-----write-----&gt; Channel |              +----+
++---------+               |  |  |               +---------+              |    |
+                      +---+--v--+---+                               +----v----+---+
+                      |             |       writeRequestQueue       |             |
+                      | IoProcessor |       +-+-+-+-+-+-+-+-+       | IoProcessor |
+                      |             &lt;- pop -+ | | | | | | | &lt;- put- |             |
+                      +---+-----^---+       +-+-+-+-+-+-+-+-+       +---------^---+
+                          |     .                                       .     |
+      fireMessageReceived |     .                                       .     | write
+                          |     .                                       .     |
+                      +---v---------+                               +---v-----+---+
+                      | HeadFilter  |                               | HeadFilter  &lt;---------------filterWrite---------------+
+                      +---+-----^---+                               +-------------+                                         |
+                          |     .                                       .                                             +-----+------+
+          MessageReceived |     .                                       .      +----------flushScheduledEvents--------&gt; SslHandler |
+                          |     .                                       .      |                                      +-----+------+
+                      +---v---------+                               +---v------+--+                                         |
+                      | SslFilter   |                               | SslFilter   +----put----+                             |
+                      +---+-----^---+                               +---------^---+           |                             |
+                          |     .                                       .     |               |  filterWriteQueue           |
+          MessageReceived |     .                                       .     | filterWrite   |  +-+-+-+-+-+-+-+-+          |
+                          |     .                                       .     |               +--&gt; | | | | | | | &lt;----pop---+
+                      +---v---------+                               +---v---------+              +-+-+-+-+-+-+-+-+
+                      | &lt;filters&gt;   |                               | &lt;filters&gt;   |
+                      +---+-----v---+                               +-------------+
+                          |     .                                       .     |
+          MessageReceived |     .                                       .     | filterWrite
+                          |     .                                       .     |
+                      +---v---------+                               +---v-----+---+
+                      | TailFilter  |                               | TailFilter  |
+                      +---+-----^---+                               +---------^---+
+                          |     .                                       .     |
+          MessageReceived |     .                                       .     | fireFilterWrite
+                          |     .                                       .     |
+                      +---v---------+                                   .     |
+                      | IoHandler   |                                   .     |
+                      +---+-----^---+                                   .     |
+                          |     .                                       .     |
+                          |     .........................................     |
+                          |                                                   |
+                          +-------------------sessionWrite--------------------+
+</code></pre></div><p>For instance, if we consider an application which filter chain contains the <em>MdcInjectionFilter</em>, <em>SslFilter</em>, <em>CompressionFilter</em>, <em>ProtocolCodecFilter</em>, <em>LoggingFilter</em>, we end uo with a stack of 77 calls, which needs to be emptied before the response can eventually be written. Here is the stack (in reverse order, the latest call on top of it):</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">NioProcessor(AbstractPollingIoProcessor&lt;S&gt;).flush(S) line: 449  
+NioProcessor(AbstractPollingIoProcessor&lt;S&gt;).write(S, WriteRequest) line: 436  
+NioProcessor(AbstractPollingIoProcessor&lt;S&gt;).write(IoSession, WriteRequest) line: 68 
+SimpleIoProcessorPool&lt;S&gt;.write(S, WriteRequest) line: 278 
+SimpleIoProcessorPool&lt;S&gt;.write(IoSession, WriteRequest) line: 80  
+DefaultIoFilterChain$HeadFilter.filterWrite(IoFilter$NextFilter, IoSession, WriteRequest) line: 914 
+DefaultIoFilterChain.callPreviousFilterWrite(IoFilterChain$Entry, IoSession, WriteRequest) line: 753  
+DefaultIoFilterChain.access$1500(DefaultIoFilterChain, IoFilterChain$Entry, IoSession, WriteRequest) line: 49 
+DefaultIoFilterChain$EntryImpl$1.filterWrite(IoSession, WriteRequest) line: 1146  
+IoFilterEvent.fire() line: 131  
+MdcInjectionFilter.filter(IoFilterEvent) line: 162  
+MdcInjectionFilter(CommonEventFilter).filterWrite(IoFilter$NextFilter, IoSession, WriteRequest) line: 68  
+DefaultIoFilterChain.callPreviousFilterWrite(IoFilterChain$Entry, IoSession, WriteRequest) line: 753  
+DefaultIoFilterChain.access$1500(DefaultIoFilterChain, IoFilterChain$Entry, IoSession, WriteRequest) line: 49 
+DefaultIoFilterChain$EntryImpl$1.filterWrite(IoSession, WriteRequest) line: 1146  
+SslHandler.flushScheduledEvents() line: 330 
+SslFilter.filterWrite(IoFilter$NextFilter, IoSession, WriteRequest) line: 671 
+DefaultIoFilterChain.callPreviousFilterWrite(IoFilterChain$Entry, IoSession, WriteRequest) line: 753  
+DefaultIoFilterChain.access$1500(DefaultIoFilterChain, IoFilterChain$Entry, IoSession, WriteRequest) line: 49 
+DefaultIoFilterChain$EntryImpl$1.filterWrite(IoSession, WriteRequest) line: 1146  
+CompressionFilter.filterWrite(IoFilter$NextFilter, IoSession, WriteRequest) line: 152 
+DefaultIoFilterChain.callPreviousFilterWrite(IoFilterChain$Entry, IoSession, WriteRequest) line: 753  
+DefaultIoFilterChain.access$1500(DefaultIoFilterChain, IoFilterChain$Entry, IoSession, WriteRequest) line: 49 
+DefaultIoFilterChain$EntryImpl$1.filterWrite(IoSession, WriteRequest) line: 1146  
+ProtocolCodecFilter.filterWrite(IoFilter$NextFilter, IoSession, WriteRequest) line: 340 
+DefaultIoFilterChain.callPreviousFilterWrite(IoFilterChain$Entry, IoSession, WriteRequest) line: 753  
+DefaultIoFilterChain.access$1500(DefaultIoFilterChain, IoFilterChain$Entry, IoSession, WriteRequest) line: 49 
+DefaultIoFilterChain$EntryImpl$1.filterWrite(IoSession, WriteRequest) line: 1146  
+LoggingFilter(IoFilterAdapter).filterWrite(IoFilter$NextFilter, IoSession, WriteRequest) line: 138  
+DefaultIoFilterChain.callPreviousFilterWrite(IoFilterChain$Entry, IoSession, WriteRequest) line: 753  
+DefaultIoFilterChain.access$1500(DefaultIoFilterChain, IoFilterChain$Entry, IoSession, WriteRequest) line: 49 
+DefaultIoFilterChain$EntryImpl$1.filterWrite(IoSession, WriteRequest) line: 1146  
+DefaultIoFilterChain$TailFilter(IoFilterAdapter).filterWrite(IoFilter$NextFilter, IoSession, WriteRequest) line: 138  
+DefaultIoFilterChain.callPreviousFilterWrite(IoFilterChain$Entry, IoSession, WriteRequest) line: 753  
+DefaultIoFilterChain.fireFilterWrite(WriteRequest) line: 746  
+NioSocketSession(AbstractIoSession).write(Object, SocketAddress) line: 570  
+NioSocketSession(AbstractIoSession).write(Object) line: 515 
+ChatProtocolHandler.messageReceived(IoSession, Object) line: 106  
+DefaultIoFilterChain$TailFilter.messageReceived(IoFilter$NextFilter, IoSession, Object) line: 1015  
+DefaultIoFilterChain.callNextMessageReceived(IoFilterChain$Entry, IoSession, Object) line: 650  
+DefaultIoFilterChain.access$1300(DefaultIoFilterChain, IoFilterChain$Entry, IoSession, Object) line: 49 
+DefaultIoFilterChain$EntryImpl$1.messageReceived(IoSession, Object) line: 1128  
+LoggingFilter.messageReceived(IoFilter$NextFilter, IoSession, Object) line: 208 
+DefaultIoFilterChain.callNextMessageReceived(IoFilterChain$Entry, IoSession, Object) line: 650  
+DefaultIoFilterChain.access$1300(DefaultIoFilterChain, IoFilterChain$Entry, IoSession, Object) line: 49 
+DefaultIoFilterChain$EntryImpl$1.messageReceived(IoSession, Object) line: 1128  
+ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(IoFilter$NextFilter, IoSession) line: 413 
+ProtocolCodecFilter.messageReceived(IoFilter$NextFilter, IoSession, Object) line: 257 
+DefaultIoFilterChain.callNextMessageReceived(IoFilterChain$Entry, IoSession, Object) line: 650  
+DefaultIoFilterChain.access$1300(DefaultIoFilterChain, IoFilterChain$Entry, IoSession, Object) line: 49 
+DefaultIoFilterChain$EntryImpl$1.messageReceived(IoSession, Object) line: 1128  
+CompressionFilter.messageReceived(IoFilter$NextFilter, IoSession, Object) line: 169 
+DefaultIoFilterChain.callNextMessageReceived(IoFilterChain$Entry, IoSession, Object) line: 650  
+DefaultIoFilterChain.access$1300(DefaultIoFilterChain, IoFilterChain$Entry, IoSession, Object) line: 49 
+DefaultIoFilterChain$EntryImpl$1.messageReceived(IoSession, Object) line: 1128  
+SslHandler.flushScheduledEvents() line: 335 
+SslFilter.messageReceived(IoFilter$NextFilter, IoSession, Object) line: 553 
+DefaultIoFilterChain.callNextMessageReceived(IoFilterChain$Entry, IoSession, Object) line: 650  
+DefaultIoFilterChain.access$1300(DefaultIoFilterChain, IoFilterChain$Entry, IoSession, Object) line: 49 
+DefaultIoFilterChain$EntryImpl$1.messageReceived(IoSession, Object) line: 1128  
+IoFilterEvent.fire() line: 105  
+MdcInjectionFilter.filter(IoFilterEvent) line: 162  
+MdcInjectionFilter(CommonEventFilter).messageReceived(IoFilter$NextFilter, IoSession, Object) line: 84  
+DefaultIoFilterChain.callNextMessageReceived(IoFilterChain$Entry, IoSession, Object) line: 650  
+DefaultIoFilterChain.access$1300(DefaultIoFilterChain, IoFilterChain$Entry, IoSession, Object) line: 49 
+DefaultIoFilterChain$EntryImpl$1.messageReceived(IoSession, Object) line: 1128  
+DefaultIoFilterChain$HeadFilter(IoFilterAdapter).messageReceived(IoFilter$NextFilter, IoSession, Object) line: 122  
+DefaultIoFilterChain.callNextMessageReceived(IoFilterChain$Entry, IoSession, Object) line: 650  
+DefaultIoFilterChain.fireMessageReceived(Object) line: 643  
+NioProcessor(AbstractPollingIoProcessor&lt;S&gt;).read(S) line: 539 
+AbstractPollingIoProcessor&lt;S&gt;.access$1200(AbstractPollingIoProcessor, AbstractIoSession) line: 68 
+AbstractPollingIoProcessor$Processor.process(S) line: 1223  
+AbstractPollingIoProcessor$Processor.process() line: 1212 
+AbstractPollingIoProcessor$Processor.run() line: 683  
+NamePreservingRunnable.run() line: 64 
+ThreadPoolExecutor.runWorker(ThreadPoolExecutor$Worker) line: 1149  
+ThreadPoolExecutor$Worker.run() line: 624 
+Thread.run() line: 748  
+</code></pre></div><p>Writing the data is done when we are back in the AbstractPollingIoProcessor$Processor.run() call. Here is the stack for that action :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">NioProcessor.write(NioSession, IoBuffer, int) line: 384 
+NioProcessor.write(AbstractIoSession, IoBuffer, int) line: 47 
+AbstractPollingIoProcessor$Processor.writeBuffer(S, WriteRequest, boolean, int, long) line: 1107  
+AbstractPollingIoProcessor$Processor.flushNow(S, long) line: 994  
+AbstractPollingIoProcessor$Processor.flush(long) line: 921  
+AbstractPollingIoProcessor$Processor.run() line: 688  
+NamePreservingRunnable.run() line: 64 
+ThreadPoolExecutor.runWorker(ThreadPoolExecutor$Worker) line: 1149  
+ThreadPoolExecutor$Worker.run() line: 624 
+Thread.run() line: 748  
+</code></pre></div><h2 id="the-sslfilter-implementation">The SslFilter implementation</h2>
+<p>As we can see,the <em>SslFilter</em> never calls the next filter. It delegates that to the <em>SslHandler</em> class. The trick is that it uses a queue to store encrypted messages, which will wait until the message is fully encrypted before flushing them. The rational is that a message can be pretty big, and teh <strong>SSL/TLS</strong> protocol just allows limited encrypted data blocks (around 16k), so it keeps each block of encrypted data into the queue temporarily.</p>
+<h1 id="room-for-improvements">Room for improvements</h1>
+<h2 id="reducing-the-stack-size">Reducing the stack size</h2>
+<p>This is clearly sub-optimal. First of all, the stack is crazy big, there is no reason for that. The idea was initially to allow a session to dynamically update the chain, by adding or removing a filter while a session is active. This is a fine idea, as some protocols need to do that: typically, LDAP allows a user to send a <em>startTls</em> extended request which tells the server to establish a secured communication. In this very case, we add the <em>SslFilter</em> in the session&rsquo;s filter chain.</p>
+<p>Now, we can do that more efficiently. A session&rsquo;s filter chain is created when the session itself is created. Adding a new filter in this chain is done by the application, and at this point, no other thread uses this session (each session is associated with one single <em>IoProcessor</em> instance&rsquo;s thread), unless an <em>ExecutorFilter</em> has been added to the chain. In this case, things get complicated&hellip; Having an <em>ExecutorFilter</em> in the chain means any event can be processed concurrently, in different threads. Although they are sharing the same filter chain. We have to protect this chain against concurrent modifications, and we must also guarantee that any change made in the chain will not be an issue for the application.
+Typically, adding a <em>SslFilter</em> in a chain while a message is being written is problematic:</p>
+<ul>
+<li>we have to wait for any pending messages to be sent to the remote peer, which may have already initiated a handshake (although it&rsquo;s the client responsibility to handle this situation), or we decide to ditch any of those messages (the right thing to do, IMHO)</li>
+<li>we have to deal with any message that are somewhere in the chain before the <em>SslFilter</em>. Again, the strategy would be to discard them</li>
+<li>and we have to deal with any message somewhere in the chain after the <em>SslFilter</em> and before they are pushed into the session write queue, for the exact same reason.</li>
+</ul>
+<p>For messages received <em>before</em> the addition of the <em>SslFilter</em>, but still in the chain, we should ditch them for the exact same reason.</p>
+<p>Bottom line, this is a application issue, and should be handled by the application, because <strong>MINA</strong> can&rsquo;t deal with all the possible. starties in place of the application.</p>
+<p>That being said, we can use the <em>IoProcessor</em> as a controller. It would be its responsibility to propagate events from one filter to the other, using such a loop:</p>
+<pre><code>for each filter in the chain 
+  do
+    propagate the event to the filter with the previous result
+    store the result 
+  done
+</code></pre><p>What we call the &lsquo;result&rsquo; is just the transformed data. Typically, when calling the <em>ProtocolCodecFilter.messageReceived</em> event, the result will be the decoded message, not the <em>IoBuffer</em> (or whatever) input. This will be passed to the next filter (remember that the <em>IoFilter.messageReceived</em> method takes an <em>Object</em> as a parameter).</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

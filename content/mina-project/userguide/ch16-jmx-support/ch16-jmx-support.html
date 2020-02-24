@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Chapter 16 - JMX Support &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                <strong>MINA</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Latest Downloads</h5>
+                <ul>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.21</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.3</a></li>
+                    <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
+                </ul>
+                <h5>Documentation</h5>
+                <ul>
+                    <li><a href="/mina-project/documentation.html" class="external-link" rel="nofollow">Base documentation</a></li>
+                    <li><a href="/mina-project/userguide/user-guide-toc.html" class="external-link" rel="nofollow">User guide</a></li>
+                    <li><a href="/mina-project/2.1-vs-2.0.html" class="external-link" rel="nofollow">2.1 vs 2.0</a></li>
+                    <li><a href="/mina-project/features.html" class="external-link" rel="nofollow">Features</a></li>
+                    <li><a href="/mina-project/road-map.html" class="external-link" rel="nofollow">Road Map</a></li>
+                    <li><a href="/mina-project/quick-start-guide.html" class="external-link" rel="nofollow">Quick Start Guide</a></li>
+                    <li><a href="/mina-project/faq.html" class="external-link" rel="nofollow">FAQ</a></li>
+                </ul>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
+                    <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
+                    <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.3</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.21</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.3</a></li>
+                    <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
+                    <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
+                    <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
+                    <li><a href="/mina-project/developer-guide.html" class="external-link" rel="nofollow">Developers Guide</a></li>
+                    <li><a href="/mina-project/related-projects.html" class="external-link" rel="nofollow">Related Projects</a></li>
+                    <li><a href="https://people.apache.org/~vgritsenko/stats/projects/mina.html" class="external-link" rel="nofollow">Statistics</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/contributing.html" class="external-link" rel="nofollow">Contributing</a></li>
+                    <li><a href="/contributors.html" class="external-link" rel="nofollow">Team</a></li>
+                    <li><a href="/special-thanks.html" class="external-link" rel="nofollow">Special Thanks</a></li>
+                    <li><a href="https://www.apache.org/security/" class="external-link" rel="nofollow">Security</a></li>
+                </ul>
+
+                <h5>About Apache</h5>
+                <ul>
+                    <li><a href="https://www.apache.org" class="external-link" rel="nofollow">Apache main site</a></li>
+                    <li><a href="https://www.apache.org/licenses/" class="external-link" rel="nofollow">License</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html" title="The ASF sponsorship program" class="external-link" rel="nofollow">Sponsorship program</a></li>
+                    <li><a href="https://www.apache.org/foundation/thanks.html" class="external-link" rel="nofollow">Thanks</a></li>
+                </ul>
+
+                <h3><a name="Navigation-Upcoming"></a>Upcoming</h3>
+                <ul>
+                    <li>No event</li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+    <div class="nav">
+        <div class="nav_prev">
+            
+                
+                <a href="../ch15-proxy/ch15-proxy.html">Chapter 15 - Proxy</a>
+            
+        </div>
+        <div class="nav_up">
+            
+                
+                <a href="../user-guide-toc.html">User Guide</a>
+            
+        </div>
+        <div class="nav_next">
+            
+                
+                <a href="../ch17-spring-integration/ch17-spring-integration.html">Chapter 17 - Spring Integration</a>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+            
+	<h1 id="chapter-16---jmx-support">Chapter 16 - JMX Support</h1>
+<p>Java Management Extensions (JMX) is used for managing and monitoring java applications.  This tutorial will provide you with an example as to how you can JMX-enable your MINA based application.</p>
+<p>This tutorial is designed to help you get the JMX technology integrated in to your MINA-based application. In this tutorial, we will integrate the MINA-JMX classes into the imagine server example program.</p>
+<h1 id="adding-jmx-support">Adding JMX Support</h1>
+<p>To JMX enable MINA application we have to perform following</p>
+<ul>
+<li>Create/Get MBean server</li>
+<li>Instantiate desired MBeans (IoAcceptor, IoFilter)</li>
+<li>Register MBeans with MBean server</li>
+</ul>
+<p>We shall follow \src\main\java\org\apache\mina\example\imagine\step3\server\ImageServer.java, for the rest of our discussion</p>
+<h2 id="createget-mbean-server">Create/Get MBean server</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// create a JMX MBean Server server instance
+</span><span style="color:#080;font-style:italic"></span>MBeanServer mBeanServer <span style="color:#666">=</span> ManagementFactory<span style="color:#666">.</span><span style="color:#b44">getPlatformMBeanServer</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>This lines get the MBean Server instance.</p>
+<h2 id="instantiate-mbeans">Instantiate MBean(s)</h2>
+<p>We create an MBean for IoService</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// create a JMX-aware bean that wraps a MINA IoService object.  In this
+</span><span style="color:#080;font-style:italic"></span><span style="color:#080;font-style:italic">// case, a NioSocketAcceptor. 
+</span><span style="color:#080;font-style:italic"></span>IoServiceMBean acceptorMBean <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> IoServiceMBean<span style="color:#666">(</span> acceptor <span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>This creates an IoService MBean. It accepts instance of an acceptor that it exposed via JMX.</p>
+<p>Similarly, you can add IoFilterMBean and other custom MBeans as well</p>
+<h2 id="registering-mbeans-with-mbean-server">Registering MBeans with MBean Server</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// create a JMX ObjectName.  This has to be in a specific format.  
+</span><span style="color:#080;font-style:italic"></span>ObjectName acceptorName <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> ObjectName<span style="color:#666">(</span> acceptor<span style="color:#666">.</span><span style="color:#b44">getClass</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">getPackage</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">getName</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">+</span>
+        <span style="color:#b44">&#34;:type=acceptor,name=&#34;</span> <span style="color:#666">+</span> acceptor<span style="color:#666">.</span><span style="color:#b44">getClass</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">getSimpleName</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    
+<span style="color:#080;font-style:italic">// register the bean on the MBeanServer.  Without this line, no JMX will happen for
+</span><span style="color:#080;font-style:italic"></span><span style="color:#080;font-style:italic">// this acceptor.
+</span><span style="color:#080;font-style:italic"></span>mBeanServer<span style="color:#666">.</span><span style="color:#b44">registerMBean</span><span style="color:#666">(</span> acceptorMBean<span style="color:#666">,</span> acceptorName <span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>We create an ObjectName that need to be used as logical name for accessing the MBean and register the MBean to the MBean Server. Our application in now JMX enabled. Lets see it in action.</p>
+<h2 id="start-the-imagine-server">Start the Imagine Server</h2>
+<p>If you are using Java 5 or earlier:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -Dcom.sun.management.jmxremote -classpath &lt;CLASSPATH&gt; org.apache.mina.example.imagine.step3.server.ImageServer
+</code></pre></div><p>If you  are using Java 6:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java  -classpath &lt;CLASSPATH&gt; <span style="color:#666">}</span><span style="color:#666">}</span><span style="color:#666">{</span><span style="color:#666">{</span><span style="color:#666">{</span><span style="color:#666">}</span>org.apache.mina.example.imagine.step3.server.ImageServer
+</code></pre></div><h2 id="start-jconsole">Start JConsole</h2>
+<p>Start JConsole using the following command:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&lt;JDK_HOME&gt;/bin/jconsole
+</code></pre></div><p>We can see the different attributes and operations that are exposed by the MBeans</p>
+
+
+            
+    <div class="nav">
+        <div class="nav_prev">
+            
+                
+                <a href="../ch15-proxy/ch15-proxy.html">Chapter 15 - Proxy</a>
+            
+        </div>
+        <div class="nav_up">
+            
+                
+                <a href="../user-guide-toc.html">User Guide</a>
+            
+        </div>
+        <div class="nav_next">
+            
+                
+                <a href="../ch17-spring-integration/ch17-spring-integration.html">Chapter 17 - Spring Integration</a>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Vysper Websocket endpoint &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/vysper.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                <strong>Vysper</strong>
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/vysper-project/index.html">Home</a> </li>
+                    <li><a href="/vysper-project/documentation.html">Documentation</a></li>
+                    <li><a href="/vysper-project/downloads.html">Downloads</a></li>
+                    <li><a href="/vysper-project/sources.html">Source</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/vysper-project/mailing_lists.html">Mailing Lists</a></li>
+                    <li><a href="/vysper-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/vysper-project/issue_tracking.html">Issue Tracking</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="websocket-endpoint">Websocket endpoint</h1>
+<div class="info" markdown="1">
+    Available since version 0.7.
+</div>
+<p>While websockets are still being specified, a draft specification for XMPP over websockets has been published at <a href="http://tools.ietf.org/html/draft-moffitt-xmpp-over-websocket-00">http://tools.ietf.org/html/draft-moffitt-xmpp-over-websocket-00</a>. Websockets enables web browsers to establish duplex communications with servers with very little overhead.</p>
+<p>Vysper provides a websocket endpoint. The easiest way to use the endpoint is to simply add it as a regular endpoint:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">XMPPServer server <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMPPServer<span style="color:#666">(</span><span style="color:#b44">&#34;vysper.org&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+server<span style="color:#666">.</span><span style="color:#b44">addEndpoint</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> TCPEndpoint<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+server<span style="color:#666">.</span><span style="color:#b44">addEndpoint</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> WebSocketEndpoint<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+server<span style="color:#666">.</span><span style="color:#b44">start</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>That’s it. The default configuration will start a web server on port 8080 and supply websockets on <a href="http://vysper.org:8080/">http://vysper.org:8080/</a>.</p>
+<p>The port and context path can be configured:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">WebSocketEndpoint wsEndpoint <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> WebSocketEndpoint<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+wsEndpoint<span style="color:#666">.</span><span style="color:#b44">setContextPath</span><span style="color:#666">(</span><span style="color:#b44">&#34;/xmpp&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+wsEndpoint<span style="color:#666">.</span><span style="color:#b44">setPort</span><span style="color:#666">(</span>9000<span style="color:#666">)</span><span style="color:#666">;</span>
+server<span style="color:#666">.</span><span style="color:#b44">addEndpoint</span><span style="color:#666">(</span>wsEndpoint<span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><h2 id="embedded">Embedded</h2>
+<p>Commonly, there’s a need to use websockets within the context of a web application. For that purpose, there is a servlet available that can be configured in web.xml inside your regular application.</p>
+<p>Vysper currently supports this for Jetty and Apache Tomcat 7.0.27 or later.</p>
+<p>For Jetty, add the following to your web.xml:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">WebSocketEndpoint wsEndpoint <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> WebSocketEndpoint<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+wsEndpoint<span style="color:#666">.</span><span style="color:#b44">setSSLEnabled</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">true</span><span style="color:#666">)</span><span style="color:#666">;</span>
+wsEndpoint<span style="color:#666">.</span><span style="color:#b44">setSSLCertificateKeystore</span><span style="color:#666">(</span><span style="color:#b44">&#34;keystore.jks&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;sekrit&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+server<span style="color:#666">.</span><span style="color:#b44">addEndpoint</span><span style="color:#666">(</span>wsEndpoint<span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><p>For Tomcat, add the following to your web.xml:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;servlet</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;servlet-name</span><span style="color:#008000;font-weight:bold">&gt;</span>WebSocket Servlet<span style="color:#008000;font-weight:bold">&lt;/servlet-name&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;servlet-class</span><span style="color:#008000;font-weight:bold">&gt;</span>org.apache.vysper.xmpp.extension.websockets.TomcatXmppWebSocketServlet<span style="color:#008000;font-weight:bold">&lt;/servlet-class&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;load-on-startup</span><span style="color:#008000;font-weight:bold">&gt;</span>1<span style="color:#008000;font-weight:bold">&lt;/load-on-startup&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/servlet&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;servlet-mapping</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;servlet-name</span><span style="color:#008000;font-weight:bold">&gt;</span>WebSocket Servlet<span style="color:#008000;font-weight:bold">&lt;/servlet-name&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;url-pattern</span><span style="color:#008000;font-weight:bold">&gt;</span>/ws<span style="color:#008000;font-weight:bold">&lt;/url-pattern&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/servlet-mapping&gt;</span>
+</code></pre></div><p>Also, when using the servlet, the main Vysper XMPP server needs to be started by some other mean, typically via a context listener. The ServerRuntimeContext of the Vysper server needs to be made available within the servlet context under the key “org.apache.vysper.xmpp.server.ServerRuntimeContext”. There’s an example application included in the Vysper distribution which does this. The source code is available here: <a href="http://svn.apache.org/repos/asf/mina/vysper/trunk/examples/embedded-war/">http://svn.apache.org/repos/asf/mina/vysper/trunk/examples/embedded-war/</a></p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2020, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="/privacy-policy.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11074178-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+</body>
+
+</html>
