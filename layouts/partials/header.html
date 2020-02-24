@@ -1,0 +1,51 @@
+<div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            {{ if eq .project "home" }}
+                <strong>Apache MINA Project</strong>
+            {{ else }}
+                Apache MINA Project
+            {{ end }}
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            {{ if eq .project "mina" }}
+                <strong>MINA</strong>
+            {{ else }}
+                MINA
+            {{ end }}
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            {{ if eq .project "asyncweb" }}
+                <strong>AsyncWeb</strong>
+            {{ else }}
+                AsyncWeb
+            {{ end }}
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            {{ if eq .project "ftpserver" }}
+                <strong>FtpServer</strong>
+            {{ else }}
+                FtpServer
+            {{ end }}
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            {{ if eq .project "sshd" }}
+                <strong>SSHD</strong>
+            {{ else }}
+                SSHD
+            {{ end }}
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            {{ if eq .project "vysper" }}
+                <strong>Vysper</strong>
+            {{ else }}
+                Vysper
+            {{ end }}
+        </a>
+    </div><!-- subProjectsNavBar -->
+</div><!-- header -->

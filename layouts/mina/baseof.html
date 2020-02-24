@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html lang="en">
+<head>
+    <title>{{ .Title }} &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    {{ partial "header.html" (dict "context" . "project" "mina") }}
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Latest Downloads</h5>
+                <ul>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina {{ .Site.Params.version_mina_2_0 }}</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina {{ .Site.Params.version_mina_2_1 }}</a></li>
+                    <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
+                </ul>
+                <h5>Documentation</h5>
+                <ul>
+                    <li><a href="/mina-project/documentation.html" class="external-link" rel="nofollow">Base documentation</a></li>
+                    <li><a href="/mina-project/userguide/user-guide-toc.html" class="external-link" rel="nofollow">User guide</a></li>
+                    <li><a href="/mina-project/2.1-vs-2.0.html" class="external-link" rel="nofollow">2.1 vs 2.0</a></li>
+                    <li><a href="/mina-project/features.html" class="external-link" rel="nofollow">Features</a></li>
+                    <li><a href="/mina-project/road-map.html" class="external-link" rel="nofollow">Road Map</a></li>
+                    <li><a href="/mina-project/quick-start-guide.html" class="external-link" rel="nofollow">Quick Start Guide</a></li>
+                    <li><a href="/mina-project/faq.html" class="external-link" rel="nofollow">FAQ</a></li>
+                </ul>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
+                    <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
+                    <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc {{ .Site.Params.version_mina_2_0 }}</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc {{ .Site.Params.version_mina_2_1 }}</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  {{ .Site.Params.version_mina_2_0 }}</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref {{ .Site.Params.version_mina_2_1 }}</a></li>
+                    <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
+                    <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
+                    <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
+                    <li><a href="/mina-project/developer-guide.html" class="external-link" rel="nofollow">Developers Guide</a></li>
+                    <li><a href="/mina-project/related-projects.html" class="external-link" rel="nofollow">Related Projects</a></li>
+                    <li><a href="https://people.apache.org/~vgritsenko/stats/projects/mina.html" class="external-link" rel="nofollow">Statistics</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/contributing.html" class="external-link" rel="nofollow">Contributing</a></li>
+                    <li><a href="/contributors.html" class="external-link" rel="nofollow">Team</a></li>
+                    <li><a href="/special-thanks.html" class="external-link" rel="nofollow">Special Thanks</a></li>
+                    <li><a href="https://www.apache.org/security/" class="external-link" rel="nofollow">Security</a></li>
+                </ul>
+
+                <h5>About Apache</h5>
+                <ul>
+                    <li><a href="https://www.apache.org" class="external-link" rel="nofollow">Apache main site</a></li>
+                    <li><a href="https://www.apache.org/licenses/" class="external-link" rel="nofollow">License</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html" title="The ASF sponsorship program" class="external-link" rel="nofollow">Sponsorship program</a></li>
+                    <li><a href="https://www.apache.org/foundation/thanks.html" class="external-link" rel="nofollow">Thanks</a></li>
+                </ul>
+
+                <h3><a name="Navigation-Upcoming"></a>Upcoming</h3>
+                <ul>
+                    <li>No event</li>
+                </ul>
+            </div><!-- navigation -->
+        </div><!-- leftColumn -->
+        <div id="rightColumn">
+            {{ partial "nav-headers.html" . }}
+            {{ block "main" . }}{{ end }}
+            {{ partial "nav-headers.html" . }}
+        </div><!-- rightColumn -->
+        <div id="endContent"></div>
+    </div><!-- content -->
+
+    {{ partial "footer.html" . }}
+</div><!-- container -->
+
+{{ partial "google-analytics.html" . }}
+
+</body>
+
+</html>

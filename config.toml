@@ -1,0 +1,41 @@
+baseURL = "https://mina.apache.org"
+title = "Apache Mina"
+languageCode = "en"
+
+contentDir = "source"
+publishDir = "target/content"
+
+disablePathToLower = true
+uglyURLs = true
+enableRobotsTXT = true
+disableBrowserError = true
+timeout = 3000
+
+disableKinds = ["taxonomy", "taxonomyTerm"]
+ignoreFiles = [ ] # No files to ignore
+
+# Highlighting config. See https://help.farbox.com/pygments.html
+pygmentsCodeFences = true
+pygmentsUseClasses = false
+pygmentsStyle = "emacs"
+
+# Enable Git variables like commit, lastmod
+enableGitInfo = true
+
+[markup.goldmark.renderer]
+unsafe= true
+
+[blackfriday]
+# hrefTargetBlank = true # We don't want everything opened in a new window
+fractions = false
+
+[frontmatter]
+date = ["date", ":filename", "publishDate", "lastmod"]
+
+[params]
+version_asyncweb = "2.0.0-SNAPSHOT"
+version_mina_2_0 = "2.0.21"
+version_mina_2_1 = "2.1.3"
+version_ftpserver = "1.1.1"
+version_sshd = "2.4.0"
+version_vysper = "0.7"

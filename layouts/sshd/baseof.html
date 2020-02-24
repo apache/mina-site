@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<html lang="en">
+<head>
+    <title>{{ .Title }} &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/sshd.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="container">
+    {{ partial "header.html" (dict "context" . "project" "sshd") }}
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/sshd-project/index.html">Home</a> </li>
+                    <li><a href="/sshd-project/features.html">Features</a> </li>
+                    <li><a href="/sshd-project/documentation.html">Documentation</a></li>
+                    <li><a href="/sshd-project/downloads.html">Downloads</a></li>
+                    <li><a href="/sshd-project/sources.html">Sources</a></li>
+                    <li><a href="/sshd-project/faq.html">FAQ</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/sshd-project/mailing_lists.html">Mailing Lists</a></li>
+                    <li><a href="/sshd-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/sshd-project/issue_tracking.html">Issue Tracking</a></li>
+                    <li><a href="/sshd-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div><!-- navigation -->
+        </div><!-- leftColumn -->
+        <div id="rightColumn">
+            {{ partial "nav-headers.html" . }}
+            {{ block "main" . }}{{ end }}
+            {{ partial "nav-headers.html" . }}
+        </div><!-- rightColumn -->
+        <div id="endContent"></div>
+    </div><!-- content -->
+
+    {{ partial "footer.html" . }}
+</div><!-- container -->
+
+{{ partial "google-analytics.html" . }}
+
+</body>
+
+</html>
