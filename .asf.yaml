@@ -1,0 +1,7 @@
+github:
+  description: "Website sources for Apache MINA"
+  homepage: https://mina.apache.org/
+  labels:
+    - apache
+    - mina
+    - hugo
