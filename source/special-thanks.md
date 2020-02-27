@@ -22,5 +22,5 @@ We would also like to thank the organizations who provided some tools and images
 
 | Company/Organization | Donation type | Organization contact | Apache contact |
 |---|---|---|---|
-|![http://www.yourkit.com/](assets/img/YourKit_logo.png) | Licenses for YourKit | Vladimir Kondratyev <br> (sales at yourkit.com) | Emmanuel L&eacute;charny |
-|![http://www.famfamfam.com/lab/icons/silk/](assets/img/FAMFAMFAM_logo.png)|[http://creativecommons.org/licenses/by/2.5/](http://creativecommons.org/licenses/by/2.5/)| Mark James | Emmanuel L&eacute;charny|
+|![http://www.yourkit.com/](assets/img/YourKit_logo.png) | Licenses for YourKit | Vladimir Kondratyev <br> (sales at yourkit.com) | Emmanuel L{{< html "&eacute;" >}}charny |
+|![http://www.famfamfam.com/lab/icons/silk/](assets/img/FAMFAMFAM_logo.png)|[http://creativecommons.org/licenses/by/2.5/](http://creativecommons.org/licenses/by/2.5/)| Mark James | Emmanuel L{{< html "&eacute;" >}}charny|

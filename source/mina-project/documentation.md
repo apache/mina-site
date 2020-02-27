@@ -15,7 +15,7 @@ title: Documentation
 
 These presentation materials will help you understand the overall architecture and core constructs of MINA
 
-* [MINA in real life (ApacheCon EU 2009)](resources/Mina_in_real_life_ASEU-2009.pdf) by Emmanuel L&eacute;charny
+* [MINA in real life (ApacheCon EU 2009)](resources/Mina_in_real_life_ASEU-2009.pdf) by Emmanuel L{{< html "&eacute;" >}}charny
 * [Rapid Network Application Development with Apache MINA (JavaOne 2008)](resources/JavaOne2008.pdf) by Trustin Lee
 * [Apache MINA - The High Performance Protocol Construction Toolkit (ApacheCon US 2007)](resources/ACUS2007.pdf) by Peter Royal
 * [Introduction to MINA (ApacheCon Asia 2006)](resources/ACAsia2006.pdf) by Trustin Lee

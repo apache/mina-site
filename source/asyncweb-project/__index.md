@@ -7,7 +7,7 @@ slug: index
 # Apache AsyncWeb
 
 <div class="note" markdown="1" >
-The **AsyncWeb** project is currently dormant. We don't have committers for it, so if you feel like you can give an hand, please do contact us !
+    The <strong>AsyncWeb</strong> project is currently dormant. We don't have committers for it, so if you feel like you can give an hand, please do contact us !
 </div>
 
 Apache AsyncWeb (built on top of the Apache MINA network framework) employs non-blocking selector driven IO at the transport level, and is asynchronous throughout - from the initial parsing of requests, right through to and including the services implemented by users.

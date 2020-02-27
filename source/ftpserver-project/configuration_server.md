@@ -27,12 +27,10 @@ Using the XML configuration, this following examples shows all available configu
 
 | Attribute | Description | Required | Default value |
 |---|---|---|---|
-| id | A unique identifier for this server within this XML configuration | Yes |&nbsp;|
+| id | A unique identifier for this server within this XML configuration | Yes | {{< html "&nbsp;" >}} |
 | max-threads | The maximum number of threads used in the thread pool for handling client connections  | No | max-logins, or 16 if neither value is set |
 | max-logins | The maximum number of simultaneous users  | No | 10 |
 | max-anon-logins | The maximum number of simultaneous anonymous users  | No | 10 |
 | anon-enabled | Are anonymous logins enabled? | No | true |
 | max-login-failures | The number of failed login attempts before the connection is closed | No | 3 |
 | login-failure-delay | The number of milliseconds that the connection is delayed after a failed login attempt. Used to limit to possibility of brute force guessing passwords. | No | 500 |
-
-

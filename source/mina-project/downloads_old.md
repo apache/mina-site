@@ -8,16 +8,16 @@ title: MINA Older Downloads
 <div class="note" markdown="1">
     For people wanting to use the <strong>serial</strong> package, we don't include the <strong>rxtx.jar</strong> library in the releases, as it's under a LGPL license. Please download it from <a href="http://rxtx.qbang.org/wiki/index.php/Download" class="external-link" rel="nofollow">http://rxtx.qbang.org/wiki/index.php/Download</a> or add the associated dependency in your maven pom.xml :
 
-        <dependency>
+    <dependency>
         <groupId>org.rxtx</groupId>
         <artifactId>rxtx</artifactId>
-         <version>2.1.7</version>
-         <scope>provided<scope>
-        </dependency>
+        <version>2.1.7</version>
+        <scope>provided<scope>
+    </dependency>
 </div>
 
-
 ## MINA 2.1.x
+
 <center>
 
 | Version| Download Links | Date |

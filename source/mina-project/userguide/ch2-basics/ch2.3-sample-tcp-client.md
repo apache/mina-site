@@ -41,7 +41,7 @@ public static void main(String[] args) throws Throwable {
             session = future.getSession();
             break;
         } catch (RuntimeIoException e) {
-            System.err.println(&quot;Failed to connect.&quot;);
+            System.err.println("Failed to connect.");
             e.printStackTrace();
             Thread.sleep(5000);
         }

@@ -15,15 +15,17 @@ Using either the PropertiesUserManager or DbUserManager you can access the data 
 
 Using the FtpServer API, you can create a user manager, configure it as your real user manager and use that to edit users. This is a simple example:
 
-    PropertiesUserManagerFactory userManagerFactory = new PropertiesUserManagerFactory();
-    userManagerFactory.setFile(new File(&quot;myusers.properties&quot;));
-    userManagerFactory.setPasswordEncryptor(new SaltedPasswordEncryptor());
-    UserManager um = userManagerFactory.createUserManager();
-    BaseUser user = new BaseUser();
-    user.setName(&quot;myNewUser&quot;);
-    user.setPassword(&quot;secret&quot;);
-    user.setHomeDirectory(&quot;ftproot&quot;);
-    um.save(user);
+```java
+PropertiesUserManagerFactory userManagerFactory = new PropertiesUserManagerFactory();
+userManagerFactory.setFile(new File("myusers.properties"));
+userManagerFactory.setPasswordEncryptor(new SaltedPasswordEncryptor());
+UserManager um = userManagerFactory.createUserManager();
+BaseUser user = new BaseUser();
+user.setName("myNewUser");
+user.setPassword("secret");
+user.setHomeDirectory("ftproot");
+um.save(user);
+```
 
 ## Using command line tool
 
@@ -33,14 +35,18 @@ In the examples below, make sure you update the versions to reflect the correct 
 
 Windows:
 
-    java -cp ftpserver-core-1.0.0-M4.jar;ftplet-api-1.0.0-M4.jar;mina-core-2.0.0-M3.jar; 
-        [slf4j-api-1.5.2.jar;<br>slf4j-simple-1.5.2.jar 
-        [ org.apache.ftpserver.main.AddUser path/to/your/config.xml
+```bash
+java -cp ftpserver-core-1.0.0-M4.jar;ftplet-api-1.0.0-M4.jar;mina-core-2.0.0-M3.jar; 
+    [slf4j-api-1.5.2.jar;<br>slf4j-simple-1.5.2.jar 
+    [ org.apache.ftpserver.main.AddUser path/to/your/config.xml
+```
 
 MacOS/Linux/Unix
 
-    java -cp ftpserver-core-1.0.0-M4.jar:ftplet-api-1.0.0-M4.jar:mina-core-2.0.0-M3.jar:\
-        slf4j-api-1.5.2.jar:<br>slf4j-simple-1.5.2.jar \
-        org.apache.ftpserver.main.AddUser path/to/your/config.xml
+```bash
+java -cp ftpserver-core-1.0.0-M4.jar:ftplet-api-1.0.0-M4.jar:mina-core-2.0.0-M3.jar:\
+    slf4j-api-1.5.2.jar:<br>slf4j-simple-1.5.2.jar \
+    org.apache.ftpserver.main.AddUser path/to/your/config.xml
+```
 
 The program will ask you for the required data.

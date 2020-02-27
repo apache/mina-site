@@ -66,14 +66,14 @@ You must include the required JAR files for your database in the classpath of Ft
 
 | Child element | Description | Required | Default value |
 |---|---|---|---|
-| data-source | The data source configured using the regular Spring bean element | Yes |&nbsp;|
-| insert-user | The SQL statement to insert a new user. All the dynamic values will be replaced during runtime. | Yes |&nbsp;|
-| update-user | The SQL statement to update a user. All the dynamic values will be replaced during runtime. | Yes |&nbsp;|
-| delete-user | The SQL statement to delete a user. All the dynamic values will be replaced during runtime. | Yes |&nbsp;|
-| select-user | The SQL statement to select a user. All the dynamic values will be replaced during runtime. | Yes |&nbsp;|
-| select-all-users | The SQL statement to select all users. All the dynamic values will be replaced during runtime. | Yes |&nbsp;|
-| is-admin | The SQL statement to find whether an user is admin or not. All the dynamic values will be replaced during runtime. | Yes |&nbsp;|
-| authenticate | The SQL statement to authenticate a user. All the dynamic values will be replaced during runtime. | Yes |&nbsp;|
+| data-source | The data source configured using the regular Spring bean element | Yes | {{< html "&nbsp;" >}} |
+| insert-user | The SQL statement to insert a new user. All the dynamic values will be replaced during runtime. | Yes | {{< html "&nbsp;" >}} |
+| update-user | The SQL statement to update a user. All the dynamic values will be replaced during runtime. | Yes | {{< html "&nbsp;" >}} |
+| delete-user | The SQL statement to delete a user. All the dynamic values will be replaced during runtime. | Yes | {{< html "&nbsp;" >}} |
+| select-user | The SQL statement to select a user. All the dynamic values will be replaced during runtime. | Yes | {{< html "&nbsp;" >}} |
+| select-all-users | The SQL statement to select all users. All the dynamic values will be replaced during runtime. | Yes | {{< html "&nbsp;" >}} |
+| is-admin | The SQL statement to find whether an user is admin or not. All the dynamic values will be replaced during runtime. | Yes | {{< html "&nbsp;" >}} |
+| authenticate | The SQL statement to authenticate a user. All the dynamic values will be replaced during runtime. | Yes | {{< html "&nbsp;" >}} |
 
 ### Data source configuration
 
@@ -96,9 +96,9 @@ The data source must be configured as described by the database provider. You ca
 
 | Column | Type | Default value |
 |---|---|---|
-| userid | VARCHAR(64), Primary key |&nbsp;|
-| userpassword | VARCHAR(64) |&nbsp;|
-| homedirectory | VARCHAR(128) |&nbsp;|
+| userid | VARCHAR(64), Primary key | {{< html "&nbsp;" >}} |
+| userpassword | VARCHAR(64) | {{< html "&nbsp;" >}} |
+| homedirectory | VARCHAR(128) | {{< html "&nbsp;" >}} |
 | enableflag | BOOLEAN | TRUE |
 | writepermission | BOOLEAN | FALSE |
 | idletime | INT | 0 |

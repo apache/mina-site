@@ -13,6 +13,6 @@ The following is a list of developers with commit privileges that have directly 
 * [Niklas Gustavsson](http://protocol7.com/)
 * Paul Hammant
 * David Latorre
-* Emmanuel L&eacute;charny
+* Emmanuel L{{< html "&eacute;" >}}charny
 * Sai Pullabhotla
 * Sergey M Vladimirov

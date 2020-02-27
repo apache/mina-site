@@ -20,11 +20,10 @@ MINA is a simple yet full-featured network application framework which provides:
     * Single thread
     * One thread pool
     * More than one thread pools (i.e. [SEDA](https://web.archive.org/web/20061208181754/http://www.eecs.harvard.edu/~mdw/papers/mdw-phdthesis.pdf))
-* Out-of-the-box SSL &middot; TLS &middot; StartTLS support using Java 5 `SSLEngine`
+* Out-of-the-box SSL {{< html "&middot;" >}} TLS {{< html "&middot;" >}} StartTLS support using Java 5 `SSLEngine`
 * Overload shielding & traffic throttling
 * Unit testability using mock objects
 * JMX managability
 * Stream-based I/O support via `StreamIoHandler`
 * Integration with well known containers such as PicoContainer and Spring
 * Smooth migration from Netty, an ancestor of Apache MINA.
-

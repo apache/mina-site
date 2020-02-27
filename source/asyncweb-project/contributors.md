@@ -12,7 +12,7 @@ The following is a list of developers with commit privileges that have directly 
 * Jeff Genender
 * Mike Heath
 * Alex Karasulu
-* Emmanuel L&eacute;charny
+* Emmanuel L{{< html "&eacute;" >}}charny
 * Sangjin Lee
 * Trustin Lee
 * Rick McGuire

@@ -23,7 +23,7 @@ Having a Vysper XMPP server instance embedded into your own application is easy:
 ```java
 import org.apache.vysper.xmpp.server;
 
-XMPPServer server = new XMPPServer(&quot;myembeddedjabber.com&quot;);
+XMPPServer server = new XMPPServer("myembeddedjabber.com");
 server.start();
 ```
 
@@ -41,8 +41,8 @@ StorageProviderRegistry providerRegistry = new JcrStorageProviderRegistry();
 
 final AccountManagement accountManagement = (AccountManagement) providerRegistry.retrieve(AccountManagement.class);
 
-if(!accountManagement.verifyAccountExists(EntityImpl.parse(&quot;user1@myembeddedjabber.com&quot;))) {
-    accountManagement.addUser(EntityImpl.parse(&quot;user1@myembeddedjabber.com&quot;), &quot;password1&quot;);
+if(!accountManagement.verifyAccountExists(EntityImpl.parse("user1@myembeddedjabber.com"))) {
+    accountManagement.addUser(EntityImpl.parse("user1@myembeddedjabber.com"), "password1");
 }
 ```
 
@@ -52,11 +52,11 @@ SSL needs a TLS certificate. There is one coming along with Vysper for testing p
 Or, even better, create your own.
 
 ```java
-XMPPServer server = new XMPPServer(&quot;myembeddedjabber.com&quot;);
+XMPPServer server = new XMPPServer("myembeddedjabber.com");
 server.addEndpoint(new TCPEndpoint());
 server.setStorageProviderRegistry(providerRegistry);
 
-server.setTLSCertificateInfo(new File(&quot;src/main/config/bogus_mina_tls.cert&quot;), &quot;boguspw&quot;);
+server.setTLSCertificateInfo(new File("src/main/config/bogus_mina_tls.cert"), "boguspw");
 ```
 
 With initializing completed, just give it a go:
@@ -64,7 +64,7 @@ With initializing completed, just give it a go:
 ```java
 try {
     server.start();
-    System.out.println(&quot;server is running...&quot;);
+    System.out.println("server is running...");
 } catch (Exception e) {
     e.printStackTrace();
 }
