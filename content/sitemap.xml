@@ -14,7 +14,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.3-features.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -29,7 +29,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1-application-architecture.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -44,12 +44,12 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.2-sample-tcp-server.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.3-sample-tcp-client.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -284,12 +284,12 @@
   
   <url>
     <loc>https://mina.apache.org/contributors.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/special-thanks.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -459,12 +459,12 @@
   
   <url>
     <loc>https://mina.apache.org/asyncweb-project/</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:58:01+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/asyncweb-project/contributors.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -484,7 +484,7 @@
   
   <url>
     <loc>https://mina.apache.org/asyncweb-project.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:58:01+01:00</lastmod>
   </url>
   
   <url>
@@ -544,12 +544,12 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch4-session/ch4-session.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5-filters.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -589,7 +589,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/documentation.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -604,7 +604,7 @@
   
   <url>
     <loc>https://mina.apache.org/vysper-project/embed.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -624,7 +624,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/features.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -654,12 +654,12 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project/contributors.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project/configuration_user_manager_db.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -689,7 +689,7 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project/configuration_user_manager_file.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -699,7 +699,7 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project/ftplet.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -724,7 +724,7 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project/configuration_listeners.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -739,12 +739,12 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project/managing_users.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project/messages.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -764,7 +764,7 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project/configuration_server.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -789,7 +789,7 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -819,12 +819,12 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/downloads_2_0.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:58:01+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project/downloads_2_1.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:58:01+01:00</lastmod>
   </url>
   
   <url>
@@ -844,22 +844,22 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project/downloads_old.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:58:01+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project/conferences.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:58:01+01:00</lastmod>
   </url>
   
   <url>
@@ -919,7 +919,7 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project/contributors.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -979,7 +979,7 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -989,7 +989,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/testimonials.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -1054,12 +1054,12 @@
   
   <url>
     <loc>https://mina.apache.org/vysper-project/service_discovery.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/vysper-project/socks5.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -1074,7 +1074,7 @@
   
   <url>
     <loc>https://mina.apache.org/vysper-project/standards_supported.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
@@ -1109,7 +1109,7 @@
   
   <url>
     <loc>https://mina.apache.org/vysper-project.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
 </urlset>

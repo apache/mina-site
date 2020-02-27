@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/asyncweb-project/</guid>
-      <description>Apache AsyncWeb The **AsyncWeb** project is currently dormant. We don&#39;t have committers for it, so if you feel like you can give an hand, please do contact us !  Apache AsyncWeb (built on top of the Apache MINA network framework) employs non-blocking selector driven IO at the transport level, and is asynchronous throughout - from the initial parsing of requests, right through to and including the services implemented by users.</description>
+      <description>Apache AsyncWeb The AsyncWeb project is currently dormant. We don&#39;t have committers for it, so if you feel like you can give an hand, please do contact us !  Apache AsyncWeb (built on top of the Apache MINA network framework) employs non-blocking selector driven IO at the transport level, and is asynchronous throughout - from the initial parsing of requests, right through to and including the services implemented by users.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       
       <guid>https://mina.apache.org/asyncweb-project/contributors.html</guid>
       <description>Contributors Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
- Jeff Genender Mike Heath Alex Karasulu Emmanuel Lécharny Sangjin Lee Trustin Lee Rick McGuire Julien Vermillard  </description>
+ Jeff Genender Mike Heath Alex Karasulu Emmanuel L&amp;eacute;charny Sangjin Lee Trustin Lee Rick McGuire Julien Vermillard  </description>
     </item>
     
     <item>

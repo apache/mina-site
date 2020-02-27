@@ -234,7 +234,7 @@ The XML document scaffold looks like this:
       
       <guid>https://mina.apache.org/ftpserver-project/contributors.html</guid>
       <description>Contributors Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
- Rana Battacharyya Niklas Gustavsson Paul Hammant David Latorre Emmanuel Lécharny Sai Pullabhotla Sergey M Vladimirov  </description>
+ Rana Battacharyya Niklas Gustavsson Paul Hammant David Latorre Emmanuel L&amp;eacute;charny Sai Pullabhotla Sergey M Vladimirov  </description>
     </item>
     
     <item>
@@ -300,7 +300,7 @@ All Releases  Apache FtpServer 1.1.1 Release Apache FtpServer 1.1.0 Release Apac
       
       <guid>https://mina.apache.org/ftpserver-project/configuration_user_manager_file.html</guid>
       <description>File based user manager This is the default user manager. It uses a properties file to store all the user information.
-Example &amp;lt;file-user-manager file=&amp;#34;users.properties&amp;#34; encrypt-passwords=&amp;#34;true&amp;#34;&amp;gt; file-user-manager element    Attribute Description Required Default value     file Path to the properties file for storing users Yes     encrypt-passwords It indicates how to stored password are encrypted. Possible values are &amp;ldquo;clear&amp;rdquo; for clear text, &amp;ldquo;md5&amp;rdquo; for hashed using MD5 or &amp;ldquo;salted&amp;rdquo; for hashed salted passwords (including multiple hash iterations).</description>
+Example &amp;lt;file-user-manager file=&amp;#34;users.properties&amp;#34; encrypt-passwords=&amp;#34;true&amp;#34;&amp;gt; file-user-manager element    Attribute Description Required Default value     file Path to the properties file for storing users Yes &amp;nbsp;   encrypt-passwords It indicates how to stored password are encrypted. Possible values are &amp;ldquo;clear&amp;rdquo; for clear text, &amp;ldquo;md5&amp;rdquo; for hashed using MD5 or &amp;ldquo;salted&amp;rdquo; for hashed salted passwords (including multiple hash iterations).</description>
     </item>
     
     <item>
@@ -416,7 +416,7 @@ Manually Using either the PropertiesUserManager or DbUserManager you can access 
       <description>Messages This document explains how to customize all the Apache FtpServer reply messages.
 All the server messages are customizable. The default reply messages are bundled with the server. The user defined custom messages will be stored separately. This custom message file is configurable.
 The FtpServer project is interested in localized message bundles, please contact the project if you would like to donate.
-Example &amp;lt;messages languages=&amp;quot;se, no ,da&amp;quot;&amp;gt;  messages element    Attribute Description Required Default value     directory The directory in which message bundles can be located No     languages A comma separated list of the languages that the server will provide messages in No      Creating a customized message bundle Dynamic Values Dynamic values can be embedded in the server message replies.</description>
+Example &amp;lt;messages languages=&amp;quot;se, no ,da&amp;quot;&amp;gt;  messages element    Attribute Description Required Default value     directory The directory in which message bundles can be located No &amp;nbsp;   languages A comma separated list of the languages that the server will provide messages in No &amp;nbsp;    Creating a customized message bundle Dynamic Values Dynamic values can be embedded in the server message replies.</description>
     </item>
     
     <item>
@@ -461,7 +461,7 @@ How to report a bug Writing a bug report with detailed information will help us 
       <guid>https://mina.apache.org/ftpserver-project/configuration_server.html</guid>
       <description>Server Some configuration is done for the entire server. This affects all listeners, for login limits, the sum of the logins for all listeners are enforced.
 Using the XML configuration, this following examples shows all available configurations for the server
-&amp;lt;server xmlns=&amp;#34;http://mina.apache.org/ftpserver/spring/v1&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd&amp;#34; id=&amp;#34;server&amp;#34; max-logins=&amp;#34;500&amp;#34; anon-enabled=&amp;#34;false&amp;#34; max-anon-logins=&amp;#34;123&amp;#34; max-login-failures=&amp;#34;124&amp;#34; login-failure-delay=&amp;#34;125&amp;#34;&amp;gt; ... &amp;lt;/server&amp;gt; server element    Attribute Description Required Default value     id A unique identifier for this server within this XML configuration Yes     max-threads The maximum number of threads used in the thread pool for handling client connections No max-logins, or 16 if neither value is set   max-logins The maximum number of simultaneous users No 10   max-anon-logins The maximum number of simultaneous anonymous users No 10   anon-enabled Are anonymous logins enabled?</description>
+&amp;lt;server xmlns=&amp;#34;http://mina.apache.org/ftpserver/spring/v1&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd&amp;#34; id=&amp;#34;server&amp;#34; max-logins=&amp;#34;500&amp;#34; anon-enabled=&amp;#34;false&amp;#34; max-anon-logins=&amp;#34;123&amp;#34; max-login-failures=&amp;#34;124&amp;#34; login-failure-delay=&amp;#34;125&amp;#34;&amp;gt; ... &amp;lt;/server&amp;gt; server element    Attribute Description Required Default value     id A unique identifier for this server within this XML configuration Yes &amp;nbsp;   max-threads The maximum number of threads used in the thread pool for handling client connections No max-logins, or 16 if neither value is set   max-logins The maximum number of simultaneous users No 10   max-anon-logins The maximum number of simultaneous anonymous users No 10   anon-enabled Are anonymous logins enabled?</description>
     </item>
     
     <item>

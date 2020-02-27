@@ -138,18 +138,15 @@
 </div>
 <h1 id="verify-the-integrity-of-the-files">Verify the integrity of the files</h1>
 <p>The PGP signatures can be verified using PGP or GPG. First download the <a href="https://www.apache.org/dist/mina/KEYS">KEYS</a> as well as the asc signature file for the relevant distribution. Then verify the signatures using:</p>
-<pre><code>$ pgpk -a KEYS
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pgpk -a KEYS
 $ pgpv mina-2.0.21.tar.gz.asc
-</code></pre>
-<p>or</p>
-<pre><code>$ pgp -ka KEYS
+</code></pre></div><p>or</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pgp -ka KEYS
 $ pgp mina-2.0.21.tar.gz.asc
-</code></pre>
-<p>or</p>
-<pre><code>$ gpg --import KEYS
+</code></pre></div><p>or</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gpg --import KEYS
 $ gpg --verify mina-2.0.21.tar.gz.asc
-</code></pre>
-<h1 id="previous-releases">Previous Releases</h1>
+</code></pre></div><h1 id="previous-releases">Previous Releases</h1>
 <p>The previous releases can be found <a href="https://archive.apache.org/dist/mina/">here</a> and <a href="https://archive.apache.org/dist/mina/mina/">here</a>. Please note that the following releases contains a LGPL licensed file, rxtx-2.1.7.jar: 2.0.0-M4, 2.0.0-M5, 2.0.0-M6, 2.0.0-RC1.</p>
 <h1 id="version-numbering-scheme">Version Numbering Scheme</h1>
 <p>The version number of MINA has the following form:</p>

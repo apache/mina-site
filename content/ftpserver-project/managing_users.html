@@ -93,30 +93,27 @@
 <p>Using either the PropertiesUserManager or DbUserManager you can access the data store (file or database) directly to edit users. For clear text passwords you can simply edit them. For MD5 hashed passwords, you can you use any of the available MD5 tools, for example <a href="http://www.iwebtool.com/md5">http://www.iwebtool.com/md5</a>, to hash the password before editing it. For salted passwords, use one of the methods described below.</p>
 <h2 id="using-the-api">Using the API</h2>
 <p>Using the FtpServer API, you can create a user manager, configure it as your real user manager and use that to edit users. This is a simple example:</p>
-<pre><code>PropertiesUserManagerFactory userManagerFactory = new PropertiesUserManagerFactory();
-userManagerFactory.setFile(new File(&amp;quot;myusers.properties&amp;quot;));
-userManagerFactory.setPasswordEncryptor(new SaltedPasswordEncryptor());
-UserManager um = userManagerFactory.createUserManager();
-BaseUser user = new BaseUser();
-user.setName(&amp;quot;myNewUser&amp;quot;);
-user.setPassword(&amp;quot;secret&amp;quot;);
-user.setHomeDirectory(&amp;quot;ftproot&amp;quot;);
-um.save(user);
-</code></pre>
-<h2 id="using-command-line-tool">Using command line tool</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">PropertiesUserManagerFactory userManagerFactory <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> PropertiesUserManagerFactory<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+userManagerFactory<span style="color:#666">.</span><span style="color:#b44">setFile</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> File<span style="color:#666">(</span><span style="color:#b44">&#34;myusers.properties&#34;</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+userManagerFactory<span style="color:#666">.</span><span style="color:#b44">setPasswordEncryptor</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> SaltedPasswordEncryptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+UserManager um <span style="color:#666">=</span> userManagerFactory<span style="color:#666">.</span><span style="color:#b44">createUserManager</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+BaseUser user <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> BaseUser<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+user<span style="color:#666">.</span><span style="color:#b44">setName</span><span style="color:#666">(</span><span style="color:#b44">&#34;myNewUser&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+user<span style="color:#666">.</span><span style="color:#b44">setPassword</span><span style="color:#666">(</span><span style="color:#b44">&#34;secret&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+user<span style="color:#666">.</span><span style="color:#b44">setHomeDirectory</span><span style="color:#666">(</span><span style="color:#b44">&#34;ftproot&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
+um<span style="color:#666">.</span><span style="color:#b44">save</span><span style="color:#666">(</span>user<span style="color:#666">)</span><span style="color:#666">;</span>
+</code></pre></div><h2 id="using-command-line-tool">Using command line tool</h2>
 <p>If you&rsquo;re using the XML configuration, there is a command line tool available for adding new users to your user manager.</p>
 <p>In the examples below, make sure you update the versions to reflect the correct versions for your release</p>
 <p>Windows:</p>
-<pre><code>java -cp ftpserver-core-1.0.0-M4.jar;ftplet-api-1.0.0-M4.jar;mina-core-2.0.0-M3.jar; 
-    [slf4j-api-1.5.2.jar;&lt;br&gt;slf4j-simple-1.5.2.jar 
-    [ org.apache.ftpserver.main.AddUser path/to/your/config.xml
-</code></pre>
-<p>MacOS/Linux/Unix</p>
-<pre><code>java -cp ftpserver-core-1.0.0-M4.jar:ftplet-api-1.0.0-M4.jar:mina-core-2.0.0-M3.jar:\
-    slf4j-api-1.5.2.jar:&lt;br&gt;slf4j-simple-1.5.2.jar \
-    org.apache.ftpserver.main.AddUser path/to/your/config.xml
-</code></pre>
-<p>The program will ask you for the required data.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -cp ftpserver-core-1.0.0-M4.jar;ftplet-api-1.0.0-M4.jar;mina-core-2.0.0-M3.jar; 
+    <span style="color:#666">[</span>slf4j-api-1.5.2.jar;&lt;br&gt;slf4j-simple-1.5.2.jar 
+    <span style="color:#666">[</span> org.apache.ftpserver.main.AddUser path/to/your/config.xml
+</code></pre></div><p>MacOS/Linux/Unix</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -cp ftpserver-core-1.0.0-M4.jar:ftplet-api-1.0.0-M4.jar:mina-core-2.0.0-M3.jar:<span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>    slf4j-api-1.5.2.jar:&lt;br&gt;slf4j-simple-1.5.2.jar <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>    org.apache.ftpserver.main.AddUser path/to/your/config.xml
+</code></pre></div><p>The program will ask you for the required data.</p>
 
 
             

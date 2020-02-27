@@ -582,7 +582,7 @@ Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Si
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/contributors.html</guid>
-      <description>Project Management Committee  Alex Karasulu (akarasulu) Ashish Paliwal (apaliwal) Emmanuel Lécharny (elecharny) Guillaume Nodet (gnodet) Jean-François Maury (chairman) (jeffmaury) Jeff Genender (jgenender) Jonathan Valliere (johnnyv) Julien Vermillard (jvermillard) Maarten Bosteels (maarten) Mark Webb (mwebb) Niklas Gustavsson (ngn)  Committers  Alan Cabrera (adc) Bobby Powers (bpowers) Bogdan Pistol (bogdan) David Latorre (dlat) Edouard De Oliveira (edeoliveira) Lyor Goldstein (lgoldstein) Michael Jakl (mjakl) Mike Mahonay (foodmike) Raphaël P. Barazzutti (rbarazzutti) Richard McGuire (rickmcguire) Sai Pullabhotla (sai) Sangjin Lee (sjlee) Sebastien Baszley (sebb) Serguey Vladimirov (sergey) Shawn Pearce (spearce)  Code Contributors  Jan Andersson - SSL Vinod Panicker - Zlib compression  Emeritus Committers and PMC  Bernd Fondermann (PMC) Dan Diephouse (PMC) Dave Irving (PMC) Enrique Rodriguez (PMC) Ersin Er (PMC) Mike Heath (PMC) Niklas Therning (PMC) Peter Royal (PMC) Timothy Bennett (PMC) John Conlon (Committer) Rich Dougherty (Committer) Trustin Lee (Committer)  &amp;hellip; and everyone who gave us feed back including you!</description>
+      <description>Project Management Committee  Alex Karasulu (akarasulu) Ashish Paliwal (apaliwal) Emmanuel L&amp;eacute;charny (elecharny) Guillaume Nodet (gnodet) Jean-Fran&amp;ccedil;ois Maury (chairman) (jeffmaury) Jeff Genender (jgenender) Jonathan Valliere (johnnyv) Julien Vermillard (jvermillard) Maarten Bosteels (maarten) Mark Webb (mwebb) Niklas Gustavsson (ngn)  Committers  Alan Cabrera (adc) Bobby Powers (bpowers) Bogdan Pistol (bogdan) David Latorre (dlat) Edouard De Oliveira (edeoliveira) Lyor Goldstein (lgoldstein) Michael Jakl (mjakl) Mike Mahonay (foodmike) Rapha&amp;euml;l P. Barazzutti (rbarazzutti) Richard McGuire (rickmcguire) Sai Pullabhotla (sai) Sangjin Lee (sjlee) Sebastien Baszley (sebb) Serguey Vladimirov (sergey) Shawn Pearce (spearce)  Code Contributors  Jan Andersson - SSL Vinod Panicker - Zlib compression  Emeritus Committers and PMC  Bernd Fondermann (PMC) Dan Diephouse (PMC) Dave Irving (PMC) Enrique Rodriguez (PMC) Ersin Er (PMC) Mike Heath (PMC) Niklas Therning (PMC) Peter Royal (PMC) Timothy Bennett (PMC) John Conlon (Committer) Rich Dougherty (Committer) Trustin Lee (Committer)  &amp;hellip; and everyone who gave us feed back including you!</description>
     </item>
     
     <item>
@@ -940,7 +940,7 @@ Getting the Binary Distributions    Description Download Link PGP Signature file
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/asyncweb-project/</guid>
-      <description>Apache AsyncWeb The **AsyncWeb** project is currently dormant. We don&#39;t have committers for it, so if you feel like you can give an hand, please do contact us !  Apache AsyncWeb (built on top of the Apache MINA network framework) employs non-blocking selector driven IO at the transport level, and is asynchronous throughout - from the initial parsing of requests, right through to and including the services implemented by users.</description>
+      <description>Apache AsyncWeb The AsyncWeb project is currently dormant. We don&#39;t have committers for it, so if you feel like you can give an hand, please do contact us !  Apache AsyncWeb (built on top of the Apache MINA network framework) employs non-blocking selector driven IO at the transport level, and is asynchronous throughout - from the initial parsing of requests, right through to and including the services implemented by users.</description>
     </item>
     
     <item>
@@ -950,7 +950,7 @@ Getting the Binary Distributions    Description Download Link PGP Signature file
       
       <guid>https://mina.apache.org/asyncweb-project/contributors.html</guid>
       <description>Contributors Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
- Jeff Genender Mike Heath Alex Karasulu Emmanuel Lécharny Sangjin Lee Trustin Lee Rick McGuire Julien Vermillard  </description>
+ Jeff Genender Mike Heath Alex Karasulu Emmanuel L&amp;eacute;charny Sangjin Lee Trustin Lee Rick McGuire Julien Vermillard  </description>
     </item>
     
     <item>
@@ -1192,7 +1192,7 @@ Why use a ProtocolCodecFilter?  TCP guarantees delivery of all packets in the co
       
       <guid>https://mina.apache.org/mina-project/documentation.html</guid>
       <description>Documentation The MINA 2.0 User Guide can be found here : [User Guide](userguide/user-guide-toc.html)   Presentation Materials Versions &amp; References Tutorials  For Developers   Examples Older Presentation Materials   Presentation Materials These presentation materials will help you understand the overall architecture and core constructs of MINA
- MINA in real life (ApacheCon EU 2009) by Emmanuel Lécharny Rapid Network Application Development with Apache MINA (JavaOne 2008) by Trustin Lee Apache MINA - The High Performance Protocol Construction Toolkit (ApacheCon US 2007) by Peter Royal Introduction to MINA (ApacheCon Asia 2006) by Trustin Lee  Versions &amp;amp; References There are currently three branches in MINA:</description>
+ MINA in real life (ApacheCon EU 2009) by Emmanuel L&amp;eacute;charny Rapid Network Application Development with Apache MINA (JavaOne 2008) by Trustin Lee Apache MINA - The High Performance Protocol Construction Toolkit (ApacheCon US 2007) by Peter Royal Introduction to MINA (ApacheCon Asia 2006) by Trustin Lee  Versions &amp;amp; References There are currently three branches in MINA:</description>
     </item>
     
     <item>
@@ -1325,7 +1325,7 @@ The XML document scaffold looks like this:
       
       <guid>https://mina.apache.org/ftpserver-project/contributors.html</guid>
       <description>Contributors Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
- Rana Battacharyya Niklas Gustavsson Paul Hammant David Latorre Emmanuel Lécharny Sai Pullabhotla Sergey M Vladimirov  </description>
+ Rana Battacharyya Niklas Gustavsson Paul Hammant David Latorre Emmanuel L&amp;eacute;charny Sai Pullabhotla Sergey M Vladimirov  </description>
     </item>
     
     <item>
@@ -1391,7 +1391,7 @@ All Releases  Apache FtpServer 1.1.1 Release Apache FtpServer 1.1.0 Release Apac
       
       <guid>https://mina.apache.org/ftpserver-project/configuration_user_manager_file.html</guid>
       <description>File based user manager This is the default user manager. It uses a properties file to store all the user information.
-Example &amp;lt;file-user-manager file=&amp;#34;users.properties&amp;#34; encrypt-passwords=&amp;#34;true&amp;#34;&amp;gt; file-user-manager element    Attribute Description Required Default value     file Path to the properties file for storing users Yes     encrypt-passwords It indicates how to stored password are encrypted. Possible values are &amp;ldquo;clear&amp;rdquo; for clear text, &amp;ldquo;md5&amp;rdquo; for hashed using MD5 or &amp;ldquo;salted&amp;rdquo; for hashed salted passwords (including multiple hash iterations).</description>
+Example &amp;lt;file-user-manager file=&amp;#34;users.properties&amp;#34; encrypt-passwords=&amp;#34;true&amp;#34;&amp;gt; file-user-manager element    Attribute Description Required Default value     file Path to the properties file for storing users Yes &amp;nbsp;   encrypt-passwords It indicates how to stored password are encrypted. Possible values are &amp;ldquo;clear&amp;rdquo; for clear text, &amp;ldquo;md5&amp;rdquo; for hashed using MD5 or &amp;ldquo;salted&amp;rdquo; for hashed salted passwords (including multiple hash iterations).</description>
     </item>
     
     <item>
@@ -1507,7 +1507,7 @@ Manually Using either the PropertiesUserManager or DbUserManager you can access 
       <description>Messages This document explains how to customize all the Apache FtpServer reply messages.
 All the server messages are customizable. The default reply messages are bundled with the server. The user defined custom messages will be stored separately. This custom message file is configurable.
 The FtpServer project is interested in localized message bundles, please contact the project if you would like to donate.
-Example &amp;lt;messages languages=&amp;quot;se, no ,da&amp;quot;&amp;gt;  messages element    Attribute Description Required Default value     directory The directory in which message bundles can be located No     languages A comma separated list of the languages that the server will provide messages in No      Creating a customized message bundle Dynamic Values Dynamic values can be embedded in the server message replies.</description>
+Example &amp;lt;messages languages=&amp;quot;se, no ,da&amp;quot;&amp;gt;  messages element    Attribute Description Required Default value     directory The directory in which message bundles can be located No &amp;nbsp;   languages A comma separated list of the languages that the server will provide messages in No &amp;nbsp;    Creating a customized message bundle Dynamic Values Dynamic values can be embedded in the server message replies.</description>
     </item>
     
     <item>
@@ -1552,7 +1552,7 @@ How to report a bug Writing a bug report with detailed information will help us 
       <guid>https://mina.apache.org/ftpserver-project/configuration_server.html</guid>
       <description>Server Some configuration is done for the entire server. This affects all listeners, for login limits, the sum of the logins for all listeners are enforced.
 Using the XML configuration, this following examples shows all available configurations for the server
-&amp;lt;server xmlns=&amp;#34;http://mina.apache.org/ftpserver/spring/v1&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd&amp;#34; id=&amp;#34;server&amp;#34; max-logins=&amp;#34;500&amp;#34; anon-enabled=&amp;#34;false&amp;#34; max-anon-logins=&amp;#34;123&amp;#34; max-login-failures=&amp;#34;124&amp;#34; login-failure-delay=&amp;#34;125&amp;#34;&amp;gt; ... &amp;lt;/server&amp;gt; server element    Attribute Description Required Default value     id A unique identifier for this server within this XML configuration Yes     max-threads The maximum number of threads used in the thread pool for handling client connections No max-logins, or 16 if neither value is set   max-logins The maximum number of simultaneous users No 10   max-anon-logins The maximum number of simultaneous anonymous users No 10   anon-enabled Are anonymous logins enabled?</description>
+&amp;lt;server xmlns=&amp;#34;http://mina.apache.org/ftpserver/spring/v1&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd&amp;#34; id=&amp;#34;server&amp;#34; max-logins=&amp;#34;500&amp;#34; anon-enabled=&amp;#34;false&amp;#34; max-anon-logins=&amp;#34;123&amp;#34; max-login-failures=&amp;#34;124&amp;#34; login-failure-delay=&amp;#34;125&amp;#34;&amp;gt; ... &amp;lt;/server&amp;gt; server element    Attribute Description Required Default value     id A unique identifier for this server within this XML configuration Yes &amp;nbsp;   max-threads The maximum number of threads used in the thread pool for handling client connections No max-logins, or 16 if neither value is set   max-logins The maximum number of simultaneous users No 10   max-anon-logins The maximum number of simultaneous anonymous users No 10   anon-enabled Are anonymous logins enabled?</description>
     </item>
     
     <item>
@@ -1705,9 +1705,9 @@ The Codecs listed here may not be part of Apache MINA project. The information i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/</guid>
-      <description>Welcome to Apache MINA Overview Apache MINA is a network application framework which helps users develop high performance and high scalability network applications easily. It provides an abstract ·event-driven · asynchronous API over various transports such as TCP/IP and UDP/IP via Java NIO.
+      <description>Welcome to Apache MINA Overview Apache MINA is a network application framework which helps users develop high performance and high scalability network applications easily. It provides an abstract &amp;middot; event-driven · asynchronous API over various transports such as TCP/IP and UDP/IP via Java NIO.
 Apache MINA is often called:
- NIO framework · library, client · server framework · library, or a networking · socket library.  However, it&amp;rsquo;s much more than that.</description>
+ NIO framework &amp;middot; library, client &amp;middot; server framework &amp;middot; library, or a networking &amp;middot; socket library.  However, it&amp;rsquo;s much more than that.</description>
     </item>
     
     <item>
@@ -1716,7 +1716,7 @@ Apache MINA is often called:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/downloads_old.html</guid>
-      <description>Older MINA Releases For people wanting to use the serial package, we don&#39;t include the rxtx.jar library in the releases, as it&#39;s under a LGPL license. Please download it from http://rxtx.qbang.org/wiki/index.php/Download or add the associated dependency in your maven pom.xml :  &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.rxtx&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxtx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.1.7&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;scope&amp;gt; &amp;lt;/dependency&amp;gt;   MINA 2.1.x     Version Download Links Date     ApacheDS MINA 2.1.2 Download, Javadoc, Test javadoc, Xref, Xref test 20/Apr/2019   ApacheDS MINA 2.</description>
+      <description>Older MINA Releases For people wanting to use the serial package, we don&#39;t include the rxtx.jar library in the releases, as it&#39;s under a LGPL license. Please download it from http://rxtx.qbang.org/wiki/index.php/Download or add the associated dependency in your maven pom.xml : &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.rxtx&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxtx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.1.7&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;scope&amp;gt; &amp;lt;/dependency&amp;gt;   MINA 2.1.x     Version Download Links Date     ApacheDS MINA 2.1.2 Download, Javadoc, Test javadoc, Xref, Xref test 20/Apr/2019   ApacheDS MINA 2.</description>
     </item>
     
     <item>
@@ -1726,7 +1726,7 @@ Apache MINA is often called:
       
       <guid>https://mina.apache.org/mina-project/conferences.html</guid>
       <description>Presentation Materials These presentation materials will help you understand the overall architecture and core constructs of MINA.
- MINA in real life (ApacheCon EU 2009) by Emmanuel Lécharny Rapid Network Application Development with Apache MINA (JavaOne 2008) by Trustin Lee Apache MINA - The High Performance Protocol Construction Toolkit (ApacheCon US 2007) by Peter Royal Introduction to MINA (ApacheCon Asia 2006) by Trustin Lee  Other Presentation Materials  Building TCP/IP Servers with Apache MINA (ApacheCon EU 2007) by Peter Royal Building TCP/IP Servers with Apache MINA (ApacheCon EU 2006) by Peter Royal Introduction to MINA (ApacheCon US 2005) by Trustin Lee Demo movie  </description>
+ MINA in real life (ApacheCon EU 2009) by Emmanuel L&amp;eacute;charny Rapid Network Application Development with Apache MINA (JavaOne 2008) by Trustin Lee Apache MINA - The High Performance Protocol Construction Toolkit (ApacheCon US 2007) by Peter Royal Introduction to MINA (ApacheCon Asia 2006) by Trustin Lee  Other Presentation Materials  Building TCP/IP Servers with Apache MINA (ApacheCon EU 2007) by Peter Royal Building TCP/IP Servers with Apache MINA (ApacheCon EU 2006) by Peter Royal Introduction to MINA (ApacheCon US 2005) by Trustin Lee Demo movie  </description>
     </item>
     
     <item>
@@ -1854,8 +1854,8 @@ SshServer sshd = SshServer.setUpDefaultServer(); sshd.setPasswordAuthenticator(n
       
       <guid>https://mina.apache.org/sshd-project/contributors.html</guid>
       <description>Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
- Emmanuel Lécharny Guillaume Nodet Lyor Goldstein Shawn Pearce  Contributors The following additional people have contributed to this project through the way of suggestions, patches or documentation.
- Leo Bayer André Bierwolf Shikhar Bhushan Cédric Chantepie Patrick Dessalle Ken Diep Laurent Duchesne Richard Evans Francois Fernandes Otto Frost Will Glass-Husain Andreas Johansson Nick Howes Kohsuke Kawaguchi Leonid Kof Bill Kuker Philippe Laflamme Tien Luong Daniel Micol-Ponce David Overton Simon Paradis Bobby Powers Taras Puchko Matthew Schulze Michael Stevens Liu Tao Pete Torgenrud Denis Tulskiy Frank van der Kleij Jason Van Zyl Tim Vernum  </description>
+ Emmanuel L&amp;eacute;charny Guillaume Nodet Lyor Goldstein Shawn Pearce  Contributors The following additional people have contributed to this project through the way of suggestions, patches or documentation.
+ Leo Bayer Andr&amp;eacute; Bierwolf Shikhar Bhushan C&amp;eacute;dric Chantepie Patrick Dessalle Ken Diep Laurent Duchesne Richard Evans Francois Fernandes Otto Frost Will Glass-Husain Andreas Johansson Nick Howes Kohsuke Kawaguchi Leonid Kof Bill Kuker Philippe Laflamme Tien Luong Daniel Micol-Ponce David Overton Simon Paradis Bobby Powers Taras Puchko Matthew Schulze Michael Stevens Liu Tao Pete Torgenrud Denis Tulskiy Frank van der Kleij Jason Van Zyl Tim Vernum  </description>
     </item>
     
     <item>
@@ -2171,7 +2171,7 @@ java org.apache.vysper.spring.ServerMain -Dvysper.add.module=module1,module2... 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/vysper-project/standards_supported.html</guid>
-      <description>Standards Supported    Specification Status Comment     RFC 3920 XMPP Core Complete     RFC 3921 XMPP Instant Messaging and Presence 80%     XEP-0004 Data Forms Complete     XEP-0030 Service Discovery Complete     XEP-0045 Multi-User Chat 80%     XEP-0049 Private XML Storage Complete     XEP-0050 Ad-Hoc Commands Complete     XEP-0054 vcard-temp Complete     XEP-0060 Publish-Subscribe Complete     XEP-0065 SOCKS5 Bytestreams Complete The optional UDP support not implemented   XEP-0077 In-band registration 80% Canceling existing registration not supported   XEP-0082 XMPP Date and Time Profiles Complete     XEP-0092 Software Version Complete     XEP-0124 Bidirectional-streams Over Synchronous HTTP (BOSH) Complete     XEP-0133 Service Administration 40%     XEP-0185 Dialback Key Generation and Validation Complete     XEP-0199 XMPP Ping Complete     XEP-0202 Entity Time Complete     XEP-0206 XMPP Over BOSH Complete     XEP-0220 Server Dialback Complete     XEP-0220 Server Dialback Complete     An XMPP Sub-protocol for WebSocket Complete      </description>
+      <description>Standards Supported    Specification Status Comment     RFC 3920 XMPP Core Complete &amp;nbsp;   RFC 3921 XMPP Instant Messaging and Presence 80% &amp;nbsp;   XEP-0004 Data Forms Complete &amp;nbsp;   XEP-0030 Service Discovery Complete &amp;nbsp;   XEP-0045 Multi-User Chat 80% &amp;nbsp;   XEP-0049 Private XML Storage Complete &amp;nbsp;   XEP-0050 Ad-Hoc Commands Complete &amp;nbsp;   XEP-0054 vcard-temp Complete &amp;nbsp;   XEP-0060 Publish-Subscribe Complete &amp;nbsp;   XEP-0065 SOCKS5 Bytestreams Complete The optional UDP support not implemented   XEP-0077 In-band registration 80% Canceling existing registration not supported   XEP-0082 XMPP Date and Time Profiles Complete &amp;nbsp;   XEP-0092 Software Version Complete &amp;nbsp;   XEP-0124 Bidirectional-streams Over Synchronous HTTP (BOSH) Complete &amp;nbsp;   XEP-0133 Service Administration 40% &amp;nbsp;   XEP-0185 Dialback Key Generation and Validation Complete &amp;nbsp;   XEP-0199 XMPP Ping Complete &amp;nbsp;   XEP-0202 Entity Time Complete &amp;nbsp;   XEP-0206 XMPP Over BOSH Complete &amp;nbsp;   XEP-0220 Server Dialback Complete &amp;nbsp;   XEP-0220 Server Dialback Complete &amp;nbsp;   An XMPP Sub-protocol for WebSocket Complete &amp;nbsp;    </description>
     </item>
     
     <item>
