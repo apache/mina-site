@@ -34,19 +34,24 @@ title: MINA 2.0.x Downloads
 
 The PGP signatures can be verified using PGP or GPG. First download the [KEYS](https://www.apache.org/dist/mina/KEYS) as well as the asc signature file for the relevant distribution. Then verify the signatures using:
 
-    $ pgpk -a KEYS
-    $ pgpv mina-2.0.21.tar.gz.asc
+```bash
+$ pgpk -a KEYS
+$ pgpv mina-2.0.21.tar.gz.asc
+```
 
 or
 
-    $ pgp -ka KEYS
-    $ pgp mina-2.0.21.tar.gz.asc
-    
+```bash
+$ pgp -ka KEYS
+$ pgp mina-2.0.21.tar.gz.asc
+```
+
 or
 
-    $ gpg --import KEYS
-    $ gpg --verify mina-2.0.21.tar.gz.asc
-
+```bash
+$ gpg --import KEYS
+$ gpg --verify mina-2.0.21.tar.gz.asc
+```
 
 # Previous Releases
 
