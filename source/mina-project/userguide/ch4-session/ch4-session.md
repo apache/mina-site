@@ -194,7 +194,7 @@ There are many methods available to manipulate the session's attributes :
 * boolean containsAttribute(Object key) : tells if a given attribute is present
 * Object getAttribute(Object key) : gets the value for a given attribute
 * Object getAttribute(Object key, Object defaultValue) : gets the value for a given attribute, or a default value if absent
-* Set&lt;Object&gt; getAttributeKeys() : gets the set of all the stored attributes
+* Set{{< html "&lt;" >}}Object{{< html "&gt;" >}} getAttributeKeys() : gets the set of all the stored attributes
 * Object removeAttribute(Object key) : remove a given attribute
 * boolean removeAttribute(Object key, Object value) : remove a given attribute/value pair
 * boolean replaceAttribute(Object key, Object oldValue, Object newValue) : replace a give attribute/value pair

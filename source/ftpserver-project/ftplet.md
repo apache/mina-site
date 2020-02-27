@@ -83,13 +83,13 @@ This section gives an overview on different response codes which might be useful
 | onConnect | 220 | Service ready for new user. |
 | onConnect | 530 | No server access from the IP. |
 | onConnect | 530 | Maximum server connection has been reached. |
-| onDisconnect | &nbsp; | &nbsp; |
-| onLogin | &nbsp; | &nbsp; |
+| onDisconnect | {{< html "&nbsp;" >}} | {{< html "&nbsp;" >}} |
+| onLogin | {{< html "&nbsp;" >}} | {{< html "&nbsp;" >}} |
 | onDeleteStart | 250 | Requested file action okay |
 | onDeleteStart | 450 | No permission to delete. |
 | onDeleteStart | 550 | Not a valid file. |
 | onDeleteStart | 450 | Can't delete file. |
-| onDeleteEnd | &nbsp; | &nbsp; |
+| onDeleteEnd | {{< html "&nbsp;" >}} | {{< html "&nbsp;" >}} |
 | onUploadStart | 150 | File status okay; about to open data connection. |
 | onUploadStart | 226 | Transfer complete. |
 | onUploadStart | 550 | Invalid path. |
@@ -97,7 +97,7 @@ This section gives an overview on different response codes which might be useful
 | onUploadStart | 425 | Can't open data connection. |
 | onUploadStart | 426 | Data connection error. |
 | onUploadStart | 551 | Error on output file. |
-| onUploadEnd | &nbsp; | &nbsp; |
+| onUploadEnd | {{< html "&nbsp;" >}} | {{< html "&nbsp;" >}} |
 | onDownloadStart | 150 | File status okay; about to open data connection. |
 | onDownloadStart | 226 | Transfer complete. |
 | onDownloadStart | 550 | No such file or directory. |
@@ -106,18 +106,18 @@ This section gives an overview on different response codes which might be useful
 | onDownloadStart | 425 | Can't open data connection. |
 | onDownloadStart | 426 | Data connection error. |
 | onDownloadStart | 551 | Error on input file. |
-| onDownloadEnd | &nbsp; | &nbsp; |
+| onDownloadEnd | {{< html "&nbsp;" >}} | {{< html "&nbsp;" >}} |
 | onRmdirStart | 250 | Directory removed. |
 | onRmdirStart | 550 | Not a valid directory. |
 | onRmdirStart | 550 | Permission denied. |
 | onRmdirStart | 550 | Can't remove directory. |
-| onRmdirEnd | &nbsp; | &nbsp; |
+| onRmdirEnd | {{< html "&nbsp;" >}} | {{< html "&nbsp;" >}} |
 | onMkdirStart | 250 | Directory created. |
 | onMkdirStart | 550 | Not a valid file. |
 | onMkdirStart | 550 | Permission denied |
 | onMkdirStart | 550 | Directory already exists. |
 | onMkdirStart | 550 | Can't create directory. |
-| onMkdirEnd | &nbsp; | &nbsp; |
+| onMkdirEnd | {{< html "&nbsp;" >}} | {{< html "&nbsp;" >}} |
 | onAppendStart | 150 | File status okay; about to open data connection. |
 | onAppendStart | 226 | Transfer complete. |
 | onAppendStart | 550 | Not a plain file. |
@@ -125,7 +125,7 @@ This section gives an overview on different response codes which might be useful
 | onAppendStart | 425 | Can't open data connection. |
 | onAppendStart | 426 | Data connection error. |
 | onAppendStart | 551 | Error on output file. |
-| onAppendEnd | &nbsp; | &nbsp; |
+| onAppendEnd | {{< html "&nbsp;" >}} | {{< html "&nbsp;" >}} |
 | onUploadUniqueStart | 150 | File status okay; about to open data connection. |
 | onUploadUniqueStart | 250 | filename: Transfer started. |
 | onUploadUniqueStart | 226 | filename: Transfer complete. |
@@ -134,14 +134,14 @@ This section gives an overview on different response codes which might be useful
 | onUploadUniqueStart | 425 | Can't open data connection. |
 | onUploadUniqueStart | 426 | Data connection error. |
 | onUploadUniqueStart | 551 | Error on output file. |
-| onUploadUniqueEnd | &nbsp; | &nbsp; |
+| onUploadUniqueEnd | {{< html "&nbsp;" >}} | {{< html "&nbsp;" >}} |
 | onRenameStart | 250 | Requested file action okay, file renamed. |
 | onRenameStart | 503 | Can't find the file which has to be renamed. |
 | onRenameStart | 553 | Not a valid file name. |
 | onRenameStart | 553 | Permission denied. |
 | onRenameStart | 553 | No such file or directory. |
 | onRenameStart | 553 | Can't rename file. |
-| onRenameEnd | &nbsp; | &nbsp; |
+| onRenameEnd | {{< html "&nbsp;" >}} | {{< html "&nbsp;" >}} |
 | onSite | 200 | Command SITE okay. |
 | onSite | 530 | Permission denied. |
 | onSite | 502 | Not implemented. |

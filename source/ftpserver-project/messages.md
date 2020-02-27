@@ -19,8 +19,8 @@ The FtpServer project is interested in localized message bundles, please [contac
 
 | Attribute | Description | Required | Default value |
 |--|--|--|--|
-| directory | The directory in which message bundles can be located | No | &nbsp;|
-| languages | A comma separated list of the languages that the server will provide messages in | No | &nbsp;|
+| directory | The directory in which message bundles can be located | No | {{< html "&nbsp;" >}} |
+| languages | A comma separated list of the languages that the server will provide messages in | No | {{< html "&nbsp;" >}} |
 
 ## Creating a customized message bundle
 

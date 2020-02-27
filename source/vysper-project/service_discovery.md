@@ -31,12 +31,12 @@ This is how a feature is advertised in the XEP-0092 implementation:
 ```java
 public class SoftwareVersionModule extends DefaultDiscoAwareModule implements ServerInfoRequestListener { 
     @Override 
-    protected void addServerInfoRequestListeners(List&lt;ServerInfoRequestListener&gt; serverInfoRequestListeners) { 
+    protected void addServerInfoRequestListeners(List<ServerInfoRequestListener> serverInfoRequestListeners) { 
         serverInfoRequestListeners.add(this); 
     } 
 
-    public List&lt;InfoElement&gt; getServerInfosFor(InfoRequest request) { 
-        List&lt;InfoElement&gt; infoElements = new ArrayList&lt;InfoElement&gt;(); 
+    public List<InfoElement> getServerInfosFor(InfoRequest request) { 
+        List<InfoElement> infoElements = new ArrayList<InfoElement>(); 
         infoElements.add(new Feature(NamespaceURIs.JABBER_IQ_VERSION)); 
         return infoElements; 
     } 

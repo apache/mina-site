@@ -13,7 +13,7 @@ __Maarten Bosteels__ says:
 
 > We found the speed and stability of MINA to be excellent. And although we are still using MINA 0.8.1, we found the API very elegant and easy.
 
-__Fr&eacute;d&eacute;ric Br&eacute;gier__ says:
+__Fr{{< html "&eacute;" >}}d{{< html "&eacute;" >}}ric Br{{< html "&eacute;" >}}gier__ says:
 
 > MINA helped us to get the network layout of OpenLSD done in about 2 months, saving us about 9 months to 1 year of development and fine-grained testing, so we were able to focus on our problem; Open Legacy Storage Document, a framework for document archiving in a huge storage. OpenLSD brings security, network layout, JDBC, and good performance, and allows at least 2 petabytes of documents (2000 terabytes, the limit is virtually 2^192 bytes).
 
@@ -32,7 +32,7 @@ __Nicholas Clare__ says:
 
 > We use MINA as a networking library to handle concurrent connections to our text based communication server. MINA has worked like a charm. It makes writing server applications simple and is much easier to use than Java's NIO libraries. Because of MINA's stability and ease of use, we plan on using MINA more in our future projects.
 
-__Jean-Fran&ccedil;ois Daune__ says:
+__Jean-Fran{{< html "&ccedil;" >}}ois Daune__ says:
 
 > We use MINA to communicate with [Banksys](http://www.banksys.com/) 'point of sale' terminals (Visa, Mastercard...) for technical management operations. (software upgrade, remote monitoring, log transfer...)
 
@@ -50,7 +50,7 @@ __Paolo Perrucci__ says:
 
 > We are using MINA to build the network layer of our multiplayer game server at [Leonardo.it](http://ludonet.leonardo.it/). Using MINA, we implemented different protocols in a few days; Game and HTTP tunneling. In the past, we used NIO, and the advantage of using MINA is evident; the MINA API is elegant and very simple to use. Last, but not least, MINA have a really responsive support.
 
-__Fr&eacute;d&eacute;ric Soulier__ says:
+__Fr{{< html "&eacute;" >}}d{{< html "&eacute;" >}}ric Soulier__ says:
 
 > In 3 days, starting from scratch (knowing nothing about MINA) and with help from this list, I've re-implemented something that took us 2+ months to develop! I've thrown 4000 concurrent connections at it without a problem. The only problem I faced was to increase the limit for open files on my linux box (default was 1024).
 
@@ -68,7 +68,7 @@ __Julien Vermillard__ says:
 
 > see [White Paper](http://www.hsc.com/HSFiles/Wpos/WhitePaper_Trap_Receiver_using_Apache_MINA.pdf)
 
-__Emmanuel L&eacute;charny__ says:
+__Emmanuel L{{< html "&eacute;" >}}charny__ says:
 
 > MINA handles the following protocols in ADS :
 

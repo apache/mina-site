@@ -7,7 +7,7 @@ title: SSHD Contributors
 
 The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
 
-* Emmanuel L&eacute;charny
+* Emmanuel L{{< html "&eacute;" >}}charny
 * Guillaume Nodet
 * Lyor Goldstein
 * Shawn Pearce 
@@ -17,9 +17,9 @@ The following is a list of developers with commit privileges that have directly 
 The following additional people have contributed to this project through the way of suggestions, patches or documentation.
 
 * Leo Bayer
-* Andr&eacute; Bierwolf
+* Andr{{< html "&eacute;" >}} Bierwolf
 * Shikhar Bhushan
-* C&eacute;dric Chantepie
+* C{{< html "&eacute;" >}}dric Chantepie
 * Patrick Dessalle
 * Ken Diep
 * Laurent Duchesne

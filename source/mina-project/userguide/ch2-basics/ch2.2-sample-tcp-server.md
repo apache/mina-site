@@ -23,7 +23,7 @@ This tutorial will walk you through the process of building a MINA based program
 
 For instance, slf4j-log4j12.jar and log4j-1.3.x.jar can not be used together, and will malfunction.
 
-We have tested this program on both Windows&copy; 2000 professional and linux.  If you have any problems getting this program to work, please do not hesitate to [contact us](../../../contact.html) in order to talk to the MINA developers.  Also, this tutorial has tried to remain independent of development environments (IDE, editors..etc).  This tutorial will work with any environment that you are comfortable with.  Compilation commands and steps to execute the program have been removed for brevity.  If you need help learning how to either compile or execute java programs, please consult the [Java tutorial](http://java.sun.com/docs/books/tutorial/).
+We have tested this program on both Windows{{< html "&copy;" >}} 2000 professional and linux.  If you have any problems getting this program to work, please do not hesitate to [contact us](../../../contact.html) in order to talk to the MINA developers.  Also, this tutorial has tried to remain independent of development environments (IDE, editors..etc).  This tutorial will work with any environment that you are comfortable with.  Compilation commands and steps to execute the program have been removed for brevity.  If you need help learning how to either compile or execute java programs, please consult the [Java tutorial](http://java.sun.com/docs/books/tutorial/).
 
 ## Writing the MINA time server 
 

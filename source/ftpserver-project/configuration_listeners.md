@@ -39,7 +39,7 @@ The listener shipped with FtpServer is called "nio-listener" since it is based J
 
 | Attribute | Description | Required | Default value |
 |---|---|---|---|
-| name | The listener name, if "default" it will override the settings on the default listener | Yes | &nbsp; |
+| name | The listener name, if "default" it will override the settings on the default listener | Yes | {{< html "&nbsp;" >}} |
 | port | The port on which the listener will accept connections | No | 21 |
 | local-address | Server address the listener will bind to | No | All available |
 | implicit-ssl | True if the listener should use implicit SSL | No | false |
@@ -61,8 +61,8 @@ This element is required if the ssl element is provided. It provides configurati
 
 | Attribute | Description | Required | Default value |
 |---|---|---|---|
-| file | Path to the key store file | Yes | &nbsp; |
-| password | The password for the key store | Yes | &nbsp; |
+| file | Path to the key store file | Yes | {{< html "&nbsp;" >}} |
+| password | The password for the key store | Yes | {{< html "&nbsp;" >}} |
 | key-password | Password for the key within the key store | No | Key store password |
 | key-alias | Alias of the key to use within the key store | No <| Uses first key found |
 | type | Key store type | No | JRE key store default type, normally JKS |
@@ -73,7 +73,7 @@ This element provides configuration for the trust store used for locating truste
 
 | Attribute | Description | Required | Default value |
 |---|---|---|---|
-| file | Path to the trust store file | Yes | &nbsp; |
+| file | Path to the trust store file | Yes | {{< html "&nbsp;" >}} |
 | password | The password for the trust store | No | Certificates can be read without password |
 | type | Trust store type | No | JRE key store default type, normally JKS |
 | algorithm | Trust store algorithm | No | SunX509 |>
@@ -106,7 +106,7 @@ This element provides configuration for passive data connections.
 |---|---|---|---|
 | ports| The ports on which the server is allowed to accept passive data connections, see [Configure passive ports](configuration_passive_ports.html) for details| No| Any available port |
 | address| The address on which the server will listen to passive data connections| No| The same address as the control socket for the session |
-| external-address| The address the server will claim to be listening on in the PASV reply. Useful when the server is behind a NAT firewall and the client sees a different address than the server is using| No| &nbsp; |
+| external-address| The address the server will claim to be listening on in the PASV reply. Useful when the server is behind a NAT firewall and the client sees a different address than the server is using | No | {{< html "&nbsp;" >}} |
 
 ## blacklist element
 

@@ -28,7 +28,7 @@ Lets take a deeper dive into the details now. The following image shows a bit mo
 
 ![](/assets/img/mina/mina_app_arch.png)
 
-(The image is from Emmanuel L&eacute;charny presentation [MINA in real life (ApacheCon EU 2009)](/assets/pdfs/Mina_in_real_life_ASEU-2009.pdf))
+(The image is from Emmanuel L{{< html "&eacute;" >}}charny presentation [MINA in real life (ApacheCon EU 2009)](/assets/pdfs/Mina_in_real_life_ASEU-2009.pdf))
 
 Broadly, MINA based applications are divided into 3 layers
 

@@ -14,7 +14,7 @@ The Vysper SOCKS5 Bytestream module implements mediated connections from XEP-006
 The example below shows how to add the module using the API:
 
 ```java
-XMPPServer server = new XMPPServer(&ldquo;vysper.org&rdquo;);
+XMPPServer server = new XMPPServer("vysper.org");
 server.addEndpoint(new TCPEndpoint());
 
 // other initialization

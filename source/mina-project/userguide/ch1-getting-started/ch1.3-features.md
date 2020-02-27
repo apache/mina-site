@@ -26,7 +26,7 @@ MINA is a simple yet full-featured network application framework which provides:
     * Single thread
     * One thread pool
     * More than one thread pools (i.e. SEDA)
-* Out-of-the-box SSL &middot; TLS &middot; StartTLS support using Java 5 SSLEngine
+* Out-of-the-box SSL {{< html "&middot;" >}} TLS {{< html "&middot;" >}} StartTLS support using Java 5 SSLEngine
 * Overload shielding & traffic throttling
 * Unit testability using mock objects
 * JMX managability
