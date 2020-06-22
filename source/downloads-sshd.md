@@ -5,6 +5,7 @@ title: Downloads
 # Latest SSHD Releases
 
 The latest release is the SSHD 2.5.0 release.
+Apache Mina SSHD 2.5.0 contains a number of [enhancements and bug-fixes](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310849&version=12346915).
  
 * Source distributions:
     * [Apache Mina SSHD 2.5.0 Sources (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.5.0/apache-sshd-2.5.0-src.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.5.0/apache-sshd-2.5.0-src.tar.gz.asc) [SHA](https://www.apache.org/dist/mina/sshd/2.5.0/apache-sshd-2.5.0-src.tar.gz.sha1)
@@ -47,3 +48,4 @@ You can [build](sshd-project/building.html) the latest version from [sources](ss
 * [SSHD 2.2.0](sshd-project/download_2.2.0.html)
 * [SSHD 2.3.0](sshd-project/download_2.3.0.html)
 * [SSHD 2.4.0](sshd-project/download_2.4.0.html)
+* [SSHD 2.5.0](sshd-project/download_2.5.0.html)
