@@ -5,4 +5,4 @@ title: SSHD Features
 
 # Features 
 
-TODO
+The list of features implemented by Mina SSHD is available at https://github.com/apache/mina-sshd.

@@ -32,4 +32,4 @@ You will not be able to commit into the project if you are not a committer.
 # Documentation
 The Website documentation is published via Apache SVN pubsub. The website source resides at
 
-[https://svn.apache.org/repos/asf/mina/site/trunk/content/sshd-project/](https://svn.apache.org/repos/asf/mina/site/trunk/content/sshd-project/)
+[https://github.com/apache/mina-site/](https://github.com/apache/mina-site/)
