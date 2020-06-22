@@ -438,6 +438,11 @@
   </url>
   
   <url>
+    <loc>https://mina.apache.org/sshd-project/download_2.4.0.html</loc>
+    <lastmod>2020-06-22T17:28:16+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mina.apache.org/vysper-project/</loc>
     <lastmod>2020-02-24T11:41:02+01:00</lastmod>
   </url>
@@ -599,7 +604,7 @@
   
   <url>
     <loc>https://mina.apache.org/downloads-sshd.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-06-22T17:28:16+02:00</lastmod>
   </url>
   
   <url>
@@ -614,7 +619,7 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project/embedding_ssh.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-06-22T17:28:16+02:00</lastmod>
   </url>
   
   <url>
@@ -803,11 +808,6 @@
   </url>
   
   <url>
-    <loc>https://mina.apache.org/sshd-project/load_ssh_editor.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://mina.apache.org/mina-project/technical-documentation/message-flow.html</loc>
     <lastmod>2020-02-24T11:41:02+01:00</lastmod>
   </url>
@@ -913,33 +913,28 @@
   </url>
   
   <url>
-    <loc>https://mina.apache.org/sshd-project/configuring_security.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://mina.apache.org/sshd-project/contributors.html</loc>
     <lastmod>2020-02-27T13:50:48+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/documentation.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-06-22T17:28:16+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/downloads.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-06-22T17:28:16+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/faq.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-06-22T17:28:16+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/features.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-06-22T17:28:16+02:00</lastmod>
   </url>
   
   <url>
@@ -959,27 +954,17 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project/</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mina.apache.org/sshd-project/required_dependencies.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-06-22T17:28:16+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/sources.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mina.apache.org/sshd-project/tips.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-06-22T17:28:16+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project.html</loc>
-    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
+    <lastmod>2020-06-22T17:28:16+02:00</lastmod>
   </url>
   
   <url>

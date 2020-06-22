@@ -87,40 +87,8 @@
 
             
 	<h1 id="embedding-sshd-in-5-minutes">Embedding SSHD in 5 minutes</h1>
-<p>SSHD is designed to be easily embedded in your application as an SSH server. SSH Server needs to be configured before it can be started. Essentially, there are three steps for creating the Server</p>
-<ul>
-<li>Create an instance of SshServer class</li>
-<li>Configure the Server</li>
-<li>Start the Server</li>
-</ul>
-<p>Lets look at all these steps. Refer to this class for details <a href="http://svn.apache.org/viewvc/mina/sshd/trunk/sshd-core/src/main/java/org/apache/sshd/SshServer.java?view=markup">SshServer.java</a></p>
-<h2 id="creating-an-instance-of-sshserver">Creating an instance of SshServer</h2>
-<p>This is as simple as creating a new object</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SshServer sshd <span style="color:#666">=</span> SshServer<span style="color:#666">.</span><span style="color:#b44">setUpDefaultServer</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
-</code></pre></div><p>It will configure the server with sensible defaults for ciphers, macs, key exchange algorithm, etc&hellip;
-If you want a different behavior, you can look at the code of the setUpDefaultServer method and configure the SSH server the way you need.</p>
-<h2 id="configuring-the-server">Configuring the Server</h2>
-<p>There are a few things that needs to be configured on the server before being able to actually use it:</p>
-<h3 id="port">Port</h3>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">sshd<span style="color:#666">.</span><span style="color:#b44">setPort</span><span style="color:#666">(</span>22<span style="color:#666">)</span><span style="color:#666">;</span>
-</code></pre></div><h3 id="keypairprovider">KeyPairProvider</h3>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">sshd<span style="color:#666">.</span><span style="color:#b44">setKeyPairProvider</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> SimpleGeneratorHostKeyProvider<span style="color:#666">(</span><span style="color:#b44">&#34;hostkey.ser&#34;</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
-</code></pre></div><p>It&rsquo;s usually a good idea to give the host key generator a path, so that if you restart the SSHD server, the same key will be used to authenticate the server.</p>
-<h3 id="shellfactory">ShellFactory</h3>
-<p>That&rsquo;s the part you will usually have to write to customize the SSHD server. The shell factory will be used to create a new shell each time a user logs in. SSHD provides a single implementation that you can use if you want. This implementation will create a process and delegate everything to it, so it&rsquo;s mostly useful to launch the OS native shell.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">sshd<span style="color:#666">.</span><span style="color:#b44">setShellFactory</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> ProcessShellFactory<span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> String<span style="color:#666">[</span><span style="color:#666">]</span> <span style="color:#666">{</span> <span style="color:#b44">&#34;/bin/sh&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;-i&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;-l&#34;</span> <span style="color:#666">}</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
-</code></pre></div><p>Note that the ShellFactory is not required. If none is configured, any request for a shell will be denied to users.</p>
-<h3 id="commandfactory">CommandFactory</h3>
-<p>The CommandFactory can be used in addition to the ShellFactory (it can also be used instead of the ShellFactory). The CommandFactory is used when direct commands are sent to the SSH server, as this is the case when running <strong>ssh localhost shutdown</strong> or <strong>scp xxx</strong></p>
-<p>SSHD provides a CommandFactory to support SCP that can be configure in the following way:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">sshd<span style="color:#666">.</span><span style="color:#b44">setCommandFactory</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> ScpCommandFactory<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
-</code></pre></div><p>You can also use the ScpCommandFactory on top of your own CommandFactory:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">sshd<span style="color:#666">.</span><span style="color:#b44">setCommandFactory</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> ScpCommandFactory<span style="color:#666">(</span>myCommandFactory<span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
-</code></pre></div><p>Note that the CommandFactory is optional. If none is configured, any direct command sent by users will be rejected.</p>
-<h2 id="start-the-server">Start the Server</h2>
-<p>Once we have configured the Server, we need to call start(), to start the Server</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">sshd<span style="color:#666">.</span><span style="color:#b44">start</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
-</code></pre></div>
+<p>See <a href="https://github.com/apache/mina-sshd">https://github.com/apache/mina-sshd</a> for more informations.</p>
+
 
             
 

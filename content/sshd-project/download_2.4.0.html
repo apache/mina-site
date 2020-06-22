@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-    <title>Loading SSHD in Eclipse or IDEA &mdash; Apache MINA</title>
+    <title>Apache SSHD 2.4.0 Release &mdash; Apache MINA</title>
 
     <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/sshd.css" rel="stylesheet" type="text/css"/>
@@ -86,16 +86,26 @@
             
 
             
-	<h1 id="loading-sshd-in-eclipse-or-idea">Loading SSHD in Eclipse or IDEA</h1>
-<p>If you want to debug or develop on SSHD, chances are you want to load it in your IDE. Most IDE now have some maven support (either natively or through plugins), but if you don&rsquo;t have those plugins installed, you can create the required project files using one of the following command:</p>
-<pre><code>mvn eclipse:eclipse
-</code></pre>
-<p>or</p>
-<pre><code>mvn idea:idea
-</code></pre>
-<p>If you want to have the source code for the various dependencies available for debugging, you can add the -DdownloadSources=true parameter on the command line.</p>
-<p>Next step is to load the generated project from Eclipse or IDEA.</p>
-<p>Note that you may have to set up some global variables to point to the local maven repository.</p>
+	<h1 id="overview">Overview</h1>
+<p>Apache Mina SSHD 2.4.0 contains a number of <a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310849&amp;version=12347242">enhancements and bug-fixes</a>.</p>
+<h1 id="getting-the-distributions">Getting the Distributions</h1>
+<ul>
+<li>Source distributions:
+<ul>
+<li><a href="https://archive.apache.org/dist/mina/sshd/2.4.0/apache-sshd-2.4.0-src.tar.gz">Apache Mina SSHD 2.4.0 Sources (.tar.gz)</a> <a href="https://archive.apache.org/dist/mina/sshd/2.4.0/apache-sshd-2.4.0-src.tar.gz.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/2.4.0/apache-sshd-2.4.0-src.tar.gz.sha1">SHA</a></li>
+<li><a href="https://archive.apache.org/dist/mina/sshd/2.4.0/apache-sshd-2.4.0-src.zip">Apache Mina SSHD 2.4.0 Sources (.zip)</a> <a href="https://archive.apache.org/dist/mina/sshd/2.4.0/apache-sshd-2.4.0-src.zip.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/2.4.0/apache-sshd-2.4.0-src.zip.sha1">SHA</a></li>
+</ul>
+</li>
+<li>Binary distributions:
+<ul>
+<li><a href="https://archive.apache.org/dist/mina/sshd/2.4.0/apache-sshd-2.4.0.tar.gz">Apache Mina SSHD 2.4.0 Binary (.tar.gz)</a> <a href="https://archive.apache.org/dist/mina/sshd/2.4.0/apache-sshd-2.4.0.tar.gz.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/2.4.0/apache-sshd-2.4.0.tar.gz.sha1">SHA</a></li>
+<li><a href="https://archive.apache.org/dist/mina/sshd/2.4.0/apache-sshd-2.4.0.zip">Apache Mina SSHD 2.4.0 Binary (.zip)</a> <a href="https://archive.apache.org/dist/mina/sshd/2.4.0/apache-sshd-2.4.0.zip.asc">PGP</a> <a href="https://archive.apache.org/dist/mina/sshd/2.4.0/apache-sshd-2.4.0.zip.sha1">SHA</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="release-notes">Release Notes</h1>
+<p>Apache Mina SSHD 2.4.0 contains a few enhancements and bug-fixes.
+Please report any feedback to <a href="mailto:users@mina.apache.org">users@mina.apache.org</a>.</p>
 
 
             

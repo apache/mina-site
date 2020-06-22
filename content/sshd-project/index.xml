@@ -281,25 +281,22 @@ Getting the Distributions  Source distributions:  Apache Mina SSHD 2.3.0 Sources
     </item>
     
     <item>
+      <title>Apache SSHD 2.4.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.4.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.4.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.4.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.4.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.4.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.4.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.4.0 Binary (.zip) PGP SHA    Release Notes Apache Mina SSHD 2.4.0 contains a few enhancements and bug-fixes.</description>
+    </item>
+    
+    <item>
       <title>Embedding SSHD in 5 minutes</title>
       <link>https://mina.apache.org/sshd-project/embedding_ssh.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/embedding_ssh.html</guid>
-      <description>Embedding SSHD in 5 minutes SSHD is designed to be easily embedded in your application as an SSH server. SSH Server needs to be configured before it can be started. Essentially, there are three steps for creating the Server
- Create an instance of SshServer class Configure the Server Start the Server  Lets look at all these steps. Refer to this class for details SshServer.java
-Creating an instance of SshServer This is as simple as creating a new object</description>
-    </item>
-    
-    <item>
-      <title>Loading SSHD in Eclipse or IDEA</title>
-      <link>https://mina.apache.org/sshd-project/load_ssh_editor.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mina.apache.org/sshd-project/load_ssh_editor.html</guid>
-      <description>Loading SSHD in Eclipse or IDEA If you want to debug or develop on SSHD, chances are you want to load it in your IDE. Most IDE now have some maven support (either natively or through plugins), but if you don&amp;rsquo;t have those plugins installed, you can create the required project files using one of the following command:
-mvn eclipse:eclipse  or
-mvn idea:idea  If you want to have the source code for the various dependencies available for debugging, you can add the -DdownloadSources=true parameter on the command line.</description>
+      <description>Embedding SSHD in 5 minutes See https://github.com/apache/mina-sshd for more informations.</description>
     </item>
     
     <item>
@@ -313,17 +310,6 @@ mvn idea:idea  If you want to have the source code for the various dependencies 
   Get the latest code from Git
   Build the code with the following command
  mvn clean install    </description>
-    </item>
-    
-    <item>
-      <title>SSHD Configuring Security</title>
-      <link>https://mina.apache.org/sshd-project/configuring_security.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mina.apache.org/sshd-project/configuring_security.html</guid>
-      <description>Configuring Security The SSHD server needs to be integrated and the security layer has to be customized to suit your needs. This layer is pluggable and use the following interfaces:
- PasswordAuthenticator for password based authentication PublickeyAuthenticator for key based authentication  Those custom classes can be configured on the SSHD server using the following code:
-SshServer sshd = SshServer.setUpDefaultServer(); sshd.setPasswordAuthenticator(new MyPasswordAuthenticator()); sshd.setPublickeyAuthenticator(new MyPublickeyAuthenticator()); If only one of those class is implemented, only the related authentication mechanism will be enabled.</description>
     </item>
     
     <item>
@@ -343,7 +329,7 @@ SshServer sshd = SshServer.setUpDefaultServer(); sshd.setPasswordAuthenticator(n
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/documentation.html</guid>
-      <description>Apache SSHD documentation Resources  API JavaDocs  Tutorials  Configuring security Embedding SSHD in 5 minutes Loading SSHD in Eclipse or IDEA Required dependencies Tips  </description>
+      <description>Apache SSHD documentation See https://github.com/apache/mina-sshd for more informations.</description>
     </item>
     
     <item>
@@ -352,8 +338,8 @@ SshServer sshd = SshServer.setUpDefaultServer(); sshd.setPasswordAuthenticator(n
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/downloads.html</guid>
-      <description>Latest SSHD Releases The latest release is the SSHD 2.4.0 release.
- Source distributions:  Apache Mina SSHD 2.4.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.4.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.4.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.4.0 Binary (.zip) PGP SHA    Development snapshots You can build the latest version from sources.
+      <description>Latest SSHD Releases The latest release is the SSHD 2.5.0 release.
+ Source distributions:  Apache Mina SSHD 2.5.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.5.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.5.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.5.0 Binary (.zip) PGP SHA    Development snapshots You can build the latest version from sources.
 Previous releases  SSHD 0.1.0 SSHD 0.</description>
     </item>
     
@@ -363,7 +349,7 @@ Previous releases  SSHD 0.1.0 SSHD 0.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/faq.html</guid>
-      <description>FAQ TODO</description>
+      <description>FAQ See https://github.com/apache/mina-sshd for more informations.</description>
     </item>
     
     <item>
@@ -372,7 +358,7 @@ Previous releases  SSHD 0.1.0 SSHD 0.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/features.html</guid>
-      <description>Features TODO</description>
+      <description>Features The list of features implemented by Mina SSHD is available at https://github.com/apache/mina-sshd.</description>
     </item>
     
     <item>
@@ -414,18 +400,8 @@ For Users Please use this list for any questions regarding how to use SSHD.
       
       <guid>https://mina.apache.org/sshd-project/</guid>
       <description>Overview Apache SSHD is a 100% pure java library to support the SSH protocols on both the client and server side. This library is based on Apache MINA, a scalable and high performance asynchronous IO library.
-SSHD does not really aim at being a replacement for the SSH client or SSH server from Unix operating systems, but rather provides support for Java based applications requiring SSH support.</description>
-    </item>
-    
-    <item>
-      <title>SSHD Required dependencies</title>
-      <link>https://mina.apache.org/sshd-project/required_dependencies.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mina.apache.org/sshd-project/required_dependencies.html</guid>
-      <description>Required dependencies SSHD has 2 compile-time dependencies:
- MINA Core 2.0.x : http://repo1.maven.org/maven2/org/apache/mina/mina-core/2.0.7/mina-core-2.0.7.jar SLF4J API 1.6.4 : http://repo2.maven.org/maven2/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar  Note that since SSHD 0.9.0, the Mina Core library is optional when running in JDK 1.7 and SSHD will default to using nio2 if available.
-To be able to run SSHD, you will also need one SLF4J Logger implementation. The simplest one is the one using java.util.logging underneath which can be downloaded at http://repo2.</description>
+SSHD does not really aim at being a replacement for the SSH client or SSH server from Unix operating systems, but rather provides support for Java based applications requiring SSH support.
+The technical documentation is maintained in the source tree.</description>
     </item>
     
     <item>
@@ -436,18 +412,6 @@ To be able to run SSHD, you will also need one SLF4J Logger implementation. The 
       <guid>https://mina.apache.org/sshd-project/sources.html</guid>
       <description>Overview Sources for the Apache MINA projects are currently managed through GIT. Instructions on GIT use can be found at http://git-scm.com/book/.
 Normal Git Access Anyone can check code out of Git. You only need to specify a username and password in order to update the Git repository, and only MINA committers have the permissions to do that. We run Git over standard HTTPS, so hopefully you won&amp;rsquo;t have problems with intervening firewalls.</description>
-    </item>
-    
-    <item>
-      <title>SSHD Tips</title>
-      <link>https://mina.apache.org/sshd-project/tips.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mina.apache.org/sshd-project/tips.html</guid>
-      <description>How to execute commands as processes on the server side? If you want the SSH server to support direct command execution, you need to configure it with a Factory which will allow that.
-It can be done using the following code:
-sshd.setCommandFactory(new ScpCommandFactory(new CommandFactory() { public Command createCommand(String command) { return new ProcessShellFactory(command.split(&amp;lt;SPAN class=&amp;#34;code-quote&amp;#34;&amp;gt;&amp;#34; &amp;#34;)).create(); } })); This way, you can use the following:
-ssh -p 8202 localhost ls -l </description>
     </item>
     
   </channel>
