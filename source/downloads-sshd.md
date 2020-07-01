@@ -4,15 +4,15 @@ title: Downloads
 
 # Latest SSHD Releases
 
-The latest release is the SSHD 2.5.0 release.
-Apache Mina SSHD 2.5.0 contains a number of [enhancements and bug-fixes](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310849&version=12346915).
+The latest release is the SSHD 2.5.1 release.
+Apache Mina SSHD 2.5.1 contains a number of [enhancements and bug-fixes](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310849&version=12348440).
  
 * Source distributions:
-    * [Apache Mina SSHD 2.5.0 Sources (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.5.0/apache-sshd-2.5.0-src.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.5.0/apache-sshd-2.5.0-src.tar.gz.asc) [SHA](https://www.apache.org/dist/mina/sshd/2.5.0/apache-sshd-2.5.0-src.tar.gz.sha1)
-    * [Apache Mina SSHD 2.5.0 Sources (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.5.0/apache-sshd-2.5.0-src.zip) [PGP](https://www.apache.org/dist/mina/sshd/2.5.0/apache-sshd-2.5.0-src.zip.asc) [SHA](https://www.apache.org/dist/mina/sshd/2.5.0/apache-sshd-2.5.0-src.zip.sha1)
+    * [Apache Mina SSHD 2.5.1 Sources (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.5.1/apache-sshd-2.5.1-src.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.5.1/apache-sshd-2.5.1-src.tar.gz.asc) [SHA](https://www.apache.org/dist/mina/sshd/2.5.1/apache-sshd-2.5.1-src.tar.gz.sha1)
+    * [Apache Mina SSHD 2.5.1 Sources (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.5.1/apache-sshd-2.5.1-src.zip) [PGP](https://www.apache.org/dist/mina/sshd/2.5.1/apache-sshd-2.5.1-src.zip.asc) [SHA](https://www.apache.org/dist/mina/sshd/2.5.1/apache-sshd-2.5.1-src.zip.sha1)
 * Binary distributions:
-    * [Apache Mina SSHD 2.5.0 Binary (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.5.0/dist/apache-sshd-2.5.0.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.5.0/apache-sshd-2.5.0.tar.gz.asc) [SHA](https://www.apache.org/dist/mina/sshd/2.5.0/apache-sshd-2.5.0.tar.gz.sha1)
-    * [Apache Mina SSHD 2.5.0 Binary (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.5.0/dist/apache-sshd-2.5.0.zip) [PGP](https://www.apache.org/dist/mina/sshd/2.5.0/apache-sshd-2.5.0.zip.asc) [SHA](https://www.apache.org/dist/mina/sshd/2.5.0/apache-sshd-2.5.0.zip.sha1)
+    * [Apache Mina SSHD 2.5.1 Binary (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.5.1/dist/apache-sshd-2.5.1.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.5.1/apache-sshd-2.5.1.tar.gz.asc) [SHA](https://www.apache.org/dist/mina/sshd/2.5.1/apache-sshd-2.5.1.tar.gz.sha1)
+    * [Apache Mina SSHD 2.5.1 Binary (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.5.1/dist/apache-sshd-2.5.1.zip) [PGP](https://www.apache.org/dist/mina/sshd/2.5.1/apache-sshd-2.5.1.zip.asc) [SHA](https://www.apache.org/dist/mina/sshd/2.5.1/apache-sshd-2.5.1.zip.sha1)
 
 # Development snapshots
 
@@ -48,4 +48,4 @@ You can [build](sshd-project/building.html) the latest version from [sources](ss
 * [SSHD 2.2.0](sshd-project/download_2.2.0.html)
 * [SSHD 2.3.0](sshd-project/download_2.3.0.html)
 * [SSHD 2.4.0](sshd-project/download_2.4.0.html)
-* [SSHD 2.5.0](sshd-project/download_2.5.0.html)
+* [SSHD 2.5.1](sshd-project/download_2.5.1.html)
