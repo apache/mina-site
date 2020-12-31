@@ -5,6 +5,22 @@ title: News
 
 # News
 
+## MINA 2.1.4 released _posted on August, 24, 2020_
+
+The MINA project is pleased to announce a new release, MINA 2.1.4. This is a bug fix release. Here are the fixed issues :
+
+Bugs
+
+* DIRMINA-966    NIO Datagram messages can get duplicated when unable to be sent by the underlying DatagramChannel
+* DIRMINA-1014   SocketAcceptor doesn't unbind correctly
+* DIRMINA-1115   Filter ProfilerTimerFilter ArithmeticException
+* DIRMINA-1123   Receive buffer size is never set for NIO acceptor
+* DIRMINA-1126   filterWrite in ProtocolCodecFilter can send corrupted writeRequest message to the next filter
+* DIRMINA-1064   Implement cipher suites preference flag introduced in JDK 8
+* DIRMINA-1105   SSLHandler buffer handling
+
+For any information about the API modifications and the impact on existing application, please read the [2.1 vs 2.0 page](2.1-vs-2.0.html).
+
 ## MINA 2.1.3 released _posted on June, 2, 2019_
 
 The MINA project is pleased to announce a new release, MINA 2.1.3. This is a bug fix release: it fixes a 100% CPU usage in some corner case. Here are the fixed issues :
