@@ -444,12 +444,22 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.5.0.html</loc>
-    <lastmod>2020-06-22T17:44:39+02:00</lastmod>
+    <lastmod>2021-01-04T11:07:11+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.5.1.html</loc>
-    <lastmod>2020-07-01T18:49:32+02:00</lastmod>
+    <lastmod>2021-01-04T11:07:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_2.6.0.html</loc>
+    <lastmod>2021-01-04T11:07:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_2.7.0.html</loc>
+    <lastmod>2021-05-31T11:00:16+02:00</lastmod>
   </url>
   
   <url>
@@ -614,7 +624,7 @@
   
   <url>
     <loc>https://mina.apache.org/downloads-sshd.html</loc>
-    <lastmod>2020-07-01T18:49:32+02:00</lastmod>
+    <lastmod>2021-05-31T11:00:16+02:00</lastmod>
   </url>
   
   <url>
@@ -834,7 +844,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/downloads_2_1.html</loc>
-    <lastmod>2020-02-27T13:58:01+01:00</lastmod>
+    <lastmod>2020-12-31T06:14:57+01:00</lastmod>
   </url>
   
   <url>
@@ -859,7 +869,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/downloads_old.html</loc>
-    <lastmod>2020-02-27T13:58:01+01:00</lastmod>
+    <lastmod>2020-12-31T06:14:57+01:00</lastmod>
   </url>
   
   <url>
@@ -869,12 +879,12 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project.html</loc>
-    <lastmod>2020-02-27T13:58:01+01:00</lastmod>
+    <lastmod>2020-12-31T06:14:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project/news.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2020-12-31T06:14:57+01:00</lastmod>
   </url>
   
   <url>
@@ -934,7 +944,7 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project/downloads.html</loc>
-    <lastmod>2020-07-01T18:49:32+02:00</lastmod>
+    <lastmod>2021-05-31T11:00:16+02:00</lastmod>
   </url>
   
   <url>
@@ -974,7 +984,7 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project.html</loc>
-    <lastmod>2020-07-01T18:49:32+02:00</lastmod>
+    <lastmod>2021-05-31T11:00:16+02:00</lastmod>
   </url>
   
   <url>

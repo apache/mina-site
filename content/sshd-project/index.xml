@@ -297,7 +297,7 @@ Getting the Distributions  Source distributions:  Apache Mina SSHD 2.4.0 Sources
       
       <guid>https://mina.apache.org/sshd-project/download_2.5.0.html</guid>
       <description>Overview Apache Mina SSHD 2.5.0 contains a number of enhancements and bug-fixes.
-Getting the Distributions  Source distributions:  Apache Mina SSHD 2.5.0 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.5.0 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.5.0 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.5.0 Binary (.zip) PGP SHA    Please report any feedback to users@mina.apache.org.</description>
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.5.0 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.5.0 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.5.0 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.5.0 Binary (.zip) PGP SHA256 SHA512    Please report any feedback to users@mina.apache.org.</description>
     </item>
     
     <item>
@@ -307,7 +307,27 @@ Getting the Distributions  Source distributions:  Apache Mina SSHD 2.5.0 Sources
       
       <guid>https://mina.apache.org/sshd-project/download_2.5.1.html</guid>
       <description>Overview Apache Mina SSHD 2.5.1 contains a number of enhancements and bug-fixes.
-Getting the Distributions  Source distributions:  Apache Mina SSHD 2.5.1 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.5.1 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.5.1 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.5.1 Binary (.zip) PGP SHA    Please report any feedback to users@mina.apache.org.</description>
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.5.1 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.5.1 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.5.1 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.5.1 Binary (.zip) PGP SHA256 SHA512    Please report any feedback to users@mina.apache.org.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 2.6.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.6.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.6.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.6.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.6.0 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.6.0 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.6.0 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.6.0 Binary (.zip) PGP SHA256 SHA512    Please report any feedback to users@mina.apache.org.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 2.7.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.7.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.7.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.7.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.7.0 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.7.0 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.7.0 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.7.0 Binary (.zip) PGP SHA256 SHA512    Please report any feedback to users@mina.apache.org.</description>
     </item>
     
     <item>
@@ -358,8 +378,8 @@ Getting the Distributions  Source distributions:  Apache Mina SSHD 2.5.1 Sources
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/downloads.html</guid>
-      <description>Latest SSHD Releases The latest release is the SSHD 2.5.1 release. Apache Mina SSHD 2.5.1 contains a number of enhancements and bug-fixes.
- Source distributions:  Apache Mina SSHD 2.5.1 Sources (.tar.gz) PGP SHA Apache Mina SSHD 2.5.1 Sources (.zip) PGP SHA   Binary distributions:  Apache Mina SSHD 2.5.1 Binary (.tar.gz) PGP SHA Apache Mina SSHD 2.5.1 Binary (.zip) PGP SHA    Development snapshots You can build the latest version from sources.</description>
+      <description>Latest SSHD Releases The latest release is the SSHD 2.7.0 release. Apache Mina SSHD 2.7.0 contains a number of enhancements and bug-fixes.
+ Source distributions:  Apache Mina SSHD 2.7.0 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.7.0 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.7.0 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.7.0 Binary (.zip) PGP SHA256 SHA512    Development snapshots You can build the latest version from sources.</description>
     </item>
     
     <item>
