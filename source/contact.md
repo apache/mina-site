@@ -10,7 +10,7 @@ title: Contact
 
 The Apache MINA project has a very active and responsive community. You will get more than you expect from usual open source communities here. Mostly, communication among the team and the users takes place in the following places:
 
-* [Mailing Lists](mailing-lists.html)
+* [Mailing Lists](/mailing-lists.html)
 * [Issue Tracker](http://issues.apache.org/jira/browse/DIRMINA)
 
 People in the community usually:
@@ -55,7 +55,7 @@ If you couldn't find any related information in the mailing list archive and the
 
 # Other Ways to Contact the MINA Community
 
-Contacting via [the mailing list](mailing-lists.html) is always preferred, but you can also contact us via [IRC](http://en.wikipedia.org/wiki/IRC) if you need immediate chat assistance. Please note that we might not be able to respond to your message immediately.
+Contacting via [the mailing list](/mailing-lists.html) is always preferred, but you can also contact us via [IRC](http://en.wikipedia.org/wiki/IRC) if you need immediate chat assistance. Please note that we might not be able to respond to your message immediately.
 
 * Server: irc.freenode.net
 * Channel: #mina

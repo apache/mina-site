@@ -5,7 +5,7 @@ title: AsyncWeb Getting Involved
 
 # Getting Involved
 
-Apache AsyncWeb communicates using our [Mailing Lists](../mailing-lists.html). If you have any questions, feedback or suggestions, you're very welcome to join the list and send an email. We are also happy to receive [bug reports and feature requests in our JIRA](https://issues.apache.org/jira/browse/ASYNCWEB).
+Apache AsyncWeb communicates using our [Mailing Lists](/mailing-lists.html). If you have any questions, feedback or suggestions, you're very welcome to join the list and send an email. We are also happy to receive [bug reports and feature requests in our JIRA](https://issues.apache.org/jira/browse/ASYNCWEB).
 
 # Patches
 
