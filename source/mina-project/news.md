@@ -5,6 +5,16 @@ title: News
 
 # News
 
+## MINA 2.1.5 & MINA 2.0.22 released _posted on October, 29, 2021_
+
+The MINA project is pleased to announce two new releases, MINA 2.1.5 and MINA 2.0.22. 
+
+**These are fixing a critical issue, CVE-2021-41973**
+
+CVE-2021-41973: 'Apache MINA HTTP listener DoS'
+
+**We urge anyone using any previous MINA version to migrate to one of those two new versions**
+
 ## MINA 2.1.4 released _posted on August, 24, 2020_
 
 The MINA project is pleased to announce a new release, MINA 2.1.4. This is a bug fix release. Here are the fixed issues :

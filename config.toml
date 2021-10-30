@@ -34,8 +34,8 @@ date = ["date", ":filename", "publishDate", "lastmod"]
 
 [params]
 version_asyncweb = "2.0.0-SNAPSHOT"
-version_mina_2_0 = "2.0.21"
-version_mina_2_1 = "2.1.4"
+version_mina_2_0 = "2.0.22"
+version_mina_2_1 = "2.1.5"
 version_ftpserver = "1.1.1"
 version_sshd = "2.7.0"
 version_vysper = "0.7"

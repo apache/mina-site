@@ -5,19 +5,19 @@ title: MINA 2.1.x Downloads
 
 # Latest MINA Releases
 
-## Apache MINA 2.1.4 <font color="green">stable</font> (Java 8+)
+## Apache MINA 2.1.5 <font color="green">stable</font> (Java 8+)
 
 ### Binaries
 
-* .tar.gz archive [mina-2.1.4](https://www.apache.org/dyn/closer.lua/mina/mina/2.1.4/apache-mina-2.1.4-bin.tar.gz) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-bin.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-bin.tar.gz.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-bin.tar.gz.asc))
-* .tar.bz2 archive [mina-2.1.4](https://www.apache.org/dyn/closer.lua/mina/mina/2.1.4/apache-mina-2.1.4-bin.tar.bz2) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-bin.tar.bz2.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-bin.tar.bz2.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-bin.tar.bz2.asc))
-* .zip archive [mina-2.1.4](https://www.apache.org/dyn/closer.lua/mina/mina/2.1.4/apache-mina-2.1.4-bin.zip) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-bin.zip.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-bin.zip.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-bin.zip.asc))
+* .tar.gz archive [mina-2.1.5](https://www.apache.org/dyn/closer.lua/mina/mina/2.1.5/apache-mina-2.1.5-bin.tar.gz) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-bin.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-bin.tar.gz.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-bin.tar.gz.asc))
+* .tar.bz2 archive [mina-2.1.5](https://www.apache.org/dyn/closer.lua/mina/mina/2.1.5/apache-mina-2.1.5-bin.tar.bz2) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-bin.tar.bz2.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-bin.tar.bz2.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-bin.tar.bz2.asc))
+* .zip archive [mina-2.1.5](https://www.apache.org/dyn/closer.lua/mina/mina/2.1.5/apache-mina-2.1.5-bin.zip) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-bin.zip.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-bin.zip.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-bin.zip.asc))
 
 ### Sources
 
-* .src.tar.gz archive [mina-2.1.4](https://www.apache.org/dyn/closer.lua/mina/mina/2.1.4/apache-mina-2.1.4-src.tar.gz) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-src.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-src.tar.gz.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-src.tar.gz.asc))
-* .src.tar.bz2 archive [mina-2.1.4](https://www.apache.org/dyn/closer.lua/mina/mina/2.1.4/apache-mina-2.1.4-src.tar.bz2) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-src.tar.bz2.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-src.tar.bz2.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-src.tar.bz2.asc))
-* .src.zip archive [mina-2.1.4](https://www.apache.org/dyn/closer.lua/mina/mina/2.1.4/apache-mina-2.1.4-src.zip) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-src.zip.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-src.zip.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.1.4/apache-mina-2.1.4-src.zip.asc))
+* .src.tar.gz archive [mina-2.1.5](https://www.apache.org/dyn/closer.lua/mina/mina/2.1.5/apache-mina-2.1.5-src.tar.gz) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-src.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-src.tar.gz.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-src.tar.gz.asc))
+* .src.tar.bz2 archive [mina-2.1.5](https://www.apache.org/dyn/closer.lua/mina/mina/2.1.5/apache-mina-2.1.5-src.tar.bz2) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-src.tar.bz2.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-src.tar.bz2.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-src.tar.bz2.asc))
+* .src.zip archive [mina-2.1.5](https://www.apache.org/dyn/closer.lua/mina/mina/2.1.5/apache-mina-2.1.5-src.zip) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-src.zip.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-src.zip.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.1.5/apache-mina-2.1.5-src.zip.asc))
 
 <div class="note" markdown="1">
     For people wanting to use the <strong>serial</strong> package, we don't include the <strong>rxtx.jar</strong> library in the releases, as it's under a LGPL license. Please download it from <a href="http://rxtx.qbang.org/wiki/index.php/Download" class="external-link" rel="nofollow">http://rxtx.qbang.org/wiki/index.php/Download</a> or add the associated dependency in your maven pom.xml :
@@ -35,17 +35,17 @@ title: MINA 2.1.x Downloads
 The PGP signatures can be verified using PGP or GPG. First download the [KEYS](https://www.apache.org/dist/mina/KEYS) as well as the asc signature file for the relevant distribution. Then verify the signatures using:
 
     $ pgpk -a KEYS
-    $ pgpv mina-2.1.4.tar.gz.asc
+    $ pgpv mina-2.1.5.tar.gz.asc
 
 or
 
     $ pgp -ka KEYS
-    $ pgp mina-2.1.4.tar.gz.asc
+    $ pgp mina-2.1.5.tar.gz.asc
     
 or
 
     $ gpg --import KEYS
-    $ gpg --verify mina-2.1.4.tar.gz.asc
+    $ gpg --verify mina-2.1.5.tar.gz.asc
 
 
 # Previous Releases
@@ -77,7 +77,7 @@ MINA is not a stand-alone software, so 'the feature set' here also includes the 
 Here's an example that illustrates how MINA version number increases:
 
 <div class="info" markdown="1">
-    2.0.0-M1 -> 2.0.0-M3 -> 2.0.0-M3 -> 2.0.0-M4 ->  2.0.0-RC1 -> 2.0.0-RC2 -> 2.0.0-RC3 -> <strong>2.0.0</strong> -> 2.0.1 -> 2.0.2 -> 2.1.4-M1 ...
+    2.0.0-M1 -> 2.0.0-M3 -> 2.0.0-M3 -> 2.0.0-M4 ->  2.0.0-RC1 -> 2.0.0-RC2 -> 2.0.0-RC3 -> <strong>2.0.0</strong> -> 2.0.1 -> 2.0.2 -> 2.1.5-M1 ...
 </div>
 
 Please note that we always specify the micro number, even if it's zero.
