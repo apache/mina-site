@@ -1,3 +1,6 @@
+publish:
+  whoami: asf-site
+
 github:
   description: "Website sources for Apache MINA"
   homepage: https://mina.apache.org/
