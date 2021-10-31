@@ -75,8 +75,7 @@ Spring Framework (optional) - for component configuration and wiring.
 Bouncy Castle SSL Provider - stream encryption
 JUnit - unit testing
 slf4j - logging framework, currently using log4j, but this is exchangeable
-Jackrabbit - Jackrabbit is used for JCR container persistence.
-More detailed info about dependencies and libraries can be found here.</description>
+Jackrabbit - Jackrabbit is used for JCR container persistence.</description>
     </item>
     
     <item>
