@@ -525,7 +525,7 @@ $ svn ci <version>
 $ exit
 ```
 
-The packages should now be available on http://www.us.apache.org/dist/mina/mina/<version>
+The packages should now be available on https://dist.apache.org/repos/dist/release/mina/mina/ <version>
 
 ### Step 12: Deploy Web Reports (JavaDoc and JXR)
 

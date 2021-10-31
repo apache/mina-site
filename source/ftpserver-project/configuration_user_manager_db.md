@@ -77,7 +77,7 @@ You must include the required JAR files for your database in the classpath of Ft
 
 ### Data source configuration
 
-The data source must be configured as described by the database provider. You can also use the general purpose [BasicDataSource](http://jakarta.apache.org/commons/dbcp/apidocs/org/apache/commons/dbcp/BasicDataSource.html) provided by the [Apache Commons DBCP project](http://jakarta.apache.org/commons/dbcp/).
+The data source must be configured as described by the database provider. You can also use the general purpose [BasicDataSource](https://commons.apache.org/proper/commons-dbcp/apidocs/org/apache/commons/dbcp2/BasicDataSource.html) provided by the [Apache Commons DBCP project](http://jakarta.apache.org/commons/dbcp/).
 
 #### Example using the BasicDataSource to connect to MySQL
 
