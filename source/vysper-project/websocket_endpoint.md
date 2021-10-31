@@ -23,7 +23,7 @@ server.addEndpoint(new WebSocketEndpoint());
 server.start();
 ```
 
-That’s it. The default configuration will start a web server on port 8080 and supply websockets on <http://vysper.org:8080/>.
+That’s it. The default configuration will start a web server on port 8080 and supply websockets on http://vysper.org:8080/.
 
 The port and context path can be configured:
 

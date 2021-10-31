@@ -28,4 +28,4 @@ title: Vysper Standards Supported
 | [XEP-0206 XMPP Over BOSH](http://xmpp.org/extensions/xep-0206.html) | Complete | {{< html "&nbsp;" >}} |
 | [XEP-0220 Server Dialback](http://xmpp.org/extensions/xep-0220.html) | Complete | {{< html "&nbsp;" >}} |
 | [XEP-0220 Server Dialback](http://xmpp.org/extensions/xep-0220.html) | Complete | {{< html "&nbsp;" >}} |
-| [An XMPP Sub-protocol for WebSocket](http://tools.ietf.org/html/draft-moffitt-xmpp-over-websocket-00 ) | Complete | {{< html "&nbsp;" >}} |
+| [An XMPP Sub-protocol for WebSocket](https://datatracker.ietf.org/doc/html/rfc7395) | Complete | {{< html "&nbsp;" >}} |

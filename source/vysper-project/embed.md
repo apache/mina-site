@@ -84,4 +84,4 @@ server.addModule(new VcardTempModule()); // depends on Jcr persistence
 
 ## Reference
 
-The full and probably improved latest version of this code can be found [here](http://svn.apache.org/repos/asf/mina/sandbox/vysper/trunk/server/core/src/main/java/org/apache/vysper/xmpp/server/ServerMain.java)
+The full and probably improved latest version of this code can be found [here](https://gitbox.apache.org/repos/asf?p=mina-vysper.git;a=blob;f=server/core/src/main/java/org/apache/vysper/xmpp/server/ServerMain.java;h=379d96b06d526609c6c73927ce95d821e9746635;hb=HEAD)

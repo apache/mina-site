@@ -18,5 +18,3 @@ Vysper depends on these fine libraries and frameworks:
 [slf4j](http://slf4j.org/) - logging framework, currently using [log4j](http://logging.apache.org/log4j), but this is exchangeable
 
 [Jackrabbit](http://jackrabbit.apache.org/) - Jackrabbit is used for JCR container persistence.
-
-More detailed info about dependencies and libraries can be found [here](http://svn.apache.org/repos/asf/labs/vysper/lib/LIBRARY_OVERVIEW.txt).
