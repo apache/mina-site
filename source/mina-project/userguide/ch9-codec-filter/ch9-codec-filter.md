@@ -120,7 +120,7 @@ Remarks:
 * MINA will call the encode function for all messages in the IoSession's write queue. Since our client will only write ImageRequest objects, we can safely cast message to ImageRequest.
 * We allocate a new IoBuffer from the heap. It's best to avoid using direct buffers, since generally heap buffers perform better.
  see <http://issues.apache.org/jira/browse/DIRMINA-289>)
-* You do not have to release the buffer, MINA will do it for you, see <http://mina.apache.org/mina-project/apidocs/org/apache/mina/core/buffer/IoBuffer.html>
+* You do not have to release the buffer, MINA will do it for you, see <https://nightlies.apache.org/mina/mina/2.0.22/apidocs/org/apache/mina/core/buffer/IoBuffer.html>
 * In the dispose() method you should release all resources acquired during encoding for the specified session. If there is nothing to dispose you could let your encoder inherit from ProtocolEncoderAdapter.
 
 Now let's have a look at the decoder. The CumulativeProtocolDecoder is a great help for writing your own decoder: it will buffer all incoming data until your decoder decides it can do something with it.

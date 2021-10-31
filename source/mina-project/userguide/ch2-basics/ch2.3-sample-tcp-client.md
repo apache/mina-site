@@ -13,7 +13,7 @@ navNextText: 2.4 - Sample UDP Server
 
 We have seen the Client Architecture. Lets explore a sample Client implementation.
 
-We shall use [Sumup Client](http://mina.apache.org/mina-project/xref/org/apache/mina/example/sumup/Client.html) as a reference implementation.
+We shall use [Sumup Client](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/example/sumup/Client.html) as a reference implementation.
 
 We will remove boiler plate code and concentrate on the important constructs. Below the code for the Client :
 
@@ -90,7 +90,7 @@ We add Filters to the Filter Chain for the Connector. Here we have added a Proto
 connector.setHandler(new ClientSessionHandler(values));
 ```
 
-Here we create an instance of [ClientSessionHandler](http://mina.apache.org/mina-project/xref/org/apache/mina/example/sumup/ClientSessionHandler.html) and set it as a handler for the Connector.
+Here we create an instance of [ClientSessionHandler](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/example/sumup/ClientSessionHandler.html) and set it as a handler for the Connector.
 
 ## Bind to Server
 
@@ -111,5 +111,5 @@ for (;;) {
 }
 ```
 
-Here is the most important stuff. We connect to remote Server. Since, connect is an async task, we use the [ConnectFuture](http://mina.apache.org/mina-project/xref/org/apache/mina/core/future/ConnectFuture.html) class to know the when the connection is complete.
-Once the connection is complete, we get the associated [IoSession](http://mina.apache.org/mina-project/xref/org/apache/mina/core/session/IoSession.html). To send any message to the Server, we shall have to write to the session. All responses/messages from server shall traverse the Filter chain and finally be handled in IoHandler.
+Here is the most important stuff. We connect to remote Server. Since, connect is an async task, we use the [ConnectFuture](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/core/future/ConnectFuture.html) class to know the when the connection is complete.
+Once the connection is complete, we get the associated [IoSession](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/core/session/IoSession.html). To send any message to the Server, we shall have to write to the session. All responses/messages from server shall traverse the Filter chain and finally be handled in IoHandler.

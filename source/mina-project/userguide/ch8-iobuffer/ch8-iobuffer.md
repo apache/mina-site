@@ -43,7 +43,7 @@ The allocate() method takes one or two arguments. The first form takes two argum
 * __capacity__ - the capacity of the buffer
 * __direct__ - type of buffer. true to get direct buffer, false to get heap buffer
 
-The default buffer allocation is handled by [SimpleBufferAllocator](http://mina.apache.org/mina-project/xref/org/apache/mina/core/buffer/SimpleBufferAllocator.html)
+The default buffer allocation is handled by [SimpleBufferAllocator](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/core/buffer/SimpleBufferAllocator.html)
 
 Alternatively, following form can also be used
 

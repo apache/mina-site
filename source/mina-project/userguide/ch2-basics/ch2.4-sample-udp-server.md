@@ -11,12 +11,12 @@ navNextText: 2.5 - Sample UDP Client
 
 # 2.4 - Sample UDP Server
 
-We will begin by looking at the code found in the [org.apache.mina.example.udp](http://mina.apache.org/mina-project/xref/org/apache/mina/example/udp/package-summary.html) package. To keep life simple, we shall concentrate on MINA related constructs only.
+We will begin by looking at the code found in the [org.apache.mina.example.udp](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/example/udp/package-summary.html) package. To keep life simple, we shall concentrate on MINA related constructs only.
 
 To construct the server, we shall have to do the following:
 
-1. Create a Datagram Socket to listen for incoming Client requests (See [MemoryMonitor.java](http://mina.apache.org/mina-project/xref/org/apache/mina/example/udp/MemoryMonitor.html))
-2. Create an IoHandler to handle the MINA framework generated events (See [MemoryMonitorHandler.java](http://mina.apache.org/mina-project/xref/org/apache/mina/example/udp/MemoryMonitorHandler.html))
+1. Create a Datagram Socket to listen for incoming Client requests (See [MemoryMonitor.java](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/example/udp/MemoryMonitor.html))
+2. Create an IoHandler to handle the MINA framework generated events (See [MemoryMonitorHandler.java](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/example/udp/MemoryMonitorHandler.html))
 
 Here is the first snippet that addresses Point# 1:
 

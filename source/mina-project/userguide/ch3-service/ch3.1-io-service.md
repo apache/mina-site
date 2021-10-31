@@ -11,11 +11,11 @@ navNextText: 3.2 - IoService Details
 
 # 3.1 - IoService Introduction
 
-[IoService](http://mina.apache.org/mina-project/xref/org/apache/mina/core/service/IoService.html) provides basic **I/O** Service and manages **I/O** Sessions within **MINA**. Its one of the most crucial part of **MINA** Architecture. The implementing classes of _IoService_ and child interface, are where most of the low level **I/O** operations are handled.
+[IoService](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/core/service/IoService.html) provides basic **I/O** Service and manages **I/O** Sessions within **MINA**. Its one of the most crucial part of **MINA** Architecture. The implementing classes of _IoService_ and child interface, are where most of the low level **I/O** operations are handled.
 
 # IoService Mind Map
 
-Let's try to see what are the responsibilities of the _IoService_ and it implementing class [AbstractIoService](http://mina.apache.org/mina-project/xref/org/apache/mina/core/service/AbstractIoService.html). Let's take a slightly different approach of first using a [Mind Map](http://en.wikipedia.org/wiki/Mind_map) and then jump into the inner working. The Mind Map was created using [XMind](http://www.xmind.net/).
+Let's try to see what are the responsibilities of the _IoService_ and it implementing class [AbstractIoService](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/core/service/AbstractIoService.html). Let's take a slightly different approach of first using a [Mind Map](http://en.wikipedia.org/wiki/Mind_map) and then jump into the inner working. The Mind Map was created using [XMind](http://www.xmind.net/).
 
 ![](/assets/img/mina/IoService_mindmap.png)
 

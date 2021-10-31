@@ -26,7 +26,7 @@ navNextText: 6.2 - Serial Transport
 
 ## Using APR Transport
 
-Refer [Time Server](https://mina.apache.org/mina-project/xref/org/apache/mina/example/gettingstarted/timeserver/) example for complete source
+Refer [Time Server]https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/example/gettingstarted/timeserver/) example for complete source
 
 Lets see how NIO based Time server implementation looks like
 

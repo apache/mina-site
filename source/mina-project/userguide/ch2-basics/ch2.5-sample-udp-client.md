@@ -20,7 +20,7 @@ To implement the Client we need to do following:
 * Collect free memory
 * Send the Data to the Server
 
-We will begin by looking at the file [MemMonClient.java](http://mina.apache.org/mina-project/xref/org/apache/mina/example/udp/client/MemMonClient.html), found in the org.apache.mina.example.udp.client java package. The first few lines of the code are simple and straightforward.
+We will begin by looking at the file [MemMonClient.java](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/example/udp/client/MemMonClient.html), found in the org.apache.mina.example.udp.client java package. The first few lines of the code are simple and straightforward.
 
 ```java
 connector = new NioDatagramConnector();

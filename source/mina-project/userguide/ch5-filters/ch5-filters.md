@@ -140,7 +140,7 @@ private static class MyByteBuffer extends ByteBufferProxy {
 }
 ```
 
-If you are using MINA 2.0, it will be somewhat different from 1.0 and 1.1. Please refer to [CompressionFilter](http://mina.apache.org/mina-project/xref/org/apache/mina/filter/compression/CompressionFilter.html) and [RequestResponseFilter](http://mina.apache.org/mina-project/xref/org/apache/mina/filter/reqres/RequestResponseFilter.html) meanwhile.
+If you are using MINA 2.0, it will be somewhat different from 1.0 and 1.1. Please refer to [CompressionFilter](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/compression/CompressionFilter.html) and [RequestResponseFilter](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/reqres/RequestResponseFilter.html) meanwhile.
 
 ## Be Careful When Filtering sessionCreated Event
 
