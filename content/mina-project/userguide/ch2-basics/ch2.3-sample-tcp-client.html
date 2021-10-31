@@ -136,7 +136,7 @@
             
 	<h1 id="23---sample-tcp-client">2.3 - Sample TCP Client</h1>
 <p>We have seen the Client Architecture. Lets explore a sample Client implementation.</p>
-<p>We shall use <a href="http://mina.apache.org/mina-project/xref/org/apache/mina/example/sumup/Client.html">Sumup Client</a> as a reference implementation.</p>
+<p>We shall use <a href="https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/example/sumup/Client.html">Sumup Client</a> as a reference implementation.</p>
 <p>We will remove boiler plate code and concentrate on the important constructs. Below the code for the Client :</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">main</span><span style="color:#666">(</span>String<span style="color:#666">[</span><span style="color:#666">]</span> args<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Throwable <span style="color:#666">{</span>
     NioSocketConnector connector <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NioSocketConnector<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
@@ -193,7 +193,7 @@
 </code></pre></div><p>We add Filters to the Filter Chain for the Connector. Here we have added a ProtocolCodec, to the filter Chain.</p>
 <h2 id="create-iohandler">Create IOHandler</h2>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">connector<span style="color:#666">.</span><span style="color:#b44">setHandler</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">new</span> ClientSessionHandler<span style="color:#666">(</span>values<span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
-</code></pre></div><p>Here we create an instance of <a href="http://mina.apache.org/mina-project/xref/org/apache/mina/example/sumup/ClientSessionHandler.html">ClientSessionHandler</a> and set it as a handler for the Connector.</p>
+</code></pre></div><p>Here we create an instance of <a href="https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/example/sumup/ClientSessionHandler.html">ClientSessionHandler</a> and set it as a handler for the Connector.</p>
 <h2 id="bind-to-server">Bind to Server</h2>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">IoSession session<span style="color:#666">;</span>
 
@@ -209,8 +209,8 @@
         Thread<span style="color:#666">.</span><span style="color:#b44">sleep</span><span style="color:#666">(</span>5000<span style="color:#666">)</span><span style="color:#666">;</span>
     <span style="color:#666">}</span>
 <span style="color:#666">}</span>
-</code></pre></div><p>Here is the most important stuff. We connect to remote Server. Since, connect is an async task, we use the <a href="http://mina.apache.org/mina-project/xref/org/apache/mina/core/future/ConnectFuture.html">ConnectFuture</a> class to know the when the connection is complete.
-Once the connection is complete, we get the associated <a href="http://mina.apache.org/mina-project/xref/org/apache/mina/core/session/IoSession.html">IoSession</a>. To send any message to the Server, we shall have to write to the session. All responses/messages from server shall traverse the Filter chain and finally be handled in IoHandler.</p>
+</code></pre></div><p>Here is the most important stuff. We connect to remote Server. Since, connect is an async task, we use the <a href="https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/core/future/ConnectFuture.html">ConnectFuture</a> class to know the when the connection is complete.
+Once the connection is complete, we get the associated <a href="https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/core/session/IoSession.html">IoSession</a>. To send any message to the Server, we shall have to write to the session. All responses/messages from server shall traverse the Filter chain and finally be handled in IoHandler.</p>
 
 
             

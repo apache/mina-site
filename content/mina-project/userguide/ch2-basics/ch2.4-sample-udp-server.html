@@ -135,11 +135,11 @@
 
             
 	<h1 id="24---sample-udp-server">2.4 - Sample UDP Server</h1>
-<p>We will begin by looking at the code found in the <a href="http://mina.apache.org/mina-project/xref/org/apache/mina/example/udp/package-summary.html">org.apache.mina.example.udp</a> package. To keep life simple, we shall concentrate on MINA related constructs only.</p>
+<p>We will begin by looking at the code found in the <a href="https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/example/udp/package-summary.html">org.apache.mina.example.udp</a> package. To keep life simple, we shall concentrate on MINA related constructs only.</p>
 <p>To construct the server, we shall have to do the following:</p>
 <ol>
-<li>Create a Datagram Socket to listen for incoming Client requests (See <a href="http://mina.apache.org/mina-project/xref/org/apache/mina/example/udp/MemoryMonitor.html">MemoryMonitor.java</a>)</li>
-<li>Create an IoHandler to handle the MINA framework generated events (See <a href="http://mina.apache.org/mina-project/xref/org/apache/mina/example/udp/MemoryMonitorHandler.html">MemoryMonitorHandler.java</a>)</li>
+<li>Create a Datagram Socket to listen for incoming Client requests (See <a href="https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/example/udp/MemoryMonitor.html">MemoryMonitor.java</a>)</li>
+<li>Create an IoHandler to handle the MINA framework generated events (See <a href="https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/example/udp/MemoryMonitorHandler.html">MemoryMonitorHandler.java</a>)</li>
 </ol>
 <p>Here is the first snippet that addresses Point# 1:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">NioDatagramAcceptor acceptor <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NioDatagramAcceptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>

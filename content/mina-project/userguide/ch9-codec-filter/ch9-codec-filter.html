@@ -256,7 +256,7 @@ This is the layout of a response message:</p>
 <li>MINA will call the encode function for all messages in the IoSession&rsquo;s write queue. Since our client will only write ImageRequest objects, we can safely cast message to ImageRequest.</li>
 <li>We allocate a new IoBuffer from the heap. It&rsquo;s best to avoid using direct buffers, since generally heap buffers perform better.
 see <a href="http://issues.apache.org/jira/browse/DIRMINA-289">http://issues.apache.org/jira/browse/DIRMINA-289</a>)</li>
-<li>You do not have to release the buffer, MINA will do it for you, see <a href="http://mina.apache.org/mina-project/apidocs/org/apache/mina/core/buffer/IoBuffer.html">http://mina.apache.org/mina-project/apidocs/org/apache/mina/core/buffer/IoBuffer.html</a></li>
+<li>You do not have to release the buffer, MINA will do it for you, see <a href="https://nightlies.apache.org/mina/mina/2.0.22/apidocs/org/apache/mina/core/buffer/IoBuffer.html">https://nightlies.apache.org/mina/mina/2.0.22/apidocs/org/apache/mina/core/buffer/IoBuffer.html</a></li>
 <li>In the dispose() method you should release all resources acquired during encoding for the specified session. If there is nothing to dispose you could let your encoder inherit from ProtocolEncoderAdapter.</li>
 </ul>
 <p>Now let&rsquo;s have a look at the decoder. The CumulativeProtocolDecoder is a great help for writing your own decoder: it will buffer all incoming data until your decoder decides it can do something with it.
