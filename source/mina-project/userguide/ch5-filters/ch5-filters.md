@@ -67,7 +67,6 @@ We have many filters already written. The following table list all the existing 
 | ProtocolCodec | [ProtocolCodecFilter](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/codec/ProtocolCodecFilter.html) | A filter in charge of encoding and decoding messages |
 | Proxy | [ProxyFilter](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/proxy/filter/ProxyFilter.html) | {{< html "&nbsp;" >}} |
 | Reference counting | [ReferenceCountingFilter](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/util/ReferenceCountingFilter.html) | Keeps track of the number of usages of this filter |
-| RequestResponse | [RequestResponseFilter](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/reqres/RequestResponseFilter.html) | {{< html "&nbsp;" >}} |
 | SessionAttributeInitializing | [SessionAttributeInitializingFilter](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/util/SessionAttributeInitializingFilter.html) | {{< html "&nbsp;" >}} |
 | StreamWrite | [StreamWriteFilter](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/stream/StreamWriteFilter.html) | {{< html "&nbsp;" >}} |
 | SslFilter | [SslFilter](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/ssl/SslFilter.html) | {{< html "&nbsp;" >}} |
@@ -140,7 +139,7 @@ private static class MyByteBuffer extends ByteBufferProxy {
 }
 ```
 
-If you are using MINA 2.0, it will be somewhat different from 1.0 and 1.1. Please refer to [CompressionFilter](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/compression/CompressionFilter.html) and [RequestResponseFilter](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/reqres/RequestResponseFilter.html) meanwhile.
+If you are using MINA 2.0, it will be somewhat different from 1.0 and 1.1. Please refer to [CompressionFilter](https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/compression/CompressionFilter.html) meanwhile.
 
 ## Be Careful When Filtering sessionCreated Event
 
