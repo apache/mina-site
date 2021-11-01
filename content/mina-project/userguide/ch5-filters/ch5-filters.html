@@ -264,11 +264,6 @@
 <td>Keeps track of the number of usages of this filter</td>
 </tr>
 <tr>
-<td>RequestResponse</td>
-<td><a href="https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/reqres/RequestResponseFilter.html">RequestResponseFilter</a></td>
-<td>&nbsp;</td>
-</tr>
-<tr>
 <td>SessionAttributeInitializing</td>
 <td><a href="https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/util/SessionAttributeInitializingFilter.html">SessionAttributeInitializingFilter</a></td>
 <td>&nbsp;</td>
@@ -337,7 +332,7 @@
         <span style="color:#a2f;font-weight:bold">this</span><span style="color:#666">.</span><span style="color:#b44">originalValue</span> <span style="color:#666">=</span> originalValue<span style="color:#666">;</span>
     <span style="color:#666">}</span>
 <span style="color:#666">}</span>
-</code></pre></div><p>If you are using MINA 2.0, it will be somewhat different from 1.0 and 1.1. Please refer to <a href="https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/compression/CompressionFilter.html">CompressionFilter</a> and <a href="https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/reqres/RequestResponseFilter.html">RequestResponseFilter</a> meanwhile.</p>
+</code></pre></div><p>If you are using MINA 2.0, it will be somewhat different from 1.0 and 1.1. Please refer to <a href="https://nightlies.apache.org/mina/mina/2.0.22/xref/org/apache/mina/filter/compression/CompressionFilter.html">CompressionFilter</a> meanwhile.</p>
 <h2 id="be-careful-when-filtering-sessioncreated-event">Be Careful When Filtering sessionCreated Event</h2>
 <p>sessionCreated is a special event that must be executed in the I/O processor thread (see Configuring Thread Model). Never forward sessionCreated event to the other thread.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">sessionCreated</span><span style="color:#666">(</span>NextFilter nextFilter<span style="color:#666">,</span> IoSession session<span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception <span style="color:#666">{</span>
