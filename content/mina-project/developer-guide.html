@@ -525,12 +525,12 @@ vendor: other
 user: &lt;your asf id&gt;
 pass: &lt;your asf password&gt; (will be stored encrypted)
 </code></pre><p>Then copy the directories:</p>
-<p>cd target/checkout/target/site
-rclone copy &ndash;progress apidocs nightlies:/mina/mina/2.1.5/apidocs
-rclone copy &ndash;progress xref nightlies:/mina/mina/2.1.5/testapidocs
-rclone copy &ndash;progress xref nightlies:/mina/mina/2.1.5/xref
-rclone copy &ndash;progress xref nightlies:/mina/mina/2.1.5/xref-test</p>
-<p>Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo:</p>
+<pre><code>cd target/checkout/target/site
+rclone copy --progress apidocs nightlies:/mina/mina/2.1.5/apidocs
+rclone copy --progress xref nightlies:/mina/mina/2.1.5/testapidocs
+rclone copy --progress xref nightlies:/mina/mina/2.1.5/xref
+rclone copy --progress xref nightlies:/mina/mina/2.1.5/xref-test
+</code></pre><p>Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo:</p>
 <pre><code>RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/2.1.5/ [QSA,L]
 RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/2.1.5/$1 [QSA,L]
 </code></pre><p>Save and commit the file, the web site should be automatically generated and published.</p>
