@@ -535,98 +535,58 @@ The javadoc and xref files have been generated in step 6, it's now time to push 
 target/checkout/target/site
 ```
 
-We will copy two directories :
+We will copy four directories :
 
 ```text
 apidocs
+testapidocs
 xref
+xref-test
 ```
 
-Staging or Production?
+They are uploaded to https://nightlies.apache.org/ via WebDAV protocol.
 
-<div class="info" markdown="1">
-Those files will be stored on the production server only !!! And some extra caution ust be taken not to delete them when we will publish the staging site too...
-</div>
+First create the folders for the version (here, 2.1.5):
 
-First of all, you must checkout the two CMS store for the site : staging and production.
+$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/2.1.5/'
+$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/2.1.5/apidocs'
+$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/2.1.5/testapidocs'
+$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/2.1.5/xref'
+$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/2.1.5/xref-test'
 
-```bash
-$ svn co https://svn.apache.org/repos/infra/websites/staging/mina/trunk staging
-...
-$ svn co https://svn.apache.org/repos/infra/websites/production/mina production
-...
+Each of those commands will ask for your ASF password.
+
+I used **rclone** to copy folders via WebDAV.
+
+After intallation run rclone config and configure the nightlies connection:
+
+```
+$ rclone config
+name: nightlies
+type: webdav
+url: https://nightlies.apache.org
+vendor: other
+user: <your asf id>
+pass: <your asf password> (will be stored encrypted)
 ```
 
-Then copy the generated docs :
+Then copy the directories:
 
-```bash
-$ cp -r ~/mina/target/checkout/target/site/apidocs production/content/mina-project/
-$ cp -r ~/mina/target/checkout/target/site/testapidocs production/content/mina-project/
-$ cp -r ~/mina/target/checkout/target/site/xref production/content/mina-project/
-$ cp -r ~/mina/target/checkout/target/site/xref-test production/content/mina-project/
+cd target/checkout/target/site
+rclone copy --progress apidocs nightlies:/mina/mina/2.1.5/apidocs
+rclone copy --progress xref nightlies:/mina/mina/2.1.5/testapidocs
+rclone copy --progress xref nightlies:/mina/mina/2.1.5/xref
+rclone copy --progress xref nightlies:/mina/mina/2.1.5/xref-test
+
+Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo:
+
+```
+RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/2.1.5/ [QSA,L]
+RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/2.1.5/$1 [QSA,L]
 ```
 
-You have to check in those directories :
+Save and commit the file, the web site should be automatically generated and published.
 
-```bash
-$ svn add apidocs
-$ svn add testapidocs
-$ svn add xref
-$ svn add xref-test
-$ svn ci apidocs testapidocs xref xref-test -m "Injected MINA <version> javadocs"
-```
-
-Now, you have to update the staging site <em>extpaths.txt</em>
-
-This file list the file on the production site that will not be overridden by the publication of the staging site. It has to be updated
-
-```bash
-$ cd ~/mina/staging/content/
-$ vi extpaths.txt
-```
-
-The following lines should be present. If not, add them and commit the file :
-
-```text
-# MINA
-# 2.1.x
-mina-project/gen-docs/2.1.2
-mina-project/gen-docs/2.1.1
-mina-project/gen-docs/2.1.0
-
-# 2.0.x
-mina-project/gen-docs/2.0.21
-mina-project/gen-docs/2.0.20
-mina-project/gen-docs/2.0.19
-mina-project/apidocs
-mina-project/testapidocs
-mina-project/xref
-mina-project/xref-test
-...
-```
-
-Here, we just added the _mina-project/gen-docs/2.1.2_ line at the very top of this list when we released the 2.1.2 version.
-
-Last, not least, update the _.htaccess_ file on production :
-
-```bash
-$ cd ~/production/content/mina-project/gen-docs
-$ vi .htaccess
-```
-
-and change the references so that they point to the latest released version :
-
-```text
-RewriteEngine on
-
-RewriteBase /mina-project/gen-docs
-
-RewriteRule ^latest-2.0$ 2.0.21/
-RewriteRule ^latest-2.0/(.*)$ 2.0.21/$1
-
-RewriteRule ^latest-2.1$ 2.1.2/
-RewriteRule ^latest-2.1/(.*)$ 2.1.2/$1
-```
 
 ### Step 13: Wait 24 hours
 
