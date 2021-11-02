@@ -572,11 +572,13 @@ pass: <your asf password> (will be stored encrypted)
 
 Then copy the directories:
 
+```
 cd target/checkout/target/site
 rclone copy --progress apidocs nightlies:/mina/mina/2.1.5/apidocs
 rclone copy --progress xref nightlies:/mina/mina/2.1.5/testapidocs
 rclone copy --progress xref nightlies:/mina/mina/2.1.5/xref
 rclone copy --progress xref nightlies:/mina/mina/2.1.5/xref-test
+```
 
 Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo:
 
