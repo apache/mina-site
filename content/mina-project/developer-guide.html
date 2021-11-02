@@ -502,64 +502,39 @@ $ <span style="color:#a2f">exit</span>
 <h3 id="step-12-deploy-web-reports-javadoc-and-jxr">Step 12: Deploy Web Reports (JavaDoc and JXR)</h3>
 <p>The javadoc and xref files have been generated in step 6, it&rsquo;s now time to push them into the production site. They are generated in the following directory :</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">target/checkout/target/site
-</code></pre></div><p>We will copy two directories :</p>
+</code></pre></div><p>We will copy four directories :</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">apidocs
+testapidocs
 xref
-</code></pre></div><p>Staging or Production?</p>
-<div class="info" markdown="1">
-Those files will be stored on the production server only !!! And some extra caution ust be taken not to delete them when we will publish the staging site too...
-</div>
-<p>First of all, you must checkout the two CMS store for the site : staging and production.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ svn co https://svn.apache.org/repos/infra/websites/staging/mina/trunk staging
-...
-$ svn co https://svn.apache.org/repos/infra/websites/production/mina production
-...
-</code></pre></div><p>Then copy the generated docs :</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp -r ~/mina/target/checkout/target/site/apidocs production/content/mina-project/
-$ cp -r ~/mina/target/checkout/target/site/testapidocs production/content/mina-project/
-$ cp -r ~/mina/target/checkout/target/site/xref production/content/mina-project/
-$ cp -r ~/mina/target/checkout/target/site/xref-test production/content/mina-project/
-</code></pre></div><p>You have to check in those directories :</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ svn add apidocs
-$ svn add testapidocs
-$ svn add xref
-$ svn add xref-test
-$ svn ci apidocs testapidocs xref xref-test -m <span style="color:#b44">&#34;Injected MINA &lt;version&gt; javadocs&#34;</span>
-</code></pre></div><p>Now, you have to update the staging site <em>extpaths.txt</em></p>
-<p>This file list the file on the production site that will not be overridden by the publication of the staging site. It has to be updated</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">cd</span> ~/mina/staging/content/
-$ vi extpaths.txt
-</code></pre></div><p>The following lines should be present. If not, add them and commit the file :</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># MINA
-# 2.1.x
-mina-project/gen-docs/2.1.2
-mina-project/gen-docs/2.1.1
-mina-project/gen-docs/2.1.0
-
-# 2.0.x
-mina-project/gen-docs/2.0.21
-mina-project/gen-docs/2.0.20
-mina-project/gen-docs/2.0.19
-mina-project/apidocs
-mina-project/testapidocs
-mina-project/xref
-mina-project/xref-test
-...
-</code></pre></div><p>Here, we just added the <em>mina-project/gen-docs/2.1.2</em> line at the very top of this list when we released the 2.1.2 version.</p>
-<p>Last, not least, update the <em>.htaccess</em> file on production :</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">cd</span> ~/production/content/mina-project/gen-docs
-$ vi .htaccess
-</code></pre></div><p>and change the references so that they point to the latest released version :</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">RewriteEngine on
-
-RewriteBase /mina-project/gen-docs
-
-RewriteRule ^latest-2.0$ 2.0.21/
-RewriteRule ^latest-2.0/(.*)$ 2.0.21/$1
-
-RewriteRule ^latest-2.1$ 2.1.2/
-RewriteRule ^latest-2.1/(.*)$ 2.1.2/$1
-</code></pre></div><h3 id="step-13-wait-24-hours">Step 13: Wait 24 hours</h3>
+xref-test
+</code></pre></div><p>They are uploaded to <a href="https://nightlies.apache.org/">https://nightlies.apache.org/</a> via WebDAV protocol.</p>
+<p>First create the folders for the version (here, 2.1.5):</p>
+<p>$ curl -u <your asf id> -X MKCOL &lsquo;<a href="https://nightlies.apache.org/mina/mina/2.1.5/'">https://nightlies.apache.org/mina/mina/2.1.5/'</a>
+$ curl -u <your asf id> -X MKCOL &lsquo;<a href="https://nightlies.apache.org/mina/mina/2.1.5/apidocs'">https://nightlies.apache.org/mina/mina/2.1.5/apidocs'</a>
+$ curl -u <your asf id> -X MKCOL &lsquo;<a href="https://nightlies.apache.org/mina/mina/2.1.5/testapidocs'">https://nightlies.apache.org/mina/mina/2.1.5/testapidocs'</a>
+$ curl -u <your asf id> -X MKCOL &lsquo;<a href="https://nightlies.apache.org/mina/mina/2.1.5/xref'">https://nightlies.apache.org/mina/mina/2.1.5/xref'</a>
+$ curl -u <your asf id> -X MKCOL &lsquo;<a href="https://nightlies.apache.org/mina/mina/2.1.5/xref-test'">https://nightlies.apache.org/mina/mina/2.1.5/xref-test'</a></p>
+<p>Each of those commands will ask for your ASF password.</p>
+<p>I used <strong>rclone</strong> to copy folders via WebDAV.</p>
+<p>After intallation run rclone config and configure the nightlies connection:</p>
+<pre><code>$ rclone config
+name: nightlies
+type: webdav
+url: https://nightlies.apache.org
+vendor: other
+user: &lt;your asf id&gt;
+pass: &lt;your asf password&gt; (will be stored encrypted)
+</code></pre><p>Then copy the directories:</p>
+<p>cd target/checkout/target/site
+rclone copy &ndash;progress apidocs nightlies:/mina/mina/2.1.5/apidocs
+rclone copy &ndash;progress xref nightlies:/mina/mina/2.1.5/testapidocs
+rclone copy &ndash;progress xref nightlies:/mina/mina/2.1.5/xref
+rclone copy &ndash;progress xref nightlies:/mina/mina/2.1.5/xref-test</p>
+<p>Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo:</p>
+<pre><code>RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/2.1.5/ [QSA,L]
+RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/2.1.5/$1 [QSA,L]
+</code></pre><p>Save and commit the file, the web site should be automatically generated and published.</p>
+<h3 id="step-13-wait-24-hours">Step 13: Wait 24 hours</h3>
 <p>We have to wait at least 24 hours for all mirrors to retrieve the uploaded files before making any announcement.  I&rsquo;d recommend you to wait for 48 hours because some mirrors might lag due to various issues.</p>
 <h3 id="step-14-update-the-links-in-web-site">Step 14: Update the Links in Web Site</h3>
 <p>Some pages have to be updated. Assuming the MINA site has been checked out in ~/mina/site (this can be done with the command <em>$ svn co https://http://svn.apache.org/viewvc/mina/site/trunk ~/mina/site</em>), here are the pages that need to be changed :</p>
