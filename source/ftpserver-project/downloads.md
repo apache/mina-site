@@ -5,10 +5,11 @@ title: FtpServer Downloads
 
 # Latest FTPServer Releases
 
-The latest release is the [Apache FtpServer 1.1.1 Release](download_1.1.1.html)
+The latest release is the [Apache FtpServer 1.1.2 Release](download_1.1.2.html)
 
 # All Releases
 
+* [Apache FtpServer 1.1.1 Release](download_1.1.2.html)
 * [Apache FtpServer 1.1.1 Release](download_1.1.1.html)
 * [Apache FtpServer 1.1.0 Release](download_1.1.0.html)
 * [Apache FtpServer 1.0.6 Release](download_1.0.6.html)
