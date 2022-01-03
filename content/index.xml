@@ -577,6 +577,16 @@ Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Si
     </item>
     
     <item>
+      <title>Apache FtpServer 1.1.2 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1.1.2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1.1.2.html</guid>
+      <description>Apache FtpServer 1.1.2 Release New Features in 1.1.2 This release fixes the Log4J CVE by embedding the 2.17.0 version.
+Changelog Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Signature file of download     zip distribution apache-ftpserver-1.1.2-bin.zip SHA1 ASC   tar.gz distribution apache-ftpserver-1.1.2-bin.tar.gz SHA1 ASC   tar.bz2 distribution apache-ftpserver-1.1.2-bin.tar.bz2 SHA1 ASC    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+    </item>
+    
+    <item>
       <title>Apache MINA - Contributors</title>
       <link>https://mina.apache.org/contributors.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1261,8 +1271,8 @@ Why use a ProtocolCodecFilter?  TCP guarantees delivery of all packets in the co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/downloads-ftpserver.html</guid>
-      <description>Latest FTPServer Releases The latest release is the Apache FtpServer 1.1.1 Release
-All Releases  Apache FtpServer 1.1.1 Release Apache FtpServer 1.1.0 Release Apache FtpServer 1.0.6 Release Apache FtpServer 1.0.5 Release Apache FtpServer 1.0.4 Release Apache FtpServer 1.0.3 Release Apache FtpServer 1.0.2 Release Apache FtpServer 1.0.1 Release Apache FtpServer 1.0.0 Release Apache FtpServer 1.0.0-RC2 Release Apache FtpServer 1.0.0-RC1 release Apache FtpServer 1.0.0-M4 release Apache FtpServer 1.0.0-M3 release Apache FtpServer 1.0.0-M2 release  Maven Repositories All Apache FtpServer releases are available from the Maven central repository</description>
+      <description>Latest FTPServer Releases The latest release is the Apache FtpServer 1.1.2 Release
+All Releases  Apache FtpServer 1.1.2 Release Apache FtpServer 1.1.1 Release Apache FtpServer 1.1.0 Release Apache FtpServer 1.0.6 Release Apache FtpServer 1.0.5 Release Apache FtpServer 1.0.4 Release Apache FtpServer 1.0.3 Release Apache FtpServer 1.0.2 Release Apache FtpServer 1.0.1 Release Apache FtpServer 1.0.0 Release Apache FtpServer 1.0.0-RC2 Release Apache FtpServer 1.0.0-RC1 release Apache FtpServer 1.0.0-M4 release Apache FtpServer 1.0.0-M3 release Apache FtpServer 1.</description>
     </item>
     
     <item>
@@ -1410,8 +1420,8 @@ Database JDBC libraries You must include the required JAR files for your databas
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/ftpserver-project/downloads.html</guid>
-      <description>Latest FTPServer Releases The latest release is the Apache FtpServer 1.1.1 Release
-All Releases  Apache FtpServer 1.1.1 Release Apache FtpServer 1.1.0 Release Apache FtpServer 1.0.6 Release Apache FtpServer 1.0.5 Release Apache FtpServer 1.0.4 Release Apache FtpServer 1.0.3 Release Apache FtpServer 1.0.2 Release Apache FtpServer 1.0.1 Release Apache FtpServer 1.0.0 Release Apache FtpServer 1.0.0-RC2 Release Apache FtpServer 1.0.0-RC1 release Apache FtpServer 1.0.0-M4 release Apache FtpServer 1.0.0-M3 release Apache FtpServer 1.0.0-M2 release  Maven Repositories All Apache FtpServer releases are available from the Maven central repository</description>
+      <description>Latest FTPServer Releases The latest release is the Apache FtpServer 1.1.2 Release
+All Releases  Apache FtpServer 1.1.1 Release Apache FtpServer 1.1.1 Release Apache FtpServer 1.1.0 Release Apache FtpServer 1.0.6 Release Apache FtpServer 1.0.5 Release Apache FtpServer 1.0.4 Release Apache FtpServer 1.0.3 Release Apache FtpServer 1.0.2 Release Apache FtpServer 1.0.1 Release Apache FtpServer 1.0.0 Release Apache FtpServer 1.0.0-RC2 Release Apache FtpServer 1.0.0-RC1 release Apache FtpServer 1.0.0-M4 release Apache FtpServer 1.0.0-M3 release Apache FtpServer 1.</description>
     </item>
     
     <item>
