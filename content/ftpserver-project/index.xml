@@ -171,7 +171,7 @@ Getting the Binary Distributions    Description Download Link SHA1 hashes PGP Si
       
       <guid>https://mina.apache.org/ftpserver-project/download_1.1.2.html</guid>
       <description>Apache FtpServer 1.1.2 Release New Features in 1.1.2 This release fixes the Log4J CVE by embedding the 2.17.0 version.
-Changelog Getting the Binary Distributions | Description | Download Link | SHA256 hashes | SHA512 hashes | PGP Signature file of download | |&amp;mdash;|&amp;mdash;|&amp;mdash;|&amp;mdash;| | zip distribution | apache-ftpserver-1.1.2-bin.zip | SHA256 | SHA512 |ASC | | tar.gz distribution | apache-ftpserver-1.1.2-bin.tar.gz | SHA256 | SHA512 | ASC | | tar.bz2 distribution | apache-ftpserver-1.</description>
+Changelog Getting the Binary Distributions    Description Download Link SHA256 hashes SHA512 hashes PGP Signature file of download     zip distribution apache-ftpserver-1.1.2-bin.zip SHA256 SHA512 ASC   tar.gz distribution apache-ftpserver-1.1.2-bin.tar.gz SHA256 SHA512 ASC   tar.bz2 distribution apache-ftpserver-1.1.2-bin.tar.bz2 SHA256 SHA512 ASC    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
     </item>
     
     <item>

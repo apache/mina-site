@@ -92,16 +92,45 @@
 <p>This release fixes the Log4J CVE by embedding the 2.17.0 version.</p>
 <h2 id="changelog">Changelog</h2>
 <h2 id="getting-the-binary-distributions">Getting the Binary Distributions</h2>
-<p>| Description | Download Link | SHA256 hashes  | SHA512 hashes  | PGP Signature file of download |
-|&mdash;|&mdash;|&mdash;|&mdash;|
-| zip distribution | <a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.zip">apache-ftpserver-1.1.2-bin.zip</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.zip.sha256">SHA256</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.zip.sha512">SHA512</a> |<a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.zip.asc">ASC</a> |
-| tar.gz distribution | <a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.gz">apache-ftpserver-1.1.2-bin.tar.gz</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.gz.sha256">SHA256</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.gz.sha512">SHA512</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.gz.asc">ASC</a> |
-| tar.bz2 distribution | <a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.bz2">apache-ftpserver-1.1.2-bin.tar.bz2</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.bz2.sha256">SHA256</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.bz2.sha512">SHA512</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.bz2.asc">ASC</a> |</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Download Link</th>
+<th>SHA256 hashes</th>
+<th>SHA512 hashes</th>
+<th>PGP Signature file of download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zip distribution</td>
+<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.zip">apache-ftpserver-1.1.2-bin.zip</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.zip.sha256">SHA256</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.zip.sha512">SHA512</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.zip.asc">ASC</a></td>
+</tr>
+<tr>
+<td>tar.gz distribution</td>
+<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.gz">apache-ftpserver-1.1.2-bin.tar.gz</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.gz.sha256">SHA256</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.gz.sha512">SHA512</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.gz.asc">ASC</a></td>
+</tr>
+<tr>
+<td>tar.bz2 distribution</td>
+<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.bz2">apache-ftpserver-1.1.2-bin.tar.bz2</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.bz2.sha256">SHA256</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.bz2.sha512">SHA512</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-bin.tar.bz2.asc">ASC</a></td>
+</tr>
+</tbody>
+</table>
 <h2 id="verify-the-integrity-of-downloads">Verify the Integrity of Downloads</h2>
 <p>It is essential that you verify the integrity of the downloaded files using the PGP signatures. The PGP signatures can be verified using PGP or GPG. Begin by following these steps:</p>
 <ol>
 <li>
-<p>Download the <a href="https://www.apache.org/mina/KEYS">KEYS</a></p>
+<p>Download the <a href="https://downloads.apache.org/mina/KEYS">KEYS</a></p>
 </li>
 <li>
 <p>Download the asc signature file for the relevant distribution</p>
@@ -130,11 +159,40 @@
 <span style="color:#008000;font-weight:bold">&lt;/dependency&gt;</span>
 </code></pre></div><h2 id="getting-the-source-code">Getting the Source Code</h2>
 <h3 id="source-distributions">Source Distributions</h3>
-<p>| Description | Download Link | SHA256 hashes | SHA512 hashes | PGP Signature file of download |
-|&mdash;|&mdash;|&mdash;|&mdash;|
-| zip sources | <a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.zip">apache-ftpserver-1.1.2-src.zip</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.zip.sha256">SHA256</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.zip.sha512">SHA512</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.zip.asc">ASC</a> |
-| tar.gz sources | <a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.gz">apache-ftpserver-1.1.2-src.tar.gz</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.gz.sha256">SHA256</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.gz.sha512">SHA512</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.gz.asc">ASC</a> |
-| tar.bz2 sources | <a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.bz2">apache-ftpserver-1.1.2-src.tar.bz2</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.bz2.sha256">SHA256</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.bz2.sha512">SHA512</a> | <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.bz2.asc">ASC</a> |</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Download Link</th>
+<th>SHA256 hashes</th>
+<th>SHA512 hashes</th>
+<th>PGP Signature file of download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zip sources</td>
+<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.zip">apache-ftpserver-1.1.2-src.zip</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.zip.sha256">SHA256</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.zip.sha512">SHA512</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.zip.asc">ASC</a></td>
+</tr>
+<tr>
+<td>tar.gz sources</td>
+<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.gz">apache-ftpserver-1.1.2-src.tar.gz</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.gz.sha256">SHA256</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.gz.sha512">SHA512</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.gz.asc">ASC</a></td>
+</tr>
+<tr>
+<td>tar.bz2 sources</td>
+<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.bz2">apache-ftpserver-1.1.2-src.tar.bz2</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.bz2.sha256">SHA256</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.bz2.sha512">SHA512</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.1.2/apache-ftpserver-1.1.2-src.tar.bz2.asc">ASC</a></td>
+</tr>
+</tbody>
+</table>
 <h3 id="git-tag-checkout">Git Tag Checkout</h3>
 <pre><code>$ git clone https://gitbox.apache.org/repos/asf/mina-ftpserver.git
 $ git checkout ftpserver-parent-1.1.2
