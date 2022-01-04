@@ -32,7 +32,7 @@ title: MINA 2.0.x Downloads
 
 # Verify the integrity of the files
 
-The PGP signatures can be verified using PGP or GPG. First download the [KEYS](https://www.apache.org/dist/mina/KEYS) as well as the asc signature file for the relevant distribution. Then verify the signatures using:
+The PGP signatures can be verified using PGP or GPG. First download the [KEYS](https://downloads.apache.org/mina/KEYS) as well as the asc signature file for the relevant distribution. Then verify the signatures using:
 
 ```bash
 $ pgpk -a KEYS

@@ -7,7 +7,7 @@ title: Verifying Release
 Down the GPG keys and import them
 
 ```bash
-wget https://www.apache.org/dist/mina/KEYS
+wget https://downloads.apache.org/mina/KEYS
 gpg --import KEYS
 ``` 
 
