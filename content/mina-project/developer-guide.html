@@ -508,13 +508,13 @@ testapidocs
 xref
 xref-test
 </code></pre></div><p>They are uploaded to <a href="https://nightlies.apache.org/">https://nightlies.apache.org/</a> via WebDAV protocol.</p>
-<p>First create the folders for the version (here, 2.1.5):</p>
-<p>$ curl -u <your asf id> -X MKCOL &lsquo;<a href="https://nightlies.apache.org/mina/mina/2.1.5/'">https://nightlies.apache.org/mina/mina/2.1.5/'</a>
-$ curl -u <your asf id> -X MKCOL &lsquo;<a href="https://nightlies.apache.org/mina/mina/2.1.5/apidocs'">https://nightlies.apache.org/mina/mina/2.1.5/apidocs'</a>
-$ curl -u <your asf id> -X MKCOL &lsquo;<a href="https://nightlies.apache.org/mina/mina/2.1.5/testapidocs'">https://nightlies.apache.org/mina/mina/2.1.5/testapidocs'</a>
-$ curl -u <your asf id> -X MKCOL &lsquo;<a href="https://nightlies.apache.org/mina/mina/2.1.5/xref'">https://nightlies.apache.org/mina/mina/2.1.5/xref'</a>
-$ curl -u <your asf id> -X MKCOL &lsquo;<a href="https://nightlies.apache.org/mina/mina/2.1.5/xref-test'">https://nightlies.apache.org/mina/mina/2.1.5/xref-test'</a></p>
-<p>Each of those commands will ask for your ASF password.</p>
+<p>First create the folders for the version (change the &lt;version&gt; part):</p>
+<pre><code>$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/mina/&lt;version&gt;/'
+$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/mina/&lt;version&gt;/apidocs'
+$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/mina/&lt;version&gt;/testapidocs'
+$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/mina/&lt;version&gt;/xref'
+$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/mina/&lt;version&gt;/xref-test'
+</code></pre><p>Each of those commands will ask for your ASF password.</p>
 <p>I used <strong>rclone</strong> to copy folders via WebDAV.</p>
 <p>After intallation run rclone config and configure the nightlies connection:</p>
 <pre><code>$ rclone config
@@ -524,27 +524,28 @@ url: https://nightlies.apache.org
 vendor: other
 user: &lt;your asf id&gt;
 pass: &lt;your asf password&gt; (will be stored encrypted)
-</code></pre><p>Then copy the directories:</p>
+</code></pre><p>Then copy the directories (change the &lt;version&gt; part):</p>
 <pre><code>cd target/checkout/target/site
-rclone copy --progress apidocs nightlies:/mina/mina/2.1.5/apidocs
-rclone copy --progress xref nightlies:/mina/mina/2.1.5/testapidocs
-rclone copy --progress xref nightlies:/mina/mina/2.1.5/xref
-rclone copy --progress xref nightlies:/mina/mina/2.1.5/xref-test
-</code></pre><p>Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo:</p>
-<pre><code>RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/2.1.5/ [QSA,L]
-RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/2.1.5/$1 [QSA,L]
+rclone copy --progress apidocs nightlies:/mina/mina/&lt;version&gt;/apidocs
+rclone copy --progress xref nightlies:/mina/mina/&lt;version&gt;/testapidocs
+rclone copy --progress xref nightlies:/mina/mina/&lt;version&gt;/xref
+rclone copy --progress xref nightlies:/mina/mina/&lt;version&gt;/xref-test
+</code></pre><p>Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo (change the &lt;version&gt; part):</p>
+<pre><code>RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/&lt;version&gt;/ [QSA,L]
+RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/&lt;version&gt;/$1 [QSA,L]
 </code></pre><p>Save and commit the file, the web site should be automatically generated and published.</p>
 <h3 id="step-13-wait-24-hours">Step 13: Wait 24 hours</h3>
 <p>We have to wait at least 24 hours for all mirrors to retrieve the uploaded files before making any announcement.  I&rsquo;d recommend you to wait for 48 hours because some mirrors might lag due to various issues.</p>
 <h3 id="step-14-update-the-links-in-web-site">Step 14: Update the Links in Web Site</h3>
 <p>Some pages have to be updated. Assuming the MINA site has been checked out in ~/mina/site (this can be done with the command <em>$ svn co https://http://svn.apache.org/viewvc/mina/site/trunk ~/mina/site</em>), here are the pages that need to be changed :</p>
 <ul>
-<li>/lib/path.pm: update the $version_mina variable with the new version.</li>
-<li>/content/mina-project/downloads_2_0.mdtext or /content/mina-project/downloads_2_1.mdtext: change the version all over this page</li>
-<li>/content/downloads-mina_2_0.mdtext or /content/downloads-mina_2_1.mdtext: change the version all over this page</li>
-<li>/content/mina-project/downloads_old.mdtext: Add a line for the latest version which has been replaced by the released one</li>
-<li>/content/mina-project/news.mdtext: add the news on top of this page</li>
+<li>/config.toml: update the <code>version_mina_XYZ</code> variable with the new version.</li>
+<li>/source/mina-project/news.md: add the news on top of this page</li>
+<li>/source/mina-project/downloads-2_0.md or /source/mina-project/downloads-2_1.md: change the version all over the page</li>
+<li>/source/downloads-mina_2_0.md or /source/downloads-mina2_1.md: change the version all over the page</li>
+<li>/source/mina-project/downloads-old.md: Add a line for the latest version which has been replaced by the released one</li>
 </ul>
+<p>Commit the changes, and publish the web site, you are done !</p>
 <h3 id="step-15-wait-another-24-hours">Step 15: Wait another 24 hours</h3>
 <p>We need to wait until any changes made in the web site and metadata file(s) go live.</p>
 <h3 id="step-16-announce-the-new-release">Step 16: Announce the New Release</h3>
