@@ -546,13 +546,15 @@ xref-test
 
 They are uploaded to https://nightlies.apache.org/ via WebDAV protocol.
 
-First create the folders for the version (here, 2.1.5):
+First create the folders for the version (change the &lt;version&gt; part):
 
-$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/2.1.5/'
-$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/2.1.5/apidocs'
-$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/2.1.5/testapidocs'
-$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/2.1.5/xref'
-$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/2.1.5/xref-test'
+```
+$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/<version>/'
+$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/<version>/apidocs'
+$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/<version>/testapidocs'
+$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/<version>/xref'
+$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/<version>/xref-test'
+```
 
 Each of those commands will ask for your ASF password.
 
@@ -570,21 +572,21 @@ user: <your asf id>
 pass: <your asf password> (will be stored encrypted)
 ```
 
-Then copy the directories:
+Then copy the directories (change the &lt;version&gt; part):
 
 ```
 cd target/checkout/target/site
-rclone copy --progress apidocs nightlies:/mina/mina/2.1.5/apidocs
-rclone copy --progress xref nightlies:/mina/mina/2.1.5/testapidocs
-rclone copy --progress xref nightlies:/mina/mina/2.1.5/xref
-rclone copy --progress xref nightlies:/mina/mina/2.1.5/xref-test
+rclone copy --progress apidocs nightlies:/mina/mina/<version>/apidocs
+rclone copy --progress xref nightlies:/mina/mina/<version>/testapidocs
+rclone copy --progress xref nightlies:/mina/mina/<version>/xref
+rclone copy --progress xref nightlies:/mina/mina/<version>/xref-test
 ```
 
-Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo:
+Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo (change the &lt;version&gt; part):
 
 ```
-RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/2.1.5/ [QSA,L]
-RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/2.1.5/$1 [QSA,L]
+RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/<version>/ [QSA,L]
+RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/<version>/$1 [QSA,L]
 ```
 
 Save and commit the file, the web site should be automatically generated and published.
@@ -598,12 +600,13 @@ We have to wait at least 24 hours for all mirrors to retrieve the uploaded files
 
 Some pages have to be updated. Assuming the MINA site has been checked out in ~/mina/site (this can be done with the command <em>$ svn co https://http://svn.apache.org/viewvc/mina/site/trunk ~/mina/site</em>), here are the pages that need to be changed :
 
-* /lib/path.pm: update the $version_mina variable with the new version.
-* /content/mina-project/downloads_2_0.mdtext or /content/mina-project/downloads_2_1.mdtext: change the version all over this page
-* /content/downloads-mina_2_0.mdtext or /content/downloads-mina_2_1.mdtext: change the version all over this page
-* /content/mina-project/downloads_old.mdtext: Add a line for the latest version which has been replaced by the released one
-* /content/mina-project/news.mdtext: add the news on top of this page
+* /config.toml: update the `version_mina_XYZ` variable with the new version.
+* /source/mina-project/news.md: add the news on top of this page
+* /source/mina-project/downloads-2_0.md or /source/mina-project/downloads-2_1.md: change the version all over the page
+* /source/downloads-mina_2_0.md or /source/downloads-mina2_1.md: change the version all over the page
+* /source/mina-project/downloads-old.md: Add a line for the latest version which has been replaced by the released one
 
+Commit the changes, and publish the web site, you are done !
 
 ### Step 15: Wait another 24 hours
 
