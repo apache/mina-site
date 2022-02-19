@@ -8,7 +8,9 @@ title: Performance Test Reports
 This page exhibits the performance test results under various conditions (e.g. various protocols and system environments).  Please [contact us|Mailing Lists] if you have any specific performance test results to publish for your MINA-based application.
 
 <div class="note" markdown="1">
-The following performance test results may have critical flaws in test design or contain wrong values.  Please regard these reports as just a hint for understanding general performance characteristics of Apache MINA.  Additionally, these reports are not meant to claim that Apache MINA outperforms a certain product purposely{note}
+The following performance test results may have critical flaws in test design or contain wrong values.  Please regard these reports as just a hint for understanding general performance characteristics of Apache MINA.  Additionally, these reports are not meant to claim that Apache MINA outperforms a certain product purposely.
+
+Also note that this benchmark has been created 14 years ago. This page remains present solely for historical reasons...
 </div>
 
 ## Apache MINA 2.0.0-M1-SNAPSHOT + AsyncWeb 0.9.0-SNAPSHOT
