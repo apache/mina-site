@@ -5,6 +5,33 @@ title: News
 
 # News
 
+## MINA 2.1.6 & MINA 2.0.23 released _posted on Februray, 18, 2022_
+
+The MINA project is pleased to announce two new releases, MINA 2.1.6 and MINA 2.0.23. 
+
+
+### MINA 2.1.6 fixes
+
+Here is the list of fixed issues :
+
+
+* DIRMINA-1152  IoServiceStatistics introduces huge latencies
+* DIRMINA-1156  Inconsistent worker / idleWorker in OrderedThreadPoolExecutor
+
+It also contain some minor fixes (ignored tests being fixed, a minor
+infinite loop fixed in the Buffer toString() method if used in some
+corner case, etc)
+
+For any information about the API modifications and the impact on existing application, please read the [2.1 vs 2.0 page](2.1-vs-2.0.html).
+
+### MINA 2.0.23
+
+This is a maintenance release for MINA 2.0.
+
+It contains many backported issues from the 2.1 and 2.2 branches.
+
+
+
 ## MINA 2.1.5 & MINA 2.0.22 released _posted on October, 29, 2021_
 
 The MINA project is pleased to announce two new releases, MINA 2.1.5 and MINA 2.0.22. 
