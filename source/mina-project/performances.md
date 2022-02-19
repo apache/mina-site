@@ -33,8 +33,6 @@ The following performance test results may have critical flaws in test design or
 
 To show the performance characteristics of Apache MINA doesn't differ with the production-ready Web servers, the same test has been run on [the Apache HTTPD 2.0.58|http://httpd.apache.org/].  Because I don't know how to write an Apache HTTPD module, I simply used a dummy static file.  Because the amount of the response header two HTTP servers generate is different, I changed the AsyncWeb to generate more traffic in the content.  The size of one response was about 405 bytes.
 
-<center>
 ![Asyncweb performances](/assets/img/AsyncWeb-0.9.0-SNAPSHOT.png)
-</center>
 
 The client machine in my company doesn't have 1Gbps Ethernet adapter nor a gigabit-capable CPU, I was not able to increase the content size.  I made sure the network didn't saturate while the test at least.
