@@ -33,3 +33,9 @@ You will not be able to commit into the project if you are not a committer.
 The Website documentation is published via Apache SVN pubsub. The website source resides at
 
 [https://svn.apache.org/repos/asf/mina/site/trunk/content/ftpserver-project/](https://svn.apache.org/repos/asf/mina/site/trunk/content/ftpserver-project/)
+
+# Coding Convention
+
+We follow [Sun's standard Java coding convention](https://www.oracle.com/technetwork/java/codeconventions-150003.pdf) except that we always use spaces instead of tabs. Please download [the Eclipse Java formatter settings file](ImprovedJavaConventions.xml) before you make any changes to the code.
+
+This file is also available in the `/resources` directory.
