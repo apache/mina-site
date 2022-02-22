@@ -1593,11 +1593,8 @@ HDFS over FTP FTP server which works on a top of HDFS.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/ftpserver-project/releasing.html</guid>
-      <description>Releasing Before calling a vote   Update the README.txt file
-  Copy trunk revision to branch
- svn copy -m &amp;quot;Branching for release&amp;quot; -r &amp;lt;revision&amp;gt; https://svn.apache.org/repos/asf/mina/ftpserver/trunk/ https://svn.apache.org/repos/asf/mina/ftpserver/branches/&amp;lt;release version&amp;gt; svn co https://svn.apache.org/repos/asf/mina/ftpserver/branches/&amp;lt;release version&amp;gt;    Up version in trunk
- mvn versions:set -DnewVersion=&amp;lt;next version&amp;gt;-SNAPSHOT -DgenerateBackupPoms=false svn -m &amp;quot;Increasing version for new development in trunk&amp;quot; commit    Update version in branch
- mvn versions:set -DnewVersion=&amp;lt;release version&amp;gt; -DgenerateBackupPoms=false svn -m &amp;quot;Setting version for release of &amp;lt;release version&amp;gt;&amp;quot; commit    mvn -Papache-release clean deploy</description>
+      <description>Deploying Snapshots (Committers Only) Before running Maven to deploy artifacts, please make sure if your umask is configured correctly. Unless configured properly, other committers will experience annoying &amp;lsquo;permission denied&amp;rsquo; errors. If your default shell is bash, please update your umask setting in the ~/.bashrc file (create one if it doesn&amp;rsquo;t exist.) by adding the following line:
+umask 002 Please note that you have to edit the correct shrc file. If you use csh, then you will have to edit ~/.</description>
     </item>
     
     <item>
@@ -1704,7 +1701,7 @@ What are the important information you need to put when filing a JIRA ?</descrip
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/downloads-mina_2_0.html</guid>
-      <description>Latest MINA Releases Apache MINA 2.0.23 stable (Java 7+) Binaries  .tar.gz archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.0.23 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.0.23 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+      <description>Latest MINA Releases Apache MINA 2.0.23 stable (Java 8+) Binaries  .tar.gz archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.0.23 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.0.23 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
     </item>
     
     <item>
@@ -1713,7 +1710,7 @@ What are the important information you need to put when filing a JIRA ?</descrip
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/downloads_2_0.html</guid>
-      <description>Latest MINA Releases Apache MINA 2.0.23 stable (Java 7+) Binaries  .tar.gz archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.0.23 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.0.23 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+      <description>Latest MINA Releases Apache MINA 2.0.23 stable (Java 8+) Binaries  .tar.gz archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.0.23 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.0.23 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.0.23 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
     </item>
     
     <item>

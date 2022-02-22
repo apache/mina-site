@@ -87,45 +87,348 @@
             
 
             
-	<h1 id="releasing">Releasing</h1>
-<h2 id="before-calling-a-vote">Before calling a vote</h2>
+	<h1 id="deploying-snapshots-committers-only">Deploying Snapshots (Committers Only)</h1>
+<p>Before running Maven to deploy artifacts, <em>please make sure if your umask is configured correctly</em>.  Unless configured properly, other committers will experience annoying &lsquo;permission denied&rsquo; errors.  If your default shell is <code>bash</code>, please update your umask setting in the <code>~/.bashrc</code> file (create one if it doesn&rsquo;t exist.) by adding the following line:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">umask</span> <span style="color:#666">002</span>
+</code></pre></div><p>Please note that you have to edit the correct <code>shrc</code> file.  If you use <code>csh</code>, then you will have to edit <code>~/.cshrc</code> file.</p>
+<p>Now you are ready to deploy the artifacts if you configured your umask correctly.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://gitbox.apache.org/repos/asf/mina-ftpserver.git ftpserver
+$ <span style="color:#a2f">cd</span> ftpserver
+$ mvn clean deploy    <span style="color:#080;font-style:italic"># Make sure to run &#39;clean&#39; goal first to prevent side effects from your IDE.</span>
+</code></pre></div><p>Please double-check the mode (i.e. <code>0664</code> or <code>-rw-rw-r--</code>, a.k.a permission code) of the deployed artifacts, otherwise you can waste other people&rsquo;s time significantly.</p>
+<h1 id="releasing">Releasing</h1>
+<h2 id="preparing-the-release-for-the-vote">Preparing the release for the vote</h2>
 <ul>
-<li>
-<p>Update the README.txt file</p>
-</li>
-<li>
-<p>Copy trunk revision to branch</p>
-<pre><code>  svn copy -m &quot;Branching for release&quot; -r &lt;revision&gt; 
-      https://svn.apache.org/repos/asf/mina/ftpserver/trunk/
-      https://svn.apache.org/repos/asf/mina/ftpserver/branches/&lt;release version&gt;
-  svn co https://svn.apache.org/repos/asf/mina/ftpserver/branches/&lt;release version&gt;
-</code></pre>
-</li>
-<li>
-<p>Up version in trunk</p>
-<pre><code>  mvn versions:set -DnewVersion=&lt;next version&gt;-SNAPSHOT -DgenerateBackupPoms=false
-  svn -m &quot;Increasing version for new development in trunk&quot; commit
-</code></pre>
-</li>
-<li>
-<p>Update version in branch</p>
-<pre><code>  mvn versions:set -DnewVersion=&lt;release version&gt; -DgenerateBackupPoms=false
-  svn -m &quot;Setting version for release of &lt;release version&gt;&quot; commit
-</code></pre>
-</li>
-<li>
-<p>mvn -Papache-release clean deploy</p>
-</li>
-<li>
-<p>Close staging repository on <a href="http://repository.apache.org">http://repository.apache.org</a></p>
-</li>
-<li>
-<p>Gather distribution files and upload to people.apache.org</p>
-</li>
-<li>
-<p>Start vote</p>
-</li>
+<li>Update the distribution/README.txt file</li>
 </ul>
+<p>Before starting be sure to have the java and mvn command in your PATH.
+On linux you can check with the following commands :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">type</span> mvn
+mvn is hashed <span style="color:#666">(</span>/opt/apache-maven-3.8.1/bin/mvn<span style="color:#666">)</span>
+$ <span style="color:#a2f">type</span> java
+java is hashed <span style="color:#666">(</span>/usr/bin/java<span style="color:#666">)</span>
+</code></pre></div><h3 id="step-0-building-ftpserver">Step 0: Building FTPServer</h3>
+<p>This is done with the following command :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mvn clean install
+</code></pre></div><h3 id="step-1-tagging-and-deploying">Step 1: Tagging and Deploying</h3>
+<p>First you need to configure maven for using the good username for scp and operation.</p>
+<p>In the <code>~/.m2/settings.xml</code> you need the following lines :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;settings</span> <span style="color:#b44">xmlns=</span><span style="color:#b44">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+  <span style="color:#b44">xmlns:xsi=</span><span style="color:#b44">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+  <span style="color:#b44">xsi:schemaLocation=</span><span style="color:#b44">&#34;http://maven.apache.org/POM/4.0.0
+</span><span style="color:#b44">                      http://maven.apache.org/xsd/settings-1.0.0.xsd&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+
+  <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> SERVER SETTINGS </span><span style="color:#080;font-style:italic">--&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;servers</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> To publish a snapshot of some part of Maven </span><span style="color:#080;font-style:italic">--&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;server</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;id</span><span style="color:#008000;font-weight:bold">&gt;</span>apache.snapshots.https<span style="color:#008000;font-weight:bold">&lt;/id&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;username</span><span style="color:#008000;font-weight:bold">&gt;</span>elecharny<span style="color:#008000;font-weight:bold">&lt;/username&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;password</span><span style="color:#008000;font-weight:bold">&gt;</span>-----Your password here-----<span style="color:#008000;font-weight:bold">&lt;/password&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+    <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> To publish a website of some part of Maven </span><span style="color:#080;font-style:italic">--&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;server</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;id</span><span style="color:#008000;font-weight:bold">&gt;</span>apache.websites<span style="color:#008000;font-weight:bold">&lt;/id&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;username</span><span style="color:#008000;font-weight:bold">&gt;</span>elecharny<span style="color:#008000;font-weight:bold">&lt;/username&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;filePermissions</span><span style="color:#008000;font-weight:bold">&gt;</span>664<span style="color:#008000;font-weight:bold">&lt;/filePermissions&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;directoryPermissions</span><span style="color:#008000;font-weight:bold">&gt;</span>775<span style="color:#008000;font-weight:bold">&lt;/directoryPermissions&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+    <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> To stage a release of some part of Maven </span><span style="color:#080;font-style:italic">--&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;server</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;id</span><span style="color:#008000;font-weight:bold">&gt;</span>apache.releases.https<span style="color:#008000;font-weight:bold">&lt;/id&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;username</span><span style="color:#008000;font-weight:bold">&gt;</span>elecharny<span style="color:#008000;font-weight:bold">&lt;/username&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;password</span><span style="color:#008000;font-weight:bold">&gt;</span>-----Your password here-----<span style="color:#008000;font-weight:bold">&lt;/password&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+    <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> To stage a website of some part of Maven </span><span style="color:#080;font-style:italic">--&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;server</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;id</span><span style="color:#008000;font-weight:bold">&gt;</span>stagingSite<span style="color:#008000;font-weight:bold">&lt;/id&gt;</span> <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> must match hard</span><span style="color:#080;font-style:italic">-</span><span style="color:#080;font-style:italic">coded repository identifier in site:stage</span><span style="color:#080;font-style:italic">-</span><span style="color:#080;font-style:italic">deploy </span><span style="color:#080;font-style:italic">--&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;username</span><span style="color:#008000;font-weight:bold">&gt;</span>elecharny<span style="color:#008000;font-weight:bold">&lt;/username&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;filePermissions</span><span style="color:#008000;font-weight:bold">&gt;</span>664<span style="color:#008000;font-weight:bold">&lt;/filePermissions&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;directoryPermissions</span><span style="color:#008000;font-weight:bold">&gt;</span>775<span style="color:#008000;font-weight:bold">&lt;/directoryPermissions&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/servers&gt;</span>
+
+  <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> PROFILE SETTINGS </span><span style="color:#080;font-style:italic">--&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;profiles</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;profile</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;id</span><span style="color:#008000;font-weight:bold">&gt;</span>apache-release<span style="color:#008000;font-weight:bold">&lt;/id&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;properties</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        <span style="color:#080;font-style:italic">&lt;!--</span><span style="color:#080;font-style:italic"> Configuration for artifacts signature </span><span style="color:#080;font-style:italic">--&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;gpg.passphrase</span><span style="color:#008000;font-weight:bold">&gt;</span>-----Your passphrase here-----<span style="color:#008000;font-weight:bold">&lt;/gpg.passphrase&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;/properties&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/profile&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/profiles&gt;</span>
+
+<span style="color:#008000;font-weight:bold">&lt;/settings&gt;</span>
+</code></pre></div><h3 id="step-2--processing-with-a-dry-run">step 2 : Processing with a dry run</h3>
+<p>After having checked out the trunk, and built it (see step 0),</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://gitbox.apache.org/repos/asf/mina-ftpserver.git ftpserver
+$ <span style="color:#a2f">cd</span> ftpserver
+$ mvn clean install
+</code></pre></div><p>run the following commands :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mvn -Papache-release -DdryRun<span style="color:#666">=</span><span style="color:#a2f">true</span> release:prepare    <span style="color:#080;font-style:italic"># Dry-run first.</span>
+</code></pre></div><p>Answer to maven questions :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&#34;What is the release version for &#34;Apache FtpServer parent&#34;? (org.apache.ftpserver:ftpserver-parent) &lt;version&gt;: :&#34; 
+&lt;either use the default version as suggested, or type in the version you@qot;d like to be used&gt;
+[..]
+</code></pre></div><p>Then some other questions will be asked, about the next version to use. The default values should be fine.</p>
+<div class="info" markdown="1">
+    <strong>Be Careful</strong><br>
+<pre><code>Make sure the change made by the release plugin is correct! (pom.xml, tags created)
+</code></pre>
+</div>
+<h3 id="step-3--processing-with-the-real-release">Step 3 : Processing with the real release</h3>
+<p>When the dry run is successful, then you can do in real with the following commands:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mvn -Papache-release release:clean      <span style="color:#080;font-style:italic"># Clean up the temporary files created by the dry-run.</span>
+$ mvn -Papache-release release:prepare    <span style="color:#080;font-style:italic"># Copy to tags directory.</span>
+</code></pre></div><p>The first step will clean up the local sources, the second step will release for real. The same questions will be asked as those we had during the dry run step.</p>
+<p>At some point, it will ask for your passphrase (the one you used when you created your PGP key). Type it in.</p>
+<p>Three mails will be generated, and sent to <a href="mailto:commits@mina.apache.org">commits@mina.apache.org</a> :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">git commit: [maven-release-plugin] prepare release &lt;X.Y.Z&gt;
+Git Push Summary
+git commit: [maven-release-plugin] prepare for next development iteration
+</code></pre></div><p>The first mail tells you that the SNAPSHOT has been moved to the release version in trunk, the second mails tells you that this version has been tagged, and the last mail tells you that trunk has moved to the next version.</p>
+<h3 id="step-4--perform-the-release">Step 4 : perform the release</h3>
+<p>The last step before launching a vote is to push the potential release to Nexus so that every user can test the created packages. Perform the following actions (note that we have to run a build first for the javadoc to be correctly generated&hellip;) :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mvn clean install -DskipTests
+...
+$ mvn -Papache-release release:perform
+...
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Reactor Summary <span style="color:#a2f;font-weight:bold">for</span> Apache FtpServer Parent 1.1.3:
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> 
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache FtpServer Parent ............................ SUCCESS <span style="color:#666">[</span> 14.712 s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache Ftplet API .................................. SUCCESS <span style="color:#666">[</span>  7.984 s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache FtpServer Core .............................. SUCCESS <span style="color:#666">[</span> 25.573 s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> FtpServer Spring web project example ............... SUCCESS <span style="color:#666">[</span>  4.680 s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> FtpServer OSGi Ftplet service example .............. SUCCESS <span style="color:#666">[</span>  4.233 s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> FtpServer OSGi Spring-DM example ................... SUCCESS <span style="color:#666">[</span>  4.159 s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache FtpServer Examples .......................... SUCCESS <span style="color:#666">[</span>  1.700 s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache FtpServer ................................... SUCCESS <span style="color:#666">[</span>  7.438 s<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> BUILD SUCCESS
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Total time:  01:11 min
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> Finished at: 2022-02-19T14:23:13+01:00
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> <span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> phase cleanup
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Cleaning up after release...
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Reactor Summary <span style="color:#a2f;font-weight:bold">for</span> Apache FtpServer Parent 1.1.4-SNAPSHOT:
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> 
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache FtpServer Parent ............................ SUCCESS <span style="color:#666">[</span>01:15 min<span style="color:#666">]</span>
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache Ftplet API .................................. SKIPPED
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache FtpServer Core .............................. SKIPPED
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> FtpServer Spring web project example ............... SKIPPED
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> FtpServer OSGi Ftplet service example .............. SKIPPED
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> FtpServer OSGi Spring-DM example ................... SKIPPED
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache FtpServer Examples .......................... SKIPPED
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Apache FtpServer ................................... SKIPPED
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> BUILD SUCCESS
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Total time:  01:15 min
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> Finished at: 2022-02-19T14:23:13+01:00
+<span style="color:#666">[</span>INFO<span style="color:#666">]</span> ------------------------------------------------------------------------
+</code></pre></div><p>Done !</p>
+<h3 id="step-5--closing-the-staging-release-on-nexus">Step 5 : closing the staging release on nexus</h3>
+<p>Now, you have to close the staged project on nexus. In order to do that you <strong>must</strong> have exported your PGP key to a PGP public server <a href="https://www.apache.org/dev/openpgp.html">see</a></p>
+<p>Connect to the <a href="https://repository.apache.org">Nexus server</a>, login, and select the FtpServer release in the staging repository you just created, then click on the &lsquo;close&rsquo; button. You are home&hellip;</p>
+<h3 id="step-6--build-the-site">Step 6 : Build the Site</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">cd</span> target/checkout
+$ mvn -Pserial site
+</code></pre></div><p>This creates the site.</p>
+<h3 id="step-7--sign-the-packages">Step 7 : Sign the packages</h3>
+<p>Now, you have to sign the binary packages which are in target/checkout/distribution/target.</p>
+<div class="note" markdown="1">
+Use your PGP key ID (the pub key, 4096R/[XXXXXXX] where [XXXXXXX] is the key ID)
+</div>
+<p>You can get the keys by typing :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gpg --list-keys
+</code></pre></div><p>You&rsquo;ll get something like :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">localhost:target elecharny$ gpg --list-keys
+/Users/elecharny/.gnupg/pubring.gpg
+-----------------------------------
+pub   dsa2048 2009-12-03 [SCA]
+  C62BFD988278310B5B7A43D16FC4BEA60A8A0BBA
+uid           [ultimate] Emmanuel Lecharny &lt;elecharny@nextury.com&gt;
+sub   elg2048 2009-12-03 [E]
+
+pub   rsa4096 2010-09-13 [SC]
+  4D2DB2916149BAA9D0C92F3731474E5E7C6B7034
+uid           [ultimate] Emmanuel Lecharny (CODE SIGNING KEY) &lt;elecharny@apache.org&gt;
+sub   rsa4096 2010-09-13 [E]
+
+...
+</code></pre></div><p>Take the long hexadecimal tart following the &lsquo;pub&rsquo; part (ie &ldquo;4D2DB2916149BAA9D0C92F3731474E5E7C6B7034&rdquo; for the 4096 bits key)</p>
+<p>Use a shell script to sign the packages which are stored in target/checkout/distribution/target. You will first have to delete the created .asc files :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">localhost:target elecharny$ rm *.asc
+localhost:target elecharny$ ~/sign.sh 
+PGP Key ID: 
+&lt;your PGP key&gt;
+PGP Key Password: 
+&lt;Your PGP passphrase&gt;
+
+-n Signing: ./apache-ftpserver-&lt;version&gt;-bin.tar.bz2 ... 
+  - Generated &#39;./apache-ftpserver-&lt;version&gt;-bin.tar.bz2.sha1&#39;
+  - Generated &#39;./apache-ftpserver-&lt;version&gt;-bin.tar.bz2.asc&#39;
+-n Signing: ./apache-ftpserver-&lt;version&gt;-bin.tar.gz ... 
+  - Generated &#39;./apache-ftpserver-&lt;version&gt;-bin.tar.gz.sha1&#39;
+  - Generated &#39;./apache-ftpserver-&lt;version&gt;-bin.tar.gz.asc&#39;
+...
+</code></pre></div><p>Here is the <code>sign.sh</code> script you can use :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080">#!/bin/sh
+</span><span style="color:#080"></span>
+<span style="color:#a2f">echo</span> <span style="color:#b44">&#34;PGP Key ID: &#34;</span>
+<span style="color:#a2f">read</span> DEFAULT_KEY
+
+<span style="color:#a2f">echo</span> <span style="color:#b44">&#34;PGP Key Password: &#34;</span>
+stty -echo
+<span style="color:#a2f">read</span> PASSWORD
+stty <span style="color:#a2f">echo</span>
+<span style="color:#a2f">echo</span> <span style="color:#b44">&#34;&#34;</span>
+
+<span style="color:#a2f;font-weight:bold">for</span> FILE in <span style="color:#a2f;font-weight:bold">$(</span>find . -maxdepth <span style="color:#666">1</span> -not <span style="color:#b44">&#39;(&#39;</span> -name <span style="color:#b44">&#34;sign.sh&#34;</span> -or -name <span style="color:#b44">&#34;.*&#34;</span> -or -name <span style="color:#b44">&#34;*.sha256&#34;</span> -or -name <span style="color:#b44">&#34;*.sha512&#34;</span> -or -name <span style="color:#b44">&#34;*.asc&#34;</span> <span style="color:#b44">&#39;)&#39;</span> -and -type f<span style="color:#a2f;font-weight:bold">)</span> ; <span style="color:#a2f;font-weight:bold">do</span>
+  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.asc</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>; <span style="color:#a2f;font-weight:bold">then</span>
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">Skipping: </span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span>
+      <span style="color:#a2f;font-weight:bold">continue</span>
+  <span style="color:#a2f;font-weight:bold">fi</span>
+
+  <span style="color:#a2f">echo</span> -n <span style="color:#b44">&#34;</span><span style="color:#b44">Signing: </span><span style="color:#b8860b">$FILE</span><span style="color:#b44"> ... </span><span style="color:#b44">&#34;</span>
+
+  <span style="color:#080;font-style:italic"># SHA-256</span>
+  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha256</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>;
+  <span style="color:#a2f;font-weight:bold">then</span>
+      gpg -v --default-key <span style="color:#b44">&#34;</span><span style="color:#b8860b">$DEFAULT_KEY</span><span style="color:#b44">&#34;</span> --print-md SHA256 <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span> &gt; <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span>.sha256
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Generated &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha256&#39;</span><span style="color:#b44">&#34;</span>
+  <span style="color:#a2f;font-weight:bold">else</span>
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Skipped &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha256&#39; (file already existing)</span><span style="color:#b44">&#34;</span>
+  <span style="color:#a2f;font-weight:bold">fi</span>
+
+  <span style="color:#080;font-style:italic"># SHA-512</span>
+  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.shacw512256</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>;
+  <span style="color:#a2f;font-weight:bold">then</span>
+      gpg -v --default-key <span style="color:#b44">&#34;</span><span style="color:#b8860b">$DEFAULT_KEY</span><span style="color:#b44">&#34;</span> --print-md SHA512 <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span> &gt; <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span>.sha512
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Generated &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha512&#39;</span><span style="color:#b44">&#34;</span>
+  <span style="color:#a2f;font-weight:bold">else</span>
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Skipped &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha512&#39; (file already existing)</span><span style="color:#b44">&#34;</span>
+  <span style="color:#a2f;font-weight:bold">fi</span>
+
+  <span style="color:#080;font-style:italic"># ASC</span>
+  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.asc</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>;
+  <span style="color:#a2f;font-weight:bold">then</span>
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b8860b">$PASSWORD</span><span style="color:#b44">&#34;</span> | gpg --default-key <span style="color:#b44">&#34;</span><span style="color:#b8860b">$DEFAULT_KEY</span><span style="color:#b44">&#34;</span> --detach-sign --armor --no-tty --yes --passphrase-fd <span style="color:#666">0</span> <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span>
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Generated &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.asc&#39;</span><span style="color:#b44">&#34;</span>
+  <span style="color:#a2f;font-weight:bold">else</span>
+      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Skipped &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.asc&#39; (file already existing)</span><span style="color:#b44">&#34;</span>
+  <span style="color:#a2f;font-weight:bold">fi</span>
+<span style="color:#a2f;font-weight:bold">done</span>
+</code></pre></div><h3 id="step-8--publish-source-and-binary-distribution-packages">Step 8 : Publish Source and Binary Distribution Packages</h3>
+<p>The sources, binaries and their signatures, have to be pushed in a place where they can be downloaded by the other committers, in order to be checked while validating the release. As the ~/people.apache.org server is not anymore available for that purpose, we use the distribution space for that purpose.</p>
+<p>If you haven&rsquo;t checked out this space, do it now :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p ~/mina/dist/dev/mina
+$ svn co https://dist.apache.org/repos/dist/dev/mina ~/mina/dist/dev/mina
+</code></pre></div><p>That will checkout the full project distributions.</p>
+<p>You may want to checkout only the part that you are going to generate, to avoid getting Gb of data :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p ~/mina/dist/dev/mina/ftpserver
+$ svn co https://dist.apache.org/repos/dist/dev/mina/ftpserver ~/mina/dist/dev/mina/mina/ftpserver
+</code></pre></div><p>Now, create a sub-directory for the version you have generated (here, replace &lt;version&gt; by the specific version number) :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir ~/mina/dist/dev/mina/ftpserver/1.1.3
+</code></pre></div><p>Then copy the packages :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">cd</span> target/checkout/distributions/target
+$ cp apache-ftpserver-&lt;vversion&gt;-* ~/mina/dist/dev/mina/ftpserver/&lt;version&gt;/
+</code></pre></div><p>Last, not least, commit your changes</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ svn add ~/mina/dist/dev/mina/ftpserver/&lt;version&gt;/
+$ svn ci ~/mina/dist/dev/mina/ftpserver/&lt;version&gt;/ -m <span style="color:#b44">&#34;Apache FtpServer &lt;version&gt; packages&#34;</span>
+</code></pre></div><h2 id="step-10--voting-a-release">Step 10 : Voting a release</h2>
+<p>Once the tarballs have been created, and the binaries available in Nexus, a vote can be launched. Simply send a mail on the <a href="mailto:dev@mina.apache.org">dev@mina.apache.org</a> mailing list describing the new release.</p>
+<p>Here is how you  send a [VOTE] mail on the dev mailing list :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Hi,
+
+&lt;blah blah blah&gt;
+
+Here is the list of fixed issues :
+ 
+  * [FTPSERVER-502](https://issues.apache.org/jira/browse/FTPSERVER-502) - Cannot upload files due to invalid absolutePath result
+  * ...
+
+
+Here&#39;s the Jira link for this version if you&#39;d like to review issues in more details:
+
+https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=10670&amp;styleName=Html&amp;version=12313702
+
+A temporary tag has been created (it can be removed if the vote is not approved)
+
+The newly approved Nexus has been used for the preparation of this release and all final artifacts are stored 
+in a staging repository:
+https://repository.apache.org/content/repositories/orgapachemina-002/
+
+
+The distributions are available for download on :
+https://repository.apache.org/content/repositories/orgapachemina-004/org/apache/mina/ftpserver/1.1.3/
+
+Let us vote :
+[ ] +1 | Release Apache FtpServer 1.1.3
+[ ] +/- | Abstain
+[ ] -1 | Do *NOT* release Apache FtpServer 1.1.3
+
+Thanks !
+</code></pre></div><p>The vote will be open for 72 hours. Once the delay is over, collect the votes, and count the binding +1/-1. If the vote is positive, then we can release.</p>
+<h3 id="step-11--close-the-vote">Step 11 : Close the vote</h3>
+<p>You can officially close the vote now. There are some more steps to fulfill :</p>
+<ul>
+<li>Release the project on the <a href="https://repository.apache.org">Nexus server</a></li>
+<li>Copy the tarballs and heir signature in <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver">https://dist.apache.org/repos/dist/release/mina/ftpserver</a></li>
+</ul>
+<p>The sources, binaries and their signatures, have to be pushed in a place where they can be downloaded by users. We use the <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver">distribution</a> space for that purpose.</p>
+<p>Move the distribution packages (sources and binaries) to the dist SVN repository: <code>https://dist.apache.org/repos/dist/release/mina/ftpserver/$(version)</code></p>
+<p>If you haven&rsquo;t checked out this space, do it now :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p ~/mina/dist/release/mina
+$ svn co https://dist.apache.org/repos/dist/release/mina/ftpserver ~/mina/dist/release/mina
+</code></pre></div><p>That will checkout the full project distributions.</p>
+<p>Then move the packages from &lsquo;dev&rsquo; to &lsquo;release&rsquo; :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">cd</span> ~/mina/dist/release/mina
+$ cp ~/mina/dist/dev/mina/ftpserver/&lt;version&gt; .
+$ svn add &lt;version&gt;
+$ svn ci &lt;version&gt;
+...
+$ <span style="color:#a2f">exit</span>
+</code></pre></div><p>The packages should now be available on <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/&amp;lt;version">https://dist.apache.org/repos/dist/release/mina/ftpserver/&amp;lt;version</a>&gt;</p>
+<h3 id="step-12-deploy-web-reports-javadoc-and-jxr">Step 12: Deploy Web Reports (JavaDoc and JXR)</h3>
+<p>The javadoc and xref files have been generated in step 6, it&rsquo;s now time to push them into the production site. They are generated in the following directory :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">target/checkout/target/site
+</code></pre></div><p>We will copy four directories :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">apidocs
+testapidocs
+xref
+xref-test
+</code></pre></div><p>They are uploaded to <a href="https://nightlies.apache.org/">https://nightlies.apache.org/</a> via WebDAV protocol.</p>
+<p>First create the folders for the version (change the &lt;version&gt; part):</p>
+<pre><code>$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/mina/&lt;version&gt;/'
+$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/mina/&lt;version&gt;/apidocs'
+$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/mina/&lt;version&gt;/testapidocs'
+$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/mina/&lt;version&gt;/xref'
+$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/mina/&lt;version&gt;/xref-test'
+</code></pre><p>Each of those commands will ask for your ASF password.</p>
+<p>I used <strong>rclone</strong> to copy folders via WebDAV.</p>
+<p>After intallation run rclone config and configure the nightlies connection:</p>
+<pre><code>$ rclone config
+name: nightlies
+type: webdav
+url: https://nightlies.apache.org
+vendor: other
+user: &lt;your asf id&gt;
+pass: &lt;your asf password&gt; (will be stored encrypted)
+</code></pre><p>Then copy the directories (change the &lt;version&gt; part):</p>
+<pre><code>cd target/checkout/target/site
+rclone copy --progress apidocs nightlies:/mina/mina/&lt;version&gt;/apidocs
+rclone copy --progress xref nightlies:/mina/mina/&lt;version&gt;/testapidocs
+rclone copy --progress xref nightlies:/mina/mina/&lt;version&gt;/xref
+rclone copy --progress xref nightlies:/mina/mina/&lt;version&gt;/xref-test
+</code></pre><p>Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo (change the &lt;version&gt; part):</p>
+<pre><code>RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/&lt;version&gt;/ [QSA,L]
+RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/&lt;version&gt;/$1 [QSA,L]
+</code></pre><p>Save and commit the file, the web site should be automatically generated and published.</p>
 <h2 id="after-a-successful-vote">After a successful vote</h2>
 <ul>
 <li>
