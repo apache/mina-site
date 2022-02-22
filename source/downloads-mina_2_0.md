@@ -4,7 +4,7 @@ title: MINA 2.0.x Downloads
 
 # Latest MINA Releases
 
-## Apache MINA 2.0.23 <font color="green">stable</font> (Java 7+)
+## Apache MINA 2.0.23 <font color="green">stable</font> (Java 8+)
 
 ### Binaries
 

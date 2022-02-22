@@ -30,7 +30,7 @@ It is known to perform as good as C/C++ servers.  Please refer to the <a href="p
 
 ### Which version of MINA should I use?
 
-Use the latest point-release of 2.0 (for Java 7 or above). 1.0 and 1.1 aren't maintained anymore.
+Use the latest point-release of 2.0 (for Java 8 or above). 1.0 and 1.1 aren't maintained anymore.
 
 ### What is required to build/run MINA?
 
