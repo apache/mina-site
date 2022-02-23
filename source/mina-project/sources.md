@@ -32,44 +32,23 @@ write access :
 
     $ git clone https://gitbox.apache.org/repos/asf/mina.git mina
 
-Note that you will get the full repository, and you may probably want to work on a specific branch. We currently have 2 active branches :
+Note that you will get the full repository, and you may probably want to work on a specific branch. We currently have 3 active branches :
 
-  * Mina 2.0
-  * Mina 3.0
+  * Mina 2.0.X
+  * Mina 2.1.X
+  * Mina 2.2.X
 
-Cloning the MINA repository will get you to the trunk, ie the MINA 3.0 branch. If you want to work on th MINA 2.0 branch, you ought to checkout the latest 2.0 tag, after having cloned the repository :
+Cloning the MINA repository will get you to the trunk, ie the MINA 3.0 branch. If you want to work on the MINA 2.0.X branch, you ought to checkout the latest 2.0.X tag, after having cloned the repository :
 
-    $ git checkout -b 2.0.10 2.0.10
+    $ git checkout -b 2.0.X 2.0.X
 
-For the record, here are the various branches you can see :
+You can also clone the branch you want to work on directly:
 
-    $ git tag
-    0.8.3
-    0.8.4
-    0.9.1
-    ...
-    0.9.5
-    1.0.0
-    1.0.1
-    ...
-    1.0.10
-    1.1.0
-    1.1.1
-    ...
-    1.1.7
-    2.0.0-M1
-    2.0.0-M2
-    ...
-    2.0.0-M6
-    2.0.0-RC1
-    2.0.0
-    2.0.1
-    ...
-    2.0.10
-    3.0.0-M1
-    3.0.0-M2
-    mina-parent-3.0.0-M1
+    $ git clone -b 2.2.X https://gitbox.apache.org/repos/asf/mina.git mina-2.2.X
 
+Will checkout the 2.2.X branche immediately, in a directory named mina-2.2.X.
+
+###
 # Building MINA
 
 Instructions on how to build MINA can be found [here](developer-guide.html)
