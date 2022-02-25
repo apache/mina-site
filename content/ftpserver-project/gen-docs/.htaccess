@@ -1,0 +1,10 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Redirect to the latest releases
+RewriteRule ^latest$ https://nightlies.apache.org/mina/ftpserver/1.1.3/ [QSA,L]
+RewriteRule ^latest(.*)$ https://nightlies.apache.org/mina/ftpserver/1.1.3/$1 [QSA,L]
+
+# Redirect everything else
+RewriteRule ^(.*)$ https://nightlies.apache.org/mina/ftpserver/$1 [QSA,L]
+
