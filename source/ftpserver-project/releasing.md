@@ -514,31 +514,3 @@ We need to wait until any changes made in the web site and metadata file(s) go l
 An announcement message can be sent to [mailto:announce@apache.org], [mailto:announce@apachenews.org], [mailto:users@mina.apache.org] and [mailto:dev@mina.apache.org].  Please note that announcement messages are rejected unless your from-address ends with `@apache.org`.  Plus, you shouldn't forget to post a news to the MINA site main page.
 
 Enjoy !
-
-## After a successful vote
-
-* Update site,
-* Run the auto-export plugin (else the news on the first page won't be updated correctly)
-* Wait until replication to /www/confluence-exports/FTPSERVER has run
-
-        /home/ngn/ftpserver-zip.sh
-
-* Upload XML schema
-
-        scp core/src/main/resources/org/apache/ftpserver/config/spring/ftpserver-1.0.xsd
-            @people.apache.org:/www/mina.apache.org/ftpserver
-    
-* Build and tag
-
-        mvn -Papache-release clean deploy
-        svn move -m "Tagging <release version>" 
-            https://svn.apache.org/repos/asf/mina/ftpserver/branches/<release version> 
-            https://svn.apache.org/repos/asf/mina/ftpserver/tags/<release version>
-
-* Upload to people.apache.org /www/www.apache.org/dist/mina/ftpserver
-* Release in JIRA
-* Update MINA site (add news and update latest downloads in navigation)
-* Wait for mirrors to sync
-* Send out announcement
-
-Run script to create documentation ZIP file, on people.apache.org
