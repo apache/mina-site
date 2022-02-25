@@ -421,8 +421,8 @@ Move the distribution packages (sources and binaries) to the dist SVN repository
 If you haven't checked out this space, do it now :
 
 ```bash
-$ mkdir -p ~/mina/dist/release/mina
-$ svn co https://dist.apache.org/repos/dist/release/mina/ftpserver ~/mina/dist/release/mina
+$ mkdir -p ~/mina/dist/release/ftpserver
+$ svn co https://dist.apache.org/repos/dist/release/mina/ftpserver ~/mina/dist/release/ftpserver
 ```
 
 That will checkout the full project distributions. 
@@ -430,7 +430,7 @@ That will checkout the full project distributions.
 Then move the packages from 'dev' to 'release' :
 
 ```bash
-$ cd ~/mina/dist/release/mina
+$ cd ~/mina/dist/release/ftpserver
 $ cp ~/mina/dist/dev/mina/ftpserver/<version> .
 $ svn add <version>
 $ svn ci <version>
@@ -448,25 +448,15 @@ The javadoc and xref files have been generated in step 6, it's now time to push 
 target/checkout/target/site
 ```
 
-We will copy four directories :
+We will copy the ```apidocs``` directory.
 
-```text
-apidocs
-testapidocs
-xref
-xref-test
-```
+It will be uploaded to https://nightlies.apache.org/ via WebDAV protocol.
 
-They are uploaded to https://nightlies.apache.org/ via WebDAV protocol.
-
-First create the folders for the version (change the &lt;version&gt; part):
+First create the folder for the version (change the &lt;version&gt; part):
 
 ```
-$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/<version>/'
+$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/ftpserver/<version>/'
 $ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/<version>/apidocs'
-$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/<version>/testapidocs'
-$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/<version>/xref'
-$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/<version>/xref-test'
 ```
 
 Each of those commands will ask for your ASF password.
@@ -485,25 +475,45 @@ user: <your asf id>
 pass: <your asf password> (will be stored encrypted)
 ```
 
-Then copy the directories (change the &lt;version&gt; part):
+Then copy the directory (change the &lt;version&gt; part):
 
 ```
 cd target/checkout/target/site
-rclone copy --progress apidocs nightlies:/mina/mina/<version>/apidocs
-rclone copy --progress xref nightlies:/mina/mina/<version>/testapidocs
-rclone copy --progress xref nightlies:/mina/mina/<version>/xref
-rclone copy --progress xref nightlies:/mina/mina/<version>/xref-test
+rclone copy --progress apidocs nightlies:/mina/ftpserver/<version>/apidocs
 ```
 
-Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo (change the &lt;version&gt; part):
+Finally update the links in the static/ftpserver-project/gen-docs/.htaccess of the mina-site repo (change the &lt;version&gt; part):
 
 ```
-RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/<version>/ [QSA,L]
-RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/<version>/$1 [QSA,L]
+RewriteRule ^latest$ https://nightlies.apache.org/mina/ftpserver/<version>/ [QSA,L]
+RewriteRule ^latest/(.*)$ https://nightlies.apache.org/mina/ftpserver/<version>/$1 [QSA,L]
 ```
 
 Save and commit the file, the web site should be automatically generated and published.
 
+### Step 13: Wait 24 hours
+
+We have to wait at least 24 hours for all mirrors to retrieve the uploaded files before making any announcement. I'd recommend you to wait for 48 hours because some mirrors might lag due to various issues.
+
+### Step 14: Update the Links in Web Site
+
+Some pages have to be updated. Assuming the MINA site has been checked out in ~/mina/site (this can be done with the command <em>$ git clone http://gitbox.apache.org/repos/asf/mina-site.git ~/mina/mina-site</em>), here are the pages that need to be changed :
+
+* /config.toml: update the `version_ftpserver` variable with the new version.
+* /source/ftpserver-project/downloads-&lt;version&gt;.md: Add the page for this version
+* /source/downloads.md: Refer to the previous page
+
+Commit the changes, and publish the web site, you are done !
+
+### Step 15: Wait another 24 hours
+
+We need to wait until any changes made in the web site and metadata file(s) go live.
+
+### Step 16: Announce the New Release
+
+An announcement message can be sent to [mailto:announce@apache.org], [mailto:announce@apachenews.org], [mailto:users@mina.apache.org] and [mailto:dev@mina.apache.org].  Please note that announcement messages are rejected unless your from-address ends with `@apache.org`.  Plus, you shouldn't forget to post a news to the MINA site main page.
+
+Enjoy !
 
 ## After a successful vote
 
