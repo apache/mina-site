@@ -435,50 +435,6 @@ RewriteRule ^latest/(.*)$ https://nightlies.apache.org/mina/ftpserver/&lt;versio
 <h3 id="step-16-announce-the-new-release">Step 16: Announce the New Release</h3>
 <p>An announcement message can be sent to [mailto:announce@apache.org], [mailto:announce@apachenews.org], [mailto:users@mina.apache.org] and [mailto:dev@mina.apache.org].  Please note that announcement messages are rejected unless your from-address ends with <code>@apache.org</code>.  Plus, you shouldn&rsquo;t forget to post a news to the MINA site main page.</p>
 <p>Enjoy !</p>
-<h2 id="after-a-successful-vote">After a successful vote</h2>
-<ul>
-<li>
-<p>Update site,</p>
-</li>
-<li>
-<p>Run the auto-export plugin (else the news on the first page won&rsquo;t be updated correctly)</p>
-</li>
-<li>
-<p>Wait until replication to /www/confluence-exports/FTPSERVER has run</p>
-<pre><code>  /home/ngn/ftpserver-zip.sh
-</code></pre>
-</li>
-<li>
-<p>Upload XML schema</p>
-<pre><code>  scp core/src/main/resources/org/apache/ftpserver/config/spring/ftpserver-1.0.xsd
-      @people.apache.org:/www/mina.apache.org/ftpserver
-</code></pre>
-</li>
-<li>
-<p>Build and tag</p>
-<pre><code>  mvn -Papache-release clean deploy
-  svn move -m &quot;Tagging &lt;release version&gt;&quot; 
-      https://svn.apache.org/repos/asf/mina/ftpserver/branches/&lt;release version&gt; 
-      https://svn.apache.org/repos/asf/mina/ftpserver/tags/&lt;release version&gt;
-</code></pre>
-</li>
-<li>
-<p>Upload to people.apache.org /www/www.apache.org/dist/mina/ftpserver</p>
-</li>
-<li>
-<p>Release in JIRA</p>
-</li>
-<li>
-<p>Update MINA site (add news and update latest downloads in navigation)</p>
-</li>
-<li>
-<p>Wait for mirrors to sync</p>
-</li>
-<li>
-<p>Send out announcement</p>
-</li>
-</ul>
-<p>Run script to create documentation ZIP file, on people.apache.org</p>
 
 
             
