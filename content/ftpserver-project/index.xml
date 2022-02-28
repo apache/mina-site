@@ -283,7 +283,8 @@ Database JDBC libraries You must include the required JAR files for your databas
       
       <guid>https://mina.apache.org/ftpserver-project/downloads.html</guid>
       <description>Latest FTPServer Releases The latest release is the Apache FtpServer 1.1.3 Release
-All Releases  Apache FtpServer 1.1.3 Release - Feb 25th, 2022 Apache FtpServer 1.1.2 Release - Jan 1st, 2022 Apache FtpServer 1.1.1 Release - Jul 3rd, 2020 Apache FtpServer 1.1.0 Release - May 4th, 2018 Apache FtpServer 1.0.6 Release - May 4th, 2018 Apache FtpServer 1.0.5 Release - Oct 2nd, 2010 Apache FtpServer 1.0.4 Release - Mar 13th, 2010 Apache FtpServer 1.</description>
+All Releases The previous releasesare available on Apache FtpServer previous releases
+Maven Repositories All Apache FtpServer releases are available from the Maven central repository</description>
     </item>
     
     <item>
@@ -437,6 +438,16 @@ Manually Using either the PropertiesUserManager or DbUserManager you can access 
 All the server messages are customizable. The default reply messages are bundled with the server. The user defined custom messages will be stored separately. This custom message file is configurable.
 The FtpServer project is interested in localized message bundles, please contact the project if you would like to donate.
 Example &amp;lt;messages languages=&amp;quot;se, no ,da&amp;quot;&amp;gt;  messages element    Attribute Description Required Default value     directory The directory in which message bundles can be located No &amp;nbsp;   languages A comma separated list of the languages that the server will provide messages in No &amp;nbsp;    Creating a customized message bundle Dynamic Values Dynamic values can be embedded in the server message replies.</description>
+    </item>
+    
+    <item>
+      <title>FtpServer Older Downloads</title>
+      <link>https://mina.apache.org/ftpserver-project/old-downloads.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/old-downloads.html</guid>
+      <description>Older FtpServer Releases FtpServer 1.1.x     Version Download Links Date     Apache FtpServer 1.1.2 Download 03/Jan/2022   Apache FtpServer 1.1.1 Download 03/Jul/2020   Apache FtpServer 1.1.0 Download 02/Jun/2019     FtpServer 1.0.x Note that this version is not anymore maintained.
+    Version Download Links Date     Apache FtpServer 1.0.6 Download 04/May/2018   Apache FtpServer 1.</description>
     </item>
     
     <item>
