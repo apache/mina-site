@@ -5,16 +5,18 @@ title: Apache MINA - Contributors
 # Project Management Committee
 
 * Alex Karasulu (akarasulu)
-* [Ashish Paliwal](http://ashishpaliwal.com/blog) (apaliwal)
-* [Emmanuel L{{< html "&eacute;" >}}charny](http://www.iktek.com) (elecharny)
-* Guillaume Nodet (gnodet)
-* Jean-Fran{{< html "&ccedil;" >}}ois Maury (chairman) (jeffmaury)
+* Ashish Paliwal (apaliwal)
+* Emmanuel L{{< html "&eacute;" >}}charny (elecharny)
+* **Guillaume Nodet** (gnodet) (chairman)
+* Jean-Fran{{< html "&ccedil;" >}}ois Maury (jeffmaury)
 * Jeff Genender (jgenender)
 * Jonathan Valliere (johnnyv)
 * [Julien Vermillard](http://people.apache.org/~jvermillard/) (jvermillard)
+* Lyor Goldstein (lgoldstein)
 * Maarten Bosteels (maarten)
 * Mark Webb (mwebb)
 * Niklas Gustavsson (ngn)
+* Thomas Wolf (twolf)
 
 # Committers
 
@@ -23,10 +25,10 @@ title: Apache MINA - Contributors
 * Bogdan Pistol (bogdan)
 * David Latorre (dlat)
 * [Edouard De Oliveira](http://tedorg.free.fr/en/main.php) (edeoliveira)
-* Lyor Goldstein (lgoldstein)
 * Michael Jakl (mjakl)
 * Mike Mahonay (foodmike)
 * Rapha{{< html "&euml;" >}}l P. Barazzutti (rbarazzutti)
+* R{{< html "&eacute;" >}}da Housni Alaoui (ralaoui)
 * Richard McGuire (rickmcguire)
 * Sai Pullabhotla (sai)
 * Sangjin Lee (sjlee)
