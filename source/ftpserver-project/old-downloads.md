@@ -35,7 +35,7 @@ Note that this version is not anymore maintained.
 | Apache FtpServer 1.0.0-RC1 | [Download](https://archive.apache.org/dist/mina/ftpserver/1.0.0-RC1/) | 13/Jan/2009 |
 | Apache FtpServer 1.0.0-M4 | [Download](https://archive.apache.org/dist/mina/ftpserver/1.0.0-M4/) | 10/Dec/2008 |
 | Apache FtpServer 1.0.0-M3 | [Download](https://archive.apache.org/dist/mina/ftpserver/1.0.0-M3/) | 08/Sep/2008 |
-| Apache FtpServer 1.0.0-M2 | [Download](https://archive.apache.org/dist/mina/ftpserver/1.0.0_M2/) | 11/Aug/2008 |
+| Apache FtpServer 1.0.0-M2 | [Download](https://archive.apache.org/dist/mina/ftpserver/1.0.0-M2/) | 11/Aug/2008 |
 
 </center>
 
