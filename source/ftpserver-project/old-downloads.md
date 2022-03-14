@@ -11,6 +11,7 @@ title: FtpServer Older Downloads
 
 | Version| Download Links | Date |
 |:-:|:-:|:-:|
+| Apache FtpServer 1.1.3 | [Download](https://archive.apache.org/dist/mina/ftpserver/1.1.3/) | 25/Feb/2022 |
 | Apache FtpServer 1.1.2 | [Download](https://archive.apache.org/dist/mina/ftpserver/1.1.2/) | 03/Jan/2022 |
 | Apache FtpServer 1.1.1 | [Download](https://archive.apache.org/dist/mina/ftpserver/1.1.1/) | 03/Jul/2020 |
 | Apache FtpServer 1.1.0 | [Download](https://archive.apache.org/dist/mina/ftpserver/1.1.0/) | 02/Jun/2019 |
