@@ -2,8 +2,11 @@ Options +FollowSymLinks
 RewriteEngine On
 
 # Redirect to the latest releases
-RewriteRule ^latest$ https://nightlies.apache.org/mina/ftpserver/1.1.3/ [QSA,L]
-RewriteRule ^latest(.*)$ https://nightlies.apache.org/mina/ftpserver/1.1.3/$1 [QSA,L]
+RewriteRule ^latest-1.1$ https://nightlies.apache.org/mina/ftpserver/1.1.4/ [QSA,L]
+RewriteRule ^latest-1.1/(.*)$ https://nightlies.apache.org/mina/ftpserver/1.1.4/$1 [QSA,L]
+
+RewriteRule ^latest-1.2$ https://nightlies.apache.org/mina/ftpserver/1.2.0/ [QSA,L]
+RewriteRule ^latest-1.2/(.*)$ https://nightlies.apache.org/mina/ftpserver/1.2.0/$1 [QSA,L]
 
 # Redirect everything else
 RewriteRule ^(.*)$ https://nightlies.apache.org/mina/ftpserver/$1 [QSA,L]

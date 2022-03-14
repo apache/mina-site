@@ -208,8 +208,13 @@
   </url>
   
   <url>
-    <loc>https://mina.apache.org/ftpserver-project/download_1.1.3.html</loc>
-    <lastmod>2022-02-25T11:49:15+01:00</lastmod>
+    <loc>https://mina.apache.org/ftpserver-project/download_1_1.html</loc>
+    <lastmod>2022-03-14T09:20:50+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/ftpserver-project/download_1_2.html</loc>
+    <lastmod>2022-03-14T09:20:50+01:00</lastmod>
   </url>
   
   <url>
@@ -558,8 +563,13 @@
   </url>
   
   <url>
-    <loc>https://mina.apache.org/downloads-ftpserver.html</loc>
-    <lastmod>2022-02-25T14:16:35+01:00</lastmod>
+    <loc>https://mina.apache.org/downloads-ftpserver_1_1.html</loc>
+    <lastmod>2022-03-14T09:20:50+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/downloads-ftpserver_1_2.html</loc>
+    <lastmod>2022-03-14T09:20:50+01:00</lastmod>
   </url>
   
   <url>
@@ -714,7 +724,7 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project/old-downloads.html</loc>
-    <lastmod>2022-02-28T11:32:41+01:00</lastmod>
+    <lastmod>2022-03-14T09:20:50+01:00</lastmod>
   </url>
   
   <url>
@@ -759,7 +769,7 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project.html</loc>
-    <lastmod>2022-02-28T11:32:41+01:00</lastmod>
+    <lastmod>2022-03-14T09:20:50+01:00</lastmod>
   </url>
   
   <url>

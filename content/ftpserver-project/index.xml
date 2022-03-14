@@ -11,13 +11,23 @@
     
     
     <item>
-      <title>Apache FtpServer 1.1.3 Release</title>
-      <link>https://mina.apache.org/ftpserver-project/download_1.1.3.html</link>
+      <title>Apache FtpServer 1.1.4 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1_1.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mina.apache.org/ftpserver-project/download_1.1.3.html</guid>
-      <description>Apache FtpServer 1.1.3 Release New Features in 1.1.3 This release fixes the Log4J CVE by embedding the 2.17.1 version and add some fixes for TLS 1.3
-Getting the Binary Distributions    Description Download Link SHA256 hashes SHA512 hashes PGP Signature file of download     zip distribution apache-ftpserver-1.1.3-bin.zip SHA256 SHA512 ASC   tar.gz distribution apache-ftpserver-1.1.3-bin.tar.gz SHA256 SHA512 ASC   tar.bz2 distribution apache-ftpserver-1.1.3-bin.tar.bz2 SHA256 SHA512 ASC    Verify the Integrity of Downloads It is essential that you verify the integrity of the downloaded files using the PGP signatures.</description>
+      <guid>https://mina.apache.org/ftpserver-project/download_1_1.html</guid>
+      <description>Apache FtpServer 1.1.4 Release New Features in 1.1.4 This release is rolling back an addedd feature (support for multiple TLS protocols), to be back compatible with 1.1.2. Would you want to benefit from this feature, you shiould switch to the 1.2.0 release.
+Getting the Binary Distributions    Description Download Link SHA256 hashes SHA512 hashes PGP Signature file of download     zip distribution apache-ftpserver-1.1.4-bin.zip SHA256 SHA512 ASC   tar.</description>
+    </item>
+    
+    <item>
+      <title>Apache FtpServer 1.2.0 Release</title>
+      <link>https://mina.apache.org/ftpserver-project/download_1_2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/download_1_2.html</guid>
+      <description>Apache FtpServer 1.2.0 Release New Features in 1.2.0 This release contains a change in the API. You can now select more than one supported TLS algorithm when configuring a server.
+Getting the Binary Distributions    Description Download Link SHA256 hashes SHA512 hashes PGP Signature file of download     zip distribution apache-ftpserver-1.2.0-bin.zip SHA256 SHA512 ASC   tar.gz distribution apache-ftpserver-1.2.0-bin.tar.gz SHA256 SHA512 ASC   tar.bz2 distribution apache-ftpserver-1.</description>
     </item>
     
     <item>
@@ -282,8 +292,8 @@ Example &amp;lt;messages languages=&amp;quot;se, no ,da&amp;quot;&amp;gt;  messa
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/ftpserver-project/old-downloads.html</guid>
-      <description>Older FtpServer Releases FtpServer 1.1.x     Version Download Links Date     Apache FtpServer 1.1.2 Download 03/Jan/2022   Apache FtpServer 1.1.1 Download 03/Jul/2020   Apache FtpServer 1.1.0 Download 02/Jun/2019     FtpServer 1.0.x Note that this version is not anymore maintained.
-    Version Download Links Date     Apache FtpServer 1.0.6 Download 04/May/2018   Apache FtpServer 1.</description>
+      <description>Older FtpServer Releases FtpServer 1.1.x     Version Download Links Date     Apache FtpServer 1.1.3 Download 25/Feb/2022   Apache FtpServer 1.1.2 Download 03/Jan/2022   Apache FtpServer 1.1.1 Download 03/Jul/2020   Apache FtpServer 1.1.0 Download 02/Jun/2019     FtpServer 1.0.x Note that this version is not anymore maintained.
+    Version Download Links Date     Apache FtpServer 1.</description>
     </item>
     
     <item>
