@@ -13,10 +13,10 @@ title: Developer Guide
 
 # Checking out the code
 
-You need Git to check out the source code from our source code repository, and [Maven(http://maven.apache.org/) 2.2.1 to build the source code (Building with Maven 3.0 will also work).  The following example shows how to build the current stable branch (2.0.9).
+You need Git to check out the source code from our source code repository, and [Maven(https://maven.apache.org/) 3.8.5 (pick the latest Maven version) to build the source code (Building with Maven 3.0 will also work).  The following example shows how to build the current stable branch (2.0.9).
 
 ```bash
-$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
 $ cd mina
 $ mvn -Pserial clean install             # Build packages (JARs) for the core API and other 
                                          # extensions and install them to the local Maven repository.
@@ -36,15 +36,17 @@ There are also other branches that might interest you:
 If you want to check out the source code of previous releases, you have to select the branch you want to work on :
 
 ```bash
-$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
+$ cd mina
 $ git checkout <tag>
 ```
 
-For instance, to work on the on-going 2.0 version trunk, just do :
+For instance, to work on the on-going 2.2.X version trunk, just do :
 
 ```bash
-$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
-$ git checkout 2.0
+$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
+$ cd mina
+$ git checkout 2.2.X
 ```
 
 # Coding Convention
@@ -61,7 +63,7 @@ As class header we use :
 /** 
  * Class desciption here.
  *
- * @author <a href="http://mina.apache.org">Apache MINA Project</a>
+ * @author <a href="https://mina.apache.org">Apache MINA Project</a>
  */
 ```
 
@@ -80,7 +82,7 @@ Please note that you have to edit the correct `shrc` file.  If you use `csh`, th
 Now you are ready to deploy the artifacts if you configured your umask correctly.
 
 ```bash
-$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
 $ cd mina
 $ mvn -Pserial clean deploy site site:deploy    # Make sure to run 'clean' goal first to prevent side effects from your IDE.
 ```
@@ -92,11 +94,11 @@ Please double-check the mode (i.e. `0664` or `-rw-rw-r--`, a.k.a permission code
 ## Preparing the release for the vote
 
 Before starting be sure to have the java and mvn command in your PATH.
-On linux you can check with the following commands :
+On linux you can check with the following commands (change the Maven version accordingly):
 
 ```bash
 $ type mvn
-mvn is hashed (/opt/maven-2.2.1/bin/mvn)
+mvn is hashed (/opt/maven-3.8.5/bin/mvn)
 $ type java
 java is hashed (/usr/bin/java)
 ```
@@ -169,7 +171,7 @@ In the `~/.m2/settings.xml` you need the following lines :
 After having checked out the trunk, and built it (see step 0), 
 
 ```bash
-$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
 $ cd mina
 $ mvn clean install -Pserial
 ```
@@ -598,7 +600,7 @@ We have to wait at least 24 hours for all mirrors to retrieve the uploaded files
 
 ### Step 14: Update the Links in Web Site
 
-Some pages have to be updated. Assuming the MINA site has been checked out in ~/mina/site (this can be done with the command <em>$ svn co https://http://svn.apache.org/viewvc/mina/site/trunk ~/mina/site</em>), here are the pages that need to be changed :
+Some pages have to be updated. Assuming the MINA site has been checked out in ~/mina/site (this can be done with the command <em>$ svn co https://svn.apache.org/viewvc/mina/site/trunk ~/mina/site</em>), here are the pages that need to be changed :
 
 * /config.toml: update the `version_mina_XYZ` variable with the new version.
 * /source/mina-project/news.md: add the news on top of this page
