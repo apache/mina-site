@@ -36,6 +36,6 @@ The Website documentation is published via Apache SVN pubsub. The website source
 
 # Coding Convention
 
-We follow [Sun's standard Java coding convention](https://www.oracle.com/technetwork/java/codeconventions-150003.pdf) except that we always use spaces instead of tabs. Please download [the Eclipse Java formatter settings file](ImprovedJavaConventions.xml) before you make any changes to the code.
+We follow [Sun's standard Java coding convention](https://www.oracle.com/technetwork/java/codeconventions-150003.pdf) except that we always use spaces instead of tabs. Please download [the Eclipse Java formatter settings file](https://mina.apache.org/mina-project/ImprovedJavaConventions.xml) before you make any changes to the code.
 
 This file is also available in the `/resources` directory.

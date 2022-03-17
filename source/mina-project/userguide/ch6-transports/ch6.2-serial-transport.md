@@ -29,7 +29,7 @@ If you prefer to build the code from the trunk, and need assistance to do so, pl
 
 <div class="info" markdown="1">
     <strong>Useful Information</strong><br>
-    The <strong>mina-transport-serial</strong> jar is not included in the full distribution. You can download it from <a href="http://repo1.maven.org/maven2/org/apache/mina/mina-transport-serial/2.0.2/" class="external-link" rel="nofollow">here</a>
+    The <strong>mina-transport-serial</strong> jar is not included in the full distribution. You can download it from <a href="https://repo1.maven.org/maven2/org/apache/mina/mina-transport-serial/2.0.2/" class="external-link" rel="nofollow">here</a>
 </div>
 
 ## Connecting to a serial port
