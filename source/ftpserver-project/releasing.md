@@ -438,7 +438,7 @@ $ svn ci <version>
 $ exit
 ```
 
-The packages should now be available on https://dist.apache.org/repos/dist/release/mina/ftpserver/&lt;version&gt;
+The packages should now be available on https://dist.apache.org/repos/dist/release/mina/ftpserver/<version>
 
 ### Step 12: Deploy Web Reports (JavaDoc and JXR)
 

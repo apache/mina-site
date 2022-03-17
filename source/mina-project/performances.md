@@ -15,7 +15,7 @@ Also note that this benchmark has been created 14 years ago. This page remains p
 
 ## Apache MINA 2.0.0-M1-SNAPSHOT + AsyncWeb 0.9.0-SNAPSHOT
 
-[Trustin Lee](http://gleamynode.net/) ran a HTTP performance test with the latest snapshot of Apache MINA and [AsyncWeb](https://svn.apache.org/repos/asf/mina/asyncweb/trunk/) combo, using [the AsyncWeb lightweight HTTP server example](https://svn.apache.org/repos/asf/mina/asyncweb/trunk/examples/src/main/java/org/apache/asyncweb/examples/lightweight/).  
+[Trustin Lee](https://web.archive.org/web/20121221090054/http://gleamynode.net/) ran a HTTP performance test with the latest snapshot of Apache MINA and [AsyncWeb](https://svn.apache.org/repos/asf/mina/asyncweb/trunk/) combo, using [the AsyncWeb lightweight HTTP server example](https://svn.apache.org/repos/asf/mina/asyncweb/trunk/examples/src/main/java/org/apache/asyncweb/examples/lightweight/).  
 
 * Protocol
     * HTTP
