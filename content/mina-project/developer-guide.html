@@ -145,8 +145,8 @@
   </ul>
 </nav>
 <h1 id="checking-out-the-code">Checking out the code</h1>
-<p>You need Git to check out the source code from our source code repository, and [Maven(http://maven.apache.org/) 2.2.1 to build the source code (Building with Maven 3.0 will also work).  The following example shows how to build the current stable branch (2.0.9).</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+<p>You need Git to check out the source code from our source code repository, and [Maven(https://maven.apache.org/) 3.8.5 (pick the latest Maven version) to build the source code (Building with Maven 3.0 will also work).  The following example shows how to build the current stable branch (2.0.9).</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
 $ <span style="color:#a2f">cd</span> mina
 $ mvn -Pserial clean install             <span style="color:#080;font-style:italic"># Build packages (JARs) for the core API and other</span> 
                                          <span style="color:#080;font-style:italic"># extensions and install them to the local Maven repository.</span>
@@ -161,11 +161,13 @@ You can declare new variables in Eclipse in Windows -&gt; Preferences&hellip; an
 <li>trunk: Where big changes take place everyday</li>
 </ul>
 <p>If you want to check out the source code of previous releases, you have to select the branch you want to work on :</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
+$ <span style="color:#a2f">cd</span> mina
 $ git checkout &lt;tag&gt;
-</code></pre></div><p>For instance, to work on the on-going 2.0 version trunk, just do :</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
-$ git checkout 2.0
+</code></pre></div><p>For instance, to work on the on-going 2.2.X version trunk, just do :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
+$ <span style="color:#a2f">cd</span> mina
+$ git checkout 2.2.X
 </code></pre></div><h1 id="coding-convention">Coding Convention</h1>
 <p>We follow <a href="https://www.oracle.com/technetwork/java/codeconventions-150003.pdf">Sun&rsquo;s standard Java coding convention</a> except that we always use spaces instead of tabs. Please download <a href="ImprovedJavaConventions.xml">the Eclipse Java formatter settings file</a> before you make any changes to the code.</p>
 <p>This file is also available in the <code>/resources</code> directory.</p>
@@ -174,7 +176,7 @@ $ git checkout 2.0
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">/** 
 </span><span style="color:#080;font-style:italic"> * Class desciption here.
 </span><span style="color:#080;font-style:italic"> *
-</span><span style="color:#080;font-style:italic"> * @author &lt;a href=&#34;http://mina.apache.org&#34;&gt;Apache MINA Project&lt;/a&gt;
+</span><span style="color:#080;font-style:italic"> * @author &lt;a href=&#34;https://mina.apache.org&#34;&gt;Apache MINA Project&lt;/a&gt;
 </span><span style="color:#080;font-style:italic"> */</span>
 </code></pre></div><p>The headers revisions tags are removed.</p>
 <h1 id="deploying-snapshots-committers-only">Deploying Snapshots (Committers Only)</h1>
@@ -182,16 +184,16 @@ $ git checkout 2.0
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">umask</span> <span style="color:#666">002</span>
 </code></pre></div><p>Please note that you have to edit the correct <code>shrc</code> file.  If you use <code>csh</code>, then you will have to edit <code>~/.cshrc</code> file.</p>
 <p>Now you are ready to deploy the artifacts if you configured your umask correctly.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
 $ <span style="color:#a2f">cd</span> mina
 $ mvn -Pserial clean deploy site site:deploy    <span style="color:#080;font-style:italic"># Make sure to run &#39;clean&#39; goal first to prevent side effects from your IDE.</span>
 </code></pre></div><p>Please double-check the mode (i.e. <code>0664</code> or <code>-rw-rw-r--</code>, a.k.a permission code) of the deployed artifacts, otherwise you can waste other people&rsquo;s time significantly.</p>
 <h1 id="releasing-a-point-release-committers-only">Releasing a Point Release (Committers Only)</h1>
 <h2 id="preparing-the-release-for-the-vote">Preparing the release for the vote</h2>
 <p>Before starting be sure to have the java and mvn command in your PATH.
-On linux you can check with the following commands :</p>
+On linux you can check with the following commands (change the Maven version accordingly):</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">type</span> mvn
-mvn is hashed <span style="color:#666">(</span>/opt/maven-2.2.1/bin/mvn<span style="color:#666">)</span>
+mvn is hashed <span style="color:#666">(</span>/opt/maven-3.8.5/bin/mvn<span style="color:#666">)</span>
 $ <span style="color:#a2f">type</span> java
 java is hashed <span style="color:#666">(</span>/usr/bin/java<span style="color:#666">)</span>
 </code></pre></div><h3 id="step-0-building-mina">Step 0: Building MINA</h3>
@@ -249,7 +251,7 @@ java is hashed <span style="color:#666">(</span>/usr/bin/java<span style="color:
 <span style="color:#008000;font-weight:bold">&lt;/settings&gt;</span>
 </code></pre></div><h3 id="step-2--processing-with-a-dry-run">step 2 : Processing with a dry run</h3>
 <p>After having checked out the trunk, and built it (see step 0),</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone http://gitbox.apache.org/repos/asf/mina.git mina
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
 $ <span style="color:#a2f">cd</span> mina
 $ mvn clean install -Pserial
 </code></pre></div><p>run the following commands :</p>
@@ -537,7 +539,7 @@ RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/&lt;version
 <h3 id="step-13-wait-24-hours">Step 13: Wait 24 hours</h3>
 <p>We have to wait at least 24 hours for all mirrors to retrieve the uploaded files before making any announcement.  I&rsquo;d recommend you to wait for 48 hours because some mirrors might lag due to various issues.</p>
 <h3 id="step-14-update-the-links-in-web-site">Step 14: Update the Links in Web Site</h3>
-<p>Some pages have to be updated. Assuming the MINA site has been checked out in ~/mina/site (this can be done with the command <em>$ svn co https://http://svn.apache.org/viewvc/mina/site/trunk ~/mina/site</em>), here are the pages that need to be changed :</p>
+<p>Some pages have to be updated. Assuming the MINA site has been checked out in ~/mina/site (this can be done with the command <em>$ svn co <a href="https://svn.apache.org/viewvc/mina/site/trunk">https://svn.apache.org/viewvc/mina/site/trunk</a> ~/mina/site</em>), here are the pages that need to be changed :</p>
 <ul>
 <li>/config.toml: update the <code>version_mina_XYZ</code> variable with the new version.</li>
 <li>/source/mina-project/news.md: add the news on top of this page</li>
