@@ -529,9 +529,9 @@ pass: &lt;your asf password&gt; (will be stored encrypted)
 </code></pre><p>Then copy the directories (change the &lt;version&gt; part):</p>
 <pre><code>cd target/checkout/target/site
 rclone copy --progress apidocs nightlies:/mina/mina/&lt;version&gt;/apidocs
-rclone copy --progress xref nightlies:/mina/mina/&lt;version&gt;/testapidocs
+rclone copy --progress testapidocs nightlies:/mina/mina/&lt;version&gt;/testapidocs
 rclone copy --progress xref nightlies:/mina/mina/&lt;version&gt;/xref
-rclone copy --progress xref nightlies:/mina/mina/&lt;version&gt;/xref-test
+rclone copy --progress xref-test nightlies:/mina/mina/&lt;version&gt;/xref-test
 </code></pre><p>Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo (change the &lt;version&gt; part):</p>
 <pre><code>RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/&lt;version&gt;/ [QSA,L]
 RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/&lt;version&gt;/$1 [QSA,L]
