@@ -579,9 +579,9 @@ Then copy the directories (change the &lt;version&gt; part):
 ```
 cd target/checkout/target/site
 rclone copy --progress apidocs nightlies:/mina/mina/<version>/apidocs
-rclone copy --progress xref nightlies:/mina/mina/<version>/testapidocs
+rclone copy --progress testapidocs nightlies:/mina/mina/<version>/testapidocs
 rclone copy --progress xref nightlies:/mina/mina/<version>/xref
-rclone copy --progress xref nightlies:/mina/mina/<version>/xref-test
+rclone copy --progress xref-test nightlies:/mina/mina/<version>/xref-test
 ```
 
 Finally update the links in the static/mina-project/gen-docs/.htaccess of the mina-site repo (change the &lt;version&gt; part):
