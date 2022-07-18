@@ -681,6 +681,15 @@ What are the important information you need to put when filing a JIRA ?</descrip
     </item>
     
     <item>
+      <title>MINA 2.1.x Downloads</title>
+      <link>https://mina.apache.org/mina-project/downloads_2_2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/downloads_2_2.html</guid>
+      <description>Latest MINA Releases Apache MINA 2.1.6 stable (Java 8+) Binaries  .tar.gz archive mina-2.1.6 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.1.6 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.1.6 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.1.6 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.1.6 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.1.6 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+    </item>
+    
+    <item>
       <title>MINA 2.1.x vs MINA 2.0.x</title>
       <link>https://mina.apache.org/mina-project/2.1-vs-2.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -688,6 +697,17 @@ What are the important information you need to put when filing a JIRA ?</descrip
       <guid>https://mina.apache.org/mina-project/2.1-vs-2.0.html</guid>
       <description>2.1.x vs 2.0.x differences The way an application is informed that a session has been secured (ie, the SSL/TLS handshake has been successfully completed) was to use a notification system. A specific message was pushed for that purpose, up to the client application to check that message. It forced the application implementer to inject a special session attribute (SslFilter.USE_NOTIFICATION), which is a bit heavy.
 It was decided to change that and make it easier for the application to get this information.</description>
+    </item>
+    
+    <item>
+      <title>MINA 2.2.x vs MINA 2.1.x</title>
+      <link>https://mina.apache.org/mina-project/2.2-vs-2.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/2.2-vs-2.1.html</guid>
+      <description>2.2.x vs 2.1.x differences The SSL/TLS handling has been totally rewritten in MINA 2.2. This has an impact in many areas.
+Removal of the SslFilter.DISABLE_ENCRYPTION_ONCE attribute This attribute was used in previous MINA versions to insure that we can send some clear text message to the remote peer while establishing the TLS connection when using the startTLS command.
+The idea is that the startTLS command is send by an application (a LDAP client, for instance), which tells the server it should establish the SSL/TLS layer.</description>
     </item>
     
     <item>

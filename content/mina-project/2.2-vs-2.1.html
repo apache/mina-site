@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-    <title>5.20 - Write Request Filter &mdash; Apache MINA</title>
+    <title>MINA 2.2.x vs MINA 2.1.x &mdash; Apache MINA</title>
 
     <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
@@ -114,57 +114,58 @@
         </div>
         <div id="rightColumn">
             
-    <div class="nav">
-        <div class="nav_prev">
+
             
+	<h1 id="22x-vs-21x-differences">2.2.x vs 2.1.x differences</h1>
+<p>The <strong>SSL/TLS</strong> handling has been totally rewritten in <strong>MINA 2.2</strong>. This has an impact in many areas.</p>
+<h2 id="removal-of-the-sslfilterdisable_encryption_once-attribute">Removal of the SslFilter.DISABLE_ENCRYPTION_ONCE attribute</h2>
+<p>This attribute was used in previous <strong>MINA</strong> versions to insure that we can send some clear text message to the remote peer while establishing the TLS connection when using the <strong>startTLS</strong> command.</p>
+<p>The idea is that the <strong>startTLS</strong> command is send by an application (a <strong>LDAP</strong> client, for instance), which tells the server it should establish the <strong>SSL/TLS</strong> layer. But the problem is that the server should be able to inform the clinet that the <strong>SSL/TLS</strong> layer is up and running, in clear text, which is not possible as the <strong>SSL/TLS</strong> layer is already fonctionning&hellip;</p>
+<p>This kind of chicken/egg problem was solved by giving the opportunity to the <strong>SSL/TLS</strong> layer to send back the <strong>startTLS</strong> response to the client in clear text, assuming it&rsquo;s the first server&rsquo;s message. A kind of a hack.</p>
+<p>In <strong>MINA 2.2</strong>, this attribute has been removed and replaced by either a filter to be added, or by encapsulating the message that should not be encrypted into an instance that implements the <strong>DisableEncryptWriteRequest</strong> interface.</p>
+<p>Typically, in <strong>Apache Directory</strong>, we use this filter:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">StartTlsFilter</span> <span style="color:#a2f;font-weight:bold">extends</span> IoFilterAdapter 
+<span style="color:#666">{</span>
+    <span style="color:#080;font-style:italic">/**
+</span><span style="color:#080;font-style:italic">     * {@inheritDoc}
+</span><span style="color:#080;font-style:italic">     */</span>
+    <span style="color:#a2f">@Override</span>
+    <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">filterWrite</span><span style="color:#666">(</span> NextFilter nextFilter<span style="color:#666">,</span> IoSession session<span style="color:#666">,</span> WriteRequest writeRequest <span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> Exception 
+    <span style="color:#666">{</span>
+        <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span> writeRequest<span style="color:#666">.</span><span style="color:#b44">getOriginalMessage</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">instanceof</span> StartTlsResponse <span style="color:#666">)</span>
+        <span style="color:#666">{</span>
+            <span style="color:#080;font-style:italic">// We need to bypass the SslFilter
+</span><span style="color:#080;font-style:italic"></span>            IoFilterChain chain <span style="color:#666">=</span> session<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+            
+            <span style="color:#a2f;font-weight:bold">for</span> <span style="color:#666">(</span> IoFilterChain<span style="color:#666">.</span><span style="color:#b44">Entry</span> entry <span style="color:#666">:</span> chain<span style="color:#666">.</span><span style="color:#b44">getAll</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#666">)</span>
+            <span style="color:#666">{</span>
+                IoFilter filter <span style="color:#666">=</span> entry<span style="color:#666">.</span><span style="color:#b44">getFilter</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
                 
-                <a href="ch5.19-ssl-filter.html">5.19 - SSL/TLS Filter</a>
-            
-        </div>
-        <div class="nav_up">
-            
-                
-                <a href="ch5-filters.html">Chapter 5 - Filters</a>
-            
-        </div>
-        <div class="nav_next">
-            
-                
-                <a href="../ch6-transports/ch6-transports.html">Chapter 6 - Transports</a>
-            
-        </div>
-        <div class="clearfix"></div>
-    </div>
+                <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span> filter <span style="color:#a2f;font-weight:bold">instanceof</span> SslFilter <span style="color:#666">)</span>
+                <span style="color:#666">{</span>
+                    entry<span style="color:#666">.</span><span style="color:#b44">getNextFilter</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">filterWrite</span><span style="color:#666">(</span> session<span style="color:#666">,</span> writeRequest <span style="color:#666">)</span><span style="color:#666">;</span>
+                <span style="color:#666">}</span>
+            <span style="color:#666">}</span>
+        <span style="color:#666">}</span>
+        <span style="color:#a2f;font-weight:bold">else</span>
+        <span style="color:#666">{</span>
+            nextFilter<span style="color:#666">.</span><span style="color:#b44">filterWrite</span><span style="color:#666">(</span> session<span style="color:#666">,</span> writeRequest <span style="color:#666">)</span><span style="color:#666">;</span>
+        <span style="color:#666">}</span>
+    <span style="color:#666">}</span>
+<span style="color:#666">}</span>
+
+</code></pre></div><p>As we can see in this piece of code, we check if the message is a <strong>startTLS</strong> response, and if so, we bypass the <strong>SSLFilter</strong>, which leads to the message to be send in clear text.</p>
+<h2 id="why-is-it-api-incompatible-">Why is it API incompatible ?</h2>
+<p>The  removal of the <strong>SslFilter.DISABLE_ENCRYPTION_ONCE</strong> attribute make it impossible for application that leverage the <strong>startTLS</strong> command to work, without some code change.</p>
+<h2 id="migration">Migration</h2>
+<p>This is pretty straightforward :</p>
+<ul>
+<li>Create a filter that bypasses the message that should not be encrypted, or encapsulate it into an inswtance that implements the <strong>DisableEncryptWriteRequest</strong> interface</li>
+</ul>
+<p>and that&rsquo;s it !</p>
 
 
             
-	<h1 id="520---write-request-filter">5.20 - Write Request Filter</h1>
-<p>TBD&hellip;</p>
-
-
-            
-    <div class="nav">
-        <div class="nav_prev">
-            
-                
-                <a href="ch5.19-ssl-filter.html">5.19 - SSL/TLS Filter</a>
-            
-        </div>
-        <div class="nav_up">
-            
-                
-                <a href="ch5-filters.html">Chapter 5 - Filters</a>
-            
-        </div>
-        <div class="nav_next">
-            
-                
-                <a href="../ch6-transports/ch6-transports.html">Chapter 6 - Transports</a>
-            
-        </div>
-        <div class="clearfix"></div>
-    </div>
-
 
         </div>
         <div id="endContent"></div>
