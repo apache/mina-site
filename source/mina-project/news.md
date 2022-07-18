@@ -5,6 +5,17 @@ title: News
 
 # News
 
+## MINA 2.2.0 released _posted on july, 19, 2022_
+
+The MINA project is pleased to announce the MINA 2.2.0 release.
+
+### Changes
+
+This new version comes with complete rewrite of the **SSL/TLS** layer. The previous implementation had some flaws that were difficult to fix or workaround, and with the arrival of **TLS-1.3**, it was the opportunity to review and recode this part, which is the main change.
+
+
+For any information about the API modifications and the impact on existing application, please read the [2.2 vs 2.1 page](2.2-vs-2.1.html).
+
 ## MINA 2.1.6 & MINA 2.0.23 released _posted on Februray, 18, 2022_
 
 The MINA project is pleased to announce two new releases, MINA 2.1.6 and MINA 2.0.23. 
