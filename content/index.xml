@@ -1650,6 +1650,15 @@ The Codecs listed here may not be part of Apache MINA project. The information i
     </item>
     
     <item>
+      <title>MINA Downloads</title>
+      <link>https://mina.apache.org/downloads-mina_2_2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/downloads-mina_2_2.html</guid>
+      <description>Latest MINA Releases Apache MINA 2.2.0 stable (Java 8+) Binaries  .tar.gz archive mina-2.2.0 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.2.0 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.2.0 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.2.0 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.2.0 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.2.0 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+    </item>
+    
+    <item>
       <title>MINA Home</title>
       <link>https://mina.apache.org/mina-project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
