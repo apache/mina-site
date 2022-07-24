@@ -696,7 +696,7 @@ It was decided to change that and make it easier for the application to get this
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/downloads_2_2.html</guid>
-      <description>Latest MINA Releases Apache MINA 2.2.0 stable (Java 8+) Binaries  .tar.gz archive mina-2.2.0 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.2.0 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.2.0 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.2.0 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.2.0 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.2.0 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+      <description>Latest MINA Releases Apache MINA 2.2.1 stable (Java 8+) Binaries  .tar.gz archive mina-2.2.1 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.2.1 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.2.1 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.2.1 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.2.1 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.2.1 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
     </item>
     
     <item>
@@ -738,7 +738,7 @@ Apache MINA is often called:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/downloads_old.html</guid>
-      <description>Older MINA Releases For people wanting to use the serial package, we don&#39;t include the rxtx.jar library in the releases, as it&#39;s under a LGPL license. Please download it from http://rxtx.qbang.org/wiki/index.php/Download or add the associated dependency in your maven pom.xml : &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.rxtx&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxtx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.1.7&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;scope&amp;gt; &amp;lt;/dependency&amp;gt;   MINA 2.1.x     Version Download Links Date     ApacheDS MINA 2.1.5 Download, Javadoc, Test javadoc, Xref, Xref test 29/Oct/2021   ApacheDS MINA 2.</description>
+      <description>Older MINA Releases For people wanting to use the serial package, we don&#39;t include the rxtx.jar library in the releases, as it&#39;s under a LGPL license. Please download it from http://rxtx.qbang.org/wiki/index.php/Download or add the associated dependency in your maven pom.xml : &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.rxtx&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxtx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.1.7&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;scope&amp;gt; &amp;lt;/dependency&amp;gt;   MINA 2.2.x     Version Download Links Date     ApacheDS MINA 2.2.0 Download, Javadoc, Test javadoc, Xref, Xref test 19/Jul/2022    MINA 2.</description>
     </item>
     
     <item>
@@ -757,9 +757,10 @@ Apache MINA is often called:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/news.html</guid>
-      <description>News MINA 2.2.0 released posted on july, 19, 2022 The MINA project is pleased to announce the MINA 2.2.0 release.
-Changes This new version comes with complete rewrite of the SSL/TLS layer. The previous implementation had some flaws that were difficult to fix or workaround, and with the arrival of TLS-1.3, it was the opportunity to review and recode this part, which is the main change.
-For any information about the API modifications and the impact on existing application, please read the 2.</description>
+      <description>News MINA 2.2.1 released posted on july, 24, 2022 The MINA project is pleased to announce the MINA 2.2.1 release.
+Changes This new version is just a fix in some OSGi export declaration that was done wrong in the previous release.
+MINA 2.2.0 released posted on july, 19, 2022 The MINA project is pleased to announce the MINA 2.2.0 release.
+Changes This new version comes with complete rewrite of the SSL/TLS layer.</description>
     </item>
     
     <item>
