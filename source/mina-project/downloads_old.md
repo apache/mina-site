@@ -16,6 +16,14 @@ title: MINA Older Downloads
     </dependency>
 </div>
 
+
+## MINA 2.2.x
+
+<center>
+
+| Version| Download Links | Date |
+|:-:|:-:|:-:|
+| ApacheDS MINA 2.2.0 | [Download](https://archive.apache.org/dist/mina/mina/2.2.0/), [Javadoc](https://mina.apache.org/mina-project/gen-docs/2.2.0/apidocs/index.html), [Test javadoc](https://mina.apache.org/mina-project/gen-docs/2.2.0/testapidocs/index.html), [Xref](https://mina.apache.org/mina-project/gen-docs/2.2.0/xref/index.html), [Xref test](https://mina.apache.org/mina-project/gen-docs/2.2.0/xref-test/index.html) | 19/Jul/2022 |
 ## MINA 2.1.x
 
 <center>
@@ -181,6 +189,8 @@ or
 
     $ gpg --import KEYS
     $ gpg --verify mina-2.0.20.tar.gz.asc
+
+Alternatively, you can verify the checksums of the files (see the [How to verify downloaded files page](https://www.apache.org/info/verification.html)). 
 
 
 # Previous Releases

@@ -5,6 +5,15 @@ title: News
 
 # News
 
+## MINA 2.2.1 released _posted on july, 24, 2022_
+
+The MINA project is pleased to announce the MINA 2.2.1 release.
+
+### Changes
+
+This new version is just a fix in some **OSGi** export declaration that was done wrong in the previous release. 
+
+
 ## MINA 2.2.0 released _posted on july, 19, 2022_
 
 The MINA project is pleased to announce the MINA 2.2.0 release.

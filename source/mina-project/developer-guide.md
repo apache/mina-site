@@ -604,8 +604,8 @@ Some pages have to be updated. Assuming the MINA site has been checked out in ~/
 
 * /config.toml: update the `version_mina_XYZ` variable with the new version.
 * /source/mina-project/news.md: add the news on top of this page
-* /source/mina-project/downloads-2_0.md or /source/mina-project/downloads-2_1.md: change the version all over the page
-* /source/downloads-mina_2_0.md or /source/downloads-mina2_1.md: change the version all over the page
+* /source/mina-project/downloads-2_0.md or /source/mina-project/downloads-2_1.md or /source/mina-project/downloads-2_2.md: change the version all over the page
+* /source/downloads-mina_2_0.md or /source/downloads-mina2_1.md or /source/downloads-mina2_2.md: change the version all over the page
 * /source/mina-project/downloads-old.md: Add a line for the latest version which has been replaced by the released one
 
 Commit the changes, and publish the web site, you are done !

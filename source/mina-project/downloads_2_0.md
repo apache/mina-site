@@ -53,6 +53,8 @@ $ gpg --import KEYS
 $ gpg --verify mina-2.0.23.tar.gz.asc
 ```
 
+Alternatively, you can verify the checksums of the files (see the [How to verify downloaded files page](https://www.apache.org/info/verification.html)). 
+
 # Previous Releases
 
 The previous releases can be found [here](https://archive.apache.org/dist/mina/) and [here](https://archive.apache.org/dist/mina/mina/). Please note that the following releases contains a LGPL licensed file, rxtx-2.1.7.jar: 2.0.0-M4, 2.0.0-M5, 2.0.0-M6, 2.0.0-RC1.
