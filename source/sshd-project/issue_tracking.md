@@ -5,7 +5,12 @@ title: SSHD Issue Tracking
 
 # Issue Tracking
 
-We are using JIRA to track all SSHD issues including bugs. Please visit our [issue tracker page](http://issues.apache.org/jira/browse/SSHD) to report a bug.
+We are using two issue tracking systems to track all SSHD issues including bugs. Use either one, but please don't file the same issue at both.
+
+* Issues can be filed on [GitHub issues](https://github.com/apache/mina-sshd/issues).
+* The [JIRA issue tracker](https://issues.apache.org/jira/browse/SSHD) is the traditional issue tracker of the project.
+
+If neither option is suitable for you, issues can also be reported via [e-mail](./mailing_lists.html) as a last resort.
 
 ## How to report a bug
 
