@@ -87,9 +87,15 @@
 
             
 	<h1 id="overview">Overview</h1>
-<p>Apache SSHD is a 100% pure java library to support the SSH protocols on both the client and server side.
-This library is based on <a href="http://mina.apache.org/">Apache MINA</a>, a scalable and high performance asynchronous IO library.</p>
-<p>SSHD does not really aim at being a replacement for the SSH client or SSH server from Unix operating systems, but rather provides support for Java based applications requiring SSH support.</p>
+<p>Apache MINA SSHD is a 100% pure java library to support the SSH protocols on both the client and server side. It does not
+aim at being a replacement for the SSH client or SSH server from Unix operating systems, but rather provides support for Java
+based applications requiring SSH support.</p>
+<p>The library can leverage several I/O back-ends:</p>
+<ul>
+<li>The default transport is built-in and uses Java&rsquo;s <code>AsynchronousSocketChannel</code>s.</li>
+<li><a href="../mina-project/">Apache MINA</a>, a scalable and high performance asynchronous I/O library, can be used instead, or</li>
+<li>the <a href="https://netty.io">Netty</a> asynchronous event-driven network framework is also supported.</li>
+</ul>
 <p>The technical documentation is maintained in the <a href="https://github.com/apache/mina-sshd">source tree</a>.</p>
 
 

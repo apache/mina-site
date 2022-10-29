@@ -817,6 +817,26 @@ Getting the Distributions  Source distributions:  Apache Mina SSHD 2.8.0 Sources
     </item>
     
     <item>
+      <title>Apache SSHD 2.9.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.9.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.9.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.9.0 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.9.0 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.0 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.9.0 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.0 Binary (.zip) PGP SHA256 SHA512    Please report any feedback to users@mina.apache.org.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 2.9.1 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.9.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.9.1.html</guid>
+      <description>Overview Apache Mina SSHD 2.9.1 contains a number of enhancements and bug-fixes.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.9.1 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.1 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.9.1 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.1 Binary (.zip) PGP SHA256 SHA512    Please report any feedback to users@mina.apache.org.</description>
+    </item>
+    
+    <item>
       <title>Apache Vysper</title>
       <link>https://mina.apache.org/vysper-project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1147,8 +1167,8 @@ All Releases  Apache FtpServer 1.2.0 Release - Mar 13th, 2022 Apache FtpServer 1
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/downloads-sshd.html</guid>
-      <description>Latest SSHD Releases The latest release is the SSHD 2.8.0 release. Apache Mina SSHD 2.8.0 contains a number of enhancements and bug-fixes.
- Source distributions:  Apache Mina SSHD 2.8.0 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.8.0 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.8.0 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.8.0 Binary (.zip) PGP SHA256 SHA512    Development snapshots You can build the latest version from sources.</description>
+      <description>Latest SSHD Releases The latest release is the SSHD 2.9.1 release. Apache Mina SSHD 2.9.1 contains a number of enhancements and bug-fixes.
+ Source distributions:  Apache Mina SSHD 2.9.1 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.1 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.9.1 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.1 Binary (.zip) PGP SHA256 SHA512    Development snapshots You can build the latest version from sources.</description>
     </item>
     
     <item>
@@ -1814,7 +1834,7 @@ Normal Git Access Anyone can check code out of Git. You only need to specify a u
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/documentation.html</guid>
-      <description>Apache SSHD documentation See https://github.com/apache/mina-sshd for more informations.</description>
+      <description>Apache SSHD documentation See https://github.com/apache/mina-sshd for more information.</description>
     </item>
     
     <item>
@@ -1823,8 +1843,8 @@ Normal Git Access Anyone can check code out of Git. You only need to specify a u
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/downloads.html</guid>
-      <description>Latest SSHD Releases The latest release is the SSHD 2.8.0 release. Apache Mina SSHD 2.8.0 contains a number of enhancements and bug-fixes.
- Source distributions:  Apache Mina SSHD 2.8.0 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.8.0 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.8.0 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.8.0 Binary (.zip) PGP SHA256 SHA512    Development snapshots You can build the latest version from sources.</description>
+      <description>Latest SSHD Releases The latest release is the SSHD 2.9.1 release. Apache Mina SSHD 2.9.1 contains a number of enhancements and bug-fixes.
+ Source distributions:  Apache Mina SSHD 2.9.1 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.1 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.9.1 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.1 Binary (.zip) PGP SHA256 SHA512    Development snapshots You can build the latest version from sources.</description>
     </item>
     
     <item>
@@ -1833,7 +1853,7 @@ Normal Git Access Anyone can check code out of Git. You only need to specify a u
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/faq.html</guid>
-      <description>FAQ See https://github.com/apache/mina-sshd for more informations.</description>
+      <description>FAQ See https://github.com/apache/mina-sshd for more information.</description>
     </item>
     
     <item>
@@ -1851,7 +1871,7 @@ Normal Git Access Anyone can check code out of Git. You only need to specify a u
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/getting_involved.html</guid>
-      <description>Getting Involved The Apache SSHD developers communicates using our Mailing Lists. If you have any questions, feedback or suggestions, you&amp;rsquo;re very welcome to join the list and send an email. We are also happy to receive bug reports and feature requests in our JIRA.
+      <description>Getting Involved The Apache SSHD developers communicates using our Mailing Lists. If you have any questions, feedback or suggestions, you&amp;rsquo;re very welcome to join the list and send an email. We are also happy to receive bug reports and feature requests in our issue tracker.
 Patches The best chance of getting your bug or feature fixed is to provide a patch, if they fit our goals we will usually have them committed within a few days.</description>
     </item>
     
@@ -1861,9 +1881,9 @@ Patches The best chance of getting your bug or feature fixed is to provide a pat
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/issue_tracking.html</guid>
-      <description>Issue Tracking We are using JIRA to track all SSHD issues including bugs. Please visit our issue tracker page to report a bug.
-How to report a bug Writing a bug report with detailed information will help us to fix your problem sooner.
- Make sure if the bug you are going to report doesn&amp;rsquo;t exist yet. Attaching JUnit test case which reproduces the problem will put your report in our highest priority.</description>
+      <description>Issue Tracking We are using two issue tracking systems to track all SSHD issues including bugs. Use either one, but please don&amp;rsquo;t file the same issue at both.
+ Issues can be filed on GitHub issues. The JIRA issue tracker is the traditional issue tracker of the project.  If neither option is suitable for you, issues can also be reported via e-mail as a last resort.
+How to report a bug Writing a bug report with detailed information will help us to fix your problem sooner.</description>
     </item>
     
     <item>
@@ -1874,7 +1894,7 @@ How to report a bug Writing a bug report with detailed information will help us 
       <guid>https://mina.apache.org/sshd-project/mailing_lists.html</guid>
       <description>Mailing List General information about the SSHD mailing lists can be found here.
 For Users Please use this list for any questions regarding how to use SSHD.
-         Subscribe users-subscribe@mina.apache.org   Unsubscribe users-unsubscribe@mina.apache.org   Post users@mina.apache.org   Archive http://www.mail-archive.com/users@mina.apache.org/    For Developers We use the MINA developers list for asking technical questions, discussing feature suggestions or general questions regarding the project.</description>
+         Subscribe users-subscribe@mina.apache.org   Unsubscribe users-unsubscribe@mina.apache.org   Post users@mina.apache.org   Archive https://www.mail-archive.com/users@mina.apache.org/    For Developers We use the MINA developers list for asking technical questions, discussing feature suggestions or general questions regarding the project.</description>
     </item>
     
     <item>
@@ -1883,9 +1903,9 @@ For Users Please use this list for any questions regarding how to use SSHD.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/</guid>
-      <description>Overview Apache SSHD is a 100% pure java library to support the SSH protocols on both the client and server side. This library is based on Apache MINA, a scalable and high performance asynchronous IO library.
-SSHD does not really aim at being a replacement for the SSH client or SSH server from Unix operating systems, but rather provides support for Java based applications requiring SSH support.
-The technical documentation is maintained in the source tree.</description>
+      <description>Overview Apache MINA SSHD is a 100% pure java library to support the SSH protocols on both the client and server side. It does not aim at being a replacement for the SSH client or SSH server from Unix operating systems, but rather provides support for Java based applications requiring SSH support.
+The library can leverage several I/O back-ends:
+ The default transport is built-in and uses Java&amp;rsquo;s AsynchronousSocketChannels. Apache MINA, a scalable and high performance asynchronous I/O library, can be used instead, or the Netty asynchronous event-driven network framework is also supported.</description>
     </item>
     
     <item>
@@ -1894,7 +1914,7 @@ The technical documentation is maintained in the source tree.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/sources.html</guid>
-      <description>Overview Sources for the Apache MINA projects are currently managed through GIT. Instructions on GIT use can be found at http://git-scm.com/book/.
+      <description>Overview Sources for the Apache MINA projects are currently managed through Git. Instructions on Git use can be found at the official Git site.
 Normal Git Access Anyone can check code out of Git. You only need to specify a username and password in order to update the Git repository, and only MINA committers have the permissions to do that. We run Git over standard HTTPS, so hopefully you won&amp;rsquo;t have problems with intervening firewalls.</description>
     </item>
     
