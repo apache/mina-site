@@ -5,7 +5,9 @@ title: Apache SSHD 2.9.2 Release
 
 # Overview
 
-Apache Mina SSHD 2.9.2 contains a number of [enhancements and bug-fixes](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310849&version=12352273).
+Apache Mina SSHD 2.9.2 contains a number of enhancements and bug-fixes. See the lists at the
+[Apache issue tracker](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310849&version=12352273)
+and at the [GitHub issue tracker](https://github.com/apache/mina-sshd/issues?q=is%3Aissue+milestone%3A2.9.2).
 
 # Getting the Distributions
 

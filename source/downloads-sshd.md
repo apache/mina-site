@@ -5,7 +5,9 @@ title: Downloads
 # Latest SSHD Releases
 
 The latest release is the SSHD 2.9.2 release.
-Apache Mina SSHD 2.9.2 contains a number of [enhancements and bug-fixes](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310849&version=12352273).
+Apache Mina SSHD 2.9.2 contains a number of enhancements and bug-fixes. See the lists at the
+[Apache issue tracker](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310849&version=12352273)
+and at the [GitHub issue tracker](https://github.com/apache/mina-sshd/issues?q=is%3Aissue+milestone%3A2.9.2).
 
 * Source distributions:
     * [Apache Mina SSHD 2.9.2 Sources (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.9.2/apache-sshd-2.9.2-src.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.tar.gz.asc) [SHA256](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.tar.gz.sha512)
