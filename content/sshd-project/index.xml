@@ -367,7 +367,8 @@ Getting the Distributions  Source distributions:  Apache Mina SSHD 2.9.1 Sources
       
       <guid>https://mina.apache.org/sshd-project/download_2.9.2.html</guid>
       <description>Overview Apache Mina SSHD 2.9.2 contains a number of enhancements and bug-fixes. See the lists at the Apache issue tracker and at the GitHub issue tracker.
-Getting the Distributions  Source distributions:  Apache Mina SSHD 2.9.2 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.2 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.9.2 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.2 Binary (.</description>
+This release fixes CVE-2022-45047.
+Getting the Distributions  Source distributions:  Apache Mina SSHD 2.9.2 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.2 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.9.2 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.</description>
     </item>
     
     <item>
@@ -419,7 +420,8 @@ Getting the Distributions  Source distributions:  Apache Mina SSHD 2.9.2 Sources
       
       <guid>https://mina.apache.org/sshd-project/downloads.html</guid>
       <description>Latest SSHD Releases The latest release is the SSHD 2.9.2 release. Apache Mina SSHD 2.9.2 contains a number of enhancements and bug-fixes. See the lists at the Apache issue tracker and at the GitHub issue tracker.
- Source distributions:  Apache Mina SSHD 2.9.2 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.2 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.9.2 Binary (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.</description>
+This release fixes CVE-2022-45047.
+ Source distributions:  Apache Mina SSHD 2.9.2 Sources (.tar.gz) PGP SHA256 SHA512 Apache Mina SSHD 2.9.2 Sources (.zip) PGP SHA256 SHA512   Binary distributions:  Apache Mina SSHD 2.</description>
     </item>
     
     <item>
