@@ -706,8 +706,8 @@ It was decided to change that and make it easier for the application to get this
       
       <guid>https://mina.apache.org/mina-project/2.2-vs-2.1.html</guid>
       <description>2.2.x vs 2.1.x differences The SSL/TLS handling has been totally rewritten in MINA 2.2. This has an impact in many areas.
-Removal of the SslFilter.DISABLE_ENCRYPTION_ONCE attribute This attribute was used in previous MINA versions to insure that we can send some clear text message to the remote peer while establishing the TLS connection when using the startTLS command.
-The idea is that the startTLS command is send by an application (a LDAP client, for instance), which tells the server it should establish the SSL/TLS layer.</description>
+Removal of the SslFilter.DISABLE_ENCRYPTION_ONCE attribute This attribute was used in previous MINA versions to insure that we can send a clear text message to the remote peer while establishing the TLS connection when using the startTLS command.
+The idea is that the startTLS command is sent by an application (an LDAP client, for instance), which tells the server it should establish the SSL/TLS layer.</description>
     </item>
     
     <item>
