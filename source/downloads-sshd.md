@@ -2,21 +2,19 @@
 title: Downloads
 ---
 
-# Latest SSHD Releases
+# Latest SSHD Release
 
-The latest release is the SSHD 2.9.2 release.
-Apache Mina SSHD 2.9.2 contains a number of enhancements and bug-fixes. See the lists at the
-[Apache issue tracker](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310849&version=12352273)
-and at the [GitHub issue tracker](https://github.com/apache/mina-sshd/issues?q=is%3Aissue+milestone%3A2.9.2).
-
-This release fixes [CVE-2022-45047](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-45047).
+The latest release is the SSHD 2.10.0 release.
+Apache Mina SSHD 2.10.0 contains a number of enhancements and bug-fixes. See the lists at the
+[Apache issue tracker](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310849&version=12353091)
+and at the [GitHub issue tracker](https://github.com/apache/mina-sshd/issues?q=milestone%3A2.10).
 
 * Source distributions:
-    * [Apache Mina SSHD 2.9.2 Sources (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.9.2/apache-sshd-2.9.2-src.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.tar.gz.asc) [SHA256](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.tar.gz.sha512)
-    * [Apache Mina SSHD 2.9.2 Sources (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.9.2/apache-sshd-2.9.2-src.zip) [PGP](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.zip.asc) [SHA256](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.zip.sha256) [SHA512](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.zip.sha512)
+    * [Apache Mina SSHD 2.10.0 Sources (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.10.0/apache-sshd-2.10.0-src.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.10.0/apache-sshd-2.10.0-src.tar.gz.asc) [SHA256](https://www.apache.org/dist/mina/sshd/2.10.0/apache-sshd-2.10.0-src.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/sshd/2.10.0/apache-sshd-2.10.0-src.tar.gz.sha512)
+    * [Apache Mina SSHD 2.10.0 Sources (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.10.0/apache-sshd-2.10.0-src.zip) [PGP](https://www.apache.org/dist/mina/sshd/2.10.0/apache-sshd-2.10.0-src.zip.asc) [SHA256](https://www.apache.org/dist/mina/sshd/2.10.0/apache-sshd-2.10.0-src.zip.sha256) [SHA512](https://www.apache.org/dist/mina/sshd/2.10.0/apache-sshd-2.10.0-src.zip.sha512)
 * Binary distributions:
-    * [Apache Mina SSHD 2.9.2 Binary (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.9.2/apache-sshd-2.9.2.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2.tar.gz.asc) [SHA256](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2.tar.gz.sha512)
-    * [Apache Mina SSHD 2.9.2 Binary (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.9.2/apache-sshd-2.9.2.zip) [PGP](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2.zip.asc) [SHA256](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2.zip.sha256) [SHA512](https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2.zip.sha512)
+    * [Apache Mina SSHD 2.10.0 Binary (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.10.0/apache-sshd-2.10.0.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.10.0/apache-sshd-2.10.0.tar.gz.asc) [SHA256](https://www.apache.org/dist/mina/sshd/2.10.0/apache-sshd-2.10.0.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/sshd/2.10.0/apache-sshd-2.10.0.tar.gz.sha512)
+    * [Apache Mina SSHD 2.10.0 Binary (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.10.0/apache-sshd-2.10.0.zip) [PGP](https://www.apache.org/dist/mina/sshd/2.10.0/apache-sshd-2.10.0.zip.asc) [SHA256](https://www.apache.org/dist/mina/sshd/2.10.0/apache-sshd-2.10.0.zip.sha256) [SHA512](https://www.apache.org/dist/mina/sshd/2.10.0/apache-sshd-2.10.0.zip.sha512)
 
 # Development snapshots
 
@@ -60,3 +58,4 @@ You can [build](./sshd-project/building.html) the latest version from [sources](
 * [SSHD 2.9.0](./sshd-project/download_2.9.0.html)
 * [SSHD 2.9.1](./sshd-project/download_2.9.1.html)
 * [SSHD 2.9.2](./sshd-project/download_2.9.2.html)
+* [SSHD 2.10.0](./sshd-project/download_2.10.0.html)
