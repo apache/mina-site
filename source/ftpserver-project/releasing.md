@@ -268,10 +268,10 @@ PGP Key Password:
 <Your PGP passphrase>
 
 -n Signing: ./apache-ftpserver-<version>-bin.tar.bz2 ... 
-  - Generated './apache-ftpserver-<version>-bin.tar.bz2.sha1'
+  - Generated './apache-ftpserver-<version>-bin.tar.bz2.sha512'
   - Generated './apache-ftpserver-<version>-bin.tar.bz2.asc'
 -n Signing: ./apache-ftpserver-<version>-bin.tar.gz ... 
-  - Generated './apache-ftpserver-<version>-bin.tar.gz.sha1'
+  - Generated './apache-ftpserver-<version>-bin.tar.gz.sha512'
   - Generated './apache-ftpserver-<version>-bin.tar.gz.asc'
 ...
 ```
@@ -298,17 +298,8 @@ for FILE in $(find . -maxdepth 1 -not '(' -name "sign.sh" -or -name ".*" -or -na
 
   echo -n "Signing: $FILE ... "
 
-  # SHA-256
-  if [ ! -f "$FILE.sha256" ];
-  then
-      gpg -v --default-key "$DEFAULT_KEY" --print-md SHA256 "$FILE" > "$FILE".sha256
-      echo "  - Generated '$FILE.sha256'"
-  else
-      echo "  - Skipped '$FILE.sha256' (file already existing)"
-  fi
-
   # SHA-512
-  if [ ! -f "$FILE.shacw512256" ];
+  if [ ! -f "$FILE.sha512" ];
   then
       gpg -v --default-key "$DEFAULT_KEY" --print-md SHA512 "$FILE" > "$FILE".sha512
       echo "  - Generated '$FILE.sha512'"

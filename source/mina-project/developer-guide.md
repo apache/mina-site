@@ -185,7 +185,7 @@ $ mvn -Pserial,apache-release -DdryRun=true release:prepare    # Dry-run first.
 Answer to maven questions :
 
 ```text
-"What is the release version for "Apache MINA"? (org.apache.mina:mina-parent) 2.0.7-<version>: :" 
+"What is the release version for "Apache MINA"? (org.apache.mina:mina-parent) <version>: :" 
 <either use the default version as suggested, or type in the version you@qot;d like to be used>
 [..]
 ```
@@ -197,6 +197,19 @@ Then some other questions will be asked, about the next version to use. The defa
     
     Make sure the change made by the release plugin is correct! (pom.xml, tags created)
 </div>
+
+<div class="info" markdown="1">
+    <strong>In case of a problem...</strong><br>
+    
+    It's frequent that the dry-run fails, typically when you have some Javadoc issues (with Java 8, the compiler is really picky about wrong HTML tags or missing parameters).
+
+    You can rollback the release with the command:
+
+    $ mvn -Pserial,apache-release -DdryRun=true release:rollback
+
+    You should be back on your feet. 
+</div>
+
     
 ### Step 3 : Processing with the real release
 
@@ -223,7 +236,7 @@ The first mail tells you that the SNAPSHOT has been moved to the release version
 
 ### Step 4 : perform the release
 
-The last step before launching a vote is to push the potential release to Nexus so that every user can test the created packages. Perform the following actions (note that we have to run a build first for teh javadoc to be correctly generated...) :
+The last step before launching a vote is to push the potential release to Nexus so that every user can test the created packages. Perform the following actions (note that we have to run a build first for the javadoc to be correctly generated...) :
 
 ```bash
 $ mvn clean install -Pserial -DskipTests
@@ -348,10 +361,10 @@ PGP Key Password:
 <Your PGP passphrase>
 
 -n Signing: ./apache-mina-2.0.9-bin.tar.bz2 ... 
-  - Generated './apache-mina-2.0.9-bin.tar.bz2.sha1'
+  - Generated './apache-mina-2.0.9-bin.tar.bz2.sha512'
   - Generated './apache-mina-2.0.9-bin.tar.bz2.asc'
 -n Signing: ./apache-mina-2.0.9-bin.tar.gz ... 
-  - Generated './apache-mina-2.0.9-bin.tar.gz.sha1'
+  - Generated './apache-mina-2.0.9-bin.tar.gz.sha512'
   - Generated './apache-mina-2.0.9-bin.tar.gz.asc'
 ...
 ```
@@ -378,17 +391,8 @@ for FILE in $(find . -maxdepth 1 -not '(' -name "sign.sh" -or -name ".*" -or -na
 
   echo -n "Signing: $FILE ... "
 
-  # SHA-256
-  if [ ! -f "$FILE.sha256" ];
-  then
-      gpg -v --default-key "$DEFAULT_KEY" --print-md SHA256 "$FILE" > "$FILE".sha256
-      echo "  - Generated '$FILE.sha256'"
-  else
-      echo "  - Skipped '$FILE.sha256' (file already existing)"
-  fi
-
   # SHA-512
-  if [ ! -f "$FILE.shacw512256" ];
+  if [ ! -f "$FILE.sha512" ];
   then
       gpg -v --default-key "$DEFAULT_KEY" --print-md SHA512 "$FILE" > "$FILE".sha512
       echo "  - Generated '$FILE.sha512'"
