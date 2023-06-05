@@ -57,9 +57,9 @@
                 <a class="acevent" data-format="wide" data-width="170"></a>
                 <h5>Latest Downloads</h5>
                 <ul>
-                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.23</a></li>
-                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.6</a></li>
-                    <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.1</a></li>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.24</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.7</a></li>
+                    <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.2</a></li>
                     <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
                 </ul>
                 <h5>Documentation</h5>
@@ -78,12 +78,12 @@
                     <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
                     <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
                     <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.23</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.6</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.1</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.23</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.6</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.1</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.24</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.7</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.2</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.24</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.7</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.2</a></li>
                     <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
                     <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
                     <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
@@ -263,13 +263,24 @@ $ mvn clean install -Pserial
 </code></pre></div><p>run the following commands :</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mvn -Pserial,apache-release -DdryRun<span style="color:#666">=</span><span style="color:#a2f">true</span> release:prepare    <span style="color:#080;font-style:italic"># Dry-run first.</span>
 </code></pre></div><p>Answer to maven questions :</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&#34;What is the release version for &#34;Apache MINA&#34;? (org.apache.mina:mina-parent) 2.0.7-&lt;version&gt;: :&#34; 
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&#34;What is the release version for &#34;Apache MINA&#34;? (org.apache.mina:mina-parent) &lt;version&gt;: :&#34; 
 &lt;either use the default version as suggested, or type in the version you@qot;d like to be used&gt;
 [..]
 </code></pre></div><p>Then some other questions will be asked, about the next version to use. The default values should be fine.</p>
 <div class="info" markdown="1">
     <strong>Be Careful</strong><br>
 <pre><code>Make sure the change made by the release plugin is correct! (pom.xml, tags created)
+</code></pre>
+</div>
+<div class="info" markdown="1">
+    <strong>In case of a problem...</strong><br>
+<pre><code>It's frequent that the dry-run fails, typically when you have some Javadoc issues (with Java 8, the compiler is really picky about wrong HTML tags or missing parameters).
+
+You can rollback the release with the command:
+
+$ mvn -Pserial,apache-release -DdryRun=true release:rollback
+
+You should be back on your feet. 
 </code></pre>
 </div>
 <h3 id="step-3--processing-with-the-real-release">Step 3 : Processing with the real release</h3>
@@ -284,7 +295,7 @@ Git Push Summary
 git commit: [maven-release-plugin] prepare for next development iteration
 </code></pre></div><p>The first mail tells you that the SNAPSHOT has been moved to the release version in trunk, the second mails tells you that this version has been tagged, and the last mail tells you that trunk has moved to the next version.</p>
 <h3 id="step-4--perform-the-release">Step 4 : perform the release</h3>
-<p>The last step before launching a vote is to push the potential release to Nexus so that every user can test the created packages. Perform the following actions (note that we have to run a build first for teh javadoc to be correctly generated&hellip;) :</p>
+<p>The last step before launching a vote is to push the potential release to Nexus so that every user can test the created packages. Perform the following actions (note that we have to run a build first for the javadoc to be correctly generated&hellip;) :</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mvn clean install -Pserial -DskipTests
 ...
 $ mvn -Pserial,apache-release release:perform
@@ -378,10 +389,10 @@ PGP Key Password:
 &lt;Your PGP passphrase&gt;
 
 -n Signing: ./apache-mina-2.0.9-bin.tar.bz2 ... 
-  - Generated &#39;./apache-mina-2.0.9-bin.tar.bz2.sha1&#39;
+  - Generated &#39;./apache-mina-2.0.9-bin.tar.bz2.sha512&#39;
   - Generated &#39;./apache-mina-2.0.9-bin.tar.bz2.asc&#39;
 -n Signing: ./apache-mina-2.0.9-bin.tar.gz ... 
-  - Generated &#39;./apache-mina-2.0.9-bin.tar.gz.sha1&#39;
+  - Generated &#39;./apache-mina-2.0.9-bin.tar.gz.sha512&#39;
   - Generated &#39;./apache-mina-2.0.9-bin.tar.gz.asc&#39;
 ...
 </code></pre></div><p>Here is the <code>sign.sh</code> script you can use :</p>
@@ -404,17 +415,8 @@ stty <span style="color:#a2f">echo</span>
 
   <span style="color:#a2f">echo</span> -n <span style="color:#b44">&#34;</span><span style="color:#b44">Signing: </span><span style="color:#b8860b">$FILE</span><span style="color:#b44"> ... </span><span style="color:#b44">&#34;</span>
 
-  <span style="color:#080;font-style:italic"># SHA-256</span>
-  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha256</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>;
-  <span style="color:#a2f;font-weight:bold">then</span>
-      gpg -v --default-key <span style="color:#b44">&#34;</span><span style="color:#b8860b">$DEFAULT_KEY</span><span style="color:#b44">&#34;</span> --print-md SHA256 <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span> &gt; <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span>.sha256
-      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Generated &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha256&#39;</span><span style="color:#b44">&#34;</span>
-  <span style="color:#a2f;font-weight:bold">else</span>
-      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Skipped &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha256&#39; (file already existing)</span><span style="color:#b44">&#34;</span>
-  <span style="color:#a2f;font-weight:bold">fi</span>
-
   <span style="color:#080;font-style:italic"># SHA-512</span>
-  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.shacw512256</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>;
+  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha512</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>;
   <span style="color:#a2f;font-weight:bold">then</span>
       gpg -v --default-key <span style="color:#b44">&#34;</span><span style="color:#b8860b">$DEFAULT_KEY</span><span style="color:#b44">&#34;</span> --print-md SHA512 <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span> &gt; <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span>.sha512
       <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Generated &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha512&#39;</span><span style="color:#b44">&#34;</span>

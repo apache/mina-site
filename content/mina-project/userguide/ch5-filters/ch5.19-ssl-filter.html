@@ -57,9 +57,9 @@
                 <a class="acevent" data-format="wide" data-width="170"></a>
                 <h5>Latest Downloads</h5>
                 <ul>
-                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.23</a></li>
-                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.6</a></li>
-                    <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.1</a></li>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.24</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.7</a></li>
+                    <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.2</a></li>
                     <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
                 </ul>
                 <h5>Documentation</h5>
@@ -78,12 +78,12 @@
                     <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
                     <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
                     <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.23</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.6</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.1</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.23</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.6</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.1</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.24</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.7</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.2</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.24</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.7</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.2</a></li>
                     <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
                     <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
                     <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
@@ -141,8 +141,65 @@
 
             
 	<h1 id="519---ssltls-filter">5.19 - SSL/TLS Filter</h1>
-<p>TBD&hellip;</p>
+<p>This is a critical part of any serious network application: securing the communication between the client and the server.</p>
+<p>In <strong>MINA</strong>, we do that with the <strong>SslFilter</strong>. The idea is to add this <em>Filter</em> in the chain and it will deal with the <em>Handshake</em> negociation, and the following encrypting and uncrypting of the data.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>The thing to remember is that the <strong>TLS</strong> protocol works in two steps:</p>
+<ul>
+<li>First there is a negociation part (the <em>Handshake</em>)</li>
+<li>Then once the <em>Handshake</em> is completed, all the data will be encrypted before being sent.</li>
+</ul>
+<p>We just have to add the filter in the chain like this:</p>
+<pre><code>   ...
+   SslFilter sslFilter = new SslFilter(sslContext);
+   DefaultIoFilterChainBuilder chain = acceptor.getFilterChain();
+   chain.addFirst(&quot;sslFilter&quot;, sslFilter);
+   ...
 
+</code></pre><p>The <em>chain</em> is the instance of <strong>IoFilterChainBuilder</strong> class that is associated with either the <em>Connector</em> or the <em>Acceptor</em> instances (wether we are using a client or a server).</p>
+<div class="note" markdown="1">
+Usually the **SSLFilyter** is always set at the first position in the chain. The rationnal is that it will receive and send encrypted data, so there is little use of having a functionnal filter between the head of the chain and the **SslFilter**. However, if such a filter is to be used, make sure it does not interfere with the data being exchanged with the remote peer.
+</div>
+<p>The missing part here is the <em>sslContext</em> which has to be defined. It&rsquo;s an instande of the <strong>SSLContext</strong> class, where you define a <strong>TrustManager</strong>, a <strong>KeyManager</strong> and a <strong>Securerandom</strong>.</p>
+<div class="note" markdown="1">
+	This part is strandard Java security. You'll find plenty of pages on internet explaining you to set up a proper _SSLContext_ instance.
+</div>
+<h3 id="handshake">Handshake</h3>
+<p>The <strong>Handshake</strong> is automatically initiated by the server when the connection is created. The <strong>SslFilter</strong> has a <em>onPostAdd</em> method which create a <strong>SSLEngine</strong> instance based on the provided <strong>SSLContext</strong>.</p>
+<p>It sets the <strong>SSLEngine</strong> characteristics:</p>
+<ul>
+<li>Whether the client authentication is requested or required (<em>needClientAuth</em> and <em>wantClientAuth</em> flags)</li>
+<li>Sets the enabled cipher suites</li>
+<li>Sets the enabled protocols</li>
+</ul>
+<p>Last, not least, the <strong>CLIENT_HELLO</strong> <strong>TLS</strong> request is sent by the client side, the server is waiting for it. There starts a serie of <strong>TLS</strong> messages exchanged between the cleint and the server, at teh end of which the session is secured, and data can be exchanged encrypted.</p>
+<p>What is important to note here is that during the <strong>Handshake</strong> exchanges, no application data can be sent, and the <strong>SslFilter</strong> is handling the whole process, before returning the hand to the application.</p>
+<h3 id="session-secured">Session secured</h3>
+<p>The application is informed that the session is secured:</p>
+<ul>
+<li>In <strong>MINA</strong> 2.0.X, the <strong>SslFilterMessage</strong> message is sent and can be processed in the <strong>IoHandler.messageReived</strong> handler.</li>
+<li>In <strong>MINA</strong> 2.1.X and 2.2.X, the <strong>IoHandler</strong> interface exposes an <em>event</em> handler that is used by the <strong>SslFilter</strong> to inform the application that the session is secured, by emmiting a <strong>SslEvent.SECURED</strong> event.</li>
+</ul>
+<p>It&rsquo;s clear that the way <strong>MINA</strong> 2.1.X and 2.2.X signal that the session is secured is way simpler.</p>
+<h3 id="starttls-use-case">StartTLS use case</h3>
+<p>Some protocols, like <strong>LDAP</strong>, <strong>FTP</strong>, <strong>XMPP</strong>, <strong>NNTP</strong>, <strong>SMTP</strong>, can be used without encryption, but allow some encryption to be set by using a specific command. When this command is issued, the <strong>TLS</strong> layer is added to an already connected session, without reestablishing a new session.</p>
+<p>That is what the <strong>startTLS</strong> command is used for that purpose. Here are a list of existing protocols that use this mechanism:</p>
+<ul>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc2595"><strong>IMAP, POP3 and ACAP</strong></a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc3207"><strong>SMTP</strong></a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc6120"><strong>XMPP</strong></a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc4642"><strong>NNTP</strong></a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc4513"><strong>LDAP</strong></a></li>
+</ul>
+<p>The way it works is that at some point of a clear text established connection, the client sends a <strong>STARTLS</strong> command, which forces the <strong>TLS</strong> handshake to start to establish a secured connection. When the secured connection is established, the client and the server exchanges will be encrypted.</p>
+<p>Now, that is a bit tricky to implement, because both the client <em>and</em> the server must block the exchange of messages during the establishement of the <strong>TLS</strong> session. As the client is the initiator of the command, it&rsquo;s easy, but on the server side, we must pass a response to the original command <strong>in clear text</strong> informing the client that the command has been received and processed.</p>
+<pre><code>(C) The client sends a **StartTLS** command
+(S) The server receives the command, initialize the **TLS** layer, and send back a response to the client, bypassing the **TLS** layer.
+(C) The client received the server response to the command, and setup the **TLS** layer, and initiates the **TLS** handshake
+(S/C) The Handshake is processed
+(S/C) The session is secured on both side
+(S/C) at this point, every message exchanged are encrypted.
+</code></pre>
 
             
     <div class="nav">

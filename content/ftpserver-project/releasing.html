@@ -276,10 +276,10 @@ PGP Key Password:
 &lt;Your PGP passphrase&gt;
 
 -n Signing: ./apache-ftpserver-&lt;version&gt;-bin.tar.bz2 ... 
-  - Generated &#39;./apache-ftpserver-&lt;version&gt;-bin.tar.bz2.sha1&#39;
+  - Generated &#39;./apache-ftpserver-&lt;version&gt;-bin.tar.bz2.sha512&#39;
   - Generated &#39;./apache-ftpserver-&lt;version&gt;-bin.tar.bz2.asc&#39;
 -n Signing: ./apache-ftpserver-&lt;version&gt;-bin.tar.gz ... 
-  - Generated &#39;./apache-ftpserver-&lt;version&gt;-bin.tar.gz.sha1&#39;
+  - Generated &#39;./apache-ftpserver-&lt;version&gt;-bin.tar.gz.sha512&#39;
   - Generated &#39;./apache-ftpserver-&lt;version&gt;-bin.tar.gz.asc&#39;
 ...
 </code></pre></div><p>Here is the <code>sign.sh</code> script you can use :</p>
@@ -302,17 +302,8 @@ stty <span style="color:#a2f">echo</span>
 
   <span style="color:#a2f">echo</span> -n <span style="color:#b44">&#34;</span><span style="color:#b44">Signing: </span><span style="color:#b8860b">$FILE</span><span style="color:#b44"> ... </span><span style="color:#b44">&#34;</span>
 
-  <span style="color:#080;font-style:italic"># SHA-256</span>
-  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha256</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>;
-  <span style="color:#a2f;font-weight:bold">then</span>
-      gpg -v --default-key <span style="color:#b44">&#34;</span><span style="color:#b8860b">$DEFAULT_KEY</span><span style="color:#b44">&#34;</span> --print-md SHA256 <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span> &gt; <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span>.sha256
-      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Generated &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha256&#39;</span><span style="color:#b44">&#34;</span>
-  <span style="color:#a2f;font-weight:bold">else</span>
-      <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Skipped &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha256&#39; (file already existing)</span><span style="color:#b44">&#34;</span>
-  <span style="color:#a2f;font-weight:bold">fi</span>
-
   <span style="color:#080;font-style:italic"># SHA-512</span>
-  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.shacw512256</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>;
+  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> ! -f <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha512</span><span style="color:#b44">&#34;</span> <span style="color:#666">]</span>;
   <span style="color:#a2f;font-weight:bold">then</span>
       gpg -v --default-key <span style="color:#b44">&#34;</span><span style="color:#b8860b">$DEFAULT_KEY</span><span style="color:#b44">&#34;</span> --print-md SHA512 <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span> &gt; <span style="color:#b44">&#34;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">&#34;</span>.sha512
       <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;</span><span style="color:#b44">  - Generated &#39;</span><span style="color:#b8860b">$FILE</span><span style="color:#b44">.sha512&#39;</span><span style="color:#b44">&#34;</span>
