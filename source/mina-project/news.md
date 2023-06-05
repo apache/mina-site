@@ -5,6 +5,19 @@ title: News
 
 # News
 
+## MINA 2.2.2, 2.1.7, 2.0.24 released _posted on June, 05, 2023_
+
+The MINA project is pleased to announce the MINA 2.2.2, 2.1.7 and 2.0.24 release.
+
+### Changes
+
+Those versions are fixing some SSL/TLS issues and bring some added features:
+
+* DIRMINA-1122: support for endpoint identification algorithm (thanks to Marcin L)
+* DIRMINA-1157: A fix for a sporadic SSL/TLS connection establishement for version 2.0.X and 2.1.X (thanks to  Steffen Liersch)
+* DIRMINA-1169: A fix in the Acceptor for  Java 11 and upper (thanks to Thomas Wolf)
+
+
 ## MINA 2.2.1 released _posted on july, 24, 2022_
 
 The MINA project is pleased to announce the MINA 2.2.1 release.

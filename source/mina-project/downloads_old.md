@@ -23,13 +23,16 @@ title: MINA Older Downloads
 
 | Version| Download Links | Date |
 |:-:|:-:|:-:|
+| ApacheDS MINA 2.2.1 | [Download](https://archive.apache.org/dist/mina/mina/2.2.1/), [Javadoc](https://mina.apache.org/mina-project/gen-docs/2.2.1/apidocs/index.html), [Test javadoc](https://mina.apache.org/mina-project/gen-docs/2.2.1/testapidocs/index.html), [Xref](https://mina.apache.org/mina-project/gen-docs/2.2.1/xref/index.html), [Xref test](https://mina.apache.org/mina-project/gen-docs/2.2.1/xref-test/index.html) | 24/Jul/2022 |
 | ApacheDS MINA 2.2.0 | [Download](https://archive.apache.org/dist/mina/mina/2.2.0/), [Javadoc](https://mina.apache.org/mina-project/gen-docs/2.2.0/apidocs/index.html), [Test javadoc](https://mina.apache.org/mina-project/gen-docs/2.2.0/testapidocs/index.html), [Xref](https://mina.apache.org/mina-project/gen-docs/2.2.0/xref/index.html), [Xref test](https://mina.apache.org/mina-project/gen-docs/2.2.0/xref-test/index.html) | 19/Jul/2022 |
+
 ## MINA 2.1.x
 
 <center>
 
 | Version| Download Links | Date |
 |:-:|:-:|:-:|
+| ApacheDS MINA 2.1.6 | [Download](https://archive.apache.org/dist/mina/mina/2.1.6/), [Javadoc](https://mina.apache.org/mina-project/gen-docs/2.1.6/apidocs/index.html), [Test javadoc](https://mina.apache.org/mina-project/gen-docs/2.1.6/testapidocs/index.html), [Xref](https://mina.apache.org/mina-project/gen-docs/2.1.6/xref/index.html), [Xref test](https://mina.apache.org/mina-project/gen-docs/2.1.6/xref-test/index.html) | 18/Feb/2022 |
 | ApacheDS MINA 2.1.5 | [Download](https://archive.apache.org/dist/mina/mina/2.1.5/), [Javadoc](https://mina.apache.org/mina-project/gen-docs/2.1.5/apidocs/index.html), [Test javadoc](https://mina.apache.org/mina-project/gen-docs/2.1.5/testapidocs/index.html), [Xref](https://mina.apache.org/mina-project/gen-docs/2.1.5/xref/index.html), [Xref test](https://mina.apache.org/mina-project/gen-docs/2.1.5/xref-test/index.html) | 29/Oct/2021 |
 | ApacheDS MINA 2.1.4 | [Download](https://archive.apache.org/dist/mina/mina/2.1.4/), [Javadoc](https://mina.apache.org/mina-project/gen-docs/2.1.4/apidocs/index.html), [Test javadoc](https://mina.apache.org/mina-project/gen-docs/2.1.4/testapidocs/index.html), [Xref](https://mina.apache.org/mina-project/gen-docs/2.1.4/xref/index.html), [Xref test](https://mina.apache.org/mina-project/gen-docs/2.1.4/xref-test/index.html) | 24/Aug/2020 |
 | ApacheDS MINA 2.1.3 | [Download](https://archive.apache.org/dist/mina/mina/2.1.3/), [Javadoc](https://svn.apache.org/repos/infra/websites/production/mina/content/mina-project/gen-docs/2.1.3/apidocs/index.html), [Test javadoc](https://svn.apache.org/repos/infra/websites/production/mina/content/mina-project/gen-docs/2.1.3/testapidocs/index.html), [Xref](https://svn.apache.org/repos/infra/websites/production/mina/content/mina-project/gen-docs/2.1.3/xref/index.html), [Xref test](https://svn.apache.org/repos/infra/websites/production/mina/content/mina-project/gen-docs/2.1.3/xref-test/index.html) | 02/Jun/2019 |
@@ -44,6 +47,7 @@ title: MINA Older Downloads
 
 | Version| Download Links | Date |
 |:-:|:-:|:-:|
+| ApacheDS MINA 2.0.23 | [Download](https://archive.apache.org/dist/mina/mina/2.0.23/), [Javadoc](https://nightlies.apache.org/mina/mina/2.0.23/apidocs/index.html), [Test javadoc](https://nightlies.apache.org/mina/mina/2.0.23/testapidocs/index.html), [Xref](https://nightlies.apache.org/mina/mina/2.0.23/xref/index.html), [Xref test](https://nightlies.apache.org/mina/mina/2.0.23/xref-test/index.html) | 18/Feb/2022 |
 | ApacheDS MINA 2.0.22 | [Download](https://archive.apache.org/dist/mina/mina/2.0.22/), [Javadoc](https://nightlies.apache.org/mina/mina/2.0.22/apidocs/index.html), [Test javadoc](https://nightlies.apache.org/mina/mina/2.0.22/testapidocs/index.html), [Xref](https://nightlies.apache.org/mina/mina/2.0.22/xref/index.html), [Xref test](https://nightlies.apache.org/mina/mina/2.0.22/xref-test/index.html) | 29/Oct/2021 |
 | ApacheDS MINA 2.0.21 | [Download](https://archive.apache.org/dist/mina/mina/2.0.21/), [Javadoc](https://nightlies.apache.org/mina/mina/2.0.21/apidocs/index.html), [Test javadoc](https://nightlies.apache.org/mina/mina/2.0.21/testapidocs/index.html), [Xref](https://nightlies.apache.org/mina/mina/2.0.21/xref/index.html), [Xref test](https://nightlies.apache.org/mina/mina/2.0.21/xref-test/index.html) | 14/Apr/2019 |
 | ApacheDS MINA 2.0.20 | [Download](https://archive.apache.org/dist/mina/mina/2.0.20/), [Javadoc](https://svn.apache.org/repos/infra/websites/production/mina/content/mina-project/gen-docs/2.0.20/apidocs/index.html), [Test javadoc](https://svn.apache.org/repos/infra/websites/production/mina/content/mina-project/gen-docs/2.0.20/testapidocs/index.html), [Xref](https://svn.apache.org/repos/infra/websites/production/mina/content/mina-project/gen-docs/2.0.20/xref/index.html), [Xref test](https://svn.apache.org/repos/infra/websites/production/mina/content/mina-project/gen-docs/2.0.20/xref-test/index.html) | 24/Feb/2019 |
