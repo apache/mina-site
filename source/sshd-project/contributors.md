@@ -11,6 +11,7 @@ The following is a list of developers with commit privileges that have directly 
 * Guillaume Nodet
 * Lyor Goldstein
 * Shawn Pearce 
+* Thomas Wolf
 
 # Contributors
 
@@ -37,6 +38,7 @@ The following additional people have contributed to this project through the way
 * Daniel Micol-Ponce
 * David Overton
 * Simon Paradis
+* Andrew Pikler
 * Bobby Powers
 * Taras Puchko
 * Matthew Schulze
