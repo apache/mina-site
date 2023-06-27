@@ -157,7 +157,14 @@
 <span style="color:#666">}</span>
 
 </code></pre></div><p>As you can see in the code above, we check if the message is a <strong>startTLS</strong> response, and if so, we bypass the <strong>SSLFilter</strong>, which leads to the message to be sent in clear text.</p>
-<h2 id="why-is-it-api-incompatible-">Why is it API incompatible ?</h2>
+<h2 id="addition-of-the-iosessionisserver-method">Addition of the IoSession.isServer() method</h2>
+<p>This method tells if the underlaying service is an <em>IoAcceptor</em> or not. It&rsquo;s useful to quickly find out if we have to set the <strong>Tls</strong> flag to client or server when initializing the <strong>SslEngine</strong> instance, we also use it for the <strong>SslFilter</strong> logs.</p>
+<h2 id="removal-of-the-sslfiltergetsslsession-method">Removal of the SslFilter.getSslSession() method</h2>
+<p>This method is not used. Would you like to get the <strong>SSLSession</strong> instance, it&rsquo;s a matter of calling the <em>IoSession.getAttribute()</em> method with <strong>SslFilter.SSL_SECURED</strong> as a parameter:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
+            SSLSession sslSession <span style="color:#666">=</span> SSLSession<span style="color:#666">.</span><span style="color:#b44">class</span><span style="color:#666">.</span><span style="color:#b44">cast</span><span style="color:#666">(</span>getAttribute<span style="color:#666">(</span>SslFilter<span style="color:#666">.</span><span style="color:#b44">SSL_SECURED</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+<span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
+</code></pre></div><h2 id="why-is-it-api-incompatible-">Why is it API incompatible ?</h2>
 <p>The removal of the <strong>SslFilter.DISABLE_ENCRYPTION_ONCE</strong> attribute makes it impossible for application that leverage the <strong>startTLS</strong> command to work, without some code change.</p>
 <h2 id="migration">Migration</h2>
 <p>This is pretty straightforward :</p>
