@@ -22,6 +22,12 @@ pygmentsStyle = "emacs"
 # Enable Git variables like commit, lastmod
 enableGitInfo = true
 
+# If set to true, prevents Hugo from including the mermaid module if not needed (will reduce load times and traffic)
+disableMermaid = false
+
+# Specifies the remote location of the mermaid js
+customMermaidURL = "https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"
+
 [markup.goldmark.renderer]
 unsafe= true
 

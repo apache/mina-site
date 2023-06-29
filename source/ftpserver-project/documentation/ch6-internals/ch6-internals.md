@@ -35,6 +35,11 @@ The **FtpServerFactory** is associated with a **FtpServerContext** instance, whi
 
 The class hierarchy is the following:
 
+{{< mermaid >}}
+classDiagram
+  FtpletContext <|-- FtpServerContext o-- DefaultFtpServerContext
+{{< /mermaid >}}
+
 ```goat
 
  .-------------.
