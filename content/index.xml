@@ -965,6 +965,16 @@ Web Access to Subversion If you just want to browse the source code, you can use
     </item>
     
     <item>
+      <title>Chapter 1 - Tutorials</title>
+      <link>https://mina.apache.org/ftpserver-project/documentation/ch1-tutorial/ch1-tutorials.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/documentation/ch1-tutorial/ch1-tutorials.html</guid>
+      <description>Chapter 1 - Tutorials In this chapter, we will give you two exemples on how to install and user Apache MINA FTPServer.
+ 1.1 - Embedding FtpServer in 5 minutes 1.2 - Running FtpServer stand-alone in 5 minutes  </description>
+    </item>
+    
+    <item>
       <title>Chapter 10 - Executor Filter</title>
       <link>https://mina.apache.org/mina-project/userguide/ch10-executor-filter/ch10-executor-filter.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1082,6 +1092,18 @@ It&amp;rsquo;s an interface, which is implemented as an IoAcceptor for the serve
       
       <guid>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5-filters.html</guid>
       <description>Chapter 5 - Filters  5.1 - Blacklist Filter 5.2 - Buffered Write Filter 5.3 - Compression Filter 5.4 - Connection Throttle Filter 5.5 - Error Generating Filter 5.6 - Executor Filter 5.7 - FileRegion Write Filter 5.8 - KeepAlive Filter 5.9 - Logging Filter 5.10 - MDC Injection Filter 5.11 - NOOP Filter 5.12 - Profiler Filter 5.13 - Protocol Codec Filter 5.14 - Proxy Filter 5.15 - Reference Counting Filter 5.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 6 - FtpServer internals</title>
+      <link>https://mina.apache.org/ftpserver-project/documentation/ch6-internals/ch6-internals.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/documentation/ch6-internals/ch6-internals.html</guid>
+      <description>Chapter 6 - Internals Creating a FtpServer instance is done using a FtpServerFactory. The is done with such code:
+FtpServerFactory serverFactory = new FtpServerFactory(); FtpServer server = serverFactory.createServer(); server.start(); ... Let&amp;rsquo;s see what happens when we create the factory and when the server is created
+FtpServerFactory creation The FtpServerFactory is associated with a FtpServerContext instance, which define a set of elements:
+ a CommandFactory instance a ConnectionConfig instance a FileSystemFactory instance a FtpletContainer instance a FtpStatistics instance a set of Listener instances a MessageResource instance a UserManager instance  The class hierarchy is the following:</description>
     </item>
     
     <item>

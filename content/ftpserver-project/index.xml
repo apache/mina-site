@@ -31,6 +31,28 @@ Getting the Binary Distributions    Description Download Link SHA256 hashes SHA5
     </item>
     
     <item>
+      <title>Chapter 1 - Tutorials</title>
+      <link>https://mina.apache.org/ftpserver-project/documentation/ch1-tutorial/ch1-tutorials.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/documentation/ch1-tutorial/ch1-tutorials.html</guid>
+      <description>Chapter 1 - Tutorials In this chapter, we will give you two exemples on how to install and user Apache MINA FTPServer.
+ 1.1 - Embedding FtpServer in 5 minutes 1.2 - Running FtpServer stand-alone in 5 minutes  </description>
+    </item>
+    
+    <item>
+      <title>Chapter 6 - FtpServer internals</title>
+      <link>https://mina.apache.org/ftpserver-project/documentation/ch6-internals/ch6-internals.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/ftpserver-project/documentation/ch6-internals/ch6-internals.html</guid>
+      <description>Chapter 6 - Internals Creating a FtpServer instance is done using a FtpServerFactory. The is done with such code:
+FtpServerFactory serverFactory = new FtpServerFactory(); FtpServer server = serverFactory.createServer(); server.start(); ... Let&amp;rsquo;s see what happens when we create the factory and when the server is created
+FtpServerFactory creation The FtpServerFactory is associated with a FtpServerContext instance, which define a set of elements:
+ a CommandFactory instance a ConnectionConfig instance a FileSystemFactory instance a FtpletContainer instance a FtpStatistics instance a set of Listener instances a MessageResource instance a UserManager instance  The class hierarchy is the following:</description>
+    </item>
+    
+    <item>
       <title>Embedding FtpServer in 5 minutes</title>
       <link>https://mina.apache.org/ftpserver-project/embedding_ftpserver.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

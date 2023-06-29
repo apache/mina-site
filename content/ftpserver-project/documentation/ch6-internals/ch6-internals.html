@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Chapter 6 - FtpServer internals &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/ftpserver.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<script src="https://www.apachecon.com/event-images/snippet.js"></script>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                <strong>FtpServer</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                SSHD
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <a class="acevent" data-format="wide" data-width="170"></a>
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/index.html">Home</a> </li>
+                    <li><a href="/ftpserver-project/features.html">Features</a> </li>
+                    <li><a href="/ftpserver-project/download_1_1.html">FtpServer 1.1.4</a></li>
+                    <li><a href="/ftpserver-project/download_1_2.html">FtpServer 1.2.0</a></li>
+                    <li><a href="/ftpserver-project/old-downloads.html">Old Downloads</a></li>
+                    <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
+                    <li><a href="/ftpserver-project/gen-docs/latest-1.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 1.1.4</a></li>
+                    <li><a href="/ftpserver-project/gen-docs/latest-1.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 1.2.0</a></li>
+                    <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
+                    <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
+                    <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/ftpserver-project/mailing_list.html">Mailing Lists</a></li>
+                    <li><a href="/ftpserver-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/ftpserver-project/reporting_bug.html">Reporting a Bug</a></li>
+                    <li><a href="/ftpserver-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+    <div class="nav">
+        <div class="nav_prev">
+            
+                
+                <a href="../ch5-developping/ch5-developping.html">Chapter 5 - Developping</a>
+            
+        </div>
+        <div class="nav_up">
+            
+                
+                <a href="../documentation-toc.html">Documentation</a>
+            
+        </div>
+        <div class="nav_next">
+            
+                &nbsp;
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+            
+	<h1 id="chapter-6---internals">Chapter 6 - Internals</h1>
+<p>Creating a <strong>FtpServer</strong> instance is done using a <strong>FtpServerFactory</strong>. The is done with such code:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    FtpServerFactory serverFactory <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> FtpServerFactory<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    FtpServer server <span style="color:#666">=</span> serverFactory<span style="color:#666">.</span><span style="color:#b44">createServer</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    server<span style="color:#666">.</span><span style="color:#b44">start</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+    <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
+</code></pre></div><p>Let&rsquo;s see what happens when we create the factory and when the server is created</p>
+<h2 id="ftpserverfactory-creation">FtpServerFactory creation</h2>
+<p>The <strong>FtpServerFactory</strong> is associated with a <strong>FtpServerContext</strong> instance, which define a set of elements:</p>
+<ul>
+<li>a <strong>CommandFactory</strong> instance</li>
+<li>a <strong>ConnectionConfig</strong> instance</li>
+<li>a <strong>FileSystemFactory</strong> instance</li>
+<li>a <strong>FtpletContainer</strong> instance</li>
+<li>a <strong>FtpStatistics</strong> instance</li>
+<li>a set of <strong>Listener</strong> instances</li>
+<li>a <strong>MessageResource</strong> instance</li>
+<li>a <strong>UserManager</strong> instance</li>
+</ul>
+<p>The class hierarchy is the following:</p>
+<pre><code class="language-goat" data-lang="goat">
+ .-------------.
+| FtpletContext |
+ '-------------'
+        ^
+        |   .----------------.
+        '--| FtpServerContext |
+            '----------------'
+                     ^
+                     |  .-------------------------.
+                     '--| DefaultFtpServerContext |
+                        '-------------------------'
+
+</code></pre>
+
+            
+    <div class="nav">
+        <div class="nav_prev">
+            
+                
+                <a href="../ch5-developping/ch5-developping.html">Chapter 5 - Developping</a>
+            
+        </div>
+        <div class="nav_up">
+            
+                
+                <a href="../documentation-toc.html">Documentation</a>
+            
+        </div>
+        <div class="nav_next">
+            
+                &nbsp;
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2023, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+
+</body>
+
+</html>
