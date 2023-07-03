@@ -122,7 +122,7 @@
     <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
 </code></pre></div><p>Let&rsquo;s see what happens when we create the factory and when the server is created</p>
 <h2 id="ftpserverfactory-creation">FtpServerFactory creation</h2>
-<p>The <strong>FtpServerFactory</strong> is associated with a <strong>FtpServerContext</strong> instance, which define a set of elements:</p>
+<p>The <strong>FtpServerFactory</strong> is associated with a <strong>FtpServerContext</strong> instance, which defines a set of elements:</p>
 <ul>
 <li>a <strong>CommandFactory</strong> instance</li>
 <li>a <strong>ConnectionConfig</strong> instance</li>
@@ -130,7 +130,7 @@
 <li>a <strong>FtpletContainer</strong> instance</li>
 <li>a <strong>FtpStatistics</strong> instance</li>
 <li>a set of <strong>Listener</strong> instances</li>
-<li>a <strong>MessageResource</strong> instance</li>
+<li>a <strong>MessageResource</strong> instance. It manages the messages  (code and sub-ids) associated with the various supported languages.</li>
 <li>a <strong>UserManager</strong> instance</li>
 </ul>
 <p>The class hierarchy is the following:</p>
@@ -147,7 +147,289 @@
                      '--| DefaultFtpServerContext |
                         '-------------------------'
 
-</code></pre>
+</code></pre><h3 id="messageresourcefactory-and-messageresource">MessageResourceFactory and MessageResource</h3>
+<p>The <strong>MessageResourceFactory</strong> is used to create the <strong>MessageResource</strong> instance which will be an instance of the <strong>DefaultMessageResource</strong> class).</p>
+<p>The <strong>MessageResource</strong> instance contains the messages for all the supported languages. Those messages are those sent to the client when a command is executed. For instance, the response for a <strong>STOR</strong> command may be:</p>
+<pre><code>Can't open data connection.
+</code></pre><p>This is defined in the <em>FtpStatus.properties</em> file, among other response messages:</p>
+<pre><code>...
+425.STOR=Can't open data connection.
+...
+</code></pre><p>Those messages are read from various places (the &lt;lang&gt; tag is the name of the language to use, like <strong>en</strong>, <strong>fr</strong>, etc):</p>
+<ul>
+<li>Default messages
+<ul>
+<li><em>org/apache/ftpserver/message/FtpStatus.properties</em></li>
+<li><em>org/apache/ftpserver/message/FtpStatus</em>&lt;lang&gt;.properties_</li>
+</ul>
+</li>
+<li>Custom messages
+<ul>
+<li><em>org/apache/ftpserver/message/FtpStatus.gen</em></li>
+<li><em>org/apache/ftpserver/message/FtpStatus</em>&lt;lang&gt;.gen_</li>
+</ul>
+</li>
+</ul>
+<h2 id="commandfactory">Commandfactory</h2>
+<p>This factory creates a <strong>Map</strong> which contains the <em>Command</em> instances associated with the command name. The current version support those commands:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>RFC reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ABOR</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>ACCT</td>
+<td>rfc959, 4.1.1</td>
+</tr>
+<tr>
+<td>APPE</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>AUTH</td>
+<td>rfc2228, 3</td>
+</tr>
+<tr>
+<td>CDUP</td>
+<td>rfc959, 4.1.1</td>
+</tr>
+<tr>
+<td>CWD</td>
+<td>rfc959, 4.1.1</td>
+</tr>
+<tr>
+<td>DELE</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>EPRT</td>
+<td>rfc2428, 2</td>
+</tr>
+<tr>
+<td>EPSV</td>
+<td>rfc2428, 3</td>
+</tr>
+<tr>
+<td>FEAT</td>
+<td>rfc2389, 3</td>
+</tr>
+<tr>
+<td>HELP</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>LANG</td>
+<td>rfc2640, 4.1</td>
+</tr>
+<tr>
+<td>LIST</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>MD5</td>
+<td>draft-twine-ftpmd5-00.txt , 3.1</td>
+</tr>
+<tr>
+<td>MMD5</td>
+<td>draft-twine-ftpmd5-00.txt , 3.2</td>
+</tr>
+<tr>
+<td>MDTM</td>
+<td>rfc3659, 3</td>
+</tr>
+<tr>
+<td>MFMT</td>
+<td>draft-somers-ftp-mfxx, 3</td>
+</tr>
+<tr>
+<td>MKD</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>MLSD</td>
+<td>rfc3659, 7</td>
+</tr>
+<tr>
+<td>MLST</td>
+<td>rfc3659, 7</td>
+</tr>
+<tr>
+<td>MODE</td>
+<td>rfc959, 4.1.2</td>
+</tr>
+<tr>
+<td>NLST</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>NOOP</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>OPTS</td>
+<td>rfc2389, 4</td>
+</tr>
+<tr>
+<td>PASS</td>
+<td>rfc959, 4.1.1</td>
+</tr>
+<tr>
+<td>PASV</td>
+<td>rfc959, 4.1.2</td>
+</tr>
+<tr>
+<td>PBSZ</td>
+<td>rfc2228, 3</td>
+</tr>
+<tr>
+<td>PORT</td>
+<td>rfc959, 4.1.2</td>
+</tr>
+<tr>
+<td>PROT</td>
+<td>rfc2228, 3</td>
+</tr>
+<tr>
+<td>PWD</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>QUIT</td>
+<td>rfc959, 4.1.1</td>
+</tr>
+<tr>
+<td>REIN</td>
+<td>rfc959, 4.1.1</td>
+</tr>
+<tr>
+<td>REST</td>
+<td>rfc959, 4.1.3, rfc3659, 5</td>
+</tr>
+<tr>
+<td>RETR</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>RMD</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>RNFR</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>RNTO</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>SITE</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>SITE_DESCUSER</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>SITE_HELP</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>SITE_STAT</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>SITE_WHO</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>SITE_ZONE</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>SIZE</td>
+<td>rfc3659, 4</td>
+</tr>
+<tr>
+<td>STAT</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>STOR</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>STOU</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>STRU</td>
+<td>rfc959, 4.1.2</td>
+</tr>
+<tr>
+<td>SYST</td>
+<td>rfc959, 4.1.3</td>
+</tr>
+<tr>
+<td>TYPE</td>
+<td>rfc959, 4.1.2</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>rfc959, 4.1.1</td>
+</tr>
+</tbody>
+</table>
+<p>The class hierarchy is the following:</p>
+<pre><code class="language-goat" data-lang="goat">
+ .--------------.
+| CommandFactory |
+ '--------------'
+        ^
+        |   .----------------------.
+        '--| DefaultCommandFactory  |
+            '----------------------'
+
+</code></pre><p>And instance of a <em>CommandFactory</em> can be obtained by calling the <em>CommandFactoryFactory.createCommandFactory</em>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        CommandFactoryFactory commandFactoryFactory <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> CommandFactoryFactory<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+		CommandFactory commandFactory <span style="color:#666">=</span> commandFactoryFactory<span style="color:#666">.</span><span style="color:#b44">createCommandFactory</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>    
+</code></pre></div><p>The <em>CommandFactory</em> instance will contain all the previously listed commands.</p>
+<p>You can add some commands in the default list:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        CommandFactoryFactory commandFactoryFactory <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> CommandFactoryFactory<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+        commandFactoryFactory<span style="color:#666">.</span><span style="color:#b44">addCommand</span><span style="color:#666">(</span><span style="color:#b44">&#34;PASV&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> PASVTest<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+		CommandFactory commandFactory <span style="color:#666">=</span> commandFactoryFactory<span style="color:#666">.</span><span style="color:#b44">createCommandFactory</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>    
+</code></pre></div><p>The <em>CommandFactory</em> instance will contain all the previously listed commands plus the added <strong>PASV</strong> command.</p>
+<p>You can also create non standard commands by setting the <em>CommandFactoryFactory.useDefaultCommands</em> to false. here is an example:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        CommandFactoryFactory commandFactoryFactory <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> CommandFactoryFactory<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+        <span style="color:#080;font-style:italic">// Add a non standard command
+</span><span style="color:#080;font-style:italic"></span>        commandFactoryFactory<span style="color:#666">.</span><span style="color:#b44">addCommand</span><span style="color:#666">(</span><span style="color:#b44">&#34;foo&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> NOOP<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+        <span style="color:#080;font-style:italic">// tell the factory it will contain non-standard commands
+</span><span style="color:#080;font-style:italic"></span>        commandFactoryFactory<span style="color:#666">.</span><span style="color:#b44">setUseDefaultCommands</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">false</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+        <span style="color:#080;font-style:italic">// Get the commandfactory having only the created non standard command
+</span><span style="color:#080;font-style:italic"></span>		CommandFactory commandFactory <span style="color:#666">=</span> commandFactoryFactory<span style="color:#666">.</span><span style="color:#b44">createCommandFactory</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
+
+
+</code></pre></div><p>Here, the <em>Commandfactory</em> instance will onkly contain non-standard commands, and none of the default commands.</p>
+<h2 id="usermanagerfactory">UserManagerFactory</h2>
+<p>This factory creates an <em>UserManager</em> instance, which may be file based or Database based.</p>
+<p>There are two implementations of this factory:</p>
+<ul>
+<li><em>DbUserManagerFactory</em> which takes the information relative to the user from a <strong>SQL</strong> Database</li>
+<li><em>PropertiesUserManagerFactory</em> which takes the information relative to the user from properties file</li>
+</ul>
+
 
             
     <div class="nav">

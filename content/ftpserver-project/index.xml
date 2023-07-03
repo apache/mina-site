@@ -48,8 +48,8 @@ Getting the Binary Distributions    Description Download Link SHA256 hashes SHA5
       <guid>https://mina.apache.org/ftpserver-project/documentation/ch6-internals/ch6-internals.html</guid>
       <description>Chapter 6 - Internals Creating a FtpServer instance is done using a FtpServerFactory. The is done with such code:
 FtpServerFactory serverFactory = new FtpServerFactory(); FtpServer server = serverFactory.createServer(); server.start(); ... Let&amp;rsquo;s see what happens when we create the factory and when the server is created
-FtpServerFactory creation The FtpServerFactory is associated with a FtpServerContext instance, which define a set of elements:
- a CommandFactory instance a ConnectionConfig instance a FileSystemFactory instance a FtpletContainer instance a FtpStatistics instance a set of Listener instances a MessageResource instance a UserManager instance  The class hierarchy is the following:</description>
+FtpServerFactory creation The FtpServerFactory is associated with a FtpServerContext instance, which defines a set of elements:
+ a CommandFactory instance a ConnectionConfig instance a FileSystemFactory instance a FtpletContainer instance a FtpStatistics instance a set of Listener instances a MessageResource instance.</description>
     </item>
     
     <item>

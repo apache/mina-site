@@ -729,7 +729,7 @@ The Codecs listed here may not be part of Apache MINA project. The information i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/</guid>
-      <description>Welcome to Apache MINA Overview Apache MINA is a network application framework which helps users develop high performance and high scalability network applications easily. It provides an abstract &amp;middot; event-driven · asynchronous API over various transports such as TCP/IP and UDP/IP via Java NIO.
+      <description>Welcome to Apache MINA Overview Apache MINA is a network application framework which helps users develop high performance and high scalability network applications easily. It provides an abstract &amp;middot; event-driven &amp;middot; asynchronous API over various transports such as TCP/IP and UDP/IP via Java NIO.
 Apache MINA is often called:
  NIO framework &amp;middot; library, client &amp;middot; server framework &amp;middot; library, or a networking &amp;middot; socket library.  However, it&amp;rsquo;s much more than that.</description>
     </item>
