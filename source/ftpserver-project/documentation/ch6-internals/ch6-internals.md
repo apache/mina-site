@@ -35,10 +35,6 @@ The **FtpServerFactory** is associated with a **FtpServerContext** instance, whi
 
 The class hierarchy is the following:
 
-{{< mermaid >}}
-classDiagram
-  FtpletContext <|-- FtpServerContext o-- DefaultFtpServerContext
-{{< /mermaid >}}
 
 ```goat
 
@@ -197,3 +193,11 @@ You can also create non standard commands by setting the _CommandFactoryFactory.
 
 Here, the _Commandfactory_ instance will onkly contain non-standard commands, and none of the default commands.
 
+## UserManagerFactory
+
+This factory creates an _UserManager_ instance, which may be file based or Database based.
+
+There are two implementations of this factory:
+
+* _DbUserManagerFactory_ which takes the information relative to the user from a **SQL** Database
+* _PropertiesUserManagerFactory_ which takes the information relative to the user from properties file

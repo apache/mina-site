@@ -8,7 +8,7 @@ slug: index
 
 ## Overview
 
-Apache  <abbr title="Multipurpose Infrastructure for Network Applications">MINA</abbr> is a network application framework which helps users develop high performance and high scalability network applications easily.  It provides an abstract {{< html "&middot;" >}} event-driven &middot; asynchronous API over various transports such as TCP/IP and UDP/IP via Java NIO.
+Apache  <abbr title="Multipurpose Infrastructure for Network Applications">MINA</abbr> is a network application framework which helps users develop high performance and high scalability network applications easily.  It provides an abstract {{< html "&middot;" >}} event-driven {{< html "&middot;" >}} asynchronous API over various transports such as TCP/IP and UDP/IP via Java NIO.
 
 Apache MINA is often called:
 
