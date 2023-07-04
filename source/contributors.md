@@ -25,6 +25,7 @@ title: Apache MINA - Contributors
 * Bogdan Pistol (bogdan)
 * David Latorre (dlat)
 * [Edouard De Oliveira](http://tedorg.free.fr/en/main.php) (edeoliveira)
+* Gary D. Gregory (ggregory)
 * Michael Jakl (mjakl)
 * Mike Mahonay (foodmike)
 * Rapha{{< html "&euml;" >}}l P. Barazzutti (rbarazzutti)
@@ -32,7 +33,6 @@ title: Apache MINA - Contributors
 * Richard McGuire (rickmcguire)
 * Sai Pullabhotla (sai)
 * Sangjin Lee (sjlee)
-* Sebastien Baszley (sebb)
 * Serguey Vladimirov (sergey)
 * Shawn Pearce (spearce)
 
@@ -54,6 +54,7 @@ title: Apache MINA - Contributors
 * Timothy Bennett (PMC)
 * John Conlon (Committer)
 * Rich Dougherty (Committer)
+* Sebastien Baszley (sebb)
 * Trustin Lee (Committer)
 
 ... and everyone who gave us feed back including you!
