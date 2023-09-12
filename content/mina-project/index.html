@@ -57,9 +57,9 @@
                 <a class="acevent" data-format="wide" data-width="170"></a>
                 <h5>Latest Downloads</h5>
                 <ul>
-                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.24</a></li>
-                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.7</a></li>
-                    <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.2</a></li>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.25</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.8</a></li>
+                    <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.3</a></li>
                     <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
                 </ul>
                 <h5>Documentation</h5>
@@ -78,12 +78,12 @@
                     <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
                     <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
                     <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.24</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.7</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.2</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.24</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.7</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.2</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.25</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.8</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.3</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.25</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.8</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.3</a></li>
                     <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
                     <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
                     <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
@@ -132,22 +132,30 @@
 <div class="news">
     
 <h1 id="news">News</h1>
+<h2 id="mina-223-218-2025-released-_posted-on-september-12-2023_">MINA 2.2.3, 2.1.8, 2.0.25 released <em>posted on September, 12, 2023</em></h2>
+<p>The MINA project is pleased to announce the MINA 2.2.3, 2.1.8 and 2.0.25 release.</p>
+<h3 id="changes">Changes</h3>
+<p>Those versions are fixing some Datagram session issue:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-996">DIRMINA-996</a> IoSessionRecycler RemoteAddress Collision</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1172">DIRMINA-1172</a> Multiple DatagramAcceptors and the creation of a session object</li>
+</ul>
 <h2 id="mina-222-217-2024-released-_posted-on-june-05-2023_">MINA 2.2.2, 2.1.7, 2.0.24 released <em>posted on June, 05, 2023</em></h2>
 <p>The MINA project is pleased to announce the MINA 2.2.2, 2.1.7 and 2.0.24 release.</p>
-<h3 id="changes">Changes</h3>
+<h3 id="changes-1">Changes</h3>
 <p>Those versions are fixing some SSL/TLS issues and bring some added features:</p>
 <ul>
-<li>DIRMINA-1122: support for endpoint identification algorithm (thanks to Marcin L)</li>
-<li>DIRMINA-1157: A fix for a sporadic SSL/TLS connection establishement for version 2.0.X and 2.1.X (thanks to  Steffen Liersch)</li>
-<li>DIRMINA-1169: A fix in the Acceptor for  Java 11 and upper (thanks to Thomas Wolf)</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1122">DIRMINA-1122</a> support for endpoint identification algorithm (thanks to Marcin L)</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1157">DIRMINA-1157</a> A fix for a sporadic SSL/TLS connection establishement for version 2.0.X and 2.1.X (thanks to  Steffen Liersch)</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1169">DIRMINA-1169</a> A fix in the Acceptor for  Java 11 and upper (thanks to Thomas Wolf)</li>
 </ul>
 <h2 id="mina-221-released-_posted-on-july-24-2022_">MINA 2.2.1 released <em>posted on july, 24, 2022</em></h2>
 <p>The MINA project is pleased to announce the MINA 2.2.1 release.</p>
-<h3 id="changes-1">Changes</h3>
+<h3 id="changes-2">Changes</h3>
 <p>This new version is just a fix in some <strong>OSGi</strong> export declaration that was done wrong in the previous release.</p>
 <h2 id="mina-220-released-_posted-on-july-19-2022_">MINA 2.2.0 released <em>posted on july, 19, 2022</em></h2>
 <p>The MINA project is pleased to announce the MINA 2.2.0 release.</p>
-<h3 id="changes-2">Changes</h3>
+<h3 id="changes-3">Changes</h3>
 <p>This new version comes with complete rewrite of the <strong>SSL/TLS</strong> layer. The previous implementation had some flaws that were difficult to fix or workaround, and with the arrival of <strong>TLS-1.3</strong>, it was the opportunity to review and recode this part, which is the main change.</p>
 <p>For any information about the API modifications and the impact on existing application, please read the <a href="2.2-vs-2.1.html">2.2 vs 2.1 page</a>.</p>
 <h2 id="mina-216--mina-2023-released-_posted-on-februray-18-2022_">MINA 2.1.6 &amp; MINA 2.0.23 released <em>posted on Februray, 18, 2022</em></h2>
@@ -155,8 +163,8 @@
 <h3 id="mina-216-fixes">MINA 2.1.6 fixes</h3>
 <p>Here is the list of fixed issues :</p>
 <ul>
-<li>DIRMINA-1152  IoServiceStatistics introduces huge latencies</li>
-<li>DIRMINA-1156  Inconsistent worker / idleWorker in OrderedThreadPoolExecutor</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1152">DIRMINA-1152</a>  IoServiceStatistics introduces huge latencies</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1156">DIRMINA-1156</a>  Inconsistent worker / idleWorker in OrderedThreadPoolExecutor</li>
 </ul>
 <p>It also contain some minor fixes (ignored tests being fixed, a minor
 infinite loop fixed in the Buffer toString() method if used in some
@@ -174,22 +182,22 @@ corner case, etc)</p>
 <p>The MINA project is pleased to announce a new release, MINA 2.1.4. This is a bug fix release. Here are the fixed issues :</p>
 <p>Bugs</p>
 <ul>
-<li>DIRMINA-966    NIO Datagram messages can get duplicated when unable to be sent by the underlying DatagramChannel</li>
-<li>DIRMINA-1014   SocketAcceptor doesn&rsquo;t unbind correctly</li>
-<li>DIRMINA-1115   Filter ProfilerTimerFilter ArithmeticException</li>
-<li>DIRMINA-1123   Receive buffer size is never set for NIO acceptor</li>
-<li>DIRMINA-1126   filterWrite in ProtocolCodecFilter can send corrupted writeRequest message to the next filter</li>
-<li>DIRMINA-1064   Implement cipher suites preference flag introduced in JDK 8</li>
-<li>DIRMINA-1105   SSLHandler buffer handling</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-966">DIRMINA-966</a>    NIO Datagram messages can get duplicated when unable to be sent by the underlying DatagramChannel</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1014">DIRMINA-1014</a>   SocketAcceptor doesn&rsquo;t unbind correctly</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1115">DIRMINA-1115</a>   Filter ProfilerTimerFilter ArithmeticException</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1123">DIRMINA-1123</a>   Receive buffer size is never set for NIO acceptor</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1126">DIRMINA-1126</a>   filterWrite in ProtocolCodecFilter can send corrupted writeRequest message to the next filter</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1064">DIRMINA-1064</a>   Implement cipher suites preference flag introduced in JDK 8</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1105">DIRMINA-1105</a>   SSLHandler buffer handling</li>
 </ul>
 <p>For any information about the API modifications and the impact on existing application, please read the <a href="2.1-vs-2.0.html">2.1 vs 2.0 page</a>.</p>
 <h2 id="mina-213-released-_posted-on-june-2-2019_">MINA 2.1.3 released <em>posted on June, 2, 2019</em></h2>
 <p>The MINA project is pleased to announce a new release, MINA 2.1.3. This is a bug fix release: it fixes a 100% CPU usage in some corner case. Here are the fixed issues :</p>
 <ul>
-<li>DIRMINA-1095    Seems like the management f UDP sessions is really unneficient</li>
-<li>DIRMINA-1107    SslHandler flushScheduledEvents race condition, redux</li>
-<li>DIRMINA-1111    100% CPU (epoll bug) on 2.1.x, Linux only</li>
-<li>DIRMINA-1104    IoBufferHexDumper.getHexdump(IoBuffer in, int lengthLimit) does not truncate the output</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1095">DIRMINA-1095</a>    Seems like the management f UDP sessions is really unneficient</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1107">DIRMINA-1107</a>    SslHandler flushScheduledEvents race condition, redux</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1111">DIRMINA-1111</a>    100% CPU (epoll bug) on 2.1.x, Linux only</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1104">DIRMINA-1104</a>    IoBufferHexDumper.getHexdump(IoBuffer in, int lengthLimit) does not truncate the output</li>
 </ul>
 <p>For any information about the API modifications and the impact on existing application, please read the <a href="2.1-vs-2.0.html">2.1 vs 2.0 page</a>.</p>
 <h2 id="mina-212-released-_posted-on-april-20-2019_">MINA 2.1.2 released <em>posted on April, 20, 2019</em></h2>
@@ -211,9 +219,9 @@ corner case, etc)</p>
 <h2 id="mina-2020-released-_posted-on-february-24-2019_">MINA 2.0.20 released <em>posted on February, 24, 2019</em></h2>
 <p>The MINA project is pleased to announce a new release, MINA 2.0.20, fixing some API issues:</p>
 <ul>
-<li>DIRMINA-1092: Removed a spurious printstacktrace</li>
-<li>DIRMINA-1098: handshakeStatus variable has been wrongly made global</li>
-<li>DIRMINA-1088: the OrderedThreadPool implementation has been made Java 10 compatible</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1092">DIRMINA-1092</a> Removed a spurious printstacktrace</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1098">DIRMINA-1098</a> handshakeStatus variable has been wrongly made global</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1088">DIRMINA-1088</a> the OrderedThreadPool implementation has been made Java 10 compatible</li>
 </ul>
 <p>We urge you to switch to this version if you were using MINA 2.0.19 or any older version.</p>
 <h2 id="mina-2019-released-_posted-on-june-11-2018_">MINA 2.0.19 released <em>posted on June, 11, 2018</em></h2>
