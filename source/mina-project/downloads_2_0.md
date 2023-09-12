@@ -5,19 +5,19 @@ title: MINA 2.0.x Downloads
 
 # Latest MINA Releases
 
-## Apache MINA 2.0.24 <font color="green">stable</font> (Java 8+)
+## Apache MINA 2.0.25 <font color="green">stable</font> (Java 8+)
 
 ### Binaries
 
-* .tar.gz archive [mina-2.0.24](https://www.apache.org/dyn/closer.lua/mina/mina/2.0.24/apache-mina-2.0.24-bin.tar.gz) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-bin.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-bin.tar.gz.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-bin.tar.gz.asc))
-* .tar.bz2 archive [mina-2.0.24](https://www.apache.org/dyn/closer.lua/mina/mina/2.0.24/apache-mina-2.0.24-bin.tar.bz2) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-bin.tar.bz2.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-bin.tar.bz2.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-bin.tar.bz2.asc))
-* .zip archive [mina-2.0.24](https://www.apache.org/dyn/closer.lua/mina/mina/2.0.24/apache-mina-2.0.24-bin.zip) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-bin.zip.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-bin.zip.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-bin.zip.asc))
+* .tar.gz archive [mina-2.0.25](https://www.apache.org/dyn/closer.lua/mina/mina/2.0.25/apache-mina-2.0.25-bin.tar.gz) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-bin.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-bin.tar.gz.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-bin.tar.gz.asc))
+* .tar.bz2 archive [mina-2.0.25](https://www.apache.org/dyn/closer.lua/mina/mina/2.0.25/apache-mina-2.0.25-bin.tar.bz2) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-bin.tar.bz2.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-bin.tar.bz2.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-bin.tar.bz2.asc))
+* .zip archive [mina-2.0.25](https://www.apache.org/dyn/closer.lua/mina/mina/2.0.25/apache-mina-2.0.25-bin.zip) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-bin.zip.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-bin.zip.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-bin.zip.asc))
 
 ### Sources
 
-* .src.tar.gz archive [mina-2.0.24](https://www.apache.org/dyn/closer.lua/mina/mina/2.0.24/apache-mina-2.0.24-src.tar.gz) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-src.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-src.tar.gz.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-src.tar.gz.asc))
-* .src.tar.bz2 archive [mina-2.0.24](https://www.apache.org/dyn/closer.lua/mina/mina/2.0.24/apache-mina-2.0.24-src.tar.bz2) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-src.tar.bz2.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-src.tar.bz2.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-src.tar.bz2.asc))
-* .src.zip archive [mina-2.0.24](https://www.apache.org/dyn/closer.lua/mina/mina/2.0.24/apache-mina-2.0.24-src.zip) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-src.zip.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-src.zip.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.0.24/apache-mina-2.0.24-src.zip.asc))
+* .src.tar.gz archive [mina-2.0.25](https://www.apache.org/dyn/closer.lua/mina/mina/2.0.25/apache-mina-2.0.25-src.tar.gz) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-src.tar.gz.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-src.tar.gz.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-src.tar.gz.asc))
+* .src.tar.bz2 archive [mina-2.0.25](https://www.apache.org/dyn/closer.lua/mina/mina/2.0.25/apache-mina-2.0.25-src.tar.bz2) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-src.tar.bz2.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-src.tar.bz2.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-src.tar.bz2.asc))
+* .src.zip archive [mina-2.0.25](https://www.apache.org/dyn/closer.lua/mina/mina/2.0.25/apache-mina-2.0.25-src.zip) (signatures : [SHA256](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-src.zip.sha256) [SHA512](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-src.zip.sha512) [ASC](https://www.apache.org/dist/mina/mina/2.0.25/apache-mina-2.0.25-src.zip.asc))
 
 <div class="note" markdown="1">
     For people wanting to use the <strong>serial</strong> package, we don't include the <strong>rxtx.jar</strong> library in the releases, as it's under a LGPL license. Please download it from <a href="http://rxtx.qbang.org/wiki/index.php/Download" class="external-link" rel="nofollow">http://rxtx.qbang.org/wiki/index.php/Download</a> or add the associated dependency in your maven pom.xml :
@@ -36,21 +36,21 @@ The PGP signatures can be verified using PGP or GPG. First download the [KEYS](h
 
 ```bash
 $ pgpk -a KEYS
-$ pgpv mina-2.0.24.tar.gz.asc
+$ pgpv mina-2.0.25.tar.gz.asc
 ```
 
 or
 
 ```bash
 $ pgp -ka KEYS
-$ pgp mina-2.0.24.tar.gz.asc
+$ pgp mina-2.0.25.tar.gz.asc
 ```
 
 or
 
 ```bash
 $ gpg --import KEYS
-$ gpg --verify mina-2.0.24.tar.gz.asc
+$ gpg --verify mina-2.0.25.tar.gz.asc
 ```
 
 Alternatively, you can verify the checksums of the files (see the [How to verify downloaded files page](https://www.apache.org/info/verification.html)). 

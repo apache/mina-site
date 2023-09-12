@@ -5,6 +5,18 @@ title: News
 
 # News
 
+## MINA 2.2.3, 2.1.8, 2.0.25 released _posted on September, 12, 2023_
+
+The MINA project is pleased to announce the MINA 2.2.3, 2.1.8 and 2.0.25 release.
+
+### Changes
+
+Those versions are fixing some Datagram session issue:
+
+* [DIRMINA-996](https://issues.apache.org/jira/browse/DIRMINA-996) IoSessionRecycler RemoteAddress Collision
+* [DIRMINA-1172](https://issues.apache.org/jira/browse/DIRMINA-1172) Multiple DatagramAcceptors and the creation of a session object
+
+
 ## MINA 2.2.2, 2.1.7, 2.0.24 released _posted on June, 05, 2023_
 
 The MINA project is pleased to announce the MINA 2.2.2, 2.1.7 and 2.0.24 release.
@@ -13,9 +25,9 @@ The MINA project is pleased to announce the MINA 2.2.2, 2.1.7 and 2.0.24 release
 
 Those versions are fixing some SSL/TLS issues and bring some added features:
 
-* DIRMINA-1122: support for endpoint identification algorithm (thanks to Marcin L)
-* DIRMINA-1157: A fix for a sporadic SSL/TLS connection establishement for version 2.0.X and 2.1.X (thanks to  Steffen Liersch)
-* DIRMINA-1169: A fix in the Acceptor for  Java 11 and upper (thanks to Thomas Wolf)
+* [DIRMINA-1122](https://issues.apache.org/jira/browse/DIRMINA-1122) support for endpoint identification algorithm (thanks to Marcin L)
+* [DIRMINA-1157](https://issues.apache.org/jira/browse/DIRMINA-1157) A fix for a sporadic SSL/TLS connection establishement for version 2.0.X and 2.1.X (thanks to  Steffen Liersch)
+* [DIRMINA-1169](https://issues.apache.org/jira/browse/DIRMINA-1169) A fix in the Acceptor for  Java 11 and upper (thanks to Thomas Wolf)
 
 
 ## MINA 2.2.1 released _posted on july, 24, 2022_
@@ -48,8 +60,8 @@ The MINA project is pleased to announce two new releases, MINA 2.1.6 and MINA 2.
 Here is the list of fixed issues :
 
 
-* DIRMINA-1152  IoServiceStatistics introduces huge latencies
-* DIRMINA-1156  Inconsistent worker / idleWorker in OrderedThreadPoolExecutor
+* [DIRMINA-1152](https://issues.apache.org/jira/browse/DIRMINA-1152)  IoServiceStatistics introduces huge latencies
+* [DIRMINA-1156](https://issues.apache.org/jira/browse/DIRMINA-1156)  Inconsistent worker / idleWorker in OrderedThreadPoolExecutor
 
 It also contain some minor fixes (ignored tests being fixed, a minor
 infinite loop fixed in the Buffer toString() method if used in some
@@ -81,13 +93,13 @@ The MINA project is pleased to announce a new release, MINA 2.1.4. This is a bug
 
 Bugs
 
-* DIRMINA-966    NIO Datagram messages can get duplicated when unable to be sent by the underlying DatagramChannel
-* DIRMINA-1014   SocketAcceptor doesn't unbind correctly
-* DIRMINA-1115   Filter ProfilerTimerFilter ArithmeticException
-* DIRMINA-1123   Receive buffer size is never set for NIO acceptor
-* DIRMINA-1126   filterWrite in ProtocolCodecFilter can send corrupted writeRequest message to the next filter
-* DIRMINA-1064   Implement cipher suites preference flag introduced in JDK 8
-* DIRMINA-1105   SSLHandler buffer handling
+* [DIRMINA-966](https://issues.apache.org/jira/browse/DIRMINA-966)    NIO Datagram messages can get duplicated when unable to be sent by the underlying DatagramChannel
+* [DIRMINA-1014](https://issues.apache.org/jira/browse/DIRMINA-1014)   SocketAcceptor doesn't unbind correctly
+* [DIRMINA-1115](https://issues.apache.org/jira/browse/DIRMINA-1115)   Filter ProfilerTimerFilter ArithmeticException
+* [DIRMINA-1123](https://issues.apache.org/jira/browse/DIRMINA-1123)   Receive buffer size is never set for NIO acceptor
+* [DIRMINA-1126](https://issues.apache.org/jira/browse/DIRMINA-1126)   filterWrite in ProtocolCodecFilter can send corrupted writeRequest message to the next filter
+* [DIRMINA-1064](https://issues.apache.org/jira/browse/DIRMINA-1064)   Implement cipher suites preference flag introduced in JDK 8
+* [DIRMINA-1105](https://issues.apache.org/jira/browse/DIRMINA-1105)   SSLHandler buffer handling
 
 For any information about the API modifications and the impact on existing application, please read the [2.1 vs 2.0 page](2.1-vs-2.0.html).
 
@@ -95,10 +107,10 @@ For any information about the API modifications and the impact on existing appli
 
 The MINA project is pleased to announce a new release, MINA 2.1.3. This is a bug fix release: it fixes a 100% CPU usage in some corner case. Here are the fixed issues :
 
-* DIRMINA-1095    Seems like the management f UDP sessions is really unneficient
-* DIRMINA-1107    SslHandler flushScheduledEvents race condition, redux
-* DIRMINA-1111    100% CPU (epoll bug) on 2.1.x, Linux only
-* DIRMINA-1104    IoBufferHexDumper.getHexdump(IoBuffer in, int lengthLimit) does not truncate the output
+* [DIRMINA-1095](https://issues.apache.org/jira/browse/DIRMINA-1095)    Seems like the management f UDP sessions is really unneficient
+* [DIRMINA-1107](https://issues.apache.org/jira/browse/DIRMINA-1107)    SslHandler flushScheduledEvents race condition, redux
+* [DIRMINA-1111](https://issues.apache.org/jira/browse/DIRMINA-1111)    100% CPU (epoll bug) on 2.1.x, Linux only
+* [DIRMINA-1104](https://issues.apache.org/jira/browse/DIRMINA-1104)    IoBufferHexDumper.getHexdump(IoBuffer in, int lengthLimit) does not truncate the output
 
 For any information about the API modifications and the impact on existing application, please read the [2.1 vs 2.0 page](2.1-vs-2.0.html).
 
@@ -136,9 +148,9 @@ For any information about the API modifications and the impact on existing appli
 
 The MINA project is pleased to announce a new release, MINA 2.0.20, fixing some API issues:
 
-* DIRMINA-1092: Removed a spurious printstacktrace
-* DIRMINA-1098: handshakeStatus variable has been wrongly made global
-* DIRMINA-1088: the OrderedThreadPool implementation has been made Java 10 compatible
+* [DIRMINA-1092](https://issues.apache.org/jira/browse/DIRMINA-1092) Removed a spurious printstacktrace
+* [DIRMINA-1098](https://issues.apache.org/jira/browse/DIRMINA-1098) handshakeStatus variable has been wrongly made global
+* [DIRMINA-1088](https://issues.apache.org/jira/browse/DIRMINA-1088) the OrderedThreadPool implementation has been made Java 10 compatible
 
 
 We urge you to switch to this version if you were using MINA 2.0.19 or any older version.
