@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-    <title>Apache SSHD 2.9.2 Release &mdash; Apache MINA</title>
+    <title>Apache SSHD 2.12.0 Release &mdash; Apache MINA</title>
 
     <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/sshd.css" rel="stylesheet" type="text/css"/>
@@ -93,22 +93,44 @@
 
             
 	<h1 id="overview">Overview</h1>
-<p>Apache Mina SSHD 2.9.2 contains a number of enhancements and bug-fixes. See the lists at the
-<a href="https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310849&amp;version=12352273">Apache issue tracker</a>
-and at the <a href="https://github.com/apache/mina-sshd/issues?q=is%3Aissue+milestone%3A2.9.2">GitHub issue tracker</a>.</p>
-<p>This release fixes <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-45047">CVE-2022-45047</a>.</p>
+<p>Apache Mina SSHD 2.12.0 contains a number of enhancements and bug-fixes. See the lists at
+the <a href="https://github.com/apache/mina-sshd/issues?q=milestone%3A2.12.0">GitHub issue tracker</a>.</p>
+<h2 id="bug-fixes">Bug Fixes</h2>
+<ul>
+<li><a href="https://github.com/apache/mina-sshd/issues/428">GH-428/GH-392</a> SCP client fails silently when error signalled due to missing file or lacking permissions</li>
+<li><a href="https://github.com/apache/mina-sshd/issues/434">GH-434</a> Ignore unknown key types from agent or in OpenSSH host keys extension</li>
+</ul>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li><a href="https://github.com/apache/mina-sshd/issues/429">GH-429</a> Support GIT protocol-v2</li>
+<li><a href="https://github.com/apache/mina-sshd/issues/445">GH-445</a> OpenSSH &ldquo;strict key exchange&rdquo; protocol extension (<a href="https://nvd.nist.gov/vuln/detail/CVE-2023-48795">CVE-2023-48795</a> mitigation)</li>
+</ul>
+<h2 id="behavioral-changes-and-enhancements">Behavioral changes and enhancements</h2>
+<h3 id="new-scptransfereventlistener-callback-method">New <code>ScpTransferEventListener</code> callback method</h3>
+<p>Following <a href="https://github.com/apache/mina-sshd/issues/428">GH-428/GH-392</a> a new <code>handleReceiveCommandAckInfo</code> method has been added to enable users to inspect
+acknowledgements of a <code>receive</code> related command. The user is free to inspect the command that was attempted as well as the response code and decide how
+to handle it - including even throwing an exception if OK status (if this makes sense for whatever reason). The default implementation checks for ERROR code and throws
+an exception if so.</p>
+<h3 id="openssh-protocol-extension-strict-key-exchange">OpenSSH protocol extension: strict key exchange</h3>
+<p><a href="https://github.com/apache/mina-sshd/issues/445">GH-445</a> implements an extension to the SSH protocol introduced
+in OpenSSH 9.6. This <a href="https://github.com/openssh/openssh-portable/blob/master/PROTOCOL">&ldquo;strict key exchange&rdquo; extension</a>
+hardens the SSH key exchange against the <a href="https://www.terrapin-attack.com/">&ldquo;Terrapin attack&rdquo;</a>
+(<a href="https://nvd.nist.gov/vuln/detail/CVE-2023-48795">CVE-2023-48795</a>). The extension is active if both parties
+announce their support for it at the start of the initial key exchange. If only one party announces support,
+it is not activated to ensure compatibility with SSH implementations that do not implement it. Apache MINA sshd
+clients and servers always announce their support for strict key exchange.</p>
 <h1 id="getting-the-distributions">Getting the Distributions</h1>
 <ul>
 <li>Source distributions:
 <ul>
-<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.9.2/apache-sshd-2.9.2-src.tar.gz">Apache Mina SSHD 2.9.2 Sources (.tar.gz)</a> <a href="https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.tar.gz.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.tar.gz.sha256">SHA256</a> <a href="https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.tar.gz.sha512">SHA512</a></li>
-<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.9.2/apache-sshd-2.9.2-src.zip">Apache Mina SSHD 2.9.2 Sources (.zip)</a> <a href="https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.zip.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.zip.sha256">SHA256</a> <a href="https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2-src.zip.sha512">SHA512</a></li>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.12.0/apache-sshd-2.12.0-src.tar.gz">Apache Mina SSHD 2.12.0 Sources (.tar.gz)</a> <a href="https://www.apache.org/dist/mina/sshd/2.12.0/apache-sshd-2.12.0-src.tar.gz.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.12.0/apache-sshd-2.12.0-src.tar.gz.sha512">SHA512</a></li>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.12.0/apache-sshd-2.12.0-src.zip">Apache Mina SSHD 2.12.0 Sources (.zip)</a> <a href="https://www.apache.org/dist/mina/sshd/2.12.0/apache-sshd-2.12.0-src.zip.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.12.0/apache-sshd-2.12.0-src.zip.sha512">SHA512</a></li>
 </ul>
 </li>
 <li>Binary distributions:
 <ul>
-<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.9.2/apache-sshd-2.9.2.tar.gz">Apache Mina SSHD 2.9.2 Binary (.tar.gz)</a> <a href="https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2.tar.gz.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2.tar.gz.sha256">SHA256</a> <a href="https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2.tar.gz.sha512">SHA512</a></li>
-<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.9.2/apache-sshd-2.9.2.zip">Apache Mina SSHD 2.9.2 Binary (.zip)</a> <a href="https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2.zip.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2.zip.sha256">SHA256</a> <a href="https://www.apache.org/dist/mina/sshd/2.9.2/apache-sshd-2.9.2.zip.sha512">SHA512</a></li>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.12.0/apache-sshd-2.12.0.tar.gz">Apache Mina SSHD 2.12.0 Binary (.tar.gz)</a> <a href="https://www.apache.org/dist/mina/sshd/2.12.0/apache-sshd-2.12.0.tar.gz.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.12.0/apache-sshd-2.12.0.tar.gz.sha512">SHA512</a></li>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.12.0/apache-sshd-2.12.0.zip">Apache Mina SSHD 2.12.0 Binary (.zip)</a> <a href="https://www.apache.org/dist/mina/sshd/2.12.0/apache-sshd-2.12.0.zip.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.12.0/apache-sshd-2.12.0.zip.sha512">SHA512</a></li>
 </ul>
 </li>
 </ul>
