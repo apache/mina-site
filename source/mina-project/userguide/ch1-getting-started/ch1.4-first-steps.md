@@ -19,17 +19,17 @@ The first thing you have to do is to setup your environment when you want to use
 
 First, you have to download the latest **MINA** release from [MINA 2.0 Downloads Section](../../downloads_2_0.html) or [MINA 2.1 Downloads Section](../../downloads_2_1.html). Just take the latest version, unless you have very good reasons not to do so...
 
-Generally speaking, if you are going to use **Maven** to build your project, you won't even have to download anything, as soon as you will depend on a repository which already contains the **MINA** libraries : you just tell your **Maven** poms that you want to use the **MINA** jars you need.
+Generally speaking, if you are going to use **Maven** to build your project, you won't even have to download anything, as soon as you will depend on a repository which already contains the **MINA** libraries: you just tell your **Maven** poms that you want to use the **MINA** jars you need.
 
 ## What's inside
 
 After the download is complete, extract the content of _tar.gz_ or _zip_ file to local hard drive. The downloaded compressed file has following contents
 
-On UNIX system, type :
+On UNIX system, type:
 
     $ tar xzpf apache-mina-2.0.7-tar.gz
     
-In the _apache-mina-2.0.7_ directory, you will get :
+In the _apache-mina-2.0.7_ directory, you will get:
 
      |
      +- dist
@@ -55,7 +55,7 @@ Additional to these, the base directory has couple of license and notice files
 
 Well, we have downloaded the release, let's run our first **MINA** example, shipped with the release.
 
-Put the following jars in the classpath
+Put the following jars in the class path
 
 * mina-core-2.0.7.jar
 * mina-example-2.0.7.jar
@@ -78,7 +78,7 @@ If you don't need a logging framework you can use <em>slf4j-nop.jar</em> for no 
 very basic logging.
 </div>
 
-On the command prompt, issue the following command :
+On the command prompt, issue the following command:
 
     $ java org.apache.mina.example.gettingstarted.timeserver.MinaTimeServer
 

@@ -32,12 +32,16 @@ In other words, don't call session.read(). Never.
 
 A session has a state, which will evolve during time.
 
+* Created : the session has just been created
 * Connected : the session has been created and is available
 * Idle : the session hasn't processed any request for at least a period of time (this period is configurable)
     * Idle for read : no read has actually been made for a period of time
     * Idle for write : no write has actually been made for a period of time
     * Idle for both : no read nor write for a period of time
+* Secured : the TLS layer has been initialised
+* Unsecured : The TLS layer has been shut down
 * Closing : the session is being closed (the remaining messages are being flushed, cleaning up is not terminated)
+* Input closed : the input part of the socket has been closed
 * Closed : The session is now closed, nothing else can be done to revive it. This is actually not a real state : when teh session is closed, it's removed.
 
 The following state diagram exposes all the possible states and transitions :
@@ -49,8 +53,17 @@ We have a set of methods to get some information about the session status.
 Session status :
 
 * isActive() : tells if the session is valid (it might mean different things depending on the implementation)
+* isBothIdle() : tells if the session is idling on reads and writes
 * isClosing() : tells if the session is already being closed
 * isConnected() : tells if the session is active (ie, not in the closing mode)
+* isIdle( idling status ) : tells if the session is idling on a specific state (read or write)
+* isReadIdle() : tells if the session is idling on reads
+* isReadSuspended() : tells if the session is not allowed to read messsages
+* isScheduledForFlush() : tells if the session has pending messages that are to be written
+* isSecured() : tells if teh TLS layer is active and initialized
+* isServer() : tells if the session is on the server side
+* isWriteIdle() : tells if the session is idling on writes
+* isWriteSuspended() : tells if the session is not allowed to write messsages
 
 ## Opening a session
 
@@ -81,7 +94,7 @@ session = connector.connect(address).getSession();
 
 ## Initialization
 
-When a new session is created, it has to be initialized. This is done using the default IoService configuration, bt you can update this configuration later on. Actually, when the session is created, we internally create a copy of the default IoService configuration that is stored within the session, and this is this configuration instance that will be used (and that can be modified).
+When a new session is created, it has to be initialized. This is done using the default IoService configuration, but you can update this configuration later on. Actually, when the session is created, we internally create a copy of the default IoService configuration that is stored within the session, and this is this configuration instance that will be used (and that can be modified).
 
 This initialization will also starts the statistics counters, create the Attributes container, associate a write queue to to the session (this is where the messages will be enqueued until they have been sent), and ultimately, would you have provided a specific task to do during this phase, it will call it.
 

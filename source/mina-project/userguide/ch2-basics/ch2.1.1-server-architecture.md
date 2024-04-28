@@ -22,7 +22,7 @@ We have exposed the **MINA** Application Architecture in the previous section. L
 
 ## Session creation
 
-Whenever a client connects on a MINA server, we will create a new session to store persistent data into it. Even if the protocol is not connected, this session will be created. The following schema shows how **MINA** handles incoming connections :
+Whenever a client connects on a MINA server, we will create a new session to store persistent data into it. Even if the protocol is not connected, this session will be created. The following schema shows how **MINA** handles incoming connections:
 
 ![Incoming connections handling](/assets/img/mina/incoming-connections.png)
 

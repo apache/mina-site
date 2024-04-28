@@ -19,7 +19,7 @@ This tutorial will walk you through the process of building a MINA based program
     * __Log4J 1.2__ users: slf4j-api.jar, slf4j-log4j12.jar, and [Log4J](http://logging.apache.org/log4j/1.2/) 1.2.x
     * __Log4J 1.3__ users: slf4j-api.jar, slf4j-log4j13.jar, and [Log4J](http://logging.apache.org/log4j/1.2/) 1.3.x
     * __java.util.logging__ users: slf4j-api.jar and slf4j-jdk14.jar
-    * __IMPORTANT__: Please make sure you are using the right slf4j-*.jar that matches to your logging framework.
+    * __IMPORTANT__: Please make sure you are using the right slf4j-\*.jar that matches to your logging framework.
 
 For instance, slf4j-log4j12.jar and log4j-1.3.x.jar can not be used together, and will malfunction.
 
@@ -51,7 +51,7 @@ public class MinaTimeServer
 }
 ```
 
-With the NioSocketAcceptor class in place, we can go ahead and define the handler class and bind the NioSocketAcceptor to a port :
+With the NioSocketAcceptor class in place, we can go ahead and define the handler class and bind the NioSocketAcceptor to a port:
 
 ```java
 import java.net.InetSocketAddress;

@@ -9,13 +9,13 @@ navNext: ch1.3-features.html
 navNextText: 1.3 - Features
 ---
 
-# Why MINA ?
+# Why MINA?
 
 Writing network applications are generally seen as a burden and perceived as low level development. It is an area which is not frequently studied or known by developers, either because it has been studied in school a long time ago and everything has been forgotten, or because the complexity of the network layer is frequently hidden by higher level layers, so you never get deep into it.
 
 Added to that (when it comes to asynchronous IO) an extra layer of complexity comes into play: time.
 
-The big difference between **BIO** (Blocking IO) and **NIO** (Non-Blocking IO) is that in **BIO**, you send a request, and you wait until you get the response. On the server side, it means one thread wil be associated with any incoming connection, so you won't have to deal with the complexity of multiplexing the connections. In **NIO**, on the other hand, you have to deal with the  synchronous nature of a non-blocking system, which means that your application will be invoked when some events occur. In **NIO**, you don't call and wait for a result, you send a command and you are informed when the result is ready.
+The big difference between **BIO** (Blocking IO) and **NIO** (Non-Blocking IO) is that in **BIO**, you send a request, and you wait until you get the response. On the server side, it means one thread will be associated with any incoming connection, so you won't have to deal with the complexity of multiplexing the connections. In **NIO**, on the other hand, you have to deal with the  synchronous nature of a non-blocking system, which means that your application will be invoked when some events occur. In **NIO**, you don't call and wait for a result, you send a command and you are informed when the result is ready.
 
 ## The need of a framework
 
@@ -27,9 +27,9 @@ But **MINA** does more. It provides a common IO vision to an application that ne
 
 Last but not least, **MINA** is a network framework that has been specifically designed to work on both the client side and server side. Writing a server makes it critical to have a scalable system, which is tunable to fit the server needs, in terms of performance and memory usage. This is what **MINA** is good for, making it easy to develop you server.
 
-## When to use MINA ?
+## When to use MINA?
 
-This is a interesting question! **MINA** does not expect to be the best possible choice in all cases. There are a few elements to take into account when considering using **MINA**. Let's list them:
+This is an interesting question! **MINA** does not expect to be the best possible choice in all cases. There are a few elements to take into account when considering using **MINA**. Let's list them:
 
  * Ease of use
      When you have no special performance requirements, **MINA** is probably a good choice as it allows you to develop a server or a client easily, without having to deal with the various parameters and use cases to handle when writing the same application on top of **BIO** or **NIO**. You could probably write your server with only a few lines of code, and there are less pitfalls in which you are likely to fall.

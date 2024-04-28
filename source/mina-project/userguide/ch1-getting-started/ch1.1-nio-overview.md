@@ -35,10 +35,10 @@ This user guide will thus focus on everything built on top of those internal com
 
 # NIO vs BIO
 
-It's important to understand the difference between those two APIs. **BIO**, or **Blocking** **IO**, relies on plain sockets used in a blocking mode : when you read, write or do whatever operation on a socket, the called operation will block the caller until the operation is completed.
+It's important to understand the difference between those two APIs. **BIO**, or **Blocking** **IO**, relies on plain sockets used in a blocking mode: when you read, write or do whatever operation on a socket, the called operation will block the caller until the operation is completed.
 
-In some cases, it's critical to be able to call the operation, and to expect the called operation to inform the caller when the operation is done : the caller can then do something else in the mean time.
+In some cases, it's critical to be able to call the operation, and to expect the called operation to inform the caller when the operation is done: the caller can then do something else in the mean time.
 
-This is also where **NIO** offers a better way to handle **IO** when you have numerous connected sockets : you dn't have to create a specific thread for each connection, you can just use a few threads to do the same job.
+This is also where **NIO** offers a better way to handle **IO** when you have numerous connected sockets: you don't have to create a specific thread for each connection, you can just use a few threads to do the same job.
 
 If you want to get more information about what covers **NIO**, there is a lot of good articles around the web, and a few books covering this matter.
