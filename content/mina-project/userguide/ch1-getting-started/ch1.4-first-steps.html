@@ -149,13 +149,13 @@
 <p>The first thing you have to do is to setup your environment when you want to use <strong>MINA</strong> in your application. We will describe what you need to install and how to run a <strong>MINA</strong> program. Nothing fancy, just a first taste of <strong>MINA</strong>&hellip;</p>
 <h2 id="download">Download</h2>
 <p>First, you have to download the latest <strong>MINA</strong> release from <a href="../../downloads_2_0.html">MINA 2.0 Downloads Section</a> or <a href="../../downloads_2_1.html">MINA 2.1 Downloads Section</a>. Just take the latest version, unless you have very good reasons not to do so&hellip;</p>
-<p>Generally speaking, if you are going to use <strong>Maven</strong> to build your project, you won&rsquo;t even have to download anything, as soon as you will depend on a repository which already contains the <strong>MINA</strong> libraries : you just tell your <strong>Maven</strong> poms that you want to use the <strong>MINA</strong> jars you need.</p>
+<p>Generally speaking, if you are going to use <strong>Maven</strong> to build your project, you won&rsquo;t even have to download anything, as soon as you will depend on a repository which already contains the <strong>MINA</strong> libraries: you just tell your <strong>Maven</strong> poms that you want to use the <strong>MINA</strong> jars you need.</p>
 <h2 id="whats-inside">What&rsquo;s inside</h2>
 <p>After the download is complete, extract the content of <em>tar.gz</em> or <em>zip</em> file to local hard drive. The downloaded compressed file has following contents</p>
-<p>On UNIX system, type :</p>
+<p>On UNIX system, type:</p>
 <pre><code>$ tar xzpf apache-mina-2.0.7-tar.gz
 </code></pre>
-<p>In the <em>apache-mina-2.0.7</em> directory, you will get :</p>
+<p>In the <em>apache-mina-2.0.7</em> directory, you will get:</p>
 <pre><code> |
  +- dist
  +- docs
@@ -177,7 +177,7 @@
 <p>Additional to these, the base directory has couple of license and notice files</p>
 <h1 id="running-your-first-mina-program">Running your first MINA program</h1>
 <p>Well, we have downloaded the release, let&rsquo;s run our first <strong>MINA</strong> example, shipped with the release.</p>
-<p>Put the following jars in the classpath</p>
+<p>Put the following jars in the class path</p>
 <ul>
 <li>mina-core-2.0.7.jar</li>
 <li>mina-example-2.0.7.jar</li>
@@ -197,7 +197,7 @@ For instance, <em>slf4j-log4j12.jar</em> and <em>log4j-1.3.x.jar</em> can not be
 If you don&rsquo;t need a logging framework you can use <em>slf4j-nop.jar</em> for no logging or <em>slf4j-simple.jar</em> for
 very basic logging.</p>
 </div>
-<p>On the command prompt, issue the following command :</p>
+<p>On the command prompt, issue the following command:</p>
 <pre><code>$ java org.apache.mina.example.gettingstarted.timeserver.MinaTimeServer
 </code></pre>
 <p>This shall start the server. Now telnet and see the program in action</p>

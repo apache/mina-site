@@ -160,6 +160,7 @@ It is critical to understand that due to the asynchrnous very nature of NIO, rea
 <h2 id="session-state">Session state</h2>
 <p>A session has a state, which will evolve during time.</p>
 <ul>
+<li>Created : the session has just been created</li>
 <li>Connected : the session has been created and is available</li>
 <li>Idle : the session hasn&rsquo;t processed any request for at least a period of time (this period is configurable)
 <ul>
@@ -168,7 +169,10 @@ It is critical to understand that due to the asynchrnous very nature of NIO, rea
 <li>Idle for both : no read nor write for a period of time</li>
 </ul>
 </li>
+<li>Secured : the TLS layer has been initialised</li>
+<li>Unsecured : The TLS layer has been shut down</li>
 <li>Closing : the session is being closed (the remaining messages are being flushed, cleaning up is not terminated)</li>
+<li>Input closed : the input part of the socket has been closed</li>
 <li>Closed : The session is now closed, nothing else can be done to revive it. This is actually not a real state : when teh session is closed, it&rsquo;s removed.</li>
 </ul>
 <p>The following state diagram exposes all the possible states and transitions :</p>
@@ -177,8 +181,17 @@ It is critical to understand that due to the asynchrnous very nature of NIO, rea
 <p>Session status :</p>
 <ul>
 <li>isActive() : tells if the session is valid (it might mean different things depending on the implementation)</li>
+<li>isBothIdle() : tells if the session is idling on reads and writes</li>
 <li>isClosing() : tells if the session is already being closed</li>
 <li>isConnected() : tells if the session is active (ie, not in the closing mode)</li>
+<li>isIdle( idling status ) : tells if the session is idling on a specific state (read or write)</li>
+<li>isReadIdle() : tells if the session is idling on reads</li>
+<li>isReadSuspended() : tells if the session is not allowed to read messsages</li>
+<li>isScheduledForFlush() : tells if the session has pending messages that are to be written</li>
+<li>isSecured() : tells if teh TLS layer is active and initialized</li>
+<li>isServer() : tells if the session is on the server side</li>
+<li>isWriteIdle() : tells if the session is idling on writes</li>
+<li>isWriteSuspended() : tells if the session is not allowed to write messsages</li>
 </ul>
 <h2 id="opening-a-session">Opening a session</h2>
 <p>Actually, there is nothing you have to do : it&rsquo;s automatic ! Every time a remote peer connect to a server, the server will create a new connection. On the client side, every time you connect to a server, a session will be created.</p>
@@ -198,7 +211,7 @@ session <span style="color:#666">=</span> connectionFuture<span style="color:#66
 session <span style="color:#666">=</span> connector<span style="color:#666">.</span><span style="color:#b44">connect</span><span style="color:#666">(</span>address<span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">getSession</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
 <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
 </code></pre></div><h2 id="initialization">Initialization</h2>
-<p>When a new session is created, it has to be initialized. This is done using the default IoService configuration, bt you can update this configuration later on. Actually, when the session is created, we internally create a copy of the default IoService configuration that is stored within the session, and this is this configuration instance that will be used (and that can be modified).</p>
+<p>When a new session is created, it has to be initialized. This is done using the default IoService configuration, but you can update this configuration later on. Actually, when the session is created, we internally create a copy of the default IoService configuration that is stored within the session, and this is this configuration instance that will be used (and that can be modified).</p>
 <p>This initialization will also starts the statistics counters, create the Attributes container, associate a write queue to to the session (this is where the messages will be enqueued until they have been sent), and ultimately, would you have provided a specific task to do during this phase, it will call it.</p>
 <h2 id="closing-a-session">Closing a session</h2>
 <p>A session can be closed in 4 ways, two of which are explicit :</p>

@@ -4,22 +4,22 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.1-nio-overview.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2024-04-28T06:15:39+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.2-why-mina.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2024-04-28T06:15:39+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.3-features.html</loc>
-    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
+    <lastmod>2024-04-28T06:15:39+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.4-first-steps.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2024-04-28T06:15:39+02:00</lastmod>
   </url>
   
   <url>
@@ -29,12 +29,12 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1-application-architecture.html</loc>
-    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
+    <lastmod>2024-04-28T06:15:39+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1.1-server-architecture.html</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2024-04-28T06:15:39+02:00</lastmod>
   </url>
   
   <url>
@@ -44,7 +44,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.2-sample-tcp-server.html</loc>
-    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
+    <lastmod>2024-04-28T06:15:39+02:00</lastmod>
   </url>
   
   <url>
@@ -149,7 +149,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch5-filters/ch5.19-ssl-filter.html</loc>
-    <lastmod>2023-06-04T07:12:06+02:00</lastmod>
+    <lastmod>2024-04-28T06:15:39+02:00</lastmod>
   </url>
   
   <url>
@@ -224,7 +224,7 @@
   
   <url>
     <loc>https://mina.apache.org/contributors.html</loc>
-    <lastmod>2023-07-04T22:40:54+02:00</lastmod>
+    <lastmod>2024-04-28T06:14:56+02:00</lastmod>
   </url>
   
   <url>
@@ -559,7 +559,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/userguide/ch4-session/ch4-session.html</loc>
-    <lastmod>2020-02-27T13:50:48+01:00</lastmod>
+    <lastmod>2024-04-28T06:15:39+02:00</lastmod>
   </url>
   
   <url>
@@ -569,7 +569,7 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project/documentation/ch6-internals/ch6-internals.html</loc>
-    <lastmod>2023-07-03T15:48:21+02:00</lastmod>
+    <lastmod>2024-04-28T06:17:22+02:00</lastmod>
   </url>
   
   <url>
@@ -819,7 +819,7 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project.html</loc>
-    <lastmod>2023-07-03T15:48:21+02:00</lastmod>
+    <lastmod>2024-04-28T06:17:22+02:00</lastmod>
   </url>
   
   <url>
@@ -899,7 +899,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project.html</loc>
-    <lastmod>2023-09-12T10:28:07+02:00</lastmod>
+    <lastmod>2024-04-28T06:15:39+02:00</lastmod>
   </url>
   
   <url>

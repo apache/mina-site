@@ -149,12 +149,12 @@
 <li><a href="ch2.1.2-client-architecture.html">2.1.2 - Client Architecture</a></li>
 </ul>
 <h1 id="21----mina-based-application-architecture">2.1 -  MINA based Application Architecture</h1>
-<p>It&rsquo;s the question most asked : &lsquo;How does a <strong>MINA</strong> based application look like&rsquo;? In this article lets see what&rsquo;s the architecture of MINA based application. Have tried to gather the information from presentations based on <strong>MINA</strong>.</p>
-<p>A Bird&rsquo;s Eye View :</p>
+<p>It&rsquo;s the question most asked: &lsquo;How does a <strong>MINA</strong> based application look like&rsquo;? In this article lets see what&rsquo;s the architecture of MINA based application. Have tried to gather the information from presentations based on <strong>MINA</strong>.</p>
+<p>A Bird&rsquo;s Eye View:</p>
 <p><img src="/assets/img/mina/apparch_small.png" alt=""></p>
 <p>Here, we can see that <strong>MINA</strong> is the glue between your application (be it a client or a server) and the underlying network layer, which can be based on TCP, UDP, in-VM communication or even a RS-232C serial protocol for a client.</p>
-<p>You just have to design your application on top of MINA without having to handle all the complexity of the newtork layer.</p>
-<p>Lets take a deeper dive into the details now. The following image shows a bit more the internal of <strong>MINA</strong>, and what are each of the <strong>MINA</strong> components doing :</p>
+<p>You just have to design your application on top of MINA without having to handle all the complexity of the network layer.</p>
+<p>Lets take a deeper dive into the details now. The following image shows a bit more the internal of <strong>MINA</strong>, and what are each of the <strong>MINA</strong> components doing:</p>
 <p><img src="/assets/img/mina/mina_app_arch.png" alt=""></p>
 <p>(The image is from Emmanuel L&eacute;charny presentation <a href="/assets/pdfs/Mina_in_real_life_ASEU-2009.pdf">MINA in real life (ApacheCon EU 2009)</a>)</p>
 <p>Broadly, MINA based applications are divided into 3 layers</p>
@@ -163,14 +163,14 @@
 <li>I/O Filter Chain - Filters/Transforms bytes into desired Data Structures and vice-versa</li>
 <li>I/O Handler - Here resides the actual business logic</li>
 </ul>
-<p>So, in order to create a MINA based Application, you have to :</p>
+<p>So, in order to create a MINA based Application, you have to:</p>
 <ol>
-<li>Create an I/O service - Choose from already available Services (*Acceptor) or create your own</li>
+<li>Create an I/O service - Choose from already available Services (<em>Acceptor</em>) or create your own</li>
 <li>Create a Filter Chain - Choose from already existing Filters or create a custom Filter for transforming request/response</li>
 <li>Create an I/O Handler - Write business logic, on handling different messages</li>
 </ol>
 <p>This is pretty much it.</p>
-<p>You can get a bit deeper by reading those two pages :</p>
+<p>You can get a bit deeper by reading those two pages:</p>
 <ul>
 <li><a href="ch2.1.1-server-architecture.html">2.1.1 - Server Architecture</a></li>
 <li><a href="ch2.1.2-client-architecture.html">2.1.2 - Client Architecture</a></li>

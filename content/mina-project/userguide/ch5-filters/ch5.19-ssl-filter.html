@@ -151,7 +151,7 @@
 <p>The thing to remember is that the <strong>TLS</strong> protocol works in two steps:</p>
 <ul>
 <li>First there is a negociation part (the <em>Handshake</em>)</li>
-<li>Then once the <em>Handshake</em> is completed, all the data will be encrypted before being sent.</li>
+<li>Then once the <em>Handshake</em> is completed, all the data will be encrypted before being sent, and decryptd when received.</li>
 </ul>
 <p>We just have to add the filter in the chain like this:</p>
 <pre><code>   ...
@@ -160,24 +160,52 @@
    chain.addFirst(&quot;sslFilter&quot;, sslFilter);
    ...
 
-</code></pre><p>The <em>chain</em> is the instance of <strong>IoFilterChainBuilder</strong> class that is associated with either the <em>Connector</em> or the <em>Acceptor</em> instances (wether we are using a client or a server).</p>
+</code></pre><p>The <em>chain</em> is the instance of <strong>IoFilterChainBuilder</strong> class that is associated with either the <em>Connector</em> or the <em>Acceptor</em> instances (wether we are using a client or a server). It will be used when a connection is set to define the filter chain this connected session will use.</p>
 <div class="note" markdown="1">
-Usually the **SSLFilyter** is always set at the first position in the chain. The rationnal is that it will receive and send encrypted data, so there is little use of having a functionnal filter between the head of the chain and the **SslFilter**. However, if such a filter is to be used, make sure it does not interfere with the data being exchanged with the remote peer.
+Usually the **SSLFilter** is always set at the first position in the chain. The rationnal is that it will receive and send encrypted data, so there is little use of having a functionnal filter between the head of the chain and the **SslFilter**. However, if such a filter is to be used, make sure it does not interfere with the data being exchanged with the remote peer.
 </div>
-<p>The missing part here is the <em>sslContext</em> which has to be defined. It&rsquo;s an instande of the <strong>SSLContext</strong> class, where you define a <strong>TrustManager</strong>, a <strong>KeyManager</strong> and a <strong>Securerandom</strong>.</p>
+<p>The missing part here is the <em>sslContext</em> which has to be defined. It&rsquo;s an instance of the <strong>SSLContext</strong> class, where you define a <strong>TrustManager</strong>, a <strong>KeyManager</strong> and a <strong>Securerandom</strong>.</p>
 <div class="note" markdown="1">
 	This part is strandard Java security. You'll find plenty of pages on internet explaining you to set up a proper _SSLContext_ instance.
 </div>
-<h3 id="handshake">Handshake</h3>
-<p>The <strong>Handshake</strong> is automatically initiated by the server when the connection is created. The <strong>SslFilter</strong> has a <em>onPostAdd</em> method which create a <strong>SSLEngine</strong> instance based on the provided <strong>SSLContext</strong>.</p>
-<p>It sets the <strong>SSLEngine</strong> characteristics:</p>
+<p>The filter can be added either <em>before</em> the connection has been established, or <em>after</em> the connection has been established.
+In the first case, it&rsquo;s easy, the filter initialisation will be done when the connection is created. The second is a bit more complex, as we will have to deal with ongoing messages.</p>
+<h3 id="initialization">Initialization</h3>
+<p>When a connection is created, the filter chain is created, and the <strong>SslFilter</strong> is added to this chain, which intializes it. The filter&rsquo;s <em>onPreAdd</em> method is called, which will only check if the filter has already been added (we can&rsquo;t have the <strong>SslFilter</strong> twice in the chain).</p>
+<p>The filter&rsquo;s <em>onPostAdd</em> method is then called, and if the <em>autostart</em> flag is set to <em>true</em> and the session is connected (which should be the case&hellip;), then the <em>onConnected</em> method is called.</p>
+<div class="note" markdown="1">
+   The _autostart_ flag can be set when creating the **SslFilter**. It indicates that the filter will be initialized immediatly on a new connection. Otherwise the filter will be initialized later on when the session will have been opened.
+</div>
+<p>The <strong>SslHandler</strong> will then be created, which will contain a newly created <strong>SslEngine</strong>. This is the place where the <strong>TLS</strong> parameters will be set:</p>
 <ul>
-<li>Whether the client authentication is requested or required (<em>needClientAuth</em> and <em>wantClientAuth</em> flags)</li>
-<li>Sets the enabled cipher suites</li>
-<li>Sets the enabled protocols</li>
+<li>The authentication <strong>WANT</strong> or <strong>NEED</strong> flags</li>
+<li>The cipher suite</li>
+<li>The enabled protocols</li>
+<li>The endpoint identification algorithms</li>
+<li>and finally the flag indicating if it&rsquo;s for a server or a client</li>
 </ul>
-<p>Last, not least, the <strong>CLIENT_HELLO</strong> <strong>TLS</strong> request is sent by the client side, the server is waiting for it. There starts a serie of <strong>TLS</strong> messages exchanged between the cleint and the server, at teh end of which the session is secured, and data can be exchanged encrypted.</p>
-<p>What is important to note here is that during the <strong>Handshake</strong> exchanges, no application data can be sent, and the <strong>SslFilter</strong> is handling the whole process, before returning the hand to the application.</p>
+<p>All those flags are optionnal but the last one.</p>
+<p>The newly created <strong>SslHandler</strong> instance will be added into the session&rsquo;s attributes, under the <em>org.apache.mina.filter.ssl.SslHandler.handler@<ID></em> key (The <strong>ID</strong> part is unique).</p>
+<p>Last, not least, the <strong>SslHandler</strong> instance is opened. If we are on the client side, the <strong>TLS</strong> <em>Handshake</em> will be started, otherwise a flag will be set to indicate we are expecting a <em>Handshake</em> on the server side.</p>
+<p>We are all set and ready for the <em>Handshake</em> to be processed!</p>
+<h3 id="handshake">Handshake</h3>
+<p>The <em>Handshake</em> must be done as soon as the <strong>TLS</strong> layer is activated. It&rsquo;s initiated by the client, which must send a <em>CLIENT_HELLO</em> message (see the <a href="https://tls13.xargs.org/#client-hello">Client Hello</a> description), but the server must be ready to accept this message.</p>
+<p>We will consider two use cases: the <strong>Client</strong> side and the <strong>Server</strong> side (as <strong>Mina</strong> can handle both sides, but could work with a peer written using a different implementation)</p>
+<h4 id="initial-handshake-message">Initial Handshake message</h4>
+<p>The first <em>Handshake</em> message to be processed is the <strong>CLIENT HELLO</strong> <strong>TLS</strong> message.</p>
+<h5 id="server-side">Server side</h5>
+<p>The <em>Handshake</em> is initiated by a <strong>CLIENT_HELLO</strong> <strong>TLS</strong> request which is sent by the client, the server is waiting for it. There starts a serie of <strong>TLS</strong> messages exchanged between the cleint and the server, at the end of which the session is secured, and data can be exchanged encrypted.</p>
+<p>What is important to note here is that during the <em>Handshake</em> exchanges, no application data can be sent, and the <strong>SslFilter</strong> is handling the whole process, before returning the hand to the application. That means messages emitted by the application will be stacked until the session is secured.</p>
+<h5 id="client-side">Client side</h5>
+<p>The client is the initiator of the <em>Handshake</em> exchange. The difference with  the server is that the client <strong>SSLhandler</strong> will generate the inital <em>Handshake</em> message (<strong>CLIENT HELLO</strong>) and send it to the server</p>
+<h4 id="follow-up-handshake-messages">Follow up Handshake messages</h4>
+<p>Once the <em>Handshake</em> has been initiated, the dance keeps going until the <em>Handshake</em> is either done or fails:</p>
+<ul>
+<li>The client sends <em>Handshake</em> requests</li>
+<li>The server sends <em>Handshake</em> responses</li>
+</ul>
+<p>This dance can use many steps.</p>
+<p>It ends with both side send a <em>finished</em> message, and has verified that it&rsquo;s valid.</p>
 <h3 id="session-secured">Session secured</h3>
 <p>The application is informed that the session is secured:</p>
 <ul>
@@ -195,12 +223,12 @@ Usually the **SSLFilyter** is always set at the first position in the chain. The
 <li><a href="https://datatracker.ietf.org/doc/html/rfc4642"><strong>NNTP</strong></a></li>
 <li><a href="https://datatracker.ietf.org/doc/html/rfc4513"><strong>LDAP</strong></a></li>
 </ul>
-<p>The way it works is that at some point of a clear text established connection, the client sends a <strong>STARTLS</strong> command, which forces the <strong>TLS</strong> handshake to start to establish a secured connection. When the secured connection is established, the client and the server exchanges will be encrypted.</p>
+<p>The way it works is that at some point of a clear text established connection, the client sends a <strong>STARTLS</strong> command, which forces the <strong>TLS</strong> <em>Handshake</em> to start to establish a secured connection. When the secured connection is established, the client and the server exchanges will be encrypted.</p>
 <p>Now, that is a bit tricky to implement, because both the client <em>and</em> the server must block the exchange of messages during the establishement of the <strong>TLS</strong> session. As the client is the initiator of the command, it&rsquo;s easy, but on the server side, we must pass a response to the original command <strong>in clear text</strong> informing the client that the command has been received and processed.</p>
 <pre><code>(C) The client sends a **StartTLS** command
 (S) The server receives the command, initialize the **TLS** layer, and send back a response to the client, bypassing the **TLS** layer.
-(C) The client received the server response to the command, and setup the **TLS** layer, and initiates the **TLS** handshake
-(S/C) The Handshake is processed
+(C) The client received the server response to the command, and setup the **TLS** layer, and initiates the **TLS** _Handshake_
+(S/C) The _Handshake_ is processed
 (S/C) The session is secured on both side
 (S/C) at this point, every message exchanged are encrypted.
 </code></pre>

@@ -147,9 +147,9 @@
         '--| FtpServerContext |
             '----------------'
                      ^
-                     |  .-------------------------.
+                     |   .-----------------------.
                      '--| DefaultFtpServerContext |
-                        '-------------------------'
+                         '-----------------------'
 
 </code></pre><h3 id="messageresourcefactory-and-messageresource">MessageResourceFactory and MessageResource</h3>
 <p>The <strong>MessageResourceFactory</strong> is used to create the <strong>MessageResource</strong> instance which will be an instance of the <strong>DefaultMessageResource</strong> class).</p>
@@ -174,7 +174,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="commandfactory">Commandfactory</h2>
+<h2 id="commandfactory">CommandFactory</h2>
 <p>This factory creates a <strong>Map</strong> which contains the <em>Command</em> instances associated with the command name. The current version support those commands:</p>
 <table>
 <thead>
@@ -433,6 +433,171 @@
 <li><em>DbUserManagerFactory</em> which takes the information relative to the user from a <strong>SQL</strong> Database</li>
 <li><em>PropertiesUserManagerFactory</em> which takes the information relative to the user from properties file</li>
 </ul>
+<p>The <em>User</em> class contain information about the users:</p>
+<ul>
+<li><em>ftpserver.user.{username}.homedirectory</em>: Path to the home directory for the user, based on the file system implementation used</li>
+<li><em>ftpserver.user.{username}.userpassword</em>: The password for the user. Can be in clear text, MD5 hash or salted SHA hash based on the configuration on the user manager</li>
+<li><em>ftpserver.user.{username}.enableflag</em>: true if the user is enabled, false otherwise</li>
+<li><em>ftpserver.user.{username}.writepermission</em>: true if the user is allowed to upload files and create directories, false otherwise</li>
+<li><em>ftpserver.user.{username}.idletime</em>: The number of seconds the user is allowed to be idle before disconnected. 0 disables the idle timeout</li>
+<li><em>ftpserver.user.{username}.maxloginnumber</em>: The maximum number of concurrent logins by the user. 0 disables the check.</li>
+<li><em>ftpserver.user.{username}.maxloginperip</em>: The maximum number of concurrent logins from the same IP address by the user. 0 disables the check.</li>
+<li><em>ftpserver.user.{username}.uploadrate</em>: The maximum number of bytes per second the user is allowed to upload files. 0 disables the check.</li>
+<li><em>ftpserver.user.{username}.downloadrate</em>: The maximum number of bytes per second the user is allowed to download files. 0 disables the check.</li>
+</ul>
+<p>Here is an exemple of file containing some users:</p>
+<pre><code>ftpserver.user.admin.homedirectory=./test-tmp/ftproot
+ftpserver.user.admin.userpassword=admin
+ftpserver.user.admin.enableflag=true
+ftpserver.user.admin.writepermission=true
+ftpserver.user.admin.idletime=0
+ftpserver.user.admin.maxloginnumber=0
+ftpserver.user.admin.maxloginperip=0
+ftpserver.user.admin.uploadrate=0
+ftpserver.user.admin.downloadrate=0
+
+</code></pre><p>In any case, we use a <em>UserManager</em> instance to manage the users once read by one of the two previous factories.</p>
+<h3 id="usermanager">UserManager</h3>
+<p>The hierarchy is the following:</p>
+<pre><code class="language-goat" data-lang="goat">
+  .-----------.
+ | UserManager |
+  '-----------'
+        ^
+        |   .-------------------.
+        '--| AbstractUserManager |
+            '-------------------'
+                       ^
+                       |   .-------------.
+                       +--| DbUserManager |
+                       |   '-------------'
+                       |
+                       |   .---------------------.
+                       '--| PropertiesUserManager |
+                           '---------------------'
+</code></pre><p>Those classes are used to get the <strong>User</strong> information. The <strong>User</strong> class stores the following data:</p>
+<ul>
+<li><em>authorities</em>: The user&rsquo;s permissions. One of <em>WritePermission</em>, <em>TransferRatePermission</em> and <em>ConcurrentLoginPermission</em></li>
+<li><em>homeDir</em>: The user&rsquo;s home directory</li>
+<li><em>isEnabled</em>: A flag set to <em>true</em> if teh user is enabled</li>
+<li><em>maxIdleTimeSec</em>: The maximum time the user can remain iddle (default to infinite)</li>
+<li><em>name</em>: The user&rsquo;s name</li>
+<li><em>password</em>: The hashed user&rsquo;s password</li>
+</ul>
+<p>The <em>User</em> interface is used to expose the available methods. The class hierarchy is:</p>
+<pre><code class="language-goat" data-lang="goat">
+  .----.
+ | User |
+  '----'
+     ^
+     |   .--------.
+     '--| BaseUser |
+         '--------'
+</code></pre><p>As the users are stored either in a property file or in a SQL Database, we need a way to manage those users. There is a class that can bbe used to add users in those containes: the <em>AddUser</em> class. Otherwise, the <em>UserManager</em> instance can be used to delete or get users from their container. Creating a user programatically can be done either with the <em>UserFactory</em> or by instanciating a <em>BaseUser</em> class.</p>
+<h3 id="filesystemfactory">FileSystemFactory</h3>
+<p>This factory will be used to create the directory the user will access. The factory will be used later.</p>
+<h3 id="ftpletcontainer">FtpletContainer</h3>
+<p>The <em>FtpletCinainer</em> is holding all the <em>Ftplet</em> elements in a <em>HashMap</em>.</p>
+<p>A <em>Ftplet</em> is a piece of code that get executed before or after a command, and before and after a connection.</p>
+<p>Here is the class hierarchy:</p>
+<pre><code class="language-goat" data-lang="goat">
+  .------.
+ | Ftplet |
+  '------'
+      ^
+      |   .---------------.
+      '--| FtpletContainer |
+          '---------------'
+                       ^
+                       |   .----------------------.
+                       '--| DefaultFtpletContainer |
+                           '----------------------'
+</code></pre><h3 id="ftpstatistics">FtpStatistics</h3>
+<p>This is used to store statistics about the FtpServer usage. The class hierarchy is teh following:</p>
+<pre><code class="language-goat" data-lang="goat">
+  .-------------.
+ | FtpStatistics |
+  '-------------'
+         ^
+         |   .-------------------.
+         '--| ServerFtpStatistics |
+             '-------------------'
+                       ^
+                       |   .--------------------.
+                       '--| DefaultFtpStatistics |
+                           '--------------------'
+</code></pre><p>The <em>FtpStatistics</em> contains all the getters, the <em>ServerFtpStatistics</em> contains all the setters.</p>
+<p>The following values are followed:</p>
+<ul>
+<li><em>startTime</em></li>
+<li><em>uploadCount</em></li>
+<li><em>downloadCount</em></li>
+<li><em>deleteCount</em></li>
+<li><em>mkdirCount</em></li>
+<li><em>rmdirCount</em></li>
+<li><em>currLogins</em></li>
+<li><em>totalLogins</em></li>
+<li><em>totalFailedLogins</em></li>
+<li><em>currAnonLogins</em></li>
+<li><em>totalAnonLogins</em></li>
+<li><em>currConnections</em></li>
+<li><em>totalConnections</em></li>
+<li><em>bytesUpload</em></li>
+<li><em>bytesDownload</em></li>
+</ul>
+<p>The methods are called by the <em>Command</em> instances.</p>
+<h3 id="connectionconfigfactory">ConnectionConfigFactory</h3>
+<p>This class create a <em>ConnectionConfig</em> instance.</p>
+<p>It manages the following server parameters:</p>
+<ul>
+<li><em>maxLogins</em></li>
+<li><em>anonymousLoginEnabled</em></li>
+<li><em>maxAnonymousLogins</em></li>
+<li><em>maxLoginFailures</em></li>
+<li><em>loginFailureDelay</em></li>
+<li><em>maxThreads</em></li>
+</ul>
+<p>By default, the server configuration will allow 3 fails login attempts, insert a 500ms delay between each attempt, allow 10 concurrent users, allow 10 anonymous users, and do not limit the number of threads dedicated for command processing.</p>
+<h3 id="listeners">Listeners</h3>
+<p>The <em>Listeners</em> are used to manage communications with the users. We keep a <em>Map</em> of created listeners. Those listeners are created by a <em>ListenerFactory</em>.</p>
+<p>The <em>ListenerFactory</em> class contains a <em>DataConnectionConfiguration</em> instance which is created by a <em>DataConnectionConfigurationFactory</em> factory class.</p>
+<p>The class hierarchy is the following:</p>
+<pre><code class="language-goat" data-lang="goat">
+  .--------.
+ | Listener |
+  '--------'
+      ^
+      |   .----------------.
+      '--| AbstractListener |
+          '----------------'
+                  ^
+                  |   .-----------.
+                  '--| NioListener |
+                      '-----------'
+</code></pre><p>The <em>NioListener</em> class is responsible for all the TCP communication with the user. It depends on <strong>MINA</strong> <em>SocketAcceptor</em>_ class.</p>
+<p>The <em>AbstractListener</em> class</p>
+<p>The <em>SocketAcceptor</em> instance is declared with the following parameters:</p>
+<ul>
+<li><em>ReuseAddress</em> is set to true</li>
+<li>The read buffer size is set to 2048</li>
+<li>The receive buffer size is set to 512</li>
+<li>The idle time is set to 300 seconds</li>
+<li>The service chain contains, in this order from server to handler:
+<ul>
+<li>An optional <em>SslFilter</em></li>
+<li>A <em>MdcInjectionFilter</em></li>
+<li>An optional <em>MinaSessionFilter</em></li>
+<li>A <em>ExecutorFilter</em></li>
+<li>A <em>ProtocolCodecFilter</em>: The decoder is a simple instance of a <em>TextLineDecoder</em>. The encoder is an instance of a <em>FtpResponseEncoder</em>.</li>
+<li>A <em>MdcInjectionFilter</em></li>
+<li>A <em>FtpLoggingFilter</em></li>
+</ul>
+</li>
+</ul>
+<p>A <em>Listener</em> instance can be created through a call to the <em>ListenerFactory.createListener()</em> method, it should not be created directly. This method instanciate a <em>NioListener</em> after having chekced that the provided server name is valid.</p>
+<p>Internally, it creates a <em>FtpHandler</em> instances, which is used to handle all the incoming <em>FTP</em> requests.</p>
+<p>The instanciated <em>listener</em> will be added to the map of listeners, as <em>default</em>.</p>
+<p>The server factory has been created, we now have to create the server and to start it.</p>
 
 
             

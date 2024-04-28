@@ -144,17 +144,17 @@
 
 
             
-	<h1 id="why-mina-">Why MINA ?</h1>
+	<h1 id="why-mina">Why MINA?</h1>
 <p>Writing network applications are generally seen as a burden and perceived as low level development. It is an area which is not frequently studied or known by developers, either because it has been studied in school a long time ago and everything has been forgotten, or because the complexity of the network layer is frequently hidden by higher level layers, so you never get deep into it.</p>
 <p>Added to that (when it comes to asynchronous IO) an extra layer of complexity comes into play: time.</p>
-<p>The big difference between <strong>BIO</strong> (Blocking IO) and <strong>NIO</strong> (Non-Blocking IO) is that in <strong>BIO</strong>, you send a request, and you wait until you get the response. On the server side, it means one thread wil be associated with any incoming connection, so you won&rsquo;t have to deal with the complexity of multiplexing the connections. In <strong>NIO</strong>, on the other hand, you have to deal with the  synchronous nature of a non-blocking system, which means that your application will be invoked when some events occur. In <strong>NIO</strong>, you don&rsquo;t call and wait for a result, you send a command and you are informed when the result is ready.</p>
+<p>The big difference between <strong>BIO</strong> (Blocking IO) and <strong>NIO</strong> (Non-Blocking IO) is that in <strong>BIO</strong>, you send a request, and you wait until you get the response. On the server side, it means one thread will be associated with any incoming connection, so you won&rsquo;t have to deal with the complexity of multiplexing the connections. In <strong>NIO</strong>, on the other hand, you have to deal with the  synchronous nature of a non-blocking system, which means that your application will be invoked when some events occur. In <strong>NIO</strong>, you don&rsquo;t call and wait for a result, you send a command and you are informed when the result is ready.</p>
 <h2 id="the-need-of-a-framework">The need of a framework</h2>
 <p>Considering those differences, and the fact that most of the applications are usually expecting a blocking mode when invoking the network layer, the best solution is to hide this aspect by writing a framework that mimics a blocking mode. This is what <strong>MINA</strong> does!</p>
 <p>But <strong>MINA</strong> does more. It provides a common IO vision to an application that needs to communicate over <strong>TCP</strong>, <strong>UDP</strong> or whatever mechanism. If we consider only <strong>TCP</strong> and <strong>UDP</strong>, one is a connected protocol (<strong>TCP</strong>) where the other is connectionless (<strong>UDP</strong>). <strong>MINA</strong> masks this difference, and makes you focus on the two parts that are important for your application: the application code and the application protocol encoding/decoding.</p>
 <p>*<strong>MINA</strong> does not only handle <strong>TCP</strong> and <strong>UDP</strong>, it also offers a layer on top of serial communication (<strong>RSC232</strong>), over <strong>VmpPipe</strong> or <strong>APR</strong>.</p>
 <p>Last but not least, <strong>MINA</strong> is a network framework that has been specifically designed to work on both the client side and server side. Writing a server makes it critical to have a scalable system, which is tunable to fit the server needs, in terms of performance and memory usage. This is what <strong>MINA</strong> is good for, making it easy to develop you server.</p>
-<h2 id="when-to-use-mina-">When to use MINA ?</h2>
-<p>This is a interesting question! <strong>MINA</strong> does not expect to be the best possible choice in all cases. There are a few elements to take into account when considering using <strong>MINA</strong>. Let&rsquo;s list them:</p>
+<h2 id="when-to-use-mina">When to use MINA?</h2>
+<p>This is an interesting question! <strong>MINA</strong> does not expect to be the best possible choice in all cases. There are a few elements to take into account when considering using <strong>MINA</strong>. Let&rsquo;s list them:</p>
 <ul>
 <li>
 <p>Ease of use

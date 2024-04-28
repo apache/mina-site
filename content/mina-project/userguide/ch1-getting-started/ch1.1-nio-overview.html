@@ -163,9 +163,9 @@
 <p>We are mostly interested in the <em>Channels</em>, <em>Selectors</em> and <em>Buffers</em> parts in the <strong>MINA</strong> framework, except that we want to hide those elements to the user.</p>
 <p>This user guide will thus focus on everything built on top of those internal components.</p>
 <h1 id="nio-vs-bio">NIO vs BIO</h1>
-<p>It&rsquo;s important to understand the difference between those two APIs. <strong>BIO</strong>, or <strong>Blocking</strong> <strong>IO</strong>, relies on plain sockets used in a blocking mode : when you read, write or do whatever operation on a socket, the called operation will block the caller until the operation is completed.</p>
-<p>In some cases, it&rsquo;s critical to be able to call the operation, and to expect the called operation to inform the caller when the operation is done : the caller can then do something else in the mean time.</p>
-<p>This is also where <strong>NIO</strong> offers a better way to handle <strong>IO</strong> when you have numerous connected sockets : you dn&rsquo;t have to create a specific thread for each connection, you can just use a few threads to do the same job.</p>
+<p>It&rsquo;s important to understand the difference between those two APIs. <strong>BIO</strong>, or <strong>Blocking</strong> <strong>IO</strong>, relies on plain sockets used in a blocking mode: when you read, write or do whatever operation on a socket, the called operation will block the caller until the operation is completed.</p>
+<p>In some cases, it&rsquo;s critical to be able to call the operation, and to expect the called operation to inform the caller when the operation is done: the caller can then do something else in the mean time.</p>
+<p>This is also where <strong>NIO</strong> offers a better way to handle <strong>IO</strong> when you have numerous connected sockets: you don&rsquo;t have to create a specific thread for each connection, you can just use a few threads to do the same job.</p>
 <p>If you want to get more information about what covers <strong>NIO</strong>, there is a lot of good articles around the web, and a few books covering this matter.</p>
 
 

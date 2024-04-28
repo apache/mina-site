@@ -26,7 +26,8 @@ First of all, it&#39;s good to know that MINA is written on top of NIO 1. A new 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/userguide/ch1-getting-started/ch1.2-why-mina.html</guid>
-      <description>Why MINA ? Writing network applications are generally seen as a burden and perceived as low level development. It is an area which is not frequently studied or known by developers, either because it has been studied in school a long time ago and everything has been forgotten, or because the complexity of the network layer is frequently hidden by higher level layers, so you never get deep into it.</description>
+      <description>Why MINA? Writing network applications are generally seen as a burden and perceived as low level development. It is an area which is not frequently studied or known by developers, either because it has been studied in school a long time ago and everything has been forgotten, or because the complexity of the network layer is frequently hidden by higher level layers, so you never get deep into it.
+Added to that (when it comes to asynchronous IO) an extra layer of complexity comes into play: time.</description>
     </item>
     
     <item>
@@ -66,8 +67,8 @@ In the chapters to come we shall discuss about MINA Core constructs and advanced
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/userguide/ch2-basics/ch2.1-application-architecture.html</guid>
-      <description>2.1.1 - Server Architecture 2.1.2 - Client Architecture  2.1 - MINA based Application Architecture It&amp;rsquo;s the question most asked : &amp;lsquo;How does a MINA based application look like&amp;rsquo;? In this article lets see what&amp;rsquo;s the architecture of MINA based application. Have tried to gather the information from presentations based on MINA.
-A Bird&amp;rsquo;s Eye View :
+      <description>2.1.1 - Server Architecture 2.1.2 - Client Architecture  2.1 - MINA based Application Architecture It&amp;rsquo;s the question most asked: &amp;lsquo;How does a MINA based application look like&amp;rsquo;? In this article lets see what&amp;rsquo;s the architecture of MINA based application. Have tried to gather the information from presentations based on MINA.
+A Bird&amp;rsquo;s Eye View:
 Here, we can see that MINA is the glue between your application (be it a client or a server) and the underlying network layer, which can be based on TCP, UDP, in-VM communication or even a RS-232C serial protocol for a client.</description>
     </item>
     
