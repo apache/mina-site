@@ -62,4 +62,5 @@ You can [build](building.html) the latest version from [sources](sources.html).
 * [SSHD 2.11.0](./download_2.11.0.html)
 * [SSHD 2.12.0](./download_2.12.0.html)
 * [SSHD 2.12.1](./download_2.12.1.html)
+* [SSHD 2.13.0](./download_2.13.0.html)
 
