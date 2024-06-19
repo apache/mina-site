@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Apache SSHD 2.13.0 Release &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/sshd.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<script src="https://www.apachecon.com/event-images/snippet.js"></script>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                <strong>SSHD</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <a class="acevent" data-format="wide" data-width="170"></a>
+                <h5>Social Networks</h5>
+                <ul>
+                    <li><a href="https://fosstodon.org/@apachemina">Apache MINA Mastodon</a></li>
+                </ul>
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/sshd-project/index.html">Home</a> </li>
+                    <li><a href="/sshd-project/features.html">Features</a> </li>
+                    <li><a href="/sshd-project/documentation.html">Documentation</a></li>
+                    <li><a href="/sshd-project/downloads.html">Downloads</a></li>
+                    <li><a href="/sshd-project/sources.html">Sources</a></li>
+                    <li><a href="/sshd-project/faq.html">FAQ</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/sshd-project/mailing_lists.html">Mailing Lists</a></li>
+                    <li><a href="/sshd-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/sshd-project/issue_tracking.html">Issue Tracking</a></li>
+                    <li><a href="/sshd-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="overview">Overview</h1>
+<p>Apache Mina SSHD 2.13.0 contains a number of enhancements and bug-fixes. See the lists at
+the <a href="https://github.com/apache/mina-sshd/issues?q=milestone%3A2.13.0">GitHub issue tracker</a>.</p>
+<h2 id="bug-fixes">Bug Fixes</h2>
+<ul>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/318">GH-318</a> Handle cascaded proxy jumps</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/427">GH-427</a> SCP client: fix <code>DefaultScpClient.upload(InputStream, ...)</code></p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/455">GH-455</a> Fix <code>BaseCipher</code>: make sure all bytes are processed</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/461">GH-461</a> Fix heartbeats with <code>wantReply=true</code></p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/470">GH-470</a> MontgomeryCurve: synchronize access to KeyPairGenerator</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/489">GH-489</a> SFTP v3 client: better file type determination</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/493">GH-493</a> Fix arcfour128 and arcfour256 ciphers (regression in 2.2.0)</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/500">GH-500</a> SFTP file system: fix memory leak on exceptions</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/504">GH-504</a> Pass through failure exception to <code>SessionListener.sessionNegotiationEnd()</code></p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/509">GH-509</a> SFTP v[456] client: validate attribute flags</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/510">GH-510</a> Fix class name in BuiltinIoServiceFactoryFactories (regression in 2.6.0)</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/pull/472">PR-472</a> sshd-spring-sftp: fix client start</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/pull/476">PR-476</a> Fix Android detection</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/pull/486">PR-486</a> Add missing <code>equals</code> and <code>hashCode</code> to U2F key classes</p>
+</li>
+<li>
+<p><a href="https://issues.apache.org/jira/browse/SSHD-1237">SSHD-1237</a> Handle keep-alive <em>channel</em> requests</p>
+</li>
+</ul>
+<h2 id="new-features">New Features</h2>
+<h3 id="sntrup761x25519-sha512opensshcom-key-exchange"><code>sntrup761x25519-sha512@openssh.com</code> Key Exchange</h3>
+<p>The key exchange method <a href="mailto:sntrup761x25519-sha512@openssh.com">sntrup761x25519-sha512@openssh.com</a> is now available if the Bouncy Castle library is available.</p>
+<p>This uses a post-quantum key encapsulation method (KEM) to make key exchange future-proof against quantum attacks.
+More information can be found in IETF Memo <a href="https://www.ietf.org/archive/id/draft-josefsson-ntruprime-ssh-02.html">Secure Shell (SSH) Key Exchange Method Using Hybrid Streamlined NTRU Prime sntrup761 and X25519 with SHA-512: sntrup761x25519-sha512</a>.</p>
+<h2 id="behavioral-changes-and-enhancements">Behavioral changes and enhancements</h2>
+<h3 id="gh-318httpsgithubcomapachemina-sshdissues318-handle-cascaded-proxy-jumps"><a href="https://github.com/apache/mina-sshd/issues/318">GH-318</a> Handle cascaded proxy jumps</h3>
+<p>Proxy jumps can be configured via host configuration entries in two ways. First, proxies can be <em>chained</em>
+directly by specifiying several proxies in one <code>ProxyJump</code> directive:</p>
+<pre><code>Host target
+Hostname somewhere.example.org
+User some_user
+IdentityFile ~/.ssh/some_id
+ProxyJump jumphost2, jumphost1
+
+Host jumphost1
+Hostname jumphost1@example.org
+User jumphost1_user
+IdentityFile ~/.ssh/id_jumphost1
+
+Host jumphost2
+Hostname jumphost2@example.org
+User jumphost2_user
+IdentityFile ~/.ssh/id_jumphost2
+</code></pre><p>Connecting to server <code>target</code> will first connect to <code>jumphost1</code>, then tunnel through to <code>jumphost2</code>, and finally
+tunnel to <code>target</code>. So the full connection will be <code>client</code>→<code>jumphost1</code>→<code>jumphost2</code>→<code>target</code>.</p>
+<p>Such proxy jump chains were already supported in Apache MINA SSHD.</p>
+<p>Newly, Apache MINA SSHD also supports <em>cascading</em> proxy jumps, so a configuration like</p>
+<pre><code>Host target
+Hostname somewhere.example.org
+User some_user
+IdentityFile ~/.ssh/some_id
+ProxyJump jumphost2
+
+Host jumphost1
+Hostname jumphost1@example.org
+User jumphost1_user
+IdentityFile ~/.ssh/id_jumphost1
+
+Host jumphost2
+Hostname jumphost2@example.org
+ProxyJump jumphost1
+User jumphost2_user
+IdentityFile ~/.ssh/id_jumphost2
+</code></pre><p>also works now, and produces the same connection <code>client</code>→<code>jumphost1</code>→<code>jumphost2</code>→<code>target</code>.</p>
+<p>It is possible to mis-configure such proxy jump cascades to have loops. (For instance, if host <code>jumphost1</code> in
+the above example had a <code>ProxyJump jumphost2</code> directive.) To catch such misconfigurations, Apache MINA SSHD
+imposes an upper limit on the total number of proxy jumps in a connection. An exception is thrown if there
+are more than <code>CoreModuleProperties.MAX_PROXY_JUMPS</code> proxy jumps in a connection. The default value of this
+property is 10. Most real uses of proxy jumps will have one or maybe two proxy jumps only.</p>
+<h3 id="gh-461httpsgithubcomapachemina-sshdissues461-fix-heartbeats-with-wantreplytrue"><a href="https://github.com/apache/mina-sshd/issues/461">GH-461</a> Fix heartbeats with <code>wantReply=true</code></h3>
+<p>The client-side heartbeat mechanism has been updated. Such heartbeats are configured via the
+<code>CoreModuleProperties.HEARTBEAT_INTERVAL</code> property. If this interval is &gt; 0, heartbeats are sent to
+the server.</p>
+<p>Previously these heartbeats could also be configured with a <code>CoreModuleProperties.HEARTBEAT_REPLY_WAIT</code>
+timeout. If the timeout was &lt;= 0, the client would just send heartbeat requests without expecting any
+answers. If the timeout was &gt; 0, the client would send requests with a flag indicating that the server
+should reply. The client would then wait for the specified duration for the reply and would terminate
+the connection if none was received.</p>
+<p>This mechanism could cause trouble if the timeout was fairly long and the server was slow to respond.
+A timeout longer than the interval could also delay subsequent heartbeats.</p>
+<p>The <code>CoreModuleProperties.HEARTBEAT_REPLY_WAIT</code> property is now <em>deprecated</em>.</p>
+<p>There is a new configuration property <code>CoreModuleProperties.HEARTBEAT_NO_REPLY_MAX</code> instead. It defines a
+limit for the number of heartbeats sent without receiving a reply before a session is terminated. If
+the value is &lt;= 0, the client still sends heartbeats without expecting any reply. If the value is &gt; 0,
+the client will request a reply from the server for each heartbeat message, and it will
+terminate the connection if the number of unanswered heartbeats reaches
+<code>CoreModuleProperties.HEARTBEAT_NO_REPLY_MAX</code>.</p>
+<p>This new way to configure heartbeats aligns with the OpenSSH configuration options
+<code>ServerAliveInterval</code> and <code>ServerAliveCountMax</code>.</p>
+<p>For compatibility with older configurations that explicitly define <code>CoreModuleProperties.HEARTBEAT_REPLY_WAIT</code>,
+the new code maps this to the new configuration (but only if <code>CoreModuleProperties.HEARTBEAT_INTERVAL</code> &gt; 0
+and the new property <code>CoreModuleProperties.HEARTBEAT_NO_REPLY_MAX</code> has <em>not</em> been set) by setting
+<code>CoreModuleProperties.HEARTBEAT_NO_REPLY_MAX</code> to</p>
+<ul>
+<li><code>CoreModuleProperties.HEARTBEAT_REPLY_WAIT</code> &lt;= 0: <code>CoreModuleProperties.HEARTBEAT_NO_REPLY_MAX = 0</code></li>
+<li>otherwise: <code>(CoreModuleProperties.HEARTBEAT_REPLY_WAIT / CoreModuleProperties.HEARTBEAT_INTERVAL) + 1</code>.</li>
+</ul>
+<h3 id="gh-468httpsgithubcomapachemina-sshdissues468-sftp-validate-length-of-data-received-must-not-be-more-than-requested"><a href="https://github.com/apache/mina-sshd/issues/468">GH-468</a> SFTP: validate length of data received: must not be more than requested</h3>
+<p>SFTP read operations now check the amount of data they get back. If it&rsquo;s more than
+requested an exception is thrown. SFTP servers must never return more data than the
+client requested, but it appears that there are some that do so. If property
+<code>SftpModuleProperties.TOLERATE_EXCESS_DATA</code> is set to <code>true</code>, a warning is logged and
+such excess data is silently discarded.</p>
+<h2 id="potential-compatibility-issues">Potential compatibility issues</h2>
+<h3 id="aes-cbc-ciphers-removed-from-servers-defaults">AES-CBC ciphers removed from server&rsquo;s defaults</h3>
+<p>The AES-CBC ciphers <code>aes128-cbc</code>, <code>aes192-cbc</code>, and <code>aes256-cbc</code> have been removed from the default
+list of cipher algorithms that a server proposes in the key exchange. OpenSSH has removed these
+cipher algorithms from the server proposal in 2014, and has removed them from the client proposal
+in 2017.</p>
+<p>The cipher implementations still exist but they are not enabled by default. Existing code that
+explicitly sets the cipher factories is unaffected. Code that relies on the default settings
+will newly create a server that does not support the CBC-mode ciphers. To enable the CBC-mode
+ciphers, one can use for instance</p>
+<pre><code>SshServer server = ServerBuilder.builder()
+   ...
+   .cipherFactories(BuiltinFactory.setUpFactories(false, BaseBuilder.DEFAULT_CIPHERS_PREFERENCES));
+   ...
+   .build();
+</code></pre><p>For the SSH <em>client</em>, the CBC ciphers are still enabled by default to facilitate connecting to
+legacy servers. We plan to remove the CBC ciphers from the client&rsquo;s defaults in the next release.</p>
+<h1 id="getting-the-distributions">Getting the Distributions</h1>
+<ul>
+<li>Source distributions:
+<ul>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.13.0/apache-sshd-2.13.0-src.tar.gz">Apache Mina SSHD 2.13.0 Sources (.tar.gz)</a> <a href="https://www.apache.org/dist/mina/sshd/2.13.0/apache-sshd-2.13.0-src.tar.gz.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.13.0/apache-sshd-2.13.0-src.tar.gz.sha512">SHA512</a></li>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.13.0/apache-sshd-2.13.0-src.zip">Apache Mina SSHD 2.13.0 Sources (.zip)</a> <a href="https://www.apache.org/dist/mina/sshd/2.13.0/apache-sshd-2.13.0-src.zip.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.13.0/apache-sshd-2.13.0-src.zip.sha512">SHA512</a></li>
+</ul>
+</li>
+<li>Binary distributions:
+<ul>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.13.0/apache-sshd-2.13.0.tar.gz">Apache Mina SSHD 2.13.0 Binary (.tar.gz)</a> <a href="https://www.apache.org/dist/mina/sshd/2.13.0/apache-sshd-2.13.0.tar.gz.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.13.0/apache-sshd-2.13.0.tar.gz.sha512">SHA512</a></li>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.13.0/apache-sshd-2.13.0.zip">Apache Mina SSHD 2.13.0 Binary (.zip)</a> <a href="https://www.apache.org/dist/mina/sshd/2.13.0/apache-sshd-2.13.0.zip.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.13.0/apache-sshd-2.13.0.zip.sha512">SHA512</a></li>
+</ul>
+</li>
+</ul>
+<p>Please report any feedback to <a href="mailto:users@mina.apache.org">users@mina.apache.org</a>.</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2024, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+</body>
+
+</html>

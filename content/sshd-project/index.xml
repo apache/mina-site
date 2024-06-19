@@ -301,6 +301,21 @@ Bug Fixes  GH-458 Singleton thread pool for kex message handler flushing SSHD-13
     </item>
     
     <item>
+      <title>Apache SSHD 2.13.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.13.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.13.0.html</guid>
+      <description>Overview Apache Mina SSHD 2.13.0 contains a number of enhancements and bug-fixes. See the lists at the GitHub issue tracker.
+Bug Fixes   GH-318 Handle cascaded proxy jumps
+  GH-427 SCP client: fix DefaultScpClient.upload(InputStream, ...)
+  GH-455 Fix BaseCipher: make sure all bytes are processed
+  GH-461 Fix heartbeats with wantReply=true
+  GH-470 MontgomeryCurve: synchronize access to KeyPairGenerator
+  GH-489 SFTP v3 client: better file type determination</description>
+    </item>
+    
+    <item>
       <title>Apache SSHD 2.2.0 Release</title>
       <link>https://mina.apache.org/sshd-project/download_2.2.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
