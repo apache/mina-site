@@ -27,7 +27,7 @@ When injecting the **SslFilter** into your chain, either before starting your se
 
 Most of the time, both phases will be merged, as one can tell the first phase to immediately starts the second.
 
-In any case, it's handled by the __onPreAdd__ and __onPostAdd_ events, which means it's automatically processed when you push the **SslFilter** into the chain.
+In any case, it's handled by the __onPreAdd__ and __onPostAdd__ events, which means it's automatically processed when you push the **SslFilter** into the chain.
 
 ### onPreAdd
 

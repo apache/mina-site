@@ -6,7 +6,7 @@ title: Documentation
 # Documentation
 
 <div class="note" markdown="1">
-    The MINA 2.0 User Guide can be found here : [User Guide](userguide/user-guide-toc.html)
+    The MINA 2.0 User Guide can be found here : <a href="userguide/user-guide-toc.html">User Guide</a>[User Guide]()
 </div>
 
 {{% toc %}}
@@ -49,7 +49,7 @@ You might also want to read the [frequently asked questions](faq.html] and learn
     * [Using an Executor Filter](userguide/ch10-executor-filter/ch10-executor-filter.html) - Controlling the size of thread pool and choosing the right thread model
     * [JMX Integration](userguide/ch16-jmx-support/ch16-jmx-support.html) - Making your network application manageable
     * [Introduction to mina-statemachine](userguide/ch14-state-machine/ch14-state-machine.html) - Implementing state machine based MINA applications using Java5 annotations
-* [User Guide](userguide/user-guide-toc.html) - The new draft MINA User Guide.
+* [User Guide](userguide/user-guide-toc.html) - The new **MINA 2.0** User Guide.
 
 ### For Developers
 
