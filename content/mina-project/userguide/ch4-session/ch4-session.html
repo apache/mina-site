@@ -160,38 +160,38 @@ It is critical to understand that due to the asynchrnous very nature of NIO, rea
 <h2 id="session-state">Session state</h2>
 <p>A session has a state, which will evolve during time.</p>
 <ul>
-<li>Created : the session has just been created</li>
-<li>Connected : the session has been created and is available</li>
-<li>Idle : the session hasn&rsquo;t processed any request for at least a period of time (this period is configurable)
+<li><em>Created</em> : the session has just been created</li>
+<li><em>Connected</em> : the session has been created and is available</li>
+<li>_Idle _: the session hasn&rsquo;t processed any request for at least a period of time (this period is configurable)
 <ul>
-<li>Idle for read : no read has actually been made for a period of time</li>
-<li>Idle for write : no write has actually been made for a period of time</li>
-<li>Idle for both : no read nor write for a period of time</li>
+<li>Idle for read_ : no read has actually been made for a period of time</li>
+<li>Idle for write_ : no write has actually been made for a period of time</li>
+<li>Idle for both_ : no read nor write for a period of time</li>
 </ul>
 </li>
-<li>Secured : the TLS layer has been initialised</li>
-<li>Unsecured : The TLS layer has been shut down</li>
-<li>Closing : the session is being closed (the remaining messages are being flushed, cleaning up is not terminated)</li>
-<li>Input closed : the input part of the socket has been closed</li>
-<li>Closed : The session is now closed, nothing else can be done to revive it. This is actually not a real state : when teh session is closed, it&rsquo;s removed.</li>
+<li><em>Secured</em> : the TLS layer has been initialised</li>
+<li><em>Unsecured</em> : The TLS layer has been shut down</li>
+<li><em>Closing</em> : the session is being closed (the remaining messages are being flushed, cleaning up is not terminated)</li>
+<li><em>Input closed</em> : the input part of the socket has been closed</li>
+<li><em>Closed</em> : The session is now closed, nothing else can be done to revive it. This is actually not a real state : when teh session is closed, it&rsquo;s removed.</li>
 </ul>
 <p>The following state diagram exposes all the possible states and transitions :</p>
 <p><img src="/assets/img/mina/session-state.png" alt=""></p>
 <p>We have a set of methods to get some information about the session status.</p>
 <p>Session status :</p>
 <ul>
-<li>isActive() : tells if the session is valid (it might mean different things depending on the implementation)</li>
-<li>isBothIdle() : tells if the session is idling on reads and writes</li>
-<li>isClosing() : tells if the session is already being closed</li>
-<li>isConnected() : tells if the session is active (ie, not in the closing mode)</li>
-<li>isIdle( idling status ) : tells if the session is idling on a specific state (read or write)</li>
-<li>isReadIdle() : tells if the session is idling on reads</li>
-<li>isReadSuspended() : tells if the session is not allowed to read messsages</li>
-<li>isScheduledForFlush() : tells if the session has pending messages that are to be written</li>
-<li>isSecured() : tells if teh TLS layer is active and initialized</li>
-<li>isServer() : tells if the session is on the server side</li>
-<li>isWriteIdle() : tells if the session is idling on writes</li>
-<li>isWriteSuspended() : tells if the session is not allowed to write messsages</li>
+<li><em>isActive()</em> : tells if the session is valid (it might mean different things depending on the implementation)</li>
+<li><em>isBothIdle()</em> : tells if the session is idling on reads and writes</li>
+<li><em>isClosing()</em> : tells if the session is already being closed</li>
+<li><em>isConnected()</em> : tells if the session is active (ie, not in the closing mode)</li>
+<li><em>isIdle( idling status )</em> : tells if the session is idling on a specific state (read or write)</li>
+<li><em>isReadIdle()</em> : tells if the session is idling on reads</li>
+<li><em>isReadSuspended()</em> : tells if the session is not allowed to read messsages</li>
+<li><em>isScheduledForFlush()</em> : tells if the session has pending messages that are to be written</li>
+<li><em>isSecured()</em> : tells if teh TLS layer is active and initialized</li>
+<li><em>isServer()</em> : tells if the session is on the server side</li>
+<li><em>isWriteIdle()</em> : tells if the session is idling on writes</li>
+<li><em>isWriteSuspended()</em> : tells if the session is not allowed to write messsages</li>
 </ul>
 <h2 id="opening-a-session">Opening a session</h2>
 <p>Actually, there is nothing you have to do : it&rsquo;s automatic ! Every time a remote peer connect to a server, the server will create a new connection. On the client side, every time you connect to a server, a session will be created.</p>
@@ -211,8 +211,8 @@ session <span style="color:#666">=</span> connectionFuture<span style="color:#66
 session <span style="color:#666">=</span> connector<span style="color:#666">.</span><span style="color:#b44">connect</span><span style="color:#666">(</span>address<span style="color:#666">)</span><span style="color:#666">.</span><span style="color:#b44">getSession</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
 <span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
 </code></pre></div><h2 id="initialization">Initialization</h2>
-<p>When a new session is created, it has to be initialized. This is done using the default IoService configuration, but you can update this configuration later on. Actually, when the session is created, we internally create a copy of the default IoService configuration that is stored within the session, and this is this configuration instance that will be used (and that can be modified).</p>
-<p>This initialization will also starts the statistics counters, create the Attributes container, associate a write queue to to the session (this is where the messages will be enqueued until they have been sent), and ultimately, would you have provided a specific task to do during this phase, it will call it.</p>
+<p>When a new session is created, it has to be initialized. This is done using the default <em>IoService</em> configuration, but you can update this configuration later on. Actually, when the session is created, we internally create a copy of the default <em>IoService</em> configuration that is stored within the session, and this is this configuration instance that will be used (and that can be modified).</p>
+<p>This initialization will also starts the statistics counters, create the <em>Attributes</em> container, associate a write queue to to the session (this is where the messages will be enqueued until they have been sent), and ultimately, would you have provided a specific task to do during this phase, it will call it.</p>
 <h2 id="closing-a-session">Closing a session</h2>
 <p>A session can be closed in 4 ways, two of which are explicit :</p>
 <ul>
@@ -283,17 +283,17 @@ session<span style="color:#666">.</span><span style="color:#b44">setAttribute</s
 </code></pre></div><h3 id="the-session-attributes-access">The session attributes access</h3>
 <p>There are many methods available to manipulate the session&rsquo;s attributes :</p>
 <ul>
-<li>boolean containsAttribute(Object key) : tells if a given attribute is present</li>
-<li>Object getAttribute(Object key) : gets the value for a given attribute</li>
-<li>Object getAttribute(Object key, Object defaultValue) : gets the value for a given attribute, or a default value if absent</li>
-<li>Set&lt;Object&gt; getAttributeKeys() : gets the set of all the stored attributes</li>
-<li>Object removeAttribute(Object key) : remove a given attribute</li>
-<li>boolean removeAttribute(Object key, Object value) : remove a given attribute/value pair</li>
-<li>boolean replaceAttribute(Object key, Object oldValue, Object newValue) : replace a give attribute/value pair</li>
-<li>Object setAttribute(Object key) : adds a new attribute with no value</li>
-<li>Object setAttribute(Object key, Object value) : adds a new attribute/value pair</li>
-<li>Object setAttributeIfAbsent(Object key) : adds a new attribute with no value, if it does not already exist</li>
-<li>Object setAttributeIfAbsent(Object key, Object value) : adds a new attribute/value pair, if it does not already exist</li>
+<li><em>boolean containsAttribute(Object key)</em> : tells if a given attribute is present</li>
+<li><em>Object getAttribute(Object key)</em> : gets the value for a given attribute</li>
+<li><em>Object getAttribute(Object key, Object defaultValue)</em> : gets the value for a given attribute, or a default value if absent</li>
+<li><em>Set&lt;Object&gt; getAttributeKeys()</em> : gets the set of all the stored attributes</li>
+<li><em>Object removeAttribute(Object key)</em> : remove a given attribute</li>
+<li><em>boolean removeAttribute(Object key, Object value)</em> : remove a given attribute/value pair</li>
+<li><em>boolean replaceAttribute(Object key, Object oldValue, Object newValue)</em> : replace a give attribute/value pair</li>
+<li><em>Object setAttribute(Object key)</em> : adds a new attribute with no value</li>
+<li><em>Object setAttribute(Object key, Object value)</em> : adds a new attribute/value pair</li>
+<li><em>Object setAttributeIfAbsent(Object key)</em> : adds a new attribute with no value, if it does not already exist</li>
+<li><em>Object setAttributeIfAbsent(Object key, Object value)</em> : adds a new attribute/value pair, if it does not already exist</li>
 </ul>
 <p>All those methods allows your application to store, remove, get or update the attributes stored into your session. Also note that some attributes are used internally by MINA : don&rsquo;t lightly modify those you didn&rsquo;t create !</p>
 <h2 id="filter-chain">Filter chain</h2>

@@ -140,7 +140,7 @@
 <li>post-initialization, by starting the Handshake dialog</li>
 </ul>
 <p>Most of the time, both phases will be merged, as one can tell the first phase to immediately starts the second.</p>
-<p>In any case, it&rsquo;s handled by the <strong>onPreAdd</strong> and _<em>onPostAdd</em> events, which means it&rsquo;s automatically processed when you push the <strong>SslFilter</strong> into the chain.</p>
+<p>In any case, it&rsquo;s handled by the <strong>onPreAdd</strong> and <strong>onPostAdd</strong> events, which means it&rsquo;s automatically processed when you push the <strong>SslFilter</strong> into the chain.</p>
 <h3 id="onpreadd">onPreAdd</h3>
 <p>The <strong>SslHandler</strong> class is created and initialized, and the instance is stored into the session attributes. That means each session has its own instance of <strong>SslHandler</strong>. This initialization will create a <strong>SSLEngine</strong> instance based on the provided <strong>SSLContext</strong> instance. The initialization will differ based on the &lsquo;side&rsquo; you are on: server or client. Basically, the server side will wait for the client to initiate the handshake, while the client side will initiate it.</p>
 <p>It&rsquo;s also responsible to set the enabled ciphers and protocols, if one wants to use a restricted set, or an extended set (newer versions of Java have disabled old protocols and insecure ciphers).</p>

@@ -1259,7 +1259,7 @@ Why use a ProtocolCodecFilter?  TCP guarantees delivery of all packets in the co
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/documentation.html</guid>
-      <description>Documentation The MINA 2.0 User Guide can be found here : [User Guide](userguide/user-guide-toc.html)   Presentation Materials Versions &amp; References Tutorials  For Developers   Examples Older Presentation Materials   Presentation Materials These presentation materials will help you understand the overall architecture and core constructs of MINA
+      <description>Documentation The MINA 2.0 User Guide can be found here : User Guide[User Guide]()   Presentation Materials Versions &amp; References Tutorials  For Developers   Examples Older Presentation Materials   Presentation Materials These presentation materials will help you understand the overall architecture and core constructs of MINA
  MINA in real life (ApacheCon EU 2009) by Emmanuel L&amp;eacute;charny Rapid Network Application Development with Apache MINA (JavaOne 2008) by Trustin Lee Apache MINA - The High Performance Protocol Construction Toolkit (ApacheCon US 2007) by Peter Royal Introduction to MINA (ApacheCon Asia 2006) by Trustin Lee  Versions &amp;amp; References There are currently three branches in MINA:</description>
     </item>
     
