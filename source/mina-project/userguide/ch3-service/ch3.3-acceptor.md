@@ -15,7 +15,7 @@ In order to build a server, you need to select an implementation of the _IoAccep
 
 ## IoAcceptor
 
-Basically, this interface is named because of the _accept()_ method, responsible for the creation of new connection between a client and the server. The server accepts incoming connection request.
+Basically, this interface is named because of the _accept()_ method, responsible for the creation of new connections between a client and the server. The server accepts incoming connections request.
 
 At some point, we could have named this interface 'Server'.
 
@@ -23,20 +23,20 @@ As we may deal with more than one kind of transport (TCP/UDP/...), we have more 
 
 We have many of those implementing classes
 
-* __NioSocketAcceptor__ : the non-blocking Socket transport _IoAcceptor_
-* __NioDatagramAcceptor__ : the non-blocking UDP transport _IoAcceptor_
-* __AprSocketAcceptor__ : the blocking Socket transport _IoAcceptor_, based on APR
-* __VmPipeSocketAcceptor__ : the in-VM _IoAcceptor_
+* __NioSocketAcceptor__: the non-blocking Socket transport _IoAcceptor_
+* __NioDatagramAcceptor__: the non-blocking UDP transport _IoAcceptor_
+* __AprSocketAcceptor__: the blocking Socket transport _IoAcceptor_, based on APR
+* __VmPipeSocketAcceptor__: the in-VM _IoAcceptor_
 
 Just pick the one that fit your need.
 
-Here is the class diagram for the _IoAcceptor_ interfaces and classes :
+Here is the class diagram for the _IoAcceptor_ interfaces and classes:
 
 ![](/assets/img/mina/IoServiceAcceptor.png)
 
 ## Creation
 
-You first have to select the type of _IoAcceptor_ you want to instantiate. This is a choice you will made early in the process, as it all boils down to which network protocol you will use. Let's see with an example how it works :
+You first have to select the type of _IoAcceptor_ you want to instantiate. This is a choice you will made early in the process, as it all boils down to which network protocol you will use. Let's see with an example how it works:
 
 ```java
 public TcpServer() throws IOException {
@@ -53,7 +53,7 @@ public TcpServer() throws IOException {
 }
 ```
 
-That's it ! You have created a TCP server. If you want to start an UDP server, simply replace the first line of code :
+That's it ! You have created a TCP server. If you want to start an UDP server, simply replace the first line of code:
 
 ```java
 ...
@@ -71,7 +71,7 @@ The service can be stopped by calling the _dispose()_ method. The service will b
 acceptor.dispose();
 ```
 
-You can also wait for every thread being executed to be properly completed by passing a boolean parameter to this method :
+You can also wait for every thread being executed to be properly completed by passing a boolean parameter to this method:
 
 ```java
 // Stop the service, waiting for the processing session to be properly completed
@@ -80,11 +80,11 @@ acceptor.dispose( true );
 
 ## Status
 
-You can get the _IoService_ status by calling one of the following methods :
+You can get the _IoService_ status by calling one of the following methods:
 
-* _isActive()_ : true if the service can accept incoming requests
-* _isDisposing()_ : true if the _dispose()_ method has been called. It does not tell if the service is actually stopped (some sessions might be processed)
-* _isDisposed()_ : true if the _dispose(boolean)_ method has been called, and the executing threads have been completed.
+* _isActive()_: true if the service can accept incoming requests
+* _isDisposing()_: true if the _dispose()_ method has been called. It does not tell if the service is actually stopped (some sessions might be processed)
+* _isDisposed()_: true if the _dispose(boolean)_ method has been called, and the executing threads have been completed.
 
 ## Managing the IoHandler
 
@@ -92,7 +92,7 @@ You can add or get the associated _IoHandler_ when the service has been instanti
 
 ## Managing the Filters chain
 
-if you want to manage the filters chain, you will have to call the _getFilterChain()_ method. Here is an example :
+if you want to manage the filters chain, you will have to call the _getFilterChain()_ method. Here is an example:
 
 ```java
 // Add a logger filter
@@ -100,7 +100,7 @@ DefaultIoFilterChainBuilder chain = acceptor.getFilterChain();
 chain.addLast("logger", new LoggingFilter());
 ```
 
-You can also create the chain before and set it into the service :
+You can also create the chain before and set it into the service:
 
 ```java
 // Add a logger filter
