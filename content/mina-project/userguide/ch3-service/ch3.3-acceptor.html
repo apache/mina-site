@@ -147,21 +147,21 @@
 	<h1 id="33---acceptor">3.3 - Acceptor</h1>
 <p>In order to build a server, you need to select an implementation of the <em>IoAcceptor</em> interface.</p>
 <h2 id="ioacceptor">IoAcceptor</h2>
-<p>Basically, this interface is named because of the <em>accept()</em> method, responsible for the creation of new connection between a client and the server. The server accepts incoming connection request.</p>
+<p>Basically, this interface is named because of the <em>accept()</em> method, responsible for the creation of new connections between a client and the server. The server accepts incoming connections request.</p>
 <p>At some point, we could have named this interface &lsquo;Server&rsquo;.</p>
 <p>As we may deal with more than one kind of transport (TCP/UDP/&hellip;), we have more than one implementation for this interface. It would be very unlikely that you need to implement a new one.</p>
 <p>We have many of those implementing classes</p>
 <ul>
-<li><strong>NioSocketAcceptor</strong> : the non-blocking Socket transport <em>IoAcceptor</em></li>
-<li><strong>NioDatagramAcceptor</strong> : the non-blocking UDP transport <em>IoAcceptor</em></li>
-<li><strong>AprSocketAcceptor</strong> : the blocking Socket transport <em>IoAcceptor</em>, based on APR</li>
-<li><strong>VmPipeSocketAcceptor</strong> : the in-VM <em>IoAcceptor</em></li>
+<li><strong>NioSocketAcceptor</strong>: the non-blocking Socket transport <em>IoAcceptor</em></li>
+<li><strong>NioDatagramAcceptor</strong>: the non-blocking UDP transport <em>IoAcceptor</em></li>
+<li><strong>AprSocketAcceptor</strong>: the blocking Socket transport <em>IoAcceptor</em>, based on APR</li>
+<li><strong>VmPipeSocketAcceptor</strong>: the in-VM <em>IoAcceptor</em></li>
 </ul>
 <p>Just pick the one that fit your need.</p>
-<p>Here is the class diagram for the <em>IoAcceptor</em> interfaces and classes :</p>
+<p>Here is the class diagram for the <em>IoAcceptor</em> interfaces and classes:</p>
 <p><img src="/assets/img/mina/IoServiceAcceptor.png" alt=""></p>
 <h2 id="creation">Creation</h2>
-<p>You first have to select the type of <em>IoAcceptor</em> you want to instantiate. This is a choice you will made early in the process, as it all boils down to which network protocol you will use. Let&rsquo;s see with an example how it works :</p>
+<p>You first have to select the type of <em>IoAcceptor</em> you want to instantiate. This is a choice you will made early in the process, as it all boils down to which network protocol you will use. Let&rsquo;s see with an example how it works:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#00a000">TcpServer</span><span style="color:#666">(</span><span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">throws</span> IOException <span style="color:#666">{</span>
     <span style="color:#080;font-style:italic">// Create a TCP acceptor
 </span><span style="color:#080;font-style:italic"></span>    IoAcceptor acceptor <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NioSocketAcceptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
@@ -174,7 +174,7 @@
 
     System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span><span style="color:#b44">&#34;Server started...&#34;</span><span style="color:#666">)</span><span style="color:#666">;</span>
 <span style="color:#666">}</span>
-</code></pre></div><p>That&rsquo;s it ! You have created a TCP server. If you want to start an UDP server, simply replace the first line of code :</p>
+</code></pre></div><p>That&rsquo;s it ! You have created a TCP server. If you want to start an UDP server, simply replace the first line of code:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#666">.</span><span style="color:#666">.</span><span style="color:#666">.</span>
 <span style="color:#080;font-style:italic">// Create an UDP acceptor
 </span><span style="color:#080;font-style:italic"></span>IoAcceptor acceptor <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NioDatagramAcceptor<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
@@ -183,24 +183,24 @@
 <p>The service can be stopped by calling the <em>dispose()</em> method. The service will be stopped only when all the pending sessions have been processed :</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// Stop the service, waiting for the pending sessions to be inactive
 </span><span style="color:#080;font-style:italic"></span>acceptor<span style="color:#666">.</span><span style="color:#b44">dispose</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
-</code></pre></div><p>You can also wait for every thread being executed to be properly completed by passing a boolean parameter to this method :</p>
+</code></pre></div><p>You can also wait for every thread being executed to be properly completed by passing a boolean parameter to this method:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// Stop the service, waiting for the processing session to be properly completed
 </span><span style="color:#080;font-style:italic"></span>acceptor<span style="color:#666">.</span><span style="color:#b44">dispose</span><span style="color:#666">(</span> <span style="color:#a2f;font-weight:bold">true</span> <span style="color:#666">)</span><span style="color:#666">;</span>
 </code></pre></div><h2 id="status">Status</h2>
-<p>You can get the <em>IoService</em> status by calling one of the following methods :</p>
+<p>You can get the <em>IoService</em> status by calling one of the following methods:</p>
 <ul>
-<li><em>isActive()</em> : true if the service can accept incoming requests</li>
-<li><em>isDisposing()</em> : true if the <em>dispose()</em> method has been called. It does not tell if the service is actually stopped (some sessions might be processed)</li>
-<li><em>isDisposed()</em> : true if the <em>dispose(boolean)</em> method has been called, and the executing threads have been completed.</li>
+<li><em>isActive()</em>: true if the service can accept incoming requests</li>
+<li><em>isDisposing()</em>: true if the <em>dispose()</em> method has been called. It does not tell if the service is actually stopped (some sessions might be processed)</li>
+<li><em>isDisposed()</em>: true if the <em>dispose(boolean)</em> method has been called, and the executing threads have been completed.</li>
 </ul>
 <h2 id="managing-the-iohandler">Managing the IoHandler</h2>
 <p>You can add or get the associated <em>IoHandler</em> when the service has been instantiated. You just have to call the <em>setHandler(IoHandler)</em> or <em>getHandler()</em> methods.</p>
 <h2 id="managing-the-filters-chain">Managing the Filters chain</h2>
-<p>if you want to manage the filters chain, you will have to call the <em>getFilterChain()</em> method. Here is an example :</p>
+<p>if you want to manage the filters chain, you will have to call the <em>getFilterChain()</em> method. Here is an example:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// Add a logger filter
 </span><span style="color:#080;font-style:italic"></span>DefaultIoFilterChainBuilder chain <span style="color:#666">=</span> acceptor<span style="color:#666">.</span><span style="color:#b44">getFilterChain</span><span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
 chain<span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span><span style="color:#b44">&#34;logger&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> LoggingFilter<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>
-</code></pre></div><p>You can also create the chain before and set it into the service :</p>
+</code></pre></div><p>You can also create the chain before and set it into the service:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-style:italic">// Add a logger filter
 </span><span style="color:#080;font-style:italic"></span>DefaultIoFilterChainBuilder chain <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> DefaultIoFilterChainBuilder<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">;</span>
 chain<span style="color:#666">.</span><span style="color:#b44">addLast</span><span style="color:#666">(</span><span style="color:#b44">&#34;logger&#34;</span><span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> LoggingFilter<span style="color:#666">(</span><span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">;</span>

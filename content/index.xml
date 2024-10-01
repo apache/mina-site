@@ -174,7 +174,7 @@ IoAcceptor Basically, this interface is named because of the accept() method, re
       
       <guid>https://mina.apache.org/mina-project/userguide/ch3-service/ch3.3-acceptor.html</guid>
       <description>3.3 - Acceptor In order to build a server, you need to select an implementation of the IoAcceptor interface.
-IoAcceptor Basically, this interface is named because of the accept() method, responsible for the creation of new connection between a client and the server. The server accepts incoming connection request.
+IoAcceptor Basically, this interface is named because of the accept() method, responsible for the creation of new connections between a client and the server. The server accepts incoming connections request.
 At some point, we could have named this interface &amp;lsquo;Server&amp;rsquo;.
 As we may deal with more than one kind of transport (TCP/UDP/&amp;hellip;), we have more than one implementation for this interface.</description>
     </item>
