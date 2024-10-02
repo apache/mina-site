@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Apache SSHD 2.14.0 Release &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/sshd.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<script src="https://www.apachecon.com/event-images/snippet.js"></script>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                <strong>SSHD</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <a class="acevent" data-format="wide" data-width="170"></a>
+                <h5>Social Networks</h5>
+                <ul>
+                    <li><a href="https://fosstodon.org/@apachemina">Apache MINA Mastodon</a></li>
+                </ul>
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/sshd-project/index.html">Home</a> </li>
+                    <li><a href="/sshd-project/features.html">Features</a> </li>
+                    <li><a href="/sshd-project/documentation.html">Documentation</a></li>
+                    <li><a href="/sshd-project/downloads.html">Downloads</a></li>
+                    <li><a href="/sshd-project/sources.html">Sources</a></li>
+                    <li><a href="/sshd-project/faq.html">FAQ</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/sshd-project/mailing_lists.html">Mailing Lists</a></li>
+                    <li><a href="/sshd-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/sshd-project/issue_tracking.html">Issue Tracking</a></li>
+                    <li><a href="/sshd-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="overview">Overview</h1>
+<h2 id="bug-fixes">Bug Fixes</h2>
+<ul>
+<li><a href="https://github.com/apache/mina-sshd/issues/524">GH-524</a> Performance improvements</li>
+<li><a href="https://github.com/apache/mina-sshd/issues/533">GH-533</a> Fix multi-step authentication</li>
+<li><a href="https://github.com/apache/mina-sshd/issues/582">GH-582</a> Fix filtering in <code>NamedFactory</code></li>
+<li><a href="https://github.com/apache/mina-sshd/issues/587">GH-587</a> Prevent <code>NullPointerException</code>on closed channel in <code>NettyIoSession</code></li>
+<li><a href="https://github.com/apache/mina-sshd/issues/590">GH-590</a> Better support for FIPS</li>
+<li><a href="https://github.com/apache/mina-sshd/issues/597">GH-597</a> Pass on <code>Charset</code> in <code>ClientSession.executeRemoteCommand()</code></li>
+</ul>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>New utility methods <code>SftpClient.put(Path localFile, String remoteFileName)</code> and
+<code>SftpClient.put(InputStream in, String remoteFileName)</code> facilitate SFTP file uploading.</li>
+</ul>
+<h3 id="gh-590httpsgithubcomapachemina-sshdissues590-better-support-for-fips"><a href="https://github.com/apache/mina-sshd/issues/590">GH-590</a> Better support for FIPS</h3>
+<p>Besides fixing a bug with bc-fips (the <code>RandomGenerator</code> class exists in normal Bouncy Castle,
+but not in the FIPS version, but Apache MINA sshd referenced it even if only bc-fips was present),
+support was improved for running in an environment restricted by FIPS.</p>
+<p>There is a new system property <code>org.apache.sshd.security.fipsEnabled</code>. If set to <code>true</code>, a number
+of crypto-algorithms not approved by FIPS 140 are disabled:</p>
+<ul>
+<li>key exchange methods sntrup761x25519-sha512, sntrup761x25519-sha512<!-- -->@openssh.com, curve25519-sha256, curve25519-sha256<!-- -->@libssh.org, curve448-sha512.</li>
+<li>the chacha20-poly1305 cipher.</li>
+<li>the bcrypt KDF used in encrypted private key files in <a href="https://github.com/openssh/openssh-portable/blob/master/PROTOCOL.key">OpenSSH format</a>.</li>
+<li>all ed25519 keys and signatures.</li>
+</ul>
+<p>Additionally, the new &ldquo;SunJCEWrapper&rdquo; <code>SecurityProviderRegistrar</code> (see below) and the
+<code>EdDSASecurityProviderRegistrar</code> are disabled, and the <code>BouncyCastleScurityProviderRegistrar</code>
+looks only for the &ldquo;BCFIPS&rdquo; security provider, not for the normal &ldquo;BC&rdquo; provider.</p>
+<p>If the system property is <em>not</em> set to <code>true</code>, FIPS mode can be enabled programmatically
+by calling <code>SecurityUtils.setFipsMode()</code> before any other call to Apache MINA sshd.</p>
+<h2 id="potential-compatibility-issues">Potential compatibility issues</h2>
+<h3 id="new-security-provider-registrar">New security provider registrar</h3>
+<p>There is a new <code>SecurityProviderRegistrar</code> that is registered by default
+if there is a <code>SunJCE</code> security provider. It uses the AES and
+HmacSHA* implementations from <code>SunJCE</code> even if Bouncy Castle is also
+registered. <code>SunJCE</code> has native implementations, whereas Bouncy Castle
+may not.</p>
+<p>The new registrar has the name &ldquo;SunJCEWrapper&rdquo; and can be configured
+like any other registrar. It can be disabled via the system property
+<code>org.apache.sshd.security.provider.SunJCEWrapper.enabled=false</code>. It is also
+disabled in FIPS mode (see above).</p>
+<h3 id="gh-582httpsgithubcomapachemina-sshdissues582-fix-filtering-in-namedfactory"><a href="https://github.com/apache/mina-sshd/issues/582">GH-582</a> Fix filtering in <code>NamedFactory</code></h3>
+<p>The methods <code>NamedFactory.setupBuiltinFactories(boolean ignoreUnsupported, ...)</code> and
+<code>NamedFactory.setupTransformedFactories(boolean ignoreUnsupported, ...)</code> had a bug that
+gave the &ldquo;ignoreUnsupported&rdquo; parameter actually the meaning of &ldquo;include unsupported&rdquo;.</p>
+<p>This was fixed in this release, but existing code calling these or one of the following methods:</p>
+<ul>
+<li><code>BaseBuilder.setUpDefaultMacs(boolean ignoreUnsupported)</code></li>
+<li><code>BaseBuilder.setUpDefaultCiphers(boolean ignoreUnsupported)</code></li>
+<li><code>ClientBuilder.setUpDefaultCompressionFactories(boolean ignoreUnsupported)</code></li>
+<li><code>ClientBuilder.setUpDefaultKeyExchanges(boolean ignoreUnsupported)</code></li>
+<li><code>ClientBuilder.setUpDefaultSignatureFactories(boolean ignoreUnsupported)</code></li>
+<li><code>ServerBuilder.setUpDefaultCompressionFactories(boolean ignoreUnsupported)</code></li>
+<li><code>ServerBuilder.setUpDefaultKeyExchanges(boolean ignoreUnsupported)</code></li>
+<li><code>ServerBuilder.setUpDefaultSignatureFactories(boolean ignoreUnsupported)</code></li>
+<li>any of the methods starting with <code>SshConfigFileReader.configure</code></li>
+<li><code>SshClientConfigFileReader.configure(...)</code></li>
+<li><code>SshServerConfigFileReader.configure(...)</code></li>
+</ul>
+<p>should be reviewed:</p>
+<ul>
+<li>if the method is called with parameter value <code>true</code>, the result will no longer include unsupported algorithms. Formerly it wrongly did.</li>
+<li>if the method is called with parameter value <code>false</code>, the result may include unsupported algorithms. Formerly it did not.</li>
+</ul>
+<p>So if existing code used parameter value <code>false</code> to ensure it never got unsupported algorithms, change it to <code>true</code>.</p>
+<h2 id="major-code-re-factoring">Major Code Re-factoring</h2>
+<h3 id="jdk-requirements">JDK requirements</h3>
+<ul>
+<li><a href="https://github.com/apache/mina-sshd/issues/536">GH-536</a> The project now requires
+JDK 17 at build time, while the target runtime still remains unchanged to support JDK 8.</li>
+</ul>
+<h1 id="getting-the-distributions">Getting the Distributions</h1>
+<ul>
+<li>Source distributions:
+<ul>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.14.0/apache-sshd-2.14.0-src.tar.gz">Apache Mina SSHD 2.14.0 Sources (.tar.gz)</a> <a href="https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0-src.tar.gz.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0-src.tar.gz.sha512">SHA512</a></li>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.14.0/apache-sshd-2.14.0-src.zip">Apache Mina SSHD 2.14.0 Sources (.zip)</a> <a href="https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0-src.zip.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0-src.zip.sha512">SHA512</a></li>
+</ul>
+</li>
+<li>Binary distributions:
+<ul>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.14.0/apache-sshd-2.14.0.tar.gz">Apache Mina SSHD 2.14.0 Binary (.tar.gz)</a> <a href="https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0.tar.gz.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0.tar.gz.sha512">SHA512</a></li>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.14.0/apache-sshd-2.14.0.zip">Apache Mina SSHD 2.14.0 Binary (.zip)</a> <a href="https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0.zip.asc">PGP</a> <a href="https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0.zip.sha512">SHA512</a></li>
+</ul>
+</li>
+</ul>
+<p>Please report any feedback to <a href="mailto:users@mina.apache.org">users@mina.apache.org</a>.</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2024, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+</body>
+
+</html>
