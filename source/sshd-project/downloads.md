@@ -5,15 +5,15 @@ title: SSHD Downloads
 
 # Latest SSHD Release
 
-The latest release is the SSHD 2.13.2 release.
-Apache Mina SSHD 2.13.2 contains one bug-fix. See the [release notes](download_2.13.2.md).
+The latest release is the SSHD 2.14.0 release.
+Apache Mina SSHD 2.14.0 contains one bug-fix. See the [release notes](download_2.14.0.md).
 
 * Source distributions:
-    * [Apache Mina SSHD 2.13.2 Sources (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.13.2/apache-sshd-2.13.2-src.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.13.2/apache-sshd-2.13.2-src.tar.gz.asc) [SHA512](https://www.apache.org/dist/mina/sshd/2.13.2/apache-sshd-2.13.2-src.tar.gz.sha512)
-    * [Apache Mina SSHD 2.13.2 Sources (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.13.2/apache-sshd-2.13.2-src.zip) [PGP](https://www.apache.org/dist/mina/sshd/2.13.2/apache-sshd-2.13.2-src.zip.asc) [SHA512](https://www.apache.org/dist/mina/sshd/2.13.2/apache-sshd-2.13.2-src.zip.sha512)
+    * [Apache Mina SSHD 2.14.0 Sources (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.14.0/apache-sshd-2.14.0-src.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0-src.tar.gz.asc) [SHA512](https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0-src.tar.gz.sha512)
+    * [Apache Mina SSHD 2.14.0 Sources (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.14.0/apache-sshd-2.14.0-src.zip) [PGP](https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0-src.zip.asc) [SHA512](https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0-src.zip.sha512)
 * Binary distributions:
-    * [Apache Mina SSHD 2.13.2 Binary (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.13.2/apache-sshd-2.13.2.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.13.2/apache-sshd-2.13.2.tar.gz.asc) [SHA512](https://www.apache.org/dist/mina/sshd/2.13.2/apache-sshd-2.13.2.tar.gz.sha512)
-    * [Apache Mina SSHD 2.13.2 Binary (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.13.2/apache-sshd-2.13.2.zip) [PGP](https://www.apache.org/dist/mina/sshd/2.13.2/apache-sshd-2.13.2.zip.asc) [SHA512](https://www.apache.org/dist/mina/sshd/2.13.2/apache-sshd-2.13.2.zip.sha512)
+    * [Apache Mina SSHD 2.14.0 Binary (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.14.0/apache-sshd-2.14.0.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0.tar.gz.asc) [SHA512](https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0.tar.gz.sha512)
+    * [Apache Mina SSHD 2.14.0 Binary (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/2.14.0/apache-sshd-2.14.0.zip) [PGP](https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0.zip.asc) [SHA512](https://www.apache.org/dist/mina/sshd/2.14.0/apache-sshd-2.14.0.zip.sha512)
 
 # Development snapshots
 
@@ -65,4 +65,5 @@ You can [build](building.html) the latest version from [sources](sources.html).
 * [SSHD 2.13.0](./download_2.13.0.html)
 * [SSHD 2.13.1](./download_2.13.1.html)
 * [SSHD 2.13.2](./download_2.13.2.html)
+* [SSHD 2.14.0](./download_2.14.0.html)
 
