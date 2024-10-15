@@ -155,7 +155,10 @@
   </ul>
 </nav>
 <h1 id="checking-out-the-code">Checking out the code</h1>
-<p>You need Git to check out the source code from our source code repository, and [Maven(https://maven.apache.org/) 3.8.5 (pick the latest Maven version) to build the source code (Building with Maven 3.0 will also work).  The following example shows how to build the current stable branch (2.0.9).</p>
+<div class="note" markdown="1">
+    The current <em>MINA</em>em> code requires to be built with Java 11 or higher.
+</div>
+<p>You need <strong>Git</strong> to check out the source code from our source code repository, and <a href="https://maven.apache.org/">Maven</a> 3.8.5 (pick the latest Maven version) to build the source code (Building with Maven 3.0 will also work).  The following example shows how to build the current stable branch (2.0.9).</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
 $ <span style="color:#a2f">cd</span> mina
 $ mvn -Pserial clean install             <span style="color:#080;font-style:italic"># Build packages (JARs) for the core API and other</span> 
@@ -164,8 +167,8 @@ $ mvn -Pserial site                      <span style="color:#080;font-style:ital
 $ mvn -Pserial package assembly:assembly <span style="color:#080;font-style:italic"># Generate a tarball (package goal needed to fix an assembly plugin bug)</span>
 $ mvn -Pserial eclipse:eclipse           <span style="color:#080;font-style:italic"># Generate Eclipse project files if you want</span>
 </code></pre></div><p>Eclipse users:
-Don&rsquo;t forget to declare a classpath variable named M2_REPO, pointing to <code>~/.m2/repository</code>, otherwise many links to existing jars will be broken.
-You can declare new variables in Eclipse in Windows -&gt; Preferences&hellip; and selecting Java -&gt; Build Path -&gt; Classpath Variables</p>
+Don&rsquo;t forget to declare a classpath variable named <strong>M2_REPO</strong>, pointing to <code>~/.m2/repository</code>, otherwise many links to existing jars will be broken.
+You can declare new variables in Eclipse in <em>Windows -&gt; Preferences&hellip;</em> and selecting <em>Java -&gt; Build Path -&gt; Classpath Variables</em>.</p>
 <p>There are also other branches that might interest you:</p>
 <ul>
 <li>trunk: Where big changes take place everyday</li>
@@ -278,7 +281,7 @@ $ mvn clean install -Pserial
 </div>
 <div class="info" markdown="1">
     <strong>In case of a problem...</strong><br>
-<pre><code>It's frequent that the dry-run fails, typically when you have some Javadoc issues (with Java 8, the compiler is really picky about wrong HTML tags or missing parameters).
+<pre><code>It's frequent that the dry-run fails, typically when you have some Javadoc issues (starting with Java 8, the compiler is really picky about wrong HTML tags or missing parameters).
 
 You can rollback the release with the command:
 
