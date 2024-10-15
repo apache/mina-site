@@ -6,10 +6,16 @@ title: Documentation
 # Documentation
 
 <div class="note" markdown="1">
-    The MINA 2.0 User Guide can be found here : <a href="userguide/user-guide-toc.html">User Guide</a>[User Guide]()
+    The MINA 2.X User Guide can be found here : <a href="userguide/user-guide-toc.html">User Guide</a>
 </div>
 
 {{% toc %}}
+
+## Java requirement
+
+**MINA 2.X** branches can all be used with **Java version 8**.
+
+In order to be able to build **MINA**, you must use **Java version 11** at least
 
 ## Presentation Materials
 
@@ -22,13 +28,14 @@ These presentation materials will help you understand the overall architecture a
 
 ## Versions & References
 
-There are currently three branches in MINA:
+There are currently four branches in MINA:
 
 |JavaDoc|Source Code|Description|
 |---|---|---|
-| [2.0](http://mina.apache.org/mina-project/gen-docs/latest-2.0/apidocs/index.html) | [main](http://mina.apache.org/mina-project/gen-docs/latest-2.0/xref/), [test](http://mina.apache.org/mina-project/gen-docs/latest-2.0/xref-test/) | The officially recommended production-ready branch |
-| [2.1](http://mina.apache.org/mina-project/gen-docs/latest-2.1/apidocs/index.html) | [main](http://mina.apache.org/mina-project/gen-docs/latest-2.1/xref/), [test](http://mina.apache.org/mina-project/gen-docs/latest-2.1/xref-test/) | The new recommended production-ready branch |
-| 3.0 | [trunk](http://svn.apache.org/viewvc/mina/mina/trunk/)| The version we are currently working on |
+| [2.0.X](http://mina.apache.org/mina-project/gen-docs/latest-2.0/apidocs/index.html) | [main](http://mina.apache.org/mina-project/gen-docs/latest-2.0/xref/), [test](http://mina.apache.org/mina-project/gen-docs/latest-2.0/xref-test/) | The 2.0 recommended production-ready branch |
+| [2.1.X](http://mina.apache.org/mina-project/gen-docs/latest-2.1/apidocs/index.html) | [main](http://mina.apache.org/mina-project/gen-docs/latest-2.1/xref/), [test](http://mina.apache.org/mina-project/gen-docs/latest-2.1/xref-test/) | The 2.1 recommended production-ready branch |
+| [2.2.X]http://mina.apache.org/mina-project/gen-docs/latest-2.2/apidocs/index.html) | [main](http://mina.apache.org/mina-project/gen-docs/latest-2.2/xref/), [test](http://mina.apache.org/mina-project/gen-docs/latest-2.2/xref-test/) | The new 2.2 recommended production-ready branch |
+| 3.0 | [trunk](http://svn.apache.org/viewvc/mina/mina/trunk/)| A defunct branch that we worked on years ago as a attempt of a complete rewrite|
 
 You might also want to read the [frequently asked questions](faq.html] and learn how to [contact us](../contact.html) before getting started.
 
