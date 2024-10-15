@@ -5,6 +5,17 @@ title: News
 
 # News
 
+## MINA 2.1.9, 2.0.26 released _posted on October, 15, 2023_
+
+The MINA project is pleased to announce the MINA 2.1.9 and 2.0.26 release.
+
+### Changes
+
+Those versions are a maintenance release, fixing a bug in the way we
+treat Strings when reading a IoBuffer:
+
+* [DIRMINA-1181](https://issues.apache.org/jira/browse/DIRMINA-1181): Exception thrown when attempting to decode certain UTF-16 chars
+
 ## MINA 2.2.3, 2.1.8, 2.0.25 released _posted on September, 12, 2023_
 
 The MINA project is pleased to announce the MINA 2.2.3, 2.1.8 and 2.0.25 release.
