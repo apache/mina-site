@@ -13,7 +13,11 @@ title: Developer Guide
 
 # Checking out the code
 
-You need Git to check out the source code from our source code repository, and [Maven(https://maven.apache.org/) 3.8.5 (pick the latest Maven version) to build the source code (Building with Maven 3.0 will also work).  The following example shows how to build the current stable branch (2.0.9).
+<div class="note" markdown="1">
+    The current <em>MINA</em>em> code requires to be built with Java 11 or higher.
+</div>
+
+You need **Git** to check out the source code from our source code repository, and [Maven](https://maven.apache.org/) 3.8.5 (pick the latest Maven version) to build the source code (Building with Maven 3.0 will also work).  The following example shows how to build the current stable branch (2.0.9).
 
 ```bash
 $ git clone https://gitbox.apache.org/repos/asf/mina.git mina
@@ -26,8 +30,8 @@ $ mvn -Pserial eclipse:eclipse           # Generate Eclipse project files if you
 ```
 
 Eclipse users:
-Don't forget to declare a classpath variable named M2_REPO, pointing to `~/.m2/repository`, otherwise many links to existing jars will be broken.
-You can declare new variables in Eclipse in Windows -> Preferences... and selecting Java -> Build Path -> Classpath Variables
+Don't forget to declare a classpath variable named **M2_REPO**, pointing to `~/.m2/repository`, otherwise many links to existing jars will be broken.
+You can declare new variables in Eclipse in _Windows -> Preferences..._ and selecting _Java -> Build Path -> Classpath Variables_.
 
 There are also other branches that might interest you:
 
@@ -201,7 +205,7 @@ Then some other questions will be asked, about the next version to use. The defa
 <div class="info" markdown="1">
     <strong>In case of a problem...</strong><br>
     
-    It's frequent that the dry-run fails, typically when you have some Javadoc issues (with Java 8, the compiler is really picky about wrong HTML tags or missing parameters).
+    It's frequent that the dry-run fails, typically when you have some Javadoc issues (starting with Java 8, the compiler is really picky about wrong HTML tags or missing parameters).
 
     You can rollback the release with the command:
 
