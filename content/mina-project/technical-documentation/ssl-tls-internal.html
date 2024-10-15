@@ -61,8 +61,8 @@
                 </ul>
                 <h5>Latest Downloads</h5>
                 <ul>
-                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.25</a></li>
-                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.8</a></li>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.26</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.9</a></li>
                     <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.3</a></li>
                     <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
                 </ul>
@@ -82,11 +82,11 @@
                     <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
                     <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
                     <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.25</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.8</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.26</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.9</a></li>
                     <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.3</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.25</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.8</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.26</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.9</a></li>
                     <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.3</a></li>
                     <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
                     <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
@@ -124,9 +124,11 @@
             
 	<h1 id="ssltls-internals">SSL/TLS internals</h1>
 <p>This is a technical description of how SSL/TLS are handled in MINA. You don&rsquo;t need to read this to have it working, better have a look at the <a href="../userguide/ch11-ss-filter/ch11-ssl-filter.html">SslFilter user guide</a> page. However, if you want to get a deeper understanding on how it&rsquo;s built, this is the place !</p>
+<p>Note: We will assume the <strong>MINA API</strong> user has already created the <em>SSLContext</em> to use, so it&rsquo;s not part of those explanations.</p>
 <h2 id="components">Components</h2>
-<p>The <strong>SslFilter</strong> is the filter that command everything related to <strong>SSL/TLS</strong>. It works hands in hands with the <strong>SSLHandler</strong> class, which handles the logic.</p>
+<p>The <strong>SslFilter</strong> is the filter that command everything related to <strong>SSL/TLS</strong>. It works hands in hands with the <strong>SSLHandler</strong> class, which handles the <strong>SSLEngine</strong> dialog.</p>
 <p>With <strong>NIO</strong>, Java provides a special class that handles the <strong>SSL/TLS</strong> protocol, the <strong>SSLEngine</strong> class. It&rsquo;s quite a complex piece of code, and it requires some time to tame it&hellip; We will have a look into it during this tutorial.</p>
+<p>The biggest advantage of this <strong>SSLEngine</strong> part is that it totally abstracts the underlaying network part, so it can be used as an encryption part regardless of what the channel is used. You can even decide to use it without transmitting anything :-) On the other hand, it&rsquo;s pretty complex to use&hellip;</p>
 <h2 id="creation">Creation</h2>
 <p>In order to inject the filter in the chain, it must first be created. This filter takes one or two parameters:</p>
 <ul>
@@ -134,7 +136,7 @@
 <li><strong>autoStart</strong>: tells if the handshake should be started immediately. This is an optional parameter, defaulting to <strong>TRUE</strong>. In some cases, like when using <strong>startTLS</strong>, it&rsquo;s critical to not start the handshake immediately, as it will be established on demand.</li>
 </ul>
 <h2 id="initialization">Initialization</h2>
-<p>When injecting the <strong>SslFilter</strong> into your chain, either before starting your service, or while running it, it has to be initialized in some way. Actually, this is a two phases process :</p>
+<p>When injecting the <strong>SslFilter</strong> into your chain, either before starting your service, or while running it, it has to be initialized in some way. Actually, this is a two phases process:</p>
 <ul>
 <li>pre-initialization, during the filter injection</li>
 <li>post-initialization, by starting the Handshake dialog</li>
@@ -144,19 +146,329 @@
 <h3 id="onpreadd">onPreAdd</h3>
 <p>The <strong>SslHandler</strong> class is created and initialized, and the instance is stored into the session attributes. That means each session has its own instance of <strong>SslHandler</strong>. This initialization will create a <strong>SSLEngine</strong> instance based on the provided <strong>SSLContext</strong> instance. The initialization will differ based on the &lsquo;side&rsquo; you are on: server or client. Basically, the server side will wait for the client to initiate the handshake, while the client side will initiate it.</p>
 <p>It&rsquo;s also responsible to set the enabled ciphers and protocols, if one wants to use a restricted set, or an extended set (newer versions of Java have disabled old protocols and insecure ciphers).</p>
-<p>Last, not least, it sets a list of status flags :</p>
+<p>Last, not least, it sets a list of status flags:</p>
 <ul>
-<li>writingEncryptedData: false. This flag is used during the handshake</li>
-<li>handshakeStatus: the HandShake status, which is originally set to <strong>NOT_HANDSHAKING</strong></li>
-<li>firstSSLNegotiation: true. This flag is used to tell the <strong>sslHandler</strong> to send or not an event to the application (MINA 2.1 only)</li>
-<li>handshakeComplete: false. It will be set to true when teh handshake has been completed.</li>
+<li><em>writingEncryptedData</em>: <em>false</em>. This flag is used during the handshake</li>
+<li><em>handshakeStatus</em>: the <em>HandShake</em> status, which is originally set to <strong>NOT_HANDSHAKING</strong></li>
+<li><em>firstSSLNegotiation</em>: <em>true</em>. This flag is used to tell the <strong>sslHandler</strong> to send or not an event to the application (<strong>MINA 2.1+</strong> only)</li>
+<li><em>handshakeComplete</em>: <em>false</em>. It will be set to true when the handshake has been completed.</li>
 </ul>
-<p>Side note: those flags are probably spurious. Some cleanup might be done to get rid of the useless ones.</p>
-<h2 id="onpostadd">onPostAdd</h2>
-<p>This event will initiate an immediate handshake if required. Depending on the perr side, the action will be different.</p>
+<p>Side note: some of those flags are probably spurious. Some cleanup might be done to get rid of the useless ones.</p>
+<h3 id="onpostadd">onPostAdd</h3>
+<p>This event will initiate an immediate handshake if required. Depending on the peer side, the action will be different.</p>
 <ul>
-<li>if we are on the server peer</li>
+<li>if we are on the server peer, it will create the <strong>SslEngine</strong>, initialize it for it to be ready to process incoming data.</li>
+<li>if we are on the client peer, it will create the <strong>SslEngine</strong>, initialize it and send the first handshake message.</li>
 </ul>
+<p>In any case, the session will only be able to process handshake messages starting from this point, until the handshake is completed.</p>
+<p>The consequence is that we can&rsquo;t anymore send messages to the remote peer until the handshake has been completed. However, we need to keep a track of those messages so that the can be published properly once the session has been secured.</p>
+<p>At this point, the session has an instance of a <em>SslHandler</em> in its attribute, if the <em>autoStart</em> flag is set to true, otherwise it will be created when the <em>sessionOpened</em> event is propagated.</p>
+<p>Note: The <em>autStart</em> flag is set to <em>false</em> if we want to do something while processing the <em>sessionCreated</em> event, before the creation of the <em>SslHandler</em> instance. This is typically when you build a filter chain dynamically, injecting a new filter between the <em>HeadFilter</em> and the <em>SslFilter</em>, you don&rsquo;t want the messages to start flowing until the chain is fully built. Most of the time, however, this flag should be set to <em>true</em>.</p>
+<h3 id="packets-handling">Packets handling</h3>
+<p>The underlaying <em>SslEngine</em> will only consume complete handshake packets, while we may receive incomplete ones.</p>
+<p>We need to keep whatever comes until it&rsquo;s complete (ie until the <em>SslEngine.unwrap()</em> does not return a <strong>BUFFER_UNDERFLOW</strong> result). As the underlaying protocol is <strong>TCP</strong>, we may have to gather incoming messages up to the point it contains at least a complete <em>handshake</em> packet.</p>
+<p>Assuming we have to deal with <em>Handhsake</em> packets, there are a few technical use cases:</p>
+<ul>
+<li>
+<p>We have received less than one packet: in this case, we will gather the newly coming data to the pending data. The maximum message size will be limited by the SO_RCVBUF configuration set when initializing the server, and it may be smaller than a <strong>TLS</strong> packet size. In any case, we gather whatever we just received to the pending buffer, increasing its size on the fly. Once we have a complete <strong>TLS</strong> packet, we can process it, remove if from the buffer, and continue from the remaining bytes.</p>
+</li>
+<li>
+<p>we have received one or more than one packet: In this case, we will proceed packet by packet, until we have processed each one of them.</p>
+</li>
+</ul>
+<p>Note: The pending buffer can be pre-allocated to the size set by the SO_RECVBUF parameter, in  order to avoid to allocate it each time we process a new packet.</p>
+<p>Note: Using a circular ByteBuffer would spare the system the need to move the data to the begining of the buffer when it has consumed a <strong>TLS</strong> packet and there are remaining bytes, sadly the <strong>SslEngine</strong> class expect plain <strong>ByteBuffer</strong> instances :-/.</p>
+<p>All the received data are flowing through the <em>SslFilter.messageReceived()</em> method, which delegate the processing to the associated <em>Sslhandler</em> instance:</p>
+<pre><code>    public void messageReceived(NextFilter next, IoSession session, Object message) throws Exception {
+        SslHandler sslHandler = getSslHandler(session);
+        sslHandler.receive(next, IoBuffer.class.cast(message));
+    }
+</code></pre><p>The <em>SslHandler.receive()</em> method will gather the incoming data, then process them. When done, it may have to complete the following steps:</p>
+<ul>
+<li>Write back to the remote peer the constructed messages (either <em>handshake</em> packets or encrypted data packets)</li>
+<li>Send to the application the received messages (only data packets)</li>
+<li>Forward the produced events (<em>SslEvent.SECURED</em> or <em>SslEvent.UNSECURED</em>)</li>
+</ul>
+<h3 id="buffer-management">Buffer management</h3>
+<p>We have different use cases. The first thing is that a TLS record has a limited size, which is the sum of :</p>
+<ul>
+<li>the header (5 bytes) plus some <strong>IV</strong> (<em>Initialisation Vector</em>, 16 bytes)</li>
+<li>the data, 16 384 bytes, ie 2^14, or 32 768 bytes (2^15) for windows.</li>
+<li>some padding (block cipher padding), 256 bytes</li>
+<li>the <strong>MAC</strong> maximum size (48 bytes)</li>
+</ul>
+<p>Most of the time, records will be smaller (and the packet size is stored in the TLS header).</p>
+<p>Now, considering the very nature of <strong>TCP</strong>, we may receive a TLS record in small chunks, or more than one TLS record in a packet of data. We have to deal with both cases.</p>
+<p>We will use an internal pending buffer that will contain the incoming data until they can be fully processed. The important point is that the <em>SslEngine</em> class is using <em>ByteBuffer</em> to get things done, though a set of methods:</p>
+<ul>
+<li><em>wrap(ByteBuffer src, [int offset, int length,] ByteBuffer dst)</em>: Encrypt the data from the source buffer into the destination buffer</li>
+<li><em>unwrap(ByteBuffer src, [int offset, int length,] ByteBuffer dst)</em>: Decrypt the data from the source buffer into the destination buffer</li>
+</ul>
+<p>So it&rsquo;s important, from a performance perspective, to allocate a quite large buffer that will be able to hold at least 2 <em>TLS</em> packets.</p>
+<p>The following schema shows that we are switching from an incoming <em>IoBuffer</em> to a local <em>pendingBuffer</em> then a resulting unencrypted <em>IoBuffer</em> that is propagated to the application:</p>
+<pre><code>                          +----------------------------------------------------------------+
+                          |                                                                |
+                          v                                                                |
++------------------+     +----------------+------------------+        +----------------+   |
+| incoming message | --&gt; | pending buffer | incoming message | --+--&gt; | remaining data | --+
++------------------+     +----------------+------------------+   |    +----------------+
+                                                                 |
+                                                                 |    +----------------+
+                                                                 +--&gt; | uncrypted data | --&gt; Application
+                                                                      +----------------+
+</code></pre><h4 id="receiving-small-chunks">Receiving small chunks</h4>
+<p>In the case we receive a <strong>TLS</strong> record split in several packets, we won&rsquo;t be able to uncrypt them until we have received a full <strong>TLS</strong> record.</p>
+<p>We need to collect at least a full TLS record before calling the <em>SslEngine.unwrap()</em> method, otherwise it will return a <strong>BUFFER_UNDERFLOW</strong> error.</p>
+<p>NOTE: the check is also done inside <em>SSLEngine</em>, but it&rsquo;s a good idea to do it outside, to avoid a good chunk of useless work to be done.</p>
+<p>We use an inner buffer for that purpose, that will cumulate incoming data. This buffer should be large enough to receive at least a <strong>TLS</strong> maximum size bytes, and even more. We will pre-allocate such a buffer, which may be expanded (we may receive more than one <strong>TLS</strong> packet), and shrank (because if we keep it growing, it will use too much memory).</p>
+<h4 id="receiving-multiple-record">Receiving multiple record</h4>
+<p>We may also receive more than one TLS record. In this case, we will need to loop until we have consumed all of them.</p>
+<h2 id="handshake-handling">Handshake handling</h2>
+<p>Now that the <em>SslFilter</em> is set, the server is ready to process the handshake protocol.</p>
+<p>Once the client has sent the first <strong>Handshake</strong> message (<em>ClientHello</em>), and the server has received it, the dialogue is all about completing the handshake exchange, up to the point the connection is secured or cancelled.</p>
+<p>There are multiple phases, but all in all, it&rsquo;s about reading messages and sending back responses.</p>
+<p>The very first message is sent by the client. That also mean we won&rsquo;t be able to process any message that is not part of the handshake: if we have some messages to send to the client, or message to be sent by the client, they will be stored in a queue until the handshake is completed.</p>
+<p>Handshake packets are encoded using a header which always starts with the <strong>0x16</strong> byte. The following two bytes are the <strong>TLS</strong> version, and the next two bytes is the packet size:</p>
+<pre><code>+------+------+------+-----------+
+| 0x16 | 0XMM | 0Xmm | 0xab 0xcd |
++------+------+------+-----------+
+    ^      ^      ^        ^
+    |      |      |        |
+    |      |      |        +-- packet size, from 0 to 2^14 (or 2^15 on Windows)
+    |      |      |        
+    |      |      +----------- minor version
+    |      |
+    |      +------------------ major version
+    |
+    +------------------------- Handshake byte
+</code></pre><p>The major and minor numbers are encoding for:</p>
+<ul>
+<li><em>0x03 0x00</em>: <strong>SSL 3.0</strong> (deprecated)</li>
+<li><em>0x03 0x01</em>: <strong>TLS 1.0</strong> (deprecated)</li>
+<li><em>0x03 0x02</em>: <strong>TLS 1.1</strong></li>
+<li><em>0x03 0x03</em>: <strong>TLS 1.2</strong> and <strong>TLS 1.3</strong></li>
+</ul>
+<p>Beside this header, the handshake message has a type which is encoded in the protocol header:</p>
+<pre><code>+------+-----------+-----------+
+| 0xNN | 0xab 0xcd | 0xabcd... |
++------+-----------+-----------+
+    ^         ^          ^
+    |         |          |
+    |         |          +-- packet data
+    |         |
+    |         +------------- message size
+    |
+    +----------------------- Handshake type
+</code></pre><p>The handshake type is one of:</p>
+<ul>
+<li><em>0x00</em>: <em>hello_request</em>, used by the server to request a new handshake</li>
+<li><em>0x01</em>: <em>client_hello</em></li>
+<li><em>0x02</em>: <em>server_hello</em></li>
+<li><em>0x03</em>: <em>hello_verify_request_RESERVED</em> (<strong>TLS 1.2</strong> and <strong>TLS 1.3</strong>)</li>
+<li><em>0X04</em>: <em>new_session_ticket</em> (<strong>TLS 1.3</strong>)</li>
+<li><em>0x05</em>: <em>end_of_early_data</em> (<strong>TLS 1.3</strong>)</li>
+<li><em>0x06</em>: <em>hello_retry_request_RESERVED</em> (<strong>TLS 1.2</strong> and <strong>TLS 1.3</strong>)</li>
+<li><em>0x08</em>: <em>encrypted_extensions</em> (<strong>TLS 1.2</strong> and <strong>TLS 1.3</strong>)</li>
+<li><em>0x0B</em>: <em>certificate</em></li>
+<li><em>0x0C</em>: <em>server_key_exchange</em> (**TLS 1.0 **and <strong>TLS 1.1</strong>), server_key_exchange_RESERVED (<strong>TLS 1.2</strong> and <strong>TLS 1.3</strong>)</li>
+<li><em>0x0D</em>: <em>certificate_request</em></li>
+<li><em>0x0E</em>: <em>server_hello_done</em> (<strong>TLS 1.0</strong> and <strong>TLS 1.1</strong>), server_hello_done_RESERVED (<strong>TLS 1.2</strong> and <strong>TLS 1.3</strong>)</li>
+<li><em>0x0F</em>: <em>certificate_verify</em></li>
+<li><em>0x10</em>: <em>client_key_exchange</em> (<strong>TLS 1.0</strong> and <strong>TLS 1.1)</strong>, client_key_exchange_RESERVED (<strong>TLS 1.2</strong> and <strong>TLS 1.3</strong>)</li>
+<li><em>0x14</em>: <em>finished</em></li>
+<li><em>0x15</em>: <em>certificate_url_RESERVED</em> (<strong>TLS 1.2</strong> and <strong>TLS 1.3</strong>)</li>
+<li><em>0x16</em>: <em>certificate_status_RESERVED</em> (<strong>TLS 1.2</strong> and <strong>TLS 1.3</strong>)</li>
+<li><em>0x17</em>: <em>supplemental_data_RESERVED</em> (<strong>TLS 1.2</strong> and <strong>TLS 1.3</strong>)</li>
+<li><em>0x18</em>: <em>key_update</em> (<strong>TLS 1.2</strong> and <strong>TLS 1.3</strong>)</li>
+<li><em>0xFE</em>: <em>message_hash</em> (<strong>TLS 1.2</strong> and <strong>TLS 1.3</strong>)</li>
+</ul>
+<p>The idea is to push any received message to the <strong>SSLEngine</strong> instance, asking it for a response message to send back to the remote peer, and so on until we reach the state where the <em>Handshake</em> is completed or aborted.</p>
+<h3 id="sslengine-states">SSLEngine states</h3>
+<p>We have two states to consider:</p>
+<ul>
+<li>The <em>SSLEngine</em> states</li>
+<li>The <em>Handshake</em> states</li>
+</ul>
+<p>The first one deal with the <em>SSLEngine</em> status when called either during the <em>Handshake</em> or the data transfert, and we have 4 of them:</p>
+<ul>
+<li><strong>BUFFER_UNDERFLOW</strong>: The received <strong>TLS</strong> packet does not contain enough information to be correctly handled. In this case, we have to wait for more data from the remote peer, and retry.</li>
+<li><strong>BUFFER_OVERFLOW</strong>: The buffer that was pre-allocated to receive the result of the <em>SSLEngine.wrap()/unwrap()</em> call is not big enough. It needs to be resized, and the call should be done once more. It&rsquo;s clear that this should never happen, which mean we should always allocate a big enough buffer to receive the processed data.</li>
+<li><strong>CLOSED</strong>: The <em>SSLEngine</em> has been closed for one reason or another. We need to send the encrypted data to the remote peer, and shutdown the session.</li>
+<li><strong>OK</strong>: The data processing was fine, we can go on with the generated buffer.</li>
+</ul>
+<p>The second one deals with the <em>Handshake</em> processing. We have 5 different states:</p>
+<ul>
+<li><strong>NEED_UNWRAP</strong>: The <em>SSLEngine</em> is expecting to receive some <strong>TLS</strong> packet to process, ie a <strong>TLS</strong> protocol message from the remote peer.</li>
+<li><strong>NEED_WRAP</strong>:  The <em>SSLEngine</em> is expecting to generate some <strong>TLS</strong> response packet, ie a <strong>TLS</strong> protocol message to send to the remote peer.</li>
+<li><strong>NEED_TASK</strong>: Some expensive task are to be executed, and it can be done in a separate thread to avoid blocking the <em>SSLEngine</em> during this processing.</li>
+<li><strong>NOT_HANDSHAKING</strong>:</li>
+</ul>
+<p>The deal when processing the <em>Handshake</em> protocol is to play with those two status. We start with the <em>SSLEngine</em> status after each operation, then when we get an <strong>OK</strong>, we can check the <em>Handshake</em> status to get to the next step.</p>
+<h3 id="synchronous-vs-asynchonous-tasks">Synchronous vs asynchonous tasks</h3>
+<p>There are more than just <em>wrap()</em> and <em>unwrap()</em> synchronous methods, when it comes to interact with the <em>SSLEngine</em> instance: it may provide a list of asynchronous tasks to execute. The idea is to avoid blocking the instance for long operations. However, doing so will still require some kind of synchronisation: when the tasks are completed, you need to proceed with the next steps (likely <em>wrap</em>).</p>
+<p>We may decide to execute each task in the current thread, synchronously, or to delegate the execution to a separate thread.
+In the first case, the <em>Handshake</em> may take quite a while to be processed, as some long operation may have to be executed (like the validation of a cettificate froma  remote peer). Assuming we may have more than one task to process, the global time will be the sum of all tasks.
+In the second case, we have a different problem: if we delegate the tasks to separate threads, then we have to implement a mechanism to know when all the delegated tasks are completed.</p>
+<p>The biggest advantage of the first approach is that it&rsquo;s easy to implement: we iterate on all the tasks, one after the other, and when done, we can keep going with the handshake processing.</p>
+<p>The biggest advantage of the second approach is that we run the tasks in parallel, optimizing the CPU usage, likely speeding up the <em>Handshake</em> completion.</p>
+<p>The biggest drawback of the first approach is the increased time taken to handle the tasks, slowing down the <em>Hansdhake</em> processing.</p>
+<p>The biggest drawback of the second approach is potential usage of many threads, causing costly context switches when many session are processing a handshake. Using a thread pool also risks to cause a starvation and some augmented delay, compared to the first approach.</p>
+<p>One more thing to consider: if we want to use <em>Virtual Threads</em>, as they still depend on a underlying physical thread, the starvation problem remains&hellip;</p>
+<p>Note: all the <em>SSLEngine</em> methods (<em>wrap()</em>, <em>unwrap()</em>, etc) are synchronized, so once you start a delegated task, any other <em>Handshake</em> operation will be suspended, waiting for the task to be completed. That means tasks can be executed concurrently, but no other operation.</p>
+<pre><code>(SSLConsumer)
+      ^
+      |
+      +-- [AlertConsumer]
+      |
+      +-- [CertificateStatusConsumer]
+      |
+      +-- [ClientHelloConsumer]
+      |
+      +-- [ClientKeyExchangeConsumer]
+      |
+      +-- [DHClientKeyExchangeConsumer]
+      |
+      +-- [DHServerKeyExchangeConsumer]
+      |
+      +-- [ECDHClientKeyExchangeConsumer]
+      |
+      +-- [ECDHEClientKeyExchangeConsumer]
+      |
+      +-- [ECDHServerKeyExchangeConsumer]
+      |
+      +-- [EncryptedExtensionsConsumer]
+      |
+      +-- [HelloRequestConsumer]
+      |
+      +-- [KeyUpdateConsumer]
+      |
+      +-- [KrbClientKeyExchangeConsumer]
+      |
+      +-- [NewSessionTicketConsumer]
+      |
+      +-- [RSAClientKeyExchangeConsumer]
+      |
+      +-- [RSAServerKeyExchangeConsumer]
+      |
+      +-- [S30CertificateVerifyConsumer]
+      |
+      +-- [ServerHelloConsumer]
+      |
+      +-- [ServerHelloDoneConsumer]
+      |
+      +-- [ServerKeyExchangeConsumer]
+      |
+      +-- [SSLHandshake]
+      |
+      +-- [T10CertificateRequestConsumer]
+      |
+      +-- [T10CertificateVerifyConsumer]
+      |
+      +-- [T10ChangeCipherSpecConsumer]
+      |
+      +-- [T12CertificateConsumer]
+      |
+      +-- [T12CertificateRequestConsumer]
+      |
+      +-- [T12CertificateVerifyConsumer]
+      |
+      +-- [T12FinishedConsumer]
+      |
+      +-- [T13CertificateConsumer]
+      |
+      +-- [T13CertificateRequestConsumer]
+      |
+      +-- [T13CertificateVerifyConsumer]
+      |
+      +-- [T13ChangeCipherSpecConsumer]
+      |
+      +-- [T13FinishedConsumer]
+</code></pre><p>Here is an exemple for the <em>CLIENT_HELLO</em> message on the server side:</p>
+<h2 id="application-data-handling">Application Data handling</h2>
+<p>Once the handshake has been successful, we can start exchange data with the remote peer. Those data will be encrypted, then transmitted into a <strong>TLS</strong> packet, and on the remote peer, the data are unencypted, then transmitted to the application handler:</p>
+<pre><code>    Sender peer                               TLS packets              Network
++------------------+                      +-----------------+      
+| Application data | --&gt; {encryption} --&gt; | i5*du7!!yyho_&amp;y | ------------+
++------------------+                      +-----------------+             |
+                                                                          v 
+                                                                    _ ___________ 
+                                                                   (_)___________)
+                                                                          |
++------------------+                      +-----------------+             |
+| Application data | &lt;-- {decryption} &lt;-- | i5*du7!!yyho_&amp;y | &lt;-----------+
++------------------+                      +-----------------+
+   Receiving peer                             TLS packets
+</code></pre><p>Each encrypted data are stored into <strong>TLS</strong> packet (and we may need more than one <strong>TLS</strong> packets to store the whole data).</p>
+<p>The encryption and decryption are done by the <strong>SslEngine</strong> instance of the session.</p>
+<p>Note: The <strong>TLS</strong> packets contain opaque data (bytes), so there must be some added logic to make sense of those data for the application to process them.</p>
+<p>In any case, we have two use cases:</p>
+<ul>
+<li>Writing data</li>
+<li>Reading data</li>
+</ul>
+<h3 id="reading-data">Reading data</h3>
+<p>Let&rsquo;s start with the reading side. As explained upper, we receive bytes which are parts or <strong>TLS</strong> packets, or complete <strong>TLS</strong> packets. We will decrypt them only when we have enough bytes to form a complete <strong>TLS</strong> packet. In this case, we just have to tell the <strong>SslEngine</strong> instance to decrypt it, which will product a decrypted buffer containing the original data. Last, not least, we have to send those data to the application handler.</p>
+<p>The process is described by the following schema:</p>
+<pre><code>[[encrypted data]]           .--------.
+        |                    |        |
+        +--------------&gt; [unwrap]     | --&gt; [decrypted data] --+ 
+                             |        |                        |
+                             .________.                        |
+                                                               v
+                              SslEngine        nextFilter.received([decrypted data])
+                              instance
+</code></pre><p>This is a bit simplified, we have some additional steps to follow:</p>
+<ul>
+<li>Check that we have received enough data to be able to pass it to the <em>SslEngine</em> instance (ie we have received at least a complete <em>TLS</em> data packet)</li>
+<li>Allocate a new buffer that will receive the decrypted data</li>
+<li>Check the status of the <em>SslEngine</em> instance before and after the decryption, and act accordingly</li>
+<li>Loop on the received data</li>
+</ul>
+<p>All in all, we can see that we end with a call to the <em>SSLEngine.unwrap()</em> method, which is responsible for decoding what ha sbeen received.</p>
+<p>Otherwise, it&rsquo;s pretty straightforward. Here are the calls</p>
+<pre><code>SslFilter.messageReceived()
+ |
+ +-- SslHandler.receive()
+      | 
+      +-- SslHandler.receiveStart(next, message);       // (1)
+      |    |
+      |    +-- SslHandler.resumeDecodeBuffer(message)   // (2)
+      |    |
+      |    +-- SslHandler.receiveLoop(next, source)     // (3)
+      |    |    |
+      |    |    +-- check if the inbound channel has been closed        // (4)
+      |    |    |
+      |    |    +-- SslHandler.allocateAppBuffer(source.remaining())    // (5)
+      |    |    |
+      |    |    +-- SSLEngine.unwrap(source.buf(), dest.buf())          // (6)
+      |    |
+      |    +-- SslHandler.suspendDecodeBuffer(source)   // (7)
+      |
+      +-- SslHandler.throwPendingError(next)           // (8)
+      |
+      +-- SslHandler.forwardWrites(next)                // (9)
+      |
+      +-- SslHandler.forwardReceived(next)              // (10)
+      |    |
+      |    +-- next.messageReceived(mSession, x)        // (11) Up to the Application handler
+      |         
+      +-- SslHandler.forwardEvents(next)                // (12)
+</code></pre><ul>
+<li>(1) Process the incoming message</li>
+<li>(2) Accumulate the received message in a session buffer</li>
+<li>(3) Loop until the session buffer has been consumed, and as soon as we have a complete <strong>TLS</strong> packet</li>
+<li>(4) Check if the remote peer has closed the connection. If so, shutdown the <strong>TLS</strong> layer</li>
+<li>(5) Allocate a buffer to store the decrypted message</li>
+<li>(6) Decrypt the message.</li>
+<li>(7) Clean up the decoding buffer</li>
+<li>(8) Manage any possible errors</li>
+<li>(9) Process the pending writes</li>
+<li>(10) Process the decrypted message</li>
+<li>(11) Call the next filter in the stack with the decrypted message, if we are able of doing so</li>
+<li>(12) This all is necessary when processing the handshake, it does nothing here</li>
+</ul>
+<p>Note: In step (4), we need to verify that the remote peer hasn&rsquo;t closed the outgoing connection. If so, we have to write everything that is pending.</p>
+<h3 id="writing-data">Writing data</h3>
 
 
             
