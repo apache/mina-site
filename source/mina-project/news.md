@@ -5,7 +5,7 @@ title: News
 
 # News
 
-## MINA 2.1.9, 2.0.26 released _posted on October, 15, 2023_
+## MINA 2.1.9, 2.0.26 released _posted on October, 15, 2024_
 
 The MINA project is pleased to announce the MINA 2.1.9 and 2.0.26 release.
 
