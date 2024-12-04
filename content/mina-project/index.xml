@@ -761,7 +761,7 @@ Apache MINA is often called:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/news.html</guid>
-      <description>News MINA 2.1.9, 2.0.26 released posted on October, 15, 2023 The MINA project is pleased to announce the MINA 2.1.9 and 2.0.26 release.
+      <description>News MINA 2.1.9, 2.0.26 released posted on October, 15, 2024 The MINA project is pleased to announce the MINA 2.1.9 and 2.0.26 release.
 Changes Those versions are a maintenance release, fixing a bug in the way we treat Strings when reading a IoBuffer:
  DIRMINA-1181: Exception thrown when attempting to decode certain UTF-16 chars  MINA 2.2.3, 2.1.8, 2.0.25 released posted on September, 12, 2023 The MINA project is pleased to announce the MINA 2.</description>
     </item>
