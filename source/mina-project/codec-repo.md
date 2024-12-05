@@ -26,9 +26,9 @@ The table below summarizes some of the known codecs
 | Kerberos | [Apache Directory](http://directory.apache.org/)| Kerberos protocol Codecs |
 | NTP | [Apache Directory](http://directory.apache.org/) | NTP protocol Codecs |
 | DHCP | [Apache Directory](http://directory.apache.org/) | DHCP protocol Codecs |
-| [MRTMP](http://jira.red5.org/confluence/display/docs/Chapter%2016.%20Clustering)| [Red5](https://www.red5.net/) | Codecs for Multiplexing RTMP |
-| RTMP | [Red5](http://www.red5.org/) | Codecs for RTMP |
-| RTSP | [Red5](http://www.red5.org/) | Codecs for RTSP |
+| [MRTMP](http://jira.red5.net/confluence/display/docs/Chapter%2016.%20Clustering)| [Red5](https://www.red5.net/) | Codecs for Multiplexing RTMP |
+| RTMP | [Red5](http://www.red5.net/) | Codecs for RTMP |
+| RTSP | [Red5](http://www.red5.net/) | Codecs for RTSP |
 | SMTP | [MailsterSMTP](http://tedorg.free.fr/en/projects.php?section=smtp)</a> | SMTP Codecs |
 | AMQP | [Apache Qpid](http://cwiki.apache.org/qpid/)</a> | AMQP Codecs |
 | XMPP | <a href="" class="external-link" rel="nofollow">[Jive Software Openfire](http://www.jivesoftware.com/products/openfire/)| XMPP Codecs |
