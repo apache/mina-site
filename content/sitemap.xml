@@ -219,7 +219,7 @@
   
   <url>
     <loc>https://mina.apache.org/</loc>
-    <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+    <lastmod>2024-12-06T06:47:36+01:00</lastmod>
   </url>
   
   <url>
@@ -234,7 +234,7 @@
   
   <url>
     <loc>https://mina.apache.org/mailing-lists.html</loc>
-    <lastmod>2021-10-05T01:19:28+02:00</lastmod>
+    <lastmod>2024-12-06T06:47:36+01:00</lastmod>
   </url>
   
   <url>
@@ -845,6 +845,11 @@
   <url>
     <loc>https://mina.apache.org/ftpserver-project/ftpserver_as_windows_service.html</loc>
     <lastmod>2020-02-24T11:41:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/issue-tracking.html</loc>
+    <lastmod>2024-12-06T06:47:36+01:00</lastmod>
   </url>
   
   <url>
