@@ -18,6 +18,10 @@ More specifically, follow those simple rules :
 * You may have find a bug in MINA, but it's way more likely that your code is buggy.
 * Don't be afraid to post, even if you think your english suck. Most of us are not english native speakers, anyways ...
 
+Each subprojects use the same mailing list, so please remember to tag your post with the sub-project name, like:
+
+"Question about XXX [mina-sshd]" for *SSHd* related mail or "Question about YYY [mina]" for the *MINA* framework related mail.
+
 Thanks for listening !
 
 # Users mailing list

@@ -10,9 +10,13 @@ Apache MINA is often called:
 * client server framework library, or
 * a networking socket library
 
-Apache MINA comes with many subprojects :
+Apache MINA comes with a core project and many subprojects :
 
-* AsyncWeb : An HTTP server build on top of MINA asynchronous framework
-* FtpServer : A FTP server 
-* SSHd : A Java library supporting the SSH protocol
-* Vysper : An XMPP server
+* [Apache MINA](mina-project/) : The MINA framework, on which the sub-projects are based
+
+and 
+
+* [Apache AsyncWeb](asyncweb-project/) : An HTTP server build on top of MINA asynchronous framework
+* [Apache FtpServer](ftp-project/) : A FTP server
+* [Apache SSHd](sshd-project/) : A Java library supporting the SSH protocol
+* [Apache Vysper](vysper-project/) : An XMPP server
