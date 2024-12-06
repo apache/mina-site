@@ -468,6 +468,18 @@ Organizations who helped our project &amp;hellip; We would also like to thank th
     </item>
     
     <item>
+      <title>Apache MINA Issue Tracking</title>
+      <link>https://mina.apache.org/issue-tracking.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/issue-tracking.html</guid>
+      <description>Our project uses JIRA, a Java EE based issue tracking and project management application, and GitHub as an alternative for some subprojects.
+Use either one, but please don&amp;rsquo;t file the same issue at both.
+If neither option is suitable for you, issues can also be reported via e-mail as a last resort.
+General guidance First, this is the best place to submit bugs (or what you think is a bug). The mailing list is a short term memory place, don&amp;rsquo;t expect your problem to be answered if it&amp;rsquo;s not in the next couple of days you posted on it.</description>
+    </item>
+    
+    <item>
       <title>Apache MINA Mailing Lists</title>
       <link>https://mina.apache.org/mailing-lists.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1702,18 +1714,6 @@ Security mode Explicit Security (default) In this mode server supports both secu
 &amp;lt;install dir&amp;gt;bin\service install  This will create a service called Apache FtpServer that can be started and stopped as a usual service.
 As a second parameter, the service identifier can be provided. This would normally be used if multiple FtpServer services should be installed, for example:
 &amp;lt;install dir&amp;gt;bin\service install ftpd2  Without any further options, this will use the default configuration.</description>
-    </item>
-    
-    <item>
-      <title>Issue Tracking</title>
-      <link>https://mina.apache.org/issue-tracking.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mina.apache.org/issue-tracking.html</guid>
-      <description>Our project uses JIRA, a Java EE based issue tracking and project management application, and GitHub as an alternative for some subprojects.
-Use either one, but please don&amp;rsquo;t file the same issue at both.
-If neither option is suitable for you, issues can also be reported via e-mail as a last resort.
-General guidance First, this is the best place to submit bugs (or what you think is a bug). The mailing list is a short term memory place, don&amp;rsquo;t expect your problem to be answered if it&amp;rsquo;s not in the next couple of days you posted on it.</description>
     </item>
     
     <item>
