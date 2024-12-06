@@ -1,6 +1,5 @@
 ---
-type: mina
-title: Issue Tracking
+title: Apache MINA Issue Tracking
 ---
 
 Our project uses [JIRA](http://www.atlassian.com/software/jira), a Java EE based issue tracking and project management application, and GitHub as an alternative for some subprojects.
