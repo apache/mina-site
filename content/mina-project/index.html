@@ -61,9 +61,9 @@
                 </ul>
                 <h5>Latest Downloads</h5>
                 <ul>
-                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.26</a></li>
-                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.9</a></li>
-                    <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.3</a></li>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.27</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.10</a></li>
+                    <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.4</a></li>
                     <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
                 </ul>
                 <h5>Documentation</h5>
@@ -82,12 +82,12 @@
                     <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
                     <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
                     <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.26</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.9</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.3</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.26</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.9</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.3</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.27</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.10</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.4</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.27</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.10</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.4</a></li>
                     <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
                     <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
                     <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
@@ -136,6 +136,50 @@
 <div class="news">
     
 <h1 id="news">News</h1>
+<h2 id="mina-224-2110-2027-released-_posted-on-december-24-2024_">MINA 2.2.4, 2.1.10, 2.0.27 released <em>posted on December, 24, 2024</em></h2>
+<p>The MINA project is pleased to announce the MINA 2.2.4, 2.1.10 and 2.0.27 release.</p>
+<h3 id="cve-2024-52046httpswwwcveorgcverecordidcve-2024-52046"><a href="https://www.cve.org/CVERecord?id=CVE-2024-52046">CVE-2024-52046</a></h3>
+<p><strong>MINA</strong> applications using unbounded deserialization may allow <strong>RCE</strong>.</p>
+<p>Affected versions:</p>
+<ul>
+<li>Apache MINA 2.0 through 2.0.26</li>
+<li>Apache MINA 2.1 through 2.1.9</li>
+<li>Apache MINA 2.2 through 2.2.3</li>
+</ul>
+<p>Description:</p>
+<p>The <em>ObjectSerializationDecoder</em> in Apache <strong>MINA</strong> uses Java’s native deserialization protocol to process
+incoming serialized data but lacks the necessary security checks and defenses. This vulnerability allows
+attackers to exploit the deserialization process by sending specially crafted malicious serialized data,
+potentially leading to remote code execution (<strong>RCE</strong>) attacks.</p>
+<p>This issue affects <strong>MINA</strong> core versions 2.0.X, 2.1.X and 2.2.X, and is fixed by the releases 2.0.27, 2.1.10 and 2.2.4.</p>
+<p>It&rsquo;s also important to note that an application using <strong>MINA</strong> core library will only be affected if the <em>IoBuffer#getObject()</em> method is called, and this specific method is potentially called when adding a <em>ProtocolCodecFilter</em> instance using the <em>ObjectSerializationCodecFactory</em> class in the filter chain. If your application is specifically using those classes, you have to upgrade to the latest version of <strong>MINA</strong> core library.</p>
+<p><strong>Upgrading will  not be enough: you also need to explicitly allow the classes the decoder will accept in the <em>ObjectSerializationDecoder</em> instance, using one of the three new methods:</strong></p>
+<pre><code>    /**
+     * Accept class names where the supplied ClassNameMatcher matches for
+     * deserialization, unless they are otherwise rejected.
+     *
+     * @param classNameMatcher the matcher to use
+     */
+    public void accept(ClassNameMatcher classNameMatcher)
+
+    /**
+     * Accept class names that match the supplied pattern for
+     * deserialization, unless they are otherwise rejected.
+     *
+     * @param pattern standard Java regexp
+     */
+    public void accept(Pattern pattern) 
+
+    /**
+     * Accept the wildcard specified classes for deserialization,
+     * unless they are otherwise rejected.
+     *
+     * @param patterns Wildcard file name patterns as defined by
+     *                  org.apache.commons.io.FilenameUtils#wildcardMatch(String, String)
+     */
+    public void accept(String... patterns)
+</code></pre><p>By default, the decoder will reject <em>all</em> classes that will be present in the incoming data.</p>
+<p>Note: The <strong>FtpServer</strong>, <strong>SSHd</strong> and <strong>Vysper</strong> sub-project are not affected by this issue.</p>
 <h2 id="mina-219-2026-released-_posted-on-october-15-2024_">MINA 2.1.9, 2.0.26 released <em>posted on October, 15, 2024</em></h2>
 <p>The MINA project is pleased to announce the MINA 2.1.9 and 2.0.26 release.</p>
 <h3 id="changes">Changes</h3>
