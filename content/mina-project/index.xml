@@ -765,7 +765,7 @@ Apache MINA is often called:
 CVE-2024-52046 MINA applications using unbounded deserialization may allow RCE.
 Affected versions:
  Apache MINA 2.0 through 2.0.26 Apache MINA 2.1 through 2.1.9 Apache MINA 2.2 through 2.2.3  Description:
-The ObjectSerializationDecoder in Apache MINA uses Java’s native deserialization protocol to process incoming serialized data but lacks the necessary security checks and defenses.</description>
+The ObjectSerializationDecoder in Apache MINA uses Java native deserialization protocol to process incoming serialized data but lacks the necessary security checks and defenses.</description>
     </item>
     
     <item>
