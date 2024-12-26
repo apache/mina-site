@@ -21,7 +21,7 @@ Affected versions:
 
 Description:
 
-The *ObjectSerializationDecoder* in Apache **MINA** uses Java’s native deserialization protocol to process
+The *ObjectSerializationDecoder* in Apache **MINA** uses **Java** native deserialization protocol to process
 incoming serialized data but lacks the necessary security checks and defenses. This vulnerability allows
 attackers to exploit the deserialization process by sending specially crafted malicious serialized data,
 potentially leading to remote code execution (**RCE**) attacks.
