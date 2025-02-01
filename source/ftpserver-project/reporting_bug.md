@@ -7,6 +7,8 @@ title: FtpServer Reporting Bugs
 
 We are using JIRA to track all FtpServer issues including bugs. Please visit our [issue tracker page](http://issues.apache.org/jira/browse/FTPSERVER) to report a bug. 
 
+As an alternative you can also create some **[GitHub issues](https://github.com/apache/mina-ftpserver/issues)**
+
 ## How to report a bug
 
 Writing a bug report with detailed information will help us to fix your problem sooner.

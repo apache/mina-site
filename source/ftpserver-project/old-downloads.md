@@ -5,6 +5,14 @@ title: FtpServer Older Downloads
 
 # Older FtpServer Releases
 
+## FtpServer 1.2.x
+
+<center>
+
+| Version| Download Links | Date |
+|:-:|:-:|:-:|
+| Apache FtpServer 1.2.0 | [Download](https://archive.apache.org/dist/mina/ftpserver/1.2.0/) | 13/Mar/2022 |
+
 ## FtpServer 1.1.x
 
 <center>

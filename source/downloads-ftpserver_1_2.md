@@ -4,10 +4,11 @@ title: Downloads
 
 # Latest FTPServer Releases
 
-The latest release is the [Apache FtpServer 1.2.0 Release](ftpserver-project/download_1_2.html)
+The latest release is the [Apache FtpServer 1.2.1 Release](ftpserver-project/download_1_2.html)
 
 # All Releases
 
+* [Apache FtpServer 1.2.1 Release - Feb 1th, 2025](ftpserver-project/download_1_2.html)
 * [Apache FtpServer 1.2.0 Release - Mar 13th, 2022](ftpserver-project/download_1_2.html)
 * [Apache FtpServer 1.1.4 Release - Mar 13th, 2022](ftpserver-project/download_1_1.html)
 * [Apache FtpServer 1.1.3 Release - Feb 25th, 2022](https://archive.apache.org/dist/mina/ftpserver/1.1.3)

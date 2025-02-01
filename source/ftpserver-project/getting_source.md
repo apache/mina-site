@@ -7,6 +7,8 @@ title: FtpServer Getting Source
 
 Sources for the Apache MINA projects are currently managed through GIT. Instructions on GIT use can be found at <http://git-scm.com/book/>.
 
+There is also a mirror on [GitHub](https://github.com/apache/mina-ftpserver)
+
 ## Normal Git Access
 
 Anyone can check code out of Git. You only need to specify a username and password in order to update the Git repository, and only MINA committers have the permissions to do that. We run Git over standard HTTPS, so hopefully you won't have problems with intervening firewalls.
@@ -28,6 +30,15 @@ write access :
   git clone https://gitbox.apache.org/repos/asf/mina-ftpserver.git ftpserver
 
 You will not be able to commit into the project if you are not a committer.
+
+There are currently two working branches:
+
+* 1.2.X, the mot recent development branch
+* 1.1.X, a maintainance branche
+
+All the other branches are dead wood, including the 'master' branch
+
+Be sure to checkout the **1.2.X** branch if you want to participate in the latest branch.
 
 # Documentation
 The Website documentation is published via Apache SVN pubsub. The website source resides at

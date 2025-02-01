@@ -348,7 +348,7 @@ Then copy the packages :
 
 ```bash
 $ cd target/checkout/distributions/target
-$ cp apache-ftpserver-<vversion>-* ~/mina/dist/dev/mina/ftpserver/<version>/
+$ cp apache-ftpserver-<version>-* ~/mina/dist/dev/mina/ftpserver/<version>/
 ```
 
 Last, not least, commit your changes
@@ -433,10 +433,10 @@ The packages should now be available on https://dist.apache.org/repos/dist/relea
 
 ### Step 12: Deploy Web Reports (JavaDoc and JXR)
 
-The javadoc and xref files have been generated in step 6, it's now time to push them into the production site. They are generated in the following directory :
+The javadoc has been generated in step 6, it's now time to push them into the production site. It has been generated in the following directory :
 
 ```text
-target/checkout/target/site
+target/checkout/target/reports
 ```
 
 We will copy the ```apidocs``` directory.
@@ -447,7 +447,7 @@ First create the folder for the version (change the &lt;version&gt; part):
 
 ```
 $ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/ftpserver/<version>/'
-$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/mina/<version>/apidocs'
+$ curl -u <your asf id> -X MKCOL 'https://nightlies.apache.org/mina/ftpserver/<version>/apidocs'
 ```
 
 Each of those commands will ask for your ASF password.
@@ -469,7 +469,7 @@ pass: <your asf password> (will be stored encrypted)
 Then copy the directory (change the &lt;version&gt; part):
 
 ```
-cd target/checkout/target/site
+cd target/checkout/target/reports
 rclone copy --progress apidocs nightlies:/mina/ftpserver/<version>/apidocs
 ```
 
@@ -482,25 +482,23 @@ RewriteRule ^latest/(.*)$ https://nightlies.apache.org/mina/ftpserver/<version>/
 
 Save and commit the file, the web site should be automatically generated and published.
 
-### Step 13: Wait 24 hours
-
-We have to wait at least 24 hours for all mirrors to retrieve the uploaded files before making any announcement. I'd recommend you to wait for 48 hours because some mirrors might lag due to various issues.
-
-### Step 14: Update the Links in Web Site
+### Step 13: Update the Links in Web Site
 
 Some pages have to be updated. Assuming the MINA site has been checked out in ~/mina/site (this can be done with the command <em>$ git clone http://gitbox.apache.org/repos/asf/mina-site.git ~/mina/mina-site</em>), here are the pages that need to be changed :
 
 * /config.toml: update the `version_ftpserver` variable with the new version.
-* /source/ftpserver-project/downloads-&lt;version&gt;.md: Add the page for this version
-* /source/downloads.md: Refer to the previous page
+* /source/ftpserver-project/downloads.md: Refer to the previous page
+* /source/ftpserver-project/downloads_1_2.md: Refer to the previous page
+* /source/ftpserver-project/old_downloads.md: Refer to the previous page
+* /source/donwloads-ftpserver_1_2.md: Update the version
 
 Commit the changes, and publish the web site, you are done !
 
-### Step 15: Wait another 24 hours
+### Step 14: Wait 24 hours
 
 We need to wait until any changes made in the web site and metadata file(s) go live.
 
-### Step 16: Announce the New Release
+### Step 15: Announce the New Release
 
 An announcement message can be sent to [mailto:announce@apache.org], [mailto:announce@apachenews.org], [mailto:users@mina.apache.org] and [mailto:dev@mina.apache.org].  Please note that announcement messages are rejected unless your from-address ends with `@apache.org`.  Plus, you shouldn't forget to post a news to the MINA site main page.
 
