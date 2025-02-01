@@ -21,13 +21,14 @@ Getting the Binary Distributions    Description Download Link SHA256 hashes SHA5
     </item>
     
     <item>
-      <title>Apache FtpServer 1.2.0 Release</title>
+      <title>Apache FtpServer 1.2.1 Release</title>
       <link>https://mina.apache.org/ftpserver-project/download_1_2.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/ftpserver-project/download_1_2.html</guid>
-      <description>Apache FtpServer 1.2.0 Release New Features in 1.2.0 This release contains a change in the API. You can now select more than one supported TLS algorithm when configuring a server.
-Getting the Binary Distributions    Description Download Link SHA256 hashes SHA512 hashes PGP Signature file of download     zip distribution apache-ftpserver-1.2.0-bin.zip SHA256 SHA512 ASC   tar.gz distribution apache-ftpserver-1.2.0-bin.tar.gz SHA256 SHA512 ASC   tar.bz2 distribution apache-ftpserver-1.</description>
+      <description>Apache FtpServer 1.2.1 Release New Features in 1.2.1 This release includes many fixes, and now depends on MINA core 2.2.4.
+Here is the list of fixes and modifications:
+o FTPSERVER-515: Bump Apache Log4j from 2.17.2 to 2.19.0 o FTPSERVER-510:Update Apache parent POM from 25 to 26 o FTPSERVER-509: Enable GitHub Action build o FTPSERVER-506: Fix binary compatibility issues. o FTPSERVER-499: FtpResponseEncoder is not thread safe o FTPSERVER-446: Implementing User Manager not possible in OSGi environment</description>
     </item>
     
     <item>
@@ -121,8 +122,8 @@ The XML document scaffold looks like this:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/ftpserver-project/contributors.html</guid>
-      <description>Contributors Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.
- Rana Battacharyya Niklas Gustavsson Paul Hammant David Latorre Emmanuel L&amp;eacute;charny Sai Pullabhotla Sergey M Vladimirov  </description>
+      <description>Contributors Committers The following is a list of developers with commit privileges that have directly contributed to the project in one way or another (in alphabetic order).
+ Rana Battacharyya Sebastan Bazley Herv&amp;eacute; Boutemy Gary Gregory Niklas Gustavsson Paul Hammant Nikola Ken Barozzi David Latorre Trustin Lee Emmanuel L&amp;eacute;charny Sai Pullabhotla Johnny Valiere Julien Vermillard Sergey M Vladimirov Mark Webb XenoAmess  </description>
     </item>
     
     <item>
@@ -231,6 +232,7 @@ Patches The best chance of getting your bug or feature fixed is to provide a pat
       
       <guid>https://mina.apache.org/ftpserver-project/getting_source.html</guid>
       <description>Overview Sources for the Apache MINA projects are currently managed through GIT. Instructions on GIT use can be found at http://git-scm.com/book/.
+There is also a mirror on GitHub
 Normal Git Access Anyone can check code out of Git. You only need to specify a username and password in order to update the Git repository, and only MINA committers have the permissions to do that. We run Git over standard HTTPS, so hopefully you won&amp;rsquo;t have problems with intervening firewalls.</description>
     </item>
     
@@ -314,8 +316,7 @@ Example &amp;lt;messages languages=&amp;quot;se, no ,da&amp;quot;&amp;gt;  messa
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/ftpserver-project/old-downloads.html</guid>
-      <description>Older FtpServer Releases FtpServer 1.1.x     Version Download Links Date     Apache FtpServer 1.1.3 Download 25/Feb/2022   Apache FtpServer 1.1.2 Download 03/Jan/2022   Apache FtpServer 1.1.1 Download 03/Jul/2020   Apache FtpServer 1.1.0 Download 02/Jun/2019     FtpServer 1.0.x Note that this version is not anymore maintained.
-    Version Download Links Date     Apache FtpServer 1.</description>
+      <description>Older FtpServer Releases FtpServer 1.2.x     Version Download Links Date     Apache FtpServer 1.2.0 Download 13/Mar/2022    FtpServer 1.1.x     Version Download Links Date     Apache FtpServer 1.1.3 Download 25/Feb/2022   Apache FtpServer 1.1.2 Download 03/Jan/2022   Apache FtpServer 1.1.1 Download 03/Jul/2020   Apache FtpServer 1.1.0 Download 02/Jun/2019     FtpServer 1.</description>
     </item>
     
     <item>
@@ -345,6 +346,7 @@ umask 002 Please note that you have to edit the correct shrc file. If you use cs
       
       <guid>https://mina.apache.org/ftpserver-project/reporting_bug.html</guid>
       <description>Reporting a Bug We are using JIRA to track all FtpServer issues including bugs. Please visit our issue tracker page to report a bug.
+As an alternative you can also create some GitHub issues
 How to report a bug Writing a bug report with detailed information will help us to fix your problem sooner.
  Make sure if the bug you are going to report doesn&amp;rsquo;t exist yet. Attaching JUnit test case which reproduces the problem will put your report in our highest priority.</description>
     </item>

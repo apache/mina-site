@@ -64,11 +64,11 @@
                     <li><a href="/ftpserver-project/index.html">Home</a> </li>
                     <li><a href="/ftpserver-project/features.html">Features</a> </li>
                     <li><a href="/ftpserver-project/download_1_1.html">FtpServer 1.1.4</a></li>
-                    <li><a href="/ftpserver-project/download_1_2.html">FtpServer 1.2.0</a></li>
+                    <li><a href="/ftpserver-project/download_1_2.html">FtpServer 1.2.1</a></li>
                     <li><a href="/ftpserver-project/old-downloads.html">Old Downloads</a></li>
                     <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
                     <li><a href="/ftpserver-project/gen-docs/latest-1.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 1.1.4</a></li>
-                    <li><a href="/ftpserver-project/gen-docs/latest-1.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 1.2.0</a></li>
+                    <li><a href="/ftpserver-project/gen-docs/latest-1.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 1.2.1</a></li>
                     <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
                     <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
                     <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
@@ -337,7 +337,7 @@ $ svn co https://dist.apache.org/repos/dist/dev/mina/ftpserver ~/mina/dist/dev/m
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir ~/mina/dist/dev/mina/ftpserver/1.1.3
 </code></pre></div><p>Then copy the packages :</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">cd</span> target/checkout/distributions/target
-$ cp apache-ftpserver-&lt;vversion&gt;-* ~/mina/dist/dev/mina/ftpserver/&lt;version&gt;/
+$ cp apache-ftpserver-&lt;version&gt;-* ~/mina/dist/dev/mina/ftpserver/&lt;version&gt;/
 </code></pre></div><p>Last, not least, commit your changes</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ svn add ~/mina/dist/dev/mina/ftpserver/&lt;version&gt;/
 $ svn ci ~/mina/dist/dev/mina/ftpserver/&lt;version&gt;/ -m <span style="color:#b44">&#34;Apache FtpServer &lt;version&gt; packages&#34;</span>
@@ -396,13 +396,13 @@ $ svn ci &lt;version&gt;
 $ <span style="color:#a2f">exit</span>
 </code></pre></div><p>The packages should now be available on <a href="https://dist.apache.org/repos/dist/release/mina/ftpserver/">https://dist.apache.org/repos/dist/release/mina/ftpserver/</a><version></p>
 <h3 id="step-12-deploy-web-reports-javadoc-and-jxr">Step 12: Deploy Web Reports (JavaDoc and JXR)</h3>
-<p>The javadoc and xref files have been generated in step 6, it&rsquo;s now time to push them into the production site. They are generated in the following directory :</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">target/checkout/target/site
+<p>The javadoc has been generated in step 6, it&rsquo;s now time to push them into the production site. It has been generated in the following directory :</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">target/checkout/target/reports
 </code></pre></div><p>We will copy the <code>apidocs</code> directory.</p>
 <p>It will be uploaded to <a href="https://nightlies.apache.org/">https://nightlies.apache.org/</a> via WebDAV protocol.</p>
 <p>First create the folder for the version (change the &lt;version&gt; part):</p>
 <pre><code>$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/ftpserver/&lt;version&gt;/'
-$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/mina/&lt;version&gt;/apidocs'
+$ curl -u &lt;your asf id&gt; -X MKCOL 'https://nightlies.apache.org/mina/ftpserver/&lt;version&gt;/apidocs'
 </code></pre><p>Each of those commands will ask for your ASF password.</p>
 <p>I used <strong>rclone</strong> to copy folders via WebDAV.</p>
 <p>After intallation run rclone config and configure the nightlies connection:</p>
@@ -414,25 +414,25 @@ vendor: other
 user: &lt;your asf id&gt;
 pass: &lt;your asf password&gt; (will be stored encrypted)
 </code></pre><p>Then copy the directory (change the &lt;version&gt; part):</p>
-<pre><code>cd target/checkout/target/site
+<pre><code>cd target/checkout/target/reports
 rclone copy --progress apidocs nightlies:/mina/ftpserver/&lt;version&gt;/apidocs
 </code></pre><p>Finally update the links in the static/ftpserver-project/gen-docs/.htaccess of the mina-site repo (change the &lt;version&gt; part):</p>
 <pre><code>RewriteRule ^latest$ https://nightlies.apache.org/mina/ftpserver/&lt;version&gt;/ [QSA,L]
 RewriteRule ^latest/(.*)$ https://nightlies.apache.org/mina/ftpserver/&lt;version&gt;/$1 [QSA,L]
 </code></pre><p>Save and commit the file, the web site should be automatically generated and published.</p>
-<h3 id="step-13-wait-24-hours">Step 13: Wait 24 hours</h3>
-<p>We have to wait at least 24 hours for all mirrors to retrieve the uploaded files before making any announcement. I&rsquo;d recommend you to wait for 48 hours because some mirrors might lag due to various issues.</p>
-<h3 id="step-14-update-the-links-in-web-site">Step 14: Update the Links in Web Site</h3>
+<h3 id="step-13-update-the-links-in-web-site">Step 13: Update the Links in Web Site</h3>
 <p>Some pages have to be updated. Assuming the MINA site has been checked out in ~/mina/site (this can be done with the command <em>$ git clone <a href="http://gitbox.apache.org/repos/asf/mina-site.git">http://gitbox.apache.org/repos/asf/mina-site.git</a> ~/mina/mina-site</em>), here are the pages that need to be changed :</p>
 <ul>
 <li>/config.toml: update the <code>version_ftpserver</code> variable with the new version.</li>
-<li>/source/ftpserver-project/downloads-&lt;version&gt;.md: Add the page for this version</li>
-<li>/source/downloads.md: Refer to the previous page</li>
+<li>/source/ftpserver-project/downloads.md: Refer to the previous page</li>
+<li>/source/ftpserver-project/downloads_1_2.md: Refer to the previous page</li>
+<li>/source/ftpserver-project/old_downloads.md: Refer to the previous page</li>
+<li>/source/donwloads-ftpserver_1_2.md: Update the version</li>
 </ul>
 <p>Commit the changes, and publish the web site, you are done !</p>
-<h3 id="step-15-wait-another-24-hours">Step 15: Wait another 24 hours</h3>
+<h3 id="step-14-wait-24-hours">Step 14: Wait 24 hours</h3>
 <p>We need to wait until any changes made in the web site and metadata file(s) go live.</p>
-<h3 id="step-16-announce-the-new-release">Step 16: Announce the New Release</h3>
+<h3 id="step-15-announce-the-new-release">Step 15: Announce the New Release</h3>
 <p>An announcement message can be sent to [mailto:announce@apache.org], [mailto:announce@apachenews.org], [mailto:users@mina.apache.org] and [mailto:dev@mina.apache.org].  Please note that announcement messages are rejected unless your from-address ends with <code>@apache.org</code>.  Plus, you shouldn&rsquo;t forget to post a news to the MINA site main page.</p>
 <p>Enjoy !</p>
 
@@ -444,7 +444,7 @@ RewriteRule ^latest/(.*)$ https://nightlies.apache.org/mina/ftpserver/&lt;versio
     </div>
 
     <div id="footer">
-    &copy; 2003-2024, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy Policy</a><br />
+    &copy; 2003-2025, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy Policy</a><br />
     Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
     Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
 </div>

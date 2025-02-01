@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-    <title>Apache FtpServer 1.2.0 Release &mdash; Apache MINA</title>
+    <title>Apache FtpServer 1.2.1 Release &mdash; Apache MINA</title>
 
     <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/ftpserver.css" rel="stylesheet" type="text/css"/>
@@ -64,11 +64,11 @@
                     <li><a href="/ftpserver-project/index.html">Home</a> </li>
                     <li><a href="/ftpserver-project/features.html">Features</a> </li>
                     <li><a href="/ftpserver-project/download_1_1.html">FtpServer 1.1.4</a></li>
-                    <li><a href="/ftpserver-project/download_1_2.html">FtpServer 1.2.0</a></li>
+                    <li><a href="/ftpserver-project/download_1_2.html">FtpServer 1.2.1</a></li>
                     <li><a href="/ftpserver-project/old-downloads.html">Old Downloads</a></li>
                     <li><a href="/ftpserver-project/documentation.html">Documentation</a></li>
                     <li><a href="/ftpserver-project/gen-docs/latest-1.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 1.1.4</a></li>
-                    <li><a href="/ftpserver-project/gen-docs/latest-1.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 1.2.0</a></li>
+                    <li><a href="/ftpserver-project/gen-docs/latest-1.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 1.2.1</a></li>
                     <li><a href="/ftpserver-project/getting_source.html">Sources</a></li>
                     <li><a href="/ftpserver-project/faq.html">FAQ</a></li>
                     <li><a href="/ftpserver-project/related_project.html">Related Project</a></li>
@@ -97,9 +97,20 @@
             
 
             
-	<h1 id="apache-ftpserver-120-release">Apache FtpServer 1.2.0 Release</h1>
-<h2 id="new-features-in-120">New Features in 1.2.0</h2>
-<p>This release contains a change in the API. You can now select more than one supported TLS algorithm when configuring a server.</p>
+	<h1 id="apache-ftpserver-121-release">Apache FtpServer 1.2.1 Release</h1>
+<h2 id="new-features-in-121">New Features in 1.2.1</h2>
+<p>This release includes many fixes, and now depends on MINA core 2.2.4.</p>
+<p>Here is the list of fixes and modifications:</p>
+<p>o <a href="https://issues.apache.org/jira/projects/FTPSERVER-515">FTPSERVER-515</a>: Bump Apache Log4j from 2.17.2 to 2.19.0
+o <a href="https://issues.apache.org/jira/projects/FTPSERVER-510">FTPSERVER-510</a>:Update Apache parent POM from 25 to 26
+o <a href="https://issues.apache.org/jira/projects/FTPSERVER/issues/FTPSERVER-509">FTPSERVER-509</a>: Enable GitHub Action build
+o <a href="https://issues.apache.org/jira/projects/FTPSERVER-506">FTPSERVER-506</a>: Fix binary compatibility issues.
+o <a href="https://issues.apache.org/jira/projects/FTPSERVER/issues/FTPSERVER-499">FTPSERVER-499</a>: FtpResponseEncoder is not thread safe
+o <a href="https://issues.apache.org/jira/projects/FTPSERVER-446">FTPSERVER-446</a>: Implementing User Manager not possible in OSGi environment</p>
+<p>Otherwise, the following features have been added:
+o Support for SHA256 and SHA512 encryption
+o Use ThreadLocal for FtpResponseEncoder.ENCODER and SimpleDateFormat
+o Make build reproductible</p>
 <h2 id="getting-the-binary-distributions">Getting the Binary Distributions</h2>
 <table>
 <thead>
@@ -114,24 +125,24 @@
 <tbody>
 <tr>
 <td>zip distribution</td>
-<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-bin.zip">apache-ftpserver-1.2.0-bin.zip</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-bin.zip.sha256">SHA256</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-bin.zip.sha512">SHA512</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-bin.zip.asc">ASC</a></td>
+<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-bin.zip">apache-ftpserver-1.2.1-bin.zip</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-bin.zip.sha256">SHA256</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-bin.zip.sha512">SHA512</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-bin.zip.asc">ASC</a></td>
 </tr>
 <tr>
 <td>tar.gz distribution</td>
-<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-bin.tar.gz">apache-ftpserver-1.2.0-bin.tar.gz</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-bin.tar.gz.sha256">SHA256</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-bin.tar.gz.sha512">SHA512</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-bin.tar.gz.asc">ASC</a></td>
+<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-bin.tar.gz">apache-ftpserver-1.2.1-bin.tar.gz</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-bin.tar.gz.sha256">SHA256</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-bin.tar.gz.sha512">SHA512</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-bin.tar.gz.asc">ASC</a></td>
 </tr>
 <tr>
 <td>tar.bz2 distribution</td>
-<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-bin.tar.bz2">apache-ftpserver-1.2.0-bin.tar.bz2</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-bin.tar.bz2.sha256">SHA256</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-bin.tar.bz2.sha512">SHA512</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-bin.tar.bz2.asc">ASC</a></td>
+<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-bin.tar.bz2">apache-ftpserver-1.2.1-bin.tar.bz2</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-bin.tar.bz2.sha256">SHA256</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-bin.tar.bz2.sha512">SHA512</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-bin.tar.bz2.asc">ASC</a></td>
 </tr>
 </tbody>
 </table>
@@ -147,15 +158,15 @@
 <li>
 <p>Verify the signatures using the following commands, depending on your use of PGP or GPG:</p>
 <pre><code> $ pgpk -a KEYS
- $ pgpv apache-ftpserver-1.2.0-bin.tar.gz.asc
+ $ pgpv apache-ftpserver-1.2.1-bin.tar.gz.asc
 </code></pre>
 <p>or</p>
 <pre><code> $ pgp -ka KEYS
- $ pgp apache-ftpserver-1.2.0-bin.tar.gz.asc apache-ftpserver-1.2.0-bin.tar.gz
+ $ pgp apache-ftpserver-1.2.1-bin.tar.gz.asc apache-ftpserver-1.2.1-bin.tar.gz
 </code></pre>
 <p>or</p>
 <pre><code> $ gpg --import KEYS
- $ gpg --verify apache-ftpserver-1.2.0-bin.tar.gz.asc apache-ftpserver-1.2.0-bin.tar.gz
+ $ gpg --verify apache-ftpserver-1.2.1-bin.tar.gz.asc apache-ftpserver-1.2.1-bin.tar.gz
 </code></pre>
 </li>
 </ol>
@@ -164,7 +175,7 @@
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;dependency</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;groupId</span><span style="color:#008000;font-weight:bold">&gt;</span>org.apache.ftpserver<span style="color:#008000;font-weight:bold">&lt;/groupId&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;artifactId</span><span style="color:#008000;font-weight:bold">&gt;</span>ftpserver-core<span style="color:#008000;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;version</span><span style="color:#008000;font-weight:bold">&gt;</span>1.2.0<span style="color:#008000;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;version</span><span style="color:#008000;font-weight:bold">&gt;</span>1.2.1<span style="color:#008000;font-weight:bold">&lt;/version&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/dependency&gt;</span>
 </code></pre></div><h2 id="getting-the-source-code">Getting the Source Code</h2>
 <h3 id="source-distributions">Source Distributions</h3>
@@ -181,32 +192,32 @@
 <tbody>
 <tr>
 <td>zip sources</td>
-<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-src.zip">apache-ftpserver-1.2.0-src.zip</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-src.zip.sha256">SHA256</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-src.zip.sha512">SHA512</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-src.zip.asc">ASC</a></td>
+<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-src.zip">apache-ftpserver-1.2.1-src.zip</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-src.zip.sha256">SHA256</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-src.zip.sha512">SHA512</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-src.zip.asc">ASC</a></td>
 </tr>
 <tr>
 <td>tar.gz sources</td>
-<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-src.tar.gz">apache-ftpserver-1.2.0-src.tar.gz</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-src.tar.gz.sha256">SHA256</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-src.tar.gz.sha512">SHA512</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-src.tar.gz.asc">ASC</a></td>
+<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-src.tar.gz">apache-ftpserver-1.2.1-src.tar.gz</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-src.tar.gz.sha256">SHA256</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-src.tar.gz.sha512">SHA512</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-src.tar.gz.asc">ASC</a></td>
 </tr>
 <tr>
 <td>tar.bz2 sources</td>
-<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-src.tar.bz2">apache-ftpserver-1.2.0-src.tar.bz2</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-src.tar.bz2.sha256">SHA256</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-src.tar.bz2.sha512">SHA512</a></td>
-<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.0/apache-ftpserver-1.2.0-src.tar.bz2.asc">ASC</a></td>
+<td><a href="https://www.apache.org/dyn/closer.lua/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-src.tar.bz2">apache-ftpserver-1.2.1-src.tar.bz2</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-src.tar.bz2.sha256">SHA256</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-src.tar.bz2.sha512">SHA512</a></td>
+<td><a href="https://downloads.apache.org/mina/ftpserver/1.2.1/apache-ftpserver-1.2.1-src.tar.bz2.asc">ASC</a></td>
 </tr>
 </tbody>
 </table>
 <h3 id="git-tag-checkout">Git Tag Checkout</h3>
 <pre><code>$ git clone https://gitbox.apache.org/repos/asf/mina-ftpserver.git
-$ git checkout ftpserver-parent-1.2.0
+$ git checkout ftpserver-parent-1.2.1
 </code></pre>
-<p>You are now on 1.2.0 branch.</p>
+<p>You are now on 1.2.1 branch.</p>
 
 
             
@@ -216,7 +227,7 @@ $ git checkout ftpserver-parent-1.2.0
     </div>
 
     <div id="footer">
-    &copy; 2003-2024, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy Policy</a><br />
+    &copy; 2003-2025, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy Policy</a><br />
     Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
     Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
 </div>
