@@ -8,7 +8,7 @@ title: Apache MINA - Contributors
 * Ashish Paliwal (apaliwal)
 * Emmanuel L{{< html "&eacute;" >}}charny (elecharny)
 * Gary D. Gregory (ggregory)
-* **Guillaume Nodet** (gnodet) (chairman)
+* Guillaume Nodet (gnodet)
 * Jean-Fran{{< html "&ccedil;" >}}ois Maury (jeffmaury)
 * Jeff Genender (jgenender)
 * Jonathan Valliere (johnnyv)
@@ -17,7 +17,7 @@ title: Apache MINA - Contributors
 * Maarten Bosteels (maarten)
 * Mark Webb (mwebb)
 * Niklas Gustavsson (ngn)
-* Thomas Wolf (twolf)
+* **Thomas Wolf** (twolf) (chair)
 
 # Committers
 
@@ -34,7 +34,6 @@ title: Apache MINA - Contributors
 * Sai Pullabhotla (sai)
 * Sangjin Lee (sjlee)
 * Serguey Vladimirov (sergey)
-* Shawn Pearce (spearce)
 
 # Code Contributors
 
@@ -55,6 +54,7 @@ title: Apache MINA - Contributors
 * John Conlon (Committer)
 * Rich Dougherty (Committer)
 * Sebastien Baszley (sebb)
+* Shawn Pearce (spearce)
 * Trustin Lee (Committer)
 
-... and everyone who gave us feed back including you!
+... and everyone who gave us feedback including you!
