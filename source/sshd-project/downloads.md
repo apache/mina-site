@@ -15,6 +15,8 @@ See the [release notes](download_{{< version_sshd >}}.html).
     * [Apache Mina SSHD {{< version_sshd >}} Binary (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/{{< version_sshd >}}/apache-sshd-{{< version_sshd >}}.tar.gz) [PGP](https://www.apache.org/dist/mina/sshd/{{< version_sshd >}}/apache-sshd-{{< version_sshd >}}.tar.gz.asc) [SHA512](https://www.apache.org/dist/mina/sshd/{{< version_sshd >}}/apache-sshd-{{< version_sshd >}}.tar.gz.sha512)
     * [Apache Mina SSHD {{< version_sshd >}} Binary (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/{{< version_sshd >}}/apache-sshd-{{< version_sshd >}}.zip) [PGP](https://www.apache.org/dist/mina/sshd/{{< version_sshd >}}/apache-sshd-{{< version_sshd >}}.zip.asc) [SHA512](https://www.apache.org/dist/mina/sshd/{{< version_sshd >}}/apache-sshd-{{< version_sshd >}}.zip.sha512)
 
+See also [Verifying Releases](/verifying-releases.html).
+
 # Development snapshots
 
 You can [build](building.html) the latest version from [sources](sources.html).
