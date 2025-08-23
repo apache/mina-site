@@ -846,6 +846,21 @@ Getting the Distributions  Source distributions:  Apache Mina SSHD 2.13.1 Source
     </item>
     
     <item>
+      <title>Apache SSHD 2.16.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.16.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.16.0.html</guid>
+      <description>Overview Bug Fixes   GH-516 SFTP: allow file system URIs without password
+  GH-650 Use the correct key from a user certificate in server-side pubkey auth
+  GH-663 Fix racy IoSession creation
+  GH-664 Skip MAC negotiation if an AEAD cipher was negotiated
+  GH-677 Fix current directory handling in ScpShell for WinSCP
+  GH-678 ScpShell: write month names in English for WinSCP
+  GH-690 Handle append mode for buggy SFTP v3 servers</description>
+    </item>
+    
+    <item>
       <title>Apache SSHD 2.2.0 Release</title>
       <link>https://mina.apache.org/sshd-project/download_2.2.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1321,8 +1336,8 @@ All Releases  Apache FtpServer 1.2.1 Release - Feb 1th, 2025 Apache FtpServer 1.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/downloads-sshd.html</guid>
-      <description>Latest SSHD Release The latest release is the SSHD 2.15.0 release. See the release notes for the Apache Mina SSHD 2.15.0 release.
- Source distributions:  Apache Mina SSHD 2.15.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.15.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.15.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.15.0 Binary (.zip) PGP SHA512    Development snapshots You can build the latest version from sources.</description>
+      <description>Latest SSHD Release The latest release is the SSHD 2.16.0 release. See the release notes for the Apache Mina SSHD 2.16.0 release.
+ Source distributions:  Apache Mina SSHD 2.16.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.16.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.16.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.16.0 Binary (.zip) PGP SHA512    Development snapshots You can build the latest version from sources.</description>
     </item>
     
     <item>
@@ -1999,9 +2014,9 @@ Normal Git Access Anyone can check code out of Git. You only need to specify a u
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/downloads.html</guid>
-      <description>Latest SSHD Release The latest release is the SSHD 2.15.0 release. See the release notes.
- Source distributions:  Apache Mina SSHD 2.15.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.15.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.15.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.15.0 Binary (.zip) PGP SHA512    Development snapshots You can build the latest version from sources.
-Previous releases  SSHD 0.</description>
+      <description>Latest SSHD Release The latest release is the SSHD 2.16.0 release. See the release notes.
+ Source distributions:  Apache Mina SSHD 2.16.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.16.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.16.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.16.0 Binary (.zip) PGP SHA512    See also Verifying Releases.
+Development snapshots You can build the latest version from sources.</description>
     </item>
     
     <item>
@@ -2106,14 +2121,15 @@ Note: We will assume the MINA API user has already created the SSLContext to use
     </item>
     
     <item>
-      <title>Verifying Release</title>
-      <link>https://mina.apache.org/validating-release.html</link>
+      <title>Verifying Releases</title>
+      <link>https://mina.apache.org/verifying-releases.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mina.apache.org/validating-release.html</guid>
-      <description>Validating Release Down the GPG keys and import them
-wget https://downloads.apache.org/mina/KEYS gpg --import KEYS Download the release and verify checksums and signatures
-WIP</description>
+      <guid>https://mina.apache.org/verifying-releases.html</guid>
+      <description>Verifying Releases PGP signing public keys for all releases are available in the Apache MINA KEYS file.
+Download the GPG keys and import them:
+wget https://downloads.apache.org/mina/KEYS gpg --import KEYS (Signing keys are also available via the usual key servers.)
+Download the release and verify checksums and signatures following the general guidelines given at Verifying ASF Releases.</description>
     </item>
     
     <item>

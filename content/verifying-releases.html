@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-    <title>Verifying Release &mdash; Apache MINA</title>
+    <title>Verifying Releases &mdash; Apache MINA</title>
 
     <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
@@ -66,7 +66,7 @@
                     <li><a href="/downloads-mina_2_2.html">Mina 2.2.4</a></li>
                     <li><a href="/downloads-ftpserver_1_1.html">FtpServer 1.1.4</a></li>
                     <li><a href="/downloads-ftpserver_1_2.html">FtpServer 1.2.1</a></li>
-                    <li><a href="/downloads-sshd.html">SSHD 2.15.0</a></li>
+                    <li><a href="/downloads-sshd.html">SSHD 2.16.0</a></li>
                     <li><a href="/downloads-vysper.html">Vysper 0.7</a></li>
                 </ul>
                 <h5>Projects</h5>
@@ -81,6 +81,7 @@
                 <ul>
                     <li><a href="/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
                     <li><a href="/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
+                    <li><a href="/verifying-releases.html" class="external-link" rel="nofollow">Verifying Releases</a></li>
                 </ul>
 
                 <h5>Community</h5>
@@ -101,12 +102,13 @@
             
 
             
-	<h1 id="validating-release">Validating Release</h1>
-<p>Down the GPG keys and import them</p>
+	<h1 id="verifying-releases">Verifying Releases</h1>
+<p>PGP signing public keys for all releases are available in the <a href="https://downloads.apache.org/mina/KEYS">Apache MINA KEYS file</a>.</p>
+<p>Download the GPG keys and import them:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://downloads.apache.org/mina/KEYS
 gpg --import KEYS
-</code></pre></div><p>Download the release and verify checksums and signatures</p>
-<p>WIP</p>
+</code></pre></div><p>(Signing keys are also available via the usual key servers.)</p>
+<p>Download the release and verify checksums and signatures following the general guidelines given at <a href="https://www.apache.org/info/verification.html">Verifying ASF Releases</a>.</p>
 
 
             

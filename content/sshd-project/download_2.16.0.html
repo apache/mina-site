@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-    <title>SSHD Downloads &mdash; Apache MINA</title>
+    <title>Apache SSHD 2.16.0 Release &mdash; Apache MINA</title>
 
     <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/sshd.css" rel="stylesheet" type="text/css"/>
@@ -92,9 +92,85 @@
             
 
             
-	<h1 id="latest-sshd-release">Latest SSHD Release</h1>
-<p>The latest release is the SSHD 2.16.0 release.
-See the <a href="download_2.16.0.html">release notes</a>.</p>
+	<h1 id="overview">Overview</h1>
+<h2 id="bug-fixes">Bug Fixes</h2>
+<ul>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/516">GH-516</a> SFTP: allow file system URIs without password</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/650">GH-650</a> Use the correct key from a user certificate in server-side pubkey auth</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/663">GH-663</a> Fix racy <code>IoSession</code> creation</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/664">GH-664</a> Skip MAC negotiation if an AEAD cipher was negotiated</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/677">GH-677</a> Fix current directory handling in <code>ScpShell</code> for WinSCP</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/678">GH-678</a> <code>ScpShell</code>: write month names in English for WinSCP</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/690">GH-690</a> Handle append mode for buggy SFTP v3 servers</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/700">GH-700</a> Fix race in <code>AbstractCloseable.doCloseImmediately()</code></p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/709">GH-709</a> <code>AbstractChannel</code>: Handle keep-alive channel messages sent by an old OpenSSH server</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/727">GH-727</a> Supply default port 22 for proxy jump hosts for which there is no <code>HostConfigEntry</code></p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/733">GH-733</a> Avoid NPE in <code>SftpRemotePathChannel.transferTo()</code></p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/751">GH-751</a> Fix SFTP v3 &ldquo;long name&rdquo; if SFTP server uses an <code>SftpFileSystem</code> to another server</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/754">GH-754</a> <code>DefaultFowarder</code> must not be closed after a bind error</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/767">GH-767</a> Remove dependency on net.i2p.crypto in <code>SkED25519PublicKey</code></p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/771">GH-771</a> Remove dependency on net.i2p.crypto in <code>EdDSAPuttyKeyDecoder</code></p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/774">GH-774</a> Fix <code>WritePendingException</code> in SFTP file copy</p>
+</li>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/793">GH-793</a> Close repository in <code>GitPackCommand</code></p>
+</li>
+<li>
+<p><a href="https://issues.apache.org/jira/projects/SSHD/issues/SSHD-1343">SSHD-1343</a> Correct documentation in <code>ChannelDataReceiver</code></p>
+</li>
+</ul>
+<h2 id="new-features">New Features</h2>
+<ul>
+<li>
+<p><a href="https://github.com/apache/mina-sshd/issues/705">GH-705</a> New method <code>TcpipServerChannel.getPort()</code> returning the <code>ChannelToPortHandler</code></p>
+</li>
+<li>
+<p><a href="https://issues.apache.org/jira/projects/SSHD/issues/SSHD-1161">SSHD-1161</a> Support pubkey auth with user certificates (server-side)</p>
+<ul>
+<li>Client-side support was introduced in version 2.8.0 already</li>
+</ul>
+</li>
+<li>
+<p><a href="https://issues.apache.org/jira/projects/SSHD/issues/SSHD-1167">SSHD-1167</a> Check host certificates against known_hosts file (implements @<!-- -->cert-authority)</p>
+</li>
+</ul>
+<h2 id="potential-compatibility-issues">Potential Compatibility Issues</h2>
+<ul>
+<li>Client-side KEX: we&rsquo;ve changed the default of the setting <code>CoreModuleProperties.ABORT_ON_INVALID_CERTIFICATE</code> from <code>false</code> to <code>true</code>. A client will newly abort an SSH connection if the server presents an invalid OpenSSH host certificate as host key.</li>
+<li><a href="https://github.com/apache/mina-sshd/issues/767">GH-767</a> and <a href="https://github.com/apache/mina-sshd/issues/771">GH-771</a> cause API changes in classes <code>SkED25519PublicKey</code> and <code>EdDSAPuttyKeyDecoder</code>. Both changes are unlikely to be noticed in user code since user code normally doesn&rsquo;t need to use either class.</li>
+</ul>
+<h1 id="getting-the-distributions">Getting the Distributions</h1>
 <ul>
 <li>Source distributions:
 <ul>
@@ -109,59 +185,7 @@ See the <a href="download_2.16.0.html">release notes</a>.</p>
 </ul>
 </li>
 </ul>
-<p>See also <a href="/verifying-releases.html">Verifying Releases</a>.</p>
-<h1 id="development-snapshots">Development snapshots</h1>
-<p>You can <a href="building.html">build</a> the latest version from <a href="sources.html">sources</a>.</p>
-<h1 id="previous-releases">Previous releases</h1>
-<ul>
-<li><a href="download_0.1.0.html">SSHD 0.1.0</a></li>
-<li><a href="download_0.2.0.html">SSHD 0.2.0</a></li>
-<li><a href="download_0.3.0.html">SSHD 0.3.0</a></li>
-<li><a href="download_0.4.0.html">SSHD 0.4.0</a></li>
-<li><a href="download_0.5.0.html">SSHD 0.5.0</a></li>
-<li><a href="download_0.6.0.html">SSHD 0.6.0</a></li>
-<li><a href="download_0.7.0.html">SSHD 0.7.0</a></li>
-<li><a href="download_0.8.0.html">SSHD 0.8.0</a></li>
-<li><a href="download_0.9.0.html">SSHD 0.9.0</a></li>
-<li><a href="download_0.10.0.html">SSHD 0.10.0</a></li>
-<li><a href="download_0.10.1.html">SSHD 0.10.1</a></li>
-<li><a href="download_0.11.0.html">SSHD 0.11.0</a></li>
-<li><a href="download_0.12.0.html">SSHD 0.12.0</a></li>
-<li><a href="download_0.13.0.html">SSHD 0.13.0</a></li>
-<li><a href="download_0.14.0.html">SSHD 0.14.0</a></li>
-<li><a href="download_1.0.0.html">SSHD 1.0.0</a></li>
-<li><a href="download_1.1.0.html">SSHD 1.1.0</a></li>
-<li><a href="download_1.1.1.html">SSHD 1.1.1</a></li>
-<li><a href="download_1.2.0.html">SSHD 1.2.0</a></li>
-<li><a href="download_1.3.0.html">SSHD 1.3.0</a></li>
-<li><a href="download_1.4.0.html">SSHD 1.4.0</a></li>
-<li><a href="download_1.6.0.html">SSHD 1.6.0</a></li>
-<li><a href="download_1.7.0.html">SSHD 1.7.0</a></li>
-<li><a href="download_2.0.0.html">SSHD 2.0.0</a></li>
-<li><a href="download_2.1.0.html">SSHD 2.1.0</a></li>
-<li><a href="download_2.2.0.html">SSHD 2.2.0</a></li>
-<li><a href="download_2.3.0.html">SSHD 2.3.0</a></li>
-<li><a href="download_2.4.0.html">SSHD 2.4.0</a></li>
-<li><a href="download_2.5.0.html">SSHD 2.5.0</a></li>
-<li><a href="download_2.5.1.html">SSHD 2.5.1</a></li>
-<li><a href="download_2.6.0.html">SSHD 2.6.0</a></li>
-<li><a href="download_2.7.0.html">SSHD 2.7.0</a></li>
-<li><a href="download_2.8.0.html">SSHD 2.8.0</a></li>
-<li><a href="download_2.9.0.html">SSHD 2.9.0</a></li>
-<li><a href="./download_2.9.1.html">SSHD 2.9.1</a></li>
-<li><a href="./download_2.9.2.html">SSHD 2.9.2</a></li>
-<li><a href="./download_2.9.3.html">SSHD 2.9.3</a></li>
-<li><a href="./download_2.10.0.html">SSHD 2.10.0</a></li>
-<li><a href="./download_2.11.0.html">SSHD 2.11.0</a></li>
-<li><a href="./download_2.12.0.html">SSHD 2.12.0</a></li>
-<li><a href="./download_2.12.1.html">SSHD 2.12.1</a></li>
-<li><a href="./download_2.13.0.html">SSHD 2.13.0</a></li>
-<li><a href="./download_2.13.1.html">SSHD 2.13.1</a></li>
-<li><a href="./download_2.13.2.html">SSHD 2.13.2</a></li>
-<li><a href="./download_2.14.0.html">SSHD 2.14.0</a></li>
-<li><a href="./download_2.15.0.html">SSHD 2.15.0</a></li>
-<li><a href="./download_2.16.0.html">SSHD 2.16.0</a></li>
-</ul>
+<p>Please report any feedback to <a href="mailto:users@mina.apache.org">users@mina.apache.org</a>.</p>
 
 
             
