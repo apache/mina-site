@@ -63,7 +63,7 @@
                 <ul>
                     <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.27</a></li>
                     <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.10</a></li>
-                    <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.4</a></li>
+                    <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.5</a></li>
                     <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
                 </ul>
                 <h5>Documentation</h5>
@@ -84,10 +84,10 @@
                     <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
                     <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.27</a></li>
                     <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.10</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.4</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.5</a></li>
                     <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.27</a></li>
                     <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.10</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.4</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.5</a></li>
                     <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
                     <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
                     <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
@@ -124,7 +124,7 @@
             
 	<h1 id="ssltls-internals">SSL/TLS internals</h1>
 <p>This is a technical description of how SSL/TLS are handled in MINA. You don&rsquo;t need to read this to have it working, better have a look at the <a href="../userguide/ch11-ss-filter/ch11-ssl-filter.html">SslFilter user guide</a> page. However, if you want to get a deeper understanding on how it&rsquo;s built, this is the place !</p>
-<p>Note: We will assume the <strong>MINA API</strong> user has already created the <em>SSLContext</em> to use, so it&rsquo;s not part of those explanations.</p>
+<p>Note: We will assume the <strong>MINA API</strong> user has already created the <em>SSLContext</em> to use, so it&rsquo;s not part of those explanations.s</p>
 <h2 id="components">Components</h2>
 <p>The <strong>SslFilter</strong> is the filter that command everything related to <strong>SSL/TLS</strong>. It works hands in hands with the <strong>SSLHandler</strong> class, which handles the <strong>SSLEngine</strong> dialog.</p>
 <p>With <strong>NIO</strong>, Java provides a special class that handles the <strong>SSL/TLS</strong> protocol, the <strong>SSLEngine</strong> class. It&rsquo;s quite a complex piece of code, and it requires some time to tame it&hellip; We will have a look into it during this tutorial.</p>
@@ -135,6 +135,8 @@
 <li><strong>SSLContext</strong>: the Java class that contains all the information related to the <strong>SSL/TLS</strong> establishment</li>
 <li><strong>autoStart</strong>: tells if the handshake should be started immediately. This is an optional parameter, defaulting to <strong>TRUE</strong>. In some cases, like when using <strong>startTLS</strong>, it&rsquo;s critical to not start the handshake immediately, as it will be established on demand.</li>
 </ul>
+<p>Regarding this <strong>autoStart</strong> flag, the use case where you set it to <strong>false</strong> are pretty specific. First, on the server side, if your filter chain is configured to contain the <strong>SslFilter</strong>, then this chain will be instanciated when a session is opened, which means the client is already connected, and the very first message it will send is a <strong>handshake</strong> message. The server <strong>must</strong> be ready to deal with it.</p>
+<p>The problem this flag tries to solve is a use case where you want the <strong>SslFilter</strong> to be present in the chain, but don&rsquo;t want the <strong>handshake</strong> protocol to kick in because you have other filters that need to be able to exchange in clear text with the remote peer on the client side. For instance, if you have a filter set <em>before</em> the <strong>SslFilter</strong> in the chain, that is going to send a CONNECT message to a remote peer before establishing the secured connection, then you need to wait for this message to be sent and processed. As the <strong>SSL</strong> initialization is called while adding the <strong>SslFilter</strong> in the chain (specifically while executing the <strong>onPostAdd()</strong> method), you can&rsquo;t deffer it. Thus the flag is necessary, assuming you can call the <strong>SslHandler</strong> initialization <em>explicitely</em> in the application code.</p>
 <h2 id="initialization">Initialization</h2>
 <p>When injecting the <strong>SslFilter</strong> into your chain, either before starting your service, or while running it, it has to be initialized in some way. Actually, this is a two phases process:</p>
 <ul>
@@ -144,7 +146,7 @@
 <p>Most of the time, both phases will be merged, as one can tell the first phase to immediately starts the second.</p>
 <p>In any case, it&rsquo;s handled by the <strong>onPreAdd</strong> and <strong>onPostAdd</strong> events, which means it&rsquo;s automatically processed when you push the <strong>SslFilter</strong> into the chain.</p>
 <h3 id="onpreadd">onPreAdd</h3>
-<p>The <strong>SslHandler</strong> class is created and initialized, and the instance is stored into the session attributes. That means each session has its own instance of <strong>SslHandler</strong>. This initialization will create a <strong>SSLEngine</strong> instance based on the provided <strong>SSLContext</strong> instance. The initialization will differ based on the &lsquo;side&rsquo; you are on: server or client. Basically, the server side will wait for the client to initiate the handshake, while the client side will initiate it.</p>
+<p>The <strong>SslHandler</strong> class is created and initialized, and the instance is stored into the session attributes. That means each session has its own instance of <strong>SslHandler</strong> (but only one per session). This initialization will create a <strong>SSLEngine</strong> instance based on the provided <strong>SSLContext</strong> instance. The initialization will differ based on the &lsquo;side&rsquo; you are on: server or client. Basically, the server side will wait for the client to initiate the handshake, while the client side will initiate it.</p>
 <p>It&rsquo;s also responsible to set the enabled ciphers and protocols, if one wants to use a restricted set, or an extended set (newer versions of Java have disabled old protocols and insecure ciphers).</p>
 <p>Last, not least, it sets a list of status flags:</p>
 <ul>
@@ -154,6 +156,7 @@
 <li><em>handshakeComplete</em>: <em>false</em>. It will be set to true when the handshake has been completed.</li>
 </ul>
 <p>Side note: some of those flags are probably spurious. Some cleanup might be done to get rid of the useless ones.</p>
+<p>Once that has been done, we can call the <em>SslHandler.handshake()</em> method</p>
 <h3 id="onpostadd">onPostAdd</h3>
 <p>This event will initiate an immediate handshake if required. Depending on the peer side, the action will be different.</p>
 <ul>
@@ -170,20 +173,20 @@
 <p>Assuming we have to deal with <em>Handhsake</em> packets, there are a few technical use cases:</p>
 <ul>
 <li>
-<p>We have received less than one packet: in this case, we will gather the newly coming data to the pending data. The maximum message size will be limited by the SO_RCVBUF configuration set when initializing the server, and it may be smaller than a <strong>TLS</strong> packet size. In any case, we gather whatever we just received to the pending buffer, increasing its size on the fly. Once we have a complete <strong>TLS</strong> packet, we can process it, remove if from the buffer, and continue from the remaining bytes.</p>
+<p>We have received less than one packet: in this case, we will append the newly coming data to the pending data. The maximum message size will be limited by the SO_RCVBUF configuration set when initializing the server, and it may be smaller than a <strong>TLS</strong> packet size. In any case, we gather whatever we just received tinto the pending buffer, increasing its size on the fly. Once we have a complete <strong>TLS</strong> packet, we can process it, remove if from the buffer, and continue from the remaining bytes.</p>
 </li>
 <li>
 <p>we have received one or more than one packet: In this case, we will proceed packet by packet, until we have processed each one of them.</p>
 </li>
 </ul>
-<p>Note: The pending buffer can be pre-allocated to the size set by the SO_RECVBUF parameter, in  order to avoid to allocate it each time we process a new packet.</p>
+<p>Note: The pending buffer can be pre-allocated to the size set by the SO_RECVBUF parameter, in  order to avoid allocating it each time we process a new packet.</p>
 <p>Note: Using a circular ByteBuffer would spare the system the need to move the data to the begining of the buffer when it has consumed a <strong>TLS</strong> packet and there are remaining bytes, sadly the <strong>SslEngine</strong> class expect plain <strong>ByteBuffer</strong> instances :-/.</p>
 <p>All the received data are flowing through the <em>SslFilter.messageReceived()</em> method, which delegate the processing to the associated <em>Sslhandler</em> instance:</p>
 <pre><code>    public void messageReceived(NextFilter next, IoSession session, Object message) throws Exception {
         SslHandler sslHandler = getSslHandler(session);
         sslHandler.receive(next, IoBuffer.class.cast(message));
     }
-</code></pre><p>The <em>SslHandler.receive()</em> method will gather the incoming data, then process them. When done, it may have to complete the following steps:</p>
+</code></pre><p>The <em>SslHandler.receive()</em> method will gather the incoming data, and process them. When done, it may have to complete the following steps:</p>
 <ul>
 <li>Write back to the remote peer the constructed messages (either <em>handshake</em> packets or encrypted data packets)</li>
 <li>Send to the application the received messages (only data packets)</li>

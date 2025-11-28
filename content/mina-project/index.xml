@@ -700,7 +700,7 @@ It was decided to change that and make it easier for the application to get this
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/downloads_2_2.html</guid>
-      <description>Latest MINA Releases Apache MINA 2.2.4 stable (Java 8+) Binaries  .tar.gz archive mina-2.2.4 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.2.4 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.2.4 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.2.4 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.2.4 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.2.4 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+      <description>Latest MINA Releases Apache MINA 2.2.5 stable (Java 8+) Binaries  .tar.gz archive mina-2.2.5 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.2.5 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.2.5 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.2.5 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.2.5 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.2.5 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
     </item>
     
     <item>
@@ -742,7 +742,7 @@ Apache MINA is often called:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/downloads_old.html</guid>
-      <description>Older MINA Releases For people wanting to use the serial package, we don&#39;t include the rxtx.jar library in the releases, as it&#39;s under a LGPL license. Please download it from http://rxtx.qbang.org/wiki/index.php/Download or add the associated dependency in your maven pom.xml : &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.rxtx&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxtx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.1.7&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;scope&amp;gt; &amp;lt;/dependency&amp;gt;   MINA 2.2.x     Version Download Links Date     ApacheDS MINA 2.2.3 Download, Javadoc, Test javadoc, Xref, Xref test 12/Sep/2023   ApacheDS MINA 2.</description>
+      <description>Older MINA Releases For people wanting to use the serial package, we don&#39;t include the rxtx.jar library in the releases, as it&#39;s under a LGPL license. Please download it from http://rxtx.qbang.org/wiki/index.php/Download or add the associated dependency in your maven pom.xml : &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.rxtx&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxtx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.1.7&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;scope&amp;gt; &amp;lt;/dependency&amp;gt;   MINA 2.2.x     Version Download Links Date     ApacheDS MINA 2.2.4 Download, Javadoc, Test javadoc, Xref, Xref test 24/Dec/2024   ApacheDS MINA 2.</description>
     </item>
     
     <item>
@@ -761,11 +761,9 @@ Apache MINA is often called:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/news.html</guid>
-      <description>News MINA 2.2.4, 2.1.10, 2.0.27 released posted on December, 24, 2024 The MINA project is pleased to announce the MINA 2.2.4, 2.1.10 and 2.0.27 release.
-CVE-2024-52046 MINA applications using unbounded deserialization may allow RCE.
-Affected versions:
- Apache MINA 2.0 through 2.0.26 Apache MINA 2.1 through 2.1.9 Apache MINA 2.2 through 2.2.3  Description:
-The ObjectSerializationDecoder in Apache MINA uses Java native deserialization protocol to process incoming serialized data but lacks the necessary security checks and defenses.</description>
+      <description>News MINA 2.2.5 released posted on November, 28, 2025 The MINA project is pleased to announce the MINA 2.2.5 release.
+This is a bug fix release, which fixes the following issues:
+ A potential issue with the selector not being protected against concurrent access, found by Adam Herring A (temporary) fix for DIRMINA-423, brought by Jan Zelmer, forbiding asynchronous tasks to be executed.  MINA 2.2.4, 2.1.10, 2.0.27 released posted on December, 24, 2024 The MINA project is pleased to announce the MINA 2.</description>
     </item>
     
     <item>
