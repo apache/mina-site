@@ -8,8 +8,8 @@ RewriteRule ^latest-2.0/(.*)$ https://nightlies.apache.org/mina/mina/2.0.27/$1 [
 RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/2.1.10/ [QSA,L]
 RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/2.1.10/$1 [QSA,L]
 
-RewriteRule ^latest-2.2$ https://nightlies.apache.org/mina/mina/2.2.4/ [QSA,L]
-RewriteRule ^latest-2.2/(.*)$ https://nightlies.apache.org/mina/mina/2.2.4/$1 [QSA,L]
+RewriteRule ^latest-2.2$ https://nightlies.apache.org/mina/mina/2.2.5/ [QSA,L]
+RewriteRule ^latest-2.2/(.*)$ https://nightlies.apache.org/mina/mina/2.2.5/$1 [QSA,L]
 
 # Redirect everything else
 RewriteRule ^(.*)$ https://nightlies.apache.org/mina/mina/$1 [QSA,L]

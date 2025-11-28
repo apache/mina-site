@@ -5,6 +5,17 @@ title: News
 
 # News
 
+## MINA 2.2.5 released _posted on November, 28, 2025_
+
+The MINA project is pleased to announce the MINA 2.2.5 release.
+
+This is a bug fix release, which fixes the following issues:
+
+* A potential issue with the selector not being protected against concurrent access, found by Adam Herring 
+* A (temporary) fix for DIRMINA-423, brought by Jan Zelmer, forbiding asynchronous tasks to be executed.
+
+
+
 ## MINA 2.2.4, 2.1.10, 2.0.27 released _posted on December, 24, 2024_
 
 The MINA project is pleased to announce the MINA 2.2.4, 2.1.10 and 2.0.27 release.

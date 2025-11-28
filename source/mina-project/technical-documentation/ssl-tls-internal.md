@@ -7,7 +7,7 @@ title: SSL/TLS internals
 
 This is a technical description of how SSL/TLS are handled in MINA. You don't need to read this to have it working, better have a look at the [SslFilter user guide](../userguide/ch11-ss-filter/ch11-ssl-filter.html) page. However, if you want to get a deeper understanding on how it's built, this is the place !
 
-Note: We will assume the **MINA API** user has already created the _SSLContext_ to use, so it's not part of those explanations.
+Note: We will assume the **MINA API** user has already created the _SSLContext_ to use, so it's not part of those explanations.s
 
 ## Components
 
@@ -23,6 +23,10 @@ In order to inject the filter in the chain, it must first be created. This filte
 * **SSLContext**: the Java class that contains all the information related to the **SSL/TLS** establishment
 * __autoStart__: tells if the handshake should be started immediately. This is an optional parameter, defaulting to **TRUE**. In some cases, like when using __startTLS__, it's critical to not start the handshake immediately, as it will be established on demand.
 
+Regarding this __autoStart__ flag, the use case where you set it to **false** are pretty specific. First, on the server side, if your filter chain is configured to contain the **SslFilter**, then this chain will be instanciated when a session is opened, which means the client is already connected, and the very first message it will send is a __handshake__ message. The server **must** be ready to deal with it. 
+
+The problem this flag tries to solve is a use case where you want the **SslFilter** to be present in the chain, but don't want the **handshake** protocol to kick in because you have other filters that need to be able to exchange in clear text with the remote peer on the client side. For instance, if you have a filter set *before* the **SslFilter** in the chain, that is going to send a CONNECT message to a remote peer before establishing the secured connection, then you need to wait for this message to be sent and processed. As the **SSL** initialization is called while adding the **SslFilter** in the chain (specifically while executing the __onPostAdd()__ method), you can't deffer it. Thus the flag is necessary, assuming you can call the **SslHandler** initialization _explicitely_ in the application code.
+
 ## Initialization
 
 When injecting the **SslFilter** into your chain, either before starting your service, or while running it, it has to be initialized in some way. Actually, this is a two phases process:
@@ -35,7 +39,7 @@ In any case, it's handled by the __onPreAdd__ and __onPostAdd__ events, which me
 
 ### onPreAdd
 
-The **SslHandler** class is created and initialized, and the instance is stored into the session attributes. That means each session has its own instance of **SslHandler**. This initialization will create a **SSLEngine** instance based on the provided **SSLContext** instance. The initialization will differ based on the 'side' you are on: server or client. Basically, the server side will wait for the client to initiate the handshake, while the client side will initiate it.
+The **SslHandler** class is created and initialized, and the instance is stored into the session attributes. That means each session has its own instance of **SslHandler** (but only one per session). This initialization will create a **SSLEngine** instance based on the provided **SSLContext** instance. The initialization will differ based on the 'side' you are on: server or client. Basically, the server side will wait for the client to initiate the handshake, while the client side will initiate it.
 
 It's also responsible to set the enabled ciphers and protocols, if one wants to use a restricted set, or an extended set (newer versions of Java have disabled old protocols and insecure ciphers).
 
@@ -47,6 +51,7 @@ Last, not least, it sets a list of status flags:
 
 Side note: some of those flags are probably spurious. Some cleanup might be done to get rid of the useless ones.
 
+Once that has been done, we can call the _SslHandler.handshake()_ method
 
 ### onPostAdd
 
@@ -71,11 +76,11 @@ We need to keep whatever comes until it's complete (ie until the _SslEngine.unwr
 
 Assuming we have to deal with *Handhsake* packets, there are a few technical use cases:
 
-* We have received less than one packet: in this case, we will gather the newly coming data to the pending data. The maximum message size will be limited by the SO_RCVBUF configuration set when initializing the server, and it may be smaller than a **TLS** packet size. In any case, we gather whatever we just received to the pending buffer, increasing its size on the fly. Once we have a complete **TLS** packet, we can process it, remove if from the buffer, and continue from the remaining bytes.
+* We have received less than one packet: in this case, we will append the newly coming data to the pending data. The maximum message size will be limited by the SO_RCVBUF configuration set when initializing the server, and it may be smaller than a **TLS** packet size. In any case, we gather whatever we just received tinto the pending buffer, increasing its size on the fly. Once we have a complete **TLS** packet, we can process it, remove if from the buffer, and continue from the remaining bytes.
 
 * we have received one or more than one packet: In this case, we will proceed packet by packet, until we have processed each one of them.
 
-Note: The pending buffer can be pre-allocated to the size set by the SO_RECVBUF parameter, in  order to avoid to allocate it each time we process a new packet.
+Note: The pending buffer can be pre-allocated to the size set by the SO_RECVBUF parameter, in  order to avoid allocating it each time we process a new packet.
 
 Note: Using a circular ByteBuffer would spare the system the need to move the data to the begining of the buffer when it has consumed a **TLS** packet and there are remaining bytes, sadly the **SslEngine** class expect plain **ByteBuffer** instances :-/.
 
@@ -89,7 +94,7 @@ All the received data are flowing through the *SslFilter.messageReceived()* meth
     }
 ```
 
-The *SslHandler.receive()* method will gather the incoming data, then process them. When done, it may have to complete the following steps:
+The *SslHandler.receive()* method will gather the incoming data, and process them. When done, it may have to complete the following steps:
 
 * Write back to the remote peer the constructed messages (either *handshake* packets or encrypted data packets)
 * Send to the application the received messages (only data packets)
