@@ -209,12 +209,12 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project/download_1_1.html</loc>
-    <lastmod>2022-03-14T09:20:50+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project/download_1_2.html</loc>
-    <lastmod>2025-02-01T23:24:03+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
@@ -374,52 +374,57 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.10.0.html</loc>
-    <lastmod>2023-05-17T22:01:52+02:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.11.0.html</loc>
-    <lastmod>2023-10-20T10:51:45+02:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.12.0.html</loc>
-    <lastmod>2024-01-18T11:06:33+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.12.1.html</loc>
-    <lastmod>2024-02-15T09:31:49+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.13.0.html</loc>
-    <lastmod>2024-06-19T09:31:26+02:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.13.1.html</loc>
-    <lastmod>2024-06-24T08:18:04+02:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.13.2.html</loc>
-    <lastmod>2024-07-31T16:01:10+02:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.14.0.html</loc>
-    <lastmod>2024-10-03T00:14:57+02:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.15.0.html</loc>
-    <lastmod>2025-02-24T09:34:44+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.16.0.html</loc>
-    <lastmod>2025-08-19T20:58:11+02:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_2.17.0.html</loc>
+    <lastmod>2026-01-21T23:26:03+01:00</lastmod>
   </url>
   
   <url>
@@ -459,27 +464,27 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.8.0.html</loc>
-    <lastmod>2021-12-08T07:37:08+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.9.0.html</loc>
-    <lastmod>2022-10-28T18:26:20+02:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.9.1.html</loc>
-    <lastmod>2022-10-28T18:26:20+02:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.9.2.html</loc>
-    <lastmod>2022-11-15T23:38:33+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.9.3.html</loc>
-    <lastmod>2023-10-20T10:51:45+02:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
@@ -659,7 +664,7 @@
   
   <url>
     <loc>https://mina.apache.org/downloads-sshd.html</loc>
-    <lastmod>2025-08-19T20:58:11+02:00</lastmod>
+    <lastmod>2026-01-21T23:26:03+01:00</lastmod>
   </url>
   
   <url>
@@ -854,7 +859,7 @@
   
   <url>
     <loc>https://mina.apache.org/ftpserver-project.html</loc>
-    <lastmod>2025-02-01T23:24:03+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
@@ -874,17 +879,17 @@
   
   <url>
     <loc>https://mina.apache.org/downloads-mina_2_0.html</loc>
-    <lastmod>2024-12-24T19:23:25+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project/downloads_2_0.html</loc>
-    <lastmod>2024-12-24T19:23:25+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/mina-project/downloads_2_1.html</loc>
-    <lastmod>2024-12-24T19:23:25+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
@@ -894,7 +899,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project/downloads_2_2.html</loc>
-    <lastmod>2025-11-28T10:00:03+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
@@ -909,12 +914,12 @@
   
   <url>
     <loc>https://mina.apache.org/downloads-mina_2_1.html</loc>
-    <lastmod>2024-12-24T19:23:25+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/downloads-mina_2_2.html</loc>
-    <lastmod>2025-11-28T10:00:03+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
@@ -934,7 +939,7 @@
   
   <url>
     <loc>https://mina.apache.org/mina-project.html</loc>
-    <lastmod>2025-11-28T10:00:03+01:00</lastmod>
+    <lastmod>2025-12-01T09:28:57+01:00</lastmod>
   </url>
   
   <url>
@@ -999,7 +1004,7 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project/downloads.html</loc>
-    <lastmod>2025-08-19T21:40:08+02:00</lastmod>
+    <lastmod>2026-01-21T23:26:03+01:00</lastmod>
   </url>
   
   <url>
@@ -1039,7 +1044,7 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project.html</loc>
-    <lastmod>2025-08-19T21:40:08+02:00</lastmod>
+    <lastmod>2026-01-21T23:26:03+01:00</lastmod>
   </url>
   
   <url>

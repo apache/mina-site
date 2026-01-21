@@ -369,6 +369,16 @@ Getting the Distributions  Source distributions:  Apache Mina SSHD 2.13.1 Source
     </item>
     
     <item>
+      <title>Apache SSHD 2.17.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.17.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.17.0.html</guid>
+      <description>Overview Bug Fixes Github issues:
+ GH-469 AKA SSHD-897 Fix duplicate character echo with interactive shells GH-721 SSH client: schedule session timeout checks on demand only GH-807 Handle &amp;ldquo;verified&amp;rdquo; flag for sk-* keys GH-809 Fix server-side authentication for FIDO/U2F sk-* keys with flags in authorized_keys GH-827 Don&amp;rsquo;t fail on invalid known_hosts lines; log and skip them GH-830 EC public keys: let Bouncy Castle generate X.509 encodings with the curve OID as algorithm parameter GH-855 SFTP: use a single SftpClient per SftpFileSystem GH-856 Fix using ed25519 with BC-FIPS GH-861 SFTP client: prevent sending zero-length writes in SftpOutputStreamAsync  JIRA issues:</description>
+    </item>
+    
+    <item>
       <title>Apache SSHD 2.2.0 Release</title>
       <link>https://mina.apache.org/sshd-project/download_2.2.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -538,8 +548,8 @@ Getting the Distributions  Source distributions:  Apache Mina SSHD 2.9.3 Sources
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/downloads.html</guid>
-      <description>Latest SSHD Release The latest release is the SSHD 2.16.0 release. See the release notes.
- Source distributions:  Apache Mina SSHD 2.16.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.16.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.16.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.16.0 Binary (.zip) PGP SHA512    See also Verifying Releases.
+      <description>Latest SSHD Release The latest release is the SSHD 2.17.0 release. See the release notes.
+ Source distributions:  Apache Mina SSHD 2.17.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.17.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.17.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.17.0 Binary (.zip) PGP SHA512    See also Verifying Releases.
 Development snapshots You can build the latest version from sources.</description>
     </item>
     
