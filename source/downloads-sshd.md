@@ -67,3 +67,4 @@ You can [build](./sshd-project/building.html) the latest version from [sources](
 * [SSHD 2.14.0](./sshd-project/download_2.14.0.html)
 * [SSHD 2.15.0](./sshd-project/download_2.15.0.html)
 * [SSHD 2.16.0](./sshd-project/download_2.16.0.html)
+* [SSHD 2.17.0](./sshd-project/download_2.17.0.html)
