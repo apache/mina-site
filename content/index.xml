@@ -871,6 +871,17 @@ Getting the Distributions  Source distributions:  Apache Mina SSHD 2.13.1 Source
     </item>
     
     <item>
+      <title>Apache SSHD 2.17.1 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.17.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.17.1.html</guid>
+      <description>Overview No code changes; only a POM update to fix a deployment problem with the Maven release of 2.17.0.
+For the real changes since version 2.16.0 see the 2.17.0 change notes.
+Bug Fixes  GH-875 Use Apache Parent POM 36  Getting the Distributions  Source distributions:  Apache Mina SSHD 2.17.1 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.17.1 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.</description>
+    </item>
+    
+    <item>
       <title>Apache SSHD 2.2.0 Release</title>
       <link>https://mina.apache.org/sshd-project/download_2.2.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1346,8 +1357,8 @@ All Releases  Apache FtpServer 1.2.1 Release - Feb 1th, 2025 Apache FtpServer 1.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/downloads-sshd.html</guid>
-      <description>Latest SSHD Release The latest release is the SSHD 2.17.0 release. See the release notes for the Apache Mina SSHD 2.17.0 release.
- Source distributions:  Apache Mina SSHD 2.17.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.17.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.17.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.17.0 Binary (.zip) PGP SHA512    Development snapshots You can build the latest version from sources.</description>
+      <description>Latest SSHD Release The latest release is the SSHD 2.17.1 release. See the release notes for the Apache Mina SSHD 2.17.1 release.
+ Source distributions:  Apache Mina SSHD 2.17.1 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.17.1 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.17.1 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.17.1 Binary (.zip) PGP SHA512    Development snapshots You can build the latest version from sources.</description>
     </item>
     
     <item>
@@ -2022,8 +2033,8 @@ Normal Git Access Anyone can check code out of Git. You only need to specify a u
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/downloads.html</guid>
-      <description>Latest SSHD Release The latest release is the SSHD 2.17.0 release. See the release notes.
- Source distributions:  Apache Mina SSHD 2.17.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.17.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.17.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.17.0 Binary (.zip) PGP SHA512    See also Verifying Releases.
+      <description>Latest SSHD Release The latest release is the SSHD 2.17.1 release. See the release notes.
+ Source distributions:  Apache Mina SSHD 2.17.1 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.17.1 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.17.1 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.17.1 Binary (.zip) PGP SHA512    See also Verifying Releases.
 Development snapshots You can build the latest version from sources.</description>
     </item>
     
