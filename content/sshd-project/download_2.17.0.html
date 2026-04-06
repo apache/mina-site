@@ -121,20 +121,7 @@
 <p><a href="https://github.com/apache/mina-sshd/issues/855">GH-855</a> changes the way <code>SftpFileSystem</code> deals with multiple threads. It newly uses a single SSH channel via a single thread-safe <code>SftpClient</code>, serializing writes at the channel level. The properties relating to the previously used pool of <code>SftpClient</code>s have been deprecated and have no effect anymore. User applications using the library should not see any changes.</p>
 <p>A beneficial side-effect of this change is that an <code>SftpFileSystem</code> creates the SSH session and SFTP channel only when the first SFTP operation is performed. Previously the session and channel were opened right away when an <code>SftpFileSystem</code> was instantiated.</p>
 <h1 id="getting-the-distributions">Getting the Distributions</h1>
-<ul>
-<li>Source distributions:
-<ul>
-<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.17.0/apache-sshd-2.17.0-src.tar.gz">Apache Mina SSHD 2.17.0 Sources (.tar.gz)</a> <a href="https://downloads.apache.org/mina/sshd/2.17.0/apache-sshd-2.17.0-src.tar.gz.asc">PGP</a> <a href="https://downloads.apache.org/mina/sshd/2.17.0/apache-sshd-2.17.0-src.tar.gz.sha512">SHA512</a></li>
-<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.17.0/apache-sshd-2.17.0-src.zip">Apache Mina SSHD 2.17.0 Sources (.zip)</a> <a href="https://downloads.apache.org/mina/sshd/2.17.0/apache-sshd-2.17.0-src.zip.asc">PGP</a> <a href="https://downloads.apache.org/mina/sshd/2.17.0/apache-sshd-2.17.0-src.zip.sha512">SHA512</a></li>
-</ul>
-</li>
-<li>Binary distributions:
-<ul>
-<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.17.0/apache-sshd-2.17.0.tar.gz">Apache Mina SSHD 2.17.0 Binary (.tar.gz)</a> <a href="https://downloads.apache.org/mina/sshd/2.17.0/apache-sshd-2.17.0.tar.gz.asc">PGP</a> <a href="https://downloads.apache.org/mina/sshd/2.17.0/apache-sshd-2.17.0.tar.gz.sha512">SHA512</a></li>
-<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.17.0/apache-sshd-2.17.0.zip">Apache Mina SSHD 2.17.0 Binary (.zip)</a> <a href="https://downloads.apache.org/mina/sshd/2.17.0/apache-sshd-2.17.0.zip.asc">PGP</a> <a href="https://downloads.apache.org/mina/sshd/2.17.0/apache-sshd-2.17.0.zip.sha512">SHA512</a></li>
-</ul>
-</li>
-</ul>
+<p>Source and binary distributions are available via the <a href="https://archive.apache.org/dist/mina/sshd/2.17.0">Apache Release Archives</a>.</p>
 <p>PGP signing public keys for all releases are available in the <a href="https://downloads.apache.org/mina/KEYS">Apache MINA KEYS file</a>.</p>
 <p>Please report any feedback to <a href="mailto:users@mina.apache.org">users@mina.apache.org</a>.</p>
 
