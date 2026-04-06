@@ -16,11 +16,6 @@ the [GitHub issue tracker](https://github.com/apache/mina-sshd/issues?q=mileston
 
 # Getting the Distributions
 
-* Source distributions:
-    * [Apache Mina SSHD 2.12.1 Sources (.tar.gz)](https://dlcdn.apache.org/mina/sshd/2.12.1/apache-sshd-2.12.1-src.tar.gz) [PGP](https://downloads.apache.org/mina/sshd/2.12.1/apache-sshd-2.12.1-src.tar.gz.asc) [SHA512](https://downloads.apache.org/mina/sshd/2.12.1/apache-sshd-2.12.1-src.tar.gz.sha512)
-    * [Apache Mina SSHD 2.12.1 Sources (.zip)](https://dlcdn.apache.org/mina/sshd/2.12.1/apache-sshd-2.12.1-src.zip) [PGP](https://downloads.apache.org/mina/sshd/2.12.1/apache-sshd-2.12.1-src.zip.asc) [SHA512](https://downloads.apache.org/mina/sshd/2.12.1/apache-sshd-2.12.1-src.zip.sha512)
-* Binary distributions:
-    * [Apache Mina SSHD 2.12.1 Binary (.tar.gz)](https://dlcdn.apache.org/mina/sshd/2.12.1/apache-sshd-2.12.1.tar.gz) [PGP](https://downloads.apache.org/mina/sshd/2.12.1/apache-sshd-2.12.1.tar.gz.asc) [SHA512](https://downloads.apache.org/mina/sshd/2.12.1/apache-sshd-2.12.1.tar.gz.sha512)
-    * [Apache Mina SSHD 2.12.1 Binary (.zip)](https://dlcdn.apache.org/mina/sshd/2.12.1/apache-sshd-2.12.1.zip) [PGP](https://downloads.apache.org/mina/sshd/2.12.1/apache-sshd-2.12.1.zip.asc) [SHA512](https://downloads.apache.org/mina/sshd/2.12.1/apache-sshd-2.12.1.zip.sha512)
+Source and binary distributions are available via the [Apache Release Archives](https://archive.apache.org/dist/mina/sshd/2.12.1).
 
-Please report any feedback to [users@mina.apache.org](mailto:users@mina.apache.org).
+This release is archived and is no longer supported.

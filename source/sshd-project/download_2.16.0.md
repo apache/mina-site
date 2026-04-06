@@ -45,12 +45,6 @@ version: 2.16.0
 
 # Getting the Distributions
 
-
-* Source distributions:
-    * [Apache Mina SSHD {{< version >}} Sources (.tar.gz)](https://dlcdn.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}-src.tar.gz) [PGP](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}-src.tar.gz.asc) [SHA512](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}-src.tar.gz.sha512)
-    * [Apache Mina SSHD {{< version >}} Sources (.zip)](https://dlcdn.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}-src.zip) [PGP](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}-src.zip.asc) [SHA512](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}-src.zip.sha512)
-* Binary distributions:
-    * [Apache Mina SSHD {{< version >}} Binary (.tar.gz)](https://dlcdn.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}.tar.gz) [PGP](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}.tar.gz.asc) [SHA512](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}.tar.gz.sha512)
-    * [Apache Mina SSHD {{< version >}} Binary (.zip)](https://dlcdn.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}.zip) [PGP](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}.zip.asc) [SHA512](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}.zip.sha512)
+Source and binary distributions are available via the [Apache Release Archives](https://archive.apache.org/dist/mina/sshd/2.16.0).
 
 Please report any feedback to [users@mina.apache.org](mailto:users@mina.apache.org).

@@ -9,12 +9,9 @@ Apache Mina SSHD 0.2.0 contains a few enhancements and bug-fixes.
 
 # Getting the Distributions
 
-* Source distributions:
-    * [Apache Mina SSHD 0.2.0 Sources (.tar.gz)](https://archive.apache.org/dist/mina/sshd/0.2.0/sshd-0.2.0-project.tar.gz) [PGP](https://archive.apache.org/dist/mina/sshd/0.2.0/sshd-0.2.0-project.tar.gz.asc) [SHA](https://archive.apache.org/dist/mina/sshd/0.2.0/sshd-0.2.0-project.tar.gz.sha1)
-    * [Apache Mina SSHD 0.2.0 Sources (.zip)](https://archive.apache.org/dist/mina/sshd/0.2.0/sshd-0.2.0-project.zip) [PGP](https://archive.apache.org/dist/mina/sshd/0.2.0/sshd-0.2.0-project.zip.asc) [SHA](https://archive.apache.org/dist/mina/sshd/0.2.0/sshd-0.2.0-project.zip.sha1)
-    * [Apache Mina SSHD 0.2.0 Sources (.bz2)](https://archive.apache.org/dist/mina/sshd/0.2.0/sshd-0.2.0-project.tar.bz2) [PGP](https://archive.apache.org/dist/mina/sshd/0.2.0/sshd-0.2.0-project.tar.bz2.asc) [SHA](https://archive.apache.org/dist/mina/sshd/0.2.0/sshd-0.2.0-project.tar.bz2.sha1)
-* Individual jars:
-    * [Apache Mina SSHD Core 0.2.0 (.jar)](https://archive.apache.org/dist/mina/sshd/0.2.0/sshd-core-0.2.0.jar) [PGP](https://archive.apache.org/dist/mina/sshd/0.2.0/sshd-core-0.2.0.jar.asc) [SHA](https://archive.apache.org/dist/mina/sshd/0.2.0/sshd-core-0.2.0.jar.sha1)
+Source and binary distributions are available via the [Apache Release Archives](https://archive.apache.org/dist/mina/sshd/0.2.0).
+
+This release is archived and is no longer supported.
 
 # Release Notes
 
