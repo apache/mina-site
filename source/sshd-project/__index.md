@@ -17,3 +17,5 @@ The library can leverage several I/O back-ends:
 * the [Netty](https://netty.io) asynchronous event-driven network framework is also supported.
 
 The technical documentation is maintained in the [source tree](https://github.com/apache/mina-sshd).
+
+For the latest release, see the ["Downloads"](./downloads.html) page.

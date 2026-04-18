@@ -26,6 +26,6 @@ You will not be able to commit into the project if you are not a committer.
 The main repository is also [mirrored at GitHub](https://github.com/apache/mina-sshd). It can be cloned from there, or you can create your own fork and clone that. If you plan on submitting a GitHub pull request, use a fork.
 
 # Documentation
-The Website documentation is published via Apache SVN pubsub. The website source resides at
+The website documentation is published via Apache SVN pubsub. The website source resides at
 
 [https://github.com/apache/mina-site/](https://github.com/apache/mina-site/)
