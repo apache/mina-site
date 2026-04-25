@@ -14,7 +14,7 @@ title: Developer Guide
 # Checking out the code
 
 <div class="note" markdown="1">
-    The current <em>MINA</em>em> code requires to be built with Java 11 or higher.
+    The current <em>MINA</em> code requires to be built with Java 8 for <em>MINA</em> 2.0.X and <em>MINA</em> 2.1.X, and with Java 17 or higher for <em>MINA</em> 2.2.X branch.
 </div>
 
 You need **Git** to check out the source code from our source code repository, and [Maven](https://maven.apache.org/) 3.8.5 (pick the latest Maven version) to build the source code (Building with Maven 3.0 will also work).  The following example shows how to build the current stable branch (2.0.9).
