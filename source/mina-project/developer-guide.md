@@ -14,19 +14,29 @@ title: Developer Guide
 # Checking out the code
 
 <div class="note" markdown="1">
-    The current <em>MINA</em> code requires to be built with Java 8 for <em>MINA</em> 2.0.X and <em>MINA</em> 2.1.X, and with Java 17 or higher for <em>MINA</em> 2.2.X branch.
+    The current <em>MINA</em> code requires to be built with Java 8 for <em>MINA</em> 2.0.X and <em>MINA</em> 2.1.X, and with Java 17 or higher for <em>MINA</em> 2.2.X branch. See the table below.
 </div>
 
-You need **Git** to check out the source code from our source code repository, and [Maven](https://maven.apache.org/) 3.8.5 (pick the latest Maven version) to build the source code (Building with Maven 3.0 will also work).  The following example shows how to build the current stable branch (2.0.9).
+You need **Git** to check out the source code from our source code repository, and [Maven](https://maven.apache.org/) 3.8 (pick the latest Maven version) to build the source code (Building with Maven 3.0 will also work).  
+
+Here are the Java version required for each branch. The Maven *pom.xml* has been configured to enforce those versions:
+
+|Banche|Build Java required version |
+|---|---|
+| [2.0.X] Java 1.8 |
+| [2.1.X] Java 1.8 |
+| [2.2.X] Java 17 or higher |
+
+
+The following example shows how to build the current stable branch (2.2.X).
 
 ```bash
-$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
+$ git clone -b 2.2.X https://gitbox.apache.org/repos/asf/mina.git mina
 $ cd mina
 $ mvn -Pserial clean install             # Build packages (JARs) for the core API and other 
                                          # extensions and install them to the local Maven repository.
 $ mvn -Pserial site                      # Generate reports (JavaDoc and JXR)
 $ mvn -Pserial package assembly:assembly # Generate a tarball (package goal needed to fix an assembly plugin bug)
-$ mvn -Pserial eclipse:eclipse           # Generate Eclipse project files if you want
 ```
 
 Eclipse users:
@@ -35,7 +45,8 @@ You can declare new variables in Eclipse in _Windows -> Preferences..._ and sele
 
 There are also other branches that might interest you:
 
-* trunk: Where big changes take place everyday
+* 2.1.X: For MINA 2.1 version
+* 2.0.X: For MINA 2.1 version
 
 If you want to check out the source code of previous releases, you have to select the branch you want to work on :
 
@@ -45,13 +56,21 @@ $ cd mina
 $ git checkout <tag>
 ```
 
-For instance, to work on the on-going 2.2.X version trunk, just do :
+For instance, to work on the 2.0.X version trunk, just do :
 
 ```bash
 $ git clone https://gitbox.apache.org/repos/asf/mina.git mina
 $ cd mina
-$ git checkout 2.2.X
+$ git checkout 2.0.X
 ```
+
+or in two lines only:
+
+```bash
+$ git clone -b 2.0.X https://gitbox.apache.org/repos/asf/mina.git mina
+$ cd mina
+```
+
 
 # Coding Convention
 
@@ -172,10 +191,10 @@ In the `~/.m2/settings.xml` you need the following lines :
 
 ### step 2 : Processing with a dry run
 
-After having checked out the trunk, and built it (see step 0), 
+After having checked out the branch you want to release (2.2.X, 2.1.X or 2.0.X), and built it (see step 0), here the 2.2.X branch:
 
 ```bash
-$ git clone https://gitbox.apache.org/repos/asf/mina.git mina
+$ git clone -b 2.2.X https://gitbox.apache.org/repos/asf/mina.git mina
 $ cd mina
 $ mvn clean install -Pserial
 ```
@@ -291,37 +310,28 @@ Connect to the [Nexus server](https://repository.apache.org), login, and select 
 
 ### Step 6 : Build the Site
 
-You will need to modify the **pom.xml** file to be able to run the **mvn site** command. Actually, you have to comment the executions part of the maven JXF plugin in the **maven-site-plugin** configuration :
-
-```xml
-<plugin>
-  <artifactId>maven-jxr-plugin</artifactId>
-  <configuration>
-    <aggregate>true</aggregate>
-  </configuration>
-
-  <!--executions>
-    <execution>
-      <phase>install</phase>
-      <goals>
-        <goal>jxr</goal>
-        <goal>test-jxr</goal>
-      </goals>
-    </execution>
-  </executions -->
-</plugin>
-```
+Just run this command:
 
 ```bash
 $ cd target/checkout
 $ mvn -Pserial site
 ```
 
-This creates the site.
+This creates the site in target/checkout/target
 
 ### Step 7 : Sign the packages 
 
 Now, you have to sign the binary packages which are in target/checkout/distribution/target.
+
+You should have all the build packages here. 
+
+First, remove the already signed files:
+
+```bash
+rm *.asc
+```
+
+Then start with the signing part.
 
 <div class="note" markdown="1">
 Use your PGP key ID (the pub key, 4096R/[XXXXXXX] where [XXXXXXX] is the key ID)
@@ -352,7 +362,7 @@ sub   rsa4096 2010-09-13 [E]
 ...
 ```
 
-Take the long hexadecimal tart following the 'pub' part (ie "4D2DB2916149BAA9D0C92F3731474E5E7C6B7034" for the 4096 bits key)
+Take the long hexadecimal part following the 'pub' part (ie "4D2DB2916149BAA9D0C92F3731474E5E7C6B7034" for the 4096 bits key)
 
 Use a shell script to sign the packages which are stored in target/checkout/distribution/target. You will first have to delete the created .asc files :
 
@@ -413,6 +423,12 @@ for FILE in $(find . -maxdepth 1 -not '(' -name "sign.sh" -or -name ".*" -or -na
       echo "  - Skipped '$FILE.asc' (file already existing)"
   fi
 done
+```
+
+Once done, you can remove the signed pom files, they are useless:
+
+```
+rm *.pom.*
 ```
 
 ### Step 8 : Publish Source and Binary Distribution Packages
@@ -601,12 +617,7 @@ RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/<version>/$
 
 Save and commit the file, the web site should be automatically generated and published.
 
-
-### Step 13: Wait 24 hours
-
-We have to wait at least 24 hours for all mirrors to retrieve the uploaded files before making any announcement.  I'd recommend you to wait for 48 hours because some mirrors might lag due to various issues.
-
-### Step 14: Update the Links in Web Site
+### Step 13: Update the Links in Web Site
 
 Some pages have to be updated. Assuming the MINA site has been checked out in ~/mina/site (this can be done with the command <em>$ svn co https://svn.apache.org/viewvc/mina/site/trunk ~/mina/site</em>), here are the pages that need to be changed :
 
@@ -618,11 +629,11 @@ Some pages have to be updated. Assuming the MINA site has been checked out in ~/
 
 Commit the changes, and publish the web site, you are done !
 
-### Step 15: Wait another 24 hours
+### Step 14: Wait an hour
 
 We need to wait until any changes made in the web site and metadata file(s) go live.
 
-### Step 16: Announce the New Release
+### Step 15: Announce the New Release
 
 An announcement message can be sent to [mailto:announce@apache.org], [mailto:announce@apachenews.org], [mailto:users@mina.apache.org] and [mailto:dev@mina.apache.org].  Please note that announcement messages are rejected unless your from-address ends with `@apache.org`.  Plus, you shouldn't forget to post a news to the MINA site main page.
 
