@@ -23,9 +23,9 @@ Here are the Java version required for each branch. The Maven *pom.xml* has been
 
 |Banche|Build Java required version |
 |---|---|
-| [2.0.X] Java 1.8 |
-| [2.1.X] Java 1.8 |
-| [2.2.X] Java 17 or higher |
+| [2.0.X] | Java 1.8 |
+| [2.1.X] | Java 1.8 |
+| [2.2.X] | Java 17 or higher |
 
 
 The following example shows how to build the current stable branch (2.2.X).
