@@ -5,6 +5,98 @@ title: News
 
 # News
 
+## MINA 2.2.7, 2.1.12 released _posted on April, 30 2026_
+
+The MINA project is pleased to announce the MINA 2.2.7 and 2.1.12 release.
+
+This issue fixes two critical security issues, which were expected to have been fixed by the previous release. Sadly the code change that was supposed to be applied to the three versions was only applied to the 2.0.X branch, leaving 2.2.6 and 2.1.11 in the same state than before. These new releases correct this mistake.
+
+### [CVE-2026-42778](https://www.cve.org/CVERecord?id=CVE-2026-42778)
+
+Note: this is the exact same CVE than *CVE-2026-41409*
+
+
+**MINA** applications using unbounded deserialization may allow **RCE**.
+
+Affected versions:
+
+- Apache MINA 2.1 through 2.1.11
+- Apache MINA 2.2 through 2.2.6
+
+Description:
+
+The *ObjectSerializationDecoder* in Apache **MINA** uses **Java** native deserialization protocol to process
+incoming serialized data but lacks the necessary security checks and defenses. This vulnerability allows
+attackers to exploit the deserialization process by sending specially crafted malicious serialized data,
+potentially leading to remote code execution (**RCE**) attacks.
+
+A security release has been issued in Decmber 2024, but was incomplete. An allow-list of classes was added to tell MINA which classes can be used by the deserialization of messages through the *AbstractIoBuffer.getObject()* method, but it was applied too late for classes that have a static initializer which get executed even for not allowed classes.  
+
+### [CVE-2026-42779](https://www.cve.org/CVERecord?id=CVE-2026-42779)
+
+Note: this is the exact same CVE than *CVE-2026-41635*
+
+**MINA** applications using unbounded deserialization may allow **RCE**.
+
+Affected versions:
+
+- Apache MINA 2.1 through 2.1.11
+- Apache MINA 2.2 through 2.2.6
+
+Description:
+
+The *ObjectSerializationDecoder* in Apache **MINA** uses **Java** native deserialization protocol to process incoming serialized data but lacks the necessary security checks and defenses. This vulnerability allows attackers to exploit the deserialization process by sending specially crafted malicious serialized data,
+potentially leading to remote code execution (**RCE**) attacks.
+
+A security release has been issued in Decmber 2024, but was incomplete. An allow-list of classes was added to tell MINA which classes can be used by the deserialization of messages through the *AbstractIoBuffer.getObject()* method, but static classes or primitives types are bypassing this check.  
+
+
+## Versions affected
+
+These issues affects **MINA** core versions 2.1.X and 2.2.X, and is fixed by the releases 2.1.12 and 2.2.7.
+
+## Mitigation
+
+It's also important to note that an application using **MINA** core library will only be affected if the *IoBuffer#getObject()* method is called, and this specific method is potentially called when adding a *ProtocolCodecFilter* instance using the *ObjectSerializationCodecFactory* class in the filter chain. If your application is specifically using those classes, you have to upgrade to the latest version of **MINA** core library.
+
+**Upgrading will  not be enough: you also need to explicitly allow the classes the decoder will accept in the *ObjectSerializationDecoder* instance, using one of the three new methods:**
+
+
+
+```
+    /**
+     * Accept class names where the supplied ClassNameMatcher matches for
+     * deserialization, unless they are otherwise rejected.
+     *
+     * @param classNameMatcher the matcher to use
+     */
+    public void accept(ClassNameMatcher classNameMatcher)
+
+    /**
+     * Accept class names that match the supplied pattern for
+     * deserialization, unless they are otherwise rejected.
+     *
+     * @param pattern standard Java regexp
+     */
+    public void accept(Pattern pattern) 
+
+    /**
+     * Accept the wildcard specified classes for deserialization,
+     * unless they are otherwise rejected.
+     *
+     * @param patterns Wildcard file name patterns as defined by
+     *                  org.apache.commons.io.FilenameUtils#wildcardMatch(String, String)
+     */
+    public void accept(String... patterns)
+```
+
+
+By default, the decoder will reject *all* classes that will be present in the incoming data.
+
+
+Note: The **FtpServer**, **SSHd** and **Vysper** sub-project are not affected by this issue.
+
+
 ## MINA 2.2.6, 2.1.11, 2.0.28 released _posted on April, 27 2026_
 
 The MINA project is pleased to announce the MINA 2.2.6, 2.1.11 and 2.0.28 release.
@@ -92,8 +184,6 @@ By default, the decoder will reject *all* classes that will be present in the in
 
 
 Note: The **FtpServer**, **SSHd** and **Vysper** sub-project are not affected by this issue.
-
-
 
 
 ## MINA 2.2.5 released _posted on November, 28, 2025_
