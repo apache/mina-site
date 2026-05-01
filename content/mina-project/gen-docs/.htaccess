@@ -5,11 +5,11 @@ RewriteEngine On
 RewriteRule ^latest-2.0$ https://nightlies.apache.org/mina/mina/2.0.28/ [QSA,L]
 RewriteRule ^latest-2.0/(.*)$ https://nightlies.apache.org/mina/mina/2.0.28/$1 [QSA,L]
 
-RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/2.1.11/ [QSA,L]
-RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/2.1.11/$1 [QSA,L]
+RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/2.1.12/ [QSA,L]
+RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/2.1.12/$1 [QSA,L]
 
-RewriteRule ^latest-2.2$ https://nightlies.apache.org/mina/mina/2.2.6/ [QSA,L]
-RewriteRule ^latest-2.2/(.*)$ https://nightlies.apache.org/mina/mina/2.2.6/$1 [QSA,L]
+RewriteRule ^latest-2.2$ https://nightlies.apache.org/mina/mina/2.2.7/ [QSA,L]
+RewriteRule ^latest-2.2/(.*)$ https://nightlies.apache.org/mina/mina/2.2.7/$1 [QSA,L]
 
 # Redirect everything else
 RewriteRule ^(.*)$ https://nightlies.apache.org/mina/mina/$1 [QSA,L]
