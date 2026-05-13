@@ -91,7 +91,7 @@ It's also important to note that an application using **MINA** core library will
 ```
 
 
-By default, the decoder will reject *all* classes that will be present in the incoming data.
+By default, the decoder will reject *all* classes that will be present in the incoming data. That includes basic types like String or byte[].
 
 
 Note: The **FtpServer**, **SSHd** and **Vysper** sub-project are not affected by this issue.
