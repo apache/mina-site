@@ -17,11 +17,11 @@ title: Developer Guide
     The current <em>MINA</em> code requires to be built with Java 8 for <em>MINA</em> 2.0.X and <em>MINA</em> 2.1.X, and with Java 17 or higher for <em>MINA</em> 2.2.X branch. See the table below.
 </div>
 
-You need **Git** to check out the source code from our source code repository, and [Maven](https://maven.apache.org/) 3.8 (pick the latest Maven version) to build the source code (Building with Maven 3.0 will also work).  
+You need **Git** to check out the source code from our source code repository, and [Maven](https://maven.apache.org/) 3.8.5 at leat (pick the latest Maven version) to build the source code (Building with Maven 4.0 has not been tested yet).  
 
 Here are the Java version required for each branch. The Maven *pom.xml* has been configured to enforce those versions:
 
-|Banche|Build Java required version |
+|Branche|Java required version |
 |---|---|
 | [2.0.X] | Java 1.8 |
 | [2.1.X] | Java 1.8 |
@@ -127,11 +127,25 @@ java is hashed (/usr/bin/java)
 ```
 
 ### Step 0: Building MINA
-As weird as it sounds, for some unknown reason (most certainly a misconfiguration in the Maven poms), we can't just run the release without having previously build all the projects. This is done with the following command :
+You may want to build MINA before starting to cut a relase. This is done with the following command :
 
 ```bash
 $ mvn clean install -Pserial
 ```
+
+It's also a good idea to check there is no missing license header:
+
+```bash
+$ mvn apache-rat:check -Pserial
+```
+
+Also check the Javadoc befoe generating the MINA site:
+
+```bash
+$ mvn javadoc:javadoc -Pserial
+```
+
+If you get some errors, get them fixed!
 
 ### Step 1: Tagging and Deploying
 
