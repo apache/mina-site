@@ -46,7 +46,7 @@ You can declare new variables in Eclipse in _Windows -> Preferences..._ and sele
 There are also other branches that might interest you:
 
 * 2.1.X: For MINA 2.1 version
-* 2.0.X: For MINA 2.1 version
+* 2.0.X: For MINA 2.0 version
 
 If you want to check out the source code of previous releases, you have to select the branch you want to work on :
 
