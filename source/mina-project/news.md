@@ -5,9 +5,88 @@ title: News
 
 # News
 
+## MINA 2.2.8, 2.1.13, 2.0.29 released _posted on June, 2 2026_
+
+The MINA project is pleased to announce the MINA 2.2.8, 2.1.13 and 2.0.29 releases.
+
+It fixed two CVE:
+
+* CVE-2026-47065: Critical Deserialization Allow-list Bypass via resolveProxyClass - ZDRES-232
+* CVE-2026-47321: Unbounded Decompression Amplification DoS in Apache Mina Zlib.inflate - ZDRES-231
+
+The minor fix is related to the CumulativeProtocolDecoder which was not properly eleasing some buffers.
+
+### CVE-2026-47065
+
+ZDRES-232: resolveProxyClass Not Overridden - acceptMatchers Filter Bypass via java.lang.reflect.Proxy
+
+Assessment: Fully addressed.
+
+When the serialised stream contains a TC_PROXYCLASSDESC (the marker for a java.lang.reflect.Proxy ), JDK's ObjectInputStream.readProxyDesc() is
+dispatched. JDK then calls the default ObjectInputStream.resolveProxyClass(interfaces) implementation, which performs Class.forName(intf, false, latestUserDefinedLoader()) for EACH interface name and constructs the proxy class — bypassing the accepted classes list .
+
+ZDRES-233: Class.forName(name, initialize=true, classLoader) in readClassDescriptor Triggers Static Initialiser of Allow-Listed Classes
+
+Assessment: Fully addressed.
+
+For ANY class on the allow-list, deserialising a stream that names it triggers the class's <clinit> (static initialiser) BEFORE any instance is constructed. This means an attacker who supplies a class name on the allow-list (e.g., the developer wrote accept("com.myapp.\*") , attacker supplies com.myapp.SomeClass ) causes &lt;clinit&gt; of SomeClass — and many real-world classes have side-effecting static initialisers 
+
+
+Both issues have been fixed.
+
+
+### CVE-2026-47321
+
+* CWE-409: Improper Handling of Highly Compressed Data — Data Amplification
+* CWE-789: Memory Allocation with Excessive Size Value
+
+Reference reporter: ZDRES-231
+
+The CompressionFilter class uses ZLib to deflate and inflate data sent and received. When we inflate incoming data, the filter does not control the resulting size, and create a buffer no matter what.
+Some compressed data may have a compression ration greater than 1 thousand, leading to an exhaustion of the application memory, as we don't control the deflated size.
+
+The fix adds such a control by allowing the application developer to provide a fixed size limit, which when reached throws an exception. It also allows the user to provide a compression ratio that should not be exceeded, protected the application from small inflated files that inflate in gigantic files, but with a grace limit for the resulting size (1Mb) to avoid false positive (like a very small file inflating with a high ratio, but resulting with a acceptable size, like a few
+thousands bytes)
+
+For application using this feature, it is highly recommended to create the CompressionFilter and to pass the maximum limit as a forth constructor parameter, maxDecompressedSize:
+
+```
+public CompressionFilter(
+        final boolean compressInbound, 
+        final boolean compressOutbound, 
+        final int compressionLevel, 
+        final int maxDecompressedSize)
+```
+
+Optionally one can also provide a maxDecompressRatio fifth parameter, and a decompressRatioMinSize sixth parameter to allow small inflated files with a high compression ratio to still be accepted.
+
+Here are the additional constructor:
+
+```
+public CompressionFilter(
+        final boolean compressInbound, 
+        final boolean compressOutbound,
+        final int compressionLevel, 
+        final int maxDecompressedSize,
+        final long maxDecompressRatio, 
+        final long decompressRatioMinSize)
+```
+
+Also note that a fluent API has been added to spare the users the pain of calling a constructor with that many parameters:
+
+```
+CompressionFilter compressionFilter = new CompressionFilter()
+    .setCompressionLevel(Zlib.COMPRESSION_MAX)
+    .setMaxDecompressedSize(1_000_000)
+    .setMaxDecompressRatio(100).
+    .setDecompressRatioMinSize(100_000);
+```
+
+Applications using Apache MINA are advised to upgrade and configure their CompressionFilter instance.
+
 ## MINA 2.2.7, 2.1.12 released _posted on April, 30 2026_
 
-The MINA project is pleased to announce the MINA 2.2.7 and 2.1.12 release.
+The MINA project is pleased to announce the MINA 2.2.7 and 2.1.12 releases.
 
 This issue fixes two critical security issues, which were expected to have been fixed by the previous release. Sadly the code change that was supposed to be applied to the three versions was only applied to the 2.0.X branch, leaving 2.2.6 and 2.1.11 in the same state than before. These new releases correct this mistake.
 
@@ -99,7 +178,7 @@ Note: The **FtpServer**, **SSHd** and **Vysper** sub-project are not affected by
 
 ## MINA 2.2.6, 2.1.11, 2.0.28 released _posted on April, 27 2026_
 
-The MINA project is pleased to announce the MINA 2.2.6, 2.1.11 and 2.0.28 release.
+The MINA project is pleased to announce the MINA 2.2.6, 2.1.11 and 2.0.28 releases.
 
 This issue fixes two critical security issues:
 
