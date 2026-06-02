@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-    <title>MINA Presentation Materials &mdash; Apache MINA</title>
+    <title>IoBuffer &mdash; Apache MINA</title>
 
     <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/mina.css" rel="stylesheet" type="text/css"/>
@@ -122,20 +122,41 @@
             
 
             
-	<h1 id="presentation-materials">Presentation Materials</h1>
-<p>These presentation materials will help you understand the overall architecture and core constructs of MINA.</p>
-<ul>
-<li><a href="/assets/pdfs/Mina_in_real_life_ASEU-2009.pdf">MINA in real life</a> (ApacheCon EU 2009) by Emmanuel L&eacute;charny</li>
-<li><a href="/assets/pdfs/JavaOne2008.pdf">Rapid Network Application Development with Apache MINA</a> (JavaOne 2008) by Trustin Lee</li>
-<li><a href="/assets/pdfs/ACUS2007.pdf">Apache MINA - The High Performance Protocol Construction Toolkit</a> (ApacheCon US 2007) by Peter Royal</li>
-<li><a href="/assets/pdfs/ACAsia2006.pdf">Introduction to MINA (ApacheCon Asia 2006)</a> by Trustin Lee</li>
-</ul>
-<h1 id="other-presentation-materials">Other Presentation Materials</h1>
-<ul>
-<li><a href="/assets/pdfs/ACEU2007.pdf">Building TCP/IP Servers with Apache MINA</a> (ApacheCon EU 2007) by Peter Royal</li>
-<li><a href="/assets/pdfs/ACEU2006.pdf">Building TCP/IP Servers with Apache MINA</a> (ApacheCon EU 2006) by Peter Royal</li>
-<li><a href="/assets/pdfs/ACUS2005.pdf">Introduction to MINA</a> (ApacheCon US 2005) by Trustin Lee <a href="/assets/pdfs/ACUS2005.swf">Demo movie</a></li>
-</ul>
+	<h1 id="iobuffer">IoBuffer</h1>
+<p>The <em>IoBuffer</em> interface and the implementing classes is a extensible version of the <em>ByteBuffer</em> class, with many interesting extensions.</p>
+<p>The biggest issue of <em>ByteBuffer</em> is that you can&rsquo;t extend it, you have to reallocate a new buffer if you want to put more data into it.
+We also wanted to add some useful methods to manipulate the buffer content, mainly getters/setters for some specific values (like enums, strings, prefixed strings, etc.)</p>
+<p>The <em>IoBuffer</em> implementations may also be expanded or shrinked.</p>
+<p>Otherwise, the method really mimic the <em>ByteBuffer</em> API.</p>
+<p>There are a few implentations, here is the hierarchy:</p>
+<pre><code>(Comparable)
+     o
+     |
+[[IoBuffer]]
+    ^  ^
+    |  |
+    |  +--[[AbstractIoBuffer]]
+    |         ^     ^     ^
+    |         |     |     |
+    |         |     |     +--[CachedBuffer]
+    |         |     |     
+    |         |     +--------[IoBufferImpl]
+    |         |
+    |         +--------------[SimpleBuffer]
+    |
+    +-----[IoBufferWrapper]
+                  ^
+                  |
+                  +--[ProxyHandshakeIoBuffer]
+</code></pre><h2 id="abstract-class-iobuffer">Abstract class IoBuffer</h2>
+<p>This abstract class contains the buffer allocator, and implements a few common methods.</p>
+<p>You can allocate a direct buffer, or a heap buffer.</p>
+<h2 id="abstract-class-abstractiobuffer">Abstract class AbstractIoBuffer</h2>
+<h2 id="class-cachedbuffer">Class CachedBuffer</h2>
+<h2 id="class-iobufferimpl">Class IoBufferImpl</h2>
+<h2 id="class-simplebuffer">Class SimpleBuffer</h2>
+<h2 id="class-iobufferwrapper">Class IoBufferWrapper</h2>
+<h2 id="class-proxyhandshakeiobuffer">Class ProxyHandshakeIoBuffer</h2>
 
 
             

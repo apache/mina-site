@@ -1829,6 +1829,16 @@ As a second parameter, the service identifier can be provided. This would normal
     </item>
     
     <item>
+      <title>IoBuffer</title>
+      <link>https://mina.apache.org/mina-project/technical-documentation/IoBuffer.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/mina-project/technical-documentation/IoBuffer.html</guid>
+      <description>IoBuffer The IoBuffer interface and the implementing classes is a extensible version of the ByteBuffer class, with many interesting extensions.
+The biggest issue of ByteBuffer is that you can&amp;rsquo;t extend it, you have to reallocate a new buffer if you want to put more data into it. We also wanted to add some useful methods to manipulate the buffer content, mainly getters/setters for some specific values (like enums, strings, prefixed strings, etc.</description>
+    </item>
+    
+    <item>
       <title>Issue Tracking</title>
       <link>https://mina.apache.org/mina-project/issue-tracking.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1854,7 +1864,7 @@ What are the important information you need to put when filing a JIRA ?</descrip
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/downloads-mina_2_0.html</guid>
-      <description>Latest MINA Releases Apache MINA 2.0.28 stable (Java 8+) Binaries  .tar.gz archive mina-2.0.28 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.0.28 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.0.28 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.0.28 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.0.28 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.0.28 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+      <description>Latest MINA Releases Apache MINA 2.0.29 stable (Java 8+) Binaries  .tar.gz archive mina-2.0.29 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.0.29 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.0.29 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.0.29 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.0.29 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.0.29 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
     </item>
     
     <item>
@@ -1863,7 +1873,7 @@ What are the important information you need to put when filing a JIRA ?</descrip
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/downloads_2_0.html</guid>
-      <description>Latest MINA Releases Apache MINA 2.0.28 stable (Java 8+) Binaries  .tar.gz archive mina-2.0.28 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.0.28 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.0.28 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.0.28 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.0.28 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.0.28 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+      <description>Latest MINA Releases Apache MINA 2.0.29 stable (Java 8+) Binaries  .tar.gz archive mina-2.0.29 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.0.29 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.0.29 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.0.29 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.0.29 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.0.29 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
     </item>
     
     <item>
@@ -1872,7 +1882,7 @@ What are the important information you need to put when filing a JIRA ?</descrip
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/downloads_2_1.html</guid>
-      <description>Latest MINA Releases Apache MINA 2.1.12 stable (Java 8+) Binaries  .tar.gz archive mina-2.1.12 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.1.12 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.1.12 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.1.12 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.1.12 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.1.12 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+      <description>Latest MINA Releases Apache MINA 2.1.13 stable (Java 8+) Binaries  .tar.gz archive mina-2.1.13 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.1.13 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.1.13 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.1.13 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.1.13 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.1.13 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
     </item>
     
     <item>
@@ -1891,7 +1901,7 @@ It was decided to change that and make it easier for the application to get this
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/downloads_2_2.html</guid>
-      <description>Latest MINA Releases Apache MINA 2.2.7 stable (Java 8+) Binaries  .tar.gz archive mina-2.2.7 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.2.7 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.2.7 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.2.7 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.2.7 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.2.7 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+      <description>Latest MINA Releases Apache MINA 2.2.8 stable (Java 8+) Binaries  .tar.gz archive mina-2.2.8 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.2.8 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.2.8 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.2.8 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.2.8 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.2.8 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
     </item>
     
     <item>
@@ -1922,7 +1932,7 @@ The Codecs listed here may not be part of Apache MINA project. The information i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/downloads-mina_2_1.html</guid>
-      <description>Latest MINA Releases Apache MINA 2.1.12 stable (Java 8+) Binaries  .tar.gz archive mina-2.1.12 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.1.12 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.1.12 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.1.12 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.1.12 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.1.12 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+      <description>Latest MINA Releases Apache MINA 2.1.13 stable (Java 8+) Binaries  .tar.gz archive mina-2.1.13 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.1.13 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.1.13 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.1.13 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.1.13 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.1.13 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
     </item>
     
     <item>
@@ -1931,7 +1941,7 @@ The Codecs listed here may not be part of Apache MINA project. The information i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/downloads-mina_2_2.html</guid>
-      <description>Latest MINA Releases Apache MINA 2.2.7 stable (Java 8+) Binaries  .tar.gz archive mina-2.2.7 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.2.7 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.2.7 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.2.7 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.2.7 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.2.7 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
+      <description>Latest MINA Releases Apache MINA 2.2.8 stable (Java 8+) Binaries  .tar.gz archive mina-2.2.8 (signatures : SHA256 SHA512 ASC) .tar.bz2 archive mina-2.2.8 (signatures : SHA256 SHA512 ASC) .zip archive mina-2.2.8 (signatures : SHA256 SHA512 ASC)  Sources  .src.tar.gz archive mina-2.2.8 (signatures : SHA256 SHA512 ASC) .src.tar.bz2 archive mina-2.2.8 (signatures : SHA256 SHA512 ASC) .src.zip archive mina-2.2.8 (signatures : SHA256 SHA512 ASC)  For people wanting to use the serial package, we don&#39;t include the rxtx.</description>
     </item>
     
     <item>
@@ -1951,7 +1961,7 @@ Apache MINA is often called:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/downloads_old.html</guid>
-      <description>Older MINA Releases For people wanting to use the serial package, we don&#39;t include the rxtx.jar library in the releases, as it&#39;s under a LGPL license. Please download it from http://rxtx.qbang.org/wiki/index.php/Download or add the associated dependency in your maven pom.xml : &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.rxtx&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxtx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.1.7&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;scope&amp;gt; &amp;lt;/dependency&amp;gt;   MINA 2.2.x     Version Download Links Date     ApacheDS MINA 2.2.6 Download, Javadoc, Test javadoc, Xref, Xref test 27/Apr/2026   ApacheDS MINA 2.</description>
+      <description>Older MINA Releases For people wanting to use the serial package, we don&#39;t include the rxtx.jar library in the releases, as it&#39;s under a LGPL license. Please download it from http://rxtx.qbang.org/wiki/index.php/Download or add the associated dependency in your maven pom.xml : &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.rxtx&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;rxtx&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.1.7&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;scope&amp;gt; &amp;lt;/dependency&amp;gt;   MINA 2.2.x     Version Download Links Date     ApacheDS MINA 2.2.7 Download, Javadoc, Test javadoc, Xref, Xref test 30/Apr/2026   ApacheDS MINA 2.</description>
     </item>
     
     <item>
@@ -1970,8 +1980,10 @@ Apache MINA is often called:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/mina-project/news.html</guid>
-      <description>News MINA 2.2.7, 2.1.12 released posted on April, 30 2026 The MINA project is pleased to announce the MINA 2.2.7 and 2.1.12 release.
-This issue fixes two critical security issues, which were expected to have been fixed by the previous release. Sadly the code change that was supposed to be applied to the three versions was only applied to the 2.0.X branch, leaving 2.2.6 and 2.1.11 in the same state than before.</description>
+      <description>News MINA 2.2.8, 2.1.13, 2.0.29 released posted on June, 2 2026 The MINA project is pleased to announce the MINA 2.2.8, 2.1.13 and 2.0.29 releases.
+It fixed two CVE:
+ CVE-2026-47065: Critical Deserialization Allow-list Bypass via resolveProxyClass - ZDRES-232 CVE-2026-47321: Unbounded Decompression Amplification DoS in Apache Mina Zlib.inflate - ZDRES-231  The minor fix is related to the CumulativeProtocolDecoder which was not properly eleasing some buffers.
+CVE-2026-47065 ZDRES-232: resolveProxyClass Not Overridden - acceptMatchers Filter Bypass via java.</description>
     </item>
     
     <item>
