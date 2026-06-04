@@ -930,7 +930,7 @@ Bug Fixes  GH-875 Use Apache Parent POM 36  Getting the Distributions  Source di
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/download_2.18.0.html</guid>
-      <description>Overview Bug Fixes  GH-743 Ensure the Java ServiceLoader use a singleton SftpFileSystemProvider GH-879 Close SSH channel gracefully on exception in port forwarding Improve handling of repository paths in sshd-git.  New Features  GH-892 Align handling certificates without principals with OpenSSH 10.3  Wildcard principals in host certificates are handled now.
+      <description>Overview Bug Fixes  GH-743 Ensure the Java ServiceLoader use a singleton SftpFileSystemProvider GH-879 Close SSH channel gracefully on exception in port forwarding Security: Improve handling of repository paths in sshd-git. Resolves CVE-2026-48827, announced 2026-05-30.  New Features  GH-892 Align handling certificates without principals with OpenSSH 10.3  Wildcard principals in host certificates are handled now.
  Putty keys with non-ASCII passphrases  The passphrase needs to be converted to a byte sequence to compute a decryption key for an encrypted private key.</description>
     </item>
     
