@@ -2,14 +2,14 @@ Options +FollowSymLinks
 RewriteEngine On
 
 # Redirect to the latest releases
-RewriteRule ^latest-2.0$ https://nightlies.apache.org/mina/mina/2.0.29/ [QSA,L]
-RewriteRule ^latest-2.0/(.*)$ https://nightlies.apache.org/mina/mina/2.0.29/$1 [QSA,L]
+RewriteRule ^latest-2.0$ https://nightlies.apache.org/mina/mina/2.0.30/ [QSA,L]
+RewriteRule ^latest-2.0/(.*)$ https://nightlies.apache.org/mina/mina/2.0.30/$1 [QSA,L]
 
-RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/2.1.13/ [QSA,L]
-RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/2.1.13/$1 [QSA,L]
+RewriteRule ^latest-2.1$ https://nightlies.apache.org/mina/mina/2.1.14/ [QSA,L]
+RewriteRule ^latest-2.1/(.*)$ https://nightlies.apache.org/mina/mina/2.1.14/$1 [QSA,L]
 
-RewriteRule ^latest-2.2$ https://nightlies.apache.org/mina/mina/2.2.8/ [QSA,L]
-RewriteRule ^latest-2.2/(.*)$ https://nightlies.apache.org/mina/mina/2.2.8/$1 [QSA,L]
+RewriteRule ^latest-2.2$ https://nightlies.apache.org/mina/mina/2.2.9/ [QSA,L]
+RewriteRule ^latest-2.2/(.*)$ https://nightlies.apache.org/mina/mina/2.2.9/$1 [QSA,L]
 
 # Redirect everything else
 RewriteRule ^(.*)$ https://nightlies.apache.org/mina/mina/$1 [QSA,L]
