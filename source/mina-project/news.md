@@ -5,6 +5,22 @@ title: News
 
 # News
 
+## MINA 2.2.8, 2.1.14, 2.0.30 released _posted on June, 1 2026_
+
+The MINA project is pleased to announce the MINA 2.2.8, 2.1.14 and 2.0.30 releases.
+
+This is a bug fix release: the last release was supposed to fix the Compression Filter, and it does, to some extent, except that a copy/paste made it so that the deflater became actually an inflater. The unit test for this feature has been... commented (due to a Mock library migration that didn't go well, and it was expected to be temporary), so all the tests passed green. Wrongly...
+
+Bottom line thanks to Jörg Michelberger who accuratly reviewed the code, we were made aware of this mistake, and decided to cut this release ASAP.
+
+## Versions affected
+
+These issues affects **MINA** core versions 2.2.8, 2.1.13 and 2.0.29 and none of the previous versions
+
+## Mitigation
+
+Those who used the previous version 2.2.8, 2.1.13, 2.0.29 and using the compression filter have to upgrade.
+
 ## MINA 2.2.8, 2.1.13, 2.0.29 released _posted on June, 2 2026_
 
 The MINA project is pleased to announce the MINA 2.2.8, 2.1.13 and 2.0.29 releases.
