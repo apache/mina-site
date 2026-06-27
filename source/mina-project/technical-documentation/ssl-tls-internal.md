@@ -375,7 +375,9 @@ In any case, we have two use cases:
 
 ### Reading data
 
-Let's start with the reading side. As explained upper, we receive bytes which are parts or **TLS** packets, or complete **TLS** packets. We will decrypt them only when we have enough bytes to form a complete **TLS** packet. In this case, we just have to tell the **SslEngine** instance to decrypt it, which will product a decrypted buffer containing the original data. Last, not least, we have to send those data to the application handler.
+Let's start with the reading side. As explained upper, we receive bytes which are parts or **TLS** packets, or complete **TLS** packets (we may received more than one full TLS packets in one block of bytes). We will decrypt them only when we have enough bytes to form a complete **TLS** packet. In this case, we just have to tell the **SslEngine** instance to decrypt it, which will product a decrypted buffer containing the original data. 
+
+Last, not least, we have to send those data to the application handler.
 
 The process is described by the following schema:
 
@@ -395,11 +397,25 @@ This is a bit simplified, we have some additional steps to follow:
 * Check that we have received enough data to be able to pass it to the _SslEngine_ instance (ie we have received at least a complete *TLS* data packet)
 * Allocate a new buffer that will receive the decrypted data
 * Check the status of the _SslEngine_ instance before and after the decryption, and act accordingly
-* Loop on the received data
+* Loop on the received data if we have not consummed all of the incoming bytes.
 
-All in all, we can see that we end with a call to the _SSLEngine.unwrap()_ method, which is responsible for decoding what ha sbeen received.
+All in all, we can see that we end with a call to the _SSLEngine.unwrap()_ method, which is responsible for decoding what has been received.
 
-Otherwise, it's pretty straightforward. Here are the calls
+Otherwise, it's pretty straightforward. 
+
+The generl algorithm is the following:
+
+```
+- get the received bytes
+- check that the inbound channel is not closed
+- allocate a decoded buffer if needed
+- try to unwrap the received data
+- if we don't have enough data to decode it into an application message
+  - wait for more incomoing data, and restart 
+
+```
+
+Here are the calls
 
 ```
 SslFilter.messageReceived()

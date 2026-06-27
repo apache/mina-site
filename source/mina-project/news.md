@@ -5,7 +5,24 @@ title: News
 
 # News
 
-## MINA 2.2.8, 2.1.14, 2.0.30 released _posted on June, 1 2026_
+## MINA 2.1.15 and 2.1.31 released _posted on June, 27 2026_
+
+The MINA project is pleased to announce the MINA 2.1.15 and 2.0.31 releases.
+
+This is a bug fix release: A fix for CVE-2026-47065 ("Critical Deserialization Allow-list Bypass via resolveProxyClass") hasn't been backported to these two version.
+
+Many thanks to **tonghuaroot** who have reported this mistake.
+
+
+## Versions affected
+
+These issues affects **MINA** core versions prior to 2.1.15 and 2.0.31
+
+## Mitigation
+
+Those who used the versions 2.2.14, 2.0.30 and prior have to upgrade.
+
+## MINA 2.2.8, 2.1.14, 2.0.30 released _posted on June, 19 2026_
 
 The MINA project is pleased to announce the MINA 2.2.8, 2.1.14 and 2.0.30 releases.
 
