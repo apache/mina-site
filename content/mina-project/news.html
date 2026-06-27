@@ -61,8 +61,8 @@
                 </ul>
                 <h5>Latest Downloads</h5>
                 <ul>
-                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.30</a></li>
-                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.14</a></li>
+                    <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.31</a></li>
+                    <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.15</a></li>
                     <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.9</a></li>
                     <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
                 </ul>
@@ -82,11 +82,11 @@
                     <li><a href="/mina-project/mailing-lists.html" class="external-link" rel="nofollow">Mailing lists &amp; IRC</a></li>
                     <li><a href="/mina-project/issue-tracking.html" class="external-link" rel="nofollow">Issue tracking</a></li>
                     <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.30</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.14</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.31</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.15</a></li>
                     <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.9</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.30</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.14</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.31</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.15</a></li>
                     <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.9</a></li>
                     <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
                     <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
@@ -123,13 +123,21 @@
 
             
 	<h1 id="news">News</h1>
-<h2 id="mina-228-2114-2030-released-_posted-on-june-1-2026_">MINA 2.2.8, 2.1.14, 2.0.30 released <em>posted on June, 1 2026</em></h2>
+<h2 id="mina-2115-and-2131-released-_posted-on-june-27-2026_">MINA 2.1.15 and 2.1.31 released <em>posted on June, 27 2026</em></h2>
+<p>The MINA project is pleased to announce the MINA 2.1.15 and 2.0.31 releases.</p>
+<p>This is a bug fix release: A fix for CVE-2026-47065 (&ldquo;Critical Deserialization Allow-list Bypass via resolveProxyClass&rdquo;) hasn&rsquo;t been backported to these two version.</p>
+<p>Many thanks to <strong>tonghuaroot</strong> who have reported this mistake.</p>
+<h2 id="versions-affected">Versions affected</h2>
+<p>These issues affects <strong>MINA</strong> core versions prior to 2.1.15 and 2.0.31</p>
+<h2 id="mitigation">Mitigation</h2>
+<p>Those who used the versions 2.2.14, 2.0.30 and prior have to upgrade.</p>
+<h2 id="mina-228-2114-2030-released-_posted-on-june-19-2026_">MINA 2.2.8, 2.1.14, 2.0.30 released <em>posted on June, 19 2026</em></h2>
 <p>The MINA project is pleased to announce the MINA 2.2.8, 2.1.14 and 2.0.30 releases.</p>
 <p>This is a bug fix release: the last release was supposed to fix the Compression Filter, and it does, to some extent, except that a copy/paste made it so that the deflater became actually an inflater. The unit test for this feature has been&hellip; commented (due to a Mock library migration that didn&rsquo;t go well, and it was expected to be temporary), so all the tests passed green. Wrongly&hellip;</p>
 <p>Bottom line thanks to Jörg Michelberger who accuratly reviewed the code, we were made aware of this mistake, and decided to cut this release ASAP.</p>
-<h2 id="versions-affected">Versions affected</h2>
+<h2 id="versions-affected-1">Versions affected</h2>
 <p>These issues affects <strong>MINA</strong> core versions 2.2.8, 2.1.13 and 2.0.29 and none of the previous versions</p>
-<h2 id="mitigation">Mitigation</h2>
+<h2 id="mitigation-1">Mitigation</h2>
 <p>Those who used the previous version 2.2.8, 2.1.13, 2.0.29 and using the compression filter have to upgrade.</p>
 <h2 id="mina-228-2113-2029-released-_posted-on-june-2-2026_">MINA 2.2.8, 2.1.13, 2.0.29 released <em>posted on June, 2 2026</em></h2>
 <p>The MINA project is pleased to announce the MINA 2.2.8, 2.1.13 and 2.0.29 releases.</p>
@@ -209,9 +217,9 @@ potentially leading to remote code execution (<strong>RCE</strong>) attacks.</p>
 <p>The <em>ObjectSerializationDecoder</em> in Apache <strong>MINA</strong> uses <strong>Java</strong> native deserialization protocol to process incoming serialized data but lacks the necessary security checks and defenses. This vulnerability allows attackers to exploit the deserialization process by sending specially crafted malicious serialized data,
 potentially leading to remote code execution (<strong>RCE</strong>) attacks.</p>
 <p>A security release has been issued in Decmber 2024, but was incomplete. An allow-list of classes was added to tell MINA which classes can be used by the deserialization of messages through the <em>AbstractIoBuffer.getObject()</em> method, but static classes or primitives types are bypassing this check.</p>
-<h2 id="versions-affected-1">Versions affected</h2>
+<h2 id="versions-affected-2">Versions affected</h2>
 <p>These issues affects <strong>MINA</strong> core versions 2.1.X and 2.2.X, and is fixed by the releases 2.1.12 and 2.2.7.</p>
-<h2 id="mitigation-1">Mitigation</h2>
+<h2 id="mitigation-2">Mitigation</h2>
 <p>It&rsquo;s also important to note that an application using <strong>MINA</strong> core library will only be affected if the <em>IoBuffer#getObject()</em> method is called, and this specific method is potentially called when adding a <em>ProtocolCodecFilter</em> instance using the <em>ObjectSerializationCodecFactory</em> class in the filter chain. If your application is specifically using those classes, you have to upgrade to the latest version of <strong>MINA</strong> core library.</p>
 <p><strong>Upgrading will  not be enough: you also need to explicitly allow the classes the decoder will accept in the <em>ObjectSerializationDecoder</em> instance, using one of the three new methods:</strong></p>
 <pre><code>    /**
@@ -269,9 +277,9 @@ potentially leading to remote code execution (<strong>RCE</strong>) attacks.</p>
 <p>The <em>ObjectSerializationDecoder</em> in Apache <strong>MINA</strong> uses <strong>Java</strong> native deserialization protocol to process incoming serialized data but lacks the necessary security checks and defenses. This vulnerability allows attackers to exploit the deserialization process by sending specially crafted malicious serialized data,
 potentially leading to remote code execution (<strong>RCE</strong>) attacks.</p>
 <p>A security release has been issued in Decmber 2024, but was incomplete. An allow-list of classes was added to tell MINA which classes can be used by the deserialization of messages through the <em>AbstractIoBuffer.getObject()</em> method, but static classes or primitives types are bypassing this check.</p>
-<h2 id="versions-affected-2">Versions affected</h2>
+<h2 id="versions-affected-3">Versions affected</h2>
 <p>These issues affects <strong>MINA</strong> core versions 2.0.X, 2.1.X and 2.2.X, and is fixed by the releases 2.0.28, 2.1.11 and 2.2.6.</p>
-<h2 id="mitigation-2">Mitigation</h2>
+<h2 id="mitigation-3">Mitigation</h2>
 <p>It&rsquo;s also important to note that an application using <strong>MINA</strong> core library will only be affected if the <em>IoBuffer#getObject()</em> method is called, and this specific method is potentially called when adding a <em>ProtocolCodecFilter</em> instance using the <em>ObjectSerializationCodecFactory</em> class in the filter chain. If your application is specifically using those classes, you have to upgrade to the latest version of <strong>MINA</strong> core library.</p>
 <p><strong>Upgrading will  not be enough: you also need to explicitly allow the classes the decoder will accept in the <em>ObjectSerializationDecoder</em> instance, using one of the three new methods:</strong></p>
 <pre><code>    /**
