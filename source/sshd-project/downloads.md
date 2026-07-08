@@ -1,7 +1,7 @@
 ---
 type: sshd
 title: SSHD Downloads
-version: 3.0.0-M4
+version: 3.0.0-M5
 ---
 
 # Latest SSHD Release: {{< version_sshd >}}
