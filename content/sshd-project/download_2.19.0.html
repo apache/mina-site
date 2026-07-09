@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Apache SSHD 2.19.0 Release &mdash; Apache MINA</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/sshd.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<script src="https://www.apachecon.com/event-images/snippet.js"></script>
+<div id="container">
+    <div id="header">
+    <div id="subProjectsNavBar">
+        <a href="/">
+            
+                Apache MINA Project
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/mina-project/">
+            
+                MINA
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/asyncweb-project/">
+            
+                AsyncWeb
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/ftpserver-project/">
+            
+                FtpServer
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/sshd-project/">
+            
+                <strong>SSHD</strong>
+            
+        </a>
+        &nbsp;|&nbsp;
+        <a href="/vysper-project/">
+            
+                Vysper
+            
+        </a>
+    </div>
+</div>
+
+
+    <div id="content">
+        <div id="leftColumn">
+            <div id="navigation">
+                <a class="acevent" data-format="wide" data-width="170"></a>
+                <h5>Social Networks</h5>
+                <ul>
+                    <li><a href="https://fosstodon.org/@apachemina">Apache MINA Mastodon</a></li>
+                </ul>
+                <h5>Overview</h5>
+                <ul>
+                    <li><a href="/sshd-project/index.html">Home</a> </li>
+                    <li><a href="/sshd-project/features.html">Features</a> </li>
+                    <li><a href="/sshd-project/documentation.html">Documentation</a></li>
+                    <li><a href="/sshd-project/downloads.html">Downloads</a></li>
+                    <li><a href="/sshd-project/sources.html">Sources</a></li>
+                    <li><a href="/sshd-project/faq.html">FAQ</a></li>
+                </ul>
+
+                <h5>Community</h5>
+                <ul>
+                    <li><a href="/sshd-project/mailing_lists.html">Mailing Lists</a></li>
+                    <li><a href="/sshd-project/getting_involved.html">Getting Involved</a></li>
+                    <li><a href="/sshd-project/issue_tracking.html">Issue Tracking</a></li>
+                    <li><a href="/sshd-project/contributors.html">Contributors</a></li>
+                    <li><a href="https://www.apache.org/foundation/contributing.html">Contributing</a></li>
+                    <li><a href="https://www.apache.org/licenses/">License</a></li>
+                    <li><a href="https://www.apache.org/security/">Security</a></li>
+                </ul>
+
+                <h5>Sponsorship</h5>
+                <ul>
+                    <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                    <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                    <li><a href="https://www.apache.org/">apache.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumn">
+            
+
+            
+	<h1 id="overview">Overview</h1>
+<h2 id="bug-fixes">Bug Fixes</h2>
+<ul>
+<li><a href="https://github.com/apache/mina-sshd/issues/899">GH-899</a> Fix <code>ProcessShellFactory</code> on Linux</li>
+<li><a href="https://github.com/apache/mina-sshd/pull/902">GH-902</a> Fix client-side handling of sk-* public key signatures (also in the agent interfaces)</li>
+<li>Limit size of decompressed SSH packets</li>
+<li>Improve checking SSH user certificates in public-key authentication</li>
+<li>Improve handling of repository paths in <code>sshd-git</code> on Windows</li>
+<li>Validate file names in SCP</li>
+<li>Escape newlines in filenames in the SCP protocol</li>
+<li>Restrict JGit commands accessible via <code>GitPgmCommandFactory</code> in <code>sshd-git</code></li>
+</ul>
+<h2 id="new-features">New Features</h2>
+<p>None.</p>
+<h2 id="potential-compatibility-issues">Potential Compatibility Issues</h2>
+<h3 id="restrict-jgit-commands-accessible-via-gitpgmcommandfactory-in-sshd-git">Restrict JGit commands accessible via <code>GitPgmCommandFactory</code> in <code>sshd-git</code></h3>
+<p>Bundle <code>sshd-git</code> contains a <code>GitPgmCommandFactory</code> that can be configured for an Apache MINA SSHD server.
+It enables remote execution of git commands via JGit.</p>
+<p>However, running arbitrary git commands remotely is an exotic use case, and some commands (like
+<code>git archive --format zip --output somefile.zip</code> or also <code>git clone</code>  or <code>git checkout</code>) could even create
+files on the server. This should be only allowed in an OS-level chrooted environment, which Apache MINA
+SSHD does not and cannot provide.</p>
+<p>We have therefore limited the available commands to a small set of whitelisted git commands that might
+be useful as maintenance commands for authorized power users on a git server implemented based on <code>sshd-git</code>.
+The command are: <code>archive</code>, <code>blame</code>, <code>branch</code>, <code>describe</code>, <code>diff</code>, <code>gc</code>, <code>log</code>, <code>reflog</code>, <code>show</code>, and <code>status</code>.
+All these commands can be executed from an client via <code>git --git-dir &lt;repo&gt; &lt;command&gt; &lt;args&gt;</code>, where <code>&lt;repo&gt;</code>
+is the server-side name of the git repository (its local path on the server relative to the configured
+root), <code>&lt;command&gt;</code> is the command name (e.g., <code>archive</code>) and <code>&lt;args&gt;</code> are the command arguments. Results are
+sent back via the command output streams (output or error streams) and are thus sent back to the client.
+For the <code>archive</code>command, the <code>--output</code> (or <code>-o</code>) argument is ignored; the archive is always returned via
+the command&rsquo;s output stream and this is also sent to the client.</p>
+<p>Applications that might have relied on the ability to run other JGit command remotely may no longer work.
+Either implement your own dedicated command factory to enable accesss to certain commands, or set the
+property <code>GitModuleProperties.RESTRICT_COMMANDS</code> to <code>false</code> on the server-side <code>SshServer</code> (for all sessions)
+or on particular <code>ServerSession</code>s (for particular individual sessions) to re-enable access to <em>all</em> commands
+supported by JGit.</p>
+<h2 id="major-code-re-factoring">Major Code Re-factoring</h2>
+<p>None.</p>
+<h1 id="getting-the-distributions">Getting the Distributions</h1>
+<ul>
+<li>Source distributions:
+<ul>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.19.0/apache-sshd-2.19.0-src.tar.gz">Apache Mina SSHD 2.19.0 Sources (.tar.gz)</a> <a href="https://downloads.apache.org/mina/sshd/2.19.0/apache-sshd-2.19.0-src.tar.gz.asc">PGP</a> <a href="https://downloads.apache.org/mina/sshd/2.19.0/apache-sshd-2.19.0-src.tar.gz.sha512">SHA512</a></li>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.19.0/apache-sshd-2.19.0-src.zip">Apache Mina SSHD 2.19.0 Sources (.zip)</a> <a href="https://downloads.apache.org/mina/sshd/2.19.0/apache-sshd-2.19.0-src.zip.asc">PGP</a> <a href="https://downloads.apache.org/mina/sshd/2.19.0/apache-sshd-2.19.0-src.zip.sha512">SHA512</a></li>
+</ul>
+</li>
+<li>Binary distributions:
+<ul>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.19.0/apache-sshd-2.19.0.tar.gz">Apache Mina SSHD 2.19.0 Binary (.tar.gz)</a> <a href="https://downloads.apache.org/mina/sshd/2.19.0/apache-sshd-2.19.0.tar.gz.asc">PGP</a> <a href="https://downloads.apache.org/mina/sshd/2.19.0/apache-sshd-2.19.0.tar.gz.sha512">SHA512</a></li>
+<li><a href="https://www.apache.org/dyn/closer.lua/mina/sshd/2.19.0/apache-sshd-2.19.0.zip">Apache Mina SSHD 2.19.0 Binary (.zip)</a> <a href="https://downloads.apache.org/mina/sshd/2.19.0/apache-sshd-2.19.0.zip.asc">PGP</a> <a href="https://downloads.apache.org/mina/sshd/2.19.0/apache-sshd-2.19.0.zip.sha512">SHA512</a></li>
+</ul>
+</li>
+</ul>
+<p>PGP signing public keys for all releases are available in the <a href="https://downloads.apache.org/mina/KEYS">Apache MINA KEYS file</a>.</p>
+<p>Please report any feedback to <a href="mailto:users@mina.apache.org">users@mina.apache.org</a>.</p>
+
+
+            
+
+        </div>
+        <div id="endContent"></div>
+    </div>
+
+    <div id="footer">
+    &copy; 2003-2026, <a href="https://www.apache.org">The Apache Software Foundation</a> - <a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy Policy</a><br />
+    Apache MINA, MINA, Apache Vysper, Vysper, Apache SSHd, SSHd, Apache FtpServer, FtpServer, Apache AsyncWeb, AsyncWeb,
+    Apache, the Apache feather logo, and the Apache Mina project logos are trademarks of The Apache Software Foundation.
+</div>
+
+</div>
+
+</body>
+
+</html>

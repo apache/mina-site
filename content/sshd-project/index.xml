@@ -443,6 +443,15 @@ Bug Fixes  GH-875 Use Apache Parent POM 36  Getting the Distributions  Source di
     </item>
     
     <item>
+      <title>Apache SSHD 2.19.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.19.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.19.0.html</guid>
+      <description>Overview Bug Fixes  GH-899 Fix ProcessShellFactory on Linux GH-902 Fix client-side handling of sk-* public key signatures (also in the agent interfaces) Limit size of decompressed SSH packets Improve checking SSH user certificates in public-key authentication Improve handling of repository paths in sshd-git on Windows Validate file names in SCP Escape newlines in filenames in the SCP protocol Restrict JGit commands accessible via GitPgmCommandFactory in sshd-git  New Features None.</description>
+    </item>
+    
+    <item>
       <title>Apache SSHD 2.2.0 Release</title>
       <link>https://mina.apache.org/sshd-project/download_2.2.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -624,8 +633,8 @@ This release is archived and is no longer supported.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/downloads.html</guid>
-      <description>Latest SSHD Release: 2.18.0 The latest release is the SSHD 2.18.0 release. See the release notes.
- Source distributions:  Apache Mina SSHD 2.18.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.18.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.18.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.18.0 Binary (.zip) PGP SHA512    See also Verifying Releases.
+      <description>Latest SSHD Release: 2.19.0 The latest release is the SSHD 2.19.0 release. See the release notes.
+ Source distributions:  Apache Mina SSHD 2.19.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.19.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.19.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.19.0 Binary (.zip) PGP SHA512    See also Verifying Releases.
 Development Snapshots You can build the latest version from sources.</description>
     </item>
     
