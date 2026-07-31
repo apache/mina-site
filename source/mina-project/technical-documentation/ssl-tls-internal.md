@@ -407,15 +407,20 @@ The generl algorithm is the following:
 
 ```
 - get the received bytes
-- check that the inbound channel is not closed
+- check that the inbound channel is not closed. If it's closed, throw an exception
 - allocate a decoded buffer if needed
 - try to unwrap the received data
 - if we don't have enough data to decode it into an application message
-  - wait for more incomoing data, and restart 
+  - exit the loop. We will go through the process once we have received more bytes
+- else 
+  - push the decoded  message to the next filter
+  - if we have some more bytes to deal with, restart to step 2, otherwise exit the loop
 
 ```
 
-Here are the calls
+One of the issue here is that we can't know what will be the size of the decoded buffer. 
+
+Here are the calls in the current implementation:
 
 ```
 SslFilter.messageReceived()

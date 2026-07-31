@@ -14,7 +14,7 @@ This is a bug fix release: A fix for CVE-2026-47065 ("Critical Deserialization A
 Many thanks to **tonghuaroot** who have reported this mistake.
 
 
-## Versions affected
+## Affected versions
 
 These issues affects **MINA** core versions prior to 2.1.15 and 2.0.31
 
@@ -22,15 +22,15 @@ These issues affects **MINA** core versions prior to 2.1.15 and 2.0.31
 
 Those who used the versions 2.2.14, 2.0.30 and prior have to upgrade.
 
-## MINA 2.2.8, 2.1.14, 2.0.30 released _posted on June, 19 2026_
+## MINA 2.2.9, 2.1.14, 2.0.30 released _posted on June, 19 2026_
 
-The MINA project is pleased to announce the MINA 2.2.8, 2.1.14 and 2.0.30 releases.
+The MINA project is pleased to announce the MINA 2.2.9, 2.1.14 and 2.0.30 releases.
 
 This is a bug fix release: the last release was supposed to fix the Compression Filter, and it does, to some extent, except that a copy/paste made it so that the deflater became actually an inflater. The unit test for this feature has been... commented (due to a Mock library migration that didn't go well, and it was expected to be temporary), so all the tests passed green. Wrongly...
 
 Bottom line thanks to Jörg Michelberger who accuratly reviewed the code, we were made aware of this mistake, and decided to cut this release ASAP.
 
-## Versions affected
+## Affected versions
 
 These issues affects **MINA** core versions 2.2.8, 2.1.13 and 2.0.29 and none of the previous versions
 
@@ -163,7 +163,7 @@ potentially leading to remote code execution (**RCE**) attacks.
 A security release has been issued in Decmber 2024, but was incomplete. An allow-list of classes was added to tell MINA which classes can be used by the deserialization of messages through the *AbstractIoBuffer.getObject()* method, but static classes or primitives types are bypassing this check.  
 
 
-## Versions affected
+## Affected versions
 
 These issues affects **MINA** core versions 2.1.X and 2.2.X, and is fixed by the releases 2.1.12 and 2.2.7.
 
@@ -252,7 +252,7 @@ potentially leading to remote code execution (**RCE**) attacks.
 A security release has been issued in Decmber 2024, but was incomplete. An allow-list of classes was added to tell MINA which classes can be used by the deserialization of messages through the *AbstractIoBuffer.getObject()* method, but static classes or primitives types are bypassing this check.  
 
 
-## Versions affected
+## Affected versions
 
 These issues affects **MINA** core versions 2.0.X, 2.1.X and 2.2.X, and is fixed by the releases 2.0.28, 2.1.11 and 2.2.6.
 
