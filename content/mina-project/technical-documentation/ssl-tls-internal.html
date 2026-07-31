@@ -432,13 +432,17 @@ In the second case, we have a different problem: if we delegate the tasks to sep
 <p>Otherwise, it&rsquo;s pretty straightforward.</p>
 <p>The generl algorithm is the following:</p>
 <pre><code>- get the received bytes
-- check that the inbound channel is not closed
+- check that the inbound channel is not closed. If it's closed, throw an exception
 - allocate a decoded buffer if needed
 - try to unwrap the received data
 - if we don't have enough data to decode it into an application message
-  - wait for more incomoing data, and restart 
+  - exit the loop. We will go through the process once we have received more bytes
+- else 
+  - push the decoded  message to the next filter
+  - if we have some more bytes to deal with, restart to step 2, otherwise exit the loop
 
-</code></pre><p>Here are the calls</p>
+</code></pre><p>One of the issue here is that we can&rsquo;t know what will be the size of the decoded buffer.</p>
+<p>Here are the calls in the current implementation:</p>
 <pre><code>SslFilter.messageReceived()
  |
  +-- SslHandler.receive()
