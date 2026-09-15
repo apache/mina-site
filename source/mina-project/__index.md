@@ -26,7 +26,7 @@ The fix for **CVE-2026-47065** changed the form **MINA** writes for serialized o
 
 Streams produced by **2.2.7**, **2.1.12** or **2.0.28** and earlier cannot be read by **2.2.8**, **2.1.13** or **2.0.29** and later, and streams produced by the newer releases cannot be read by the older ones. 
 
-Arrays, primitives and non-Serializable classes are unaffected. 
+_Arrays_, primitives and non-Serializable classes are unaffected. 
 
 Upgrades across this boundary fail with a _BufferDataException_ wrapping an _EOFException_ or a _StreamCorruptedException_, and payloads persisted before the upgrade become unreadable after it.
 
