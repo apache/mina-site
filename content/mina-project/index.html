@@ -132,11 +132,11 @@
 <li>a networking &middot; socket library.</li>
 </ul>
 <p>However, it&rsquo;s much more than that.  Please take a look around the list of the <em><a href="features.html">features</a></em> that enable rapid network application development, and <em><a href="testimonials.html">what people says about MINA</a></em>.</p>
-<p>Please grab yourself a <em><a href="downloads_2_2.html">2.1.x download</a></em>, a <em><a href="downloads_2_1.html">2.1.x download</a></em> or a <em><a href="downloads_2_0.html">2.0.x download</a></em>, try our <em><a href="quick-start-guide.html">Quick Start Guide</a></em>, surf our <em><a href="faq.html">FAQ</a></em> or start join us on <em><a href="../contact.html">our community</a></em></p>
+<p>Please grab yourself a <em><a href="downloads_2_2.html">2.2.x download</a></em>, a <em><a href="downloads_2_1.html">2.1.x download</a></em> or a <em><a href="downloads_2_0.html">2.0.x download</a></em>, try our <em><a href="quick-start-guide.html">Quick Start Guide</a></em>, surf our <em><a href="faq.html">FAQ</a></em> or start join us on <em><a href="../contact.html">our community</a></em></p>
 <h2 id="warning">WARNING</h2>
 <p>The fix for <strong>CVE-2026-47065</strong> changed the form <strong>MINA</strong> writes for serialized objects exchanged through <em>IoBuffer.putObject</em> / <em>getObject</em> and <em>ObjectSerializationCodecFactory</em>: after the class name, the full standard <strong>Java</strong> serialization class descriptor is now written.</p>
 <p>Streams produced by <strong>2.2.7</strong>, <strong>2.1.12</strong> or <strong>2.0.28</strong> and earlier cannot be read by <strong>2.2.8</strong>, <strong>2.1.13</strong> or <strong>2.0.29</strong> and later, and streams produced by the newer releases cannot be read by the older ones.</p>
-<p>Arrays, primitives and non-Serializable classes are unaffected.</p>
+<p><em>Arrays</em>, primitives and non-Serializable classes are unaffected.</p>
 <p>Upgrades across this boundary fail with a <em>BufferDataException</em> wrapping an <em>EOFException</em> or a <em>StreamCorruptedException</em>, and payloads persisted before the upgrade become unreadable after it.</p>
 <div class="news">
     
