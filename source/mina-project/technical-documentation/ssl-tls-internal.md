@@ -112,7 +112,7 @@ Most of the time, records will be smaller (and the packet size is stored in the 
 
 Now, considering the very nature of **TCP**, we may receive a TLS record in small chunks, or more than one TLS record in a packet of data. We have to deal with both cases.
 
-We will use an internal pending buffer that will contain the incoming data until they can be fully processed. The important point is that the *SslEngine* class is using *ByteBuffer* to get things done, though a set of methods:
+We will use an internal pending buffer that will contain the incoming data until they can be fully processed. The important point is that the *SslEngine* class is using *ByteBuffer* to get things done, through a set of methods:
 
 * _wrap(ByteBuffer src, [int offset, int length,] ByteBuffer dst)_: Encrypt the data from the source buffer into the destination buffer
 * _unwrap(ByteBuffer src, [int offset, int length,] ByteBuffer dst)_: Decrypt the data from the source buffer into the destination buffer
@@ -133,6 +133,175 @@ The following schema shows that we are switching from an incoming _IoBuffer_ to 
                                                                  +--> | uncrypted data | --> Application
                                                                       +----------------+
 ```
+
+Also note that we receive data by chunks (starting with a 1024 buffer), which may not be decodable. And this is problematic froma performance piont of vue: Imagine we are going to receive a block of 55Kb of data, it won't fit on a single TLS packet. We will need 4 TLS packets to contain all the data. And we start by reading a 1024 bytes buffer...
+
+Here is how MINA will proceed:
+* Read 1024 bytes in the incoming buffer
+* Allocate a buffer capable of storing the size defined in the TLS packet
+* Try to decode it (it will fail)
+* So free the destination buffer
+* Resize the incoming buffer, increasing its size to hold 2048 more bytes
+* Try to read 2048 bytes (we now have 3072 bytes in the buffer)
+* Allocate a buffer capable of storing the size defined in the TLS packet
+* Try to decode it (it will fail again...)
+* So free the destination buffer
+* Resize the incoming buffer, adding 4096 bytes into it
+* Repeat reading 4096 bytes stored in the 3072 + 4096 sized buffer (7168 bytes)
+* Allocate a buffer capable of storing the size defined in the TLS packet
+* Try to decode it (it will still fail...): The TLS packet contains 16384 - padding bytes of data.
+* So free the destination buffer
+* Resize again the incoming buffer, adding 8192 bytes
+* Read 8192 bytes leading to a incoming buffer containing 15360 bytes
+* Allocate a buffer capable of storing the size defined in the TLS packet
+* Which won't be decoded either
+* So free the destination buffer
+* Resize the incoming buffer, adding 16384 bytes, leading to a 31744 bytes buffer
+* Read 16384 bytes of data
+* Allocate a buffer capable of storing the size defined in the TLS packet
+* And now the decoding could work!
+* Copy the decoded buffer into a buffer that will be send to the IoHandler
+* Free the decoing buffer
+* and as we have some remaining data in the incoming buffer,
+* Allocate a buffer capable of storing the size defined in the TLS packet
+* Try to decode it (and it will fail...)
+* Free the buffer
+* etc etc until we have read and processed all the data.
+
+Here is how it translates in method calls:
+
+```
+AbstractPollingIoProcessor.read
+  IoBuffer.allocate(1024)
+  ...
+    SslFilter.messageReceived
+      SslHandler.receive
+        receive_start
+          resume_decode_buffer
+            mDecodedBuffer <- message
+          receive_loop
+            dest <- allocate(ZERO)
+            SslEngine.unwrap() -> BUFFER_OVERFLOW
+            dest free
+          suspend_decode_buffer
+        throw_pending_error
+        forward_writes
+        forward_received
+        forward_events
+  IoBuffer.allocate(2048)
+  ...
+    SslFilter.messageReceived
+      SslHandler.receive
+        receive_start
+          resume_decode_buffer
+            mDecodedBuffer.expand -> 3072
+            source free
+          receive_loop
+            dest <- allocate(ZERO)
+            SslEngine.unwrap() -> BUFFER_OVERFLOW
+            dest free
+          suspend_decode_buffer
+        throw_pending_error
+        forward_writes
+        forward_received
+        forward_events
+  IoBuffer.allocate(4096)
+  ...
+    SslFilter.messageReceived
+      SslHandler.receive
+        receive_start
+          resume_decode_buffer
+            mDecodedBuffer.expand -> 7168
+            source free
+          receive_loop
+            dest <- allocate(ZERO)
+            SslEngine.unwrap() -> BUFFER_OVERFLOW
+            dest free
+          suspend_decode_buffer
+        throw_pending_error
+        forward_writes
+        forward_received
+        forward_events
+  IoBuffer.allocate(8192)
+  ...
+    SslFilter.messageReceived
+      SslHandler.receive
+        receive_start
+          resume_decode_buffer
+            mDecodedBuffer.expand -> 15360
+            source free
+          receive_loop
+            dest <- allocate(ZERO)
+            SslEngine.unwrap() -> BUFFER_OVERFLOW
+            dest free
+          suspend_decode_buffer
+        throw_pending_error
+        forward_writes
+        forward_received
+        forward_events
+  IoBuffer.allocate(16384)
+  ...
+    SslFilter.messageReceived
+      SslHandler.receive
+        receive_start
+          resume_decode_buffer
+            mDecodedBuffer.expand -> 31744
+            source free
+          receive_loop
+            dest <- allocate(16400)
+            SslEngine.unwrap() -> OK
+            mReceiveQueue <- dest (16367 useful data, 33 padding removed)
+            receive_loop
+              dest <- allocate(ZERO)
+              SslEngine.unwrap() -> BUFFER_OVERFLOW
+              dest free
+          suspend_decode_buffer
+        throw_pending_error
+        forward_writes
+        forward_received
+          next.messageReceived -> We are propagating the first chunk of data to the IoHandler
+        forward_events
+```
+
+As we can see, the mDecodedBuffer has been expended 4 times, so is the session receiving buffer, and we have allocated 5 destination buffer (although four have been allocated with a 0 size).
+
+To schematize, here are the allocated (or resized) buffers:
+
+```
+input     mDecodedBuffer
++----+    +----+
+|1024| -> |1024|
++----+    +----+
+
++--------+    +----+--------+
+|  2048  | -> |1024|  2048  | 3072
++--------+    +----+--------+
+
++------------+    +----+--------+------------+
+|    4096    | -> |1024|  2048  |    4096    | 7168
++------------+    +----+--------+------------+
+
++----------------+    +----+--------+------------+----------------+
+|      8192      | -> |1024|  2048  |    4096    |      8192      | 15360
++----------------+    +----+--------+------------+----------------+
+
++--------------------+    +----+--------+------------+----------------+--------------------+
+|        16384       | -> |1024|  2048  |    4096    |      8192      |        16384       | 31744
++--------------------+    +----+--------+------------+----------------+--------------------+
+                           ^                                             ^                ^
+                           |                                             |                |
+                           +----- First chunk of data, 16367 bytes ------+-- some more  --+
+```
+
+
+As we can see it's a VERY costly process, where we allocate *many* buffers that get discardd immediately. There is a lot of room for improvement!
+
+We can decide to use a bigger input buffer. By default, it's sized to 1Kb in order to avoid using a lot of memory, and it's fine when we only receive small chunk of data. For big data exchanges, it would be valuable to define a bigger size.
+The key here is that there is an adaptative mechanism where we double the size of the input buffer if the read data fulfilled it (uo to a limit), and divide it by two if we read less than what the buffer could contain. This adaptative mechanism is fine when we don't know the size of the receivd data, ad if it can vary a lot. When the incoming data are stable, we will oscillate between two sizes (doubling the buffer size, then divide it by two) which is a huge penalty to pay.
+
+Regarding the mDecoderBuffer, it's the same thing: until we can successfully decode it its size will increase. As a TLS record is always maxing to 16384 bytes, it would be a better idea to allocate a buffer this size and use it, when we know we will be able to decode it (ie when the input bufffer is bigger than the TLS data size, plus some margin, because of the padding bytes).
+
+All in all, when in TLS mode, the proper strategy would be to use a 16Kb + padding input buffer, and same thing for the mDecodedBuffer, when we have received enough data. 
 
 #### Receiving small chunks
 
