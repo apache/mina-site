@@ -26,6 +26,7 @@ title: Apache MINA - Contributors
 * Bogdan Pistol (bogdan)
 * David Latorre (dlat)
 * [Edouard De Oliveira](http://tedorg.free.fr/en/main.php) (edeoliveira)
+* Marcin Lamparski (mlamparski)
 * Michael Jakl (mjakl)
 * Mike Mahonay (foodmike)
 * Rapha{{< html "&euml;" >}}l P. Barazzutti (rbarazzutti)
