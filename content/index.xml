@@ -921,7 +921,8 @@ This release is archived and is no longer supported.</description>
       <guid>https://mina.apache.org/sshd-project/download_2.17.1.html</guid>
       <description>Overview No code changes; only a POM update to fix a deployment problem with the Maven release of 2.17.0.
 For the real changes since version 2.16.0 see the 2.17.0 change notes.
-Bug Fixes  GH-875 Use Apache Parent POM 36  Getting the Distributions  Source distributions:  Apache Mina SSHD 2.17.1 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.17.1 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.</description>
+Bug Fixes  GH-875 Use Apache Parent POM 36  Getting the Distributions Source and binary distributions are available via the Apache Release Archives.
+PGP signing public keys for all releases are available in the Apache MINA KEYS file.</description>
     </item>
     
     <item>
