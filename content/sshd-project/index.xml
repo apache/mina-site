@@ -448,7 +448,8 @@ Bug Fixes  GH-875 Use Apache Parent POM 36  Getting the Distributions  Source di
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/download_2.19.0.html</guid>
-      <description>Overview Bug Fixes  GH-899 Fix ProcessShellFactory on Linux GH-902 Fix client-side handling of sk-* public key signatures (also in the agent interfaces) Limit size of decompressed SSH packets Improve checking SSH user certificates in public-key authentication Improve handling of repository paths in sshd-git on Windows Validate file names in SCP Escape newlines in filenames in the SCP protocol Restrict JGit commands accessible via GitPgmCommandFactory in sshd-git  New Features None.</description>
+      <description>Overview Bug Fixes  GH-899 Fix ProcessShellFactory on Linux GH-902 Fix client-side handling of sk-* public key signatures (also in the agent interfaces) Limit size of decompressed SSH packets Escape newlines in filenames in the SCP protocol  Security Fixes
+ Validate file names in SCP. Resolves CVE-2026-56452, announced 2026-07-20. Improve handling of repository paths in sshd-git on Windows. Resolves CVE-2026-56623, announced 2026-07-20. Improve checking SSH user certificates in public-key authentication.</description>
     </item>
     
     <item>
@@ -460,6 +461,15 @@ Bug Fixes  GH-875 Use Apache Parent POM 36  Getting the Distributions  Source di
       <description>Overview Apache Mina SSHD 2.2.0 contains a number of enhancements and bug-fixes.
 Getting the Distributions Source and binary distributions are available via the Apache Release Archives.
 This release is archived and is no longer supported.</description>
+    </item>
+    
+    <item>
+      <title>Apache SSHD 2.20.0 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.20.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.20.0.html</guid>
+      <description>Overview Bug Fixes  GH-656 ChannelPipedInputStream: shrink buffer when emptied GH-906 Fix finding a signature factory for BC ed25519 keys GH-911 Fix server-side SOCKS5 proxy for fragmented and pipelined CONNECT requests Allow asynchronous authentication only for password and keyboard-interactive authentication schemes Fix authentication requiring multiple public keys (server-side) Better argument handling in sshd-git More checks in authentication (server-side) Better SCP command handling SFTP client: simplify response message handling Fix check-file-name/check-file-handle SFTP v6 extension (server-side) Improve LDAP authentication (sshd-ldap)  New Features  GH-905 Implement the &amp;ldquo;from&amp;rdquo; and &amp;ldquo;expiry-time&amp;rdquo; options in authorized_keys handling in public key authentication (server side)  Potential Compatibility Issues None.</description>
     </item>
     
     <item>
@@ -633,8 +643,8 @@ This release is archived and is no longer supported.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/downloads.html</guid>
-      <description>Latest SSHD Release: 2.19.0 The latest release is the SSHD 2.19.0 release. See the release notes.
- Source distributions:  Apache Mina SSHD 2.19.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.19.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.19.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.19.0 Binary (.zip) PGP SHA512    See also Verifying Releases.
+      <description>Latest SSHD Release: 2.20.0 The latest release is the SSHD 2.20.0 release. See the release notes.
+ Source distributions:  Apache Mina SSHD 2.20.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.20.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.20.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.20.0 Binary (.zip) PGP SHA512    See also Verifying Releases.
 Development Snapshots You can build the latest version from sources.</description>
     </item>
     

@@ -98,11 +98,14 @@
 <li><a href="https://github.com/apache/mina-sshd/issues/899">GH-899</a> Fix <code>ProcessShellFactory</code> on Linux</li>
 <li><a href="https://github.com/apache/mina-sshd/pull/902">GH-902</a> Fix client-side handling of sk-* public key signatures (also in the agent interfaces)</li>
 <li>Limit size of decompressed SSH packets</li>
-<li>Improve checking SSH user certificates in public-key authentication</li>
-<li>Improve handling of repository paths in <code>sshd-git</code> on Windows</li>
-<li>Validate file names in SCP</li>
 <li>Escape newlines in filenames in the SCP protocol</li>
-<li>Restrict JGit commands accessible via <code>GitPgmCommandFactory</code> in <code>sshd-git</code></li>
+</ul>
+<p><strong>Security Fixes</strong></p>
+<ul>
+<li>Validate file names in SCP.  Resolves <a href="https://www.cve.org/CVERecord?id=CVE-2026-56452">CVE-2026-56452</a>, <a href="https://lists.apache.org/thread/xgoqvmksmd94fsqnzqjdtfjxf35os9no">announced</a> 2026-07-20.</li>
+<li>Improve handling of repository paths in <code>sshd-git</code> on Windows. Resolves <a href="https://www.cve.org/CVERecord?id=CVE-2026-56623">CVE-2026-56623</a>, <a href="https://lists.apache.org/thread/bhw26snzgvk0mtqqp5dcyjvczp4kcqky">announced</a> 2026-07-20.</li>
+<li>Improve checking SSH user certificates in public-key authentication. Resolves <a href="https://www.cve.org/CVERecord?id=CVE-2026-56624">CVE-2026-56624</a>, <a href="https://lists.apache.org/thread/o4c2jml522j3z80gbryqzc2f1253ltp6">announced</a> 2026-07-20.</li>
+<li>Restrict JGit commands accessible via <code>GitPgmCommandFactory</code> in <code>sshd-git</code>.  Resolves <a href="https://www.cve.org/CVERecord?id=CVE-2026-58624">CVE-2026-58624</a>, <a href="https://lists.apache.org/thread/7c3cry6pdy6hj1q0f28rc72x4o4tlyjo">announced</a> 2026-07-20.</li>
 </ul>
 <h2 id="new-features">New Features</h2>
 <p>None.</p>

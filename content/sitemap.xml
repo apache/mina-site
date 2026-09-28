@@ -439,12 +439,17 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.19.0.html</loc>
-    <lastmod>2026-07-08T19:15:38+02:00</lastmod>
+    <lastmod>2026-09-28T19:53:05+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://mina.apache.org/sshd-project/download_2.2.0.html</loc>
     <lastmod>2026-04-06T22:44:39+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mina.apache.org/sshd-project/download_2.20.0.html</loc>
+    <lastmod>2026-09-28T19:53:05+02:00</lastmod>
   </url>
   
   <url>
@@ -679,7 +684,7 @@
   
   <url>
     <loc>https://mina.apache.org/downloads-sshd.html</loc>
-    <lastmod>2026-05-28T08:38:58+02:00</lastmod>
+    <lastmod>2026-09-28T19:53:05+02:00</lastmod>
   </url>
   
   <url>
@@ -1024,7 +1029,7 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project/downloads.html</loc>
-    <lastmod>2026-07-08T19:15:38+02:00</lastmod>
+    <lastmod>2026-09-28T19:53:05+02:00</lastmod>
   </url>
   
   <url>
@@ -1064,7 +1069,7 @@
   
   <url>
     <loc>https://mina.apache.org/sshd-project.html</loc>
-    <lastmod>2026-07-08T19:15:38+02:00</lastmod>
+    <lastmod>2026-09-28T19:53:05+02:00</lastmod>
   </url>
   
   <url>
