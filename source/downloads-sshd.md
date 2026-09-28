@@ -1,5 +1,6 @@
 ---
 title: Downloads
+version: 3.0.0-M6
 ---
 
 # Latest SSHD Release
@@ -18,8 +19,29 @@ See the release notes for the [Apache Mina SSHD {{< version_sshd >}} release](./
 
 You can [build](./sshd-project/building.html) the latest version from [sources](./sshd-project/sources.html).
 
+# Future 3.0.0 Release
+
+A new major release 3.0.0 of Apache MINA SSHD is currently being developed. Milestone pre-releases are made available via Maven Central, and source and binary distributions are available through the usual channels.
+
+Version 3.0.0 is *not* API compatible with the current 2.x main releases.
+
+The last milestone pre-release is **{{< version >}}**.
+
+* The new release is developed in the `dev_3.0` branch of the git repository.
+* [Documentation](https://github.com/apache/mina-sshd/blob/dev_3.0/CHANGES.md) is available in the git repository.
+* API comparison reports and a rough roadmap are given on a [Apache MINA SSHD 3.0.0 development website](https://apache.github.io/mina-sshd).
+* Source distributions:
+    * [Apache Mina SSHD {{< version >}} Sources (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}-src.tar.gz) [PGP](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}-src.tar.gz.asc) [SHA512](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}-src.tar.gz.sha512)
+    * [Apache Mina SSHD {{< version >}} Sources (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}-src.zip) [PGP](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}-src.zip.asc) [SHA512](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}-src.zip.sha512)
+* Binary distributions:
+    * [Apache Mina SSHD {{< version >}} Binary (.tar.gz)](https://www.apache.org/dyn/closer.lua/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}.tar.gz) [PGP](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}.tar.gz.asc) [SHA512](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}.tar.gz.sha512)
+    * [Apache Mina SSHD {{< version >}} Binary (.zip)](https://www.apache.org/dyn/closer.lua/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}.zip) [PGP](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}.zip.asc) [SHA512](https://downloads.apache.org/mina/sshd/{{< version >}}/apache-sshd-{{< version >}}.zip.sha512)
+
+The 3.0.0 milestone pre-releases pass all the usual quality tests and are built, signed, and distributed like regular releases.
+
 # Previous releases
 
+* [SSHD 2.19.0](./sshd-project/download_2.19.0.html)
 * [SSHD 2.18.0](./sshd-project/download_2.18.0.html)
 * [SSHD 2.17.1](./sshd-project/download_2.17.1.html)
 * [SSHD 2.17.0](./sshd-project/download_2.17.0.html)

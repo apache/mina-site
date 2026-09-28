@@ -1,7 +1,7 @@
 ---
 type: sshd
 title: SSHD Downloads
-version: 3.0.0-M5
+version: 3.0.0-M6
 ---
 
 # Latest SSHD Release: {{< version_sshd >}}
@@ -44,6 +44,7 @@ The 3.0.0 milestone pre-releases pass all the usual quality tests and are built,
 
 # Previous Releases
 
+* [SSHD 2.19.0](./download_2.19.0.html)
 * [SSHD 2.18.0](./download_2.18.0.html)
 * [SSHD 2.17.1](./download_2.17.1.html)
 * [SSHD 2.17.0](./download_2.17.0.html)
