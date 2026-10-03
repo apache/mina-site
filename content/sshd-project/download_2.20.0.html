@@ -98,14 +98,22 @@
 <li><a href="https://github.com/apache/mina-sshd/issues/656">GH-656</a> <code>ChannelPipedInputStream</code>: shrink buffer when emptied</li>
 <li><a href="https://github.com/apache/mina-sshd/issues/906">GH-906</a> Fix finding a signature factory for BC ed25519 keys</li>
 <li><a href="https://github.com/apache/mina-sshd/issues/911">GH-911</a> Fix server-side SOCKS5 proxy for fragmented and pipelined CONNECT requests</li>
-<li>Allow asynchronous authentication only for password and keyboard-interactive authentication schemes</li>
-<li>Fix authentication requiring multiple public keys (server-side)</li>
-<li>Better argument handling in sshd-git</li>
 <li>More checks in authentication (server-side)</li>
-<li>Better SCP command handling</li>
-<li>SFTP client: simplify response message handling</li>
-<li>Fix check-file-name/check-file-handle SFTP v6 extension (server-side)</li>
-<li>Improve LDAP authentication (sshd-ldap)</li>
+</ul>
+<p><strong>Security fixes</strong></p>
+<ul>
+<li>Allow asynchronous authentication only for password and keyboard-interactive authentication schemes. Resolves <a href="https://www.cve.org/CVERecord?id=CVE-2026-77185">CVE-2026-77185</a>, <a href="https://lists.apache.org/thread.html/t8pn812yq8ndokxyfxztg8tovov1284n">announced</a> 2026-09-29.</li>
+<li>Fix authentication requiring multiple public keys (server-side). Resolves <a href="https://www.cve.org/CVERecord?id=CVE-2026-93994">CVE-2026-93994</a>, <a href="https://lists.apache.org/thread.html/9t3vsm8rnvwdv9779mlg1lq2fbwojdwp">announced</a> 2026-09-29.</li>
+<li>Better argument handling in sshd-git. Resolves <a href="https://www.cve.org/CVERecord?id=CVE-2026-93995">CVE-2026-93995</a>, <a href="https://lists.apache.org/thread.html/k13ox2xlry38h9gh6rhmh1d9zs345clk">announced</a> 2026-09-29.</li>
+<li>Better SCP command handling. Resolves <a href="https://www.cve.org/CVERecord?id=CVE-2026-93996">CVE-2026-93996</a>, <a href="https://lists.apache.org/thread.html/xwk8vogkpphcpm01hrt9tb6mgnpjzp35">announced</a> 2026-09-29.</li>
+<li>SFTP client: simplify response message handling. Resolves <a href="https://www.cve.org/CVERecord?id=CVE-2026-94002">CVE-2026-94002</a>, <a href="https://lists.apache.org/thread.html/x2cb00kh4qvsq145tj2w4g3toy8cybld">announced</a> 2026-09-29.</li>
+<li>Fix check-file-name/check-file-handle SFTP v6 extension (server-side). Resolves <a href="https://www.cve.org/CVERecord?id=CVE-2026-94029">CVE-2026-94029</a>, <a href="https://lists.apache.org/thread.html/ytbl4rwby62xl7llm3wp7k975wwdx99t">announced</a> 2026-09-29.</li>
+<li>Improve LDAP authentication (sshd-ldap).
+<ul>
+<li>Resolves <a href="https://www.cve.org/CVERecord?id=CVE-2026-94052">CVE-2026-94052</a>, <a href="https://lists.apache.org/thread.html/qch5kdwwms13y6bylb7c6qqzq718wn24">announced</a> 2026-09-29.</li>
+<li>Resolves <a href="https://www.cve.org/CVERecord?id=CVE-2026-94053">CVE-2026-94053</a>, <a href="https://lists.apache.org/thread.html/cyrxkdzl3c70rrqs3klqphqz1hwm7p41">announced</a> 2026-09-29.</li>
+</ul>
+</li>
 </ul>
 <h2 id="new-features">New Features</h2>
 <ul>

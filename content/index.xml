@@ -962,7 +962,8 @@ This release is archived and is no longer supported.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/download_2.20.0.html</guid>
-      <description>Overview Bug Fixes  GH-656 ChannelPipedInputStream: shrink buffer when emptied GH-906 Fix finding a signature factory for BC ed25519 keys GH-911 Fix server-side SOCKS5 proxy for fragmented and pipelined CONNECT requests Allow asynchronous authentication only for password and keyboard-interactive authentication schemes Fix authentication requiring multiple public keys (server-side) Better argument handling in sshd-git More checks in authentication (server-side) Better SCP command handling SFTP client: simplify response message handling Fix check-file-name/check-file-handle SFTP v6 extension (server-side) Improve LDAP authentication (sshd-ldap)  New Features  GH-905 Implement the &amp;ldquo;from&amp;rdquo; and &amp;ldquo;expiry-time&amp;rdquo; options in authorized_keys handling in public key authentication (server side)  Potential Compatibility Issues None.</description>
+      <description>Overview Bug Fixes  GH-656 ChannelPipedInputStream: shrink buffer when emptied GH-906 Fix finding a signature factory for BC ed25519 keys GH-911 Fix server-side SOCKS5 proxy for fragmented and pipelined CONNECT requests More checks in authentication (server-side)  Security fixes
+ Allow asynchronous authentication only for password and keyboard-interactive authentication schemes. Resolves CVE-2026-77185, announced 2026-09-29. Fix authentication requiring multiple public keys (server-side). Resolves CVE-2026-93994, announced 2026-09-29. Better argument handling in sshd-git. Resolves CVE-2026-93995, announced 2026-09-29.</description>
     </item>
     
     <item>
