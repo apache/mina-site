@@ -5,6 +5,29 @@ title: News
 
 # News
 
+## MINA 2.2.10 released _posted on October, 17 2026_
+
+The MINA project is pleased to announce the MINA 2.2.10 release.
+
+It fixed an important TLS issue (DIRMINA-1199), that was leading to breakage in transmission of big packet of data. 
+It also fixes a few other issues:
+
+* [DIRMINA-777](https://issues.apache.org/jira/browse/DIRMINA-777): IoSessionConfig.setUseReadOperation(true) doesn't seem to work
+* [DIRMINA-1030](https://issues.apache.org/jira/browse/DIRMINA-1030): MdcInjectionFilterTest - allow only selected filter names to be processed
+* [DIRMINA-1146](https://issues.apache.org/jira/browse/DIRMINA-1146): TLS enabled session got disconnected when outbound messages add up to the value of maxscheduledwriterequests
+* [DIRMINA-1190](https://issues.apache.org/jira/browse/DIRMINA-1190): Get rid of jmock/easymock/rmock in favor of Mockito
+* [DIRMINA-1199](https://issues.apache.org/jira/browse/DIRMINA-1199): Race condition when sending multiple larger data chunks
+* [DIRMINA-1202](https://issues.apache.org/jira/browse/DIRMINA-1202): TLS peer identity taken from InetSocketAddress.getHostName() reverse DNS
+* [DIRMINA-1203](https://issues.apache.org/jira/browse/DIRMINA-1203): Trust-all BogusTrustManagerFactory ships in the production artifact
+* [DIRMINA-1204](https://issues.apache.org/jira/browse/DIRMINA-1204): HTTP Body offset computed in chars, not bytes, desyncs framing
+
+Many thanks to everyone involved in fixing those issues:
+* Gary Gregory
+* Jonathan Vallière
+* Marcin Lamparski
+* Maxime Besson
+* Thomas Wolf
+
 ## MINA 2.1.15 and 2.1.31 released _posted on June, 27 2026_
 
 The MINA project is pleased to announce the MINA 2.1.15 and 2.0.31 releases.

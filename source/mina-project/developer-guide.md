@@ -139,7 +139,7 @@ It's also a good idea to check there is no missing license header:
 $ mvn apache-rat:check -Pserial
 ```
 
-Also check the Javadoc befoe generating the MINA site:
+Also check the Javadoc before generating the MINA site:
 
 ```bash
 $ mvn javadoc:javadoc -Pserial
