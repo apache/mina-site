@@ -63,7 +63,7 @@
                 <ul>
                     <li><a href="/mina-project/downloads_2_0.html">Mina 2.0.31</a></li>
                     <li><a href="/mina-project/downloads_2_1.html">Mina 2.1.15</a></li>
-                    <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.9</a></li>
+                    <li><a href="/mina-project/downloads_2_2.html">Mina 2.2.10</a></li>
                     <li><a href="/mina-project/downloads_old.html">Mina old versions</a></li>
                 </ul>
                 <h5>Documentation</h5>
@@ -84,10 +84,10 @@
                     <li><a href="/mina-project/sources.html" class="external-link" rel="nofollow">Sources</a></li>
                     <li><a href="/mina-project/gen-docs/latest-2.0/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.0.31</a></li>
                     <li><a href="/mina-project/gen-docs/latest-2.1/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.1.15</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.9</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.2/apidocs/index.html" class="external-link" rel="nofollow">API Javadoc 2.2.10</a></li>
                     <li><a href="/mina-project/gen-docs/latest-2.0/xref/index.html" class="external-link" rel="nofollow">API xref  2.0.31</a></li>
                     <li><a href="/mina-project/gen-docs/latest-2.1/xref/index.html" class="external-link" rel="nofollow">API xref 2.1.15</a></li>
-                    <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.9</a></li>
+                    <li><a href="/mina-project/gen-docs/latest-2.2/xref/index.html" class="external-link" rel="nofollow">API xref 2.2.10</a></li>
                     <li><a href="/mina-project/performances.html" class="external-link" rel="nofollow">Performances</a></li>
                     <li><a href="/mina-project/testimonials.html" class="external-link" rel="nofollow">Testimonials</a></li>
                     <li><a href="/mina-project/conferences.html" class="external-link" rel="nofollow">Conferences</a></li>
@@ -123,6 +123,28 @@
 
             
 	<h1 id="news">News</h1>
+<h2 id="mina-2210-released-_posted-on-october-17-2026_">MINA 2.2.10 released <em>posted on October, 17 2026</em></h2>
+<p>The MINA project is pleased to announce the MINA 2.2.10 release.</p>
+<p>It fixed an important TLS issue (DIRMINA-1199), that was leading to breakage in transmission of big packet of data.
+It also fixes a few other issues:</p>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-777">DIRMINA-777</a>: IoSessionConfig.setUseReadOperation(true) doesn&rsquo;t seem to work</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1030">DIRMINA-1030</a>: MdcInjectionFilterTest - allow only selected filter names to be processed</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1146">DIRMINA-1146</a>: TLS enabled session got disconnected when outbound messages add up to the value of maxscheduledwriterequests</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1190">DIRMINA-1190</a>: Get rid of jmock/easymock/rmock in favor of Mockito</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1199">DIRMINA-1199</a>: Race condition when sending multiple larger data chunks</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1202">DIRMINA-1202</a>: TLS peer identity taken from InetSocketAddress.getHostName() reverse DNS</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1203">DIRMINA-1203</a>: Trust-all BogusTrustManagerFactory ships in the production artifact</li>
+<li><a href="https://issues.apache.org/jira/browse/DIRMINA-1204">DIRMINA-1204</a>: HTTP Body offset computed in chars, not bytes, desyncs framing</li>
+</ul>
+<p>Many thanks to everyone involved in fixing those issues:</p>
+<ul>
+<li>Gary Gregory</li>
+<li>Jonathan Vallière</li>
+<li>Marcin Lamparski</li>
+<li>Maxime Besson</li>
+<li>Thomas Wolf</li>
+</ul>
 <h2 id="mina-2115-and-2131-released-_posted-on-june-27-2026_">MINA 2.1.15 and 2.1.31 released <em>posted on June, 27 2026</em></h2>
 <p>The MINA project is pleased to announce the MINA 2.1.15 and 2.0.31 releases.</p>
 <p>This is a bug fix release: A fix for CVE-2026-47065 (&ldquo;Critical Deserialization Allow-list Bypass via resolveProxyClass&rdquo;) hasn&rsquo;t been backported to these two version.</p>
