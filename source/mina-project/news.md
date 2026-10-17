@@ -23,7 +23,7 @@ It also fixes a few other issues:
 
 Many thanks to everyone involved in fixing those issues:
 * Gary Gregory
-* Jonathan Vallière
+* Jonathan Valliere
 * Marcin Lamparski
 * Maxime Besson
 * Thomas Wolf
