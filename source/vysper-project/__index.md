@@ -6,6 +6,10 @@ slug: index
 
 # Apache Vysper
 
+<div class="note" markdown="1" >
+    The <strong>Vysper</strong> project is currently dormant. We don't have committers for it, so if you feel like you can give an hand, please do contact us!
+</div>
+
 Apache Vysper aims to be a modular, full featured XMPP (Jabber) server.
 
 More details on Vysper in our [documentation](documentation.html).
