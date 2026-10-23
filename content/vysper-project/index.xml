@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/vysper-project/</guid>
-      <description>Apache Vysper Apache Vysper aims to be a modular, full featured XMPP (Jabber) server.
+      <description>Apache Vysper The Vysper project is currently dormant. We don&#39;t have committers for it, so if you feel like you can give an hand, please do contact us!  Apache Vysper aims to be a modular, full featured XMPP (Jabber) server.
 More details on Vysper in our documentation.
 There are already some larger XEPs as modules available, most notably
  Multi User Chat (XEP0045) and Publish/Subscribe (XEP0060) BOSH (XEP0124, XEP0206)  To start using and/or developing extensions for Vysper, don&amp;rsquo;t miss the User Guide!</description>
