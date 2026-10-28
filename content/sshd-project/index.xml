@@ -475,6 +475,17 @@ This release is archived and is no longer supported.</description>
     </item>
     
     <item>
+      <title>Apache SSHD 2.20.1 Release</title>
+      <link>https://mina.apache.org/sshd-project/download_2.20.1.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mina.apache.org/sshd-project/download_2.20.1.html</guid>
+      <description>Overview This is a patch release for version 2.20.0.
+Bug Fixes  GH-925 Re-allow &amp;ldquo;none&amp;rdquo; authentication (regression in 2.20.0) GH-927 Fixed a race condition in key exchanges (regression in 2.14.0; narrow race occurring rarely)  New Features  GH-904 Log local port in ClientSessionImpl.toString() to be able to distinguish multiple sessions to the same host in logs  Potential Compatibility Issues None.
+Major Code Re-factoring None; this is a patch release.</description>
+    </item>
+    
+    <item>
       <title>Apache SSHD 2.3.0 Release</title>
       <link>https://mina.apache.org/sshd-project/download_2.3.0.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -645,8 +656,8 @@ This release is archived and is no longer supported.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mina.apache.org/sshd-project/downloads.html</guid>
-      <description>Latest SSHD Release: 2.20.0 The latest release is the SSHD 2.20.0 release. See the release notes.
- Source distributions:  Apache Mina SSHD 2.20.0 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.20.0 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.20.0 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.20.0 Binary (.zip) PGP SHA512    See also Verifying Releases.
+      <description>Latest SSHD Release: 2.20.1 The latest release is the SSHD 2.20.1 release. See the release notes.
+ Source distributions:  Apache Mina SSHD 2.20.1 Sources (.tar.gz) PGP SHA512 Apache Mina SSHD 2.20.1 Sources (.zip) PGP SHA512   Binary distributions:  Apache Mina SSHD 2.20.1 Binary (.tar.gz) PGP SHA512 Apache Mina SSHD 2.20.1 Binary (.zip) PGP SHA512    See also Verifying Releases.
 Development Snapshots You can build the latest version from sources.</description>
     </item>
     
