@@ -16,7 +16,7 @@ Apache MINA comes with a core project and many subprojects :
 
 and 
 
-* [Apache AsyncWeb](asyncweb-project/) : An HTTP server build on top of MINA asynchronous framework
+* [Apache AsyncWeb](asyncweb-project/) : (dormant) An HTTP server build on top of MINA asynchronous framework
 * [Apache FtpServer](ftp-project/) : A FTP server
 * [Apache SSHd](sshd-project/) : A Java library supporting the SSH protocol
-* [Apache Vysper](vysper-project/) : An XMPP server
+* [Apache Vysper](vysper-project/) : (dormant) An XMPP server
